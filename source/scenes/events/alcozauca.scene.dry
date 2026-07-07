@@ -1,0 +1,28 @@
+title: Alcozauca
+new-page: true
+subtitle: 1980 — la Montaña vota
+tags: event
+view-if: year = 1980 and month = 7 and registro >= 1
+priority: 3
+max-visits: 1
+
+= Alcozauca
+
+In the Montaña de Guerrero — Tlapa's hinterland, the poorest municipios in the Republic, Othón's country for twenty years — the Party stands for a municipal presidency it might actually win. Alcozauca: no paved road, no clinic, a municipal budget smaller than a capital restaurant's monthly take, and an electorate that knows every candidate personally, which for once favors you.
+
+The PRI runs its usual cacique arithmetic. But the Montaña has been organized parcel by parcel since the fifties, and the reform's new rules make outright theft harder to hide in a town where everyone counts everyone.
+
+- @todo: Pour resources in — cadres, the legal team, Othón himself for the closing weeks. Win the first left municipality since the twenties and govern it as a showcase.
+- @simbolico: Contest it with local forces only. Husband the resources; a loss absorbed gently teaches too.
+
+@todo
+choose-if: funds >= 4 and sup_peasants >= 20
+unavailable-subtitle: Ganar la Montaña exige caja y una base campesina real. Falta una de las dos.
+on-arrival: funds -= 4; municipio_alcozauca = 1; sup_peasants += 5; political_capital += 5; pri_reformist_rel += 1; expediente += 2
+
+The count holds — watched by every literate adult in the municipio — and in January the Party takes possession of a town hall with a leaking roof and three typewriters. What follows is the showcase: the road committee, the clinic built by faena, Nahuatl literacy brigades, the municipal books read aloud in the plaza quarterly. Poverty does not end; the *administration of poverty with clean hands* begins, and word of it walks over the sierra faster than any newspaper. The state government watches with an attention that is not friendly.
+
+@simbolico
+on-arrival: sup_peasants += 2
+
+The campaign runs on its own legs and loses respectably; the count in two casillas would not survive daylight, and everyone files the lesson. The Montaña remains yours in everything but title — and titles, the compañeros note quietly, are what the reform was supposed to make winnable. Next time.

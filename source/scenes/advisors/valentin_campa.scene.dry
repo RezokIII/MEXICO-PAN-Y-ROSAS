@@ -10,6 +10,8 @@ view-if: campa_advisor = 1
 
 = Valentín Campa
 
+*Corriente: los ortodoxos. Cada consejo suyo fortalece a su corriente — y las otras participan menos.*
+
 He walked out of Lecumberri after eleven years the way other men walk out of an office that owes them nothing. Ferrocarrilero since the twenties, expelled from the Party once for refusing to organize the killing of Trotsky — an anecdote he does not tell, which everyone knows — and back in it because there was never really anywhere else.
 
 He does not talk about the prison. He talks about the railway workers' pension tables, which he has kept in his head, updated, for eleven years.
@@ -23,7 +25,7 @@ title: Trabajo ferrocarrilero
 subtitle: The rails remember him. Organize among the railway workers.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_workers += 6; charrismo -= 2; expediente += 4
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_workers += 6; charrismo -= 2; expediente += 4; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 In the yards at Nonoalco, men who were apprentices in '59 bring their fathers to shake his hand. The CTM notices within the week. Gobernación within two.
 
@@ -32,6 +34,6 @@ title: La columna vertebral
 subtitle: Keep him at the center of the leadership. The Party needs a spine on display.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 5; unity += 4
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 5; unity += 4; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 He sits at the long table, says little, and the quality of the arguments improves noticeably, because nobody wants to say something stupid in front of Campa.

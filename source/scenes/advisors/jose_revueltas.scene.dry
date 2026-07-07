@@ -6,6 +6,8 @@ view-if: revueltas_advisor = 1 and revueltas_dead = 0
 
 = José Revueltas
 
+*Corriente: la nueva izquierda. Cada consejo suyo fortalece a su corriente — y las otras participan menos.*
+
 The Party expelled him twice for telling it the truth, and he outlived both expulsions the way a river outlives its dams. Novelist of Lecumberri before he was its prisoner, theorist of the "headless proletariat," five feet of cough and cigarettes and the most dangerous prose style in the Republic. He believes the Party must be criticized hourly and defended to the death, in that order, and he performs both duties personally.
 
 - @revueltas_palabra
@@ -17,7 +19,7 @@ title: La palabra
 subtitle: Turn him loose on a lecture hall. Fire hazard, in the good sense.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_students += 5; political_capital += 3
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_students += 5; political_capital += 3; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1
 
 Two hours in the Justo Sierra auditorium without notes, from Hegel to the apando by way of a joke about the Central Committee that the Central Committee will hear about by morning. The students hang from the window ledges. Nobody can reconstruct the argument afterward and nobody forgets a word of it, which is the definition of literature.
 
@@ -26,6 +28,6 @@ title: La conciencia
 subtitle: Let him write what the Party will wish he hadn't. It will be correct in ten years.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; fac_nueva_izquierda += 4; unity -= 2; ax_electoral -= 2
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; fac_nueva_izquierda += 4; unity -= 2; ax_electoral -= 2; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1
 
 The essay says the Party has confused surviving with living, and says it beautifully, which makes it worse. Three members resign; thirty students apply. The ortodoxos demand a reply and there is no reply, because the only honest one is the essay itself, read slowly.

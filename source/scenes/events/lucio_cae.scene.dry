@@ -19,7 +19,7 @@ The Party of the Poor does not survive him — organizations built on one man's 
 @recibir
 choose-if: sup_peasants >= 20 or postura_guerrilla >= 2
 unavailable-subtitle: Sin base en Guerrero ni canales previos, no hay cómo llegar antes que la Brigada.
-on-arrival: members += 1; sup_peasants += 3; expediente += 6; political_capital += 2
+on-arrival: members += 1; sup_peasants += 3; expediente += 6; political_capital += 2; bajaron = 1
 
 It is done the slow way: a priest who owes Othón a favor, a clinic in Chilpancingo, bus tickets bought in threes. Not all of them want saving and not all of them are saved, but by spring there are young men repairing mimeographs who last year were cleaning rifles, and in the Montaña the Party's name is spoken with a new modifier: *los que bajaron por ellos*. The ones who went for them.
 

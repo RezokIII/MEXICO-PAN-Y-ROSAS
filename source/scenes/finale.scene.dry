@@ -1,5 +1,25 @@
 title: El legado
 new-page: true
+on-arrival: {!
+if (Q.ending == "aniquilacion") { this.achieve('el_palacio_negro'); }
+if (Q.ending == "debil") { this.achieve('la_semilla'); }
+if (Q.ending == "media") { this.achieve('la_acumulacion'); }
+if (Q.ending == "fuerte") { this.achieve('la_fuerza'); }
+if (Q.praga_line == 1) { this.achieve('no_llega_en_tanque'); }
+if (Q.campa76 == 1) { this.achieve('un_millon_de_nombres'); }
+if (Q.huelga_general == 1) { this.achieve('la_huelga_general'); }
+if (Q.bajaron == 1) { this.achieve('los_que_bajaron'); }
+if (Q.insobornables == 1) { this.achieve('los_insobornables'); }
+if (Q.declaracion == 1) { this.achieve('la_declaracion'); }
+if (Q.memorial >= 8) { this.achieve('la_lista'); }
+if (Q.ax_sovietico <= -20) { this.achieve('herejes_con_carnet'); }
+if (Q.registro >= 1) { this.achieve('el_registro'); }
+if (Q.izq_seats >= 15) { this.achieve('las_curules'); }
+if (Q.psum == 1) { this.achieve('la_fusion'); }
+if (Q.municipio_alcozauca == 1) { this.achieve('alcozauca'); }
+if (Q.postura_guerrilla == 3 && Q.ending != "aniquilacion") { this.achieve('los_canales'); }
+this.achieve('game_completed');
+!}
 go-to: slide_logros
 
 @slide_logros
@@ -11,7 +31,7 @@ new-page: true
 
 [? if ending = "debil" : El Movimiento sobrevivió, que en este país y en esta década es un verbo transitivo: sobrevivió A la guerra sucia, AL charrismo, A la charola. Quedó pequeño, golpeado, con más mártires que militantes — pero con la lista intacta, el periódico saliendo, y en tres o cuatro rincones del país, gente que no se vendió. ?]
 
-[? if ending = "media" : El Movimiento llegó a 1977 siendo algo que en 1968 parecía imposible: una organización nacional real — presente en las fábricas del Valle de México, en la Montaña de Guerrero, en las normales y las universidades, con cuadros probados y una prensa que el régimen leía con atención profesional. No era poder. Era, por primera vez en una generación, la posibilidad del poder. ?]
+[? if ending = "media" : El Movimiento salió de la década larga siendo algo que en 1968 parecía imposible: una organización nacional real — presente en las fábricas del Valle de México, en la Montaña de Guerrero, en las normales y las universidades, con cuadros probados y una prensa que el régimen leía con atención profesional. No era poder. Era, por primera vez en una generación, la posibilidad del poder. ?]
 
 [? if ending = "fuerte" : Lo que salió de la década nadie lo había presupuestado, y Bucareli menos que nadie: una izquierda de masas — minoritaria aún, pero de masas — con implantación obrera real pese a don Fidel, base campesina en tres estados, la generación del 68 y la del CEU por venir formadas en sus filas, y una simpatía nacional que las encuestas del régimen (las secretas, las de Gobernación) ya no podían redondear a cero. La reforma política que se redactaba en 1977 no fue una concesión graciosa: fue un reconocimiento de fuerza. La de ustedes. ?]
 
@@ -46,7 +66,7 @@ new-page: true
 
 [? if ending = "aniquilacion" : "...para 1977 el viejo partido era ya materia de tesis doctorales más que de informes policiales. La pregunta que organiza este capítulo no es por qué desapareció — las causas sobran — sino por qué su desaparición importó tanto: durante medio siglo había sido el único depósito institucional de una memoria que el Estado necesitaba inexistente. Cuando el depósito cerró, la memoria pasó a los particulares: madres, viudas, maestros de primaria con cuadernos. Tardaría veinte años en volver a encontrar local." ?]
 
-[? if ending = "debil" or ending = "media" : "...la historiografía ha sido injusta con esa década corta (1968-1977). Vista desde el 88, parece apenas un prólogo; vista desde adentro, fue una acumulación primitiva de lo político: cada asamblea en Nezahualcóyotl, cada sección magisterial disputada, cada lista de desaparecidos conservada contra toda razón práctica, constituyó el capital con que la izquierda llegó — flaca pero viva — a la puerta que 1977 abrió a medias. Los protagonistas de este libro no sabían que eran un prólogo. Trabajaban como si fueran el libro entero." ?]
+[? if ending = "debil" or ending = "media" : "...la historiografía ha sido injusta con esa década corta (1968-1977). Vista desde el 88, parece apenas un prólogo; vista desde adentro, fue una acumulación primitiva de lo político: cada asamblea en Nezahualcóyotl, cada sección magisterial disputada, cada lista de desaparecidos conservada contra toda razón práctica, constituyó el capital con que la izquierda llegó — flaca pero viva — más allá de la puerta que 1977 abrió a medias. Los protagonistas de este libro no sabían que eran un prólogo. Trabajaban como si fueran el libro entero." ?]
 
 [? if ending = "fuerte" : "...conviene recordar que nada de ello estaba escrito. En octubre de 1968 la izquierda mexicana era cinco mil militantes con las oficinas selladas y los cuadros presos. Que una década después fuera la fuerza que obligó al Estado a la reforma — que Reyes Heroles redactara Chilpancingo, en buena medida, mirando por encima del hombro hacia ella — constituye uno de los raros casos latinoamericanos en que una organización derrotada en la plaza rehízo el tablero sin tomar un solo palacio. Cómo lo hizo es el asunto de los tres capítulos siguientes." ?]
 

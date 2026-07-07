@@ -6,6 +6,8 @@ view-if: benita_advisor = 1
 
 = Benita Galeana
 
+*Corriente: los ortodoxos. Cada consejo suyo fortalece a su corriente — y las otras participan menos.*
+
 She sold gum on the street as a girl in Guerrero, taught herself to read as a grown woman, and was jailed fifty-eight times for the crime of standing on corners saying true things loudly. Her autobiography is taught in universities she was never allowed to enter. She is past sixty now and the granaderos still handle her carefully, not out of chivalry but because they have learned what it costs on the front pages when they don't.
 
 - @benita_mujeres
@@ -17,7 +19,7 @@ title: Las mujeres
 subtitle: Half the movement is carrying the other half. Organize the half that carries.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_colonos += 4; members += 1; unity += 2
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_colonos += 4; members += 1; unity += 2; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 The wives of prisoners, the mothers in the market committees, the seamstresses who keep the strike funds because the men keep losing them: Benita walks the vecindades and comes back with lists. The compañeros applaud the results and interrupt the women in the very next meeting, and Benita takes names of that, too.
 
@@ -26,6 +28,6 @@ title: Cincuenta y ocho veces
 subtitle: Put her on a stage. She is the living proof that the Party predates its accusers.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; sup_students += 2
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; sup_students += 2; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 She tells the students about selling gum, about the fifty-eight arrests, about hiding Cuban sailors in her kitchen, and she gets the only thing harder to get than applause: silence, the kind where nobody wants to be the first to breathe. The generation that thinks history began in 1968 discovers, for one evening, its grandmothers.

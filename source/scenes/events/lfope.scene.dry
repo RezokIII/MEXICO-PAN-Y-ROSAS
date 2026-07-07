@@ -1,0 +1,34 @@
+title: La reforma
+new-page: true
+subtitle: Diciembre de 1977 — la LFOPPE
+tags: event
+view-if: year = 1977 and month = 12
+priority: 3
+max-visits: 1
+
+= La reforma
+
+The law is published, and it is larger than the skeptics predicted and smaller than the believers hoped, which was its design. The *Ley Federal de Organizaciones Políticas y Procesos Electorales*: parties may earn **conditional registration** by polling 1.5 percent; the Chamber grows to 400 seats, 100 of them by proportional representation — seats the opposition can actually win; registered parties receive media time and public money. Political prisoners are already being discussed under an amnesty to come.
+
+The price is the fine print of legitimacy itself. To register is to accept the Comisión Federal Electoral — chaired by Gobernación — as your referee; to swear the constitutional order you exist to transform; to become countable by the machine that has spent fifty years miscounting you. The ortodoxos call it the state licensing its own opposition. The renovadores call it the mass line by other means. The Maoists in the colonias call it a funeral with music, and mean to skip it.
+
+Fifty years the Party has waited to be asked. The answer will define everything after.
+
+- @registrar: Register. Take the door, the money, the hundred seats' chance — and the referee that comes with them.
+- @rechazar: Refuse. Legitimacy is not the state's to license; the street and the factory do not require a ledger entry in Bucareli.
+
+@registrar
+choose-if: political_capital >= 12
+unavailable-subtitle: Registrarse exige capital político: notarios, asambleas certificadas, y autoridad interna para imponer la decisión. No alcanza.
+on-arrival: registro = 1; funds += 8; ax_electoral += 6; fac_renovadores += 6; fac_ortodoxos -= 3; fac_nueva_izquierda -= 6; unity -= 4; sup_students -= 2; pri_reformist_rel += 4
+
+The assemblies are certified, the notaries paid, the membership rolls — guarded like relics through two decades of raids — voluntarily deposited with the state that raided for them. It is the strangest act in the Party's history and the congress votes it knowing so. The Maoist cadres walk out to their colonias without theater; the JC splits a seam; a veteran of '59 signs the registration papers and then sits alone for a while.
+
+In May the certificate arrives. Fifty-eight years after its founding, the Party legally exists. The hammer and sickle will appear on a Mexican ballot — conditionally, revocably, countably. Now the count itself becomes the battlefield.
+
+@rechazar
+on-arrival: unity += 3; sup_students += 3; fac_nueva_izquierda += 4; fac_renovadores -= 6; pri_reformist_rel -= 5; ax_electoral -= 5
+
+The refusal is drafted with pride and read with relief in half the cells: the Party remains itself, unlicensed, unbought, unreferee'd. The coordinadoras and the colonias approve; the street belongs to those who never asked permission to be in it.
+
+The cost arrives on its own schedule: the PPS and the satellites scoop up the reform's seats and money; new parties register around you; and the space called "the left" acquires, for the first time, a legal address that is not yours. Doors that are refused do not stay open, and this one had waited fifty years already.

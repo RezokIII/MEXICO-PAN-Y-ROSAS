@@ -1,24 +1,24 @@
-title: Nueve años
+title: Catorce años
 new-page: true
-subtitle: Julio de 1977 — fin del contenido jugable (por ahora)
+subtitle: Agosto de 1982 — fin del contenido jugable (por ahora)
 tags: event
-view-if: year = 1977 and month = 7
+view-if: year = 1982 and month = 8
 priority: 3
 max-visits: 1
 on-arrival: {!
-Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital + Math.round(Q.unity / 2) - Q.memorial;
+Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital + Math.round(Q.unity / 2) - Q.memorial + Q.registro * 10 + Q.izq_seats + Q.municipio_alcozauca * 8 + Q.psum * 8;
 if (Q.fuerza_final >= 95) { Q.ending = "fuerte"; }
 else if (Q.fuerza_final >= 60) { Q.ending = "media"; }
 else { Q.ending = "debil"; }
 !}
 
-= Nueve años
+= Catorce años
 
-MÉXICO, D.F., julio de 1977 —
+MÉXICO, D.F., agosto de 1982 —
 
-In Chilpancingo this spring, Reyes Heroles said the words the Republic was built to never say: the state will widen the arena. A reform is drafting — registration, seats, the door ajar. What walks through it, and how, is the next decade's story.
+The boom is over: the peso broke in February, the treasury is empty, and in this very month the finance minister flies to Washington to tell the creditors the Republic cannot pay. The sexenio of abundance ends in the arithmetic of dependence — and in the crisis now opening, everything the Movement built since October of 1968 will be weighed.
 
-This is where the playable road ends, for now. Nine years since the plaza: time to take stock of what October's orphans built.
+This is where the playable road ends, for now. Fourteen years since the plaza: time to take stock of what October's orphans built.
 
 - @balance: El balance.
 

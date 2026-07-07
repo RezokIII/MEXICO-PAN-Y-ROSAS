@@ -17,7 +17,7 @@ This is the charola in its highest form. Crude regimes buy silence. This one buy
 - @estrategia: Accept selectively, by Party decision — treat every post as a listening station and every salary as dues.
 
 @prohibir
-on-arrival: unity += 3; fac_ortodoxos += 2; sup_middle -= 2; funds -= 2
+on-arrival: unity += 3; fac_ortodoxos += 2; sup_middle -= 2; funds -= 2; insobornables = 1
 
 The circular is read aloud in the cells, and there is something bracing in it, like cold water: we are not for sale, not even by the piece. Two comrades resign to take their posts anyway, mailing back their cards with correct little notes. The rest close ranks. Poverty, at least, is a known quantity; the Party has forty years of expertise.
 

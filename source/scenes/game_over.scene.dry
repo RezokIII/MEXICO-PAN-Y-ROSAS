@@ -322,6 +322,41 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 = Completed Achievements in this Playthrough
 
 
+[? if game_achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
+
+[? if game_achievement_la_semilla : **La semilla** — survive the long decade, however small. ?]
+
+[? if game_achievement_la_acumulacion : **La acumulación** — reach the assessment as a real national organization. ?]
+
+[? if game_achievement_la_fuerza : **La fuerza** — arrive as a left the regime can no longer round to zero. ?]
+
+[? if game_achievement_no_llega_en_tanque : **El socialismo no llega en tanque** — reaffirm the condemnation of Prague, whatever Moscow pays. ?]
+
+[? if game_achievement_un_millon_de_nombres : **Un millón de nombres** — run Campa in 1976 and make the state refuse to count. ?]
+
+[? if game_achievement_la_huelga_general : **La huelga general** — answer the requisa with the class itself. ?]
+
+[? if game_achievement_los_que_bajaron : **Los que bajaron por ellos** — reach Lucio's survivors before the Brigada. ?]
+
+[? if game_achievement_los_insobornables : **Los insobornables** — refuse the sexenio's season of offers, as a Party. ?]
+
+[? if game_achievement_la_declaracion : **La Declaración de Guadalajara** — commit everything to the electricians. ?]
+
+[? if game_achievement_la_lista : **La lista** — keep the memorial complete: name, date, place. ?]
+
+[? if game_achievement_herejes_con_carnet : **Herejes con carnet** — declared independence from Moscow. ?]
+
+[? if game_achievement_el_registro : **El registro** — walk through the door of 1977. ?]
+
+[? if game_achievement_las_curules : **Las curules** — fifteen or more seats: the tribune is yours. ?]
+
+[? if game_achievement_la_fusion : **La fusión** — dissolve the oldest party in Mexico to build a larger one. ?]
+
+[? if game_achievement_alcozauca : **Alcozauca** — the first municipio governed by the left since the twenties. ?]
+
+[? if game_achievement_los_canales : **Los canales discretos** — run the road that officially does not exist, and live. ?]
+
+
 [? if game_achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
 
 [? if game_achievement_civil_war : **Bürgerkrieg** - enter a long civil war. ?]

@@ -6,6 +6,8 @@ view-if: year >= 1977
 
 = Rosario Ibarra de Piedra
 
+*Corriente: los renovadores. Cada consejo suyo fortalece a su corriente — y las otras participan menos.*
+
 A doctor's wife from Monterrey. In April of 1975 the police took her son Jesús, a young militant of the guerrilla, and the state has answered every inquiry since with its flattest instrument: no record. She has crossed the Republic carrying his photograph like a subpoena — anterooms, barracks gates, the President's own receiving line, where she got closer than his security ever admitted. She was not political, she says, until they made her the most political woman in Mexico. She is assembling the other mothers now. They all carry photographs. The photographs are starting to march in rows.
 
 - @ibarra_madres
@@ -17,7 +19,7 @@ title: Las madres
 subtitle: Help the committee of the disappeared organize. Grief, in formation.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 4; sup_middle += 2; represion -= 2
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 4; sup_middle += 2; represion -= 2; fac_renovadores += 2; fac_ortodoxos -= 1; fac_nueva_izquierda -= 1
 
 The state has procedures for every opponent except this one: women with photographs pinned to their chests, standing where the cameras are, asking a question — *¿dónde están?* — that has no safe answer. Clubbing them is a scandal; ignoring them is an admission. For the first time in years, the dirty war has to look at itself in public.
 
@@ -26,6 +28,6 @@ title: La denuncia internacional
 subtitle: Names, dates, and case files to every embassy and wire service that will hold the door.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; expediente += 3; represion -= 1
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; expediente += 3; represion -= 1; fac_renovadores += 2; fac_ortodoxos -= 1; fac_nueva_izquierda -= 1
 
 Amnesty's researchers get the dossier; so do three wire services and a U.S. congressman with subcommittee ambitions. The Republic's diplomats spend a difficult month explaining that the disappeared are neither detained nor missing nor a category that exists. Abroad, for the first time, the phrase *guerra sucia* appears in print with Mexico attached.

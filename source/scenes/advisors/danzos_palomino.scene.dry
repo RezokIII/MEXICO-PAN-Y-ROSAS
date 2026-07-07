@@ -6,6 +6,8 @@ view-if: danzos_advisor = 1
 
 = Ramón Danzós Palomino
 
+*Corriente: los ortodoxos. Cada consejo suyo fortalece a su corriente — y las otras participan menos.*
+
 A campesino from Sonora who has been, in one lifetime, cotton picker, union man, political prisoner, and — in 1964, on the ticket of a front the government refused to register — the first communist candidate for President of the Republic since the war. He campaigned in huaraches through valleys where the candidate of the PRI arrived by plane, and lost officially by one hundred percent to nothing. The ejidos remember him. So does the DFS.
 
 - @danzos_cci
@@ -17,7 +19,7 @@ title: La Central Campesina Independiente
 subtitle: Rebuild the independent peasant central, ejido by ejido.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 6; expediente += 3
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 6; expediente += 3; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 Assemblies under trees, minutes kept in school notebooks, the CNC's men watching from a pickup across the road. The official central offers credit and delivers debt; Danzós offers nothing and delivers Danzós, which in the Yaqui valley still counts for more.
 
@@ -26,6 +28,6 @@ title: Tomas de tierra
 subtitle: The Constitution promises land. Occupy some of it and invite the Constitution to catch up.
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 8; represion += 3; expediente += 3
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 8; represion += 3; expediente += 3; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 Before dawn the fences come down and the white flags of the *solicitantes* go up on land the paperwork has owed them for thirty years. Sometimes the state negotiates. Sometimes it sends the judiciales, and the Party's lawyers meet the survivors. Either way, the valley learns which side the Party stands on, fence by fence.

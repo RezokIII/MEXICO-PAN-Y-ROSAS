@@ -78,6 +78,18 @@ Q.gran_capital = 28;
 Q.capital_extranjero = 17;
 Q.ending = "";
 Q.fuerza_final = 0;
+Q.huelga_general = 0;
+Q.bajaron = 0;
+Q.insobornables = 0;
+Q.declaracion = 0;
+Q.reforma = 0;
+Q.tribuna = 0;
+Q.izq_seats = 0;
+Q.municipio_alcozauca = 0;
+Q.psum = 0;
+Q.alquimia_expuesta = 0;
+Q.real_izq = 0; Q.real_pri = 0; Q.real_pan = 0;
+Q.oficial_izq = 0; Q.oficial_pri = 0; Q.oficial_pan = 0;
 
 // time elapsed (in months)
 Q.time = 1;
