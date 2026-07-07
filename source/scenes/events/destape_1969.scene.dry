@@ -1,0 +1,31 @@
+title: El destape
+new-page: true
+subtitle: Noviembre de 1969
+tags: event
+view-if: year = 1969 and month = 11
+priority: 3
+max-visits: 1
+on-arrival: destape_phase = 4
+
+= El destape
+
+MÉXICO, D.F., noviembre de 1969 —
+
+It is Echeverría.
+
+The announcement comes, as tradition requires, from someone else's mouth — the CTM "spontaneously" proclaims him, the party organs discover they had always admired him, and by nightfall the *cargada* is at full gallop: governors, senators, and union chiefs stampeding to declare a loyalty they invented that morning. The losers perform the rite's final beauty: Ortiz Mena and Martínez Manautou, who at breakfast were the future of the Republic, appear at the candidate's side by dinner, smiling the smile of men swallowing an anvil.
+
+In the Party's basement office the significance needs no seminar: the Secretary of Gobernación of the second of October — the man whose signature ran the DFS, the Federal Security that filled Lecumberri, the apparatus of that night in the plaza — will be President of the Republic for six years. And already the strangeness begins: his people whisper of an *apertura*, of dialogue with the youth, of turning pages. The same hand that signed is now extended.
+
+- @continuidad: Read it plainly: the system has promoted the policeman. Prepare accordingly.
+- @grieta: Read the whisper too: guilty men buy indulgences. An opening bought with blood is still an opening — position for it.
+
+@continuidad
+on-arrival: represion += 2; sup_students += 2; pri_reformist_rel -= 3
+
+The internal circular is one sentence long: *El que firmó, cobrará.* The cells tighten their hygiene; the safe houses rotate early. If the sexenio proves gentler than expected, nothing is lost but pessimism, and pessimism in this country has never once been wasted.
+
+@grieta
+on-arrival: pri_reformist_rel += 5; fac_ortodoxos -= 2; expediente += 2
+
+A discreet analysis argues the heresy: the man will need to launder October, and laundering requires water — releases, gestures, money, dialogue. Position a hand near every tap. The ortodoxos call it dining with the devil; the reply writes itself: in Mexico, everyone dines with the devil. The skill is in reading the menu.

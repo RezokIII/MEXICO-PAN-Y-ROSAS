@@ -1,0 +1,22 @@
+title: La redada
+new-page: true
+subtitle: Madrugada
+tags: event
+view-if: expediente >= 60
+priority: 2
+frequency: 60
+max-visits: 3
+on-arrival: funds -= 5; expediente -= 15; represion += 2
+
+= La redada
+
+They come at four in the morning, which is doctrine — the hour of worst courage — with sledgehammers for the door and a list for the people. The press this time: the machine wrecked with a methodical patience that is its own signature, the archive carried out in produce boxes, two compañeros taken in their undershirts while the neighbors watch through curtains that move like breathing.
+
+By six it is over. By eight the lawyers are at the agencia del ministerio público being told there is no record of any detention, which is the liturgical response. By noon the Party knows what it lost: the machine, the archive, the rent money — and knows too, from what the agents did not find, that the security rules worked. The membership lists were elsewhere. They are always elsewhere. That is the whole of the science.
+
+- @responder: Denounce, litigate, rebuild. The answer to the sledgehammer is the receipt: everything documented, everything replaced, nothing conceded.
+
+@responder
+on-arrival: political_capital += 2; sup_students += 2
+
+The denunciation runs in the foreign press and two brave national columns. The detained reappear in eleven days, thinner, at a prison that had no record of them, now suddenly equipped with paperwork. A collection replaces the machine inside a month — a German model this time, heavier, harder to carry down stairs in boxes. The state teaches by raid; the Party learns by inventory.

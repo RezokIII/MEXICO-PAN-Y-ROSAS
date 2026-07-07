@@ -1,0 +1,21 @@
+title: Día de muertos
+new-page: true
+subtitle: 2 de noviembre
+tags: event
+view-if: month = 11
+priority: 1
+frequency: 30
+max-visits: 4
+
+= Día de muertos
+
+The city builds its altars: cempasúchil by the ton, sugar skulls with the names of the living, the annual national negotiation with death conducted in marigold and copal. In the university, without anyone calling for it, an ofrenda has appeared at the foot of the mural: photographs, a scatter of spent flashbulbs, a prep-school ID card gone soft with handling, and the date that needs no year written under it — *2 de octubre*.
+
+The rectory pretends not to see it, which is the modern form of permission. The DFS photographs it, which is the modern form of prayer.
+
+- @velar: The Party's people stand a quiet watch at the ofrenda through the night.
+
+@velar
+on-arrival: sup_students += 2; political_capital += 1
+
+No speeches. Atole passed around at three in the morning, names read softly at four, and at dawn the pan de muerto shared out equally, as the dead are said to prefer. The tradition is older than the Party, older than the state, older than the plaza itself, and standing inside it for one night the Movement remembers what it is for: the dead insist on being counted, and someone must do the counting.

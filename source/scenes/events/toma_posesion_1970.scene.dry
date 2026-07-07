@@ -1,0 +1,25 @@
+title: La toma de posesión
+new-page: true
+subtitle: 1 de diciembre de 1970
+tags: event
+view-if: year = 1970 and month = 12
+priority: 3
+max-visits: 1
+on-arrival: presidente = "Echeverria"; gobernacion = "Moya"; sexenio_year = 1; presidente_cooptacion = 55; presidente_represion = 60; pri_aperturistas += 10; destape_phase = 0
+
+= La toma de posesión
+
+MÉXICO, D.F., 1 de diciembre de 1970 —
+
+In the Chamber of Deputies, Luis Echeverría Álvarez raises his right arm and receives the Republic. The speech runs long and sounds, at moments, like it was stolen from your own press: he speaks of the poor, of self-criticism, of the youth "to whom we must respond," of a *apertura democrática*. Old men of the PRI listen with the frozen faces of cats watching rain. The cabinet is announced: young, técnico-flavored, sprinkled with professors last seen signing petitions. At Gobernación, the discreet Moya Palencia inherits the files — all of them, including yours.
+
+Within weeks the style is unmistakable and unprecedented: the President rises at dawn, tours three states before lunch, telephones intellectuals at midnight to ask what they are reading, doubles the university budget in conversation and sometimes in fact. He wants the '68 generation *inside* — advising, editing, administering the very apertura that answers their dead.
+
+And in Guerrero, this same December, the army's sweeps through the coffee country do not pause for the inauguration. The sexenio that begins today will conduct, simultaneously and without apparent discomfort, the most seductive co-optation and the dirtiest war in the Republic's modern history. Both hands are now extended. Study them.
+
+- @estudiar: A new sexenio, year one. The Movement takes the measure of its new adversary.
+
+@estudiar
+on-arrival: political_capital += 2
+
+On the Gobierno panel the meters reset for a new reign: generosity up, the garrote lowered but not racked. Somewhere between those two needles, the next six years of your people's lives will be decided — some over coffee at Los Pinos, and some in unmarked cars on the Costa Grande.

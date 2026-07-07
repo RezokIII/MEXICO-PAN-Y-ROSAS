@@ -26,7 +26,7 @@ Q.members = 5; Q.funds = 20; Q.organizers = 3; Q.unity = 55; Q.political_capital
 Q.sup_workers = 8; Q.sup_electricians = 12; Q.sup_teachers = 10; Q.sup_students = 45;
 Q.sup_peasants = 12; Q.sup_colonos = 5; Q.sup_middle = 3;
 Q.represion = 70; Q.expediente = 40; Q.registro = 0; Q.pri_reformist_rel = 10; Q.charrismo = 85;
-Q.presidente = "Diaz Ordaz"; Q.sexenio_year = 5;
+Q.presidente = "Diaz Ordaz"; Q.sexenio_year = 4;
 Q.presidente_cooptacion = 15; Q.presidente_represion = 90;
 Q.pri_politicos = 70; Q.pri_tecnicos = 20; Q.pri_aperturistas = 15; Q.pri_duros = 80;
 Q.cd_formed = 0; Q.destape_phase = 0; Q.gobernacion = "Echeverria";
@@ -47,6 +47,7 @@ Q.revueltas_dead = 0;
 Q.ibarra_advisor = 0;
 Q.vallejo_advisor = 0;
 Q.moscow_relation = 35;
+Q.memorial = 0;
 
 // time elapsed (in months)
 Q.time = 1;

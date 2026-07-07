@@ -1,0 +1,31 @@
+title: La discusión
+new-page: true
+subtitle: Una cantina por el Monumento
+tags: event
+view-if: year >= 1969
+priority: 1
+frequency: 35
+max-visits: 2
+
+= La discusión
+
+A back table, a bottle doing slow rounds. Chava, thirty years a member, foundry hands, is explaining that the students lost because they had no discipline. Marta, JC, twenty, is explaining that the Party still lives because it never fights. They are both right, which is why it is getting loud, and both looking at your comrade to referee.
+
+- @viejo: Back the old guard. Discipline is why there is still a table to argue at.
+- @joven: Back the youth. A party that never fights preserves nothing but its minutes.
+- @sintesis: Order another bottle and make them argue it properly, with dates.
+
+@viejo
+on-arrival: fac_ortodoxos += 2; fac_nueva_izquierda -= 2; unity += 1
+
+Chava nods slowly, vindicated, and buys the round. Marta leaves early, politely, which from her is worse than shouting.
+
+@joven
+on-arrival: fac_nueva_izquierda += 2; fac_ortodoxos -= 2; sup_students += 1
+
+Marta sits up straighter for a week. Chava says nothing then, and very little for a while after, and his dues arrive by messenger instead of in person, which from him is a manifesto.
+
+@sintesis
+on-arrival: unity += 2
+
+By the third bottle they have jointly reconstructed the strike of '58 hour by hour — he from the yards, she from her father's stories — and arrived, without noticing, at the same conclusion from opposite doors: it was worth it, and it wasn't enough. They leave arguing about something else, together. That is the Party, when it works.

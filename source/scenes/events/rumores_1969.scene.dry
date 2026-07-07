@@ -1,0 +1,25 @@
+title: La temporada de rumores
+new-page: true
+subtitle: Agosto de 1969
+tags: event
+view-if: year = 1969 and month = 8
+priority: 2
+max-visits: 1
+on-arrival: destape_phase = 1
+
+= La temporada de rumores
+
+MÉXICO, D.F., agosto de 1969 —
+
+The Republic has entered its most sacred season, and nothing announces it, which is the announcement. The columnists have begun writing in clave: don Fulano is "very active," don Zutano "enjoys the confidence of important sectors," a third man's name is conspicuous by an absence so careful it must be rented. At every political breakfast the same liturgy: *¿Quién será?* — asked by men who would sooner die than be caught guessing wrong in print.
+
+This is the *tapadismo*: the successor exists already, chosen in one skull on Los Pinos hill, and the entire political class must court a hidden god without knowing which altar is live. Cabinet secretaries govern all day and campaign all night without campaigning — a raised profile here, a pilgrimage of governors there. The three names everyone recites: Ortiz Mena, the treasury's architect; Martínez Manautou, the doctor with the salon; and Echeverría of Gobernación, the gray secretary who signs everything, says nothing, and was on duty in October of 1968.
+
+For the Party this theater matters more than it should. Whoever emerges owns the next six years of your life: your prisoners, your registration, your dead.
+
+- @observar: Watch closely and say nothing. Teach the cadres to read the ritual — they will see it three more times before this game of ours is done.
+
+@observar
+on-arrival: political_capital += 1
+
+The analysis circulates internally, dry as an actuary's table: how a destape works, what a cargada is, why the loser-candidates will kiss the winner's hand within the hour. The young comrades find it grotesque and fascinating, like the anatomy of a predator. Good. They will be dissecting this animal for twenty years.
