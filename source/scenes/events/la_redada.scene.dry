@@ -2,11 +2,11 @@ title: La redada
 new-page: true
 subtitle: Madrugada
 tags: event
-view-if: expediente >= 60
+view-if: expediente >= 60 and time >= redada_last + 12
 priority: 2
 frequency: 60
 max-visits: 3
-on-arrival: funds -= 5; expediente -= 15; represion += 2
+on-arrival: funds -= 5; expediente -= 15; represion += 2; redada_last = time
 
 = La redada
 

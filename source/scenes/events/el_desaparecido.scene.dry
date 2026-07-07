@@ -2,11 +2,11 @@ title: No hay registro
 new-page: true
 subtitle: —
 tags: event
-view-if: represion >= 75
+view-if: represion >= 75 and time >= desap_last + 9
 priority: 2
 frequency: 50
 max-visits: 4
-on-arrival: memorial += 1; guerrilla_meter += 2; sup_students += 1
+on-arrival: memorial += 1; guerrilla_meter += 2; sup_students += 1; desap_last = time
 
 = No hay registro
 

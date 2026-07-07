@@ -2,9 +2,10 @@ title: El provocador
 new-page: true
 subtitle: En la puerta de la fábrica
 tags: event
-view-if: sup_workers >= 12
+view-if: sup_workers >= 12 and time >= provocador_last + 10
 priority: 1
 frequency: 40
+on-arrival: provocador_last = time
 max-visits: 2
 
 = El provocador

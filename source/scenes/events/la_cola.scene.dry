@@ -2,9 +2,10 @@ title: La cola
 new-page: true
 subtitle: Rutina
 tags: event
-view-if: expediente >= 30
+view-if: expediente >= 30 and time >= cola_last + 9
 priority: 1
 frequency: 40
+on-arrival: cola_last = time
 max-visits: 3
 
 = La cola

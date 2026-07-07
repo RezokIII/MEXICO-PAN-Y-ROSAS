@@ -53,6 +53,14 @@ Q.td_apoyo = 0;
 Q.exiliados = 0;
 Q.excelsior_caido = 0;
 Q.campa76 = 0;
+Q.informe_year = 0;
+Q.muertos_year = 0;
+Q.cola_last = 0;
+Q.provocador_last = 0;
+Q.cantina_last = 0;
+Q.funeral_last = 0;
+Q.redada_last = 0;
+Q.desap_last = 0;
 
 // time elapsed (in months)
 Q.time = 1;

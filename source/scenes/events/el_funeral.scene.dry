@@ -2,11 +2,11 @@ title: El entierro
 new-page: true
 subtitle: Panteón civil
 tags: event
-view-if: represion >= 70
+view-if: represion >= 70 and time >= funeral_last + 8
 priority: 1
 frequency: 40
 max-visits: 2
-on-arrival: memorial += 1
+on-arrival: memorial += 1; funeral_last = time
 
 = El entierro
 
