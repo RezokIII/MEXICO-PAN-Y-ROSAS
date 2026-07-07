@@ -117,6 +117,20 @@ Nombres añadidos en su vigilancia: [+ memorial +]. La apuesta más profunda del
 
 La República no publica encuestas; los resultados se redactan antes que las preguntas. Lo que sigue son las estimaciones internas del Movimiento — actas de asamblea, ventas del periódico, cuotas, y el olfato de los organizadores, que se equivoca menos que la Comisión Federal Electoral.
 
+**Simpatía nacional (estimación del Movimiento)**
+
+PRI: [+ pri_votes_display +]% — el partido del Estado; su cifra incluye la costumbre, el miedo y la maquinaria, en proporciones que nadie ha medido.
+
+PAN: [+ pan_votes_display +]% — la oposición permitida; fuerte entre las clases medias del norte y del Bajío.
+
+La izquierda (ustedes): [+ izq_votes_display +]% — [? if registro = 0 : simpatía sin urna: gente que votaría por ustedes si existieran ante la ley. ?][? if registro >= 1 : simpatía que por fin puede convertirse en boleta — donde haya casilla vigilada. ?]
+
+PPS: [+ pps_votes_display +]% — marxistas de discurso, oficialistas de voto.
+
+PARM: [+ parm_votes_display +]% — los generales jubilados del sistema.
+
+Otros y anulados: [+ otros_votes_display +]%
+
 **Apoyo por sector**
 
 Estudiantes e intelectuales: [+ sup_students +]

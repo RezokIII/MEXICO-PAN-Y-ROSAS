@@ -61,6 +61,9 @@ Q.cantina_last = 0;
 Q.funeral_last = 0;
 Q.redada_last = 0;
 Q.desap_last = 0;
+Q.herencia = 0;
+Q.verano68 = 0;
+Q.rescate = 0;
 
 // time elapsed (in months)
 Q.time = 1;
@@ -618,6 +621,27 @@ Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
 Q.hirschfeld_advisor = 0; // Magnus Hirschfeld
 Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.stampfer_advisor = 0; // Friedrich Stampfer
+
+// ===== the Mexican electorate (overrides Weimar arrays above) =====
+Q.classes = ['obreros','campesinos','colonos','medias','estudiantes','maestros','electricistas'];
+// population weights, ~1970
+Q.obreros = 20;
+Q.campesinos = 35;
+Q.colonos = 13;
+Q.medias = 16;
+Q.estudiantes = 6;
+Q.maestros = 5;
+Q.electricistas = 3;
+
+Q.parties = ['pri','pan','izq','pps','parm','otros'];
+
+Q.obreros_pri = 78; Q.obreros_pan = 6; Q.obreros_izq = 4; Q.obreros_pps = 6; Q.obreros_parm = 3; Q.obreros_otros = 7;
+Q.campesinos_pri = 85; Q.campesinos_pan = 4; Q.campesinos_izq = 6; Q.campesinos_pps = 3; Q.campesinos_parm = 3; Q.campesinos_otros = 5;
+Q.colonos_pri = 75; Q.colonos_pan = 8; Q.colonos_izq = 3; Q.colonos_pps = 4; Q.colonos_parm = 3; Q.colonos_otros = 10;
+Q.medias_pri = 60; Q.medias_pan = 25; Q.medias_izq = 1; Q.medias_pps = 2; Q.medias_parm = 3; Q.medias_otros = 10;
+Q.estudiantes_pri = 35; Q.estudiantes_pan = 15; Q.estudiantes_izq = 36; Q.estudiantes_pps = 8; Q.estudiantes_parm = 2; Q.estudiantes_otros = 15;
+Q.maestros_pri = 70; Q.maestros_pan = 5; Q.maestros_izq = 6; Q.maestros_pps = 12; Q.maestros_parm = 2; Q.maestros_otros = 8;
+Q.electricistas_pri = 70; Q.electricistas_pan = 5; Q.electricistas_izq = 7; Q.electricistas_pps = 8; Q.electricistas_parm = 3; Q.electricistas_otros = 8;
 !}
 set-bg: img/map_2.jpg
 new-page: true
@@ -690,6 +714,31 @@ On May 23, 1962, the state's gunmen took Rubén Jaramillo — the last Zapatista
 
 Each generation learns the lesson separately: the ballot is counted by the government, the strike is broken by the army, and the mountain kills you slowly.
 
+And you — before the Party gave you responsibilities, where did it find you?
+
+- @her_rieles: In the railway yards. Your people struck in '58; some of them are still inside.
+- @her_montana: In the normal schools of the south. Chalk in the morning, committees at night, Othón's country.
+- @her_universidad: In the university. Seminars, journals, the MLN's long arguments — the left of the printed word.
+
+@her_rieles
+on-arrival: herencia = 1; sup_workers += 6; sup_students -= 3; fac_ortodoxos += 4
+
+You still know the yards at Nonoalco by smell, and the yards know you: which men held in '59, which broke, which family still sets a plate for a prisoner. It is the Party's hardest inheritance and its most honored one. The students find you gruff. The students can live with it.
+
+- @intro_verano: Continuar.
+
+@her_montana
+on-arrival: herencia = 2; sup_teachers += 5; sup_peasants += 4; funds -= 3
+
+You taught where the state sends teachers it wants forgotten, and organized what the day left over. You know the price of corn, the names of caciques, and the exact sound a village makes when it decides to trust you. The capital's committees consider you provincial. The provinces consider the capital lucky to have you.
+
+- @intro_verano: Continuar.
+
+@her_universidad
+on-arrival: herencia = 3; sup_students += 5; sup_middle += 2; funds += 4
+
+You came up through the journals and the MLN's great quarrels — you can cite the agrarian statistics against any funcionario alive, and you know which professors sign which letters. The workers' cells suspect you have never held a strike fund in the rain. They are correct. You hold other things.
+
 - @intro_verano: Continuar.
 
 @intro_verano
@@ -702,6 +751,31 @@ It began with nothing: July 22, a street fight between rival vocational schools,
 By August the movement had a shape no one had planned: brigades in the markets and buses, assemblies that voted, and six demands read aloud everywhere — free the political prisoners, repeal Article 145, disband the granaderos, name the responsible officials. On August 27, four hundred thousand people marched to the Zócalo, the largest opposition demonstration in the history of the Republic. On September 13 they marched again in total silence, mouths taped, so no one could invent their slogans for them.
 
 The President, in his September address, said he did not wish to be forced into what he would be forced into. On September 18 the army occupied University City. The rector resigned in protest. The Olympics were twenty-four days away.
+
+And your cell — while the Party's leadership hesitated, what did the people answerable to you actually do that summer?
+
+- @ver_brigadas: Went in with the brigades. Party discipline arrived late; your people didn't.
+- @ver_prudencia: Held back, on your orders. You kept the presses, the funds, and the membership out of the fire.
+- @ver_archivo: Documented. Names, wounds, orders overheard — you ran the summer like a future trial.
+
+@ver_brigadas
+on-arrival: verano68 = 1; sup_students += 6; expediente += 5; fac_nueva_izquierda += 5; ax_electoral -= 3
+
+Your people rode the buses with the brigades, ran mimeographs in borrowed basements, learned the new songs. Half of them are marked now — photographed, listed, known — and none of them regrets it, which is a problem of a different kind. When the students curse the Party, they make an exception they don't name. It is you.
+
+- @intro_octubre: Continuar.
+
+@ver_prudencia
+on-arrival: verano68 = 2; funds += 5; unity += 4; fac_ortodoxos += 4; sup_students -= 4; ax_electoral += 3
+
+You gave the order twice and enforced it once: stay clear. The presses survived September; the treasury survived October; your cell walks the city unphotographed. It was correct — the raids proved it — and correctness has its own bill: in the assemblies, the young comrades pronounce the word *prudencia* the way other people spit.
+
+- @intro_octubre: Continuar.
+
+@ver_archivo
+on-arrival: verano68 = 3; political_capital += 5; expediente += 3; sup_middle += 2
+
+Your people carried notebooks instead of banners: unit numbers at the Casco, ward counts at Rubén Leñero, the names of officials who gave which orders in which plazas. The archive is thin, damning, and duplicated in three places. Someday there will be a court, or a history, or both, and it will subpoena what you saved.
 
 - @intro_octubre: Continuar.
 
@@ -728,6 +802,31 @@ You are what remains of the Mexican Communist Party: some five thousand militant
 And Moscow is displeased: in August, weeks before Tlatelolco, this party did what almost no communist party in the Americas dared — it condemned the invasion of Czechoslovakia. You are heretics to the government and heretics to the church of your own faith, in the same season.
 
 Around you is everything October left: a generation that learned to organize and has nowhere to take it, prisons full of the best people of their age, a country that watched. Twenty years from now, on July 6, 1988, there will be an election. Nothing about that night is written yet.
+
+One more thing is yours to answer for. When the September raids came, there was time to save one thing well. What did you carry down the fire escape?
+
+- @res_prensa: The press. Plates, type, the good machine — the Party's voice, disassembled into four suitcases.
+- @res_archivo: The files. Membership lists, the '58 network, thirty years of names the DFS wants more than furniture.
+- @res_cuadros: The people. You spent the warning on evacuations — every cadre on the list slept elsewhere that night.
+
+@res_prensa
+on-arrival: rescate = 1; funds += 6; sup_students += 2
+
+The machine reassembles in the Colonia Obrera basement a week later, missing one roller, printing by month's end. Whatever else the Party lost in September, it did not lose its voice, and in this Republic the voice is the organization: where the paper goes, the cells regrow along its route.
+
+- @comenzar: Octubre de 1968. Comenzar.
+
+@res_archivo
+on-arrival: rescate = 2; expediente -= 12; unity += 3
+
+The DFS carried furniture out of an office that remembered nothing: the lists were already north, split three ways, coded the old way. Every raid since has hit air. In Bucareli your file gained a grudging annotation that reads, in bureaucratic, almost like respect: *organización compartimentada; listas no recuperadas*.
+
+- @comenzar: Octubre de 1968. Comenzar.
+
+@res_cuadros
+on-arrival: rescate = 3; organizers += 1; members += 1
+
+Furniture can be reprinted; a cadre of twenty years cannot. You spent the warning hours on doorbells and bus fares, and when the agents came at dawn they found beds still warm and no one in them. The Party begins its darkest winter with something no inventory lists: everyone who matters, free, and owing you the night they slept elsewhere.
 
 - @comenzar: Octubre de 1968. Comenzar.
 

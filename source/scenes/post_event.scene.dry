@@ -42,6 +42,15 @@ if (Q.pro_republic < 0) {
 if (Q.pro_republic >= 100) {
     Q.pro_republic = 99;
 }
+// izquierda sympathy derives from the Movement's sector standing (idempotent)
+Q.obreros_izq = Q.sup_workers * 0.5;
+Q.campesinos_izq = Q.sup_peasants * 0.5;
+Q.colonos_izq = Q.sup_colonos * 0.5;
+Q.medias_izq = Q.sup_middle * 0.4;
+Q.estudiantes_izq = Q.sup_students * 0.8;
+Q.maestros_izq = Q.sup_teachers * 0.6;
+Q.electricistas_izq = Q.sup_electricians * 0.6;
+
 // re-calculate party support
 // calculate normalized class voting for the achievements
 for (var c of Q.classes) {

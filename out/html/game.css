@@ -574,3 +574,23 @@ table {
     text-decoration: underline;
     text-decoration-style: dotted;
 }
+
+
+/* ===== La Izquierda: glossary color-coding + hover cards ===== */
+.gloss { border-bottom: 1px dotted currentColor; cursor: help; position: relative; font-weight: inherit; }
+.gloss.per { color: #1b4c8c; }   /* personas */
+.gloss.org { color: #7a4a21; }   /* organizaciones del movimiento y sociales */
+.gloss.est { color: #0f7040; }   /* el Estado y sus instrumentos */
+.gloss.evt { color: #6b4a8c; }   /* lugares y fechas que pesan */
+.gloss.trm { color: #8a6d3b; }   /* el idioma del sistema */
+.gloss:hover::after {
+  content: attr(data-tip);
+  position: absolute; left: 0; bottom: 130%;
+  width: 300px; max-width: 70vw;
+  background: #2a2118; color: #f3ecd8;
+  padding: 9px 12px; font-size: 0.82em; line-height: 1.45;
+  font-style: normal; font-weight: normal; text-align: left;
+  border: 1px solid #8a6d3b; border-radius: 3px;
+  z-index: 999; white-space: normal; pointer-events: none;
+  box-shadow: 2px 3px 0 rgba(0,0,0,0.25);
+}
