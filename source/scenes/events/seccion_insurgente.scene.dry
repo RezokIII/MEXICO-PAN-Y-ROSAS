@@ -1,0 +1,28 @@
+title: La sección insurgente
+new-page: true
+subtitle: El magisterio toca la puerta
+tags: event
+view-if: sup_teachers >= 45 and year >= 1981
+priority: 2
+max-visits: 1
+
+= La sección insurgente
+
+Years of section wars have produced the unthinkable: an entire state section of the SNTE — tens of thousands of teachers — controlled outright by the democratic current, its charro committee voted into history, its new leadership half-composed of people who learned organizing in your circles. They come to the leadership with a proposal that is equal parts opportunity and grenade: formal alliance, open and named.
+
+Vanguardia Revolucionaria will answer — it always answers — and an open alliance paints the Party's name on every answer.
+
+- @alianza: Take the alliance, openly. The largest union in Latin America is cracking; put your shoulder in the crack.
+- @sombra: Keep the relationship in the shadow where it grew. Open flags on a union war invite the state to make it a party war.
+
+@alianza
+choose-if: organizers >= 3
+unavailable-subtitle: Una alianza abierta con una sección en guerra exige cuadros dedicados.
+on-arrival: sup_teachers += 6; charrismo -= 3; huelgas += 5; expediente += 4; represion += 2; political_capital += 3
+
+The joint declaration runs in both presses. Vanguardia's response arrives on schedule — beatings at two section meetings, a leader's house burned — and the section holds anyway, because sections that have deposed one charro have stopped believing in inevitability. The teachers' war now has a national address, and it is partly yours.
+
+@sombra
+on-arrival: sup_teachers += 2; unity += 1
+
+The relationship stays what it was: real, deniable, productive. The section fights its war under its own flag and wins more slowly. In the Coordinadora's assemblies, where such choices are graded, the Party's caution is noted with the usual entry: *presente, pero no del todo.* The account stays open.

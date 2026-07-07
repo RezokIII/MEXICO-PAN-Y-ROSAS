@@ -10,6 +10,9 @@ Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital +
 if (Q.fuerza_final >= 95) { Q.ending = "fuerte"; }
 else if (Q.fuerza_final >= 60) { Q.ending = "media"; }
 else { Q.ending = "debil"; }
+if (Q.fuerza_final >= 95) { this.achieve('la_fuerza'); }
+else if (Q.fuerza_final >= 60) { this.achieve('la_acumulacion'); }
+else { this.achieve('la_semilla'); }
 !}
 
 = Veinte años
