@@ -1,0 +1,29 @@
+title: Chihuahua
+new-page: true
+subtitle: Julio de 1986
+tags: event
+view-if: year = 1986 and month = 7
+priority: 3
+max-visits: 1
+on-arrival: pri_duros += 4
+
+= Chihuahua
+
+The governorship of Chihuahua, and the PAN's Francisco Barrio filling plazas from Juárez to the capital with the certainty of a man measuring drapes. Then election day: the machinery's full repertoire, executed with a shamelessness that reads as policy — urnas stuffed in view, opposition representatives expelled, tallies that mock their own precincts. Bartlett's system, demonstrated at scale.
+
+What follows is stranger: the PAN, party of order, goes to the street. Hunger strikes — Luis H. Álvarez, forty days; bridges to El Paso blockaded by businessmen in good suits; and the bishops of Chihuahua announce the suspension of Mass in protest, a sentence not heard in Mexico since the Cristiada, until Rome — nudged, the embassy whispers, by the government — orders the churches open.
+
+The left's dilemma is the era's most instructive: the stolen votes are the class enemy's. The theft is the theft that will someday be yours.
+
+- @principio: Defend the vote as such — publicly, unmistakably: the count is the count, whoever it elects. Send observers, publish the actas analysis, say "fraude" without an adjective softening it.
+- @silencio_frio: Let the right eat its portion of the system it long defended. Your dead earned you the right to sit this one out.
+
+@principio
+on-arrival: alquimia_expuesta = 1; political_capital += 3; sup_middle += 3; fac_ortodoxos -= 3; pri_reformist_rel -= 2
+
+The statement costs exactly what it should: the ortodoxos are furious, Moscú bemused, and half the JC needs the logic walked through twice. But the principle is now on the record in your name — *el voto se cuenta* — and principles filed in advance are the only kind that pay. In two years, when the counting stops on a July night, the first allies to answer will remember Chihuahua.
+
+@silencio_frio
+on-arrival: fac_ortodoxos += 3; sup_middle -= 3
+
+The silence is understood by everyone precisely: class positions held, historical accounts respected. And a note goes into the Republic's other ledger — the one that records who defends the count only when the count is theirs — with your name in it, in the PAN's handwriting, available for citation at the worst possible moment.

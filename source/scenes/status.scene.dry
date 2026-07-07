@@ -36,7 +36,7 @@ Nueva izquierda: [+ fac_nueva_izquierda : fuerza +]
 
 = Gobierno — el sistema
 
-Presidente: [? if presidente == "Diaz Ordaz" : Gustavo Díaz Ordaz (1964-1970) ?][? if presidente == "Echeverria" : Luis Echeverría Álvarez (1970-1976) ?][? if presidente == "Lopez Portillo" : José López Portillo (1976-1982) ?]
+Presidente: [? if presidente == "Diaz Ordaz" : Gustavo Díaz Ordaz (1964-1970) ?][? if presidente == "Echeverria" : Luis Echeverría Álvarez (1970-1976) ?][? if presidente == "Lopez Portillo" : José López Portillo (1976-1982) ?][? if presidente == "De la Madrid" : Miguel de la Madrid (1982-1988) ?]
 
 Año [+ sexenio_year +] del sexenio.
 
@@ -44,7 +44,7 @@ Cooptación: [+ presidente_cooptacion : cooptacion +]
 
 Represión: [+ represion : represion +]
 
-Gobernación: [? if gobernacion == "Echeverria" : Luis Echeverría — el que firmó los oficios de octubre. ?][? if gobernacion == "Moya" : Mario Moya Palencia — heredó los archivos. Todos. ?][? if gobernacion == "Reyes Heroles" : Jesús Reyes Heroles — el ideólogo. Habla de reforma, y podría hablar en serio. ?]
+Gobernación: [? if gobernacion == "Echeverria" : Luis Echeverría — el que firmó los oficios de octubre. ?][? if gobernacion == "Moya" : Mario Moya Palencia — heredó los archivos. Todos. ?][? if gobernacion == "Reyes Heroles" : Jesús Reyes Heroles — el ideólogo. Habla de reforma, y podría hablar en serio. ?][? if gobernacion == "Bartlett" : Manuel Bartlett — suave, paciente, dueño de la cuenta. Recuerde el nombre. ?]
 
 Su expediente en la DFS: [+ expediente : expediente +]
 

@@ -1,0 +1,35 @@
+title: La nacionalización de la banca
+new-page: true
+subtitle: 1 de septiembre de 1982
+tags: event
+view-if: year = 1982 and month = 9
+priority: 3
+max-visits: 1
+on-arrival: burguesia_estado += 8; gran_capital -= 6; capital_extranjero += 4; peso_dolar = 70; salario_real -= 3
+
+= La nacionalización de la banca
+
+In his final Informe, voice breaking, José López Portillo announces the expropriation of the private banking system — and weeps, on camera, apologizing to the poor of Mexico: *ya no los volverán a saquear.* The man who promised to defend the peso like a dog — the country has not stopped repeating the joke since February — exits scattering the largest structural reform since Cárdenas, like a gambler flipping the table on his way out.
+
+The left's dilemma is exquisite: the state has done the thing your programs have demanded for fifty years — while broke, as blame-shifting theater, with compensation to the bankers still to be negotiated by the incoming técnicos, who are already signaling reversal. Applaud, and you endorse the theater. Denounce, and you denounce your own program.
+
+- @critico: Support the expropriation, demand it be made real: workers' control, credit steered to the base, no reversal.
+- @teatro: Name the theater: a looted treasury nationalizing its creditors to change the subject from the looting.
+- @control: Go maximal — occupy the moment: assemblies in the bank workers' union, a campaign to make reversal politically impossible.
+
+@critico
+on-arrival: political_capital += 3; sup_workers += 2; pri_reformist_rel += 2; ax_nacpop += 3
+
+The line threads it: yes to the act, no to the theater, and a bill of particulars for making it real. For one strange season the Party's economists are quoted in papers that used to redact them. The técnicos take office in December and begin the quiet unwinding; your bill of particulars becomes the measuring stick of their betrayal, which is worth more than applause.
+
+@teatro
+on-arrival: sup_students += 2; sup_middle += 2; fac_nueva_izquierda += 2; pri_reformist_rel -= 3
+
+The analysis is merciless and correct — and lands strangely: the right quotes you against the expropriation, the government quotes you against your own program, and honesty proves, as usual, the most expensive of the postures. History will vindicate the paragraph. Politics invoices it now.
+
+@control
+choose-if: sup_workers >= 20 and huelgas >= 10
+unavailable-subtitle: Ocupar el momento exige base bancaria y músculo huelguístico. No hay ninguno de los dos.
+on-arrival: sup_workers += 4; huelgas += 6; burguesia_estado += 2; expediente += 4; political_capital += 3
+
+The bank workers' assemblies vote resolutions on credit democracy that terrify everyone correctly; for a month the question is genuinely open. Then December comes with the técnicos and the counter-reform — but the assemblies happened, the cadres exist, and a generation of bank employees knows the Party as the people who took their work seriously. Deposits of another kind.

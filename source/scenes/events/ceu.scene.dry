@@ -1,0 +1,28 @@
+title: El CEU
+new-page: true
+subtitle: 1986-87 — la universidad despierta
+tags: event
+view-if: year = 1986 and month = 11
+priority: 2
+max-visits: 1
+
+= El CEU
+
+Rector Carpizo's reforms — fees raised, automatic passage ended, the free university made less free in the name of "excellence" — have produced what eighteen years of anniversaries could not: a student movement the size of '68, born in the Che Guevara auditorium and led by a generation with no memory of Tlatelolco and no intention of repeating it. The Consejo Estudiantil Universitario negotiates with the rectory *on live radio*, and wins the debates so thoroughly that the city listens like it's football.
+
+They are not yours — they are prickly about exactly that — but their best organizers learned in your circles, and in January they will strike, and win, and then look around for what comes next. A hundred thousand students who have just discovered assemblies work: the next cohort of everything.
+
+- @acompanar: Accompany without capturing: lend presses, lawyers, meeting halls — and take instructions, not credit.
+- @reclutar_ceu: Recruit hard while the iron is hot. Movements cool; membership endures.
+
+@acompanar
+choose-if: sup_students >= 20
+unavailable-subtitle: Para acompañar hay que ser bienvenido; el Movimiento pesa poco en las facultades.
+on-arrival: sup_students += 6; political_capital += 2; fac_nueva_izquierda += 3
+
+The discipline holds: your people carry chairs, run mimeographs, argue only when asked. The CEU notices — this generation grades allies on exactly this — and when the strike wins in February, the debt is banked in the only currency that matters here: trust. In two years these brigades will run a presidential campaign's street operation. Whose, is being decided now, partly by who carried chairs.
+
+@reclutar_ceu
+on-arrival: sup_students += 2; members += 1; fac_nueva_izquierda += 1; unity -= 1
+
+The recruiters work the assemblies and the assemblies notice being worked. Membership ticks up; standing ticks down; the CEU's inner circle files the Movement under "parties" — the genre they organized precisely to avoid. Some of the recruits are gold. The discount at which they were purchased will appear on a later statement.

@@ -1,0 +1,31 @@
+title: El destape roto
+new-page: true
+subtitle: Octubre de 1987
+tags: event
+view-if: year = 1987 and month = 10
+priority: 3
+max-visits: 1
+on-arrival: destape_phase = 4; pri_tecnicos += 10; pri_politicos -= 5; cd_formed = 1
+
+= El destape roto
+
+The ritual is performed one last time with all its porcelain: six precandidates paraded — the *pasarela*, a novelty pretending to be an opening — while the Corriente demands a real contest and is refused in the courteous voice reserved for the condemned. In October the dedazo falls on Carlos Salinas de Gortari, thirty-nine, Harvard, the budget's surgeon — the austerity itself, made candidate.
+
+And then the porcelain breaks. Cárdenas and Muñoz Ledo do not perform the cargada. They walk — out of the assembly, out of the party of their fathers, out of the system's sixty-year grammar — and within days the impossible happens in public: the PARM, one of the regime's own satellite parties, nominates **Cuauhtémoc Cárdenas for President of the Republic**. The tame parties are defecting to the general's son; the PPS and the PST-turned-PFCRN will follow within weeks, stampeding toward the name their voters actually revere.
+
+A candidacy now exists with the Revolution's own surname, aimed at the Revolution's own party, eight months before the vote. Every plan in the Republic is suddenly obsolete, including yours.
+
+- @acercarse: Move now — liaison, program drafts, the Movement's networks placed where the cardenista wave will need them.
+- @observar: Hold one season more. Waves this sudden drown the first swimmers; let the fronts form before choosing yours.
+
+@acercarse
+choose-if: cd_rel >= 1
+unavailable-subtitle: No hay puentes construidos hacia la Corriente; acercarse ahora es llegar como extraño.
+on-arrival: cd_rel += 1; political_capital += 3; fac_ortodoxos -= 3; ax_nacpop += 3
+
+The meetings move from restaurants to kitchens, which in Mexican politics is the promotion that matters. Your casilla network interests them intensely — the engineers around Cárdenas can count, and know exactly what will be attempted against them in July. The convergence has begun writing itself.
+
+@observar
+on-arrival: unity += 2; political_capital -= 1
+
+Discipline, while the satellites stampede and the columnists auction their forecasts. Not wrong — the wave's shape truly is unknowable this early — but waves reward presence, and every week of distance is a week someone else stands where you could have. The front is forming. The question is whether you are architecture or annex.

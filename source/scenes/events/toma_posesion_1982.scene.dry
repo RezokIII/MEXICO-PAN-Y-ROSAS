@@ -1,0 +1,23 @@
+title: La toma de posesión
+new-page: true
+subtitle: 1 de diciembre de 1982
+tags: event
+view-if: year = 1982 and month = 12
+priority: 3
+max-visits: 1
+on-arrival: presidente = "De la Madrid"; gobernacion = "Bartlett"; sexenio_year = 1; presidente_cooptacion = 30; presidente_represion = 45; pri_tecnicos += 10; pri_politicos -= 5; destape_phase = 0; capital_extranjero += 6
+
+= La toma de posesión
+
+Miguel de la Madrid receives a country in cardiac arrest — inflation at one hundred percent, the treasury owing the world eighty billion dollars it does not have — and prescribes, in the flattest voice ever to deliver an inaugural, the médicine of the creditors: *renovación moral*, austerity, realism. The word *pueblo* appears in the speech mainly as a cost center.
+
+The cabinet is the técnicos' full coronation: planners, bankers, a Harvard seminar with a flag. At Gobernación sits Manuel Bartlett — smooth, watchful, a político's son with a técnico's patience — who now controls the files, the police, and the count. Remember the name; the count will need it.
+
+For your purposes the new reign's arithmetic is simple and strange: less money for the charola (austerity applies to co-optation too), a quieter and more selective repression, and a social catastrophe arriving in monthly installments — rent, tortilla, busfare — that will do more organizing than a thousand cadres. If you are positioned. If.
+
+- @posicionar: Position for the crisis decade: organizers to the colonias and the factory gates, before the hunger arrives ahead of you.
+
+@posicionar
+on-arrival: political_capital += 2
+
+The circular is one page: the miracle is over, the system's legitimacy will now be paid for in real wages, and the Movement's task is to be standing where the bill is delivered. The austerity sexenio begins. So does the harvest.

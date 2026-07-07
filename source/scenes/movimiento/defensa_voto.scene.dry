@@ -1,0 +1,27 @@
+title: Defensa del voto
+new-page: true
+subtitle: La red de casillas
+view-if: registro >= 1
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 80
+tags: movimiento
+
+= Defensa del voto
+
+The alquimia is beaten one casilla at a time: a trained representative at the table, a certified copy of the acta in a safe pocket, a telephone tree that moves numbers to the capital faster than the Comisión can improve them. The network is invisible between elections and decisive during them — and it is built now, in the boring years, or never.
+
+Red de casillas: [+ red_casillas +] de 100.
+
+- @entrenar: Train and deploy — courses, manuals, the legal minimums drilled until they are reflexes.
+- @root: The casillas wait.
+- @easy_discard
+
+@entrenar
+subtitle: -3 fondos, requiere cuadros
+choose-if: funds >= 3 and organizers >= 2
+unavailable-subtitle: La red se teje con fondos y cuadros. Falta uno de los dos.
+on-arrival: funds -= 3; red_casillas += 6; political_capital += 1
+
+Schoolteachers, mostly — they can read a form, argue a point of law politely, and stand for fourteen hours. Each course graduates thirty guardians of the acta. The manual's first page carries the network's whole doctrine: *el fraude necesita oscuridad; usted es una lámpara*.

@@ -327,6 +327,19 @@
   d('trm','The democratic opening — the regime’s word for the space it sells you, at prices to be determined.',['apertura']);
   d('trm','The wartime seizure law: strike inside a requisitioned industry and you are no longer a striker but a saboteur.',['requisa']);
   d('trm','The dirty war: disappearances, clandestine prisons, flights over the sea. Officially it is not happening.',['guerra sucia']);
+  d('per','Miguel de la Madrid, President 1982-88. The tecnicos\u2019 coronation: austerity by spreadsheet, renovacion moral by press release.',['De la Madrid']);
+  d('per','Manuel Bartlett, Secretary of Gobernacion 1982-88. Smooth, patient, owner of the files and of the count. Remember the name.',['Bartlett']);
+  d('per','Carlos Salinas de Gortari: Harvard, Budget, the austerity made candidate by the 1987 dedazo.',['Salinas']);
+  d('per','Cuauhtemoc Cardenas: engineer, ex-governor, son of the canonized general. Left the PRI when the dedazo refused democracy \u2014 and took the Revolution\u2019s surname with him.',['C\u00e1rdenas','Cuauht\u00e9moc C\u00e1rdenas']);
+  d('per','Porfirio Munoz Ledo: the system\u2019s most dangerous debater, co-founder of the Corriente Democratica.',['Mu\u00f1oz Ledo']);
+  d('per','Rosario Ibarra ran for president on the PRT line in 1982 \u2014 the first woman candidate in Mexican history.',['Rosario Ibarra de Piedra']);
+  d('org','Coalicion Obrero Campesina Estudiantil del Istmo: the Zapotec left of Juchitan, first leftist city government since the 1920s \u2014 evicted by decree and army in 1983.',['COCEI']);
+  d('org','Consejo Estudiantil Universitario: the 1986-87 UNAM movement that beat the rectory on live radio. The next generation.',['CEU']);
+  d('org','The Corriente Democratica: Cardenas and Munoz Ledo\u2019s heresy inside the PRI \u2014 democracy in the succession, or the door.',['Corriente Democr\u00e1tica']);
+  d('org','Coordinadora Nacional de Trabajadores de la Educacion: the teachers\u2019 insurgency inside the SNTE, born Tuxtla 1979.',['CNTE']);
+  d('org','The National Coordinator of the Urban Popular Movement: the organized colonias.',['CONAMUP']);
+  d('trm','Desaparicion de poderes: the legal instrument by which a state legislature declares an elected municipal government to have ceased existing. Used on Juchitan, 1983.',['desaparici\u00f3n de poderes']);
+  d('evt','September 19, 1985, 7:19 a.m. The earthquake \u2014 and the week the city governed itself.',['diecinueve de septiembre']);
 
   var keys = Object.keys(G).sort(function(a, b) { return b.length - a.length; });
   var esc = keys.map(function(k) { return k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });

@@ -1,24 +1,24 @@
-title: Catorce años
+title: Veinte años
 new-page: true
-subtitle: Agosto de 1982 — fin del contenido jugable (por ahora)
+subtitle: Febrero de 1988 — fin del contenido jugable (por ahora)
 tags: event
-view-if: year = 1982 and month = 8
+view-if: year = 1988 and month = 2
 priority: 3
 max-visits: 1
 on-arrival: {!
-Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital + Math.round(Q.unity / 2) - Q.memorial + Q.registro * 10 + Q.izq_seats + Q.municipio_alcozauca * 8 + Q.psum * 8;
+Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital + Math.round(Q.unity / 2) - Q.memorial + Q.registro * 10 + Q.izq_seats + Q.municipio_alcozauca * 8 + Q.psum * 8 + Q.pms * 8 + Q.red_casillas / 4 + Q.cd_rel * 6 + Q.municipio_juchitan * 6 + Q.costureras * 4;
 if (Q.fuerza_final >= 95) { Q.ending = "fuerte"; }
 else if (Q.fuerza_final >= 60) { Q.ending = "media"; }
 else { Q.ending = "debil"; }
 !}
 
-= Catorce años
+= Veinte años
 
-MÉXICO, D.F., agosto de 1982 —
+MÉXICO, D.F., febrero de 1988 —
 
-The boom is over: the peso broke in February, the treasury is empty, and in this very month the finance minister flies to Washington to tell the creditors the Republic cannot pay. The sexenio of abundance ends in the arithmetic of dependence — and in the crisis now opening, everything the Movement built since October of 1968 will be weighed.
+The campaign is in the plazas: Cárdenas in La Laguna drawing crowds the press declines to count, Castillo working the union halls, Salinas touring a country that has stopped applauding, and in every district office of the Comisión, Bartlett's men preparing July's arithmetic. Twenty years since the plaza of Tlatelolco — and five months from the night the system will have to choose between counting and surviving.
 
-This is where the playable road ends, for now. Fourteen years since the plaza: time to take stock of what October's orphans built.
+This is where the playable road ends, for now: the eve. The endgame — the campaign, the sixth of July, and everything after — is the next and final chapter. Time to take stock of what October's orphans bring to it.
 
 - @balance: El balance.
 

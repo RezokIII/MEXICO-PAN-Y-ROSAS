@@ -1,0 +1,38 @@
+title: La charola llama
+new-page: true
+subtitle: El sistema hace una oferta
+tags: event
+view-if: presidente_cooptacion >= 40 and time >= charola_last + 14 and members >= 6
+priority: 1
+frequency: 45
+max-visits: 6
+on-arrival: charola_last = time
+
+= La charola llama
+
+It arrives the way it always arrives: through a friend of a friend, over a meal someone else pays for. This time the target is one of your best — a regional organizer with ten years of files behind them and a family that has eaten prudence for a decade. The offer is a directorship: real salary, real budget, even arguably real work. The only condition is the one never stated.
+
+They came to the leadership before answering, which is already loyalty. They are also listening very carefully to the reply.
+
+- @igualar: Match what the system offers in the only currency you have: responsibility. A seat at the center, real authority, the Party's future named to their face.
+- @conciencia: The truth, plainly: the Party cannot outbid the state, only outmean it. Ask them to stay poor with you.
+- @dejar: Let them go with honor — a public abrazo, the door left open. Better an ally in the apparatus than a resentment in the ranks.
+
+@igualar
+choose-if: political_capital >= 6
+unavailable-subtitle: Ofrecer el centro exige tener autoridad para despejarlo.
+on-arrival: political_capital -= 4; unity += 2
+
+They stay — for the responsibility, they say, though everyone understands it was for being asked. The promotion ruffles two veterans whose turn it arguably was. The system's talent scout files a rare loss and adjusts next year's figures upward.
+
+@conciencia
+choose-if: unity >= 50
+unavailable-subtitle: Pedir pobreza voluntaria exige un partido que valga la pena. El suyo, ahora mismo, no convence ni a los suyos.
+on-arrival: unity += 3; political_capital += 2
+
+A long silence, then the answer the whole movement is secretly built on: *si me quisiera ir, ya me habría ido.* They stay. The story travels quietly through the cells and is worth three circulars on discipline.
+
+@dejar
+on-arrival: members -= 1; funds += 2; pri_reformist_rel += 2; sup_students -= 1
+
+The despedida is warm and public, which is the point: no traitor's shadow, just a comrade seconded to the enemy's payroll. Sometimes a document arrives, unsigned, useful. Sometimes just the annual felicitación. In the JC they keep score of these departures with a bitterness the leadership pretends not to hear.
