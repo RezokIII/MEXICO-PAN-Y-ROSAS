@@ -5,7 +5,7 @@ tags: event
 view-if: year = 1987 and month = 12
 priority: 2
 max-visits: 1
-on-arrival: salario_real -= 4; peso_dolar = 2200; gran_capital += 4; capital_extranjero += 4; sup_middle += 2
+on-arrival: salario_real -= 4; peso_dolar = 2200; gran_capital += 4; capital_extranjero += 4; sup_middle += 2; clima_neoliberal += 5
 
 = El año del crac
 

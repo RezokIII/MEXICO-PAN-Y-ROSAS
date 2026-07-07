@@ -356,6 +356,18 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_los_canales : **Los canales discretos** — run the road that officially does not exist, and live. ?]
 
+[? if game_achievement_el_seis_de_julio : **El seis de julio** — the count held. The Republic's first counted transition. ?]
+
+[? if game_achievement_el_partido_nuevo : **El partido nuevo** — from the fraud, a foundation: the house built on your registro. ?]
+
+[? if game_achievement_la_cerilla : **La cerilla** — you struck the match. History is still deciding what it lit. ?]
+
+[? if game_achievement_la_orilla : **La orilla** — coherent, independent, and absent when history knocked. ?]
+
+[? if game_achievement_la_ola_con_terminos : **La ola con términos** — join the front as founder, not furniture. ?]
+
+[? if game_achievement_la_lampara : **La lámpara** — sixty casillas in every hundred watched. Fraud requires darkness. ?]
+
 
 [? if game_achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
 

@@ -5,6 +5,12 @@ if (Q.ending == "aniquilacion") { this.achieve('el_palacio_negro'); }
 if (Q.ending == "debil") { this.achieve('la_semilla'); }
 if (Q.ending == "media") { this.achieve('la_acumulacion'); }
 if (Q.ending == "fuerte") { this.achieve('la_fuerza'); }
+if (Q.ending == "reconocimiento") { this.achieve('el_seis_de_julio'); }
+if (Q.ending == "historico") { this.achieve('el_partido_nuevo'); }
+if (Q.ending == "ruptura") { this.achieve('la_cerilla'); }
+if (Q.ending == "irrelevancia") { this.achieve('la_orilla'); }
+if (Q.fdn == 2) { this.achieve('la_ola_con_terminos'); }
+if (Q.red_casillas >= 60) { this.achieve('la_lampara'); }
 if (Q.praga_line == 1) { this.achieve('no_llega_en_tanque'); }
 if (Q.campa76 == 1) { this.achieve('un_millon_de_nombres'); }
 if (Q.huelga_general == 1) { this.achieve('la_huelga_general'); }
@@ -32,6 +38,14 @@ new-page: true
 [? if ending = "debil" : El Movimiento sobrevivió, que en este país y en esta década es un verbo transitivo: sobrevivió A la guerra sucia, AL charrismo, A la charola. Quedó pequeño, golpeado, con más mártires que militantes — pero con la lista intacta, el periódico saliendo, y en tres o cuatro rincones del país, gente que no se vendió. ?]
 
 [? if ending = "media" : El Movimiento salió de la década larga siendo algo que en 1968 parecía imposible: una organización nacional real — presente en las fábricas del Valle de México, en la Montaña de Guerrero, en las normales y las universidades, con cuadros probados y una prensa que el régimen leía con atención profesional. No era poder. Era, por primera vez en una generación, la posibilidad del poder. ?]
+
+[? if ending = "reconocimiento" : Lo imposible, fechado: el seis de julio de 1988 la República votó, el sistema intentó su alquimia mayor, y la alquimia se rompió contra veinte años de casillas vigiladas, actas duplicadas y testigos que no se fueron a dormir. Un presidente electo tomó posesión. El aparato no murió — los aparatos no mueren — pero desde esa noche gobierna a un país que sabe contar. ?]
+
+[? if ending = "historico" : El fraude se consumó; el país que lo vio, no se deshizo. De la ola y la herida salió, en mayo del 89, el partido nuevo — fundado sobre el registro que ustedes cargaron dos décadas, con los cuadros que ustedes formaron y las listas que ustedes guardaron. No fue la victoria. Fue la fundación de la casa donde la victoria, algún día, tendría dirección adónde llegar. ?]
+
+[? if ending = "ruptura" : Once días que la República no olvidará ni perdonará ni resolverá: el país detenido, el Estado respondiendo en su idioma antiguo, y las listas creciendo a un ritmo que la memoria apenas sostiene. La historia juzgará la cerilla — la encendieron ustedes, con los ojos abiertos — y ninguna versión de ese juicio podrá decir que el pueblo no estuvo dispuesto. ?]
+
+[? if ending = "irrelevancia" : La ola pasó de largo. La coherencia se conservó entera — programa, independencia, tradición — y la historia, que no premia la coherencia sino la presencia, fundó su década siguiente con otros nombres. Quedan los cuadros, el análisis, y la pregunta que no prescribe: ¿de qué sirve tener razón en la sala de al lado? ?]
 
 [? if ending = "fuerte" : Lo que salió de la década nadie lo había presupuestado, y Bucareli menos que nadie: una izquierda de masas — minoritaria aún, pero de masas — con implantación obrera real pese a don Fidel, base campesina en tres estados, la generación del 68 y la del CEU por venir formadas en sus filas, y una simpatía nacional que las encuestas del régimen (las secretas, las de Gobernación) ya no podían redondear a cero. La reforma política que se redactaba en 1977 no fue una concesión graciosa: fue un reconocimiento de fuerza. La de ustedes. ?]
 
@@ -70,6 +84,14 @@ new-page: true
 
 [? if ending = "fuerte" : "...conviene recordar que nada de ello estaba escrito. En octubre de 1968 la izquierda mexicana era cinco mil militantes con las oficinas selladas y los cuadros presos. Que una década después fuera la fuerza que obligó al Estado a la reforma — que Reyes Heroles redactara Chilpancingo, en buena medida, mirando por encima del hombro hacia ella — constituye uno de los raros casos latinoamericanos en que una organización derrotada en la plaza rehízo el tablero sin tomar un solo palacio. Cómo lo hizo es el asunto de los tres capítulos siguientes." ?]
 
+[? if ending = "reconocimiento" : "...los manuales llaman al 88 mexicano la primera transición contada: no un pacto de élites sino una contabilidad defendida. La lámpara — así llamaban los cuadros a su red de casillas — resultó el instrumento revolucionario más improbable del siglo: un formulario, custodiado por maestras rurales, ante el cual se rompió un régimen de sesenta años." ?]
+
+[? if ending = "historico" : "...la paradoja fundacional del 88: el fraude triunfó y, al triunfar, fabricó a su propio enterrador. El partido nacido en mayo del 89 heredó del viejo movimiento su infraestructura, su martirologio y su obstinación aritmética; heredó del cardenismo los millones. La democratización mexicana, escribiría uno de sus arquitectos, fue hija ilegítima de esa noche de pantallas apagadas." ?]
+
+[? if ending = "ruptura" : "...sobre los Once Días la historiografía mantiene su propia guerra civil: ¿insurrección aplastada o huelga general traicionada por su propia grandeza? Lo no disputado: después de 1988 el Estado mexicano no volvió a fingir normalidad, y las listas — las tres copias sobrevivieron — fundaron la jurisprudencia de la memoria que décadas más tarde sentaría a los responsables ante los jueces." ?]
+
+[? if ending = "irrelevancia" : "...capítulo aparte merece la izquierda histórica que llegó íntegra y sola a la orilla del 88: su programa era el más coherente de la época y su ausencia de la ola, la decisión más estudiada de la ciencia política mexicana, que la usa desde entonces como su ejemplo clásico: en las transiciones, la presencia es la única teoría que vota." ?]
+
 - @snap_foro: Continuar.
 
 @snap_foro
@@ -92,6 +114,14 @@ new-page: true
 [? if ending = "fuerte" : **doctor_atl_fan:** ¿"Qué pasó"? Compa, medio país político de hoy desciende de eso. El detalle que nadie enseña en la escuela — cuando el gobierno "abrió" en el 77, no abrió por buena onda. Abrió porque YA NO PODÍA contar hasta cien sin que le sobrara un millón de votos anulados. ?]
 
 [? if ending = "fuerte" : **tlacuache_rojo:** JAJAJA el corrido de Campa que canta mi abuela dice exactamente eso — "un millón de nombres que el gobierno no contó". ?]
+
+[? if ending = "reconocimiento" : **doctor_atl_fan:** Mi jefa fue representante de casilla en el 88. Todavía guarda su copia del acta, enmarcada. Dice que cuando "se cayó el sistema", en su casilla nadie se movió: "que se caiga; nosotros ya contamos". ?]
+
+[? if ending = "historico" : **doctor_atl_fan:** Lo que nadie te cuenta: el partido grande de ahora existe porque los viejos NUNCA soltaron el registro. Décadas cargando papeles de sótano en sótano para que hubiera dónde fundar algo la noche que hiciera falta. Burocracia heroica, se llama. ?]
+
+[? if ending = "ruptura" : **doctor_atl_fan:** Mi tío estuvo en los Once Días. No habla de eso. Habla del día ANTES: dice que nunca ha vuelto a ver al país así de despierto, y que por eso no se arrepiente. Guarden capturas, que este hilo lo cierran. ?]
+
+[? if ending = "irrelevancia" : **doctor_atl_fan:** Es el partido de mis abuelos. Programa serio, gente seria — y en el 88 se quedaron viendo la ola desde la orilla, por pureza. Mi abuelo dice "coherencia". Mi abuela, que era del CEU, usa otra palabra. ?]
 
 - @snap_final: Continuar.
 
@@ -117,6 +147,22 @@ new-page: true
 [? if ending = "fuerte" : —En la escuela nos dijeron que ustedes cambiaron al país. ?]
 
 [? if ending = "fuerte" : —(se ríe) Nos tardamos veinte años en ganar la primera elección que nos contaron. VEINTE AÑOS, mijo. La gente cree que la historia es el día del triunfo. No. La historia son los diecinueve años, once meses y veintinueve días de antes, con la lluvia y el mimeógrafo descompuesto. Eso apúntalo para tu video. ?]
+
+[? if ending = "reconocimiento" : —¿Y usted qué hizo esa noche, bisabuela? ?]
+
+[? if ending = "reconocimiento" : —Conté, mijo. Todo México contó esa noche. Por eso me río cuando dicen que la democracia nos la regalaron: yo la vi sumarse, columna por columna, con lápiz. ?]
+
+[? if ending = "historico" : —¿Y no le dio coraje que se robaran la elección? ?]
+
+[? if ending = "historico" : —Coraje me dura hasta la fecha. Pero mira: del robo hicimos casa. El seis de julio perdimos un presidente y ganamos un pueblo que ya no se dejó. A la larga, no sé qué valía más. ?]
+
+[? if ending = "ruptura" : —¿Y usted estuvo en los Once Días, bisabuela? ?]
+
+[? if ending = "ruptura" : —(silencio) ...Apunta nomás esto: que nadie te diga que fue locura. Fue la cordura más cara de mi vida. Y apunta los nombres, que para eso llevamos siempre la lista. ?]
+
+[? if ending = "irrelevancia" : —¿Y por qué ustedes no le entraron a la ola del 88? ?]
+
+[? if ending = "irrelevancia" : —Teníamos razones, mijo. Muy buenas. Tan buenas que todavía las repito solita en la cocina, a ver si convencen a las paredes. ?]
 
 - @terminar: Fin.
 

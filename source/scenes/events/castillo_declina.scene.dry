@@ -1,0 +1,36 @@
+title: La declinación
+new-page: true
+subtitle: Junio de 1988
+tags: event
+view-if: year = 1988 and month = 6 and pms = 1
+priority: 3
+max-visits: 1
+
+= La declinación
+
+The arithmetic has become unbearable and Heberto Castillo carries it personally: the opposition vote is dividing between two lefts, and the wave has chosen its name. Polls do not exist in this Republic, but plazas can be counted, and the plazas have voted early.
+
+He comes to the leadership before deciding — twenty years since Lecumberri, six months a candidate, the unified left's banner finally in his engineer's hands — and puts the question on the table with his usual terrible simplicity: *¿declino, o divido?*
+
+- @ceder: Cede the candidacy to Cárdenas, cleanly. History is at the door; hold it open.
+- @negociar_cesion: Cede — for terms: the program's spine adopted, senate candidacies, the Movement's registro as a pillar of the front, not a passenger.
+- @sostener: Hold the candidacy. The left's independence was not built over sixty years to be donated to a general's son in an election year.
+
+@ceder
+choose-if: fdn = 1
+unavailable-subtitle: Ceder hacia una ola con la que no se han construido puentes no es política; es naufragio.
+on-arrival: political_capital += 4; sup_students += 2; fac_ortodoxos -= 3; ax_nacpop += 3
+
+He announces it on television with the dryness he reserves for load calculations: the candidacy is withdrawn in favor of Cuauhtémoc Cárdenas, because Mexico matters more than the sigla. For a generation of the left it is the hardest sentence ever spoken into a microphone, and the most adult. The front is whole now. July will test what whole means.
+
+@negociar_cesion
+choose-if: fdn = 1 and cd_rel >= 2 and political_capital >= 15
+unavailable-subtitle: Poner condiciones exige puentes profundos y capital político; falta al menos uno.
+on-arrival: political_capital -= 5; fdn = 2; sup_students += 2; unity += 2; ax_nacpop += 2
+
+Three weeks of kitchens and drafts: the program planks initialed, the candidacies slated, the registro's place codified. When Castillo declines, he reads the agreement's headings aloud on camera — the left arrives at the front as founder, not furniture. The engineers on both sides shake hands like men who have load-tested the bridge.
+
+@sostener
+on-arrival: fdn = 0; unity += 3; fac_ortodoxos += 4; sup_students -= 3; political_capital -= 3
+
+The candidacy holds; the argument is honorable and will be footnoted forever: independence, program, the long game. The wave rolls past regardless, gathering everything loose — including, by July, a painful share of your own voters, who love the Party and are voting, this once, for their grandfather's ghost.

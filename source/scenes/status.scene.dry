@@ -85,6 +85,12 @@ Definición ideológica: [? if ax_nacpop >= 10 : nacional-popular — la Revoluc
 
 Cuestión soviética: [? if ax_sovietico >= 10 : alineamiento con Moscú ?][? if ax_sovietico >= -9 and ax_sovietico <= 9 : equilibrio incómodo ?][? if ax_sovietico <= -10 : independencia declarada — herejes con carnet ?]
 
+**El clima de las ideas**
+
+Hegemonía neoliberal: [+ clima_neoliberal : fuerza +][? if clima_neoliberal >= 50 : — el mercado se ha vuelto sentido común; nadar contra eso cuesta clases medias ?]
+
+Prestigio del socialismo: [+ prestigio_socialismo : fuerza +][? if prestigio_socialismo < 40 : — la palabra misma pierde jóvenes; la batalla de las ideas no espera ?]
+
 **Relaciones**
 
 Con los reformistas del PRI: [+ pri_reformist_rel : relacion +]

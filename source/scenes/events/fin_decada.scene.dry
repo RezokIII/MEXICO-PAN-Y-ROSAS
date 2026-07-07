@@ -1,6 +1,6 @@
 title: Veinte años
 new-page: true
-subtitle: Febrero de 1988 — fin del contenido jugable (por ahora)
+subtitle: Febrero de 1988 — vísperas
 tags: event
 view-if: year = 1988 and month = 2
 priority: 3
@@ -18,9 +18,10 @@ MÉXICO, D.F., febrero de 1988 —
 
 The campaign is in the plazas: Cárdenas in La Laguna drawing crowds the press declines to count, Castillo working the union halls, Salinas touring a country that has stopped applauding, and in every district office of the Comisión, Bartlett's men preparing July's arithmetic. Twenty years since the plaza of Tlatelolco — and five months from the night the system will have to choose between counting and surviving.
 
-This is where the playable road ends, for now: the eve. The endgame — the campaign, the sixth of July, and everything after — is the next and final chapter. Time to take stock of what October's orphans bring to it.
+The eve. Twenty years of work — members, casillas, alliances, the list — are about to be weighed on a single July night. The leadership takes stock of what October's orphans bring to the battle.
 
-- @balance: El balance.
+- @balance: El balance — y a la campaña.
 
 @balance
-go-to: finale
+
+The inventory is read without adjectives: [? if fuerza_final >= 95 : the Movement arrives strong — a real force with real infrastructure, and the wave rising to meet it. ?][? if fuerza_final >= 60 and fuerza_final < 95 : the Movement arrives standing — enough built to matter, not enough to be safe. ?][? if fuerza_final < 60 : the Movement arrives thin — twenty years distilled into too few hands. The wave may carry others. ?] Five months to the sixth of July.

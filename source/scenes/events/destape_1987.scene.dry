@@ -5,7 +5,7 @@ tags: event
 view-if: year = 1987 and month = 10
 priority: 3
 max-visits: 1
-on-arrival: destape_phase = 4; pri_tecnicos += 10; pri_politicos -= 5; cd_formed = 1
+on-arrival: destape_phase = 4; pri_tecnicos += 10; pri_politicos -= 5; cd_formed = 1; clima_neoliberal += 4
 
 = El destape roto
 

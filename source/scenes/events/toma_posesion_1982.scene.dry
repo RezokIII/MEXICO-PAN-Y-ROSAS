@@ -5,7 +5,7 @@ tags: event
 view-if: year = 1982 and month = 12
 priority: 3
 max-visits: 1
-on-arrival: presidente = "De la Madrid"; gobernacion = "Bartlett"; sexenio_year = 1; presidente_cooptacion = 30; presidente_represion = 45; pri_tecnicos += 10; pri_politicos -= 5; destape_phase = 0; capital_extranjero += 6
+on-arrival: presidente = "De la Madrid"; gobernacion = "Bartlett"; sexenio_year = 1; presidente_cooptacion = 30; presidente_represion = 45; pri_tecnicos += 10; pri_politicos -= 5; destape_phase = 0; capital_extranjero += 6; clima_neoliberal += 8
 
 = La toma de posesión
 

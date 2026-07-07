@@ -1,0 +1,28 @@
+title: El día siguiente
+new-page: true
+subtitle: 1989
+tags: event
+view-if: year = 1989 and month = 5
+priority: 3
+max-visits: 1
+on-arrival: {!
+if (Q.resultado_88 == 1) { Q.ending = "reconocimiento"; }
+else if (Q.respuesta_88 == 3) { Q.ending = "ruptura"; }
+else if (Q.fdn >= 1) { Q.ending = "historico"; }
+else { Q.ending = "irrelevancia"; }
+!}
+
+= El día siguiente
+
+[? if ending = "reconocimiento" : December seated a president the ballots actually chose, over a regime broken on its own arithmetic. Nothing is easy afterward — the machine fights from every trench it still holds, the creditors test the new government weekly, and the Movement discovers that architecture is harder than opposition. But the count counted. Sixty years of the perfect dictatorship ended not with a palace taken but with a spreadsheet defended — yours. ?]
+
+[? if ending = "historico" : In January, Salinas — needing a founding act of authority — sends the army for La Quina, the oil union's untouchable boss, and the labor movement learns the new sexenio's grammar in one dawn. And on the fifth of May, in the Zócalo's shadow, the converging currents answer the fraud the only way that compounds: a new party, founded on the registro your Movement carried through everything — the cardenista flood, the socialist tradition, the fronts, the lists, all of it under one roof at last. The fraud stole an election and manufactured its own permanent opposition. ?]
+
+[? if ending = "ruptura" : The eleven days are already legend and evidence: the Republic saw itself stand still, and then saw what the state keeps for such occasions. The lists grew by numbers still being established; the leadership is in prison, in hiding, or in the ground; and yet the state that won is not the state that was — it governs a country that watched, and remembers, and has stopped pretending. Whether the match lit a funeral or a fuse is a question 1994 will begin to answer. The list, all three copies, survived. ?]
+
+[? if ending = "irrelevancia" : The wave broke and receded without you: the fronts fused into their new party around other cores, the registries realigned, and the Movement — intact, coherent, correct — found itself holding its independence like a ticket to a train that had left. The cadres remain; the analysis remains; history's door opened one July night, and the knock was answered from another room. ?]
+
+- @legado: El legado.
+
+@legado
+go-to: finale
