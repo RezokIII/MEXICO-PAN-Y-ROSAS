@@ -1,0 +1,17 @@
+/* La Izquierda Mexicana - party seat colors (append to game.css) */
+/* Chamber render arrives in v0.3; colors defined now per design doc 13.1 */
+
+.seat.pri { fill: #0F7040; }
+.seat.pan { fill: #1B4C8C; }
+.seat.pcm { fill: #C4122F; stroke: var(--border-color); stroke-width: 1.5px; }
+.seat.psum { fill: #C4122F; stroke: var(--border-color); stroke-width: 1.5px; }
+.seat.pms { fill: #C4122F; stroke: var(--border-color); stroke-width: 1.5px; }
+.seat.pps { fill: #8E2043; }
+.seat.parm { fill: #736F3F; }
+.seat.pst { fill: #D97B29; }
+.seat.pfcrn { fill: #D97B29; }
+.seat.prt { fill: #E23B3B; }
+.seat.pdm { fill: #4E4E9E; }
+.seat.pmt { fill: #7A4A21; }
+.seat.fdn { fill: #E6A817; }
+.seat.other { fill: #676767; }

@@ -1,0 +1,38 @@
+title: La elección de 1970
+new-page: true
+subtitle: Julio de 1970
+tags: event
+view-if: year = 1970 and month = 7
+priority: 3
+max-visits: 1
+on-arrival: destape_phase = 4
+face-image: img/echeverria_campana.jpg
+
+= La elección de 1970
+
+MÉXICO, D.F., julio de 1970 —
+
+Luis Echeverría Álvarez, Secretary of Gobernación on the second of October 1968, will be President of the Republic. The campaign has been a sexenio-long handshake: fifty thousand kilometers, every ejido, every chamber of commerce, promises of an *apertura* — an opening — delivered in the voice of the man who signed the October orders.
+
+You have no registration. You are not on the ballot. You exist, electorally speaking, as a rounding error the Comisión Federal Electoral will not even bother to commit.
+
+The question is what to tell the people who would have voted for you.
+
+- @abstencion: Active abstention. Empty the booths; let the PRI win a country that visibly did not show up.
+- @anular: Spoil the ballots. Write the names of the dead of Tlatelolco across the boleta.
+- @tolerar: Say nothing loudly. If this apertura is real, someone should be positioned to walk through it.
+
+@abstencion
+on-arrival: eleccion70_stance = 1; ax_electoral -= 5; sup_students += 4; pri_reformist_rel -= 5; political_capital += 3
+
+The brigades paint it on walls: NO VOTES — a crime, technically, which is the point. Turnout is what it always is, officially. What it was actually, the Comisión knows and will not say, which you count as a small victory of arithmetic.
+
+@anular
+on-arrival: eleccion70_stance = 2; sup_students += 6; expediente += 5; political_capital += 4
+
+They come out of the booths having written names across the boleta: *los del edificio Chihuahua, los del dos de octubre.* Poll workers — PRI men, all of them — find they cannot quite meet each other's eyes while stacking the annulled ballots. Nothing changes. Something changes.
+
+@tolerar
+on-arrival: eleccion70_stance = 3; ax_electoral += 5; pri_reformist_rel += 8; sup_students -= 6; fac_nueva_izquierda -= 5
+
+The Party says little, which in Mexico is a language. Within a year there will be professorships offered, editorial pages opened, scholarships to study abroad. The students notice who is silent. In the corridors they begin using a word for it that will take ten years to wash off.

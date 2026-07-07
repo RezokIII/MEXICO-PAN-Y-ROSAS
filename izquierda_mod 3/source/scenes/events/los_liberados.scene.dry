@@ -1,0 +1,27 @@
+title: Los liberados
+new-page: true
+subtitle: 1970 — las puertas del Palacio Negro se entreabren
+tags: event
+view-if: year = 1970 and month = 8
+priority: 2
+max-visits: 1
+face-image: img/campa_vallejo.jpg
+
+= Los liberados
+
+The president-elect wants a gesture, and the gesture is men. Vallejo first, then Campa: eleven years, and the state hands each of them a release paper as if returning an umbrella.
+
+There will be more — the '68 prisoners, in twos and threes across the next two years, many put on planes to Chile whether they asked or not. Every release is a gift with a ribbon of implication: *the new sexenio is generous. Note who is generous. Note what gratitude costs.*
+
+- @recibir: Receive them with a public act. Let the city see who is coming home.
+- @discreto: Quietly. The DFS photographs every abrazo at that gate.
+
+@recibir
+on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; organizers += 1; sup_students += 5; sup_workers += 3; political_capital += 4; expediente += 6; presidente_cooptacion += 5
+
+The hall is full, the speeches short. Campa says thirteen words about the pension tables of the railway workers and sits down to the longest ovation the Party has heard since the thirties. Somewhere in Bucareli, a functionary adds a page to a file and a line to a budget: these people can be moved by gratitude. Worth testing.
+
+@discreto
+on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; organizers += 1; political_capital += 1
+
+Two cars, a side street, coffee in a kitchen in Colonia Guerrero. Campa asks for the membership figures before he asks for the news. Vallejo asks for the railway figures. Neither man asks about the men who put them inside, which is its own kind of report on their condition.
