@@ -1,0 +1,104 @@
+title: El legado
+new-page: true
+go-to: slide_logros
+
+@slide_logros
+new-page: true
+
+= Lo que fue
+
+[? if ending = "aniquilacion" : El Partido Comunista Mexicano dejó de existir como organización nacional en algún momento que ni sus enemigos supieron fechar. No hubo comunicado final; las organizaciones no mueren de un tiro sino de mil bajas sin funeral. Sus archivos — los que la DFS no capturó — durmieron en tres sótanos de tres ciudades, esperando historiadores que tardarían décadas. ?]
+
+[? if ending = "debil" : El Movimiento sobrevivió, que en este país y en esta década es un verbo transitivo: sobrevivió A la guerra sucia, AL charrismo, A la charola. Quedó pequeño, golpeado, con más mártires que militantes — pero con la lista intacta, el periódico saliendo, y en tres o cuatro rincones del país, gente que no se vendió. ?]
+
+[? if ending = "media" : El Movimiento llegó a 1977 siendo algo que en 1968 parecía imposible: una organización nacional real — presente en las fábricas del Valle de México, en la Montaña de Guerrero, en las normales y las universidades, con cuadros probados y una prensa que el régimen leía con atención profesional. No era poder. Era, por primera vez en una generación, la posibilidad del poder. ?]
+
+[? if ending = "fuerte" : Lo que salió de la década nadie lo había presupuestado, y Bucareli menos que nadie: una izquierda de masas — minoritaria aún, pero de masas — con implantación obrera real pese a don Fidel, base campesina en tres estados, la generación del 68 y la del CEU por venir formadas en sus filas, y una simpatía nacional que las encuestas del régimen (las secretas, las de Gobernación) ya no podían redondear a cero. La reforma política que se redactaba en 1977 no fue una concesión graciosa: fue un reconocimiento de fuerza. La de ustedes. ?]
+
+[? if memorial >= 6 : La lista tiene [+ memorial +] nombres añadidos en estos años. Se conservó completa: nombre, fecha, esquina. Ninguna de las tres copias cayó. ?]
+[? if memorial >= 1 and memorial <= 5 : La lista tiene [+ memorial +] nombres añadidos en estos años. Pocos, para la década que fue. Los suficientes para no dormir igual. ?]
+
+- @slide_faltas: Continuar.
+
+@slide_faltas
+new-page: true
+
+= Lo que no fue
+
+[? if postura_guerrilla = 1 : El deslinde de la vía armada mantuvo al Partido vivo y legal-en-espera — y dejó a la generación más brava de la época morir sola en las sierras y las casas de seguridad. Si había otro camino, nadie lo encontró a tiempo. Los corridos no perdonan y las actas tampoco. ?]
+[? if postura_guerrilla = 2 : La ambigüedad calculada resultó exactamente eso: calculada por ambos lados. Ni la DFS los perdonó, ni la guerrilla los abrazó. El alambre se caminó — pero un alambre no es un puente. ?]
+[? if postura_guerrilla = 3 : Los canales discretos salvaron vidas que ningún archivo contará, y costaron una hipoteca de expediente que se paga con intereses. Cuando la historia se escriba, ese renglón no aparecerá — que era el punto. ?]
+[? if postura_guerrilla = 0 : Sobre la cuestión armada el Movimiento nunca dijo nada, que fue su manera de decirlo todo. El silencio fue la única línea que se ejecutó a la perfección. ?]
+
+[? if charrismo >= 80 : La muralla charra terminó la década intacta. Don Fidel enterró a otro desafío y siguió fumando; la clase obrera siguió organizada por el Estado contra sí misma. La cuenta pendiente más grande del siglo mexicano sigue pendiente. ?]
+[? if charrismo < 80 : La muralla charra terminó la década agrietada — no rota, pero agrietada a la vista de todos, y las murallas que se agrietan una vez se agrimensuran distinto para siempre. ?]
+
+[? if registro = 0 : Y la puerta electoral quedó sin abrir: sin registro, un millón de manos escribiendo nombres que la Comisión quema sin leer. Lo que la reforma de 1977 haga con esa puerta, otros lo jugarán. O ustedes, en la siguiente década. ?]
+
+- @snap_libro: Continuar.
+
+@snap_libro
+new-page: true
+
+= Instantánea: un libro, 2014
+
+*(De "El siglo de las izquierdas en México", Fondo de Cultura Económica, 2014 — capítulo 7, página al azar:)*
+
+[? if ending = "aniquilacion" : "...para 1977 el viejo partido era ya materia de tesis doctorales más que de informes policiales. La pregunta que organiza este capítulo no es por qué desapareció — las causas sobran — sino por qué su desaparición importó tanto: durante medio siglo había sido el único depósito institucional de una memoria que el Estado necesitaba inexistente. Cuando el depósito cerró, la memoria pasó a los particulares: madres, viudas, maestros de primaria con cuadernos. Tardaría veinte años en volver a encontrar local." ?]
+
+[? if ending = "debil" or ending = "media" : "...la historiografía ha sido injusta con esa década corta (1968-1977). Vista desde el 88, parece apenas un prólogo; vista desde adentro, fue una acumulación primitiva de lo político: cada asamblea en Nezahualcóyotl, cada sección magisterial disputada, cada lista de desaparecidos conservada contra toda razón práctica, constituyó el capital con que la izquierda llegó — flaca pero viva — a la puerta que 1977 abrió a medias. Los protagonistas de este libro no sabían que eran un prólogo. Trabajaban como si fueran el libro entero." ?]
+
+[? if ending = "fuerte" : "...conviene recordar que nada de ello estaba escrito. En octubre de 1968 la izquierda mexicana era cinco mil militantes con las oficinas selladas y los cuadros presos. Que una década después fuera la fuerza que obligó al Estado a la reforma — que Reyes Heroles redactara Chilpancingo, en buena medida, mirando por encima del hombro hacia ella — constituye uno de los raros casos latinoamericanos en que una organización derrotada en la plaza rehízo el tablero sin tomar un solo palacio. Cómo lo hizo es el asunto de los tres capítulos siguientes." ?]
+
+- @snap_foro: Continuar.
+
+@snap_foro
+new-page: true
+
+= Instantánea: un hilo, 2019
+
+**ForoMéxico / Historia / ¿Neta qué pasó con la izquierda de los 70?**
+
+**tlacuache_rojo:** Mi abuela dice que ella escondió el mimeógrafo del partido en su azotea en el 71. ¿Alguien más tiene historias así o mi abuela me está choreando?
+
+[? if ending = "aniquilacion" : **doctor_atl_fan:** No te chorea. Había toda una red. Se la comieron viva entre la DFS y las broncas internas. Mi tío dice que lo más triste no fue la represión sino que al final ya no quedaba a quién contarle. ?]
+
+[? if ending = "aniquilacion" : **moderador_charro:** Hilo cerrado por política. Ya saben las reglas. ?]
+
+[? if ending = "debil" or ending = "media" : **doctor_atl_fan:** Mi papá vendía el periódico afuera de la SEP. Decía que eran cuatro gatos pero que los cuatro gatos tenían LA LISTA. Hoy esa lista está en el museo de la memoria, por si quieren llorar tantito. ?]
+
+[? if ending = "debil" or ending = "media" : **ana.sin.acentos:** Lo loco es que medio movimiento social de hoy sale de ahí. Rascas cualquier sindicato democrático o comité de colonia y abajo hay un viejito de esos. ?]
+
+[? if ending = "fuerte" : **doctor_atl_fan:** ¿"Qué pasó"? Compa, medio país político de hoy desciende de eso. El detalle que nadie enseña en la escuela — cuando el gobierno "abrió" en el 77, no abrió por buena onda. Abrió porque YA NO PODÍA contar hasta cien sin que le sobrara un millón de votos anulados. ?]
+
+[? if ending = "fuerte" : **tlacuache_rojo:** JAJAJA el corrido de Campa que canta mi abuela dice exactamente eso — "un millón de nombres que el gobierno no contó". ?]
+
+- @snap_final: Continuar.
+
+@snap_final
+new-page: true
+
+= Instantánea: una transcripción, 2023
+
+*(Transcripción automática, video: "Entrevisté a mi bisabuela sobre el 68" — 340 mil vistas)*
+
+—¿Y usted tenía miedo, bisabuela?
+
+—Todos los días, mijo. El miedo no era lo raro. Lo raro era la gente que hacía las cosas con todo y miedo.
+
+[? if ending = "aniquilacion" : —¿Y valió la pena, si al final se acabó? ?]
+
+[? if ending = "aniquilacion" : —(pausa larga en el video) ...Se acabó el aparato, mijo. Los aparatos se acaban. Lo que hicimos con las manos ahí anda todavía, nomás que ya no trae credencial. Tú, por ejemplo. Tú me estás preguntando. Eso también lo hicimos nosotros. ?]
+
+[? if ending = "debil" or ending = "media" : —¿Y sí sirvió de algo? ?]
+
+[? if ending = "debil" or ending = "media" : —Mira, cada nombre que apuntamos, alguien lo buscó después. Cada nombre. Cuando abrieron los archivos, las familias llegaban con nuestras listas, porque las del gobierno mentían. Sirvió. Tardó cuarenta años, pero sirvió. La paciencia también es una forma de la política, nomás que esa no sale en las fotos. ?]
+
+[? if ending = "fuerte" : —En la escuela nos dijeron que ustedes cambiaron al país. ?]
+
+[? if ending = "fuerte" : —(se ríe) Nos tardamos veinte años en ganar la primera elección que nos contaron. VEINTE AÑOS, mijo. La gente cree que la historia es el día del triunfo. No. La historia son los diecinueve años, once meses y veintinueve días de antes, con la lluvia y el mimeógrafo descompuesto. Eso apúntalo para tu video. ?]
+
+- @terminar: Fin.
+
+@terminar
+go-to: game_over

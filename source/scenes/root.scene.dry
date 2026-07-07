@@ -76,6 +76,8 @@ Q.huelgas = 4;
 Q.burguesia_estado = 55;
 Q.gran_capital = 28;
 Q.capital_extranjero = 17;
+Q.ending = "";
+Q.fuerza_final = 0;
 
 // time elapsed (in months)
 Q.time = 1;

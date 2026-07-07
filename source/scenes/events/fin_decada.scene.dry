@@ -1,0 +1,26 @@
+title: Nueve años
+new-page: true
+subtitle: Julio de 1977 — fin del contenido jugable (por ahora)
+tags: event
+view-if: year = 1977 and month = 7
+priority: 3
+max-visits: 1
+on-arrival: {!
+Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital + Math.round(Q.unity / 2) - Q.memorial;
+if (Q.fuerza_final >= 95) { Q.ending = "fuerte"; }
+else if (Q.fuerza_final >= 60) { Q.ending = "media"; }
+else { Q.ending = "debil"; }
+!}
+
+= Nueve años
+
+MÉXICO, D.F., julio de 1977 —
+
+In Chilpancingo this spring, Reyes Heroles said the words the Republic was built to never say: the state will widen the arena. A reform is drafting — registration, seats, the door ajar. What walks through it, and how, is the next decade's story.
+
+This is where the playable road ends, for now. Nine years since the plaza: time to take stock of what October's orphans built.
+
+- @balance: El balance.
+
+@balance
+go-to: finale

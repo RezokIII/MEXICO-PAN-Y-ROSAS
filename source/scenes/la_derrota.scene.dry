@@ -12,4 +12,5 @@ Somewhere a teacher keeps a membership card at the bottom of a drawer. Somewhere
 - @fin: Fin.
 
 @fin
-go-to: game_over
+on-arrival: ending = "aniquilacion"
+go-to: finale
