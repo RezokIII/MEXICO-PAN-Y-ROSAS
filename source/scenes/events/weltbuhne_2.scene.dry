@@ -5,7 +5,7 @@ view-if: year = 1931 and month >= 11 and weltbuhne_seen = 1 and not weltbuhne_dr
 max-visits: 1
 on-arrival: weltbuhne_conclusion = 1
 face-image: img/weltbune.jpg
-tags: event
+tags: weimar_event
 go-to: weltbuhne_dropped if judicial_reform >= 3; weltbuhne_convicted if judicial_reform < 3
 
 = The Weltbühne Trial, Conclusion

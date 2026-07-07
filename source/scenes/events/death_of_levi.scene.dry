@@ -3,7 +3,7 @@ view-if: year == 1930 and month >= 2
 frequency: 1000
 max-visits: 1
 on-arrival: levi_dead = 1; n_advisors -= 1 if levi_advisor == 1; levi_advisor = 0
-tags: event
+tags: weimar_event
 new-page: true
 face-image: img/portraits/LeviPaul.jpg
 

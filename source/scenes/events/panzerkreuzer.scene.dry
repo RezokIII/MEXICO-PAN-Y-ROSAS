@@ -1,6 +1,6 @@
 title: Panzerkreuzer A
 subtitle: A political question
-tags: event, govt_affairs
+tags: weimar_event, govt_affairs
 is-card: true
 on-arrival: panzerkreuzer_seen = 1
 face-image: img/panzerkreuzer.jpg

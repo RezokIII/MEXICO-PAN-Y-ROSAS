@@ -5,7 +5,7 @@ on-arrival: economic_growth += 1; budget -= 1; unemployed -= 3 if unemployed > 1
 new-page: true
 max-visits: 1
 face-image: img/portraits/SchleicherKurt.jpg
-tags: event
+tags: weimar_event
 
 = Schleicher's Schemes
 

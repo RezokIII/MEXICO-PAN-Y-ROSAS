@@ -2,7 +2,7 @@ title: The Death of Hermann Müller
 view-if: year = 1931 and month >= 3
 frequency: 1000
 max-visits: 1
-tags: event
+tags: weimar_event
 go-to: pm if chancellor = "Müller"; not_pm if chancellor != "Müller"
 on-arrival: muller_dead = 1; n_advisors -= 1 if muller_advisor == 1; muller_advisor = 0;
 new-page: true

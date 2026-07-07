@@ -4,7 +4,7 @@ view-if: year >= 1929 and year <= 1932 and nsdap_r >= 15 and understanding_enemy
 on-arrival: understanding_enemy_seen = 1
 max-visits: 1
 new-page: true
-tags: event
+tags: weimar_event
 
 = Understanding the Enemy
 

@@ -5,7 +5,7 @@ view-if: year = 1934 and (month = 2 or month = 3) and austrian_parliament_seen
 max-visits: 1
 on-arrival: austrian_civil_war_seen = 1
 face-image: img/schutzbund.png
-tags: event
+tags: weimar_event
 
 = Uprising in Austria
 

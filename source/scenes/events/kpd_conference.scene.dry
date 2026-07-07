@@ -4,7 +4,7 @@ new-page: true
 view-if: kpd_relation >= 50 and wittorf_soviet_union = 1 and year = 1929 and month >= 6 and month <= 8
 max-visits: 1
 on-arrival: kpd_party_conference_seen = 1
-tags: event
+tags: weimar_event
 
 = KPD Party Conference
 

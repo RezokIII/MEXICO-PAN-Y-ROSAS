@@ -1,6 +1,6 @@
 title: Panzerkreuzer B
 subtitle: A political question
-tags: event
+tags: weimar_event
 on-arrival: panzerkreuzer_b_seen = 1
 new-page: true
 face-image: img/panzerkreuzer.jpg

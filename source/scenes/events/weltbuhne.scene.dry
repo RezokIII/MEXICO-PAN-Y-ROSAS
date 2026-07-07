@@ -5,7 +5,7 @@ view-if: year = 1929 and (month = 8 or month = 9) and judicial_reform < 4
 max-visits: 1
 on-arrival: weltbuhne_seen = 1
 face-image: img/weltbune.jpg
-tags: event
+tags: weimar_event
 
 # if the SPD controls the judiciary then they can just cancel the trial (at the expense of DVP relations).
 # If in a grand coalition then the SPD can pressure the coalition to cancel the trial at the expense of dissent.

@@ -16,7 +16,7 @@ if (!Q.works_program) {
 // historical growth: -7.5%
 // moved demographic changes to post_event
 !}
-tags: event
+tags: weimar_event
 view-if: year = 1932 and month = 1 
 priority: 2
 max-visits: 1

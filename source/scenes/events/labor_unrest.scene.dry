@@ -4,7 +4,7 @@ view-if: year = 1928 and month = 12 and spd_in_government and labor_minister_par
 max-visits: 1
 new-page: true
 face-image: img/Kollwitz_Weavers.jpg
-tags: event
+tags: weimar_event
 
 = Labor Unrest
 

@@ -12,7 +12,7 @@ if (Q.budget > 0) {
 Q.economic_growth -= 1;
 // moved demographic changes to post_event
 !}
-tags: event
+tags: weimar_event
 view-if: year = 1930 and month = 1 
 priority: 2
 max-visits: 1

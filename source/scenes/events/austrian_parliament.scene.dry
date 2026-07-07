@@ -5,7 +5,7 @@ view-if: year = 1933 and (month = 3 or month = 4) and ((spd_in_government and fo
 max-visits: 1
 on-arrival: austrian_parliament_seen = 1
 face-image: img/Dollfuss.jpg
-tags: event
+tags: weimar_event
 
 # Must control foreign ministry or have made contact with Austrian socialists.
 

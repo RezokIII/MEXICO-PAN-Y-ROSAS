@@ -1,7 +1,7 @@
 title: May Day, 1929
 new-page: true
 subtitle: A Communist demonstration
-tags: event
+tags: weimar_event
 view-if: year = 1929 and month = 5
 max-visits: 1
 face-image: img/redfront.jpg

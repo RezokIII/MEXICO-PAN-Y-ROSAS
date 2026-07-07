@@ -5,7 +5,7 @@ on-arrival: london_economic_conference_seen = 1
 new-page: true
 max-visits: 1
 go-to: economic_recovery if unemployed < 15; no_recovery if unemployed >= 15
-tags: event
+tags: weimar_event
 
 = London Economic Conference
 

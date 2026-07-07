@@ -1,7 +1,7 @@
 title: Nazi March in Altona
 new-page: true
 subtitle: An SA demonstration, with the potential for violence
-tags: event
+tags: weimar_event
 view-if: year == 1932 and month == 6 and sa_banned == 0 and spd_prussia == 1
 max-visits: 1
 
