@@ -37,7 +37,7 @@ if (Q.reichswehr_goal && !Q.reichswehr_goal_completed) {
 }
 !}
 new-page: true
-tags: event
+tags: weimar_event
 go-to: goals_success if kpd_goals_completed; goals_failed if not kpd_goals_completed
 
 = KPD Goals

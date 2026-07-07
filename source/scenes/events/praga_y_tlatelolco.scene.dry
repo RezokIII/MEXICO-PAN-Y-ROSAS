@@ -5,7 +5,6 @@ tags: event
 view-if: year = 1968 and month = 10
 priority: 3
 max-visits: 1
-face-image: img/tlatelolco.jpg
 
 = Praga y Tlatelolco
 

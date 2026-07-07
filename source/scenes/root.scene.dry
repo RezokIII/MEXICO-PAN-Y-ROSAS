@@ -6,7 +6,9 @@ go-to: post_event if started = 1; start_menu if started = 0
 new-page: true
 go-to: start_menu_2
 
-= Social Democracy: An Alternate History
+= México: Pan y Rosas
+
+La izquierda mexicana, 1968-1988. Un mod de Social Democracy: An Alternate History.
 
 @start_menu_2
 
@@ -519,9 +521,9 @@ Q.n_elections = 0;
 Q.no_majority_elections = 0;
 // elections are not on a timer, but rather there is an indicator for whether you're in an electoral cycle.
 Q.in_election = 1;
-Q.next_election_year = 1928;
-Q.next_election_month = 5;
-Q.next_election_time = 5;
+Q.next_election_year = 1979;
+Q.next_election_month = 7;
+Q.next_election_time = 99999;
 // government affairs timers
 Q.agricultural_policy_timer = 0;
 Q.domestic_enemies_timer = 0;
@@ -550,12 +552,12 @@ Q.march_on_berlin_timer = 0;
 
 
 // all the initial advisors are centrists.
-Q.wels_advisor = 1; // Otto Wels
-Q.muller_advisor = 1; // Hermann Müller
+Q.wels_advisor = 0; // Otto Wels
+Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
 // okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
 Q.crispien_advisor = 0; // Arthur Crispien
-Q.hilferding_advisor = 1; // Rudolf Hilferding
+Q.hilferding_advisor = 0; // Rudolf Hilferding
 
 // left advisors
 Q.sender_advisor = 0; // Toni Sender

@@ -5,7 +5,6 @@ tags: event
 view-if: year = 1968 and month = 11
 priority: 2
 max-visits: 1
-face-image: img/lecumberri.jpg
 
 = El Palacio Negro
 

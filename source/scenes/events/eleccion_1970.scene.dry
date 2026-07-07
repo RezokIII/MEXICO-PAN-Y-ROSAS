@@ -6,7 +6,6 @@ view-if: year = 1970 and month = 7
 priority: 3
 max-visits: 1
 on-arrival: destape_phase = 4
-face-image: img/echeverria_campana.jpg
 
 = La elección de 1970
 

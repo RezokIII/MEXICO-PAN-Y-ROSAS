@@ -5,7 +5,6 @@ tags: event
 view-if: year = 1970 and month = 8
 priority: 2
 max-visits: 1
-face-image: img/campa_vallejo.jpg
 
 = Los liberados
 

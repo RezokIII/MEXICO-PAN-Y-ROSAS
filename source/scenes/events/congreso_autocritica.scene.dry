@@ -5,7 +5,6 @@ tags: event
 view-if: year = 1969 and month = 6
 priority: 2
 max-visits: 1
-face-image: img/congreso.jpg
 
 = La autocrítica
 

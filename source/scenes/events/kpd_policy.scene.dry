@@ -3,7 +3,7 @@ subtitle: The KPD ministers are carrying out their policy portfolios.
 new-page: true
 view-if: (in_popular_front or in_left_front) and (labor_minister_party = "KPD" or economic_minister_party = "KPD" or finance_minister_party = "KPD") and (kpd_policy_timer = 0)
 on-arrival: kpd_policy_timer = 5
-#tags: event
+#tags: weimar_event
 #max-choices: 1
 
 # disable this event for now - the KPD is abstentionist in government. This position is loosely based on Paul Levi's ideas during the Kapp Putsch. A KPD that is willing to support an SPD government would necessarily have some different policy ideas from the Thälmann Stalinist line, so I looked to the earlier Paul Levi KPD as well as the French popular front for ideas.
