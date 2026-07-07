@@ -1,0 +1,19 @@
+title: La vida interna
+new-page: true
+subtitle: Un mes de rutina militante
+on-arrival: month_actions += 1
+is-card: true
+frequency: 15
+tags: movimiento
+
+= La vida interna
+
+Not every month makes history. This one is dues stamps, minutes read and approved, a leaking roof over the mimeograph, and the eternal debate about who left the local unlocked. The Movement's real skeleton is this: the meeting that happens anyway.
+
+- @sostener: Hold the routine together. It is not glamorous. It is the whole thing.
+- @easy_discard
+
+@sostener
+on-arrival: unity += 1; funds += 1
+
+Quorum was reached, barely. The minutes were approved, with one abstention on principle nobody could explain. The roof got patched. In a police state, continuity is a form of victory, and this month the Party continued.

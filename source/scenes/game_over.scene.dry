@@ -144,11 +144,11 @@ Adolf Hitler has taken power in Germany. However, we have rallied the democratic
 
 @no_hitler
 view-if: chancellor != "Hitler" and president != "Hitler" and president != "Göring" and chancellor_party != "NSDAP"
-title: Hitler does not yet control Germany...
+title: El estado de la República...
 tags: endings
 go-to: eg_menu
 
-Hitler does not yet control Germany. [? if chancellor == "Papen" : However, Chancellor Papen's authoritarianism and far-right politics are paving the way for Hitler, or someone like him, to take power. ?] [? if chancellor == "Schleicher" : However, Chancellor Schleicher's authoritarianism and scheming is paving the way for Hitler, or someone like him, to take power. ?][? if resist_coup == 1 and republic_victory == 0 and long_war == 0 and coup_victory == 0 : Given our defeat in the Prussian coup, the far-right appears to be ascendant. ?][? if chancellor == "Brüning" : However, Chancellor Brüning's austerity policies and the continuation of the depression are paving the way for Hitler, or someone like him, to take power. ?]
+[? if ending = "reconocimiento" : Un presidente electo gobierna sobre un régimen fracturado; la transición mexicana comenzó contándose. ?][? if ending = "historico" : Salinas gobierna un país que ya no le cree; frente a él, el partido nuevo — fundado sobre el registro de ustedes. ?][? if ending = "ruptura" : El Estado prevaleció sobre los Once Días; el país que vio no olvida. Las listas sobrevivieron. ?][? if ending = "irrelevancia" : El sistema sigue; la ola pasó; el Movimiento quedó íntegro y a la orilla. ?][? if ending = "aniquilacion" : El sistema sobrevivió a ustedes. Alguien, en alguna azotea, guarda todavía un mimeógrafo. ?]
 
 [? if hitler_deported == 1 : We have deported Hitler back to Austria. Hopefully he will never return. ?]
 
@@ -255,7 +255,7 @@ go-to: eg_menu
 While still uncomfortably high, unemployment levels are nowhere near their peak. This is a success of our economic policy.
 
 @unemployment_reduced_2
-title: Unemployment has been successfully reduced!
+title: La economía al cierre...
 view-if: unemployed < 10 and year >= 1930
 tags: endings
 go-to: eg_menu

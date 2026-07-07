@@ -68,7 +68,9 @@ Duros: [+ pri_duros : fuerza +]
 
 = El Senado de la República
 
-64 de 64 para el PRI. No hay nada que ver aquí. Todavía.
+[? if year <= 1987 : 64 de 64 para el PRI. No hay nada que ver aquí. Todavía. ?]
+[? if year >= 1988 and fdn >= 1 : 60 para el PRI — y 4 del Frente: el DF y Michoacán eligieron los primeros senadores de oposición en la historia de la cámara. La sala ya no es unánime, y las salas que dejan de ser unánimes no vuelven. ?]
+[? if year >= 1988 and fdn = 0 : 64 de 64 para el PRI, todavía — la ola rompió en la otra orilla, y el Senado ni se despeinó. ?]
 
 
 @politics
@@ -149,7 +151,7 @@ Otros y anulados: [+ otros_votes_display +]%
 
 Estudiantes e intelectuales: [+ sup_students +]
 
-Obreros industriales: [+ sup_workers +]
+Obreros industriales: [+ sup_workers +] [? if charrismo >= 50 : (techo charro vigente: la muralla limita el crecimiento) ?]
 
 Electricistas y sindicatos disidentes: [+ sup_electricians +]
 
