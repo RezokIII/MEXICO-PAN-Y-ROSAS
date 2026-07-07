@@ -1,0 +1,32 @@
+title: Cultivar a los reformistas
+new-page: true
+subtitle: El sistema también tiene disidentes; cenan mejor
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 90
+tags: sistema
+
+= Cultivar a los reformistas
+
+Inside the belly of the PRI there are men who read, doubt, and dine — professors turned subsecretarios, historians with cabinet posts, the aperturista current that believes the system must widen or die. They will never be yours. But a channel to them is a channel to the machine's conscience, and machines with consciences hesitate, which is sometimes all you need.
+
+- @cenar: Work the dinners — a professor here, a subsecretario there, arguments over brandy that neither side reports upward.
+- @documentos: Trade paper: your analyses of the countryside for their drafts of what's coming. Information is the only honest currency in Bucareli.
+- @root: The belly digests without you this month.
+- @easy_discard
+
+@cenar
+subtitle: -2 fondos
+choose-if: funds >= 2
+unavailable-subtitle: Hasta la conspiración de sobremesa tiene cuenta.
+on-arrival: funds -= 2; pri_reformist_rel += 3; expediente += 1
+
+The dinner runs long; the disagreements are real and the respect realer. Nothing is promised — these men promise nothing they cannot deny — but when the next crackdown is argued in some carpeted office, one voice at the table will have met you, and found you neither devil nor fool. Policy is made of such accidents.
+
+@documentos
+choose-if: political_capital >= 4
+unavailable-subtitle: Para que te pasen papeles hay que tener papeles que valgan.
+on-arrival: political_capital -= 2; pri_reformist_rel += 2; political_capital += 4
+
+Your Guerrero memorandum — the one with the coffee prices and the disappearances in the same table — comes back annotated in a careful bureaucrat's hand, with a draft decree paperclipped to it that will not be public for months. The exchange rate of truth inside the system is excellent, because the system produces so little of it domestically.

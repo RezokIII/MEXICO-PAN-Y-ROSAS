@@ -1,0 +1,30 @@
+title: Jugar las facciones
+new-page: true
+subtitle: El PRI es una guerra civil con oficinas
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 80
+tags: sistema
+
+= Jugar las facciones
+
+The eternal war inside the party of the eternal peace: políticos against técnicos, duros against aperturistas, every camarilla feeding the columnists cadáveres from the others' closets. A small opposition cannot beat the machine — but it can oil the gears that grind against each other.
+
+- @filtrar_duros: Feed the press what you know about the hard men — the Halcón payrolls, the ranch deeds, the DFS side businesses. Let their rivals finish the work.
+- @aupar_apertura: Amplify the reformers — quote them, debate them respectfully in print, make them look like the only adults. Strength borrowed is still strength.
+- @root: Let them grind unattended.
+- @easy_discard
+
+@filtrar_duros
+subtitle: Riesgo conocido
+choose-if: expediente >= 25
+unavailable-subtitle: Para saber cosas de ellos, primero hay que llevar años de que ellos sepan de ti.
+on-arrival: pri_duros -= 4; represion += 2; expediente += 3; political_capital += 2
+
+The dossier travels three hands before reaching the columnist, arriving clean of fingerprints. The scandal is small, deniable, and lands precisely: a hard man's protégé sacrificed, a budget trimmed, a rival camarilla feasting. The hard men suspect the direction the paper came from — they always suspect correctly — and add a page to their own files.
+
+@aupar_apertura
+on-arrival: pri_aperturistas += 4; pri_reformist_rel += 2; fac_ortodoxos -= 2
+
+The editorial engages the reformers' latest book seriously — praising the diagnosis, disputing the cure — and in the system's strange internal stock market, being taken seriously by the enemy trades at a premium. The ortodoxos ask, reasonably, since when does the Party do favors for functionaries. The answer is: since the functionaries started mattering.

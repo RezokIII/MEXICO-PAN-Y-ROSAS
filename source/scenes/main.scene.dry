@@ -17,6 +17,8 @@ max-cards: 3
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
 
 - @movimiento
+- @sistema
+- @canales
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -39,9 +41,27 @@ max-cards: 4
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
 
 - @movimiento
+- @sistema
+- @canales
 - #advisor
 - @shuffle_leadership_pinned
 
+
+@sistema
+title: El laberinto
+subtitle: Maniobras dentro del sistema
+view-if: time >= 4
+is-deck: true
+
+- #sistema
+
+@canales
+title: Los canales
+subtitle: Coordinación discreta
+view-if: postura_guerrilla >= 2
+is-deck: true
+
+- #canales
 
 @movimiento
 title: El Movimiento

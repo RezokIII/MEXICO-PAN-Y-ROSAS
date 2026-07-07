@@ -1,0 +1,33 @@
+title: La fuente de Bucareli
+new-page: true
+subtitle: Todo aparato tiene hombres con deudas
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 60
+tags: sistema
+
+= La fuente de Bucareli
+
+Somewhere in the DFS's paper intestine sits a man — there is always such a man — with gambling debts, or a sick daughter, or a conscience that survived the ingreso. Through two cutouts and a mailbox, he sells. Not gold: gleanings. Which files moved upstairs this month. Whose name acquired a red tab.
+
+- @pagar_fuente: Pay him. Gleanings have saved more lives than doctrine.
+- @depurar_con_el: Use him for hygiene: learn which of your locals the drawer sees clearest, and go dark exactly there.
+- @root: The mailbox stays empty. Cheaper. Blinder.
+- @easy_discard
+
+@pagar_fuente
+subtitle: -4 fondos
+choose-if: funds >= 4
+unavailable-subtitle: Las fuentes cobran en efectivo, no en teoría del valor.
+on-arrival: funds -= 4; political_capital += 2; represion -= 2
+
+This month's envelope: two names moved to the active list, a warning that the Guadalajara local's phone sings, and — unpriced, terrifying, useful — the observation that a certain colonel asks about you personally now. Forewarned is not forearmed, but it is at least not asleep.
+
+@depurar_con_el
+subtitle: -5 fondos
+choose-if: funds >= 5
+unavailable-subtitle: La higiene fina cuesta más que la información cruda.
+on-arrival: funds -= 5; expediente -= 6
+
+You learn where their light falls brightest, and rearrange the furniture accordingly: the watched local hosts nothing but chess club; the real work migrates two streets over. In Bucareli, a quarter's surveillance product goes quietly worthless, and nobody can say why.

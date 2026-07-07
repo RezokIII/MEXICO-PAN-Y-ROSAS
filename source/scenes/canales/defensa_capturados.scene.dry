@@ -1,0 +1,29 @@
+title: Los capturados
+new-page: true
+subtitle: El que cae vivo todavía puede ser defendido
+on-arrival: month_actions += 1
+max-visits: 30
+is-card: true
+frequency: 60
+tags: canales
+
+= Los capturados
+
+When they take one alive — and lately they take some alive, the better to ask questions — there is a race: the interrogators against habeas corpus, the clandestine prison against the named one. A lawyer arriving loudly within days, with press and family and a writ, can sometimes force a prisoner onto the books. What is on the books is harder to disappear.
+
+- @abogados: Run the race: lawyer, telegram to the family, the name published before the system decides its answer.
+- @distancia_legal: The Party's lawyers cannot appear for combatants without the deslinde bleeding away; send the case sideways to the independent defense committees.
+- @easy_discard
+
+@abogados
+subtitle: -4 fondos
+choose-if: funds >= 4
+unavailable-subtitle: El habeas corpus corre con gastos por delante.
+on-arrival: funds -= 4; political_capital += 2; expediente += 3; represion -= 1
+
+The writ is denied, the second one admitted, the name printed in two papers and read aloud once in the Chamber. On the books, transferred to Lecumberri, alive: not a victory the corridos will sing, but his mother knows where to bring the basket on Sundays, which in this Republic is the whole of the law worth having.
+
+@distancia_legal
+on-arrival: political_capital += 1; guerrilla_meter += 1
+
+The case travels to Rosario's people and the independent committees, with a donation attached and no letterhead. Defensible, deniable — and duly noted in the sierra's long memory, where the distinction between prudence and distance has never impressed anyone under fire.
