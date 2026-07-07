@@ -10,19 +10,25 @@ max-visits: 1
 
 MÉXICO, D.F., diciembre de 1968 —
 
-The Consejo Nacional de Huelga votes itself out of existence. The strike is over; the schools reopen under watch. Two hundred thousand students who learned to run a printing press, hold a brigade meeting, and outrun a granadero now have nowhere to take what they learned.
+On the sixth of December the Consejo Nacional de Huelga votes itself out of existence, in a hall with more empty chairs than delegates. Half its leadership is in Lecumberri. One of its most famous voices, Sócrates Campos Lemus, named names for the cameras within days of his arrest — reading from a script whose author everyone can guess, but the doubt he planted works exactly as designed: every surviving assembly now conducts its business while wondering who else is rehearsed.
 
-Some will go home. Some will go to the Party — warily; they remember who wasn't there. And some are already talking, very quietly, about the sierra.
+The strike is over. The schools reopen under watch, informers thick in the front rows. And two hundred thousand students who spent a summer learning things no Mexican university teaches — how to run a press, how to hold an assembly that actually votes, how to speak to a bus full of strangers, how to outrun a granadero — are dispersing with the knowledge still warm in their hands.
 
-- @reclutar: Open the doors wide. Youth sections, brigades, presses — let the comités walk in as comités.
-- @filtrar: Recruit carefully, one by one. Half these assemblies have a DFS informer taking minutes.
+Some will go home and become the sensible men their fathers wanted. A few take the scholarships that appear, suddenly and generously, for study abroad. Some are asking, warily, about the Party — warily, because they remember July, when the Party told them to be prudent. And some, the ones with dead friends and steady hands, have begun to speak very quietly about geography: about Guerrero, about Chihuahua, about what a man named Gámiz tried at Madera three years ago, on a date some of them have started using as a signature.
+
+- @reclutar: Open the doors wide. Youth sections, brigades, presses — let the comités walk in as comités, banners and bad discipline and all.
+- @filtrar: Recruit carefully, one by one. Half these assemblies have a DFS informer taking minutes, and Campos Lemus proved it.
 
 @reclutar
 on-arrival: cnh_recruited = 1; members += 4; sup_students += 10; fac_nueva_izquierda += 10; expediente += 10; unity -= 4
 
-They come in with their own songs and their own contempt for your hierarchies, and the old cadres' meetings will never be quiet again. Somewhere in Gobernación, a filing cabinet gets a new drawer.
+They come in with their own songs, their own martyrs, and their own perfect contempt for your hierarchies — nineteen-year-olds who correct the Central Committee's Spanish and win the argument. The old cadres' meetings will never be quiet again, and some of the old cadres quietly begin to miss the silence.
+
+But the Party is alive in a way it has not been since the forties: presses running, dues arriving in coins, a youth section that needs restraining rather than reviving. Somewhere in Bucareli, a filing cabinet gets a new drawer, and a clerk types your organization's name at the top of a fresh index.
 
 @filtrar
 on-arrival: cnh_recruited = 2; members += 1; sup_students -= 3; guerrilla_meter += 5; expediente += 3
 
-Careful, correct, cold. The ones you turn away do not stop being angry. A boy from the Poli — nineteen, a good speaker, brother beaten half to death on the second of October — shakes your organizer's hand politely and goes to look for people less careful.
+Careful, correct, cold. Each candidate vouched for by two members, each biography checked against the arrest lists, the Campos Lemus lesson applied with surgical rigor. The informers find the door shut; so does almost everyone else.
+
+The ones you turn away do not stop being angry; they take the anger elsewhere. A boy from the Poli — nineteen, a good speaker, a brother beaten half to death on the second of October — shakes your organizer's hand politely, thanks the Party for its time, and goes to look for people less careful. Years from now, someone will read his name in a newspaper and remember this afternoon.

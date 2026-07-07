@@ -596,56 +596,117 @@ Q.stampfer_advisor = 0; // Friedrich Stampfer
 set-bg: img/map_2.jpg
 new-page: true
 
-> *"Such a general development cannot be attributed to the false tactics of any single party or to the mistakes of individual leaders. On the contrary, the conduct of individual leaders is determined largely by the sentiments of the people as a whole. It would be erroneous, however, to regard the sentiments of the moment as reflecting the natural make-up and character of the people. They are merely the consequence of the special circumstances which have brought about this profound degradation of the entire nation."*
+> *"No queremos olimpiadas, queremos revolución."*
 
- - Karl Kautsky, *Hitlerism and Social Democracy*, 1934
+ - pinta estudiantil, Ciudad de México, 1968
 
-This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
+> *"¿Quién? ¿Quiénes? Nadie. Al día siguiente, nadie."*
 
-For more information on the politics and government of the German Republic, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
+ - Rosario Castellanos, *Memorial de Tlatelolco*
 
-- @1928_easy: Begin (easy difficulty)
-- @1928_main: Begin (normal difficulty)
-- @1928_hard: Begin (hard difficulty)
-- @1928_historical: Begin (historical mode)
+This is a game of history and counter-history. You will lead the Mexican left from the smoke of Tlatelolco toward an election twenty years away, through a state that prefers buying its enemies to burying them, but keeps both instruments oiled. Historical accuracy is taken seriously; where you bend history, the game will bend with you.
+
+The dead in this game were real. They are treated accordingly.
+
+- @1928_easy: Comenzar — vientos favorables (fácil)
+- @1928_main: Comenzar (dificultad normal)
+- @1928_hard: Comenzar — años de plomo (difícil)
+- @1928_historical: Comenzar (modo histórico)
 
 @1928_easy
-on-arrival: difficulty = -1; resources = 4; dues = 3; rb_strength = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; budget = 5;
+on-arrival: difficulty = -1; funds = 30; organizers = 4; unity = 65; represion = 60; expediente = 30
 go-to: 1928_main
 
 @1928_hard
-on-arrival: difficulty = 1; resources = 0; dues = 1; rb_strength = 1000; reformist_dissent = 25; left_dissent = 30; labor_dissent = 25; center_dissent = 25; z_relation = 41; kpd_relation = 16; dvp_relation = 31; budget = 3;
+on-arrival: difficulty = 1; funds = 12; organizers = 2; unity = 45; represion = 80; expediente = 55; fac_ortodoxos = 65
 go-to: 1928_main
 
 @1928_historical
-subtitle: Saving, loading, and polls will be disabled. [? if not achievement_game_completed: Not recommended for a first playthrough. ?]
+subtitle: Saving, loading, and polls will be disabled. Not recommended for a first playthrough.
 on-arrival: {!
 Q.difficulty = 2;
 Q.historical_mode = 1;
-Q.resources = 2;
-Q.dues = 1;
-Q.rb_strength = 2000;
-Q.reformist_dissent = 25;
-Q.left_dissent = 30;
-Q.labor_dissent = 25;
-Q.center_dissent = 25;
-Q.z_relation = 41;
-Q.kpd_relation = 16;
-Q.dvp_relation = 31;
-Q.budget = 2;
+Q.funds = 12;
+Q.organizers = 2;
+Q.unity = 45;
+Q.represion = 80;
+Q.expediente = 55;
+Q.fac_ortodoxos = 65;
 this.state.disableSaves = true;
 !}
 go-to: 1928_main
 
 @1928_main
-audio: shuffle music/1928_1930/FruhlingsliedMendelssohn.mp3 music/1928_1930/AUF_HOHEN_BERGEN_noise_reduced.mp3 music/1928_1930/MarekWeber.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
+new-page: true
+
+= El milagro y la jaula
+
+MÉXICO, 1968 —
+
+For a generation the numbers have been a national religion: the economy growing six percent a year since the war, the peso fixed at 12.50 to the dollar since 1954, steel at Monclova, dams on the Grijalva, and in two weeks the first Olympic Games ever held in Latin America. They call it *el milagro mexicano*, and it is not entirely a lie.
+
+The cage is older than the miracle. One party has governed since 1929 under three successive names; it has never lost an election it counted. The President rules as a six-year monarch — the *sexenio* — and names his successor by pointing, the *dedazo*, a ritual conducted in silence and denied while it happens. The unions belong to the state through the CTM and don Fidel Velázquez, who has outlasted five presidents. The press prints what it likes, on paper only the state sells.
+
+The system does not persecute its opposition, as a rule. It digests it. There is a word for every price: *la charola*.
+
+- @intro_precursores: Continuar.
+
+@intro_precursores
+new-page: true
+
+= Los precursores
+
+Others tested the bars before you.
+
+In 1958 the teachers of Othón Salazar filled the Zócalo asking for a raise and a union of their own; the granaderos clubbed them onto stretchers. That winter Demetrio Vallejo's railwaymen led the greatest strike wave since the Revolution — and in the spring of '59 the army occupied the yards, ten thousand were arrested in a week, and Vallejo and Valentín Campa disappeared into Lecumberri under Article 145 of the penal code: *disolución social*, the crime of dissolving society. They are still there, nine years later.
+
+On May 23, 1962, the state's gunmen took Rubén Jaramillo — the last Zapatista, amnestied three times, embraced by a president — with his pregnant wife Epifania and three of his sons, and executed them among the ruins of Xochicalco. On September 23, 1965, a schoolteacher named Arturo Gámiz led thirteen against the army barracks at Madera, Chihuahua; the bodies were displayed like hunting trophies. In 1965 even the young doctors struck, in their white coats; broken all the same.
+
+Each generation learns the lesson separately: the ballot is counted by the government, the strike is broken by the army, and the mountain kills you slowly.
+
+- @intro_verano: Continuar.
+
+@intro_verano
+new-page: true
+
+= El verano
+
+It began with nothing: July 22, a street fight between rival vocational schools, the kind the city sees every week. The granaderos went in swinging, then went into the schools after the students, and the fight changed subject. On July 30 an army bazooka blew apart the eighteenth-century door of San Ildefonso, and the National University understood it was next.
+
+By August the movement had a shape no one had planned: brigades in the markets and buses, assemblies that voted, and six demands read aloud everywhere — free the political prisoners, repeal Article 145, disband the granaderos, name the responsible officials. On August 27, four hundred thousand people marched to the Zócalo, the largest opposition demonstration in the history of the Republic. On September 13 they marched again in total silence, mouths taped, so no one could invent their slogans for them.
+
+The President, in his September address, said he did not wish to be forced into what he would be forced into. On September 18 the army occupied University City. The rector resigned in protest. The Olympics were twenty-four days away.
+
+- @intro_octubre: Continuar.
+
+@intro_octubre
+new-page: true
+
+= El dos de octubre
+
+Plaza de las Tres Culturas, Tlatelolco: Aztec ruins, a colonial church, and public housing towers around a square where perhaps ten thousand gathered at dusk on October 2 to hear the speakers on the third floor of the Chihuahua building.
+
+At 6:10 a helicopter dropped two flares over the plaza. Men in civilian clothes, each wearing a single white glove on the left hand — the Batallón Olimpia — sealed the exits and opened fire, and the army firing back into the crowd completed the design: a crossfire in which the dead would be everyone's fault and no one's. It rained that night. The bodies were carried out under the rain; the prisoners were stripped against the colonial stones; the plaza was hosed clean before morning.
+
+The government counted "some twenty" dead and jailed the survivors as the murderers. The mothers who went from hospital to morgue with photographs counted otherwise, and are counting still. Ten days later, doves of peace were released over the Olympic stadium, and the world applauded.
+
+- @intro_partido: Continuar.
+
+@intro_partido
+new-page: true
+
+= Lo que queda
+
+You are what remains of the Mexican Communist Party: some five thousand militants, a newspaper that prints when it can, no electoral registration, and a martyrology longer than the membership list. The rail cadres have been in prison since '59. The offices were raided in September; the government's press has assigned you a starring role in a movement you did not lead and could barely follow.
+
+And Moscow is displeased: in August, weeks before Tlatelolco, this party did what almost no communist party in the Americas dared — it condemned the invasion of Czechoslovakia. You are heretics to the government and heretics to the church of your own faith, in the same season.
+
+Around you is everything October left: a generation that learned to organize and has nowhere to take it, prisons full of the best people of their age, a country that watched. Twenty years from now, on July 6, 1988, there will be an election. Nothing about that night is written yet.
+
+- @comenzar: Octubre de 1968. Comenzar.
+
+@comenzar
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
-= 1928
-
-It is a bright time for German democracy. After a period of struggle, inflation is finally under control, and the economy is expanding steadily. In foreign policy, we have reached agreements with the Western powers and the Soviet Union that might make genuine peace a reality. 
-
-Now, the task of Social Democracy is to prepare for the next election. The bourgeois-right government of Wilhelm Marx is unpopular, and we stand to gain. Perhaps the next government will have a socialist majority.
-
-
+La ciudad huele a lluvia y a papel quemado.

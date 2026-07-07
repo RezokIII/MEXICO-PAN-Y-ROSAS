@@ -10,25 +10,27 @@ max-visits: 1
 
 MÉXICO, D.F., octubre de 1968 —
 
-Two invasions in one season. In August, Soviet tanks entered Prague, and the Party — your party — did what almost no communist party in Latin America dared: it condemned them. In October, the tanks were Mexican, the plaza was Tlatelolco, and the dead were your students.
+Two invasions in one season, and your party stood in the path of both.
 
-The government's newspapers say the Party organized the "provocation." The Party could not have organized a picnic that week: half the Central Committee is in Lecumberri, the offices are sealed, and the presses are in a basement in Colonia Obrera.
+In August, when Warsaw Pact tanks entered Prague, the Central Committee did what almost no communist party in the Americas dared: it put its objection in print. *La Voz de México* ran the resolution before Moscow's couriers could argue, and for the first time since 1919 the Mexican party publicly refused a Soviet act of state. The old militants signed with their teeth clenched. Some did not sign.
 
-Moscow has sent a note. It is not a note of condolence. It concerns August.
+Then October. The government needed authors for Tlatelolco and chose you: Excélsior's tame columnists discovered "foreign agitators," the Attorney General discovered a "communist conspiracy," and on the strength of it the DFS took the Party's offices apart drawer by drawer — though half the Central Committee had been in Lecumberri since September, arrested in advance of the crime they were later said to have planned. The presses are in a basement in Colonia Obrera now. The treasury is a shoebox.
 
-- @doblar: Reaffirm the condemnation of the invasion of Czechoslovakia. Socialism cannot ride in on tanks — not in Prague, not in Tlatelolco.
+This morning a note arrived from the Soviet embassy. It is not a note of condolence. It concerns August, and it mentions, in passing, the subsidy — which was always smaller than the legend of *el oro de Moscú*, but which pays for newsprint, and newsprint is life.
+
+- @doblar: Reaffirm the condemnation of Czechoslovakia. Socialism cannot ride in on tanks — not in Prague, not in Tlatelolco.
 - @retirar: Quietly soften the August line. This is no moment to lose the only friends with money.
 
 @doblar
 on-arrival: praga_line = 1; ax_sovietico -= 10; fac_renovadores += 8; fac_ortodoxos -= 5; sup_students += 5; funds -= 5
 
-The statement runs in what remains of the press: one paragraph, two tanks, one sentence — *"El socialismo no llega en tanque."* The old militants grumble. The students, the ones still willing to be seen with you, read it twice.
+The statement runs in what remains of the press: one paragraph, two cities, one sentence the typesetter centers on his own initiative — *"El socialismo no llega en tanque."* Old cadres who buried comrades in the forties grumble that the Party is auditioning for the imperialists' applause. But in the corridors of Filosofía y Letras, where your name has been a curse word since the Party hesitated in July, someone reads it aloud twice.
 
-Moscow's subsidy will be "reviewed."
+The embassy's answer is administrative, which is how empires sulk: the subsidy will be "reviewed." Buy your own paper.
 
 @retirar
 on-arrival: praga_line = 2; ax_sovietico += 8; fac_ortodoxos += 8; fac_renovadores -= 6; sup_students -= 6; funds += 5
 
-The August resolution is "clarified" into fog. The old militants nod. In the university corridors, someone has already painted it on a wall: *ni Praga ni Tlatelolco — y ustedes callaron.*
+The August resolution is "clarified" into fog — errors of haste, the complexity of the international situation, the need for further study. The old militants nod; order is restored in the family. The subsidy arrives on schedule, and the presses run.
 
-The subsidy arrives on schedule.
+The students read the clarification too. On a wall at the Prepa someone has already painted the reply: *ni Praga ni Tlatelolco — y ustedes callaron.* It will take years to wash off. Paint is like that.

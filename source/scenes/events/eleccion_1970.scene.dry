@@ -11,9 +11,11 @@ on-arrival: destape_phase = 4
 
 MÉXICO, D.F., julio de 1970 —
 
-Luis Echeverría Álvarez, Secretary of Gobernación on the second of October 1968, will be President of the Republic. The campaign has been a sexenio-long handshake: fifty thousand kilometers, every ejido, every chamber of commerce, promises of an *apertura* — an opening — delivered in the voice of the man who signed the October orders.
+Luis Echeverría Álvarez, Secretary of Gobernación on the second of October 1968, will be President of the Republic on the fifth of July 1970. The interval between those sentences has been a campaign like a royal progress: fifty thousand kilometers, nine hundred speeches, every ejido and chamber of commerce in the Republic, the candidate in a guayabera drinking whatever the region drinks and promising an *apertura democrática* — an opening — in the voice of the man who signed the October orders.
 
-You have no registration. You are not on the ballot. You exist, electorally speaking, as a rounding error the Comisión Federal Electoral will not even bother to commit.
+He has been strange on the trail, and the strangeness is studied. In Morelia, of all things, he called for a minute of silence for the dead of Tlatelolco — *his* dead, as the whole country silently noted — and the old President is said to have gone purple at the news. He courts the intellectuals Díaz Ordaz jailed. He quotes the Revolution like a man reading someone else's love letters. Either the system has decided to change its face, or it has decided to change nothing else.
+
+Against him: the PAN's Efraín González Morfín, a Jesuit-trained social Christian permitted his fourteen percent. The Party is not on the ballot. Without registration you exist, electorally speaking, as a rounding error the Comisión Federal Electoral — chaired, until recently, by the candidate himself — will not even bother to commit.
 
 The question is what to tell the people who would have voted for you.
 
@@ -24,14 +26,20 @@ The question is what to tell the people who would have voted for you.
 @abstencion
 on-arrival: eleccion70_stance = 1; ax_electoral -= 5; sup_students += 4; pri_reformist_rel -= 5; political_capital += 3
 
-The brigades paint it on walls: NO VOTES — a crime, technically, which is the point. Turnout is what it always is, officially. What it was actually, the Comisión knows and will not say, which you count as a small victory of arithmetic.
+The brigades paint it on walls from Azcapotzalco to the Doctores: NO VOTES — which is a crime, technically, and the technicality is the point: they are jailing people for recommending an absence. Turnout on the fifth is what it always is, officially, to the decimal. What it was actually, the Comisión knows and will not say, and in certain northern districts the gap between the two numbers is said to have required creativity of a kind usually reserved for poets.
+
+You count it as a small victory of arithmetic. The government counts it too — differently, and in Bucareli.
 
 @anular
 on-arrival: eleccion70_stance = 2; sup_students += 6; expediente += 5; political_capital += 4
 
-They come out of the booths having written names across the boleta: *los del edificio Chihuahua, los del dos de octubre.* Poll workers — PRI men, all of them — find they cannot quite meet each other's eyes while stacking the annulled ballots. Nothing changes. Something changes.
+They come out of the booths having written names across the boleta: *los del edificio Chihuahua. Los del dos de octubre. Ana, José Luis, el niño del zapato.* In the counting rooms that night, poll workers — PRI men, every one, señores of the acta and the seal — find they cannot quite meet each other's eyes while stacking the annulled ballots, each one a small handwritten headstone that the law obliges them to touch.
+
+Nothing changes. The count is the count; the annulled are a footnote. Something changes: several thousand people have now committed, in an official government document, in their own handwriting, the act of remembering.
 
 @tolerar
 on-arrival: eleccion70_stance = 3; ax_electoral += 5; pri_reformist_rel += 8; sup_students -= 6; fac_nueva_izquierda -= 5
 
-The Party says little, which in Mexico is a language. Within a year there will be professorships offered, editorial pages opened, scholarships to study abroad. The students notice who is silent. In the corridors they begin using a word for it that will take ten years to wash off.
+The Party says little, which in Mexico is a language with its own grammar, and the men around the candidate parse it fluently: *they are listening.* Within the year there will be answers — professorships for comrades who have not taught in a decade, editorial pages suddenly open, scholarships, invitations to breakfast at restaurants where the bill never comes.
+
+It is position, and position is what you told yourselves you were buying. But the students notice who is silent, and in the corridors of the university they begin attaching a word to the Party — not *traitor*, nothing so operatic; just *cómodo*, comfortable — and it will take ten years and several funerals to wash off.
