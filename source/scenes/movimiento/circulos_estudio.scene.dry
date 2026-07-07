@@ -1,0 +1,33 @@
+title: Círculos de estudio
+new-page: true
+subtitle: La línea se disputa en la mesa de cocina
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 70
+tags: movimiento
+
+= Círculos de estudio
+
+Twelve people around a kitchen table with one bulb and one book between them: this is where the Party's soul is actually decided, long before any congress votes on it. What goes on the table this season?
+
+- @clasicos: The classics, correctly annotated — Lenin, the manuals, the tradition.
+- @herejes: The heretics — Gramsci, Togliatti, the Czech documents, the wound of August '68.
+- @patria: The Mexicans — Zapata's letters, the Cardenista expropriation, Revueltas on the headless proletariat.
+- @root: The bulb stays dark this month.
+- @easy_discard
+
+@clasicos
+on-arrival: ax_sovietico += 3; fac_ortodoxos += 3
+
+The old catechism, taught by men who learned it in clandestinity and mean every word. There is comfort in a system with answers, and the young miners' sons take to it — it is the first architecture anyone has ever handed them. The questions it cannot answer are postponed, as they have been since 1956.
+
+@herejes
+on-arrival: ax_sovietico -= 3; fac_renovadores += 3; moscow_relation -= 1
+
+Mimeographed Gramsci with the accents wrong, a smuggled Prague dossier, arguments past midnight about whether a party can be both army and parliament. Someone always asks the August question — *if tanks were wrong in Prague...* — and the silence afterward is the sound of a tradition rethinking itself.
+
+@patria
+on-arrival: ax_nacpop += 4; fac_nueva_izquierda += 2
+
+Zapata's letters read aloud in a room where two grandfathers rode with him; the oil expropriation retold as the masterpiece it was. The lesson is dangerous to every orthodoxy in the room: Mexico has already had revolutions, and they spoke Spanish, and the next one will too.

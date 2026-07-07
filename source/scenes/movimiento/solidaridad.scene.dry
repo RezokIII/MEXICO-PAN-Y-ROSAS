@@ -1,0 +1,33 @@
+title: Solidaridad internacional
+new-page: true
+subtitle: El mundo también está en llamas
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 70
+tags: movimiento
+
+= Solidaridad internacional
+
+The Republic's foreign policy is a costume ball — asylum for every exile, votes for every liberation, and the DFS checking coats at the door. But underneath the government's theater there is a real internationalism to be organized: the wars in Indochina and the prisons of the South are close to every student's heart, and closer to some doorways than anyone admits.
+
+- @vietnam: A solidarity campaign for Vietnam — marches, collections, the embassy picketed.
+- @europa: Cultivate the European parties — the Italians, the French, their money and their heresies.
+- @latinoamerica: The southern comrades — presses and beds for the hunted of the continent.
+- @root: The world manages without you this month.
+- @easy_discard
+
+@vietnam
+on-arrival: sup_students += 3; moscow_relation += 2; expediente += 2
+
+The march goes from the university to within two blocks of the embassy, which is the legal limit of Mexican anti-imperialism. Collections buy medicine shipped via prickly channels. Moscow approves of the theme, loudly, which is almost enough to make one reconsider it.
+
+@europa
+on-arrival: funds += 2; ax_sovietico -= 2; moscow_relation -= 2
+
+A delegation returns from Rome with book crates, a small check, and the peculiar light in the eyes of men who have seen a communist party win municipal elections. The ortodoxos inspect the books like customs officers. Some of the books get through; that is what books are for.
+
+@latinoamerica
+on-arrival: political_capital += 2; expediente += 3; guerrilla_meter += 1
+
+A Guatemalan poet sleeps three nights behind the press; a Brazilian's pamphlet is set in your type with the accents adjusted. The continent's wounded pass through the city constantly — the government admits the famous ones at the airport and the DFS meets the rest at the bus stations. Some of what they carry is hope. Some is doctrine with a fuse in it.

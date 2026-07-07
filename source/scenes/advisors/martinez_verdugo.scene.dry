@@ -1,0 +1,31 @@
+title: Arnoldo Martínez Verdugo
+is-pinned-card: true
+tags: advisor
+new-page: true
+view-if: verdugo_advisor = 1
+
+= Arnoldo Martínez Verdugo
+
+First Secretary since 1963. A sign painter from Sinaloa who taught himself four languages and the entire heretical library — Gramsci before it was fashionable, Togliatti when it was dangerous. He runs the Party the way a good doctor runs a ward for the chronically ill: no miracles promised, no patient abandoned. His enemies inside the Party call him cautious. His enemies outside it have thicker files on him than on anyone living.
+
+- @verdugo_disciplina
+- @verdugo_renovacion
+- @root: Return to main
+
+@verdugo_disciplina
+title: Paciencia y organización
+subtitle: Smooth the quarrels; keep the family at one table.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; unity += 6; political_capital += 2
+
+He spends the month on buses: Monterrey, Guadalajara, a mining local in Coahuila that hasn't seen a First Secretary since the war. No speeches to report. But the resignation letters that were being drafted in three cities are quietly not sent.
+
+@verdugo_renovacion
+title: La biblioteca del hereje
+subtitle: Circulate the Italians. Let the Party read its way out of Moscow's shadow.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; ax_sovietico -= 3; fac_renovadores += 4; moscow_relation -= 2
+
+Mimeographed Togliatti, Gramsci in the study circles, a seminar on "the Mexican road" that says nothing censurable and means everything. The ortodoxos smell it — they always smell it — but you cannot expel a man for his bookshelf. Yet.

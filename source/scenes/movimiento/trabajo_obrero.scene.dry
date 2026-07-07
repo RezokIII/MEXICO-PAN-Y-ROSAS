@@ -1,0 +1,33 @@
+title: Trabajo obrero
+new-page: true
+subtitle: La muralla charra tiene grietas
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 90
+tags: movimiento
+
+= Trabajo obrero
+
+Between the Party and the working class stands the CTM: don Fidel's empire of dues checkoffs, protection contracts, and golpeadores with union credentials. You do not breach a wall like that. You find the cracks — the humiliated locals, the stolen pension funds, the delegates who have begun to drink because of what they sign.
+
+- @nucleos: Build clandestine factory nuclei. Slow, deniable, patient.
+- @abierta: Open agitation at the gates — leaflets, speeches, faces shown.
+- @root: The wall stands unexamined this month.
+- @easy_discard
+
+@nucleos
+subtitle: -2 fondos
+choose-if: funds >= 2
+unavailable-subtitle: Ni para los camiones.
+on-arrival: funds -= 2; sup_workers += 2; charrismo -= 1
+
+Five men in a fonda studying a contract clause; a foundry worker who keeps the list in his head because paper can be searched. Nothing to photograph, nothing to raid. In a year, this shift will have a committee. In five, perhaps a union.
+
+@abierta
+subtitle: -3 fondos
+choose-if: funds >= 3
+unavailable-subtitle: Ni para los volantes.
+on-arrival: funds -= 3; sup_workers += 4; charrismo -= 1; expediente += 4
+
+Dawn at the gates, leaflets moving hand to hand, a comrade on a crate saying the forbidden arithmetic out loud. The charro delegate arrives with his photographer; the DFS's man does not bother to hide. Some workers look away. The ones who don't are the harvest.

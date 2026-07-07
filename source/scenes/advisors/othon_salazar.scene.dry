@@ -1,0 +1,31 @@
+title: Othón Salazar
+is-pinned-card: true
+tags: advisor
+new-page: true
+view-if: othon_advisor = 1
+
+= Othón Salazar
+
+A schoolteacher from Alcozauca, in the Montaña of Guerrero, where the earth is too poor to feed the people who own it. In 1958 he filled the Zócalo with teachers and the state clubbed them into ambulances; he has been organizing ever since with the unhurried certainty of a man who has already seen the worst the granaderos can do. He speaks Nahuatl and pension arithmetic with equal fluency. In the Montaña they do not say "the Party." They say *los de Othón*.
+
+- @othon_magisterio
+- @othon_montana
+- @root: Return to main
+
+@othon_magisterio
+title: El magisterio
+subtitle: The teachers' union is charro property. Work the schools anyway, one teacher at a time.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_teachers += 6; charrismo -= 1; expediente += 2
+
+Normal-school graduates posted to villages the highway ignores, each one a state employee, each one nineteen and underpaid and angry: there is no better soil in Mexico. The SNTE's men take names at the section meetings. Othón takes more.
+
+@othon_montana
+title: La Montaña
+subtitle: Deep work in Guerrero — masses, not guns, whatever the young men in the hills are saying.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 4; guerrilla_meter -= 2; expediente += 2
+
+Committees for the coffee price, for the road, for the teacher the state won't send. It is slower than what Lucio's people preach two valleys over, and Othón knows better than anyone that both roads end at the same army. But his road can lose and try again. In Alcozauca, someday, there may even be something to win.

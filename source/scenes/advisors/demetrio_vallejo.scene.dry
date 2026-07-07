@@ -1,0 +1,31 @@
+title: Demetrio Vallejo
+is-pinned-card: true
+tags: advisor
+new-page: true
+view-if: vallejo_advisor = 1
+
+= Demetrio Vallejo
+
+Eleven years, four months, and some days, most of them in Lecumberri, several of them on hunger strike — he kept count of everything, it is his profession. In 1958 he led the largest strike wave since the Revolution armed with nothing but timetables and the fact that the trains do not move unless the men move them. The state has never forgiven him for demonstrating this so clearly. Small, precise, immune to flattery; he reads a wage table the way other men read a horizon.
+
+- @vallejo_independientes
+- @vallejo_insobornable
+- @root: Return to main
+
+@vallejo_independientes
+title: Sindicalismo independiente
+subtitle: Outside the CTM there is a country. Organize it.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_electricians += 5; sup_workers += 3; charrismo -= 2; expediente += 3
+
+He goes where the CTM's writ runs thinnest — the electricians with their engineer's pride, the new industrial belts where the charro locals exist only as a dues deduction. He does not promise victories. He explains, with chalk, how a union works when it belongs to its members, and the chalk does more damage than dynamite.
+
+@vallejo_insobornable
+title: El insobornable
+subtitle: The regime buys men weekly. Parade the one it couldn't.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; unity += 3; political_capital += 3
+
+They offered him everything, at intervals, for eleven years: the plea, the pension, the seat, the silence. The offers are a matter of record; so are the refusals. When he stands next to the young cadres at a meeting, nobody needs to give the speech about the charola. He is the speech.

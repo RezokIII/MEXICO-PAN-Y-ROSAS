@@ -36,6 +36,18 @@ Q.via = "politica"; Q.guerrilla_meter = 0;
 Q.praga_line = 0; Q.lecumberri_campaign = 0; Q.cnh_recruited = 0; Q.autocritica_done = 0;
 Q.eleccion70_stance = 0; Q.campa_released = 0; Q.campa_advisor = 0; Q.vallejo_released = 0;
 
+// advisor roster
+Q.verdugo_advisor = 1;
+Q.othon_advisor = 1;
+Q.danzos_advisor = 1;
+Q.benita_advisor = 1;
+Q.heberto_advisor = 0;
+Q.revueltas_advisor = 0;
+Q.revueltas_dead = 0;
+Q.ibarra_advisor = 0;
+Q.vallejo_advisor = 0;
+Q.moscow_relation = 35;
+
 // time elapsed (in months)
 Q.time = 1;
 Q.year = 1968;

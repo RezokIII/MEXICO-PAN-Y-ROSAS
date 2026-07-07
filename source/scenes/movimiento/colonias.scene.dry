@@ -1,0 +1,33 @@
+title: Trabajo en colonias
+new-page: true
+subtitle: La ciudad que la ciudad no admite
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 85
+tags: movimiento
+
+= Trabajo en colonias
+
+Every month the city grows a new edge: paracaidistas staking lots in the dust of Netzahualcóyotl and the barrancas of Naucalpan, building at night what the law will not permit by day. No water, no light, no title — and therefore, if anyone will organize it, everything to fight for. The PRI's colonia bosses sell protection by the meter. There is room for a different offer.
+
+- @posesion: Defend the land seizures — committees, lookouts, lawyers at dawn.
+- @servicios: Organize for services — water, light, the school. The pipe is political.
+- @root: The dust settles by itself this month.
+- @easy_discard
+
+@posesion
+subtitle: -2 fondos
+choose-if: funds >= 2
+unavailable-subtitle: Los amparos cuestan.
+on-arrival: funds -= 2; sup_colonos += 4; members += 1; expediente += 2
+
+When the bulldozers come, the whole colonia is somehow already in the road — women in front, the amparo in a plastic bag, a comrade reading the writ aloud over the engines. The operator looks to the licenciado; the licenciado looks at the cameras that a student happens to have brought. Not today. Today is what victory looks like here.
+
+@servicios
+subtitle: -2 fondos
+choose-if: funds >= 2
+unavailable-subtitle: La tubería no es gratis.
+on-arrival: funds -= 2; sup_colonos += 3; political_capital += 1
+
+Petitions, marches to the delegación, and finally the pipe itself, laid by the residents in a weekend of communal labor the PRI will claim credit for on a banner. Let them hang the banner. Everyone who dug knows who called the assembly, and water tastes of the committee that won it.
