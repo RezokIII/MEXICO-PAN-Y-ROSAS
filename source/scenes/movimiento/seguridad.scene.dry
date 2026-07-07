@@ -19,7 +19,7 @@ Somewhere in Bucareli there is a room with your name on a drawer, and the drawer
 
 @depurar
 subtitle: -4 fondos
-choose-if: funds >= 4
+choose-if: funds >= 4 and organizers >= 3
 unavailable-subtitle: Las casas nuevas cuestan.
 on-arrival: funds -= 4; expediente -= 8; unity -= 1
 

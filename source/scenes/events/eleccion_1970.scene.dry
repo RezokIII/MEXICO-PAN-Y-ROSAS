@@ -24,6 +24,8 @@ The question is what to tell the people who would have voted for you.
 - @tolerar: Say nothing loudly. If this apertura is real, someone should be positioned to walk through it.
 
 @abstencion
+choose-if: members >= 5 and organizers >= 3
+unavailable-subtitle: Una campaña nacional de abstención exige una organización que hoy no existe.
 on-arrival: eleccion70_stance = 1; ax_electoral -= 5; sup_students += 4; pri_reformist_rel -= 5; political_capital += 3
 
 The brigades paint it on walls from Azcapotzalco to the Doctores: NO VOTES — which is a crime, technically, and the technicality is the point: they are jailing people for recommending an absence. Turnout on the fifth is what it always is, officially, to the decimal. What it was actually, the Comisión knows and will not say, and in certain northern districts the gap between the two numbers is said to have required creativity of a kind usually reserved for poets.
@@ -31,6 +33,8 @@ The brigades paint it on walls from Azcapotzalco to the Doctores: NO VOTES — w
 You count it as a small victory of arithmetic. The government counts it too — differently, and in Bucareli.
 
 @anular
+choose-if: sup_students >= 30
+unavailable-subtitle: Las brigadas que pintan bardas y reparten volantes son estudiantes. No los tienes.
 on-arrival: eleccion70_stance = 2; sup_students += 6; expediente += 5; political_capital += 4
 
 They come out of the booths having written names across the boleta: *los del edificio Chihuahua. Los del dos de octubre. Ana, José Luis, el niño del zapato.* In the counting rooms that night, poll workers — PRI men, every one, señores of the acta and the seal — find they cannot quite meet each other's eyes while stacking the annulled ballots, each one a small handwritten headstone that the law obliges them to touch.

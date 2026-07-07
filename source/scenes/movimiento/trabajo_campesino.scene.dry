@@ -26,6 +26,8 @@ Assemblies under the ahuehuete, minutes in a school notebook, the file hand-carr
 
 @invasion
 subtitle: Los riesgos son conocidos
+choose-if: sup_peasants >= 15
+unavailable-subtitle: Una toma sin base que la sostenga es un regalo para los judiciales.
 on-arrival: sup_peasants += 7; represion += 3; expediente += 3
 
 White flags on fence posts at first light, furrows plowed straight across the disputed title. Sometimes the state negotiates rather than photograph itself evicting the Constitution. Sometimes the judiciales come at dusk. The Party's lawyers sleep by the phone either way.

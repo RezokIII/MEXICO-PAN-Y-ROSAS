@@ -26,8 +26,8 @@ Five men in a fonda studying a contract clause; a foundry worker who keeps the l
 
 @abierta
 subtitle: -3 fondos
-choose-if: funds >= 3
-unavailable-subtitle: Ni para los volantes.
+choose-if: funds >= 3 and organizers >= 3
+unavailable-subtitle: La agitación abierta exige cuadros que puedan quemarse. No los tienes de sobra.
 on-arrival: funds -= 3; sup_workers += 4; charrismo -= 1; expediente += 4
 
 Dawn at the gates, leaflets moving hand to hand, a comrade on a crate saying the forbidden arithmetic out loud. The charro delegate arrives with his photographer; the DFS's man does not bother to hide. Some workers look away. The ones who don't are the harvest.
