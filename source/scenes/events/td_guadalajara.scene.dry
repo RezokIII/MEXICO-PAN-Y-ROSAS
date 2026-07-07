@@ -21,12 +21,12 @@ They will march. They will be surrounded. The question is where the Party stands
 @total
 choose-if: organizers >= 3
 unavailable-subtitle: Comprometer al Partido entero exige cuadros que hoy están en otras trincheras.
-on-arrival: td_apoyo = 2; sup_electricians += 8; sup_workers += 3; charrismo -= 3; expediente += 4; fac_ortodoxos -= 2
+on-arrival: td_apoyo = 2; sup_electricians += 8; sup_workers += 3; charrismo -= 3; expediente += 4; fac_ortodoxos -= 2; huelgas += 8
 
 The Party goes in with everything that moves: printers, lawyers, the teachers' networks opening provincial doors for TD brigades. In the plants the electricians notice who showed up early. So does don Fidel, whose organization has never forgiven a debt or forgotten an address, and whose gunmen have a longer payroll than yours.
 
 @exterior
-on-arrival: td_apoyo = 1; sup_electricians += 4; charrismo -= 1; expediente += 2
+on-arrival: td_apoyo = 1; sup_electricians += 4; charrismo -= 1; expediente += 2; huelgas += 4
 
 Solidarity with a firewall: the paper opens its pages, the collections run, the marches swell with your contingents — and the Party's own cells stay structurally clear of the TD's fate, whatever it proves to be. Galván accepts the arrangement with the dry courtesy of a man cataloguing who committed what, for reference at the accounting that always comes.
 

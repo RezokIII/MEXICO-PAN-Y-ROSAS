@@ -21,7 +21,7 @@ Then the second instrument, the quieter one: the purge lists. In the weeks that 
 @huelga
 choose-if: sup_workers >= 25 and td_apoyo = 2
 unavailable-subtitle: Una huelga general exige lo que no hay: peso real en las fábricas y un compromiso total previo con la Tendencia.
-on-arrival: sup_workers += 5; sup_electricians += 3; charrismo -= 4; represion += 5; expediente += 5; political_capital += 4; unity -= 2
+on-arrival: sup_workers += 5; sup_electricians += 3; charrismo -= 4; represion += 5; expediente += 5; political_capital += 4; unity -= 2; huelgas += 15; salario_real += 1
 
 It holds for two days — two days of stopped buses and dark workshops in a dozen cities, the first taste in eighteen years of what the class can do when the charro dam cracks. Then the weight of the state settles: requisa extended, ringleaders' lists, don Fidel's men at every gate with the federal district police behind them. The strike is lost. The demonstration is permanent: everyone in the Republic — Bucareli, the CTM, the reformers drafting next year's opening, and a hundred thousand workers who walked out — has now seen the wall crack with their own eyes. Walls that crack once are surveyed differently ever after.
 

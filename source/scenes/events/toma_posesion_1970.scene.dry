@@ -5,7 +5,7 @@ tags: event
 view-if: year = 1970 and month = 12
 priority: 3
 max-visits: 1
-on-arrival: presidente = "Echeverria"; gobernacion = "Moya"; sexenio_year = 1; presidente_cooptacion = 55; presidente_represion = 60; pri_aperturistas += 10; destape_phase = 0
+on-arrival: burguesia_estado += 5; presidente = "Echeverria"; gobernacion = "Moya"; sexenio_year = 1; presidente_cooptacion = 55; presidente_represion = 60; pri_aperturistas += 10; destape_phase = 0
 
 = La toma de posesión
 

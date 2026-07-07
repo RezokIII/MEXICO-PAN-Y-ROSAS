@@ -65,6 +65,18 @@ Q.herencia = 0;
 Q.verano68 = 0;
 Q.rescate = 0;
 
+// ---- la economía ----
+Q.crecimiento = 8;
+Q.inflacion = 2;
+Q.peso_dolar = 12.5;
+Q.salario_real = 100;
+Q.desempleo = 6;
+Q.huelgas = 4;
+// el bloque en el poder
+Q.burguesia_estado = 55;
+Q.gran_capital = 28;
+Q.capital_extranjero = 17;
+
 // time elapsed (in months)
 Q.time = 1;
 Q.year = 1968;

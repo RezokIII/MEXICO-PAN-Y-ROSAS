@@ -5,7 +5,7 @@ tags: event
 view-if: year = 1973 and month = 10
 priority: 2
 max-visits: 1
-on-arrival: pri_duros += 5; represion += 3
+on-arrival: pri_duros += 5; represion += 3; gran_capital += 5; burguesia_estado -= 3
 
 = El funeral de Monterrey
 

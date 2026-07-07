@@ -5,7 +5,7 @@ tags: event
 view-if: year = 1976 and month = 11
 priority: 3
 max-visits: 1
-on-arrival: sup_middle += 2; pri_duros += 5
+on-arrival: sup_middle += 2; pri_duros += 5; peso_dolar = 22.7; salario_real -= 4; gran_capital += 6; burguesia_estado -= 4; capital_extranjero += 3
 
 = El fin del milagro
 

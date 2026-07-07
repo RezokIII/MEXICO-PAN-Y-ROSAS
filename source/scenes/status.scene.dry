@@ -1,6 +1,14 @@
 title: Status
 new-page: true
 is-special: true
+on-arrival: {!
+Q.peso_display = Q.peso_dolar.toFixed(2);
+Q.crecimiento_display = Q.crecimiento.toFixed(1);
+Q.inflacion_display = Q.inflacion.toFixed(1);
+Q.mando = 'estado';
+if (Q.gran_capital > Q.burguesia_estado && Q.gran_capital >= Q.capital_extranjero) { Q.mando = 'capital'; }
+if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_capital) { Q.mando = 'extranjero'; }
+!}
 
 = Estado del movimiento
 
@@ -149,3 +157,47 @@ Clases medias: [+ sup_middle +]
 
 [? if registro = 0 : Proyección electoral: no aplica. Primero hay que existir. ?]
 [? if registro >= 1 : Proyección electoral: los cuadros trabajan en ella. Cada casilla vigilada vale más que cualquier encuesta. ?]
+
+
+@economia
+
+= Economía
+
+**Los números del milagro**
+
+Crecimiento anual: [+ crecimiento_display +]%
+
+Inflación: [+ inflacion_display +]%
+
+El peso: [+ peso_display +] por dólar[? if peso_dolar <= 12.5 : — fijo desde 1954, el dios doméstico del régimen ?][? if peso_dolar > 12.5 : — el dios doméstico está roto; los ahorros hablan inglés ahora ?]
+
+Desempleo y subempleo urbano: [+ desempleo +]%
+
+Salario real (1968 = 100): [+ salario_real +][? if salario_real >= 100 : — el milagro todavía paga la mesa ?][? if salario_real < 100 and salario_real >= 85 : — la canasta encoge; nadie lo dice en voz alta todavía ?][? if salario_real < 85 : — la clase que todo lo produce come cada año un poco menos ?]
+
+**La insurgencia laboral**
+
+Actividad huelguística: [+ huelgas : huelgas +]
+
+[? if huelgas >= 25 : Los paros se encadenan de fábrica en fábrica; los charros pierden asambleas; el salario se defiende en la puerta, no en la mesa. Esto lo construyeron ustedes, huelga por huelga. ?]
+[? if huelgas >= 10 and huelgas < 25 : Chispazos: paros locos, tortuguismo, asambleas que votan mal. Don Fidel toma nota. ?]
+[? if huelgas < 10 : La paz laboral del apparato: contratos firmados antes de leerse. El silencio de las fábricas es la obra maestra del charrismo. ?]
+
+**¿Quién manda en México?**
+
+La burguesía de Estado: [+ burguesia_estado : fuerza +][? if mando = "estado" : — MANDA. Los políticos-empresarios del sistema: concesiones, contratos, comisiones. El poder ES el negocio. ?]
+
+El gran capital privado: [+ gran_capital : fuerza +][? if mando = "capital" : — MANDA. El Grupo Monterrey y sus primos: el dinero ya no pide permiso, lo concede. ?]
+
+El capital extranjero: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : — MANDA. Las deudas se cobran en política; los acreedores redactan los presupuestos. ?]
+
+[? if mando = "estado" : El arreglo de la Revolución sigue en pie: el Estado preside, el capital consiente, y el trabajo — organizado por el Estado contra sí mismo — paga la cuenta. ?]
+[? if mando = "capital" : El arreglo se invirtió: Monterrey y sus aliados marcan los límites de lo posible, y el gobierno gobierna dentro de ellos. ?]
+[? if mando = "extranjero" : La soberanía tiene calendario de pagos. Lo que el pueblo vota, el acreedor lo enmienda. ?]
+
+**Los nuestros**
+
+[? if inflacion >= 15 : La inflación es el impuesto que no se legisla: la tortilla, el camión, la renta. En las colonias se hacen colas; en las asambleas, cuentas. Cada punto de inflación trabaja para ustedes — y muerde a los suyos primero. ?]
+[? if inflacion < 15 and salario_real >= 100 : Los años del milagro: hay trabajo, el salario alcanza, y organizarse es más difícil precisamente por eso. La prosperidad del sistema es su mejor policía. ?]
+[? if inflacion < 15 and salario_real < 100 : La mesa aguanta, pero más flaca que ayer. La memoria del salario pleno es reciente, y la memoria organiza mejor que el hambre. ?]
+[? if desempleo >= 9 : Los desocupados llenan las esquinas y las obras paradas. Son masa disponible — para ustedes, o para quien pague la charola primero. ?]
