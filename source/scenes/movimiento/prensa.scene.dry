@@ -21,7 +21,7 @@ The paper exists this month if you decide it does: newsprint bought at PIPSA's p
 subtitle: -3 fondos
 choose-if: funds >= 3 and sup_students >= 10
 unavailable-subtitle: Sin red estudiantil no hay quién reparta; sin fondos no hay papel.
-on-arrival: funds -= 3; sup_students += 4; members += 1; expediente += 2
+on-arrival: funds -= 3; sup_students += 2 + unity*0.04; members += 1; expediente += 2
 
 The issue moves through the faculties folded inside notebooks. The letters page is the best-read thing in the university: this month, a nineteen-year-old writes from Crujía M about the exact sound the lock makes, and three hundred students read it standing still.
 

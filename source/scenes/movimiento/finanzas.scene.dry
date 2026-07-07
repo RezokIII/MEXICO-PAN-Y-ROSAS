@@ -18,7 +18,7 @@ The treasurer reports with the brevity of a man reporting a drought. Dues arrive
 - @easy_discard
 
 @cuotas
-on-arrival: funds += 2; unity += 1; members += 0
+on-arrival: funds += 1 + members*0.3; unity += 1
 
 The section treasurers do their rounds. A peso from the teacher, two from the printer, a folded five from the widow who says don Valentín once fixed her husband's pension. It is not much. It is owned outright.
 

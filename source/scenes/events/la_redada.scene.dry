@@ -6,7 +6,7 @@ view-if: expediente >= 60 and time >= redada_last + 12
 priority: 2
 frequency: 60
 max-visits: 3
-on-arrival: funds -= 5; expediente -= 15; represion += 2; redada_last = time
+on-arrival: funds -= 5; expediente -= 15; represion += 2; redada_last = time; organizers -= 1 if organizers >= 3
 
 = La redada
 

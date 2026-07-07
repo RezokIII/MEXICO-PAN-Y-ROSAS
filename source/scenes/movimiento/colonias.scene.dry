@@ -20,7 +20,7 @@ Every month the city grows a new edge: paracaidistas staking lots in the dust of
 subtitle: -2 fondos
 choose-if: funds >= 2
 unavailable-subtitle: Los amparos cuestan.
-on-arrival: funds -= 2; sup_colonos += 4; members += 1; expediente += 2
+on-arrival: funds -= 2; sup_colonos += 2 + (100 - salario_real)*0.1 + unity*0.02; members += 1; expediente += 2
 
 When the bulldozers come, the whole colonia is somehow already in the road — women in front, the amparo in a plastic bag, a comrade reading the writ aloud over the engines. The operator looks to the licenciado; the licenciado looks at the cameras that a student happens to have brought. Not today. Today is what victory looks like here.
 

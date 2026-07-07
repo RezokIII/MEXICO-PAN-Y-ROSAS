@@ -13,6 +13,7 @@ Background for the struggle: the system you face, the tradition you inherit, the
 - @izquierda: The left before you — 1919 to 1968
 - @personajes: Dramatis personae
 - @glosario: Glossary of the Republic
+- @mecanica: Manual del organizador — cómo se mueve el mundo
 - @memorial: El memorial
 - @backSpecialScene: Exit library.
 
@@ -75,6 +76,27 @@ go-to: menu
 *Disolución social* — Article 145, the crime of dissolving society; repealed 1970, eleven years too late for the men it caged.
 
 *Apertura democrática* — the opening; the regime's word for the space it sells you at prices to be determined.
+
+@mecanica
+go-to: menu
+
+= Manual del organizador
+
+*(Circular interna. No es teoría; es plomería.)*
+
+**El dinero sigue a la gente — o a Moscú.** Las cuotas rinden según la militancia: cada cinco mil miembros son fondos trimestrales. Moscú paga cada enero — mientras la línea no se vuelva demasiado independiente. Un partido de masas se financia solo; un partido chico obedece a alguien. Elija cuál construye.
+
+**La unidad multiplica.** Todo trabajo de organización rinde más con el partido unido y menos con el partido roto. Las corrientes marginadas (fuerza menor a 15) desangran la unidad mes a mes: el manejo de consejeros ES manejo de corrientes. Alternar consejeros no es cortesía; es mantenimiento.
+
+**La muralla charra es un tope, no un decorado.** El apoyo obrero no puede crecer más allá de lo que el charrismo permite. Primero se agrieta la muralla — sindicatos independientes, coordinadoras, huelgas — y después se cosecha la fábrica. En ese orden. No hay atajo.
+
+**La crisis organiza — para quien esté presente.** Cuando el salario real cae, el trabajo en fábricas y colonias rinde el doble. Los años de vacas flacas del sistema son los de vacas gordas del organizador: posiciónese ANTES de la crisis, coseche durante.
+
+**El expediente es la sombra de todo.** Crece con cada acción visible y trae la redada cuando engorda. La seguridad cuesta fondos; las redadas cuestan más — incluso cuadros. El equilibrio entre crecer y durar es la partida entera.
+
+**La tentación armada consume jóvenes.** Con el fusil caliente entre la juventud, cada mes se van algunos — a la Liga, a la sierra, al expediente de todos. Se enfría con deslinde (y se paga en prestigio) o con trabajo de masas que dé a la rabia algo que hacer.
+
+**La línea tiene precio de lista.** Cada eje ideológico cobra: el alineamiento soviético paga en oro y cuesta estudiantes y clases medias; la independencia cuesta el subsidio y paga en credibilidad. La vía electoral abre curules y cierra calles; la insurreccional, lo contrario. No hay línea gratuita. Hay líneas cuyo precio usted no ha leído.
 
 @memorial
 go-to: menu

@@ -61,6 +61,7 @@ Q.cantina_last = 0;
 Q.funeral_last = 0;
 Q.redada_last = 0;
 Q.desap_last = 0;
+Q.fuga_last = 0;
 Q.herencia = 0;
 Q.verano68 = 0;
 Q.rescate = 0;
