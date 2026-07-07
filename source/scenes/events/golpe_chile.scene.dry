@@ -1,0 +1,30 @@
+title: El once de septiembre
+new-page: true
+subtitle: Chile, 1973
+tags: event
+view-if: year = 1973 and month = 9
+priority: 3
+max-visits: 1
+
+= El once de septiembre
+
+The radio carries it all morning: Hawker Hunters over Santiago, La Moneda burning, and by afternoon the sentence that ends an epoch — Salvador Allende is dead in the palace, and with him the *vía pacífica*, the thesis that this continent would be allowed to vote its way to socialism.
+
+Mexico's response is the paradox in full dress. The government of the dirty war breaks with the junta, throws open the embassy in Santiago, and lands planeloads of the hunted at the capital's airport, where the President greets them personally — poets, ministers, widows of the Chilean process, soon an entire exile university. There will be a Casa de Chile with state patronage; there will be Hortensia Bussi received like a head of state. Guerrero, meanwhile, remains Guerrero. The asylum is real. The dirty war is real. The Republic performs solidarity abroad with the same hand it uses for the other thing at home, and feels no strain.
+
+For the left, Chile is a wound and a syllabus in one: the ortodoxos read it as proof the ballot was always a trap; the renovadores read it as proof the ballot needs armor — alliances, masses, nerve. Both are quoting the same corpses.
+
+- @volcarse: Throw the Party into the solidarity apparatus — committees, housing, presses, the airport at all hours.
+- @discreta: Solidarity in proportion. The exiles have a wealthy host already; the Party's centavos are needed at home.
+
+@volcarse
+choose-if: funds >= 3
+unavailable-subtitle: La solidaridad de aparato cuesta: locales, camas, imprenta. No hay caja.
+on-arrival: funds -= 3; exiliados += 2; sup_students += 4; fac_renovadores += 2; moscow_relation += 2; expediente += 3
+
+The Party's locals fill with maté and grief and the best-trained Marxists the continent has produced: MIR cadres who know clandestinity like a trade, UP economists who ran ministries, printers who set type through artillery. The study circles will never recover, in the best sense. The DFS photographs the doorways and begins a whole new wing of the archive, cross-referenced by accent.
+
+@discreta
+on-arrival: exiliados += 1; political_capital += 1
+
+Beds are found, quietly; two printers get work; the Party marches in the great solidarity acts without organizing them. It is proportionate and defensible, and years later, when the Southern Cone teaches its hardest seminars — on how organizations die, and how they survive dying — you will have bought the student rate at the door instead of a seat at the table.

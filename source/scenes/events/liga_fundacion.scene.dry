@@ -1,0 +1,35 @@
+title: La Liga
+new-page: true
+subtitle: Marzo de 1973
+tags: event
+view-if: year = 1973 and month = 3
+priority: 2
+max-visits: 1
+on-arrival: guerrilla_meter += 3
+
+= La Liga
+
+In Guadalajara, in secret, the fragments fuse: survivors of the student circles, the cristianos radicalized past their bishops, the hardest of the '68 generation — a national organization now, the *Liga Comunista 23 de Septiembre*, named for the morning at Madera. Its documents reach you within weeks, as they are meant to: dense, millenarian, and absolutely clear on one point. The principal obstacle to revolution is not the state. It is you — the "revisionists," the "charro left," the Party that teaches the masses to vote and wait.
+
+Their practice follows their theory into the cities: bank expropriations, the armed strike, attempts on factory notables. The state's answer is already assembling — a special brigade, white in name and method, that will hunt them building by building and take its time with the ones it catches. Between the Liga's contempt and the Brigada's dragnet, the Party must find its footing: every Liga action brings the DFS through *your* doors first, on principle.
+
+- @cortafuegos: A public firewall — name their strategy suicidal, their theory a fever, and keep the Party's people visibly clear of the blast radius.
+- @silencio: Say nothing. Refuse the state the pleasure of a left that denounces its own desperate children.
+- @discretos: No firewall and no communiqués — but where a channel exists, warn, shelter, bury. They are wrong and they are ours.
+
+@cortafuegos
+on-arrival: represion -= 3; sup_students -= 3; guerrilla_meter -= 3; pri_reformist_rel += 2; fac_ortodoxos += 2
+
+The polemic is total war by pamphlet, and it works as prophylaxis: when the Liga hits a bank, the judiciales still come, but they come later and leave sooner. The cost is generational: to the angriest twenty-year-olds the Party is now formally the enemy's left flank, and the Liga's recruiters quote your firewall in their pitch.
+
+@silencio
+on-arrival: represion += 2; expediente += 2
+
+Dignified, and read by everyone exactly as they prefer: the state reads complicity, the Liga reads cowardice, the old members read prudence. Silence is the only text with a thousand authors. The raids after each expropriation are conducted with a certain extra thoroughness, as if to punish the paragraph you didn't write.
+
+@discretos
+choose-if: postura_guerrilla >= 2 and organizers >= 3
+unavailable-subtitle: Sin una línea de ambigüedad ya establecida y cuadros de confianza, esto es suicidio administrativo.
+on-arrival: expediente += 5; guerrilla_meter += 2; sup_students += 2; represion += 2
+
+No doctrine is conceded an inch — the polemics continue in print — but a médico who asks no names treats a fever in a safe house, and twice a warning travels faster than a convoy. The Liga's leadership scorns you no less. Their wounded, over the years, remember differently, and memory is the only currency that survives this decade.

@@ -1,0 +1,39 @@
+title: El candidato de nadie
+new-page: true
+subtitle: 4 de julio de 1976
+tags: event
+view-if: year = 1976 and month = 7
+priority: 3
+max-visits: 1
+on-arrival: destape_phase = 4
+
+= El candidato de nadie
+
+The Republic votes this month for a president who is running alone.
+
+José López Portillo — the destape fell on him last autumn, to the pasarela's usual astonishment — campaigns against no one. The PAN, gutted by an internal war between its doctrinaires and its pragmatists, failed to nominate anyone at all; the satellite parties nominated the PRI's man, as satellites do. For the first time since the Revolution the ballot offers exactly one future, and the regime, which has always preferred its theater to have a supporting cast, finds the empty stage faintly indecent. Legitimacy by acclamation is legitimacy on credit.
+
+Into that vacancy the Party can, if it dares, insert an answer. There is talk in the cells of running Valentín Campa — unregistered, uncountable, illegal in the precise sense that the law has arranged not to see him — as the write-in candidate of everyone the ballot forgot.
+
+- @campa: Run Campa. A campaign with no registration, no media, and no possibility of being counted — which is the entire argument.
+- @abstener: Active abstention, again. Let the empty stage speak for itself.
+- @silencio: Neither. Conserve; the reform rumored for next year may make gestures expensive.
+
+@campa
+choose-if: members >= 8 and funds >= 5
+unavailable-subtitle: Una campaña nacional, aun simbólica, exige militancia y caja que no tienes.
+on-arrival: campa76 = 1; funds -= 5; political_capital += 6; sup_students += 4; sup_workers += 2; ax_electoral += 4; expediente += 3
+
+The old railwayman stumps the Republic like it owes him fare: factory gates at dawn, plazas at dusk, his whole platform deliverable in one sentence — *count us or admit you cannot.* The crowds are real and the arithmetic is invisible: perhaps a million people write his name on ballots the Comisión Federal Electoral annuls unread, unrecorded, officially nonexistent. The regime declares López Portillo elected with roughly one hundred percent of a vote nobody contested.
+
+And yet everyone in the government who can read has read it: a million hands moved for a name the state refused to print. The reform now being drafted in Bucareli acquires, this month, its entire motive: the system needs opponents it can count, urgently, before it meets any more it cannot.
+
+@abstener
+on-arrival: political_capital += 2; ax_electoral -= 2
+
+The campaign against the campaign: NO HAY POR QUIÉN, says the stencil, and the regime's own emptiness does the heavy lifting. Abstention and annulment run high enough to require the Comisión's creativity in several states. It is a real wound, and an invisible one — which is the abstentionist's eternal bargain.
+
+@silencio
+on-arrival: pri_reformist_rel += 2
+
+The Party sits out the empty election with its powder dry, and the men drafting the reform in Bucareli note the discipline approvingly: here is an opposition that can wait for a door, rather than kicking walls. Whether that reputation is an asset or a leash will be discovered at the door itself.

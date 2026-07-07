@@ -1,0 +1,34 @@
+title: La zanahoria
+new-page: true
+subtitle: 1972 — el sexenio compra
+tags: event
+view-if: year = 1972 and month = 9
+priority: 2
+max-visits: 1
+
+= La zanahoria
+
+The sexenio has a budget for people like yours, and it is spending it with both hands. A comrade of twenty years' standing is offered the directorship of a rural credit program — real money, real peasants, real work. A JC essayist gets a fellowship. An editor is invited to run a state publishing house with a print budget larger than the Party has seen in its lifetime. Each offer arrives on its own merits, courteously, with no conditions attached — and none needed: the condition is the salary itself, renewable annually, reviewable always.
+
+This is the charola in its highest form. Crude regimes buy silence. This one buys *participation* — it wants your best people inside, administering the apertura, wearing their old convictions as credentials. Refusal keeps the Party pure and poor and outside. Acceptance feeds families and hollows cells. The Central Committee must set a policy for the season of offers.
+
+- @prohibir: Prohibit acceptance. The Party is not a placement agency for the regime's conscience.
+- @individual: Leave it to each militant's conscience. The Party is not a barracks either.
+- @estrategia: Accept selectively, by Party decision — treat every post as a listening station and every salary as dues.
+
+@prohibir
+on-arrival: unity += 3; fac_ortodoxos += 2; sup_middle -= 2; funds -= 2
+
+The circular is read aloud in the cells, and there is something bracing in it, like cold water: we are not for sale, not even by the piece. Two comrades resign to take their posts anyway, mailing back their cards with correct little notes. The rest close ranks. Poverty, at least, is a known quantity; the Party has forty years of expertise.
+
+@individual
+on-arrival: unity -= 3; members -= 1; funds += 2; sup_middle += 2
+
+Conscience decides, and conscience, it turns out, has a mortgage. A dozen cadres migrate to programs and fellowships over the year — some genuinely doing good work, some genuinely lost, all of them suddenly very busy on meeting nights. What returns: occasional checks, occasional documents, occasional guilt. The cells feel the drafts where people used to sit.
+
+@estrategia
+choose-if: pri_reformist_rel >= 15
+unavailable-subtitle: Para colocar gente adentro hace falta que adentro te abran la puerta. No te la abren.
+on-arrival: pri_reformist_rel += 5; funds += 4; expediente += 2; sup_students -= 4; ax_electoral += 2
+
+Three placements, chosen like chess moves: credit program, publishing house, a statistical office whose numbers will prove useful for a decade. The dues arrive punctually; so does the intelligence. So does the cost: in the university the word goes around that the Party has people *on the payroll*, and the distinction between infiltration and employment — so crisp in the resolution — refuses to survive contact with a cafeteria argument.

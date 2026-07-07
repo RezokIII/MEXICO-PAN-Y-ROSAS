@@ -1,0 +1,36 @@
+title: La Tendencia Democrática
+new-page: true
+subtitle: 5 de abril de 1975 — Guadalajara
+tags: event
+view-if: year = 1975 and month = 4
+priority: 3
+max-visits: 1
+
+= La Tendencia Democrática
+
+They expelled Rafael Galván from the SUTERM leadership in March — the electricians' union he built, swallowed three years ago into a merger with the charro Pérez Ríos and now being digested in the usual way. Galván's answer comes on the fifth of April in the Plaza de Armas of Guadalajara: twenty thousand electrical workers, and a document.
+
+The *Declaración de Guadalajara* is the most serious thing the Mexican working class has produced in a generation — not a wage petition but a program: union democracy, nationalization completed rather than administered, the Revolution's constitution taken at its word. Galván himself is no one's naif; a senator once, a man of the system's left edge, he has concluded at sixty that the house cannot be reformed from the servants' quarters. The *Tendencia Democrática* is born in that plaza, and every independent union current in the Republic — and every charro, and don Fidel himself, and the DFS — understands the stakes at once: this is a fight for the whole labor movement, through its most strategic industry.
+
+They will march. They will be surrounded. The question is where the Party stands, and how close.
+
+- @total: Full commitment — organizers into the TD's campaign, presses at its service, the Party's Guerrero-to-Chihuahua network placed at the electricians' disposal.
+- @exterior: Public support, material solidarity, editorial artillery — but the Party keeps its own structure distinct. Galván's fight, your applause.
+- @margen: Sympathy in private, caution in print. The CTM has buried bigger challengers, and it buries their friends too.
+
+@total
+choose-if: organizers >= 3
+unavailable-subtitle: Comprometer al Partido entero exige cuadros que hoy están en otras trincheras.
+on-arrival: td_apoyo = 2; sup_electricians += 8; sup_workers += 3; charrismo -= 3; expediente += 4; fac_ortodoxos -= 2
+
+The Party goes in with everything that moves: printers, lawyers, the teachers' networks opening provincial doors for TD brigades. In the plants the electricians notice who showed up early. So does don Fidel, whose organization has never forgiven a debt or forgotten an address, and whose gunmen have a longer payroll than yours.
+
+@exterior
+on-arrival: td_apoyo = 1; sup_electricians += 4; charrismo -= 1; expediente += 2
+
+Solidarity with a firewall: the paper opens its pages, the collections run, the marches swell with your contingents — and the Party's own cells stay structurally clear of the TD's fate, whatever it proves to be. Galván accepts the arrangement with the dry courtesy of a man cataloguing who committed what, for reference at the accounting that always comes.
+
+@margen
+on-arrival: td_apoyo = 0; sup_electricians -= 3; sup_workers -= 1; fac_renovadores -= 2
+
+The editorial wishes the electricians well in the passive voice. It is prudent; the CTM's cemetery of challengers is real. But the most vital workers' movement of the epoch has measured the Party's distance to the centimeter, and the class has a long memory for who was in the plaza and who sent regards.

@@ -1,0 +1,29 @@
+title: El funeral de Monterrey
+new-page: true
+subtitle: Septiembre-octubre de 1973
+tags: event
+view-if: year = 1973 and month = 10
+priority: 2
+max-visits: 1
+on-arrival: pri_duros += 5; represion += 3
+
+= El funeral de Monterrey
+
+The Liga tried to kidnap don Eugenio Garza Sada — patriarch of the Monterrey Group, the closest thing Mexican capital has to a royal house — and the botch left him dead on a street in his own city at eighty-one. At the funeral, with the President standing yards away, the eulogist does the unthinkable: he blames *him* — Echeverría, his rhetoric, his flirtation with the left, his "climate" — while the industrial families of the north applaud a sitting president's humiliation over an open grave.
+
+The consequences fan out for years: the business right organizes as it has not since Cárdenas, money migrates to Texas, and inside the state the hard men — the ones who found the apertura sentimental all along — feel the wind change in their favor. The Brigada Blanca's budget will not be debated now.
+
+For the Party the arithmetic is bitter: a guerrilla you do not control has handed the entire left's enemies their martyr, their unity, and their argument, in one street corner's work.
+
+- @deslindar: Condemn the killing without adjectives spared. The Party does not traffic in dead old men.
+- @espiral: Condemn it — and name the spiral: a state that answers every ballot with a bullet has been teaching this course for years. Garza Sada's tuition was paid at Tlatelolco.
+
+@deslindar
+on-arrival: sup_middle += 2; pri_reformist_rel += 2; sup_students -= 2
+
+The statement is unambiguous and costs nothing to quote, which is its purpose. The reasonable press notes it with faint surprise. In the JC someone asks, not gently, where the Party's unambiguous statements were parked when the dead were poorer.
+
+@espiral
+on-arrival: sup_students += 3; sup_middle -= 3; expediente += 2
+
+The essay condemns the killing in its first sentence and spends the rest on the ecology that bred it — Madera, Tlatelolco, Corpus Christi, the ballots burned in Guerrero — and it reads true because it is. The business press calls it a justification, which it is not, and quotes it entire, which spreads it. In Monterrey the word *comunista* recovers its full liturgical heat.

@@ -12,6 +12,8 @@ if (Q.month != Q.last_drift_month) {
     else if (Q.represion < Q.presidente_represion) { Q.represion += 1; }
     if (Q.time % 4 == 0 && Q.expediente < 100) { Q.expediente += 1; }
     if (Q.month == 12 && Q.sexenio_year < 6) { Q.sexenio_year += 1; }
+    if (Q.postura_guerrilla == 3 && Q.time % 3 == 0) { Q.expediente += 1; Q.represion += 1; }
+    if (Q.postura_guerrilla == 1 && Q.guerrilla_meter > 0) { Q.guerrilla_meter -= 1; }
 }
 var clamplist = ['sup_workers','sup_electricians','sup_teachers','sup_students','sup_peasants','sup_colonos','sup_middle','represion','expediente','unity','political_capital','fac_ortodoxos','fac_renovadores','fac_nueva_izquierda','moscow_relation','pri_politicos','pri_tecnicos','pri_aperturistas','pri_duros','charrismo','pri_reformist_rel','presidente_cooptacion','presidente_represion'];
 for (var cq of clamplist) {

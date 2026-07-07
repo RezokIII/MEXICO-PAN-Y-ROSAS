@@ -16,21 +16,7 @@ Unidad: [+ unity +]
 
 Capital político: [+ political_capital +]
 
-= Apoyo por sector
-
-Estudiantes e intelectuales: [+ sup_students +]
-
-Obreros industriales: [+ sup_workers +]
-
-Electricistas y sindicatos disidentes: [+ sup_electricians +]
-
-Maestros: [+ sup_teachers +]
-
-Campesinos: [+ sup_peasants +]
-
-Colonos urbanos: [+ sup_colonos +]
-
-Clases medias: [+ sup_middle +]
+Línea ante la lucha armada: [? if postura_guerrilla = 0 : sin definir — el silencio también se lee ?][? if postura_guerrilla = 1 : deslinde público ?][? if postura_guerrilla = 2 : ambigüedad calculada ?][? if postura_guerrilla = 3 : canales discretos ?]
 
 = Corrientes internas
 
@@ -42,13 +28,15 @@ Nueva izquierda: [+ fac_nueva_izquierda : fuerza +]
 
 = Gobierno — el sistema
 
-Presidente: [? if presidente == "Diaz Ordaz" : Gustavo Díaz Ordaz (1964-1970) ?][? if presidente == "Echeverria" : Luis Echeverría Álvarez (1970-1976) ?]
+Presidente: [? if presidente == "Diaz Ordaz" : Gustavo Díaz Ordaz (1964-1970) ?][? if presidente == "Echeverria" : Luis Echeverría Álvarez (1970-1976) ?][? if presidente == "Lopez Portillo" : José López Portillo (1976-1982) ?]
 
 Año [+ sexenio_year +] del sexenio.
 
 Cooptación: [+ presidente_cooptacion : cooptacion +]
 
 Represión: [+ represion : represion +]
+
+Gobernación: [? if gobernacion == "Echeverria" : Luis Echeverría — el que firmó los oficios de octubre. ?][? if gobernacion == "Moya" : Mario Moya Palencia — heredó los archivos. Todos. ?][? if gobernacion == "Reyes Heroles" : Jesús Reyes Heroles — el ideólogo. Habla de reforma, y podría hablar en serio. ?]
 
 Su expediente en la DFS: [+ expediente : expediente +]
 
@@ -73,3 +61,77 @@ Duros: [+ pri_duros : fuerza +]
 = El Senado de la República
 
 64 de 64 para el PRI. No hay nada que ver aquí. Todavía.
+
+
+@politics
+
+= Política
+
+**La vía electoral**
+
+Registro electoral: [? if registro = 0 : ninguno. El Partido no existe ante la Comisión Federal Electoral — y la Comisión existe demasiado ante el Partido. ?][? if registro = 1 : condicionado. Existen ustedes a prueba, como los empleados nuevos. ?][? if registro = 2 : definitivo. Un partido legal, con todo lo que eso abre y todo lo que eso obliga. ?]
+
+Línea del Movimiento: [? if ax_electoral >= 15 : decididamente electoral ?][? if ax_electoral >= -14 and ax_electoral <= 14 : en disputa entre la urna y la calle ?][? if ax_electoral <= -15 : de masas e insurreccional ?]
+
+Definición ideológica: [? if ax_nacpop >= 10 : nacional-popular — la Revolución mexicana como idioma ?][? if ax_nacpop >= -9 and ax_nacpop <= 9 : entre la patria y el manifiesto ?][? if ax_nacpop <= -10 : marxista-leninista clásica ?]
+
+Cuestión soviética: [? if ax_sovietico >= 10 : alineamiento con Moscú ?][? if ax_sovietico >= -9 and ax_sovietico <= 9 : equilibrio incómodo ?][? if ax_sovietico <= -10 : independencia declarada — herejes con carnet ?]
+
+**Relaciones**
+
+Con los reformistas del PRI: [+ pri_reformist_rel : relacion +]
+
+Con Moscú: [+ moscow_relation : relacion +]
+
+Control charro sobre el movimiento obrero: [+ charrismo : fuerza +]
+
+@paramilitaries
+
+= Defensa
+
+**El aparato del Estado**
+
+Represión: [+ represion : represion +]
+
+Su expediente en la DFS: [+ expediente : expediente +]
+
+[? if year <= 1976 : Instrumentos activos: la DFS de Gutiérrez Barrios y Nazar Haro; los granaderos; las guardias blancas en el campo[? if year >= 1971 : ; los Halcones, que oficialmente no existen ?][? if year >= 1974 : ; la Brigada Blanca, que existe menos todavía y trabaja más ?]. ?]
+[? if year >= 1977 : Instrumentos activos: la DFS en su apogeo técnico; la Brigada Blanca en las ciudades; el ejército en las sierras que quedan. La guerra sucia ya no hace ruido — perfeccionó el silencio. ?]
+
+**La cuestión armada**
+
+Línea del Movimiento: [? if postura_guerrilla = 0 : sin definir. El silencio también es una posición, y la peor. ?][? if postura_guerrilla = 1 : deslinde público. Las armas le regalan al Estado la guerra que prefiere. ?][? if postura_guerrilla = 2 : ambigüedad calculada. La DFS y la guerrilla los archivan a ustedes bajo "pendiente". ?][? if postura_guerrilla = 3 : canales discretos. Medicina que viaja sin remitente; nombres que se avisan antes que los operativos. El libro mayor de la negación se adelgaza cada mes. ?]
+
+La tentación armada entre los jóvenes: [+ guerrilla_meter : tentacion +]
+
+[? if year >= 1971 and year <= 1974 : En armas: el Partido de los Pobres de Lucio Cabañas en la Costa Grande[? if year <= 1972 : ; la ACNR de Genaro Vázquez ?]; la Liga Comunista 23 de Septiembre en las ciudades desde el 73. Cada acción suya trae a los judiciales por las puertas de ustedes primero. ?]
+[? if year >= 1975 and year <= 1980 : En armas: los restos — la Liga, cada año más perseguida y más feroz, cazada casa por casa por la Brigada Blanca. La sierra de Guerrero quedó en silencio; el silencio también se administra. ?]
+
+**El memorial**
+
+Nombres añadidos en su vigilancia: [+ memorial +]. La apuesta más profunda del Estado es que todos olvidan. La lista es cómo se pierde esa apuesta.
+
+@polls
+
+= Encuestas
+
+La República no publica encuestas; los resultados se redactan antes que las preguntas. Lo que sigue son las estimaciones internas del Movimiento — actas de asamblea, ventas del periódico, cuotas, y el olfato de los organizadores, que se equivoca menos que la Comisión Federal Electoral.
+
+**Apoyo por sector**
+
+Estudiantes e intelectuales: [+ sup_students +]
+
+Obreros industriales: [+ sup_workers +]
+
+Electricistas y sindicatos disidentes: [+ sup_electricians +]
+
+Maestros: [+ sup_teachers +]
+
+Campesinos: [+ sup_peasants +]
+
+Colonos urbanos: [+ sup_colonos +]
+
+Clases medias: [+ sup_middle +]
+
+[? if registro = 0 : Proyección electoral: no aplica. Primero hay que existir. ?]
+[? if registro >= 1 : Proyección electoral: los cuadros trabajan en ella. Cada casilla vigilada vale más que cualquier encuesta. ?]

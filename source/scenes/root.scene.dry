@@ -48,6 +48,11 @@ Q.ibarra_advisor = 0;
 Q.vallejo_advisor = 0;
 Q.moscow_relation = 35;
 Q.memorial = 0;
+Q.postura_guerrilla = 0;
+Q.td_apoyo = 0;
+Q.exiliados = 0;
+Q.excelsior_caido = 0;
+Q.campa76 = 0;
 
 // time elapsed (in months)
 Q.time = 1;
