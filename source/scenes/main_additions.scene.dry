@@ -1,0 +1,13 @@
+# ============================================================
+# main.scene.dry additions
+# 1) Add "- @movimiento" to the option list of BOTH hands
+#    (@main "Next month" and @main_easy), next to "- @party".
+# 2) Paste this deck block alongside @party and @govt.
+# ============================================================
+
+@movimiento
+title: El Movimiento
+card-image: img/cards/oposicion_masthead.png
+is-deck: true
+
+- #movimiento

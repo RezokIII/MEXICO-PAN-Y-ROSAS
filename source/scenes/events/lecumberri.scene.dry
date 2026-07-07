@@ -1,0 +1,29 @@
+title: El Palacio Negro
+new-page: true
+subtitle: Noviembre de 1968
+tags: event
+view-if: year = 1968 and month = 11
+priority: 2
+max-visits: 1
+face-image: img/lecumberri.jpg
+
+= El Palacio Negro
+
+MÉXICO, D.F., noviembre de 1968 —
+
+Lecumberri. The Black Palace. Crujía "M" for the políticos. Demetrio Vallejo has been inside since '59; Valentín Campa nearly as long. Now the crujías fill with boys of nineteen — and with José Revueltas, who has taken responsibility for the entire student movement in writing, mostly to embarrass a government that cannot decide whether he is a criminal or a novelist.
+
+On New Year's Day the common prisoners will be sent into the political crujías with clubs while the guards watch. The families outside are organizing visits, food, lawyers. They are asking if the Party is with them.
+
+- @defensa: Fund the legal defense committees. Lawyers, visits, names published abroad.
+- @clandestino: Conserve everything. Rebuild the cells first; the prisoners would understand.
+
+@defensa
+on-arrival: lecumberri_campaign = 1; funds -= 10; sup_students += 8; expediente += 8; political_capital += 5
+
+The committees get lawyers who ask for writs and get insults, but the names cross borders: Paris signs letters, Rome signs letters. In Crujía M, Revueltas gets paper. He is writing something about the apando — the punishment cell. It will outlive everyone who put him there.
+
+@clandestino
+on-arrival: lecumberri_campaign = 2; unity -= 5; sup_students -= 4
+
+The cells are rebuilt, quietly, five by five. It is the correct decision by every manual ever written in exile. In the visiting yard at Lecumberri, a mother asks a question about the Party, and nobody has an answer for her.

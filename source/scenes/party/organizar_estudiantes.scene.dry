@@ -1,0 +1,25 @@
+title: Trabajo estudiantil
+new-page: true
+subtitle: Brigadas, círculos de estudio, un mimeógrafo que funciona
+on-arrival: month_actions += 1
+max-visits: 24
+is-card: true
+card-image: img/cards/mimeografo.jpg
+frequency: 100
+tags: movimiento
+
+= Trabajo estudiantil
+
+The university is a wound and a printing press. Study circles in the faculties, brigades in the vocacionales, a mimeograph that jams on every fourth page of Gramsci.
+
+- @invertir: Commit funds and an organizer for the month.
+- @root: Not this month.
+- @easy_discard
+
+@invertir
+subtitle: -3 funds
+choose-if: funds >= 3
+unavailable-subtitle: No hay fondos ni para el esténcil.
+on-arrival: funds -= 3; sup_students += 4; sup_students += 2 if cnh_recruited = 1; members += 1; expediente += 2
+
+The circles grow. Half of what is read is Marta Harnecker, half is smuggled Monsiváis columns, and the discussion is better than both. Two auxiliares from Derecho ask for Party cards. One of them is probably reporting to somebody. You take them both.

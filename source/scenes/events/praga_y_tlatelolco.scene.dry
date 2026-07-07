@@ -1,0 +1,35 @@
+title: Praga y Tlatelolco
+new-page: true
+subtitle: Octubre de 1968
+tags: event
+view-if: year = 1968 and month = 10
+priority: 3
+max-visits: 1
+face-image: img/tlatelolco.jpg
+
+= Praga y Tlatelolco
+
+MÉXICO, D.F., octubre de 1968 —
+
+Two invasions in one season. In August, Soviet tanks entered Prague, and the Party — your party — did what almost no communist party in Latin America dared: it condemned them. In October, the tanks were Mexican, the plaza was Tlatelolco, and the dead were your students.
+
+The government's newspapers say the Party organized the "provocation." The Party could not have organized a picnic that week: half the Central Committee is in Lecumberri, the offices are sealed, and the presses are in a basement in Colonia Obrera.
+
+Moscow has sent a note. It is not a note of condolence. It concerns August.
+
+- @doblar: Reaffirm the condemnation of the invasion of Czechoslovakia. Socialism cannot ride in on tanks — not in Prague, not in Tlatelolco.
+- @retirar: Quietly soften the August line. This is no moment to lose the only friends with money.
+
+@doblar
+on-arrival: praga_line = 1; ax_sovietico -= 10; fac_renovadores += 8; fac_ortodoxos -= 5; sup_students += 5; funds -= 5
+
+The statement runs in what remains of the press: one paragraph, two tanks, one sentence — *"El socialismo no llega en tanque."* The old militants grumble. The students, the ones still willing to be seen with you, read it twice.
+
+Moscow's subsidy will be "reviewed."
+
+@retirar
+on-arrival: praga_line = 2; ax_sovietico += 8; fac_ortodoxos += 8; fac_renovadores -= 6; sup_students -= 6; funds += 5
+
+The August resolution is "clarified" into fog. The old militants nod. In the university corridors, someone has already painted it on a wall: *ni Praga ni Tlatelolco — y ustedes callaron.*
+
+The subsidy arrives on schedule.

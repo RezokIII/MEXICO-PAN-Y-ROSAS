@@ -1,0 +1,33 @@
+title: La autocrítica
+new-page: true
+subtitle: 1969 — el congreso que nadie quería
+tags: event
+view-if: year = 1969 and month = 6
+priority: 2
+max-visits: 1
+face-image: img/congreso.jpg
+
+= La autocrítica
+
+The question cannot be postponed past the second round of mezcal: where was the Party in July, in August, in September? The ortodoxos have an answer — *infiltrated provocateurs, objective conditions* — delivered in the tone of men reading a train schedule. The young people have a shorter answer: *nowhere*.
+
+A congress must say something. What it says will decide who stays.
+
+- @ruptura: Adopt the hard self-criticism. The Party failed the movement; say so in print, and open the leadership to the '68 generation.
+- @equilibrio: A balanced resolution — errors were committed, conditions were difficult, unity is paramount.
+- @cerrar: Close ranks around the old leadership. Discipline held under torture; that is not nothing.
+
+@ruptura
+on-arrival: autocritica_done = 1; fac_renovadores += 12; fac_nueva_izquierda += 8; fac_ortodoxos -= 12; unity -= 8; sup_students += 8; political_capital += 5
+
+The resolution reads like nothing the Party has printed in thirty years, because it is true and it hurts. Three veterans resign with dignity; one without it. In the back of the hall, students applaud a communist congress, which has not happened in living memory.
+
+@equilibrio
+on-arrival: autocritica_done = 2; unity += 5; political_capital -= 2
+
+The resolution is a masterpiece of the semicolon. Everyone can sign it; no one will quote it. The Party survives another year the way a man survives on soup.
+
+@cerrar
+on-arrival: autocritica_done = 3; fac_ortodoxos += 10; fac_nueva_izquierda -= 8; unity -= 3; sup_students -= 8; ax_sovietico += 5
+
+Discipline. The old men did hold — in '59, in the cells, under things that are not spoken of at congresses. The young people do not doubt it. They simply leave, and take the next decade with them.
