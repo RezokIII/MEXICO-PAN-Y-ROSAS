@@ -254,3 +254,212 @@
   };
 
 }());
+
+
+// ===== La Izquierda: automatic glossary markup =====
+(function() {
+  var G = {};
+  function d(cls, tip, names) {
+    for (var i = 0; i < names.length; i++) { G[names[i]] = {c: cls, tip: tip}; }
+  }
+  // personas
+  d('per','Gustavo Díaz Ordaz, President 1964-70. The man of Tlatelolco; history will not be argued out of it.',['Díaz Ordaz']);
+  d('per','Luis Echeverría Álvarez, Secretary of Gobernación on Oct 2 1968; President 1970-76. Apertura with one hand, dirty war with the other.',['Echeverría']);
+  d('per','José López Portillo, President 1976-82. Elected unopposed; will preside over the oil boom, the reform, and the crash.',['López Portillo']);
+  d('per','Jesús Reyes Heroles, historian and ideologue of the system’s serious wing; at Gobernación from 1976, architect of the political reform.',['Reyes Heroles']);
+  d('per','Valentín Campa, railwayman, communist since the 1920s, 11 years in Lecumberri; refused to organize Trotsky’s murder and refused every charola since.',['Campa','Valentín Campa']);
+  d('per','Demetrio Vallejo, leader of the 1958-59 railway strike; 11 years imprisoned under Article 145. Reads wage tables like horizons.',['Vallejo','Demetrio Vallejo']);
+  d('per','José Revueltas, novelist of prisons, twice expelled from the Party he defended to the death. Lecumberri’s most dangerous inmate: he wrote it.',['Revueltas']);
+  d('per','Heberto Castillo, engineer of ’68, inventor of the tridilosa, three years in Lecumberri. Building a new left next door — not yours, but needed.',['Heberto Castillo','Castillo']);
+  d('per','Arnoldo Martínez Verdugo, First Secretary since 1963. Sign painter, autodidact, heretic by temperament, custodian by trade.',['Martínez Verdugo']);
+  d('per','Othón Salazar, teacher of the Montaña de Guerrero; led the 1958 teachers’ movement into the Zócalo and the granaderos’ clubs.',['Othón Salazar','Othón']);
+  d('per','Ramón Danzós Palomino, campesino leader; presidential candidate of an unregistered front in 1964. The independent countryside’s memory.',['Danzós']);
+  d('per','Benita Galeana, arrested 58 times across five decades for saying true things loudly. The Party’s grandmother and sharpest tongue.',['Benita Galeana']);
+  d('per','Rosario Ibarra de Piedra. Her son was disappeared in 1975; she has been the state’s most dangerous question ever since: ¿dónde están?',['Rosario Ibarra']);
+  d('per','Lucio Cabañas, schoolteacher of Atoyac, driven to the sierra after the 1967 massacre; leads the Partido de los Pobres in Guerrero.',['Lucio Cabañas','Lucio']);
+  d('per','Genaro Vázquez Rojas, teacher and civic organizer beaten off the electoral road; led the ACNR in Guerrero until his death in 1972.',['Genaro Vázquez','Genaro']);
+  d('per','Rafael Galván, electricians’ leader, founder of the Tendencia Democrática — the most serious challenge to charro labor in a generation.',['Galván']);
+  d('per','Fidel Velázquez, boss of the CTM since 1941. Has outlasted five presidents and intends to outlast the rest.',['Fidel Velázquez','don Fidel']);
+  d('per','Julio Scherer García, editor of Excélsior — the one great daily that read like a free country’s paper, until July 1976.',['Scherer']);
+  d('per','Eugenio Garza Sada, patriarch of the Monterrey Group, killed in a botched Liga kidnapping in 1973. His funeral turned the business class against Echeverría.',['Garza Sada']);
+  d('per','Rubén Jaramillo, the last Zapatista; amnestied three times, executed with his pregnant wife and sons at Xochicalco, May 1962.',['Jaramillo']);
+  d('per','Miguel Nazar Haro, DFS interrogator ascending through the dirty war’s machinery. The files are his art form.',['Nazar Haro']);
+  d('per','Salvador Allende, President of Chile 1970-73. Died in La Moneda with the vía pacífica; Mexico received his exiles with full honors.',['Allende']);
+  // el Estado
+  d('est','Partido Revolucionario Institucional: the party-state, governing since 1929 under three names. It has never lost an election it counted.',['PRI']);
+  d('est','Dirección Federal de Seguridad — the political police. Keeps the files, runs the informers, answers to Gobernación and to habit.',['DFS']);
+  d('est','The Brigada Blanca: the extralegal joint unit hunting the urban guerrilla, building by building, with all the time in the world.',['Brigada Blanca']);
+  d('est','Los Halcones: a paramilitary shock force on a city payroll that officially does not exist. Corpus Christi, 1971, was their exhibition match.',['Halcones']);
+  d('est','The riot police. Clubs first, questions never.',['granaderos']);
+  d('est','Confederación de Trabajadores de México: official labor, the CTM — don Fidel’s empire of dues checkoffs and protection contracts.',['CTM']);
+  d('est','The official teachers’ union, largest in Latin America, run by Vanguardia Revolucionaria as a personal ranch.',['SNTE']);
+  d('est','The state paper monopoly. Every newspaper in the Republic prints on paper the government sells — or doesn’t.',['PIPSA']);
+  d('est','The electoral authority, chaired by the Secretary of Gobernación. The count is the count.',['Comisión Federal Electoral']);
+  d('est','Partido Acción Nacional: the Catholic-business opposition, permitted its share and no more.',['PAN']);
+  d('est','Partido Popular Socialista: Lombardo’s heirs — Marxist in theory, reliably PRI-adjacent in practice.',['PPS']);
+  // el movimiento y los armados
+  d('org','The National Strike Council of 1968 — the student movement’s elected leadership, half of it jailed at Tlatelolco.',['CNH']);
+  d('org','The Communist Youth — the Party’s impatient future, permanently at war with its patient past.',['Juventud Comunista','JC']);
+  d('org','The electricians’ democratic current, born at Guadalajara in April 1975: union democracy and the Constitution taken at its word.',['Tendencia Democrática']);
+  d('org','Sindicato Único de Trabajadores Electricistas — the merged electrical union, charro-run since Galván’s expulsion.',['SUTERM']);
+  d('org','Lucio Cabañas’ Partido de los Pobres: peasant brigades holding the Costa Grande sierra with rifles and moral credit.',['Partido de los Pobres']);
+  d('org','Genaro Vázquez’s Asociación Cívica Nacional Revolucionaria — civic organizers driven to arms.',['ACNR']);
+  d('org','Liga Comunista 23 de Septiembre: the urban guerrilla, named for Madera. Considers you the principal obstacle to revolution.',['Liga Comunista 23 de Septiembre','Liga Comunista']);
+  d('org','Central Campesina Independiente — the independent peasant central, Danzós’ life’s work.',['CCI']);
+  // lugares y fechas
+  d('evt','Plaza de las Tres Culturas, Tlatelolco: October 2, 1968. The plaza was hosed clean before morning; the counting has never stopped.',['Tlatelolco']);
+  d('evt','The Black Palace — the Porfirian penitentiary whose Crujía M holds the Republic’s political education.',['Lecumberri']);
+  d('evt','September 23, 1965: Arturo Gámiz’s band assaults the Madera barracks and dies. The date becomes a signature.',['Madera']);
+  d('evt','June 10, 1971: the Halcones maul the first big march since ’68 while the police direct traffic. The apertura’s other hand.',['Halconazo']);
+  d('evt','The presidential residence. Where the dedazo lives.',['Los Pinos']);
+  d('evt','Street of the Secretaría de Gobernación — the ministry of the interior, the files, and the count.',['Bucareli']);
+  d('evt','Guerrero’s coffee coast — Atoyac, the sierra, the dirty war’s deepest theater.',['Costa Grande']);
+  // el idioma del sistema
+  d('trm','The six-year presidential reign; also the Republic’s unit of historical time.',['sexenio']);
+  d('trm','The pointing finger: the outgoing president names his successor. Denied while it happens, absolute when it lands.',['dedazo']);
+  d('trm','The unveiling of the hidden candidate — followed by the cargada, the stampede of instant loyalty.',['destape']);
+  d('trm','The hidden successor. He exists already; only the Republic doesn’t know his name. Perhaps he doesn’t either.',['tapado']);
+  d('trm','The stampede: governors, senators and union bosses discovering they always supported the winner.',['cargada']);
+  d('trm','Literally a badge or tray; in practice, the offer you should have refused.',['charola']);
+  d('trm','A state-controlled union boss; hence charrismo, the whole apparatus of captive labor.',['charro','charrismo']);
+  d('trm','The constitutional writ of protection. Beautiful instrument, routinely denied.',['amparo']);
+  d('trm','Article 145: the crime of “dissolving society.” Eleven years of Vallejo’s life; repealed 1970 without apology.',['disolución social']);
+  d('trm','The democratic opening — the regime’s word for the space it sells you, at prices to be determined.',['apertura']);
+  d('trm','The wartime seizure law: strike inside a requisitioned industry and you are no longer a striker but a saboteur.',['requisa']);
+  d('trm','The dirty war: disappearances, clandestine prisons, flights over the sea. Officially it is not happening.',['guerra sucia']);
+  d('per','Miguel de la Madrid, President 1982-88. The tecnicos\u2019 coronation: austerity by spreadsheet, renovacion moral by press release.',['De la Madrid']);
+  d('per','Manuel Bartlett, Secretary of Gobernacion 1982-88. Smooth, patient, owner of the files and of the count. Remember the name.',['Bartlett']);
+  d('per','Carlos Salinas de Gortari: Harvard, Budget, the austerity made candidate by the 1987 dedazo.',['Salinas']);
+  d('per','Cuauhtemoc Cardenas: engineer, ex-governor, son of the canonized general. Left the PRI when the dedazo refused democracy \u2014 and took the Revolution\u2019s surname with him.',['C\u00e1rdenas','Cuauht\u00e9moc C\u00e1rdenas']);
+  d('per','Porfirio Munoz Ledo: the system\u2019s most dangerous debater, co-founder of the Corriente Democratica.',['Mu\u00f1oz Ledo']);
+  d('per','Rosario Ibarra ran for president on the PRT line in 1982 \u2014 the first woman candidate in Mexican history.',['Rosario Ibarra de Piedra']);
+  d('org','Coalicion Obrero Campesina Estudiantil del Istmo: the Zapotec left of Juchitan, first leftist city government since the 1920s \u2014 evicted by decree and army in 1983.',['COCEI']);
+  d('org','Consejo Estudiantil Universitario: the 1986-87 UNAM movement that beat the rectory on live radio. The next generation.',['CEU']);
+  d('org','The Corriente Democratica: Cardenas and Munoz Ledo\u2019s heresy inside the PRI \u2014 democracy in the succession, or the door.',['Corriente Democr\u00e1tica']);
+  d('org','Coordinadora Nacional de Trabajadores de la Educacion: the teachers\u2019 insurgency inside the SNTE, born Tuxtla 1979.',['CNTE']);
+  d('org','The National Coordinator of the Urban Popular Movement: the organized colonias.',['CONAMUP']);
+  d('trm','Desaparicion de poderes: the legal instrument by which a state legislature declares an elected municipal government to have ceased existing. Used on Juchitan, 1983.',['desaparici\u00f3n de poderes']);
+  d('est','The Secretaria de Gobernacion: interior ministry, political police, electoral authority and succession broker in one building on Bucareli street. Your true counterparty.',['Gobernación']);
+  d('est','Confederacion Nacional Campesina: the PRI captive peasant sector. Delivers the countryside vote and calls it representation.',['CNC']);
+  d('est','The PRI popular sector - bureaucrats, teachers, colonos - everyone the other two sectors missed.',['CNOP']);
+  d('est','The old-guard professional politicians of the PRI: plazas, unions, the corporatist machine. Losing ground to the tecnicos.',['políticos']);
+  d('est','The economist-technocrats rising through Budget and the Bank of Mexico. Harvard-fluent, ballot-innocent. They inherit the state in 1982.',['técnicos']);
+  d('est','The PRI reform wing: those who believe the system must widen or die. Your least impossible interlocutors.',['aperturistas']);
+  d('est','The PRI hard men: Gobernacion veterans, security chiefs, those who found the apertura sentimental from the start.',['duros']);
+  d('est','The labor courts. Strikes are legal in Mexico the way unicorns are: by definition, rarely in nature. The boards declare inconvenient ones inexistentes.',['juntas de conciliación']);
+  d('est','Expulsion from the union means firing from the job: the closed-shop clause don Fidel wields as a scythe.',['cláusula de exclusión']);
+  d('org','Frente Autentico del Trabajo: independent unionism with Christian-left roots. Led the Spicer strike of 1975.',['FAT']);
+  d('org','Frente Democratico Nacional: the 1988 convergence behind Cardenas - satellites, currents, movements, and perhaps you.',['FDN']);
+  d('org','Partido Socialista Unificado de Mexico: the 1981 fusion of the PCM with the reform-era left.',['PSUM']);
+  d('org','Partido Mexicano Socialista: the 1987 fusion - PSUM plus Castillo PMT and the movement parties. The unified left, at last, one year before it mattered most.',['PMS']);
+  d('org','Partido Mexicano de los Trabajadores: Heberto Castillo new-left party - nationalist, honest, allergic to Moscow.',['PMT']);
+  d('org','Partido Revolucionario de los Trabajadores: the Trotskyists. Small, loud, brave on human rights; ran Rosario Ibarra in 82.',['PRT']);
+  d('org','Partido Autentico de la Revolucion Mexicana: a regime satellite of retired generals - until it nominated Cardenas first.',['PARM']);
+  d('org','The PST rebranded: Frente Cardenista de Reconstruccion Nacional. Your co-opted 70s flank, returned wearing the general son colors.',['PFCRN']);
+  d('org','The thirty mothers of Xalapa who organized against the Laguna Verde reactor - sit-ins every Saturday, and the coast highway when needed.',['Madres Veracruzanas']);
+  d('trm','Your poll-watcher network: trained representatives, certified actas, a telephone tree. Each point is one casilla in a hundred covered. Fraud requires darkness; this is the lamp.',['red de casillas']);
+  d('trm','The polling station. The whole war of 1988, fought one table at a time.',['casilla','casillas']);
+  d('trm','The official tally sheet signed at each casilla. A certified copy in your pocket is the only vote that cannot be unhappened.',['acta','actas']);
+  d('trm','Legal party registration - the license to exist electorally. Granted, conditioned, and revocable by Gobernacion.',['registro']);
+  d('trm','The regime electoral arithmetic: pregnant urns, carousel voters, tallies rewritten in better handwriting. Measured as the gap between your count and theirs.',['alquimia']);
+  d('trm','GAME: your action points - full-time cadres. Gained from history (releases, amnesties), lost to raids. Gate the biggest plays.',['Organizers','organizers']);
+  d('trm','GAME: the leadership authority to impose decisions - spent at congresses, mergers, registrations, and gambles.',['Political capital','political capital']);
+  d('trm','GAME: internal cohesion. Multiplies all organizing; drained by sidelined corrientes and marginal factions. Below 25, splits threaten.',['Unity']);
+  d('trm','GAME: the five milestones from survival to the united front - the visible road to a 1988 the state cannot steal.',['El camino']);
+  d('trm','GAME: general-strike infrastructure - committees, funds, the delegate web. Built for years, spent in one telephone call. The state charrazo erodes it.',['General strike readiness']);
+  d('trm','GAME: what your sources see of the war - below 40, the Sierra map is fog and guesses; above, real garrison numbers.',['Intelligence capacity']);
+  d('evt','September 19, 1985, 7:19 a.m. The earthquake \u2014 and the week the city governed itself.',['diecinueve de septiembre']);
+
+  var keys = Object.keys(G).sort(function(a, b) { return b.length - a.length; });
+  var esc = keys.map(function(k) { return k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
+  var RE;
+  try { RE = new RegExp('(?<![\\p{L}\\p{N}])(?:' + esc.join('|') + ')(?![\\p{L}\\p{N}])', 'gu'); }
+  catch (e) { RE = new RegExp('(?:' + esc.join('|') + ')', 'g'); }
+
+  function markup(root) {
+    if (!root) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) {
+      var p = n.parentNode;
+      if (!p) continue;
+      if (p.closest && p.closest('a, button, script, style, .gloss, input, select')) continue;
+      nodes.push(n);
+    }
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i], text = node.nodeValue;
+      RE.lastIndex = 0;
+      var m, last = 0, out = [], any = false;
+      while ((m = RE.exec(text))) {
+        any = true;
+        out.push(document.createTextNode(text.slice(last, m.index)));
+        var info = G[m[0]];
+        var span = document.createElement('span');
+        span.className = 'gloss ' + info.c;
+        span.setAttribute('data-tip', info.tip);
+        span.textContent = m[0];
+        out.push(span);
+        last = m.index + m[0].length;
+      }
+      if (any) {
+        out.push(document.createTextNode(text.slice(last)));
+        var parent = node.parentNode;
+        for (var j = 0; j < out.length; j++) { parent.insertBefore(out[j], node); }
+        parent.removeChild(node);
+      }
+    }
+  }
+
+  var pending = false;
+  function schedule() {
+    if (pending) return;
+    pending = true;
+    setTimeout(function() {
+      pending = false;
+      markup(document.getElementById('content'));
+      markup(document.getElementById('qualities'));
+    }, 60);
+  }
+  window.addEventListener('load', function() {
+    var content = document.getElementById('content');
+    var quals = document.getElementById('qualities');
+    var obs = new MutationObserver(function(muts) {
+      for (var i = 0; i < muts.length; i++) {
+        var t = muts[i].target;
+        if (t.nodeType === 1 && t.closest && t.closest('.gloss')) continue;
+        schedule();
+        return;
+      }
+    });
+    if (content) obs.observe(content, {childList: true, subtree: true});
+    if (quals) obs.observe(quals, {childList: true, subtree: true});
+    schedule();
+  });
+})();
+
+
+// ===== Sierra war map colorizer =====
+(function(){
+  function paint(){
+    var el = document.getElementById('mapa_sierra');
+    if (!el || !window.dendryUI || !window.dendryUI.dendryEngine) return;
+    var Q = window.dendryUI.dendryEngine.state.qualities;
+    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca'];
+    for (var i=0;i<zonas.length;i++){
+      var z=zonas[i]; var poly=document.getElementById('z_'+z);
+      if(!poly) continue;
+      var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
+      var r=Math.round(200+(55*Math.min(1,pres/40)));
+      var gb=Math.round(200-(160*Math.min(1,pres/40)));
+      poly.style.fill='rgb('+r+','+gb+','+gb+')';
+      poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px';
+      poly.style.stroke = guar>=55 ? '#0f7040' : '#333';
+    }
+  }
+  var obs=new MutationObserver(function(){ setTimeout(paint,80); });
+  window.addEventListener('load', function(){
+    var q=document.getElementById('qualities');
+    if(q) obs.observe(q,{childList:true,subtree:true});
+    setTimeout(paint,500);
+  });
+})();
