@@ -1,6 +1,6 @@
 title: La cola
 new-page: true
-subtitle: Rutina
+subtitle: Routine
 tags: event
 view-if: expediente >= 30 and time >= cola_last + 9
 priority: 1

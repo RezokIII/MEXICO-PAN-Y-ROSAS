@@ -18,7 +18,7 @@ The campaign refuses the bait of panic; Cárdenas announces the deaths to a ston
 
 @blindar
 choose-if: funds >= 5
-unavailable-subtitle: Blindar la red cuesta fondos que no hay — y en cuatro días.
+unavailable-subtitle: Hardening the network costs funds you do not have — with four days left.
 on-arrival: funds -= 5; red_casillas += 5; expediente += 2
 
 Ninety-six hours of quiet fury: routes tripled, copies quadrupled, the telephone tree rebuilt around dead drops an old clandestino designed from memory. If they intend to take the count, they will now have to take it casilla by casilla, in front of witnesses, all night long.

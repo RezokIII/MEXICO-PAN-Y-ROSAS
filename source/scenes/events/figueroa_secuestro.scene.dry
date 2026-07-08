@@ -26,7 +26,7 @@ The statement condemns the kidnapping and itemizes, with dates, eleven disappear
 
 @refugio
 choose-if: sup_peasants >= 20
-unavailable-subtitle: Esconder gente exige una base campesina que confíe su vida. No la tienes en la Costa Grande.
+unavailable-subtitle: Hiding people requires a peasant base that trusts you with its lives. You do not have it on the Costa Grande.
 on-arrival: sup_peasants += 6; represion += 4; expediente += 5; memorial += 1
 
 Attics, wells, a coffee warehouse with a double count, the old routes over the sierra to Michoacán walked at night. Most make it. One safe house falls — a name on the memorial, a family moved north — and still the villages keep offering their attics, because the arithmetic of the Costa Grande has resolved to this: the Party hides people, the government hides *from* people what it does with them.

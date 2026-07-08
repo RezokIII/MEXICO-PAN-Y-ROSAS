@@ -32,7 +32,7 @@ The first presidential campaign with your name legally on the ballot. The candid
 
 De la Madrid wins; nobody imagined otherwise. What matters is the count beneath the count:
 
-**El conteo real (sus actas — [+ red_casillas +] de cada 100 casillas vigiladas):**
+**The real count (your actas — [+ red_casillas +] of every 100 casillas watched):**
 
 PRI [+ b_real_pri +] [+ real_pri +]%
 
@@ -40,7 +40,7 @@ PAN [+ b_real_pan +] [+ real_pan +]%
 
 Ustedes [+ b_real_izq +] [+ real_izq +]%
 
-**El conteo oficial:**
+**The official count:**
 
 PRI [+ b_of_pri +] [+ oficial_pri +]%
 
@@ -48,7 +48,7 @@ PAN [+ b_of_pan +] [+ oficial_pan +]%
 
 Ustedes [+ b_of_izq +] [+ oficial_izq +]%
 
-Diputaciones: **[+ izq_seats +]**. The shave this cycle: [+ robo_79 +] points. Every casilla your network covered reported clean; the alquimia lives where you are absent — which is the entire argument for the network.
+Seats won: **[+ izq_seats +]**. The shave this cycle: [+ robo_79 +] points. Every casilla your network covered reported clean; the alquimia lives where you are absent — which is the entire argument for the network.
 
 - @consolidar: Bank the seats, publish the coverage map, and let every district see where fraud survives: wherever the red de casillas is not.
 - @escalar: File a formal challenge on the worst districts — spend standing now to build the jurisprudence for later.
@@ -60,7 +60,7 @@ The map is the message: fraud correlates perfectly with darkness. Volunteer appl
 
 @escalar
 choose-if: political_capital >= 12
-unavailable-subtitle: Un desafío jurídico formal exige más capital político del que hay.
+unavailable-subtitle: A formal legal challenge requires more political capital than exists.
 on-arrival: political_capital -= 4; alquimia_expuesta = 1; pri_reformist_rel -= 2; sup_middle += 3
 
 The challenges die in the electoral college, as designed — but the record now exists: districts named, arithmetic documented, precedents of protest properly filed. Jurisprudence is a wall built of lost cases. Someone will stand on it, some July.

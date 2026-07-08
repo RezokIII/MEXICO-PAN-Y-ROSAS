@@ -1,6 +1,6 @@
 title: El PMS
 new-page: true
-subtitle: 1987 — la segunda fusión
+subtitle: 1987 — the second fusion
 tags: event
 view-if: year = 1987 and month = 5
 priority: 3
@@ -17,7 +17,7 @@ An internal election — an actual contested primary, a novelty the big parties 
 
 @fusionar
 choose-if: psum = 1 and unity >= 40
-unavailable-subtitle: Sin la fusión del 81 consolidada y un mínimo de unidad interna, no hay con qué fundar la casa grande.
+unavailable-subtitle: Without the 1981 fusion consolidated and a minimum of internal unity, there is nothing to found the big house with.
 on-arrival: pms = 1; members += 2; funds += 3; political_capital += 4; fac_nueva_izquierda += 5; unity += 2; heberto_advisor = 1
 
 The primary is a small festival of the unfamiliar: real ballots, real counts, real concession speeches. Castillo wins the candidacy and the party a legitimacy money cannot mint. The PMS begins its campaign knowing one large thing it does not say aloud: eight months out, with the cardenista wave building, the unified left's candidate may yet face the era's hardest question — whether the greatest service a candidacy can render is its own withdrawal.

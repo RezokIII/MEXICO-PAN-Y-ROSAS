@@ -1,6 +1,6 @@
 title: Solidaridad internacional
 new-page: true
-subtitle: El mundo también está en llamas
+subtitle: The world is on fire too
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

@@ -144,11 +144,11 @@ Adolf Hitler has taken power in Germany. However, we have rallied the democratic
 
 @no_hitler
 view-if: chancellor != "Hitler" and president != "Hitler" and president != "Göring" and chancellor_party != "NSDAP"
-title: El estado de la República...
+title: The state of the Republic...
 tags: endings
 go-to: eg_menu
 
-[? if ending = "reconocimiento" : Un presidente electo gobierna sobre un régimen fracturado; la transición mexicana comenzó contándose. ?][? if ending = "historico" : Salinas gobierna un país que ya no le cree; frente a él, el partido nuevo — fundado sobre el registro de ustedes. ?][? if ending = "ruptura" : El Estado prevaleció sobre los Once Días; el país que vio no olvida. Las listas sobrevivieron. ?][? if ending = "irrelevancia" : El sistema sigue; la ola pasó; el Movimiento quedó íntegro y a la orilla. ?][? if ending = "aniquilacion" : El sistema sobrevivió a ustedes. Alguien, en alguna azotea, guarda todavía un mimeógrafo. ?]
+[? if ending = "reconocimiento" : An elected president governs over a fractured regime; the Mexican transition began by being counted. ?][? if ending = "historico" : Salinas governs a country that no longer believes him; facing him, the new party — founded on your registro. ?][? if ending = "ruptura" : The state prevailed over the Eleven Days; the country that watched does not forget. The lists survived. ?][? if ending = "irrelevancia" : The system continues; the wave passed; the Movement remained whole, and on the shore. ?][? if ending = "aniquilacion" : The system outlived you. Somewhere, on some rooftop, someone still keeps a mimeograph. ?]
 
 [? if hitler_deported == 1 : We have deported Hitler back to Austria. Hopefully he will never return. ?]
 
@@ -255,7 +255,7 @@ go-to: eg_menu
 While still uncomfortably high, unemployment levels are nowhere near their peak. This is a success of our economic policy.
 
 @unemployment_reduced_2
-title: La economía al cierre...
+title: The economy at the close...
 view-if: unemployed < 10 and year >= 1930
 tags: endings
 go-to: eg_menu

@@ -1,6 +1,6 @@
 title: La red viva
 new-page: true
-subtitle: La lámpara alumbra
+subtitle: The lamp gives light
 tags: event
 view-if: red_casillas >= 25 and year >= 1981 and registro >= 1
 priority: 2

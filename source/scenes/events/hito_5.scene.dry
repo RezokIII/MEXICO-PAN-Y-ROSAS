@@ -1,6 +1,6 @@
 title: El camino: la convergencia
 new-page: true
-subtitle: Quinto hito — el último antes de julio
+subtitle: Fifth milestone — the last before July
 tags: event
 view-if: camino4 = 1 and camino5 = 0 and fdn >= 1 and pms = 1 and cd_rel >= 2 and year >= 1987
 priority: 2

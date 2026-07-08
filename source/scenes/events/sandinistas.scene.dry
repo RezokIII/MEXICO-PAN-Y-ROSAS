@@ -17,7 +17,7 @@ For the left the emotion is older and harder to govern. It is the first victorio
 
 @brigadas
 choose-if: funds >= 3
-unavailable-subtitle: Las brigadas viajan en autobús y comen. No hay caja.
+unavailable-subtitle: The brigades travel by bus, and they eat. The box is empty.
 on-arrival: funds -= 3; sup_students += 4; moscow_relation += 2; expediente += 2; guerrilla_meter += 2
 
 The brigades go south with the euphoria and come back with something better: the sight of a state being rebuilt from nothing by people their own age. The DFS registers every passport. The energy pours into the fronts and the campaign — though in some eyes you can see the other lesson glinting, the one about what rifles accomplished, and you will be managing that glint for years.

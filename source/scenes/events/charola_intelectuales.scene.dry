@@ -1,6 +1,6 @@
 title: La zanahoria
 new-page: true
-subtitle: 1972 — el sexenio compra
+subtitle: 1972 — the sexenio goes shopping
 tags: event
 view-if: year = 1972 and month = 9
 priority: 2
@@ -28,7 +28,7 @@ Conscience decides, and conscience, it turns out, has a mortgage. A dozen cadres
 
 @estrategia
 choose-if: pri_reformist_rel >= 15
-unavailable-subtitle: Para colocar gente adentro hace falta que adentro te abran la puerta. No te la abren.
+unavailable-subtitle: Placing people inside requires a door opened from within. It is not being opened to you.
 on-arrival: pri_reformist_rel += 5; funds += 4; expediente += 2; sup_students -= 4; ax_electoral += 2
 
 Three placements, chosen like chess moves: credit program, publishing house, a statistical office whose numbers will prove useful for a decade. The dues arrive punctually; so does the intelligence. So does the cost: in the university the word goes around that the Party has people *on the payroll*, and the distinction between infiltration and employment — so crisp in the resolution — refuses to survive contact with a cafeteria argument.

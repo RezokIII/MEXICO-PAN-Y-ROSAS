@@ -29,7 +29,7 @@ Dignified, and read by everyone exactly as they prefer: the state reads complici
 
 @discretos
 choose-if: postura_guerrilla >= 2 and organizers >= 3
-unavailable-subtitle: Sin una línea de ambigüedad ya establecida y cuadros de confianza, esto es suicidio administrativo.
+unavailable-subtitle: Without an established line of ambiguity and trusted cadres, this is administrative suicide.
 on-arrival: expediente += 5; guerrilla_meter += 2; sup_students += 2; represion += 2
 
 No doctrine is conceded an inch — the polemics continue in print — but a médico who asks no names treats a fever in a safe house, and twice a warning travels faster than a convoy. The Liga's leadership scorns you no less. Their wounded, over the years, remember differently, and memory is the only currency that survives this decade.

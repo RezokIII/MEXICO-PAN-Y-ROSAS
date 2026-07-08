@@ -1,6 +1,6 @@
 title: La nacionalización de la banca
 new-page: true
-subtitle: 1 de septiembre de 1982
+subtitle: September 1 — the ritual de 1982
 tags: event
 view-if: year = 1982 and month = 9
 priority: 3
@@ -29,7 +29,7 @@ The analysis is merciless and correct — and lands strangely: the right quotes 
 
 @control
 choose-if: sup_workers >= 20 and huelgas >= 10
-unavailable-subtitle: Ocupar el momento exige base bancaria y músculo huelguístico. No hay ninguno de los dos.
+unavailable-subtitle: Seizing the moment requires a base among the bank workers and strike muscle. Neither exists.
 on-arrival: sup_workers += 4; huelgas += 6; burguesia_estado += 2; expediente += 4; political_capital += 3
 
 The bank workers' assemblies vote resolutions on credit democracy that terrify everyone correctly; for a month the question is genuinely open. Then December comes with the técnicos and the counter-reform — but the assemblies happened, the cadres exist, and a generation of bank employees knows the Party as the people who took their work seriously. Deposits of another kind.

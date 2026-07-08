@@ -40,138 +40,138 @@ go-to: slide_logros
 @slide_logros
 new-page: true
 
-= Lo que fue
+= What was
 
-[? if ending = "aniquilacion" : El Partido Comunista Mexicano dejó de existir como organización nacional en algún momento que ni sus enemigos supieron fechar. No hubo comunicado final; las organizaciones no mueren de un tiro sino de mil bajas sin funeral. Sus archivos — los que la DFS no capturó — durmieron en tres sótanos de tres ciudades, esperando historiadores que tardarían décadas. ?]
+[? if ending = "aniquilacion" : The Mexican Communist Party ceased to exist as a national organization at some point not even its enemies could date. There was no final communique; organizations do not die of one shot but of a thousand casualties without funerals. Its archives — the ones the DFS never captured — slept in three basements in three cities, waiting for historians who would take decades to arrive. ?]
 
-[? if ending = "debil" : El Movimiento sobrevivió, que en este país y en esta década es un verbo transitivo: sobrevivió A la guerra sucia, AL charrismo, A la charola. Quedó pequeño, golpeado, con más mártires que militantes — pero con la lista intacta, el periódico saliendo, y en tres o cuatro rincones del país, gente que no se vendió. ?]
+[? if ending = "debil" : The Movement survived — which in this country and this era is a transitive verb: it survived THE dirty war, THE charrismo, THE charola. It ended small, battered, with more martyrs than militants — but with the list intact, the paper printing, and in three or four corners of the Republic, people who never sold. ?]
 
-[? if ending = "media" : El Movimiento salió de la década larga siendo algo que en 1968 parecía imposible: una organización nacional real — presente en las fábricas del Valle de México, en la Montaña de Guerrero, en las normales y las universidades, con cuadros probados y una prensa que el régimen leía con atención profesional. No era poder. Era, por primera vez en una generación, la posibilidad del poder. ?]
+[? if ending = "media" : The Movement came out of the long decade as something that seemed impossible in 1968: a real national organization — present in the factories, in the Montana of Guerrero, in the normal schools and universities, with tested cadres and a press the regime read with professional attention. It was not power. It was, for the first time in a generation, the possibility of power. ?]
 
-[? if ending = "reconocimiento" : Lo imposible, fechado: el seis de julio de 1988 la República votó, el sistema intentó su alquimia mayor, y la alquimia se rompió contra veinte años de casillas vigiladas, actas duplicadas y testigos que no se fueron a dormir. Un presidente electo tomó posesión. El aparato no murió — los aparatos no mueren — pero desde esa noche gobierna a un país que sabe contar. ?]
+[? if ending = "fuerte" : What came out of the decade nobody had budgeted for, Bucareli least of all: a mass left — still a minority, but a mass — with real presence among workers despite don Fidel, a peasant base in three states, the generation of 68 formed in its ranks, and a national sympathy the regime could no longer round to zero. The political reform was not a gracious concession. It was a recognition of force. Yours. ?]
 
-[? if ending = "historico" : El fraude se consumó; el país que lo vio, no se deshizo. De la ola y la herida salió, en mayo del 89, el partido nuevo — fundado sobre el registro que ustedes cargaron dos décadas, con los cuadros que ustedes formaron y las listas que ustedes guardaron. No fue la victoria. Fue la fundación de la casa donde la victoria, algún día, tendría dirección adónde llegar. ?]
+[? if ending = "reconocimiento" : The impossible, with a date on it: on the sixth of July, 1988, the Republic voted, the system attempted its greatest alquimia, and the alquimia broke against twenty years of watched casillas, duplicated actas, and witnesses who did not go home to sleep. An elected president took office. The apparatus did not die — apparatuses never do — but from that night on it governs a country that knows how to count. ?]
 
-[? if ending = "ruptura" : Once días que la República no olvidará ni perdonará ni resolverá: el país detenido, el Estado respondiendo en su idioma antiguo, y las listas creciendo a un ritmo que la memoria apenas sostiene. La historia juzgará la cerilla — la encendieron ustedes, con los ojos abiertos — y ninguna versión de ese juicio podrá decir que el pueblo no estuvo dispuesto. ?]
+[? if ending = "historico" : The fraud was consummated; the country that watched it did not come apart. Out of the wave and the wound came, in May of 1989, the new party — founded on the registro your Movement carried for two decades, with the cadres you formed and the lists you kept. It was not the victory. It was the founding of the house where victory, someday, would have an address to arrive at. ?]
 
-[? if ending = "irrelevancia" : La ola pasó de largo. La coherencia se conservó entera — programa, independencia, tradición — y la historia, que no premia la coherencia sino la presencia, fundó su década siguiente con otros nombres. Quedan los cuadros, el análisis, y la pregunta que no prescribe: ¿de qué sirve tener razón en la sala de al lado? ?]
+[? if ending = "ruptura" : Eleven days the Republic will neither forget nor forgive nor resolve: the country stopped, the state answering in its oldest language, and the lists growing at a pace memory could barely sustain. History will judge the match — you struck it, with open eyes — and no version of that judgment will be able to say the people were unwilling. ?]
 
-[? if ending = "fuerte" : Lo que salió de la década nadie lo había presupuestado, y Bucareli menos que nadie: una izquierda de masas — minoritaria aún, pero de masas — con implantación obrera real pese a don Fidel, base campesina en tres estados, la generación del 68 y la del CEU por venir formadas en sus filas, y una simpatía nacional que las encuestas del régimen (las secretas, las de Gobernación) ya no podían redondear a cero. La reforma política que se redactaba en 1977 no fue una concesión graciosa: fue un reconocimiento de fuerza. La de ustedes. ?]
+[? if ending = "irrelevancia" : The wave passed you by. Coherence was preserved whole — program, independence, tradition — and history, which rewards presence rather than coherence, founded its next decade under other names. What remains: the cadres, the analysis, and the question with no statute of limitations: what is the use of being right in the next room? ?]
 
-[? if memorial >= 6 : La lista tiene [+ memorial +] nombres añadidos en estos años. Se conservó completa: nombre, fecha, esquina. Ninguna de las tres copias cayó. ?]
-[? if memorial >= 1 and memorial <= 5 : La lista tiene [+ memorial +] nombres añadidos en estos años. Pocos, para la década que fue. Los suficientes para no dormir igual. ?]
+[? if memorial >= 6 : The list carries [+ memorial +] names added in these years. It was kept complete: name, date, place. None of the three copies fell. ?]
+[? if memorial >= 1 and memorial <= 5 : The list carries [+ memorial +] names added in these years. Few, for the decade it was. Enough to never sleep quite the same. ?]
 
-- @slide_faltas: Continuar.
+- @slide_faltas: Continue.
 
 @slide_faltas
 new-page: true
 
-= Lo que no fue
+= What was not
 
-[? if postura_guerrilla = 1 : El deslinde de la vía armada mantuvo al Partido vivo y legal-en-espera — y dejó a la generación más brava de la época morir sola en las sierras y las casas de seguridad. Si había otro camino, nadie lo encontró a tiempo. Los corridos no perdonan y las actas tampoco. ?]
-[? if postura_guerrilla = 2 : La ambigüedad calculada resultó exactamente eso: calculada por ambos lados. Ni la DFS los perdonó, ni la guerrilla los abrazó. El alambre se caminó — pero un alambre no es un puente. ?]
-[? if postura_guerrilla = 3 : Los canales discretos salvaron vidas que ningún archivo contará, y costaron una hipoteca de expediente que se paga con intereses. Cuando la historia se escriba, ese renglón no aparecerá — que era el punto. ?]
-[? if postura_guerrilla = 0 : Sobre la cuestión armada el Movimiento nunca dijo nada, que fue su manera de decirlo todo. El silencio fue la única línea que se ejecutó a la perfección. ?]
+[? if postura_guerrilla = 1 : The deslinde from the armed road kept the Party alive and legal-in-waiting — and left the bravest generation of the era to die alone in the sierras and the safe houses. If there was another road, nobody found it in time. The corridos do not forgive, and neither do the minutes. ?]
+[? if postura_guerrilla = 2 : The calculated ambiguity proved exactly that: calculated, by both sides. The DFS never forgave you; the guerrilla never embraced you. The wire was walked — but a wire is not a bridge. ?]
+[? if postura_guerrilla = 3 : The discreet channels saved lives no archive will ever count, and cost a mortgage of expediente paid with interest. When the history is written, that line will not appear — which was the point. ?]
+[? if postura_guerrilla = 0 : On the armed question the Movement never said anything, which was its way of saying everything. Silence was the only line executed to perfection. ?]
 
-[? if charrismo >= 80 : La muralla charra terminó la década intacta. Don Fidel enterró a otro desafío y siguió fumando; la clase obrera siguió organizada por el Estado contra sí misma. La cuenta pendiente más grande del siglo mexicano sigue pendiente. ?]
-[? if charrismo < 80 : La muralla charra terminó la década agrietada — no rota, pero agrietada a la vista de todos, y las murallas que se agrietan una vez se agrimensuran distinto para siempre. ?]
+[? if charrismo >= 80 : The charro wall ended the era intact. Don Fidel buried another challenge and kept smoking; the working class remained organized by the state against itself. The Mexican century largest unpaid debt remains unpaid. ?]
+[? if charrismo < 80 : The charro wall ended the era cracked — not broken, but cracked in plain sight, and walls that crack once are surveyed differently forever. ?]
 
-[? if registro = 0 : Y la puerta electoral quedó sin abrir: sin registro, un millón de manos escribiendo nombres que la Comisión quema sin leer. Lo que la reforma de 1977 haga con esa puerta, otros lo jugarán. O ustedes, en la siguiente década. ?]
+[? if registro = 0 : And the electoral door was never opened: without registro, a million hands writing names the Comision burns unread. What the reform made possible, others will play. Or you — in the next of history rounds. ?]
 
-- @snap_libro: Continuar.
+- @snap_libro: Continue.
 
 @snap_libro
 new-page: true
 
-= Instantánea: un libro, 2014
+= Snapshot: a book, 2014
 
-*(De "El siglo de las izquierdas en México", Fondo de Cultura Económica, 2014 — capítulo 7, página al azar:)*
+*(From "El siglo de las izquierdas en Mexico", Fondo de Cultura Economica, 2014 — chapter 7, translated:)*
 
-[? if ending = "aniquilacion" : "...para 1977 el viejo partido era ya materia de tesis doctorales más que de informes policiales. La pregunta que organiza este capítulo no es por qué desapareció — las causas sobran — sino por qué su desaparición importó tanto: durante medio siglo había sido el único depósito institucional de una memoria que el Estado necesitaba inexistente. Cuando el depósito cerró, la memoria pasó a los particulares: madres, viudas, maestros de primaria con cuadernos. Tardaría veinte años en volver a encontrar local." ?]
+[? if ending = "aniquilacion" : "...by the late seventies the old party was already the property of doctoral theses rather than police reports. The question that organizes this chapter is not why it disappeared — causes abound — but why its disappearance mattered so much: for half a century it had been the only institutional deposit of a memory the state required not to exist. When the deposit closed, memory passed to private hands: mothers, widows, schoolteachers with notebooks. It would take twenty years to find premises again." ?]
 
-[? if ending = "debil" or ending = "media" : "...la historiografía ha sido injusta con esa década corta (1968-1977). Vista desde el 88, parece apenas un prólogo; vista desde adentro, fue una acumulación primitiva de lo político: cada asamblea en Nezahualcóyotl, cada sección magisterial disputada, cada lista de desaparecidos conservada contra toda razón práctica, constituyó el capital con que la izquierda llegó — flaca pero viva — más allá de la puerta que 1977 abrió a medias. Los protagonistas de este libro no sabían que eran un prólogo. Trabajaban como si fueran el libro entero." ?]
+[? if ending = "debil" or ending = "media" : "...historiography has been unjust to that short decade. Seen from 1988 it looks like a mere prologue; seen from inside, it was politics in its phase of primitive accumulation: every assembly in Nezahualcoyotl, every contested teachers section, every list of the disappeared preserved against all practical reason, constituted the capital with which the left arrived — thin but alive — at the door that 1977 half-opened. The protagonists of this book did not know they were a prologue. They worked as if they were the whole volume." ?]
 
-[? if ending = "fuerte" : "...conviene recordar que nada de ello estaba escrito. En octubre de 1968 la izquierda mexicana era cinco mil militantes con las oficinas selladas y los cuadros presos. Que una década después fuera la fuerza que obligó al Estado a la reforma — que Reyes Heroles redactara Chilpancingo, en buena medida, mirando por encima del hombro hacia ella — constituye uno de los raros casos latinoamericanos en que una organización derrotada en la plaza rehízo el tablero sin tomar un solo palacio. Cómo lo hizo es el asunto de los tres capítulos siguientes." ?]
+[? if ending = "fuerte" : "...it should be remembered that none of it was written in advance. In October of 1968 the Mexican left was five thousand militants with sealed offices and imprisoned cadres. That a decade later it was the force that obliged the state to reform constitutes one of the rare Latin American cases in which an organization defeated in the plaza remade the board without taking a single palace." ?]
 
-[? if ending = "reconocimiento" : "...los manuales llaman al 88 mexicano la primera transición contada: no un pacto de élites sino una contabilidad defendida. La lámpara — así llamaban los cuadros a su red de casillas — resultó el instrumento revolucionario más improbable del siglo: un formulario, custodiado por maestras rurales, ante el cual se rompió un régimen de sesenta años." ?]
+[? if ending = "reconocimiento" : "...the manuals call the Mexican 88 the first counted transition: not a pact of elites but a ledger defended. The lampara — as the cadres called their casilla network — proved the century most improbable revolutionary instrument: a form, guarded by rural schoolteachers, against which a sixty-year regime broke." ?]
 
-[? if ending = "historico" : "...la paradoja fundacional del 88: el fraude triunfó y, al triunfar, fabricó a su propio enterrador. El partido nacido en mayo del 89 heredó del viejo movimiento su infraestructura, su martirologio y su obstinación aritmética; heredó del cardenismo los millones. La democratización mexicana, escribiría uno de sus arquitectos, fue hija ilegítima de esa noche de pantallas apagadas." ?]
+[? if ending = "historico" : "...the founding paradox of 88: the fraud triumphed and, in triumphing, manufactured its own gravedigger. The party born in May of 1989 inherited from the old movement its infrastructure, its martyrology and its arithmetical stubbornness; from cardenismo, the millions. Mexican democratization, one of its architects would later write, was the illegitimate daughter of that night of dead screens." ?]
 
-[? if ending = "ruptura" : "...sobre los Once Días la historiografía mantiene su propia guerra civil: ¿insurrección aplastada o huelga general traicionada por su propia grandeza? Lo no disputado: después de 1988 el Estado mexicano no volvió a fingir normalidad, y las listas — las tres copias sobrevivieron — fundaron la jurisprudencia de la memoria que décadas más tarde sentaría a los responsables ante los jueces." ?]
+[? if ending = "ruptura" : "...over the Eleven Days the historiography maintains a civil war of its own: crushed insurrection, or a general strike betrayed by its own grandeur? What is not disputed: after 1988 the Mexican state never again pretended normality, and the lists — all three copies survived — founded the jurisprudence of memory that would, decades later, seat the responsible before judges." ?]
 
-[? if ending = "irrelevancia" : "...capítulo aparte merece la izquierda histórica que llegó íntegra y sola a la orilla del 88: su programa era el más coherente de la época y su ausencia de la ola, la decisión más estudiada de la ciencia política mexicana, que la usa desde entonces como su ejemplo clásico: en las transiciones, la presencia es la única teoría que vota." ?]
+[? if ending = "irrelevancia" : "...a chapter apart belongs to the historic left that arrived whole and alone at the shore of 88: its program was the most coherent of the era, and its absence from the wave remains the most studied decision in Mexican political science, which has used it ever since as the classic illustration that, in transitions, presence is the only theory that votes." ?]
 
-- @snap_foro: Continuar.
+- @snap_foro: Continue.
 
 @snap_foro
 new-page: true
 
-= Instantánea: un hilo, 2019
+= Snapshot: a thread, 2019
 
-**ForoMéxico / Historia / ¿Neta qué pasó con la izquierda de los 70?**
+**ForoMexico / History / What actually happened to the 70s left?**
 
-**tlacuache_rojo:** Mi abuela dice que ella escondió el mimeógrafo del partido en su azotea en el 71. ¿Alguien más tiene historias así o mi abuela me está choreando?
+**tlacuache_rojo:** My grandmother says she hid the party mimeograph on her roof in 71. Anyone else have stories like this or is my abuela pulling my leg?
 
-[? if ending = "aniquilacion" : **doctor_atl_fan:** No te chorea. Había toda una red. Se la comieron viva entre la DFS y las broncas internas. Mi tío dice que lo más triste no fue la represión sino que al final ya no quedaba a quién contarle. ?]
+[? if ending = "aniquilacion" : **doctor_atl_fan:** She is not. There was a whole network. It got eaten alive between the DFS and the internal wars. My uncle says the saddest part was not the repression — it was that by the end there was no one left to tell. ?]
 
-[? if ending = "aniquilacion" : **moderador_charro:** Hilo cerrado por política. Ya saben las reglas. ?]
+[? if ending = "aniquilacion" : **moderador_charro:** Thread locked for politics. You know the rules. ?]
 
-[? if ending = "debil" or ending = "media" : **doctor_atl_fan:** Mi papá vendía el periódico afuera de la SEP. Decía que eran cuatro gatos pero que los cuatro gatos tenían LA LISTA. Hoy esa lista está en el museo de la memoria, por si quieren llorar tantito. ?]
+[? if ending = "debil" or ending = "media" : **doctor_atl_fan:** My dad sold the paper outside the SEP. He says they were four cats, but the four cats kept THE LIST. That list is in the memory museum now, if you feel like crying a little. ?]
 
-[? if ending = "debil" or ending = "media" : **ana.sin.acentos:** Lo loco es que medio movimiento social de hoy sale de ahí. Rascas cualquier sindicato democrático o comité de colonia y abajo hay un viejito de esos. ?]
+[? if ending = "debil" or ending = "media" : **ana.sin.acentos:** The wild part is that half of today social movements come out of that. Scratch any democratic union or neighborhood committee and there is one of those old-timers underneath. ?]
 
-[? if ending = "fuerte" : **doctor_atl_fan:** ¿"Qué pasó"? Compa, medio país político de hoy desciende de eso. El detalle que nadie enseña en la escuela — cuando el gobierno "abrió" en el 77, no abrió por buena onda. Abrió porque YA NO PODÍA contar hasta cien sin que le sobrara un millón de votos anulados. ?]
+[? if ending = "fuerte" : **doctor_atl_fan:** "What happened"? Compa, half of today political map descends from it. The detail they skip in school — when the government "opened up" in 77, it was not kindness. It opened because it could no longer count to a hundred without a million annulled votes left over. ?]
 
-[? if ending = "fuerte" : **tlacuache_rojo:** JAJAJA el corrido de Campa que canta mi abuela dice exactamente eso — "un millón de nombres que el gobierno no contó". ?]
+[? if ending = "fuerte" : **tlacuache_rojo:** LOL the Campa corrido my abuela sings says exactly that — "un millon de nombres que el gobierno no conto." ?]
 
-[? if ending = "reconocimiento" : **doctor_atl_fan:** Mi jefa fue representante de casilla en el 88. Todavía guarda su copia del acta, enmarcada. Dice que cuando "se cayó el sistema", en su casilla nadie se movió: "que se caiga; nosotros ya contamos". ?]
+[? if ending = "reconocimiento" : **doctor_atl_fan:** My mom was a casilla representative in 88. She still has her copy of the acta, framed. She says when "the system crashed," nobody at her casilla moved: "let it crash — WE already counted." ?]
 
-[? if ending = "historico" : **doctor_atl_fan:** Lo que nadie te cuenta: el partido grande de ahora existe porque los viejos NUNCA soltaron el registro. Décadas cargando papeles de sótano en sótano para que hubiera dónde fundar algo la noche que hiciera falta. Burocracia heroica, se llama. ?]
+[? if ending = "historico" : **doctor_atl_fan:** What nobody tells you: today big party exists because the old-timers NEVER let go of the registro. Decades hauling papers from basement to basement so there would be somewhere to found something the night it was needed. Heroic bureaucracy — that is the technical term. ?]
 
-[? if ending = "ruptura" : **doctor_atl_fan:** Mi tío estuvo en los Once Días. No habla de eso. Habla del día ANTES: dice que nunca ha vuelto a ver al país así de despierto, y que por eso no se arrepiente. Guarden capturas, que este hilo lo cierran. ?]
+[? if ending = "ruptura" : **doctor_atl_fan:** My uncle was in the Eleven Days. He will not talk about it. He talks about the day BEFORE — says he has never again seen the country that awake, and that is why he regrets nothing. Screenshot this thread, they are going to lock it. ?]
 
-[? if ending = "irrelevancia" : **doctor_atl_fan:** Es el partido de mis abuelos. Programa serio, gente seria — y en el 88 se quedaron viendo la ola desde la orilla, por pureza. Mi abuelo dice "coherencia". Mi abuela, que era del CEU, usa otra palabra. ?]
+[? if ending = "irrelevancia" : **doctor_atl_fan:** That is my grandparents party. Serious program, serious people — and in 88 they watched the wave from the shore, out of purity. My grandfather calls it "coherence." My grandmother, who was in the CEU, uses a different word. ?]
 
-- @snap_final: Continuar.
+- @snap_final: Continue.
 
 @snap_final
 new-page: true
 
-= Instantánea: una transcripción, 2023
+= Snapshot: a transcript, 2023
 
-*(Transcripción automática, video: "Entrevisté a mi bisabuela sobre el 68" — 340 mil vistas)*
+*(Auto-generated transcript, video: "I interviewed my great-grandmother about 68" — 340K views)*
 
-—¿Y usted tenía miedo, bisabuela?
+—Were you afraid, bisabuela?
 
-—Todos los días, mijo. El miedo no era lo raro. Lo raro era la gente que hacía las cosas con todo y miedo.
+—Every day, mijo. Fear was not the rare thing. The rare thing was the people who did the work with the fear still on.
 
-[? if ending = "aniquilacion" : —¿Y valió la pena, si al final se acabó? ?]
+[? if ending = "aniquilacion" : —Was it worth it, if it all ended? ?]
 
-[? if ending = "aniquilacion" : —(pausa larga en el video) ...Se acabó el aparato, mijo. Los aparatos se acaban. Lo que hicimos con las manos ahí anda todavía, nomás que ya no trae credencial. Tú, por ejemplo. Tú me estás preguntando. Eso también lo hicimos nosotros. ?]
+[? if ending = "aniquilacion" : —(long pause in the video) ...The apparatus ended, mijo. Apparatuses end. What we made with our hands is still out there, it just does not carry a card anymore. You, for example. You are here asking me. We made that too. ?]
 
-[? if ending = "debil" or ending = "media" : —¿Y sí sirvió de algo? ?]
+[? if ending = "debil" or ending = "media" : —And did it help anything? ?]
 
-[? if ending = "debil" or ending = "media" : —Mira, cada nombre que apuntamos, alguien lo buscó después. Cada nombre. Cuando abrieron los archivos, las familias llegaban con nuestras listas, porque las del gobierno mentían. Sirvió. Tardó cuarenta años, pero sirvió. La paciencia también es una forma de la política, nomás que esa no sale en las fotos. ?]
+[? if ending = "debil" or ending = "media" : —Look: every name we wrote down, somebody came searching for later. Every name. When the archives opened, the families arrived carrying OUR lists, because the government lists lied. It helped. It took forty years, but it helped. Patience is also a form of politics — just the kind that never gets photographed. ?]
 
-[? if ending = "fuerte" : —En la escuela nos dijeron que ustedes cambiaron al país. ?]
+[? if ending = "fuerte" : —At school they told us your generation changed the country. ?]
 
-[? if ending = "fuerte" : —(se ríe) Nos tardamos veinte años en ganar la primera elección que nos contaron. VEINTE AÑOS, mijo. La gente cree que la historia es el día del triunfo. No. La historia son los diecinueve años, once meses y veintinueve días de antes, con la lluvia y el mimeógrafo descompuesto. Eso apúntalo para tu video. ?]
+[? if ending = "fuerte" : —(laughs) It took us twenty years to win the first election they counted for us. TWENTY YEARS, mijo. People think history is the day of the triumph. No. History is the nineteen years, eleven months and twenty-nine days before it, with the rain coming down and the mimeograph broken. Write that down for your video. ?]
 
-[? if ending = "reconocimiento" : —¿Y usted qué hizo esa noche, bisabuela? ?]
+[? if ending = "reconocimiento" : —What did you do that night, bisabuela? ?]
 
-[? if ending = "reconocimiento" : —Conté, mijo. Todo México contó esa noche. Por eso me río cuando dicen que la democracia nos la regalaron: yo la vi sumarse, columna por columna, con lápiz. ?]
+[? if ending = "reconocimiento" : —I counted, mijo. All of Mexico counted that night. That is why I laugh when they say democracy was given to us: I watched it being added up, column by column, in pencil. ?]
 
-[? if ending = "historico" : —¿Y no le dio coraje que se robaran la elección? ?]
+[? if ending = "historico" : —Were you not furious they stole the election? ?]
 
-[? if ending = "historico" : —Coraje me dura hasta la fecha. Pero mira: del robo hicimos casa. El seis de julio perdimos un presidente y ganamos un pueblo que ya no se dejó. A la larga, no sé qué valía más. ?]
+[? if ending = "historico" : —The fury has lasted me to this day. But look: from the theft we built a house. On the sixth of July we lost a president and gained a people that never again went along quietly. In the long run, I could not tell you which was worth more. ?]
 
-[? if ending = "ruptura" : —¿Y usted estuvo en los Once Días, bisabuela? ?]
+[? if ending = "ruptura" : —Were you in the Eleven Days, bisabuela? ?]
 
-[? if ending = "ruptura" : —(silencio) ...Apunta nomás esto: que nadie te diga que fue locura. Fue la cordura más cara de mi vida. Y apunta los nombres, que para eso llevamos siempre la lista. ?]
+[? if ending = "ruptura" : —(silence) ...Just write down this much: do not let anyone tell you it was madness. It was the most expensive sanity of my life. And write down the names — that is what we always kept the list for. ?]
 
-[? if ending = "irrelevancia" : —¿Y por qué ustedes no le entraron a la ola del 88? ?]
+[? if ending = "irrelevancia" : —Why did your people not join the wave in 88? ?]
 
-[? if ending = "irrelevancia" : —Teníamos razones, mijo. Muy buenas. Tan buenas que todavía las repito solita en la cocina, a ver si convencen a las paredes. ?]
+[? if ending = "irrelevancia" : —We had reasons, mijo. Very good ones. So good I still recite them alone in the kitchen, to see if they can convince the walls. ?]
 
 - @terminar: Fin.
 

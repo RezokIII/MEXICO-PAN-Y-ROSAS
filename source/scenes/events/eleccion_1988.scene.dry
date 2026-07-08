@@ -39,7 +39,7 @@ At which point the screens stop.
 
 *"Se cayó el sistema,"* the officials explain: the system has crashed. The phrase enters the language permanently within the hour. The count suspends; the ballroom empties; and in the improvised arithmetic of that long night, two republics take shape — one in your actas, one being assembled behind Bucareli's dead screens.
 
-**El conteo real (sus actas + las del FDN — red: [+ red_casillas +] de 100):**
+**The real count (your actas plus the FDN's — network: [+ red_casillas +] of 100):**
 
 [? if fdn >= 1 : FDN (Cárdenas) [+ b_r_fdn +] [+ real_fdn +]% ?][? if fdn = 0 : FDN (Cárdenas) [+ b_r_fdn +] [+ real_fdn +]% — y Castillo (PMS): [+ real_castillo +]% ?]
 
@@ -47,7 +47,7 @@ PRI (Salinas) [+ b_r_pri +] [+ real_pri88 +]%
 
 PAN (Clouthier) [+ b_r_pan +] [+ real_pan +]%
 
-**El conteo oficial, una semana después:**
+**The official count, one week later:**
 
 FDN [+ b_o_fdn +] [+ oficial_fdn +]%
 
@@ -76,14 +76,14 @@ The Zócalo becomes a weekly institution: half a million, then more, disciplined
 
 @negociar_88
 choose-if: pri_reformist_rel >= 20
-unavailable-subtitle: Negociar exige interlocutores; los reformistas del PRI no toman sus llamadas.
+unavailable-subtitle: Negotiation requires interlocutors; the PRI reformists are not taking your calls.
 on-arrival: respuesta_88 = 2; political_capital += 2; funds += 4; unity -= 4; sup_students -= 4
 
 The tables convene discreetly while the plazas roar: registries confirmed, senate seats seated, an electoral reform promised in writing. It is real currency and it spends — and the crowds, who were not consulted, watch the negotiators emerge with briefcases and draw the era's bitterest conclusion about the distance between the street and the table.
 
 @cerilla
 choose-if: huelgas >= 20 and sup_colonos >= 25 and ax_electoral <= 0
-unavailable-subtitle: La insurrección no se declama: exige músculo huelguístico, colonias organizadas y una línea que la sostenga. No los hay.
+unavailable-subtitle: Insurrection is not declaimed: it requires strike muscle, organized colonias, and a line that sustains it. None of the three exist.
 on-arrival: respuesta_88 = 3; represion += 15; expediente += 10; memorial += 4; huelgas += 15
 
 The call goes out through every network twenty years built: general strike, the highways, the plazas held overnight. For eleven days the Republic stands genuinely still — and then the state, which has rehearsed this its entire life, answers in the older language. What follows belongs to the epilogue, and to the lists.

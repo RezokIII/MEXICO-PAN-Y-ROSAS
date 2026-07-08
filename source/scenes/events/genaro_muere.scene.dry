@@ -18,7 +18,7 @@ What is not disputable: the man the state could not defeat in the mountains is d
 
 @honrar
 choose-if: sup_students >= 15
-unavailable-subtitle: Un homenaje sin sala llena es un regalo para la prensa del régimen.
+unavailable-subtitle: A half-empty homage is a gift to the regime's press.
 on-arrival: sup_students += 4; sup_peasants += 2; expediente += 3; guerrilla_meter += 1
 
 The hall fills past the fire code. Nobody defends the armed road from the podium — the speakers are careful, the DFS stenographer will find nothing quotable — but the room itself is the statement: a man's history recited whole, from the ballot boxes they stuffed against him to the bridge. The state made him, the room concludes silently. Whatever else, the state made him.

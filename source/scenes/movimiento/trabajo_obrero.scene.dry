@@ -1,6 +1,6 @@
 title: Trabajo obrero
 new-page: true
-subtitle: La muralla charra tiene grietas
+subtitle: The charro wall has cracks
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true
@@ -17,17 +17,17 @@ Between the Party and the working class stands the CTM: don Fidel's empire of du
 - @easy_discard
 
 @nucleos
-subtitle: -2 fondos
+subtitle: -2 funds
 choose-if: funds >= 2
-unavailable-subtitle: Ni para los camiones.
+unavailable-subtitle: Not even bus fare.
 on-arrival: funds -= 2; sup_workers += 1 + (100 - salario_real)*0.08 + unity*0.02; charrismo -= 1
 
 Five men in a fonda studying a contract clause; a foundry worker who keeps the list in his head because paper can be searched. Nothing to photograph, nothing to raid. In a year, this shift will have a committee. In five, perhaps a union.
 
 @abierta
-subtitle: -3 fondos
+subtitle: -3 funds
 choose-if: funds >= 3 and organizers >= 3
-unavailable-subtitle: La agitación abierta exige cuadros que puedan quemarse. No los tienes de sobra.
+unavailable-subtitle: Open agitation requires cadres you can afford to burn. You have none to spare.
 on-arrival: funds -= 3; sup_workers += 2 + (100 - salario_real)*0.12 + unity*0.02; charrismo -= 1; expediente += 4; huelgas += 2
 
 Dawn at the gates, leaflets moving hand to hand, a comrade on a crate saying the forbidden arithmetic out loud. The charro delegate arrives with his photographer; the DFS's man does not bother to hide. Some workers look away. The ones who don't are the harvest.

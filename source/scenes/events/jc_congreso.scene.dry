@@ -1,6 +1,6 @@
 title: El congreso de la Juventud
 new-page: true
-subtitle: 1974 — la JC decide qué es
+subtitle: 1974 — the JC decides what it is
 tags: event
 view-if: year = 1974 and month = 3
 priority: 2

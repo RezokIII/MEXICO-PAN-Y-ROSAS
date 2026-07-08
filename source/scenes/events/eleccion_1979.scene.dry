@@ -41,7 +41,7 @@ For the first time since 1946, the hammer and sickle is printed on a federal bal
 
 By midnight your people have their own count, casilla by casilla, wired in from every district you could cover. Then, across the following days, the Comisión Federal Electoral publishes its own arithmetic.
 
-**El conteo real (sus actas):**
+**The real count (your actas):**
 
 PRI [+ b_real_pri +] [+ real_pri +]%
 
@@ -49,7 +49,7 @@ PAN [+ b_real_pan +] [+ real_pan +]%
 
 PCM [+ b_real_izq +] [+ real_izq +]%
 
-**El conteo oficial (la alquimia):**
+**The official count (la alquimia):**
 
 PRI [+ b_of_pri +] [+ oficial_pri +]%
 
@@ -67,7 +67,7 @@ And yet: **[+ izq_seats +] diputados** — the proportional seats survive the sh
 
 @actas
 choose-if: political_capital >= 10
-unavailable-subtitle: Publicar el conteo paralelo exige la autoridad y los medios para sostenerlo bajo fuego. No alcanza.
+unavailable-subtitle: Publishing the parallel count requires the authority and means to defend it under fire. Not enough of either.
 on-arrival: political_capital -= 3; alquimia_expuesta = 1; sup_middle += 3; pri_reformist_rel += 1; expediente += 2
 
 The documentation runs as a supplement: two counts, printed in facing columns, with photographs of actas. The government does not answer — answering would dignify arithmetic — but the method is now public property, and every opposition force in the country takes notes. The next election will be watched by people who learned watching from you. The alquimia has been named, measured, and put on a shelf where history can reach it.

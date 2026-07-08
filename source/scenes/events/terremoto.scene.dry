@@ -21,14 +21,14 @@ The Movement's people are in the rubble with everyone. [? if colonia_saga >= 3 :
 
 @topos
 choose-if: organizers >= 3
-unavailable-subtitle: Las brigadas se coordinan con cuadros; no hay suficientes en pie.
+unavailable-subtitle: Brigades need cadres to coordinate them; not enough are left standing.
 on-arrival: sup_colonos += 6; sup_students += 3; members += 2; political_capital += 4; expediente += 3; sup_colonos += 3 if colonia_saga >= 3; members += 1 if colonia_saga >= 3
 
 Weeks of dust and lists. The locals become shelters; the mimeographs print reunification registers; the young cadres learn more about organization in a month than in five years of circulars. When the government finally reasserts itself, it finds the damnificados already organized — into committees that know your people by their first names — and a city that has seen, with its own eyes, that the state is optional. That sentence cannot be unlearned.
 
 @costureras
 choose-if: organizers >= 2 and sup_colonos >= 12
-unavailable-subtitle: Llegar a San Antonio Abad la primera hora exige base urbana previa.
+unavailable-subtitle: Reaching San Antonio Abad in the first hour requires a prior urban base.
 on-arrival: costureras = 1; sup_colonos += 4; sup_workers += 3; political_capital += 4; huelgas += 4; expediente += 3
 
 The photographs of machines lifted over bodies do in one week what a decade of agitation could not: the seamstresses — uncounted, un-unionized, invisible in the national arithmetic — organize on the rubble itself, and on the nineteenth of October a union is registered that no charro chose. Your compañeras were there from the first morning, and the September 19th Garment Workers Union knows it. A women's labor movement is born in the ruins, and it was born beside you.

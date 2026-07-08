@@ -16,9 +16,9 @@ The colonos have begun a payment strike against the fraccionadores — tens of t
 - @apoyo_leve: Support the payment strike from outside — press, lawyers on loan, solidarity when called.
 
 @echar_raices
-subtitle: -4 fondos, 2 cuadros comprometidos
+subtitle: -4 funds, 2 cuadros comprometidos
 choose-if: funds >= 4 and organizers >= 2
-unavailable-subtitle: Echar raíces en la ciudad perdida exige caja y cuadros de planta.
+unavailable-subtitle: Putting down roots in the lost city requires funds and full-time cadres.
 on-arrival: funds -= 4; colonia_saga = 1; sup_colonos += 5; expediente += 3
 
 The office is a room with a tin roof that doubles as school, notary line, and assembly hall. Your organizers learn the colonia's real map — which wells work, which cacique sells protection, which señoras actually run each street — and the colonia learns your people stay after the marches. Roots, in Neza, are the only currency that appreciates.

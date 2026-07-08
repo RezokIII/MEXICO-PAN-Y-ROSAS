@@ -1,6 +1,6 @@
 title: La sección insurgente
 new-page: true
-subtitle: El magisterio toca la puerta
+subtitle: The teachers knock
 tags: event
 view-if: sup_teachers >= 45 and year >= 1981
 priority: 2
@@ -17,7 +17,7 @@ Vanguardia Revolucionaria will answer — it always answers — and an open alli
 
 @alianza
 choose-if: organizers >= 3
-unavailable-subtitle: Una alianza abierta con una sección en guerra exige cuadros dedicados.
+unavailable-subtitle: An open alliance with a section at war requires dedicated cadres.
 on-arrival: sup_teachers += 6; charrismo -= 3; huelgas += 5; expediente += 4; represion += 2; political_capital += 3
 
 The joint declaration runs in both presses. Vanguardia's response arrives on schedule — beatings at two section meetings, a leader's house burned — and the section holds anyway, because sections that have deposed one charro have stopped believing in inevitability. The teachers' war now has a national address, and it is partly yours.

@@ -1,6 +1,6 @@
 title: Los capturados
 new-page: true
-subtitle: El que cae vivo todavía puede ser defendido
+subtitle: Whoever falls alive can still be defended
 on-arrival: month_actions += 1
 max-visits: 30
 is-card: true
@@ -16,9 +16,9 @@ When they take one alive — and lately they take some alive, the better to ask 
 - @easy_discard
 
 @abogados
-subtitle: -4 fondos
+subtitle: -4 funds
 choose-if: funds >= 4
-unavailable-subtitle: El habeas corpus corre con gastos por delante.
+unavailable-subtitle: Habeas corpus runs on expenses paid up front.
 on-arrival: funds -= 4; political_capital += 2; expediente += 3; represion -= 1
 
 The writ is denied, the second one admitted, the name printed in two papers and read aloud once in the Chamber. On the books, transferred to Lecumberri, alive: not a victory the corridos will sing, but his mother knows where to bring the basket on Sundays, which in this Republic is the whole of the law worth having.

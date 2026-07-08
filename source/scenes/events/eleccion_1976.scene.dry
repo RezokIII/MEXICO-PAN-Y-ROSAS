@@ -21,7 +21,7 @@ Into that vacancy the Party can, if it dares, insert an answer. There is talk in
 
 @campa
 choose-if: members >= 8 and funds >= 5
-unavailable-subtitle: Una campaña nacional, aun simbólica, exige militancia y caja que no tienes.
+unavailable-subtitle: A national campaign, even a symbolic one, requires membership and funds you do not have.
 on-arrival: campa76 = 1; funds -= 5; political_capital += 6; sup_students += 4; sup_workers += 2; ax_electoral += 4; expediente += 3
 
 The old railwayman stumps the Republic like it owes him fare: factory gates at dawn, plazas at dusk, his whole platform deliverable in one sentence — *count us or admit you cannot.* The crowds are real and the arithmetic is invisible: perhaps a million people write his name on ballots the Comisión Federal Electoral annuls unread, unrecorded, officially nonexistent. The regime declares López Portillo elected with roughly one hundred percent of a vote nobody contested.

@@ -1,6 +1,6 @@
 title: La generación bisagra
 new-page: true
-subtitle: 1980 — los del 68 entregan a los del CEU
+subtitle: 1980 — the 68ers pass the banner
 tags: event
 view-if: year = 1980 and month = 9 and jc_saga >= 1
 priority: 2

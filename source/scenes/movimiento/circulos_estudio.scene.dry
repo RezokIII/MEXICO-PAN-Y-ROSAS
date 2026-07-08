@@ -1,6 +1,6 @@
 title: Círculos de estudio
 new-page: true
-subtitle: La línea se disputa en la mesa de cocina
+subtitle: The line is contested at the kitchen table
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

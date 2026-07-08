@@ -1,6 +1,6 @@
 title: Los liberados
 new-page: true
-subtitle: 1970 — las puertas del Palacio Negro se entreabren
+subtitle: 1970 — the doors of the Black Palace crack open
 tags: event
 view-if: year = 1970 and month = 8
 priority: 2
@@ -21,7 +21,7 @@ The '68 prisoners will follow across the next two years, in twos and threes, man
 
 @recibir
 choose-if: funds >= 4
-unavailable-subtitle: El salón, el sonido, los carteles: 4 de fondos que no hay.
+unavailable-subtitle: The hall, the sound system, the posters: 4 funds you do not have.
 on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; vallejo_advisor = 1; organizers += 1; sup_students += 5; sup_workers += 3; political_capital += 4; expediente += 6; presidente_cooptacion += 5
 
 The hall is full an hour early; the aisles fill next; the street outside fills last, and stays. The speeches are short because nothing needs explaining to this audience. Campa says thirteen words about the pension tables of the railway workers — updated, in his head, through eleven years of cell light — and sits down to the longest ovation the Party has heard since the thirties, from railwaymen who were apprentices when he went in and are grandfathers now.

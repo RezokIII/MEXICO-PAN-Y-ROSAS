@@ -1,6 +1,6 @@
 title: Seguridad
 new-page: true
-subtitle: El expediente engorda solo; adelgazarlo cuesta
+subtitle: The expediente fattens by itself; slimming it costs
 view-if: expediente >= 20
 on-arrival: month_actions += 1
 max-visits: 60
@@ -18,17 +18,17 @@ Somewhere in Bucareli there is a room with your name on a drawer, and the drawer
 - @easy_discard
 
 @depurar
-subtitle: -4 fondos
+subtitle: -4 funds
 choose-if: funds >= 4 and organizers >= 3
-unavailable-subtitle: Las casas nuevas cuestan.
+unavailable-subtitle: New safe houses cost money.
 on-arrival: funds -= 4; expediente -= 8; unity -= 1
 
 A month of tedium that reads like spy fiction written by an accountant: every list rewritten in heads, every meeting moved, two comrades gently quarantined for talking in cantinas. The DFS's informers report a sudden silence, which they will describe, accurately, as suspicious.
 
 @minimo
-subtitle: -2 fondos
+subtitle: -2 funds
 choose-if: funds >= 2
-unavailable-subtitle: Hasta los candados cuestan.
+unavailable-subtitle: Even padlocks cost money.
 on-arrival: funds -= 2; expediente -= 4
 
 New locks, a rule about telephones, the mimeograph moved across the street. Hygiene, not surgery. The drawer in Bucareli gains weight more slowly for a season.

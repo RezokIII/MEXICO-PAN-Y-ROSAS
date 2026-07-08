@@ -1,6 +1,6 @@
 title: La vida interna
 new-page: true
-subtitle: Un mes de rutina militante
+subtitle: A month of militant routine
 on-arrival: month_actions += 1
 is-card: true
 frequency: 15

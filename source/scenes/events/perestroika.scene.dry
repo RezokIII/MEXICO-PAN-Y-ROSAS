@@ -1,6 +1,6 @@
 title: Perestroika
 new-page: true
-subtitle: 1987 — el hielo se mueve
+subtitle: 1987 — the ice is moving
 tags: event
 view-if: year = 1987 and month = 2
 priority: 2
@@ -18,7 +18,7 @@ Every party of the tradition must now answer the question the tradition forbade:
 
 @audacia
 choose-if: fac_renovadores >= 25
-unavailable-subtitle: Adelantarse a Moscú exige renovadores fuertes; los suyos no cargan tanto.
+unavailable-subtitle: Getting ahead of Moscow requires strong renovadores; yours cannot carry that much.
 on-arrival: prestigio_socialismo += 4; fac_renovadores += 5; fac_ortodoxos -= 5; sup_students += 3; ax_sovietico -= 4; unity -= 3
 
 The essay runs under the title the ortodoxos will never forgive: *Nosotros lo dijimos en 1968.* It claims the Prague condemnation, the Eurocommunist turn, the whole heretical lineage as vindicated inheritance — and among the students, for one season, the Movement is the interesting answer instead of the old one. The cost is paid in veterans' silences at meetings.

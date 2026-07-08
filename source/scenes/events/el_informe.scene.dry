@@ -1,6 +1,6 @@
 title: El Informe
 new-page: true
-subtitle: 1 de septiembre
+subtitle: September 1 — the ritual
 tags: event
 view-if: month = 9 and year >= 1969 and informe_year < year
 priority: 1

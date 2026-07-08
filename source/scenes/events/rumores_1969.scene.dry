@@ -1,6 +1,6 @@
 title: La temporada de rumores
 new-page: true
-subtitle: Agosto de 1969
+subtitle: August 1969 — rumor season
 tags: event
 view-if: year = 1969 and month = 8
 priority: 2

@@ -1,6 +1,6 @@
 title: La Corriente
 new-page: true
-subtitle: 1986-87 — el sistema se agrieta por arriba
+subtitle: 1986-87 — the system cracks from above
 tags: event
 view-if: year = 1987 and month = 3
 priority: 3
@@ -21,7 +21,7 @@ Emissaries reach out — informally, deniably — in both directions.
 
 @abrazar
 choose-if: ax_nacpop >= 0
-unavailable-subtitle: Abrazar el cardenismo exige una línea nacional-popular que el pleno nunca votó.
+unavailable-subtitle: Embracing cardenismo requires a nacional-popular line no pleno ever voted.
 on-arrival: cd_rel = 2; pri_reformist_rel += 4; fac_nueva_izquierda += 4; fac_ortodoxos -= 5; ax_nacpop += 4; political_capital += 3
 
 The dinners multiply; the trust builds the slow way, over shared readings of the same disaster. The ortodoxos warn, correctly, that cardenismo is not socialism. The reply, also correct, is that six million people may be about to go looking for a car to crash into the regime, and the Movement can be the road or the ditch. When the break comes, you will be the first call.

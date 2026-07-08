@@ -21,7 +21,7 @@ Outside, the families have organized themselves with the terrible efficiency of 
 
 @defensa
 choose-if: funds >= 10
-unavailable-subtitle: La caja de zapatos no alcanza para abogados. (Requiere 10 de fondos.)
+unavailable-subtitle: The shoebox treasury cannot cover lawyers. (Requires 10 funds.)
 on-arrival: lecumberri_campaign = 1; funds -= 10; sup_students += 8; expediente += 8; political_capital += 5
 
 The committees get their lawyers, who ask for writs and collect insults, but the names begin crossing borders: Sartre signs a letter, Calvino signs a letter, a PEN Club telegram lands on a desk at Gobernación like a small dead bird. The government discovers that each prisoner with a famous name costs more to keep than to feed.

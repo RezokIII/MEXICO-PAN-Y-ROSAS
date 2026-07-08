@@ -18,14 +18,14 @@ He comes to the leadership before deciding — twenty years since Lecumberri, si
 
 @ceder
 choose-if: fdn = 1
-unavailable-subtitle: Ceder hacia una ola con la que no se han construido puentes no es política; es naufragio.
+unavailable-subtitle: Ceding toward a wave you built no bridges to is not politics; it is shipwreck.
 on-arrival: political_capital += 4; sup_students += 2; fac_ortodoxos -= 3; ax_nacpop += 3
 
 He announces it on television with the dryness he reserves for load calculations: the candidacy is withdrawn in favor of Cuauhtémoc Cárdenas, because Mexico matters more than the sigla. For a generation of the left it is the hardest sentence ever spoken into a microphone, and the most adult. The front is whole now. July will test what whole means.
 
 @negociar_cesion
 choose-if: fdn = 1 and cd_rel >= 2 and political_capital >= 15
-unavailable-subtitle: Poner condiciones exige puentes profundos y capital político; falta al menos uno.
+unavailable-subtitle: Setting terms requires deep bridges and political capital; at least one is missing.
 on-arrival: political_capital -= 5; fdn = 2; sup_students += 2; unity += 2; ax_nacpop += 2
 
 Three weeks of kitchens and drafts: the program planks initialed, the candidacies slated, the registro's place codified. When Castillo declines, he reads the agreement's headings aloud on camera — the left arrives at the front as founder, not furniture. The engineers on both sides shake hands like men who have load-tested the bridge.

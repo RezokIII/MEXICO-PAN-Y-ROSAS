@@ -1,6 +1,6 @@
 title: Las raíces
 new-page: true
-subtitle: 1978 — de dónde viene usted
+subtitle: 1978 — where you came from
 tags: event
 view-if: year = 1978 and month = 5
 priority: 2

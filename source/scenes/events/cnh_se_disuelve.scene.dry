@@ -21,7 +21,7 @@ Some will go home and become the sensible men their fathers wanted. A few take t
 
 @reclutar
 choose-if: sup_students >= 35
-unavailable-subtitle: Los comités no entrarán por una puerta que no respetan. (Requiere apoyo estudiantil.)
+unavailable-subtitle: The comités will not walk through a door they do not respect. (Requires student support.)
 on-arrival: cnh_recruited = 1; members += 4; sup_students += 10; fac_nueva_izquierda += 10; expediente += 10; unity -= 4
 
 They come in with their own songs, their own martyrs, and their own perfect contempt for your hierarchies — nineteen-year-olds who correct the Central Committee's Spanish and win the argument. The old cadres' meetings will never be quiet again, and some of the old cadres quietly begin to miss the silence.

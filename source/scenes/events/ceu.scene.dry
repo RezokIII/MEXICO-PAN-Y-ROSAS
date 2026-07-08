@@ -1,6 +1,6 @@
 title: El CEU
 new-page: true
-subtitle: 1986-87 — la universidad despierta
+subtitle: 1986-87 — the university wakes
 tags: event
 view-if: year = 1986 and month = 11
 priority: 2
@@ -17,7 +17,7 @@ They are not yours — they are prickly about exactly that — but their best or
 
 @acompanar
 choose-if: sup_students >= 20
-unavailable-subtitle: Para acompañar hay que ser bienvenido; el Movimiento pesa poco en las facultades.
+unavailable-subtitle: To accompany them you must be welcome; the Movement carries little weight in the faculties.
 on-arrival: sup_students += 6; political_capital += 2; fac_nueva_izquierda += 3; sup_students += 2 if jc_saga >= 1
 
 The discipline holds: your people carry chairs, run mimeographs, argue only when asked. The CEU notices — this generation grades allies on exactly this — and when the strike wins in February, the debt is banked in the only currency that matters here: trust. In two years these brigades will run a presidential campaign's street operation. Whose, is being decided now, partly by who carried chairs.

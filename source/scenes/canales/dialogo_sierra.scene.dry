@@ -1,6 +1,6 @@
 title: El emisario
 new-page: true
-subtitle: Discutir la línea donde la línea es de tiro
+subtitle: Arguing the line where the line is a firing line
 on-arrival: month_actions += 1
 max-visits: 20
 is-card: true
@@ -17,7 +17,7 @@ Once or twice a year it can be done: an emisario up the mule tracks with newspap
 
 @subir
 choose-if: organizers >= 2 and postura_guerrilla >= 2
-unavailable-subtitle: El emisario debe existir y la línea debe permitirlo.
+unavailable-subtitle: The emissary must exist, and the line must permit him.
 on-arrival: guerrilla_meter -= 3; sup_peasants += 2; expediente += 3; political_capital += 1
 
 Two weeks, one campfire, the whole heresiology of the Mexican left argued to a draw under Orion. Nothing is conceded. But a comandante who has read this month's paper quotes it grudgingly at the next one, and two of his younger men begin asking about the amnesty rumor — which is how every war in Guerrero has actually ended: one campfire conversation at a time.

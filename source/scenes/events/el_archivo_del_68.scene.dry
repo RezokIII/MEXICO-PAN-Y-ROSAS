@@ -1,6 +1,6 @@
 title: El archivo del 68
 new-page: true
-subtitle: Lo que sus cuadernos guardaron
+subtitle: What your notebooks kept
 tags: event
 view-if: verano68 = 3 and year >= 1979 and registro >= 1
 priority: 2

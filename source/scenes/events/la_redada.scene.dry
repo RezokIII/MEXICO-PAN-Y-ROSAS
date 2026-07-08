@@ -1,6 +1,6 @@
 title: La redada
 new-page: true
-subtitle: Madrugada
+subtitle: Four in the morning
 tags: event
 view-if: expediente >= 60 and time >= redada_last + 12
 priority: 2
@@ -18,7 +18,7 @@ By six it is over. By eight the lawyers are at the agencia del ministerio públi
 
 @responder
 choose-if: funds >= 2
-unavailable-subtitle: No queda ni para el amparo.
+unavailable-subtitle: Nothing left even for the amparo.
 on-arrival: political_capital += 2; sup_students += 2
 
 The denunciation runs in the foreign press and two brave national columns. The detained reappear in eleven days, thinner, at a prison that had no record of them, now suddenly equipped with paperwork. A collection replaces the machine inside a month — a German model this time, heavier, harder to carry down stairs in boxes. The state teaches by raid; the Party learns by inventory.

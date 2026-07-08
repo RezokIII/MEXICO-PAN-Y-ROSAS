@@ -1,6 +1,6 @@
 title: El aviso oportuno
 new-page: true
-subtitle: A veces una voz llega antes que el convoy
+subtitle: Sometimes a voice arrives before the convoy
 on-arrival: month_actions += 1
 max-visits: 30
 is-card: true
@@ -17,7 +17,7 @@ The network hears things — a requisition of vehicles, leave cancelled at a bar
 
 @avisar
 choose-if: expediente <= 75
-unavailable-subtitle: Con la DFS así de encima, la llamada es una confesión. El canal no sobrevive.
+unavailable-subtitle: With the DFS this close, the call itself is a confession. The channel would not survive it.
 on-arrival: guerrilla_meter -= 1; sup_peasants += 3; expediente += 4; represion += 1
 
 The convoy finds hearths still warm and a village of shrugs. Somewhere in the operation's paperwork a colonel writes *información comprometida* and requests an investigation that will eat months. In the valley they do not know whose voice it was on the tienda's phone. They know the direction gratitude points.

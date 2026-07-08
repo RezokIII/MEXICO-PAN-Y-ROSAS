@@ -1,6 +1,6 @@
 title: Defensa de los presos
 new-page: true
-subtitle: Abogados, amparos, visitas a Lecumberri
+subtitle: Lawyers, amparos, Sunday visits to Lecumberri
 on-arrival: month_actions += 1
 max-visits: 12
 is-card: true
@@ -20,7 +20,7 @@ The amparo is a beautiful instrument: a writ that says the Constitution applies 
 @pagar
 subtitle: -4 funds
 choose-if: funds >= 4
-unavailable-subtitle: Los abogados también comen.
+unavailable-subtitle: Lawyers eat too.
 on-arrival: funds -= 4; political_capital += 3; sup_students += 2; pri_reformist_rel += 2; sup_students += 2 if lecumberri_campaign = 1
 
 Denied, denied, denied, and one astonishing afternoon: *admitted for review*. It will die in review. But a boy in Crujía M gets his name in a court document instead of a ledger, and his mother tells the neighbors the Party did that.

@@ -23,14 +23,14 @@ The resolution is orthodox and closely argued and will be quoted approvingly by 
 
 @ambiguedad
 choose-if: unity >= 45
-unavailable-subtitle: Caminar el alambre exige un partido unido; el tuyo se caería en la primera ráfaga.
+unavailable-subtitle: Walking the wire requires a united party; yours would fall at the first gust.
 on-arrival: postura_guerrilla = 2; represion += 2; expediente += 2; sup_students += 2
 
 The formula is lawyered to a shine: the Party "understands the desperation that the state's violence engenders" and "reaffirms the mass road" in the same paragraph, and every reader takes home the clause they came for. It buys time and space, at the standing cost that both the DFS and the guerrilla file you under *pending*.
 
 @canales
 choose-if: organizers >= 3
-unavailable-subtitle: Los canales discretos consumen cuadros de absoluta confianza. No los tienes de sobra.
+unavailable-subtitle: Discreet channels consume fully trusted cadres. You have none to spare.
 on-arrival: postura_guerrilla = 3; expediente += 5; guerrilla_meter += 2; sup_peasants += 2
 
 Nothing is written, which is the first rule. A clinic in Atoyac receives supplies with no return address; a student with a hot name gets a bus ticket and an aunt in Guadalajara. The Party's hands stay clean in print and busy in fact, and every month the ledger of deniability runs a little thinner. You have chosen the most Mexican of the three roads: the one that officially does not exist.

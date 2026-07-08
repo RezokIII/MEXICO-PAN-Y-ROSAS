@@ -1,6 +1,6 @@
 title: Trabajo en colonias
 new-page: true
-subtitle: La ciudad que la ciudad no admite
+subtitle: The city the city refuses to admit
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true
@@ -17,17 +17,17 @@ Every month the city grows a new edge: paracaidistas staking lots in the dust of
 - @easy_discard
 
 @posesion
-subtitle: -2 fondos
+subtitle: -2 funds
 choose-if: funds >= 2
-unavailable-subtitle: Los amparos cuestan.
+unavailable-subtitle: Amparos cost money.
 on-arrival: funds -= 2; sup_colonos += 2 + (100 - salario_real)*0.1 + unity*0.02; members += 1; expediente += 2
 
 When the bulldozers come, the whole colonia is somehow already in the road — women in front, the amparo in a plastic bag, a comrade reading the writ aloud over the engines. The operator looks to the licenciado; the licenciado looks at the cameras that a student happens to have brought. Not today. Today is what victory looks like here.
 
 @servicios
-subtitle: -2 fondos
+subtitle: -2 funds
 choose-if: funds >= 2
-unavailable-subtitle: La tubería no es gratis.
+unavailable-subtitle: The pipe is not free.
 on-arrival: funds -= 2; sup_colonos += 3; political_capital += 1
 
 Petitions, marches to the delegación, and finally the pipe itself, laid by the residents in a weekend of communal labor the PRI will claim credit for on a banner. Let them hang the banner. Everyone who dug knows who called the assembly, and water tastes of the committee that won it.

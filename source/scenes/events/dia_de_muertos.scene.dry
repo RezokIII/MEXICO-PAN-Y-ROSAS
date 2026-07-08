@@ -1,6 +1,6 @@
 title: Día de muertos
 new-page: true
-subtitle: 2 de noviembre
+subtitle: November 2 — Día de muertos
 tags: event
 view-if: month = 11 and muertos_year < year
 priority: 1

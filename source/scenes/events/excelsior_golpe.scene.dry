@@ -20,7 +20,7 @@ Rumors already: Scherer's people will found something — a weekly, fierce and u
 
 @solidaridad
 choose-if: funds >= 2
-unavailable-subtitle: Hasta la solidaridad tiene gastos de papelería.
+unavailable-subtitle: Even solidarity has stationery costs.
 on-arrival: funds -= 2; political_capital += 3; sup_middle += 2; sup_students += 2
 
 Meeting rooms, a mailing list, two vans and their drivers on the day the new weekly's first issue must reach the stands before the government's buyers can corner it. The journalists are not yours and never will be — they guard their independence like burn victims — but the debt is banked where it matters: in the memory of the people who will write the next ten years of scandals.

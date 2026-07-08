@@ -1,6 +1,6 @@
 title: Jugar las facciones
 new-page: true
-subtitle: El PRI es una guerra civil con oficinas
+subtitle: The PRI is a civil war with office space
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true
@@ -17,9 +17,9 @@ The eternal war inside the party of the eternal peace: políticos against técni
 - @easy_discard
 
 @filtrar_duros
-subtitle: Riesgo conocido
+subtitle: Known risk
 choose-if: expediente >= 25
-unavailable-subtitle: Para saber cosas de ellos, primero hay que llevar años de que ellos sepan de ti.
+unavailable-subtitle: To know things about them, they must first have spent years knowing things about you.
 on-arrival: pri_duros -= 4; represion += 2; expediente += 3; political_capital += 2
 
 The dossier travels three hands before reaching the columnist, arriving clean of fingerprints. The scandal is small, deniable, and lands precisely: a hard man's protégé sacrificed, a budget trimmed, a rival camarilla feasting. The hard men suspect the direction the paper came from — they always suspect correctly — and add a page to their own files.

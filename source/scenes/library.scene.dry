@@ -80,23 +80,23 @@ go-to: menu
 @mecanica
 go-to: menu
 
-= Manual del organizador
+= The organizer manual
 
-*(Circular interna. No es teoría; es plomería.)*
+*(Internal circular. Not theory — plumbing.)*
 
-**El dinero sigue a la gente — o a Moscú.** Las cuotas rinden según la militancia: cada cinco mil miembros son fondos trimestrales. Moscú paga cada enero — mientras la línea no se vuelva demasiado independiente. Un partido de masas se financia solo; un partido chico obedece a alguien. Elija cuál construye.
+**Money follows the people — or Moscow.** Dues yield by membership: every five thousand members is quarterly income. Moscow pays each January — as long as the line does not grow too independent. A mass party finances itself; a small party obeys someone. Choose which one you are building.
 
-**La unidad multiplica.** Todo trabajo de organización rinde más con el partido unido y menos con el partido roto. Las corrientes marginadas (fuerza menor a 15) desangran la unidad mes a mes: el manejo de consejeros ES manejo de corrientes. Alternar consejeros no es cortesía; es mantenimiento.
+**Unity multiplies.** All organizing work yields more with a united party and less with a broken one. Sidelined corrientes (strength below 15) bleed unity month by month: advisor management IS faction management. Rotating advisors is not courtesy; it is maintenance.
 
-**La muralla charra es un tope, no un decorado.** El apoyo obrero no puede crecer más allá de lo que el charrismo permite. Primero se agrieta la muralla — sindicatos independientes, coordinadoras, huelgas — y después se cosecha la fábrica. En ese orden. No hay atajo.
+**The charro wall is a ceiling, not a decoration.** Worker support cannot grow past what charrismo permits. First the wall cracks — independent unions, coordinadoras, strikes — then the factory is harvested. In that order. There is no shortcut.
 
-**La crisis organiza — para quien esté presente.** Cuando el salario real cae, el trabajo en fábricas y colonias rinde el doble. Los años de vacas flacas del sistema son los de vacas gordas del organizador: posiciónese ANTES de la crisis, coseche durante.
+**Crisis organizes — for whoever is present.** When the real wage falls, factory and colonia work yields double. The system lean years are the organizer fat ones: position BEFORE the crisis, harvest during it.
 
-**El expediente es la sombra de todo.** Crece con cada acción visible y trae la redada cuando engorda. La seguridad cuesta fondos; las redadas cuestan más — incluso cuadros. El equilibrio entre crecer y durar es la partida entera.
+**The expediente is the shadow of everything.** It grows with every visible action and brings the raid when it fattens. Security costs funds; raids cost more — including cadres. The balance between growing and lasting is the entire game.
 
-**La tentación armada consume jóvenes.** Con el fusil caliente entre la juventud, cada mes se van algunos — a la Liga, a la sierra, al expediente de todos. Se enfría con deslinde (y se paga en prestigio) o con trabajo de masas que dé a la rabia algo que hacer.
+**The armed temptation consumes the young.** With the rifle running hot among the youth, some leave every month — to the Liga, to the sierra, into everyone files. It cools through deslinde (paid in prestige) or through mass work that gives the rage something to do.
 
-**La línea tiene precio de lista.** Cada eje ideológico cobra: el alineamiento soviético paga en oro y cuesta estudiantes y clases medias; la independencia cuesta el subsidio y paga en credibilidad. La vía electoral abre curules y cierra calles; la insurreccional, lo contrario. No hay línea gratuita. Hay líneas cuyo precio usted no ha leído.
+**The line has a price list.** Every ideological axis charges: Soviet alignment pays in gold and costs students and the middle class; independence costs the subsidy and pays in credibility. The electoral road opens seats and closes streets; the insurrectionary one, the reverse. There is no free line. There are only lines whose price you have not yet read.
 
 @memorial
 go-to: menu
@@ -107,6 +107,6 @@ The list. Kept since the twenties, hidden better than money, copied in three han
 
 [? if memorial = 0 : It stands, for now, at the names inherited from before October — the railwaymen dead in the yards, Jaramillo and Epifania and the boys, the eight of Madera. No new names have been added on your watch. Keep it so, if the Republic permits. It will not permit. ?]
 
-[? if memorial >= 1 : Names added on your watch: [+ memorial +]. Each with a date, a place, a corner where a car was seen. The state's deepest wager is that everyone forgets. The list is how the wager is lost. ?]
+[? if memorial >= 1 : Names added on your watch: [+ memorial +]. Each with a date, a place, a corner where a car was seen. The state deepest wager is that everyone forgets. The list is how the wager is lost. ?]
 
-[? if memorial >= 8 : The page is filling. Someone has begun a second copy in a school notebook in the Montaña, because the arithmetic of the era demands it. Whatever else the Movement wins or loses, this document must survive it: there are years coming when it will be the only census the dead receive. ?]
+[? if memorial >= 8 : The page is filling. Someone has begun a second copy in a school notebook in the Montana, because the era arithmetic demands it. Whatever else the Movement wins or loses, this document must survive it: years are coming when it will be the only census the dead receive. ?]

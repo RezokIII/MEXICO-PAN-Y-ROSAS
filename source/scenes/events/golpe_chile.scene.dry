@@ -19,7 +19,7 @@ For the left, Chile is a wound and a syllabus in one: the ortodoxos read it as p
 
 @volcarse
 choose-if: funds >= 3
-unavailable-subtitle: La solidaridad de aparato cuesta: locales, camas, imprenta. No hay caja.
+unavailable-subtitle: Apparatus-scale solidarity costs: halls, beds, presses. The box is empty.
 on-arrival: funds -= 3; exiliados += 2; sup_students += 4; fac_renovadores += 2; moscow_relation += 2; expediente += 3
 
 The Party's locals fill with maté and grief and the best-trained Marxists the continent has produced: MIR cadres who know clandestinity like a trade, UP economists who ran ministries, printers who set type through artillery. The study circles will never recover, in the best sense. The DFS photographs the doorways and begins a whole new wing of the archive, cross-referenced by accent.

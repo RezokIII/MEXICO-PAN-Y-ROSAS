@@ -1,6 +1,6 @@
 title: La CONAMUP
 new-page: true
-subtitle: 1980 — los pobres de la ciudad se coordinan
+subtitle: 1980 — the city's poor coordinate
 tags: event
 view-if: year = 1980 and month = 5
 priority: 2
@@ -19,7 +19,7 @@ In Monterrey, the urban popular movements of the Republic — posesionarios, wat
 
 @construir
 choose-if: colonia_saga >= 2 or sup_colonos >= 25
-unavailable-subtitle: Para construir hay que llegar con base propia; no la tienes en las colonias.
+unavailable-subtitle: To build it you must arrive with a base of your own; you have none in the colonias.
 on-arrival: colonia_saga = 3; sup_colonos += 6; huelgas += 3; political_capital += 2
 
 The alliance sets its terms honestly — coordination without capture — and holds, because it was built on eight years of evidence rather than a resolution. When the austerity decade opens its wounds in the cities, the CONAMUP will be the ambulance and the fist, and your people will be inside both.

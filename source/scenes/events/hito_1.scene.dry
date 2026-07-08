@@ -1,6 +1,6 @@
 title: El camino: sobrevivir
 new-page: true
-subtitle: Primer hito
+subtitle: First milestone
 tags: event
 view-if: year >= 1971 and camino1 = 0 and members >= 5 and unity >= 40
 priority: 2

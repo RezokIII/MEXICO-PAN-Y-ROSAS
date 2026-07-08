@@ -1,6 +1,6 @@
 title: El entierro
 new-page: true
-subtitle: Panteón civil
+subtitle: Civil cemetery
 tags: event
 view-if: represion >= 70 and time >= funeral_last + 8
 priority: 1
@@ -19,7 +19,7 @@ The cemetery workers know the genre and dig quickly. The question is only how ma
 
 @multitud
 choose-if: sup_students >= 20
-unavailable-subtitle: Cuatrocientas personas no se convocan con un telefonazo. (Requiere apoyo estudiantil.)
+unavailable-subtitle: Four hundred people are not summoned with one phone call. (Requires student support.)
 on-arrival: sup_students += 3; represion += 2; expediente += 3; political_capital += 2
 
 Four hundred people who received no invitation. The humming becomes singing at the second verse — nobody decides it, it decides itself — and the men photographing from the chapel roof get four hundred faces for their files and one long lesson about arithmetic: they cannot pick up everyone. Not yet.

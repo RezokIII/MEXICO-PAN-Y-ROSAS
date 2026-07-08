@@ -1,6 +1,6 @@
 title: El expediente delgado
 new-page: true
-subtitle: Bucareli desconfía del silencio
+subtitle: Bucareli distrusts silence
 tags: event
 view-if: expediente <= 14 and time >= 36
 priority: 1
@@ -23,7 +23,7 @@ The public calendar gets fatter and so, gratifyingly, does the file: rallies ann
 
 @doble
 choose-if: organizers >= 3
-unavailable-subtitle: Un doble se maneja con cuadros maestros; no los hay disponibles.
+unavailable-subtitle: A double agent is handled by master cadres; none are available.
 on-arrival: expediente += 4; political_capital += 3; represion -= 2
 
 He is identified within a month — new man, old questions — and handled like porcelain: given a party to report on, complete with factional gossip scripted by your best novelist of a security officer. For years, Bucareli's picture of the Movement will be a portrait you painted. The technique has a long name in the manuals and a short one in the cells: *el espejo*.

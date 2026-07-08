@@ -17,7 +17,7 @@ Half the founding activists learned organizing in your circles, Othón's people 
 
 @adentro
 choose-if: organizers >= 3
-unavailable-subtitle: Las guerras seccionales se pelean con cuadros presentes, no con editoriales.
+unavailable-subtitle: Section wars are fought with cadres present, not with editorials.
 on-arrival: sup_teachers += 7; charrismo -= 2; expediente += 3; huelgas += 4
 
 Section 7, Section 22: names that will carry decades. Your people work the assemblies as teachers first and militants second, which is the only way the Coordinadora tolerates — and Vanguardia's answer runs from bribes to beatings to worse. The teachers bury their dead, elect their committees anyway, and the SNTE discovers that a million members include a great many people who can read.

@@ -20,7 +20,7 @@ A candidacy now exists with the Revolution's own surname, aimed at the Revolutio
 
 @acercarse
 choose-if: cd_rel >= 1
-unavailable-subtitle: No hay puentes construidos hacia la Corriente; acercarse ahora es llegar como extraño.
+unavailable-subtitle: No bridges were ever built to the Corriente; approaching now means arriving as a stranger.
 on-arrival: cd_rel += 1; political_capital += 3; fac_ortodoxos -= 3; ax_nacpop += 3
 
 The meetings move from restaurants to kitchens, which in Mexican politics is the promotion that matters. Your casilla network interests them intensely — the engineers around Cárdenas can count, and know exactly what will be attempted against them in July. The convergence has begun writing itself.

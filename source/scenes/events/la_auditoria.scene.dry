@@ -1,6 +1,6 @@
 title: La auditoría
 new-page: true
-subtitle: El dinero también organiza — a su manera
+subtitle: Money organizes too — in its own way
 tags: event
 view-if: funds >= 45 and time >= 30
 priority: 1

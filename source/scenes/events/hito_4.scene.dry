@@ -1,6 +1,6 @@
 title: El camino: los cimientos
 new-page: true
-subtitle: Cuarto hito
+subtitle: Fourth milestone
 tags: event
 view-if: camino3 = 1 and camino4 = 0 and red_casillas >= 30 and (municipio_alcozauca = 1 or municipio_juchitan = 1)
 priority: 2

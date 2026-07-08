@@ -1,6 +1,6 @@
 title: La escisión
 new-page: true
-subtitle: La casa se agrieta
+subtitle: The house cracks
 tags: event
 view-if: unity <= 22 and time >= 24
 priority: 2
@@ -18,7 +18,7 @@ Splits are how the Mexican left reproduces; everyone in the room can name four. 
 
 @conciliar
 choose-if: political_capital >= 8
-unavailable-subtitle: Conciliar exige autoridad para repartir; la dirección llega a esta crisis sin ella.
+unavailable-subtitle: Conciliation requires authority to distribute; the leadership arrives at this crisis without any.
 on-arrival: political_capital -= 5; unity += 12
 
 The special pleno runs fourteen hours and ends in the Mexican resolution: nobody satisfied, everybody staying. Two of their people join the center; one of yours graciously retires to "international work." The mimeograph of the current prints next month's issue on party paper. Expensive, undignified, and cheaper than every alternative.

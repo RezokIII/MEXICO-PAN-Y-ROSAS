@@ -1,6 +1,6 @@
 title: La fuga
 new-page: true
-subtitle: Una célula se va
+subtitle: A cell walks out
 tags: event
 view-if: guerrilla_meter >= 18 and time >= fuga_last + 10
 priority: 2

@@ -1,6 +1,6 @@
 title: El Ayuntamiento Popular
 new-page: true
-subtitle: Gobernar en chiquito, demostrar en grande
+subtitle: Govern small, demonstrate large
 view-if: municipio_alcozauca = 1 or municipio_juchitan = 1
 on-arrival: month_actions += 1
 max-visits: 30
@@ -19,7 +19,7 @@ A town hall with a leaking roof, three typewriters, and the only budget in the R
 - @easy_discard
 
 @obras
-subtitle: -3 fondos
+subtitle: -3 funds
 choose-if: funds >= 3
 unavailable-subtitle: Las obras del pueblo también empiezan en la caja.
 on-arrival: funds -= 3; sup_peasants += 3; political_capital += 1
@@ -32,9 +32,9 @@ on-arrival: political_capital += 3; sup_middle += 1; expediente += 2
 The accounts go up on the plaza wall to the centavo, and the comparison writes itself in every newspaper the state can't reach: the left governs with the books open; the party of the Revolution governs with the books gone. The showcase's value — and the assessors' attention — both appreciate.
 
 @radio_pueblo
-subtitle: -2 fondos
+subtitle: -2 funds
 choose-if: funds >= 2
-unavailable-subtitle: El transmisor come tubos y los tubos cuestan.
+unavailable-subtitle: The transmitter eats vacuum tubes, and tubes cost.
 on-arrival: funds -= 2; sup_peasants += 3; sup_students += 1
 
 The morning assembly on the air, the corrido hour, the price of coffee read like news because it is news. Over the sierra, villages that have never seen your organizers know the ayuntamiento's voice by heart. Transmitters have been smashed for less, which is why the spare parts live in three separate houses.

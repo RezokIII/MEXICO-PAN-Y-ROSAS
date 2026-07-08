@@ -10,35 +10,35 @@ if (Q.gran_capital > Q.burguesia_estado && Q.gran_capital >= Q.capital_extranjer
 if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_capital) { Q.mando = 'extranjero'; }
 !}
 
-= Estado del movimiento
+= The Movement
 
 [+ month : month +] [+ year +]
 
-Fondos: [+ funds +]
+Funds: [+ funds +]
 
-Militantes (miles): [+ members +]
+Members (thousands): [+ members +]
 
-Organizadores: [+ organizers +]
+Organizers: [+ organizers +]
 
-Unidad: [+ unity +]
+Unity: [+ unity +]
 
-Capital político: [+ political_capital +]
+Political capital: [+ political_capital +]
 
-Línea ante la lucha armada: [? if postura_guerrilla = 0 : sin definir — el silencio también se lee ?][? if postura_guerrilla = 1 : deslinde público ?][? if postura_guerrilla = 2 : ambigüedad calculada ?][? if postura_guerrilla = 3 : canales discretos ?]
+Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence is also read ?][? if postura_guerrilla = 1 : public deslinde ?][? if postura_guerrilla = 2 : calculated ambiguity ?][? if postura_guerrilla = 3 : discreet channels ?]
 
 = El camino
 
-[? if camino1 = 1 : I. Sobrevivir — CUMPLIDO ?][? if camino1 = 0 : I. Sobrevivir: existir aún en 1971 (5 mil militantes, unidad entera) — pendiente ?]
+[? if camino1 = 1 : I. Survive — DONE ?][? if camino1 = 0 : I. Survive: still exist in 1971 (5,000 members, the family at one table) — pending ?]
 
-[? if camino2 = 1 : II. Romper el cerco — CUMPLIDO ?][? if camino2 = 0 and camino1 = 1 : II. Romper el cerco: 10 mil militantes — pendiente ?]
+[? if camino2 = 1 : II. Break the cerco — DONE ?][? if camino2 = 0 and camino1 = 1 : II. Break the cerco: 10,000 members — pending ?]
 
-[? if camino3 = 1 : III. La puerta — CUMPLIDO ?][? if camino3 = 0 and camino2 = 1 : III. La puerta: registro y diez curules — pendiente ?]
+[? if camino3 = 1 : III. The door — DONE ?][? if camino3 = 0 and camino2 = 1 : III. The door: registro plus ten seats — pending ?]
 
-[? if camino4 = 1 : IV. Los cimientos — CUMPLIDO ?][? if camino4 = 0 and camino3 = 1 : IV. Los cimientos: red de 30 casillas y un municipio gobernado — pendiente ?]
+[? if camino4 = 1 : IV. The foundations — DONE ?][? if camino4 = 0 and camino3 = 1 : IV. The foundations: a 30-casilla network and a governed municipio — pending ?]
 
-[? if camino5 = 1 : V. La convergencia — CUMPLIDA. Julio decide. ?][? if camino5 = 0 and camino4 = 1 : V. La convergencia: el frente unido con ustedes como fundadores — pendiente ?]
+[? if camino5 = 1 : V. The convergence — DONE. July decides. ?][? if camino5 = 0 and camino4 = 1 : V. The convergence: the united front, with you as a founding wall — pending ?]
 
-= Corrientes internas
+= Internal corrientes
 
 Ortodoxos: [+ fac_ortodoxos : fuerza +]
 
@@ -46,21 +46,21 @@ Renovadores: [+ fac_renovadores : fuerza +]
 
 Nueva izquierda: [+ fac_nueva_izquierda : fuerza +]
 
-= Gobierno — el sistema
+= El sistema
 
-Presidente: [? if presidente == "Diaz Ordaz" : Gustavo Díaz Ordaz (1964-1970) ?][? if presidente == "Echeverria" : Luis Echeverría Álvarez (1970-1976) ?][? if presidente == "Lopez Portillo" : José López Portillo (1976-1982) ?][? if presidente == "De la Madrid" : Miguel de la Madrid (1982-1988) ?]
+President: [? if presidente == "Diaz Ordaz" : Gustavo Díaz Ordaz (1964-1970) ?][? if presidente == "Echeverria" : Luis Echeverría Álvarez (1970-1976) ?][? if presidente == "Lopez Portillo" : José López Portillo (1976-1982) ?][? if presidente == "De la Madrid" : Miguel de la Madrid (1982-1988) ?]
 
-Año [+ sexenio_year +] del sexenio.
+Year [+ sexenio_year +] of the sexenio.
 
-Cooptación: [+ presidente_cooptacion : cooptacion +]
+Co-optation: [+ presidente_cooptacion : cooptacion +]
 
-Represión: [+ represion : represion +]
+Repression: [+ represion : represion +]
 
-Gobernación: [? if gobernacion == "Echeverria" : Luis Echeverría — el que firmó los oficios de octubre. ?][? if gobernacion == "Moya" : Mario Moya Palencia — heredó los archivos. Todos. ?][? if gobernacion == "Reyes Heroles" : Jesús Reyes Heroles — el ideólogo. Habla de reforma, y podría hablar en serio. ?][? if gobernacion == "Bartlett" : Manuel Bartlett — suave, paciente, dueño de la cuenta. Recuerde el nombre. ?]
+Gobernación: [? if gobernacion == "Echeverria" : Luis Echeverría — the man who signed the October orders. ?][? if gobernacion == "Moya" : Mario Moya Palencia — he inherited the files. All of them. ?][? if gobernacion == "Reyes Heroles" : Jesús Reyes Heroles — the ideologue. He speaks of reform, and may mean it. ?][? if gobernacion == "Bartlett" : Manuel Bartlett — smooth, patient, owner of the count. Remember the name. ?]
 
-Su expediente en la DFS: [+ expediente : expediente +]
+Your DFS file: [+ expediente : expediente +]
 
-= Facciones del PRI
+= PRI factions
 
 Políticos: [+ pri_politicos : fuerza +]
 
@@ -70,154 +70,154 @@ Aperturistas: [+ pri_aperturistas : fuerza +]
 
 Duros: [+ pri_duros : fuerza +]
 
+[? if cd_formed = 1 : Corriente Democrática: the regime's prodigal sons are looking for the door. ?]
+
 = La sucesión
 
-[? if destape_phase = 0 : El Señor Presidente gobierna. Nadie habla de la sucesión. En voz alta. ?]
-[? if destape_phase = 1 : Rumores. Los columnistas escriben en clave. ?]
-[? if destape_phase = 2 : La pasarela. Los suspirantes desfilan. ?]
-[? if destape_phase = 3 : El dedazo ha caído. Falta que el país lo sepa. ?]
-[? if destape_phase = 4 : El destape. La cargada comienza: todos siempre estuvieron con él. ?]
+[? if destape_phase = 0 : The President governs. Nobody discusses the succession. Aloud. ?]
+[? if destape_phase = 1 : Rumor season. The columnists write in code; the precandidatos smile too much. ?]
+[? if destape_phase = 2 : The pasarela. The hopefuls parade. The tapado already exists; only he does not know it — or only he does. ?]
+[? if destape_phase = 3 : The dedazo has fallen. The country just does not know it yet. ?]
+[? if destape_phase = 4 : The destape. The cargada begins: everyone always supported him. ?]
 
-= El Senado de la República
+= The Senate
 
-[? if year <= 1987 : 64 de 64 para el PRI. No hay nada que ver aquí. Todavía. ?]
-[? if year >= 1988 and fdn >= 1 : 60 para el PRI — y 4 del Frente: el DF y Michoacán eligieron los primeros senadores de oposición en la historia de la cámara. La sala ya no es unánime, y las salas que dejan de ser unánimes no vuelven. ?]
-[? if year >= 1988 and fdn = 0 : 64 de 64 para el PRI, todavía — la ola rompió en la otra orilla, y el Senado ni se despeinó. ?]
-
+[? if year <= 1987 : 64 of 64 for the PRI. Nothing to see here. Yet. ?]
+[? if year >= 1988 and fdn >= 1 : 60 for the PRI — and 4 for the Frente: the DF and Michoacán elected the first opposition senators in the chamber's history. The room is no longer unanimous, and rooms never go back. ?]
+[? if year >= 1988 and fdn = 0 : 64 of 64 for the PRI, still — the wave broke on another shore, and the Senate never felt the spray. ?]
 
 @politics
 
-= Política
+= Politics
 
-**La vía electoral**
+**The electoral road**
 
-Registro electoral: [? if registro = 0 : ninguno. El Partido no existe ante la Comisión Federal Electoral — y la Comisión existe demasiado ante el Partido. ?][? if registro = 1 : condicionado. Existen ustedes a prueba, como los empleados nuevos. ?][? if registro = 2 : definitivo. Un partido legal, con todo lo que eso abre y todo lo que eso obliga. ?]
+Registro: [? if registro = 0 : none. The Party does not exist before the Comisión Federal Electoral — which exists entirely too much before the Party. ?][? if registro = 1 : conditional. You exist on probation, like new employees. ?][? if registro = 2 : definitive. A legal party, with everything that opens and everything it obliges. ?]
 
-Línea del Movimiento: [? if ax_electoral >= 15 : decididamente electoral ?][? if ax_electoral >= -14 and ax_electoral <= 14 : en disputa entre la urna y la calle ?][? if ax_electoral <= -15 : de masas e insurreccional ?]
+The Movement's line: [? if ax_electoral >= 15 : firmly electoral ?][? if ax_electoral >= -14 and ax_electoral <= 14 : contested between the ballot and the street ?][? if ax_electoral <= -15 : mass-line and insurrectionary ?]
 
-Definición ideológica: [? if ax_nacpop >= 10 : nacional-popular — la Revolución mexicana como idioma ?][? if ax_nacpop >= -9 and ax_nacpop <= 9 : entre la patria y el manifiesto ?][? if ax_nacpop <= -10 : marxista-leninista clásica ?]
+Ideological definition: [? if ax_nacpop >= 10 : nacional-popular — the Mexican Revolution as native tongue ?][? if ax_nacpop >= -9 and ax_nacpop <= 9 : between the patria and the manifesto ?][? if ax_nacpop <= -10 : classical Marxist-Leninist ?]
 
-Cuestión soviética: [? if ax_sovietico >= 10 : alineamiento con Moscú ?][? if ax_sovietico >= -9 and ax_sovietico <= 9 : equilibrio incómodo ?][? if ax_sovietico <= -10 : independencia declarada — herejes con carnet ?]
+The Soviet question: [? if ax_sovietico >= 10 : aligned with Moscow ?][? if ax_sovietico >= -9 and ax_sovietico <= 9 : an uneasy balance ?][? if ax_sovietico <= -10 : declared independence — heretics with party cards ?]
 
-**El clima de las ideas**
+**The climate of ideas**
 
-Hegemonía neoliberal: [+ clima_neoliberal : fuerza +][? if clima_neoliberal >= 50 : — el mercado se ha vuelto sentido común; nadar contra eso cuesta clases medias ?]
+Neoliberal hegemony: [+ clima_neoliberal : fuerza +][? if clima_neoliberal >= 50 : — the market creed has become common sense; swimming against it costs the middle class ?]
 
-Prestigio del socialismo: [+ prestigio_socialismo : fuerza +][? if prestigio_socialismo < 40 : — la palabra misma pierde jóvenes; la batalla de las ideas no espera ?]
+Socialism's prestige: [+ prestigio_socialismo : fuerza +][? if prestigio_socialismo < 40 : — the word itself is losing the young; the battle of ideas will not wait ?]
 
-**Relaciones**
+**Relations**
 
-Con los reformistas del PRI: [+ pri_reformist_rel : relacion +]
+With the PRI reformists: [+ pri_reformist_rel : relacion +]
 
-Con Moscú: [+ moscow_relation : relacion +]
+With Moscow: [+ moscow_relation : relacion +]
 
-Control charro sobre el movimiento obrero: [+ charrismo : fuerza +]
+Charro control of organized labor: [+ charrismo : fuerza +]
 
 @paramilitaries
 
-= Defensa
+= Defense
 
-**El aparato del Estado**
+**The state's apparatus**
 
-Represión: [+ represion : represion +]
+Repression: [+ represion : represion +]
 
-Su expediente en la DFS: [+ expediente : expediente +]
+Your DFS file: [+ expediente : expediente +]
 
-[? if year <= 1976 : Instrumentos activos: la DFS de Gutiérrez Barrios y Nazar Haro; los granaderos; las guardias blancas en el campo[? if year >= 1971 : ; los Halcones, que oficialmente no existen ?][? if year >= 1974 : ; la Brigada Blanca, que existe menos todavía y trabaja más ?]. ?]
-[? if year >= 1977 : Instrumentos activos: la DFS en su apogeo técnico; la Brigada Blanca en las ciudades; el ejército en las sierras que quedan. La guerra sucia ya no hace ruido — perfeccionó el silencio. ?]
+[? if year <= 1976 : Active instruments: the DFS of Gutiérrez Barrios and Nazar Haro; the granaderos; the white guards in the countryside[? if year >= 1971 : ; the Halcones, who officially do not exist ?][? if year >= 1974 : ; the Brigada Blanca, which exists even less and works even more ?]. ?]
+[? if year >= 1977 : Active instruments: the DFS at its technical peak; the Brigada Blanca in the cities; the army in what remains of the sierras. The dirty war no longer makes noise — it has perfected silence. ?]
 
-**La cuestión armada**
+**The armed question**
 
-Línea del Movimiento: [? if postura_guerrilla = 0 : sin definir. El silencio también es una posición, y la peor. ?][? if postura_guerrilla = 1 : deslinde público. Las armas le regalan al Estado la guerra que prefiere. ?][? if postura_guerrilla = 2 : ambigüedad calculada. La DFS y la guerrilla los archivan a ustedes bajo "pendiente". ?][? if postura_guerrilla = 3 : canales discretos. Medicina que viaja sin remitente; nombres que se avisan antes que los operativos. El libro mayor de la negación se adelgaza cada mes. ?]
+The Movement's line: [? if postura_guerrilla = 0 : undefined. Silence is also a position, and the worst one. ?][? if postura_guerrilla = 1 : public deslinde. The gun hands the state the war it prefers. ?][? if postura_guerrilla = 2 : calculated ambiguity. The DFS and the guerrilla both file you under "pending." ?][? if postura_guerrilla = 3 : discreet channels. Medicine travels without return addresses; names are warned before operations. The ledger of deniability thins every month. ?]
 
-La tentación armada entre los jóvenes: [+ guerrilla_meter : tentacion +]
+The armed temptation among the young: [+ guerrilla_meter : tentacion +]
 
-[? if year >= 1971 and year <= 1974 : En armas: el Partido de los Pobres de Lucio Cabañas en la Costa Grande[? if year <= 1972 : ; la ACNR de Genaro Vázquez ?]; la Liga Comunista 23 de Septiembre en las ciudades desde el 73. Cada acción suya trae a los judiciales por las puertas de ustedes primero. ?]
-[? if year >= 1975 and year <= 1980 : En armas: los restos — la Liga, cada año más perseguida y más feroz, cazada casa por casa por la Brigada Blanca. La sierra de Guerrero quedó en silencio; el silencio también se administra. ?]
+[? if year >= 1971 and year <= 1974 : In arms: Lucio Cabañas' Partido de los Pobres on the Costa Grande[? if year <= 1972 : ; Genaro Vázquez's ACNR ?]; the Liga Comunista 23 de Septiembre in the cities from '73. Every action of theirs brings the judiciales through YOUR doors first. ?]
+[? if year >= 1975 and year <= 1980 : In arms: the remnants — the Liga, more hunted and more ferocious each year, tracked house by house by the Brigada Blanca. The sierra of Guerrero has gone quiet; silence, too, is administered. ?]
 
 **El memorial**
 
-Nombres añadidos en su vigilancia: [+ memorial +]. La apuesta más profunda del Estado es que todos olvidan. La lista es cómo se pierde esa apuesta.
+Names added on your watch: [+ memorial +]. The state's deepest wager is that everyone forgets. The list is how that wager is lost.
 
 @polls
 
-= Encuestas
+= Polls
 
-La República no publica encuestas; los resultados se redactan antes que las preguntas. Lo que sigue son las estimaciones internas del Movimiento — actas de asamblea, ventas del periódico, cuotas, y el olfato de los organizadores, que se equivoca menos que la Comisión Federal Electoral.
+The Republic publishes no polls; results are drafted before questions. What follows are the Movement's internal estimates — assembly counts, paper sales, dues, and the organizers' noses, which err less than the Comisión Federal Electoral.
 
-**Simpatía nacional (estimación del Movimiento)**
+**National sympathy (the Movement's estimate)**
 
-PRI: [+ pri_votes_display +]% — el partido del Estado; su cifra incluye la costumbre, el miedo y la maquinaria, en proporciones que nadie ha medido.
+PRI: [+ pri_votes_display +]% — the party of the state; its figure includes habit, fear and machinery, in proportions no one has measured.
 
-PAN: [+ pan_votes_display +]% — la oposición permitida; fuerte entre las clases medias del norte y del Bajío.
+PAN: [+ pan_votes_display +]% — the permitted opposition; strong among the middle classes of the north and the Bajío.
 
-La izquierda (ustedes): [+ izq_votes_display +]% — [? if registro = 0 : simpatía sin urna: gente que votaría por ustedes si existieran ante la ley. ?][? if registro >= 1 : simpatía que por fin puede convertirse en boleta — donde haya casilla vigilada. ?]
+The left (you): [+ izq_votes_display +]% — [? if registro = 0 : sympathy without a ballot box: people who would vote for you if you legally existed. ?][? if registro >= 1 : sympathy that can finally become a ballot — wherever there is a watched casilla. ?]
 
-PPS: [+ pps_votes_display +]% — marxistas de discurso, oficialistas de voto.
+PPS: [+ pps_votes_display +]% — Marxist in speech, officialist at the urn.
 
-PARM: [+ parm_votes_display +]% — los generales jubilados del sistema.
+PARM: [+ parm_votes_display +]% — the system's retired generals.
 
-Otros y anulados: [+ otros_votes_display +]%
+Others and spoiled: [+ otros_votes_display +]%
 
-**Apoyo por sector**
+**Support by sector**
 
-Estudiantes e intelectuales: [+ sup_students +]
+Students and intellectuals: [+ sup_students +]
 
-Obreros industriales: [+ sup_workers +] [? if charrismo >= 50 : (techo charro vigente: la muralla limita el crecimiento) ?]
+Industrial workers: [+ sup_workers +] [? if charrismo >= 50 : (the charro ceiling is in force: the wall caps growth) ?]
 
-Electricistas y sindicatos disidentes: [+ sup_electricians +]
+Electricians and dissident unions: [+ sup_electricians +]
 
-Maestros: [+ sup_teachers +]
+Teachers: [+ sup_teachers +]
 
 Campesinos: [+ sup_peasants +]
 
-Colonos urbanos: [+ sup_colonos +]
+Urban colonos: [+ sup_colonos +]
 
-Clases medias: [+ sup_middle +]
+Middle classes: [+ sup_middle +]
 
-[? if registro = 0 : Proyección electoral: no aplica. Primero hay que existir. ?]
-[? if registro >= 1 : Proyección electoral: los cuadros trabajan en ella. Cada casilla vigilada vale más que cualquier encuesta. ?]
-
+[? if registro = 0 : Electoral projection: not applicable. First, exist. ?]
+[? if registro >= 1 : Electoral projection: the cadres are working on it. One watched casilla is worth more than any poll. ?]
 
 @economia
 
-= Economía
+= Economy
 
-**Los números del milagro**
+**The numbers of the milagro**
 
-Crecimiento anual: [+ crecimiento_display +]%
+Annual growth: [+ crecimiento_display +]%
 
-Inflación: [+ inflacion_display +]%
+Inflation: [+ inflacion_display +]%
 
-El peso: [+ peso_display +] por dólar[? if peso_dolar <= 12.5 : — fijo desde 1954, el dios doméstico del régimen ?][? if peso_dolar > 12.5 : — el dios doméstico está roto; los ahorros hablan inglés ahora ?]
+The peso: [+ peso_display +] to the dollar[? if peso_dolar <= 12.5 : — fixed since 1954, the regime's household god ?][? if peso_dolar > 12.5 : — the household god is broken; savings speak English now ?]
 
-Desempleo y subempleo urbano: [+ desempleo +]%
+Urban unemployment and underemployment: [+ desempleo +]%
 
-Salario real (1968 = 100): [+ salario_real +][? if salario_real >= 100 : — el milagro todavía paga la mesa ?][? if salario_real < 100 and salario_real >= 85 : — la canasta encoge; nadie lo dice en voz alta todavía ?][? if salario_real < 85 : — la clase que todo lo produce come cada año un poco menos ?]
+Real wage (1968 = 100): [+ salario_real +][? if salario_real >= 100 : — the milagro still pays for dinner ?][? if salario_real < 100 and salario_real >= 85 : — the basket is shrinking; nobody says so aloud yet ?][? if salario_real < 85 : — the class that produces everything eats a little less each year ?]
 
-**La insurgencia laboral**
+**Labor insurgency**
 
-Actividad huelguística: [+ huelgas : huelgas +]
+Strike activity: [+ huelgas : huelgas +]
 
-[? if huelgas >= 25 : Los paros se encadenan de fábrica en fábrica; los charros pierden asambleas; el salario se defiende en la puerta, no en la mesa. Esto lo construyeron ustedes, huelga por huelga. ?]
-[? if huelgas >= 10 and huelgas < 25 : Chispazos: paros locos, tortuguismo, asambleas que votan mal. Don Fidel toma nota. ?]
-[? if huelgas < 10 : La paz laboral del apparato: contratos firmados antes de leerse. El silencio de las fábricas es la obra maestra del charrismo. ?]
+[? if huelgas >= 25 : Stoppages chain from plant to plant; the charros lose assemblies; the wage is defended at the gate, not at the table. You built this, strike by strike. ?]
+[? if huelgas >= 10 and huelgas < 25 : Sparks: wildcat stoppages, work-to-rule, assemblies that vote wrong. Don Fidel takes note. ?]
+[? if huelgas < 10 : The apparatus's labor peace: contracts signed before they are read. The silence of the factories is charrismo's masterpiece. ?]
 
-**¿Quién manda en México?**
+**Who runs Mexico?**
 
-La burguesía de Estado: [+ burguesia_estado : fuerza +][? if mando = "estado" : — MANDA. Los políticos-empresarios del sistema: concesiones, contratos, comisiones. El poder ES el negocio. ?]
+The state bourgeoisie: [+ burguesia_estado : fuerza +][? if mando = "estado" : — IN COMMAND. The system's politician-businessmen: concessions, contracts, commissions. Power IS the business. ?]
 
-El gran capital privado: [+ gran_capital : fuerza +][? if mando = "capital" : — MANDA. El Grupo Monterrey y sus primos: el dinero ya no pide permiso, lo concede. ?]
+Big private capital: [+ gran_capital : fuerza +][? if mando = "capital" : — IN COMMAND. The Monterrey Group and its cousins: money no longer asks permission; it grants it. ?]
 
-El capital extranjero: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : — MANDA. Las deudas se cobran en política; los acreedores redactan los presupuestos. ?]
+Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : — IN COMMAND. Debts are collected in politics; the creditors draft the budgets. ?]
 
-[? if mando = "estado" : El arreglo de la Revolución sigue en pie: el Estado preside, el capital consiente, y el trabajo — organizado por el Estado contra sí mismo — paga la cuenta. ?]
-[? if mando = "capital" : El arreglo se invirtió: Monterrey y sus aliados marcan los límites de lo posible, y el gobierno gobierna dentro de ellos. ?]
-[? if mando = "extranjero" : La soberanía tiene calendario de pagos. Lo que el pueblo vota, el acreedor lo enmienda. ?]
+[? if mando = "estado" : The Revolution's arrangement stands: the state presides, capital consents, and labor — organized by the state against itself — pays the bill. ?]
+[? if mando = "capital" : The arrangement has inverted: Monterrey and its allies set the limits of the possible, and the government governs inside them. ?]
+[? if mando = "extranjero" : Sovereignty now has a payment schedule. What the people vote, the creditor amends. ?]
 
-**Los nuestros**
+**Your people**
 
-[? if inflacion >= 15 : La inflación es el impuesto que no se legisla: la tortilla, el camión, la renta. En las colonias se hacen colas; en las asambleas, cuentas. Cada punto de inflación trabaja para ustedes — y muerde a los suyos primero. ?]
-[? if inflacion < 15 and salario_real >= 100 : Los años del milagro: hay trabajo, el salario alcanza, y organizarse es más difícil precisamente por eso. La prosperidad del sistema es su mejor policía. ?]
-[? if inflacion < 15 and salario_real < 100 : La mesa aguanta, pero más flaca que ayer. La memoria del salario pleno es reciente, y la memoria organiza mejor que el hambre. ?]
-[? if desempleo >= 9 : Los desocupados llenan las esquinas y las obras paradas. Son masa disponible — para ustedes, o para quien pague la charola primero. ?]
+[? if inflacion >= 15 : Inflation is the tax no one legislates: the tortilla, the bus, the rent. In the colonias, queues; in the assemblies, arithmetic. Every point of inflation works for you — and bites your own people first. ?]
+[? if inflacion < 15 and salario_real >= 100 : The milagro years: there is work, the wage stretches, and organizing is harder for exactly that reason. The system's prosperity is its best police force. ?]
+[? if inflacion < 15 and salario_real < 100 : The table holds, but thinner than yesterday. The memory of the full wage is recent — and memory organizes better than hunger. ?]
+[? if desempleo >= 9 : The unemployed fill the corners and the stalled construction sites. They are available mass — for you, or for whoever pays the charola first. ?]

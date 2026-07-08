@@ -16,7 +16,7 @@ Out of the earthquake's organized grief, the capital's renters and damnificados 
 
 @barrios_88
 choose-if: colonia_saga >= 3 or sup_colonos >= 30
-unavailable-subtitle: La Asamblea colabora con quien conoce de años, no de meses.
+unavailable-subtitle: The Asamblea works with people it has known for years, not months.
 on-arrival: barrios = 1; sup_colonos += 5; political_capital += 3
 
 The Asamblea votes its electoral turn with Superbarrio presiding in full mask, and the photograph runs everywhere: the city's poor, organized and laughing, pointed at the ballot box. In the campaign to come, these are the brigades that know every stairwell in the capital — and on the night the screens die, every rooftop.

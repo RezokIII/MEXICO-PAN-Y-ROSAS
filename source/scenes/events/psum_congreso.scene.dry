@@ -18,7 +18,7 @@ Heberto Castillo came to the courtship and left it: his PMT will not merge where
 
 @amplia
 choose-if: unity >= 45 and political_capital >= 18
-unavailable-subtitle: Disolver el partido más viejo de México exige una autoridad interna que hoy no tienes.
+unavailable-subtitle: Dissolving the oldest party in Mexico requires internal authority you do not have.
 on-arrival: psum = 1; members += 3; funds += 5; fac_renovadores += 8; fac_nueva_izquierda += 6; fac_ortodoxos -= 8; unity -= 5; ax_sovietico -= 5; moscow_relation -= 6; political_capital += 4
 
 The vote carries and the hall stands for the Internationale — sung, everyone notices, in the past tense. The PCM folds its sixty-two years into the new banner; the registration transfers; the MAP's economists take seats beside veterans of Lecumberri. It is bigger inside than the old house, and colder in corners, and the ortodoxos walk its halls like widowers. On the ballot line where the hammer and sickle stood, there is now a red star that offends fewer and warms fewer. Growth has a temperature.

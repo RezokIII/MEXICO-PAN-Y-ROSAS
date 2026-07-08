@@ -17,7 +17,7 @@ The state of Oaxaca has now answered. The legislature votes the *desaparición d
 
 @resistir
 choose-if: political_capital >= 10 and sup_peasants >= 20
-unavailable-subtitle: Sostener el Istmo exige capital político y base campesina que no hay.
+unavailable-subtitle: Holding the Istmo requires political capital and a peasant base that do not exist.
 on-arrival: municipio_juchitan = 1; political_capital += 4; sup_peasants += 4; represion += 4; expediente += 4; memorial += 1
 
 The siege lasts months: the radio broadcasting until the transmitter is smashed, brigades feeding the barricades, your diputados physically in the doorway daring the operation to be photographed over them. The eviction comes anyway, in December, with clubs. But it comes at full price, in front of the world — and the COCEI, unbroken, sets about winning the city back with the patience of people who have been Zapotec longer than Mexico has been Mexico. The Istmo does not forget who came.

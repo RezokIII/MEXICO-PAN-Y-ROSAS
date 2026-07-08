@@ -23,7 +23,7 @@ By evening the television carries the government's astonishment. By midnight the
 
 @marchar
 choose-if: sup_students >= 25
-unavailable-subtitle: Nadie vuelve a marchar detrás de una organización sin peso entre los estudiantes.
+unavailable-subtitle: Nobody marches again behind an organization with no weight among the students.
 on-arrival: sup_students += 6; represion += 3; expediente += 4; political_capital += 3
 
 Thousands come, jaws set, walking the same route like a sentence being finished. The Halcones do not appear twice; even a covert instrument has a budget of deniability, and it was spent Thursday. The city takes note of who kept walking. So does Bucareli.
