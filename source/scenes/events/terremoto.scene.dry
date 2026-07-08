@@ -13,7 +13,7 @@ At 7:19 the city moves for two minutes, and when it stops, the century's arrange
 
 The state's response is the third catastrophe: the President tours mutely and declines foreign aid for a crucial day; the army arrives to guard rubble rather than lift it. So the city does the thing the system was built to prevent: it organizes itself. Brigades of neighbors with picks; students running triage; ham radios becoming the national telephone. For a week the capital is governed, in fact, by its own population — and the population notices.
 
-The Movement's people are in the rubble with everyone. The question is what to build while the walls are down.
+The Movement's people are in the rubble with everyone. [? if colonia_saga >= 3 : And within hours, something no other force in the city can field: the Neza and CONAMUP networks arriving ORGANIZED — brigades with lists, committees that already know how to run a shelter, señoras who have chaired assemblies for a decade taking charge of streets the state cannot find. Fifteen years of roots, deployed in a single morning. ?] The question is what to build while the walls are down.
 
 - @topos: Everything into rescue and relief — brigades, presses printing missing-persons lists, the locals as shelters. Politics later; palas now.
 - @costureras: The rescue — and the garment district above all, where the crime is legible in the rubble: stand with the costureras from hour one.
@@ -22,7 +22,7 @@ The Movement's people are in the rubble with everyone. The question is what to b
 @topos
 choose-if: organizers >= 3
 unavailable-subtitle: Las brigadas se coordinan con cuadros; no hay suficientes en pie.
-on-arrival: sup_colonos += 6; sup_students += 3; members += 2; political_capital += 4; expediente += 3
+on-arrival: sup_colonos += 6; sup_students += 3; members += 2; political_capital += 4; expediente += 3; sup_colonos += 3 if colonia_saga >= 3; members += 1 if colonia_saga >= 3
 
 Weeks of dust and lists. The locals become shelters; the mimeographs print reunification registers; the young cadres learn more about organization in a month than in five years of circulars. When the government finally reasserts itself, it finds the damnificados already organized — into committees that know your people by their first names — and a city that has seen, with its own eyes, that the state is optional. That sentence cannot be unlearned.
 

@@ -1,0 +1,23 @@
+title: El agua de Neza
+new-page: true
+subtitle: 1976 — la primera tubería
+tags: event
+view-if: year = 1976 and month = 5 and colonia_saga >= 1
+priority: 2
+max-visits: 1
+
+= El agua de Neza
+
+Four years of residency pay their first dividend you can drink: the water committees your office seeded — assemblies by street, faenas by block, the señoras' pipeline of pressure on the delegación — have forced the mains into three colonias. The water arrives brown and glorious, and the inauguration is held by the committees, pointedly, without a single PRI banner.
+
+The office's ledger of small victories is now the neighborhood's political memory: the wells, the school roof, the títulos won in court. Nobody here says "the Party." They say *los de la oficina*.
+
+- @profundizar: Deepen it: train the committee leaders as organizers in their own right. The colonia should run its own politics — with your school behind it.
+
+@profundizar
+subtitle: -3 fondos
+choose-if: funds >= 3
+unavailable-subtitle: La escuela de cuadros de la colonia también cuesta.
+on-arrival: funds -= 3; colonia_saga = 2; sup_colonos += 5; members += 1; political_capital += 2
+
+Twelve señoras and eight young men through the school of cuadros — bookkeeping, assembly law, how to speak to a functionary without blinking. Within a year, half the east side's committees are chaired by graduates. The Party did not capture the movement. It did something the DFS's categories cannot file: it became part of how the movement thinks.

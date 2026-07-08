@@ -1,0 +1,31 @@
+title: El fusilamiento de Rius
+new-page: true
+subtitle: 29 de enero de 1969
+tags: event
+view-if: year = 1969 and month = 1
+priority: 2
+max-visits: 1
+
+= El fusilamiento de Rius
+
+Eduardo del Río — Rius, the cartoonist whose *Los Agachados* teaches more Marxism per kiosk than the Party's entire press — is taken off the street by men with DFS credentials, driven through the night, and delivered to soldiers on the cold flank of the Nevado de Toluca, where a grave has been dug and a firing squad formed. They explain, conversationally, that this is for his attacks on the government and the señor Presidente. They aim. They hold. Then an officer arrives, and the theater ends: a warning performance, this time.
+
+What saved him, the capital's whisper network reports within days: his family reached General Lázaro Cárdenas, and the old president made one telephone call. Even Díaz Ordaz does not bury a man el General has claimed as kin.
+
+Rius returns to his drawing table with a cardiologist's orders and does not soften a single line.
+
+- @tinta: Put the Party's press at his back — reprint, distribute, make the mock execution the most famous cartoon caption in Mexico.
+- @silencio_rius: Note it, learn it, say little. The lesson was addressed to everyone; no need to sign for the delivery.
+
+@tinta
+subtitle: -2 fondos
+choose-if: funds >= 2
+unavailable-subtitle: Hasta la tinta solidaria se compra.
+on-arrival: funds -= 2; sup_students += 3; sup_middle += 2; political_capital += 2; expediente += 2; rius_tinta = 1
+
+The special runs with Rius's own account drawn by his own hand — the grave rendered in his fat cheerful line, the caption doing the executioner's work in reverse. It sells everywhere the kiosks dare. The Republic learns that its government rehearses shootings of cartoonists, in the cartoonist's own style, which is the one style it cannot confiscate.
+
+@silencio_rius
+on-arrival: unity += 1
+
+The lesson is filed where the Party files such things. Years later, at some kitchen table, someone will note the strange geometry of it: the General's one telephone call, sparing the pen that would spend two decades preparing the country that would vote for the General's son. History has a draftsman's sense of humor. Rius would draw it exactly so.

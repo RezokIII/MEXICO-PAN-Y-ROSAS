@@ -1,0 +1,40 @@
+title: El Ayuntamiento Popular
+new-page: true
+subtitle: Gobernar en chiquito, demostrar en grande
+view-if: municipio_alcozauca = 1 or municipio_juchitan = 1
+on-arrival: month_actions += 1
+max-visits: 30
+is-card: true
+frequency: 70
+tags: movimiento
+
+= El Ayuntamiento Popular
+
+A town hall with a leaking roof, three typewriters, and the only budget in the Republic read aloud in the plaza quarterly. Governing small is the left's national audition: every pipe laid is an argument, every clean ledger a manifesto. And every success raises the showcase's value — to you, and to the state assessors who dissolve inconvenient municipios.
+
+- @obras: Public works by faena — the road, the clinic, the school roof. Slow, visible, communal.
+- @libros_abiertos: The open books — publish the accounts, invite the comparison with every PRI municipio in the state.
+- @radio_pueblo: The people's radio — Zapotec and Nahuatl programming, the assembly on the air.
+- @root: The ayuntamiento administers quietly this month.
+- @easy_discard
+
+@obras
+subtitle: -3 fondos
+choose-if: funds >= 3
+unavailable-subtitle: Las obras del pueblo también empiezan en la caja.
+on-arrival: funds -= 3; sup_peasants += 3; political_capital += 1
+
+The road advances by Sunday faenas, everyone's hands and the ayuntamiento's cement. When the state's engineers finally visit, they find infrastructure built at a fifth of official cost, and file a report their superiors will mark, accurately, as subversive.
+
+@libros_abiertos
+on-arrival: political_capital += 3; sup_middle += 1; expediente += 2
+
+The accounts go up on the plaza wall to the centavo, and the comparison writes itself in every newspaper the state can't reach: the left governs with the books open; the party of the Revolution governs with the books gone. The showcase's value — and the assessors' attention — both appreciate.
+
+@radio_pueblo
+subtitle: -2 fondos
+choose-if: funds >= 2
+unavailable-subtitle: El transmisor come tubos y los tubos cuestan.
+on-arrival: funds -= 2; sup_peasants += 3; sup_students += 1
+
+The morning assembly on the air, the corrido hour, the price of coffee read like news because it is news. Over the sierra, villages that have never seen your organizers know the ayuntamiento's voice by heart. Transmitters have been smashed for less, which is why the spare parts live in three separate houses.

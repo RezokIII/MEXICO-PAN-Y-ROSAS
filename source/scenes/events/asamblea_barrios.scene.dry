@@ -1,0 +1,22 @@
+title: La Asamblea de Barrios
+new-page: true
+subtitle: 1987 — y Superbarrio
+tags: event
+view-if: year = 1987 and month = 4
+priority: 2
+max-visits: 1
+
+= La Asamblea de Barrios
+
+Out of the earthquake's organized grief, the capital's renters and damnificados found the Asamblea de Barrios — and then invent something the Republic's political science has no drawer for: **Superbarrio Gómez**, a masked wrestler in red and yellow tights who shows up at evictions with a cape and a legal team, challenges the landlords to wrestle for the buildings, and wins the cameras every single time. The state knows how to club a militant. Nobody has doctrine for clubbing a superhero.
+
+[? if colonia_saga >= 3 : The Asamblea's organizing spine is thick with your people — the Neza school's graduates, the CONAMUP networks, fifteen years of the oficina's alumni. When Superbarrio's handlers plan the next action, the meeting happens at a table your movement built. ?]
+
+- @barrios_88: Put the Movement's weight behind the Asamblea — and point this glorious carnival of the organized poor toward July of 1988.
+
+@barrios_88
+choose-if: colonia_saga >= 3 or sup_colonos >= 30
+unavailable-subtitle: La Asamblea colabora con quien conoce de años, no de meses.
+on-arrival: barrios = 1; sup_colonos += 5; political_capital += 3
+
+The Asamblea votes its electoral turn with Superbarrio presiding in full mask, and the photograph runs everywhere: the city's poor, organized and laughing, pointed at the ballot box. In the campaign to come, these are the brigades that know every stairwell in the capital — and on the night the screens die, every rooftop.

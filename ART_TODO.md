@@ -85,4 +85,22 @@ face-images ~700px, portraits ~256px square-ish.
 | img/cards/casilla.jpg | a casilla table, the acta (defensa del voto) |
 | img/cards/pleno.jpg | smoke-filled hall, long table (congreso) |
 
-Start with Tier 1 + Tier 2 + the urna: those cover ~90% of what a player sees per hour.
+## TIER 6 — the sagas & the camino (new systems, July additions)
+
+| filename | subject |
+|---|---|
+| img/neza.jpg | Ciudad Nezahualcóyotl — dust streets, self-built houses, the dead lake (colonia saga) |
+| img/agua_neza.jpg | the first water pipe, señoras at a standpipe, communal faena |
+| img/conamup.jpg | the urban movements' founding congress — banners of twenty cities |
+| img/superbarrio.jpg | SUPERBARRIO — masked wrestler in red and yellow at an eviction, cape and legal team. The mod's single most joyful image; silkscreen begs for it |
+| img/mayday.jpg | the independent May Day column entering the Zócalo — two labor movements in one plaza |
+| img/rius.jpg | Rius / Los Agachados — ideally in his own cartoon style: the grave, the firing squad, the fat cheerful line |
+| img/jc_pena.jpg | a JC peña — guitars, mimeographed songbooks, teenagers arguing doctrine |
+| img/relevo.jpg | the generational relay — a 68er handing the JC banner to a kid born after the plaza |
+| img/anatomia.jpg | the fraud dossier — photographed acta, magnifying glass, the pregnant urn |
+| img/radio_ayuntamiento.jpg | the people's radio — a transmitter in a town hall, Zapotec announcer |
+| img/camino.jpg | El camino tracker art — five stones on a road, or the SEGUIMOS card yellowing on a wall |
+
+**Deck covers reminder:** deck_laberinto and deck_canales (Tier 2) are now live decks — they're the most visible unfilled slots in the game.
+
+Start with Tier 1 + Tier 2 + the urna: those cover ~90% of what a player sees per hour. Superbarrio is Tier 6 by number and Tier 1 by soul.

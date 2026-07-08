@@ -11,6 +11,15 @@ if (Q.ending == "ruptura") { this.achieve('la_cerilla'); }
 if (Q.ending == "irrelevancia") { this.achieve('la_orilla'); }
 if (Q.fdn == 2) { this.achieve('la_ola_con_terminos'); }
 if (Q.red_casillas >= 60) { this.achieve('la_lampara'); }
+if (Q.colonia_saga >= 3) { this.achieve('la_oficina'); }
+if (Q.barrios == 1) { this.achieve('superbarrio'); }
+if (Q.jc_saga >= 1) { this.achieve('el_relevo'); }
+if (Q.mayday >= 2) { this.achieve('la_columna'); }
+if (Q.rius_tinta == 1) { this.achieve('la_tinta'); }
+if (Q.anatomia == 1) { this.achieve('anatomia'); }
+if (Q.camino1 + Q.camino2 + Q.camino3 + Q.camino4 + Q.camino5 == 5) { this.achieve('los_cinco_hitos'); }
+if (Q.ending == "historico" && Q.fuerza_final >= 130) { this.achieve('la_hegemonia'); }
+if (Q.ending == "ruptura" && Q.members >= 25 && Q.huelgas >= 35) { this.achieve('la_comuna'); }
 if (Q.praga_line == 1) { this.achieve('no_llega_en_tanque'); }
 if (Q.campa76 == 1) { this.achieve('un_millon_de_nombres'); }
 if (Q.huelga_general == 1) { this.achieve('la_huelga_general'); }

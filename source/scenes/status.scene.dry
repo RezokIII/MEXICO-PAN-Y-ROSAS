@@ -26,6 +26,18 @@ Capital político: [+ political_capital +]
 
 Línea ante la lucha armada: [? if postura_guerrilla = 0 : sin definir — el silencio también se lee ?][? if postura_guerrilla = 1 : deslinde público ?][? if postura_guerrilla = 2 : ambigüedad calculada ?][? if postura_guerrilla = 3 : canales discretos ?]
 
+= El camino
+
+[? if camino1 = 1 : I. Sobrevivir — CUMPLIDO ?][? if camino1 = 0 : I. Sobrevivir: existir aún en 1971 (5 mil militantes, unidad entera) — pendiente ?]
+
+[? if camino2 = 1 : II. Romper el cerco — CUMPLIDO ?][? if camino2 = 0 and camino1 = 1 : II. Romper el cerco: 10 mil militantes — pendiente ?]
+
+[? if camino3 = 1 : III. La puerta — CUMPLIDO ?][? if camino3 = 0 and camino2 = 1 : III. La puerta: registro y diez curules — pendiente ?]
+
+[? if camino4 = 1 : IV. Los cimientos — CUMPLIDO ?][? if camino4 = 0 and camino3 = 1 : IV. Los cimientos: red de 30 casillas y un municipio gobernado — pendiente ?]
+
+[? if camino5 = 1 : V. La convergencia — CUMPLIDA. Julio decide. ?][? if camino5 = 0 and camino4 = 1 : V. La convergencia: el frente unido con ustedes como fundadores — pendiente ?]
+
 = Corrientes internas
 
 Ortodoxos: [+ fac_ortodoxos : fuerza +]
