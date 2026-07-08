@@ -20,6 +20,11 @@ if (Q.anatomia == 1) { this.achieve('anatomia'); }
 if (Q.camino1 + Q.camino2 + Q.camino3 + Q.camino4 + Q.camino5 == 5) { this.achieve('los_cinco_hitos'); }
 if (Q.ending == "historico" && Q.fuerza_final >= 130) { this.achieve('la_hegemonia'); }
 if (Q.ending == "ruptura" && Q.members >= 25 && Q.huelgas >= 35) { this.achieve('la_comuna'); }
+if (Q.spicer == 1) { this.achieve('los_120_dias'); }
+if (Q.laguna == 1) { this.achieve('las_madres'); }
+if (Q.auge_armada == 1) { this.achieve('el_auge'); }
+if (Q.via == "institucional" && (Q.ending == "historico" || Q.ending == "reconocimiento")) { this.achieve('el_entrismo'); }
+if (Q.via == "dual" && Q.ending != "aniquilacion" && Q.ending != "irrelevancia") { this.achieve('la_sintesis'); }
 if (Q.praga_line == 1) { this.achieve('no_llega_en_tanque'); }
 if (Q.campa76 == 1) { this.achieve('un_millon_de_nombres'); }
 if (Q.huelga_general == 1) { this.achieve('la_huelga_general'); }

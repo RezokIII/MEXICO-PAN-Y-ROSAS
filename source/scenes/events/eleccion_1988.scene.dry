@@ -6,7 +6,7 @@ view-if: year = 1988 and month = 7
 priority: 2
 max-visits: 1
 on-arrival: {!
-var ola = 22 + (100 - Q.salario_real) * 0.15 + Q.cd_rel * 2 + Q.costureras * 3 + Q.sup_students * 0.06 + Q.sup_colonos * 0.08 + (Q.barrios ? 2 : 0) + (Q.huelga_general ? 2 : 0) + (Q.mayday >= 2 ? 1 : 0);
+var ola = 22 + (100 - Q.salario_real) * 0.15 + Q.cd_rel * 2 + Q.costureras * 3 + Q.sup_students * 0.06 + Q.sup_colonos * 0.08 + (Q.barrios ? 2 : 0) + (Q.huelga_general ? 2 : 0) + (Q.mayday >= 2 ? 1 : 0) + (Q.laguna ? 2 : 0) + (Q.auge_armada ? 2 : 0);
 if (Q.fdn >= 1) {
     Q.real_fdn = Math.round(Math.min(52, ola + Q.izq_votes_display * 0.6));
     Q.real_castillo = 0;

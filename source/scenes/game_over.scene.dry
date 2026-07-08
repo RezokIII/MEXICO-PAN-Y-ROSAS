@@ -396,6 +396,16 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_la_comuna : **La comuna** — the eleven days, carried by a class that was ready. ?]
 
+[? if game_achievement_los_120_dias : **Los 120 días** — Spicer fed; the future strike committees were born at those gates. ?]
+
+[? if game_achievement_las_madres : **Las madres y la carretera** — the reactor met the ballot, and you built the road between them. ?]
+
+[? if game_achievement_el_auge : **El auge** — the war stood: liberated conditions in fact, if never in name. ?]
+
+[? if game_achievement_el_entrismo : **El entrismo** — the antechambers were mined, and history walked in through them. ?]
+
+[? if game_achievement_la_sintesis : **La síntesis** — two faces, one strategy, and you survived your own architecture. ?]
+
 
 
 

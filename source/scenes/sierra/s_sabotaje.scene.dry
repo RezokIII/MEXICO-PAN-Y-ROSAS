@@ -1,7 +1,7 @@
 title: Sabotage
 new-page: true
 subtitle: The artillery of the poor army
-view-if: via = "armada"
+view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 40
 is-card: true

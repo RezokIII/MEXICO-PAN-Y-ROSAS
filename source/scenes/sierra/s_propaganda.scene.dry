@@ -1,7 +1,7 @@
 title: Armed propaganda
 new-page: true
 subtitle: The argument, made without firing
-view-if: via = "armada"
+view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

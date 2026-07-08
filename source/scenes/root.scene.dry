@@ -87,6 +87,11 @@ Q.guar_guerrero = 40; Q.guar_chihuahua = 22; Q.guar_valle = 50; Q.guar_jalisco =
 Q.inteligencia = 10;
 Q.huelga_prep = 0;
 Q.repadv_last = 0;
+Q.charrazo_last = 0;
+Q.spicer = 0;
+Q.laguna = 0;
+Q.auge_armada = 0;
+Q.pres_total = 0;
 Q.herencia = 0;
 Q.verano68 = 0;
 Q.rescate = 0;

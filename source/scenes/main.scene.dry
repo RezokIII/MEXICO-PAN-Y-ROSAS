@@ -106,7 +106,7 @@ max-cards: 4
 @sierra
 title: La sierra
 subtitle: The war, where it exists
-view-if: via = "armada"
+view-if: via = "armada" or via = "dual"
 is-deck: true
 
 - #sierra

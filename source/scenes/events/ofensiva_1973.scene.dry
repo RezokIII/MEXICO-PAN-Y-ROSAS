@@ -1,0 +1,36 @@
+title: The encirclement of 1973
+new-page: true
+subtitle: The first great sweep
+tags: event
+view-if: (via = "armada" or via = "dual") and year = 1973 and month = 5
+priority: 3
+max-visits: 1
+on-arrival: {!
+Q.pres_total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca;
+if (Q.inteligencia >= 40) { Q.pres_guerrero -= 4; Q.memorial += 1; }
+else { Q.pres_guerrero -= 10; Q.pres_valle -= 4; Q.memorial += 3; }
+Q.guar_guerrero += 12; Q.represion += 4;
+!}
+
+= The encirclement of 1973
+
+The state's answer arrives on schedule: a third of a division into the Costa Grande, engineers cutting new roads toward old sanctuaries, and the DFS arriving behind the army with its lists. The columns feel it as weather first — patrols where patrols never came, checkpoints that know faces, a silence in villages that used to feed you.
+
+[? if inteligencia >= 40 : Your eyes earned their keep: the offensive was seen assembling weeks out — convoy requisitions, leave cancellations, a talkative quartermaster — and the structures moved before the hammer fell. Losses are real, and small. ?]
+
+[? if inteligencia < 40 : It falls on blind columns. Safe houses that were safe last month are addresses in a briefing; trails that were secret have soldiers sleeping on them. The reckoning is paid in the only currency the sierra accepts. ?]
+
+- @dispersar: Disperse — break into smaller units, go deep, cede the map to survive the season.
+- @resistir: Hold ground — the columns stand where they are known, and make the sweep pay for every canyon.
+
+@dispersar
+on-arrival: pres_guerrero -= 3; pres_valle -= 2; represion -= 3; inteligencia += 3
+
+The structures dissolve like salt in the ranges. The army sweeps territory and captures geography; the war it came for declines to attend. Expensive in presence, cheap in blood — the sierra's oldest trade.
+
+@resistir
+choose-if: pres_guerrero >= 20
+unavailable-subtitle: Holding ground requires ground held: the columns are too thin where the hammer falls.
+on-arrival: memorial += 2; political_capital += 3; sup_peasants += 3; guar_guerrero += 6
+
+The canyons charge toll. Ambushed twice, the sweep slows, then camps, then patrols in circles for the cameras. The corridos gain verses; the list gains names; and in the villages the calculation is renewed: they stayed. Both armies now know the columns will stand — knowledge that cuts in both directions.

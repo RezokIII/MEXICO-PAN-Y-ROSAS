@@ -1,0 +1,22 @@
+title: The mothers and the highway
+new-page: true
+subtitle: 1988 — Laguna Verde reaches the ballot
+tags: event
+view-if: year = 1988 and month = 3
+priority: 2
+max-visits: 1
+
+= The mothers and the highway
+
+The Madres Veracruzanas — founded by thirty mothers from Xalapa the year Chernobyl's meaning landed — now hold the coast's attention every Saturday: the sit-ins, the marches to the plant gates, the coastal highway blocked by ranchers and fishing cooperatives in coordinated shifts. And the movement has done its electoral arithmetic in public: candidates will be measured against the reactor.
+
+Cárdenas answers from the campaign: cancel Laguna Verde. The sentence detonates along the Gulf — the first time a presidential campaign has adopted a citizens' movement's demand whole.
+
+[? if laguna = 1 : Your two years inside the coalition pay their dividend now: the coast's committees know your people by name, and the movement's electoral turn runs partly on rails you laid. ?]
+
+- @al_seis: Weld the coast's movement to July: voter registration drives at the sit-ins, casilla training for the coalition's own people.
+
+@al_seis
+on-arrival: political_capital += 2; red_casillas += 3; sup_middle += 2
+
+The Saturday sit-in acquires a voter-registration table; the highway blockade schedule now avoids the casilla-training calendar, by coordination. A movement of mothers, ranchers and fishermen has decided the ballot is a blockade by other means — and on the sixth of July, the Gulf coast will count accordingly.

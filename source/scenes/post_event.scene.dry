@@ -22,6 +22,8 @@ if (Q.month != Q.last_drift_month) {
         if (Q['guar_'+z] > 90) { Q['guar_'+z] = 90; }
     }
     if (Q.via == "armada") { Q.represion += (Q.time % 2 == 0 ? 1 : 0); Q.inteligencia -= (Q.time % 4 == 0 ? 1 : 0); }
+    if (Q.via == "dual") { Q.represion += (Q.time % 2 == 0 ? 1 : 0); Q.expediente += (Q.time % 2 == 0 ? 1 : 0); if (Q.time % 3 == 0) { Q.unity -= 1; } }
+    if (Q.via == "institucional") { if (Q.time % 3 == 0) { Q.sup_students -= 1; Q.funds += 1; } }
     if (Q.inteligencia < 0) { Q.inteligencia = 0; }
     if (Q.inteligencia > 80) { Q.inteligencia = 80; }
     if (Q.huelga_prep > 0 && Q.time % 6 == 0) { Q.huelga_prep -= 1; }
@@ -40,7 +42,7 @@ if (Q.month != Q.last_drift_month) {
         if (Q[ds] > 25) { Q[ds] -= (Q[ds] - 25) * 0.03; }
     }
     // relationships with the system decay without maintenance - and are never limitless
-    if (Q.pri_reformist_rel > 25) { Q.pri_reformist_rel -= 0.7; }
+    if (Q.pri_reformist_rel > 25 && Q.via != "institucional") { Q.pri_reformist_rel -= 0.7; }
     if (Q.pri_reformist_rel > 70) { Q.pri_reformist_rel = 70; }
     // big organizations fray at the top
     if (Q.unity > 85) { Q.unity -= 1; }
