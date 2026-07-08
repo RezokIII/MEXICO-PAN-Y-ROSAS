@@ -81,6 +81,12 @@ Q.barrios = 0;
 Q.mayday = 0;
 Q.rius_tinta = 0;
 Q.anatomia = 0;
+// via armada theater
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0;
+Q.guar_guerrero = 40; Q.guar_chihuahua = 22; Q.guar_valle = 50; Q.guar_jalisco = 25; Q.guar_nl = 25; Q.guar_oaxaca = 20;
+Q.inteligencia = 10;
+Q.huelga_prep = 0;
+Q.repadv_last = 0;
 Q.herencia = 0;
 Q.verano68 = 0;
 Q.rescate = 0;
@@ -744,6 +750,24 @@ For a generation the numbers have been a national religion: the economy growing 
 The cage is older than the miracle. One party has governed since 1929 under three successive names; it has never lost an election it counted. The President rules as a six-year monarch — the *sexenio* — and names his successor by pointing, the *dedazo*, a ritual conducted in silence and denied while it happens. The unions belong to the state through the CTM and don Fidel Velázquez, who has outlasted five presidents. The press prints what it likes, on paper only the state sells.
 
 The system does not persecute its opposition, as a rule. It digests it. There is a word for every price: *la charola*.
+
+- @guia: How this game plays — the organizer primer (recommended for a first run).
+- @intro_precursores: Continuar.
+
+@guia
+new-page: true
+
+= The organizer primer
+
+**The month.** Each turn you play up to three cards from your decks (more as the Movement matures). Cards are actions: organizing sectors, moving money, working the system. Events — history, and the consequences of your file — interrupt on their own schedule.
+
+**El camino.** The status bar tracks five milestones from survival to the united front of 1988. They are the visible road to the one true victory: a 1988 election the state fails to steal. Everything else — the sagas, the network, the alliances — feeds that night.
+
+**The costs.** Almost everything that grows the Movement also fattens your expediente — the DFS file that brings raids when heavy. Unity multiplies all organizing; sidelined internal corrientes drain it, so rotate your advisors. The charro wall caps worker support until you crack it. Crisis years make colonia and factory work pay double: position early.
+
+**The two roads.** After each presidential succession, a strategy congress sets the line: the political road (elections, fronts, the long accumulation) or the armed road (the Sierra tab: zones, columns, garrisons, and intelligence to see them). The armed road forfeits legal tools while it runs; the amnesty of 1978 is its one door back.
+
+**Elections are counted twice.** Your actas against the state's alquimia. The casilla network — built card by card across years — is what closes the gap between the vote and the result.
 
 - @intro_precursores: Continuar.
 

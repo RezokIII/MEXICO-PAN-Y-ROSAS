@@ -407,3 +407,30 @@
     schedule();
   });
 })();
+
+
+// ===== Sierra war map colorizer =====
+(function(){
+  function paint(){
+    var el = document.getElementById('mapa_sierra');
+    if (!el || !window.dendryUI || !window.dendryUI.dendryEngine) return;
+    var Q = window.dendryUI.dendryEngine.state.qualities;
+    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca'];
+    for (var i=0;i<zonas.length;i++){
+      var z=zonas[i]; var poly=document.getElementById('z_'+z);
+      if(!poly) continue;
+      var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
+      var r=Math.round(200+(55*Math.min(1,pres/40)));
+      var gb=Math.round(200-(160*Math.min(1,pres/40)));
+      poly.style.fill='rgb('+r+','+gb+','+gb+')';
+      poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px';
+      poly.style.stroke = guar>=55 ? '#0f7040' : '#333';
+    }
+  }
+  var obs=new MutationObserver(function(){ setTimeout(paint,80); });
+  window.addEventListener('load', function(){
+    var q=document.getElementById('qualities');
+    if(q) obs.observe(q,{childList:true,subtree:true});
+    setTimeout(paint,500);
+  });
+})();

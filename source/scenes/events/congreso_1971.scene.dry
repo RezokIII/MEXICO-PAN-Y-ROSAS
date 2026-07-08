@@ -1,0 +1,28 @@
+title: The strategy congress of 1971
+new-page: true
+subtitle: February 1971 — the line for the Echeverria years
+tags: event
+view-if: year = 1971 and month = 2
+priority: 3
+max-visits: 1
+
+= The strategy congress of 1971
+
+A new sexenio, and the oldest question, formally on the table: which road? The delegates know the price list by heart — the political road builds slowly and legally toward doors that may be painted on walls; the armed road answers the state in its own grammar and forfeits every legal instrument while it runs.
+
+Echeverría offers apertura with one hand; Guerrero bleeds under the other. The hall is full of people who buried friends in October and buried more in the winters since.
+
+- @via_politica: The political road: organization, elections where they exist, the long accumulation.
+- @via_armada: The armed road: build the rural and urban structures. The Movement goes to war.
+
+@via_politica
+on-arrival: via = "politica"; unity += 2
+
+The resolution passes; the tools remain the press, the assembly, the casilla. Whatever the sierra decides, it will decide without your signature.
+
+@via_armada
+choose-if: guerrilla_meter >= 8 or postura_guerrilla >= 2
+unavailable-subtitle: A war needs willing soldiers: without a hot temptation among the youth or prior channels, the resolution would empty the hall.
+on-arrival: via = "armada"; pres_guerrero += 12; pres_valle += 8; represion += 6; expediente += 8; sup_middle -= 4; moscow_relation -= 4; ax_electoral -= 8; fac_renovadores -= 5
+
+The resolution is read once, burned, and never minuted. Structures split: a legal face that knows nothing, and columns that know everything. The Sierra tab opens on your desk — and somewhere in the Defensa Nacional building, a colonel pins a new map to a corkboard. Both maps will now be maintained in parallel, at compounding cost.

@@ -1,0 +1,26 @@
+title: The manuscript
+new-page: true
+subtitle: They took the writer to frighten the written
+tags: event
+view-if: revueltas_advisor = 1 and represion >= 80 and expediente >= 70 and time >= repadv_last + 15 and year <= 1975
+priority: 2
+frequency: 60
+max-visits: 1
+on-arrival: repadv_last = time; unity -= 3
+
+= The manuscript
+
+José Revueltas is lifted outside the university cinema — sixty years old, lungs like wet paper, the most famous political prisoner the country ever produced now made a secret one. The manuscript he carried, a work on the headless proletariat's decades, travels with him into the vans. The state has jailed him twice in daylight and lost both times; someone has decided to try the dark.
+
+- @r1: The world's writers as artillery: Paris, Rome, Buenos Aires, a PEN storm.
+- @r2: Print everything he ever wrote, everywhere, at once.
+
+@r1
+on-arrival: political_capital += 3; sup_middle += 2; represion += 1
+
+The letters land like ordnance: Sartre, Cortázar, Moravia, garcía Márquez's telegram of four words. A state obsessed with its international costume cannot wear this. He is surfaced in Lecumberri — officially arrested all along, the paperwork blushing — and resumes writing that same night, the confiscated manuscript reconstructed from a memory prison already trained twice. The new draft, he says, is better; captivity, he says, concentrates.
+
+@r2
+on-arrival: unity += 3; guerrilla_meter += 2
+
+The Party's presses run nothing else for a month: the complete Revueltas, essays and heresies and all, flooding the kiosks faster than confiscation. They took the writer; the written goes free in twenty thousand copies. Whichever office ordered the operation watches its objective invert weekly.

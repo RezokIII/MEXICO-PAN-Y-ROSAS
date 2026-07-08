@@ -18,8 +18,8 @@ Fifty years the Party has waited to be asked. The answer will define everything 
 - @rechazar: Refuse. Legitimacy is not the state's to license; the street and the factory do not require a ledger entry in Bucareli.
 
 @registrar
-choose-if: political_capital >= 12
-unavailable-subtitle: Registration demands political capital: notaries, certified assemblies, and the internal authority to impose the decision. Not enough.
+choose-if: political_capital >= 12 and via != "armada"
+unavailable-subtitle: Registration demands political capital and peace: no Comision registers a party whose other half is at war.
 on-arrival: registro = 1; funds += 8; ax_electoral += 6; fac_renovadores += 6; fac_ortodoxos -= 3; fac_nueva_izquierda -= 6; unity -= 4; sup_students -= 2; pri_reformist_rel += 4
 
 The assemblies are certified, the notaries paid, the membership rolls — guarded like relics through two decades of raids — voluntarily deposited with the state that raided for them. It is the strangest act in the Party's history and the congress votes it knowing so. The Maoist cadres walk out to their colonias without theater; the JC splits a seam; a veteran of '59 signs the registration papers and then sits alone for a while.

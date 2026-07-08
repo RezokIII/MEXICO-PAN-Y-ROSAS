@@ -103,4 +103,15 @@ face-images ~700px, portraits ~256px square-ish.
 
 **Deck covers reminder:** deck_laberinto and deck_canales (Tier 2) are now live decks — they're the most visible unfilled slots in the game.
 
+## TIER 7 — the war and the strike (via armada + huelga general)
+
+| filename | subject |
+|---|---|
+| img/cards/deck_sierra.png | La sierra deck cover — mule track, rifle wrapped in a sarape, silhouette of the range |
+| img/cards/comite_huelga.jpg | strike committee — a kitchen table, a telephone, a list of delegates |
+| img/cards/recluta.jpg | recruitment — two figures talking on a dark trail |
+| img/cards/expropiacion.jpg | the ninety-second bank visit, stylized |
+| img/camioneta.jpg | the white Galaxie / the unmarked van — used by state-retaliation events |
+| img/huelga_general.jpg | the stopped country — an empty avenue, a raised switch lever |
+
 Start with Tier 1 + Tier 2 + the urna: those cover ~90% of what a player sees per hour. Superbarrio is Tier 6 by number and Tier 1 by soul.

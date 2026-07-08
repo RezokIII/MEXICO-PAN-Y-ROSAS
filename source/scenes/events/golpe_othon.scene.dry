@@ -1,0 +1,26 @@
+title: The Montaña goes quiet
+new-page: true
+subtitle: A teacher missing between two villages
+tags: event
+view-if: othon_advisor = 1 and represion >= 78 and expediente >= 65 and time >= repadv_last + 15
+priority: 2
+frequency: 60
+max-visits: 1
+on-arrival: repadv_last = time; othon_advisor = 0; memorial += 1; unity -= 3
+
+= The Montaña goes quiet
+
+Othón Salazar leaves Alcozauca for Tlapa on the early camión and never reaches it. The road between is army country now, and the villages along it have learned the etiquette of not seeing. The teachers' sections stop work in three states within days — not on anyone's instruction, which is precisely what should frighten Bucareli: the man they took organizes even in absence.
+
+- @r1: Turn the magisterio loose: a national teachers' mobilization until he appears.
+- @r2: The Montaña's own way: the villages search, the region closes like a hand.
+
+@r1
+on-arrival: political_capital += 3; sup_middle += 2; represion += 1
+
+Forty thousand teachers in the streets of six state capitals with one photograph and one word: ¿DÓNDE? The state produces him — beaten, alive, dumped near a clinic in Chilpancingo — because a hundred thousand classrooms on strike is arithmetic even the dirty war respects. He returns to the Montaña thinner and unchanged: the lesson plans, he notes, kept without him. His card stays retired; his country does not.
+
+@r2
+on-arrival: unity += 3; guerrilla_meter += 2
+
+The Montaña conducts its own inquiry in Nahuatl and Mixtec, along paths the army does not know it does not know. What the villages find is not written down anywhere the state can subpoena — but from that season on, soldiers in the Montaña travel in larger groups, and sleep badly, and the sections teach his curriculum like scripture.

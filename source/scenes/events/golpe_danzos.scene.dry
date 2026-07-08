@@ -1,0 +1,26 @@
+title: The valley without him
+new-page: true
+subtitle: The CCI decapitated at harvest
+tags: event
+view-if: danzos_advisor = 1 and represion >= 78 and expediente >= 65 and time >= repadv_last + 15
+priority: 2
+frequency: 60
+max-visits: 1
+on-arrival: repadv_last = time; memorial += 1; unity -= 3
+
+= The valley without him
+
+Ramón Danzós Palomino is taken at a roadblock outside Ciudad Obregón, in front of forty campesinos returning from an assembly — chosen audience, chosen hour. The independent central's harvest-season campaigns collapse into search parties. The state calculated that the countryside forgets fastest, having the least time to grieve. The state has never harvested anything, and it shows.
+
+- @r1: National campaign: the ejidos march on the state capitals with his portrait.
+- @r2: The quiet answer: every committee he founded doubles its work in his name.
+
+@r1
+on-arrival: political_capital += 3; sup_middle += 2; represion += 1
+
+The valleys empty into the plazas at harvest peak — a costlier strike than any factory's, paid in unharvested fields. The regime learns the price of the arithmetic it started, and somewhere in a negotiation nobody will ever confirm, it is decided the old campesino will reappear in a Sonora jail with charges thin enough to bail. The CCI banks the lesson: they can be made to blink.
+
+@r2
+on-arrival: unity += 3; guerrilla_meter += 2
+
+No marches; instead, sixty new petition committees in one season, each opened in his name, each a small monument with legal standing. The countryside's memory is planted, not printed. It comes up every year.

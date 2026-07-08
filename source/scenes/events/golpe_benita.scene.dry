@@ -1,0 +1,26 @@
+title: Fifty-nine
+new-page: true
+subtitle: They finally dared
+tags: event
+view-if: benita_advisor = 1 and represion >= 85 and expediente >= 70 and time >= repadv_last + 15
+priority: 2
+frequency: 60
+max-visits: 1
+on-arrival: repadv_last = time; unity -= 3
+
+= Fifty-nine
+
+Benita Galeana — fifty-eight arrests across five decades, the Party's grandmother, untouchable by the unwritten rules — is arrest number fifty-nine, and this time no precinct admits to holding her. Whoever authorized it has broken the regime's own etiquette: you do not disappear the abuela. Even the tame press prints careful, worried paragraphs. Even don Fidel, it is said, made a telephone call of the annoyed variety.
+
+- @r1: Shame the state with its own theater: her empty chair on every stage, her books read aloud outside Lecumberri.
+- @r2: Her own doctrine: no tears, more corners. Speakers on every street she ever worked.
+
+@r1
+on-arrival: political_capital += 3; sup_middle += 2; represion += 1
+
+The empty-chair readings spread to bookshops, universities, two theaters — her autobiography recited in relay by actresses, señoras, a bishop who surprised everyone. On day nineteen she is released without explanation, waving from a taxi, furious at the fuss and demanding the clippings. The fifty-ninth arrest enters her legend; the state, having gained nothing, files the operation under errors.
+
+@r2
+on-arrival: unity += 3; guerrilla_meter += 2
+
+The Party answers as she trained it to: a woman on a crate on every corner she ever shouted from, saying true things loudly. Some are arrested, refuse to be sad about it, and thereby multiply. It is her method, executed in her honor, and when she is finally released she inspects the arrest tally like a foreman reviewing good work.

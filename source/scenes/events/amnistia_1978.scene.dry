@@ -15,9 +15,24 @@ They come down from the mountains, out of Lecumberri and the Oblatos prison, bac
 
 [? if postura_guerrilla = 3 : Among the returning, a particular traffic finds your locals: people who knew the channels, who were warned once by a voice they never identified, who received medicine with no return address. They ask no questions at the door either. They simply stay, and work, and are the best cadres anyone has seen in years. The road that officially did not exist is quietly paying its dividend. ?]
 
+[? if via = "armada" : And the law speaks to you directly: the columns can come down. The government offers papers and silence in exchange for the war's end — the exit the sierra's dead never got. ?]
+
 - @recibir: The Party organizes the reception: work, papers, doctors, and the discipline of not asking who did what in the years that are now legally imaginary.
+- @bajar_sierra: Bring the columns down. The war ends; the war's people come home to the political road.
 
 @recibir
 on-arrival: members += 1; sup_students += 2; sup_peasants += 2
+
+@bajar_sierra
+view-if: via = "armada"
+on-arrival: {!
+Q.via = "politica";
+Q.members += 2;
+Q.represion -= 8;
+Q.guerrilla_meter -= 5;
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0;
+!}
+
+They come down in groups small enough to be deniable and large enough to be counted, hand in weapons that are logged and vanish, and receive papers whose ink smells fresh. Not all come; a remnant stays up where amnesties do not reach. But the war, as an institution of yours, ends this season — and its survivors become the political road's hardest, quietest cadres.
 
 Committees for employment, a clinic that keeps no records, evening schools where a man can finish the studies the DFS interrupted. Some of the returned want politics; more want quiet; all of them are watched, and know it, and teach the young ones how to be watched gracefully — the era's most transferable skill.

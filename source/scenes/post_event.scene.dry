@@ -13,6 +13,18 @@ if (Q.month != Q.last_drift_month) {
     if (Q.time % 4 == 0 && Q.expediente < 100) { Q.expediente += 1; }
     if (Q.month == 12 && Q.sexenio_year < 6) { Q.sexenio_year += 1; }
     if (Q.postura_guerrilla == 3 && Q.time % 3 == 0) { Q.expediente += 1; Q.represion += 1; }
+    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca'];
+    for (var z of zonas) {
+        if (Q['guar_'+z] > 22) { Q['guar_'+z] -= 1; }
+        if (Q['pres_'+z] > 0 && Q['guar_'+z] >= 55) { Q['pres_'+z] -= 1; }
+        if (Q['pres_'+z] < 0) { Q['pres_'+z] = 0; }
+        if (Q['pres_'+z] > 60) { Q['pres_'+z] = 60; }
+        if (Q['guar_'+z] > 90) { Q['guar_'+z] = 90; }
+    }
+    if (Q.via == "armada") { Q.represion += (Q.time % 2 == 0 ? 1 : 0); Q.inteligencia -= (Q.time % 4 == 0 ? 1 : 0); }
+    if (Q.inteligencia < 0) { Q.inteligencia = 0; }
+    if (Q.inteligencia > 80) { Q.inteligencia = 80; }
+    if (Q.huelga_prep > 0 && Q.time % 6 == 0) { Q.huelga_prep -= 1; }
     if (Q.postura_guerrilla == 1 && Q.guerrilla_meter > 0) { Q.guerrilla_meter -= 1; }
     if (Q.huelgas > 0 && Q.time % 2 == 0) { Q.huelgas -= 1; }
     if (Q.fac_ortodoxos < 15 || Q.fac_renovadores < 15 || Q.fac_nueva_izquierda < 15) { Q.unity -= 1; }
@@ -556,7 +568,7 @@ if (this.ui && this.ui.show_portraits) {
 if (typeof window !== "undefined" && window.generateBar) {
 }
 !}
-go-to: la_derrota if members < 1; events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
+go-to: la_derrota if members < 1; events_choice if has_event = 1; main.main_85 if has_event = 0 and year >= 1985 and difficulty >= 0; main.main_78 if has_event = 0 and year >= 1978 and difficulty >= 0; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
 = [+ month : month +] [+ year +]
 

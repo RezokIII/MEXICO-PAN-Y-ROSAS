@@ -1,0 +1,51 @@
+title: Sabotage
+new-page: true
+subtitle: The artillery of the poor army
+view-if: via = "armada"
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 60
+tags: sierra
+
+= Sabotage
+
+What does the state lose this season?
+
+- @sab_guerrero: Guerrero — the Costa Grande.
+- @sab_chihuahua: Chihuahua — the northern sierra.
+- @sab_valle: Valle de México — the capital belt.
+- @sab_jalisco: Jalisco — Guadalajara.
+- @sab_nl: Nuevo León — Monterrey.
+- @sab_oaxaca: Oaxaca — the Istmo.
+- @easy_discard
+
+@sab_guerrero
+on-arrival: pres_guerrero += 2; guar_guerrero += 9; represion += 4; political_capital += 1; memorial += 1 if guar_guerrero >= 60
+
+A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+
+@sab_chihuahua
+on-arrival: pres_chihuahua += 2; guar_chihuahua += 9; represion += 4; political_capital += 1; memorial += 1 if guar_chihuahua >= 60
+
+A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+
+@sab_valle
+on-arrival: pres_valle += 2; guar_valle += 9; represion += 4; political_capital += 1; memorial += 1 if guar_valle >= 60
+
+A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+
+@sab_jalisco
+on-arrival: pres_jalisco += 2; guar_jalisco += 9; represion += 4; political_capital += 1; memorial += 1 if guar_jalisco >= 60
+
+A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+
+@sab_nl
+on-arrival: pres_nl += 2; guar_nl += 9; represion += 4; political_capital += 1; memorial += 1 if guar_nl >= 60
+
+A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+
+@sab_oaxaca
+on-arrival: pres_oaxaca += 2; guar_oaxaca += 9; represion += 4; political_capital += 1; memorial += 1 if guar_oaxaca >= 60
+
+A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.

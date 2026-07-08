@@ -199,6 +199,8 @@ Real wage (1968 = 100): [+ salario_real +][? if salario_real >= 100 : — the mi
 
 Strike activity: [+ huelgas : huelgas +]
 
+General strike readiness: [+ huelga_prep +] of 100 [? if huelga_prep >= 50 : — one telephone call from a stopped country ?]
+
 [? if huelgas >= 25 : Stoppages chain from plant to plant; the charros lose assemblies; the wage is defended at the gate, not at the table. You built this, strike by strike. ?]
 [? if huelgas >= 10 and huelgas < 25 : Sparks: wildcat stoppages, work-to-rule, assemblies that vote wrong. Don Fidel takes note. ?]
 [? if huelgas < 10 : The apparatus's labor peace: contracts signed before they are read. The silence of the factories is charrismo's masterpiece. ?]
@@ -221,3 +223,24 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 [? if inflacion < 15 and salario_real >= 100 : The milagro years: there is work, the wage stretches, and organizing is harder for exactly that reason. The system's prosperity is its best police force. ?]
 [? if inflacion < 15 and salario_real < 100 : The table holds, but thinner than yesterday. The memory of the full wage is recent — and memory organizes better than hunger. ?]
 [? if desempleo >= 9 : The unemployed fill the corners and the stalled construction sites. They are available mass — for you, or for whoever pays the charola first. ?]
+
+
+@guerra
+
+= La sierra
+
+[? if via != "armada" : The Movement maintains no armed structures. This desk is empty — and in this Republic, an empty desk of this kind is an achievement of a certain school of thought, and a failure of another. The strategy congress at each sexenio can change the line. ?]
+
+[? if via = "armada" : The war, as your intelligence permits you to see it. Red is presence; the border is the garrison. ?]
+
+[? if via = "armada" : {!<div id="mapa_sierra"><svg viewBox="0 0 300 200" width="100%" xmlns="http://www.w3.org/2000/svg"><polygon id="z_chihuahua" points="40,10 150,10 160,60 90,80 30,70" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_nl" points="150,10 250,20 240,70 160,60" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_jalisco" points="30,70 90,80 110,120 60,130" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_valle" points="110,120 160,110 170,140 130,150" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_guerrero" points="60,130 130,150 150,180 80,170" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_oaxaca" points="150,180 170,140 250,140 260,180" style="fill:#ccc;stroke:#333;stroke-width:1"/><text x="70" y="45" font-size="11">CHIH</text><text x="185" y="45" font-size="11">NL</text><text x="60" y="105" font-size="11">JAL</text><text x="128" y="135" font-size="10">VALLE</text><text x="95" y="165" font-size="11">GRO</text><text x="200" y="165" font-size="11">OAX</text></svg></div>!} ?]
+
+[? if via = "armada" : **Intelligence capacity: [+ inteligencia : fuerza +].** [? if inteligencia < 40 : The map below is guesswork and rumor — garrison figures are the analysts shrugging. Build the eyes. ?][? if inteligencia >= 40 : Sources inside the garrisons give you real numbers: rotations, strengths, the mood of conscripts. ?] ?]
+
+[? if via = "armada" and inteligencia >= 40 : Guerrero — presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Chihuahua — presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. Valle de México — presence [+ pres_valle +], garrison [+ guar_valle +]. Jalisco — presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León — presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca — presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. ?]
+
+[? if via = "armada" and inteligencia < 40 : Guerrero: [? if pres_guerrero >= 20 : strong columns ?][? if pres_guerrero < 20 and pres_guerrero >= 5 : some structure ?][? if pres_guerrero < 5 : almost nothing ?]; army posture [? if guar_guerrero >= 45 : heavy ?][? if guar_guerrero < 45 : routine ?]. Valle: [? if pres_valle >= 20 : strong networks ?][? if pres_valle < 20 and pres_valle >= 5 : cells ?][? if pres_valle < 5 : almost nothing ?]; posture [? if guar_valle >= 45 : heavy ?][? if guar_valle < 45 : routine ?]. The other zones: reports too thin to trust. ?]
+
+[? if via = "armada" : **Doctrine.** Garrisons concentrate where you act and thin where you rest: the state's map is a mirror of yours, drawn late. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. Rotate zones, rest the hot ones, and remember what the sierra teaches: the army wins every battle it can find, so the war is won by not being found. ?]
+
+[? if via = "armada" : **The state's allocation (your analysts' estimate).** [? if guar_guerrero >= 45 or guar_valle >= 55 : The bulk of federal attention sits on [? if guar_guerrero >= guar_valle : Guerrero ?][? if guar_valle > guar_guerrero : the Valle ?]; provincial commands elsewhere run on routine and complaint. ?][? if guar_guerrero < 45 and guar_valle < 55 : No extraordinary concentrations: the army is garrisoned as in peacetime, which means the war has not yet forced its budget. That is either an opportunity or a verdict. ?] ?]

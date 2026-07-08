@@ -19,7 +19,7 @@ The CTM has announced, through channels, that the plaza has room for one parade.
 @columna
 choose-if: sup_workers >= 30 and organizers >= 3
 unavailable-subtitle: Contesting the Zócalo with don Fidel requires real factory strength and cadres to hold the column.
-on-arrival: mayday = 2; huelgas += 8; charrismo -= 4; sup_workers += 4; represion += 3; expediente += 3; political_capital += 3; memorial += 1
+on-arrival: mayday = 2; huelga_prep += 6; huelgas += 8; charrismo -= 4; sup_workers += 4; represion += 3; expediente += 3; political_capital += 3; memorial += 1
 
 The column enters the Zócalo forty thousand strong behind the seamstresses' banner, and for eleven minutes the plaza holds two labor movements in plain sight of each other — the owned and the free. The golpeadores take their toll at the exit streets; one name is added to the list. But the photograph exists now, forever: the balcony reviewing a parade, and beside it, the parade nobody ordered.
 

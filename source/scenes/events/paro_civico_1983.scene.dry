@@ -18,7 +18,7 @@ The Party's networks are wired through every convening organization. The questio
 @todo
 choose-if: organizers >= 3 and funds >= 3
 unavailable-subtitle: A national strike is built with cadres and cash.
-on-arrival: funds -= 3; huelgas += 10; sup_colonos += 4; sup_workers += 2; political_capital += 3; expediente += 3; represion += 2
+on-arrival: funds -= 3; huelga_prep += 8; huelgas += 10; sup_colonos += 4; sup_workers += 2; political_capital += 3; expediente += 3; represion += 2
 
 The day is real: markets shuttered in twenty cities, the colonias silent, buses thin. Not the earthquake its convokers dreamed — the CTM's Mexico goes to work — but the largest coordinated protest since the Tendencia, and the government's economists notice that austerity now has an organized opposition with a working telephone tree. So does Bartlett.
 
