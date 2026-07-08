@@ -6,7 +6,7 @@ view-if: (via = "armada" or via = "dual") and year = 1981 and month = 5
 priority: 3
 max-visits: 1
 on-arrival: {!
-Q.pres_total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca;
+Q.pres_total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
 if (Q.pres_total >= 60) { Q.auge_armada = 1; Q.sup_peasants += 4; Q.political_capital += 4; Q.guar_guerrero += 8; Q.guar_valle += 8; }
 !}
 
@@ -27,7 +27,7 @@ The commanders' balance, drawn at the cycle's end, by lamplight, in a hand that 
 @plegar
 on-arrival: {!
 Q.via = "politica";
-Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0;
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
 Q.members += 1; Q.represion -= 6; Q.guerrilla_meter -= 4; Q.unity -= 3;
 !}
 

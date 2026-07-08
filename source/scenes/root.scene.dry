@@ -82,8 +82,8 @@ Q.mayday = 0;
 Q.rius_tinta = 0;
 Q.anatomia = 0;
 // via armada theater
-Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0;
-Q.guar_guerrero = 40; Q.guar_chihuahua = 22; Q.guar_valle = 50; Q.guar_jalisco = 25; Q.guar_nl = 25; Q.guar_oaxaca = 20;
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
+Q.guar_guerrero = 40; Q.guar_chihuahua = 22; Q.guar_valle = 50; Q.guar_jalisco = 25; Q.guar_nl = 25; Q.guar_oaxaca = 20; Q.guar_tijuana = 18;
 Q.inteligencia = 10;
 Q.huelga_prep = 0;
 Q.repadv_last = 0;
@@ -96,6 +96,7 @@ Q.des_ortodoxos = 10;
 Q.des_renovadores = 10;
 Q.des_nueva = 15;
 Q.fronda_last = 0;
+Q.op_cacique = 0; Q.op_archivo = 0; Q.op_magnate = 0; Q.op_aduana = 0;
 Q.herencia = 0;
 Q.verano68 = 0;
 Q.rescate = 0;

@@ -1,0 +1,125 @@
+title: Special operations
+new-page: true
+subtitle: Key figures — leverage where presence permits
+view-if: via = "armada" or via = "dual"
+on-arrival: month_actions += 1
+max-visits: 30
+is-card: true
+frequency: 55
+tags: sierra
+
+= Special operations
+
+Every zone has its key figures — men whose capture, or whose files, would put real leverage on the table. Operations of this class are once-only, unforgivable, and priced accordingly: the reformists stop taking calls, the duros get their budgets, and whatever is gained must be worth becoming, officially, what they always said you were.
+
+Presence opens the possible. Choose, if at all, with open eyes.
+
+- @op_cac: GUERRERO — the cacique-senator: the state's owner of the Costa Grande, taken from his convoy.
+- @op_arc: VALLE — the archive clerk: a DFS records man, ready to defect with what he files.
+- @op_mag: NUEVO LEÓN — the industrialist: a Monterrey magnate, taken from a board meeting.
+- @op_adu: TIJUANA — the customs chief: the border's ledger-keeper, and the ledgers.
+- @easy_discard
+
+@op_cac
+subtitle: Requires strong Guerrero columns
+choose-if: pres_guerrero >= 25 and op_cacique = 0
+unavailable-subtitle: An operation of this weight needs columns that own the ground (Guerrero presence 25), and it can be done exactly once.
+on-arrival: op_cacique = 1; represion += 8; guar_guerrero += 10; expediente += 6; pri_reformist_rel -= 8; pri_duros += 6
+go-to: cacique_leverage
+
+@cacique_leverage
+new-page: true
+
+= The cacique in the sierra
+
+It works — the convoy stopped on the coast road, the bodyguards disarmed with professional courtesy, and the man who owns Guerrero now sleeps under guard in a camp that moves nightly. The Republic holds its breath; the army floods the ranges; and a radio message asks the only question that matters: what do you want for him?
+
+- @cac_canje: The exchange: every guerrilla prisoner on the published list, flown where they choose.
+- @cac_rescate: The ransom: the war chest funded for years in one signature.
+- @cac_tribuna: The declaration: he is released unharmed after reading, on national radio, a text about who owns Guerrero and how.
+
+@cac_canje
+on-arrival: represion -= 4; members += 2; guerrilla_meter -= 4; political_capital += 2; memorial -= 0
+
+Forty-one names walk off the published list onto a chartered flight, and the movement's deepest wound — the caged — closes by that many beds. The state pays because the man is worth more than the precedent, and hates itself for the arithmetic, and begins planning accordingly.
+
+@cac_rescate
+on-arrival: funds += 15; gran_capital += 2; sup_middle -= 3
+
+The suitcases cross at a bridge at dawn. The war is solvent for years — and the press, fed by Bucareli, has its story: bandits, not revolutionaries. Money is the leverage that spends everywhere and explains nothing.
+
+@cac_tribuna
+on-arrival: political_capital += 5; sup_peasants += 4; sup_students += 2; represion += 2
+
+He reads it flatly, which makes it worse: the hectares, the concessions, the disappeared of his own municipios, itemized in his own voice on every radio in the Republic. Then he is released, unharmed, into a career that never recovers. No ransom was ever louder.
+
+@op_arc
+subtitle: Requires strong capital networks
+choose-if: pres_valle >= 25 and op_archivo = 0
+unavailable-subtitle: Reaching the clerk needs deep capital networks (Valle presence 25); one chance only.
+on-arrival: op_archivo = 1; expediente -= 12; inteligencia += 12; represion += 3; pri_duros += 4
+go-to: archivo_leverage
+
+@archivo_leverage
+new-page: true
+
+= The clerk and his boxes
+
+He walks out of Bucareli at lunch with a briefcase, and never walks back: three years of the political section's filing, memorized routes, and two boxes photographed page by page in a safe house while the city looks for him. Your own file, it turns out, has annexes. What use for the trove?
+
+- @arc_espejo: Keep it dark: rebuild your security around their sources, feed their remaining eyes a painted picture.
+- @arc_exponer: Burn it bright: publish the torture chain of command, names and stations, in every press you can reach.
+
+@arc_espejo
+on-arrival: expediente -= 8; inteligencia += 6
+
+Nothing announces itself; things merely stop working for them. Informants report to handlers who no longer believe them; raids find chess clubs. For a few precious years, the state watches the Movement through glass you manufactured.
+
+@arc_exponer
+on-arrival: political_capital += 5; represion -= 4; sup_middle += 3; expediente += 4
+
+The supplement names interrogators, stations, and the flights' fuel logs. Nothing is prosecuted — but three named men are quietly retired, one embassy cancels a police-training grant, and inside the apparatus the signing of orders acquires, for the first time, a personal price tag.
+
+@op_mag
+subtitle: Requires Monterrey networks
+choose-if: pres_nl >= 20 and op_magnate = 0
+unavailable-subtitle: The industrial belt must be yours first (Nuevo León presence 20); one chance only.
+on-arrival: op_magnate = 1; represion += 6; guar_nl += 10; gran_capital -= 4; pri_reformist_rel -= 6; clima_neoliberal += 3
+go-to: magnate_leverage
+
+@magnate_leverage
+new-page: true
+
+= The magnate
+
+Taken between the boardroom and the car, without a shot — the studied lesson of 1973 applied: no dead patriarchs, no martyrs for the right. Monterrey's money markets shudder; capital remembers Texas exists; and the family asks, through channels, for a number.
+
+- @mag_rescate: The number, doubled. Capital pays fastest for its own.
+- @mag_contratos: Not money: the reinstatement of every worker fired in his plants' charrazos, in writing, monitored.
+
+@mag_rescate
+on-arrival: funds += 15; sup_middle -= 3; huelgas += 2
+
+Paid in thirty-six hours, a record. The war chest is transformed; so is the insurance industry of the north. The workers of his plants, who were consulted by nobody, note that the compañeros too treated the old man as exactly what he was: a price.
+
+@mag_contratos
+on-arrival: sup_workers += 5; huelga_prep += 5; charrismo -= 2; gran_capital -= 2; funds += 2
+
+The lists are signed plant by plant, witnessed by notaries who cannot believe their fees. Four hundred blacklisted men walk back through gates that fired them — a concession no strike had won in a decade, extracted by the method nobody will thank. In the industrial belt the story is told quietly, and never forgotten by either class.
+
+@op_adu
+subtitle: Requires the border line
+choose-if: pres_tijuana >= 20 and op_aduana = 0
+unavailable-subtitle: The border must be yours first (Tijuana presence 20); one chance only.
+on-arrival: op_aduana = 1; funds += 8; inteligencia += 8; guar_tijuana += 8; expediente += 3
+
+= The ledgers of the line
+
+No hostage — better: the customs chief's ledgers, copied over three nights by a clerk with debts and a conscience discovering each other. Who pays whom at the border: comandantes, judiciales, two governors' nephews, half a police command structure with dollar figures attached. The Movement now owns the north's corruption map — leverage that works silently, checkpoint by checkpoint, for years.
+
+- @adu_fin: File it where such things are filed. The border, from tonight, has doors.
+
+@adu_fin
+on-arrival: political_capital += 2
+
+Nothing is published. Certain crossings simply become possible, certain patrols incurious, certain telephone calls unnecessary. The most Mexican weapon of all: the file that never fires.

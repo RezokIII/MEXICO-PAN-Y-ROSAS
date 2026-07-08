@@ -30,7 +30,7 @@ Q.via = "politica";
 Q.members += 2;
 Q.represion -= 8;
 Q.guerrilla_meter -= 5;
-Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0;
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
 !}
 
 They come down in groups small enough to be deniable and large enough to be counted, hand in weapons that are logged and vanish, and receive papers whose ink smells fresh. Not all come; a remnant stays up where amnesties do not reach. But the war, as an institution of yours, ends this season — and its survivors become the political road's hardest, quietest cadres.

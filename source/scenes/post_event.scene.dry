@@ -13,7 +13,7 @@ if (Q.month != Q.last_drift_month) {
     if (Q.time % 4 == 0 && Q.expediente < 100) { Q.expediente += 1; }
     if (Q.month == 12 && Q.sexenio_year < 6) { Q.sexenio_year += 1; }
     if (Q.postura_guerrilla == 3 && Q.time % 3 == 0) { Q.expediente += 1; Q.represion += 1; }
-    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca'];
+    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
     for (var z of zonas) {
         if (Q['guar_'+z] > 22) { Q['guar_'+z] -= 1; }
         if (Q['pres_'+z] > 0 && Q['guar_'+z] >= 55) { Q['pres_'+z] -= 1; }
