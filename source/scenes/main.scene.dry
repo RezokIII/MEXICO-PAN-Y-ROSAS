@@ -20,6 +20,7 @@ max-cards: 3
 - @sistema
 - @canales
 - @sierra
+- @fdn
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -46,6 +47,7 @@ max-cards: 4
 - @sistema
 - @canales
 - @sierra
+- @fdn
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -73,6 +75,7 @@ max-cards: 5
 - @sistema
 - @canales
 - @sierra
+- @fdn
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -99,6 +102,7 @@ max-cards: 4
 - @sistema
 - @canales
 - @sierra
+- @fdn
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -126,6 +130,14 @@ view-if: postura_guerrilla >= 2
 is-deck: true
 
 - #canales
+
+@fdn
+title: El Frente
+subtitle: The coalition, October 1987 to July 1988
+view-if: fdn >= 1
+is-deck: true
+
+- #fdn
 
 @movimiento
 title: El Movimiento

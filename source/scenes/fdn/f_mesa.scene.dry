@@ -1,0 +1,26 @@
+title: The coalition table
+new-page: true
+subtitle: Four parties, five currents, one candidate, no treaty
+on-arrival: month_actions += 1
+max-visits: 12
+is-card: true
+frequency: 90
+tags: fdn
+
+= The coalition table
+
+The Frente is a miracle with structural problems: satellite parties that were rivals in October, currents that remember each other's polemics, and a single surname holding it all together. The table needs working — programs reconciled, candidacies traded, egos fed in the correct order — or July arrives with a coalition in name only.
+
+Frente cohesion: [+ frente_unidad +] of 100.
+
+- @trabajar_mesa: Work the table — the Movement as the coalition's connective tissue.
+- @root: Let the general's son hold it alone this month.
+- @easy_discard
+
+@trabajar_mesa
+subtitle: -3 funds, requires political capital
+choose-if: funds >= 3 and political_capital >= 4
+unavailable-subtitle: Coalition diplomacy runs on funds and standing.
+on-arrival: funds -= 3; political_capital -= 1; frente_unidad += 9; cd_rel += 1; unity += 1
+
+Another week of kitchens: a senate slot traded for a program plank, a satellite boss flattered into usefulness, two old polemics buried with honors. The Frente exists a little more than it did — and cohesion, in July, will convert directly into votes defended.

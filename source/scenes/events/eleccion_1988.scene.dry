@@ -6,7 +6,7 @@ view-if: year = 1988 and month = 7
 priority: 2
 max-visits: 1
 on-arrival: {!
-var ola = 22 + (100 - Q.salario_real) * 0.15 + Q.cd_rel * 2 + Q.costureras * 3 + Q.sup_students * 0.06 + Q.sup_colonos * 0.08 + (Q.barrios ? 2 : 0) + (Q.huelga_general ? 2 : 0) + (Q.mayday >= 2 ? 1 : 0) + (Q.laguna ? 2 : 0) + (Q.auge_armada ? 2 : 0);
+var ola = 22 + (100 - Q.salario_real) * 0.15 + Q.cd_rel * 2 + Q.costureras * 3 + Q.sup_students * 0.06 + Q.sup_colonos * 0.08 + (Q.barrios ? 2 : 0) + (Q.huelga_general ? 2 : 0) + (Q.mayday >= 2 ? 1 : 0) + (Q.laguna ? 2 : 0) + (Q.auge_armada ? 2 : 0) + Q.frente_unidad * 0.06;
 if (Q.fdn >= 1) {
     Q.real_fdn = Math.round(Math.min(52, ola + Q.izq_votes_display * 0.6));
     Q.real_castillo = 0;
@@ -82,8 +82,8 @@ on-arrival: respuesta_88 = 2; political_capital += 2; funds += 4; unity -= 4; su
 The tables convene discreetly while the plazas roar: registries confirmed, senate seats seated, an electoral reform promised in writing. It is real currency and it spends — and the crowds, who were not consulted, watch the negotiators emerge with briefcases and draw the era's bitterest conclusion about the distance between the street and the table.
 
 @cerilla
-choose-if: huelga_prep >= 50 and sup_colonos >= 25
-unavailable-subtitle: Insurrection is not declaimed: it requires strike readiness (50) and organized colonias. The committees were never built.
-on-arrival: respuesta_88 = 3; represion += 15; expediente += 10; memorial += 4; huelgas += 15
+choose-if: (huelga_prep >= 50 and sup_colonos >= 25) or (plan_b = 1 and huelga_prep >= 40)
+unavailable-subtitle: Insurrection is not declaimed: it requires strike readiness (50) and organized colonias — or a Plan B drawn in advance with readiness 40. Neither exists.
+on-arrival: respuesta_88 = 3; represion += 15; expediente += 10; memorial += 4; huelgas += 15; political_capital += 3 if plan_b = 1
 
 The call goes out through every network twenty years built: general strike, the highways, the plazas held overnight. For eleven days the Republic stands genuinely still — and then the state, which has rehearsed this its entire life, answers in the older language. What follows belongs to the epilogue, and to the lists.

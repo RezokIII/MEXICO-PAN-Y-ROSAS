@@ -97,6 +97,8 @@ Q.des_renovadores = 10;
 Q.des_nueva = 15;
 Q.fronda_last = 0;
 Q.op_cacique = 0; Q.op_archivo = 0; Q.op_magnate = 0; Q.op_aduana = 0;
+Q.frente_unidad = 0;
+Q.plan_b = 0;
 Q.herencia = 0;
 Q.verano68 = 0;
 Q.rescate = 0;
