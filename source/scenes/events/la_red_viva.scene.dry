@@ -1,0 +1,20 @@
+title: La red viva
+new-page: true
+subtitle: The lamp gives light
+tags: event
+view-if: red_casillas >= 25 and year >= 1981 and registro >= 1
+priority: 2
+max-visits: 1
+
+= La red viva
+
+A state legislative by-election, a nothing race in a nowhere district — except that your network covers it wall to wall, and when the local machine runs its usual alchemy, the machine is photographed doing it: the pregnant urn arriving pre-stuffed, the acta altered in a hand that helpfully differs from the original, the tally sheet the operator forgot to burn. The dossier is airtight because the network built it to be.
+
+The result stands anyway, of course. The precedent does not care: for the first time, fraud has been documented start to finish by an opposition that planned the documentation for years.
+
+- @publicarlo: Publish the anatomy — the full forensic file, a manual of how the alchemy works, casilla by casilla.
+
+@publicarlo
+on-arrival: alquimia_expuesta = 1; anatomia = 1; political_capital += 3; sup_middle += 2; red_casillas += 3; pri_reformist_rel -= 1
+
+*Anatomía de un fraude* runs as a supplement and becomes the era's samizdat bestseller — photocopied by the PAN, cited by academics, studied, the fuente reports with some relish, inside Gobernación itself. The network trained for elections. It has learned it can also train the country's eyes. Volunteers arrive asking for the next by-election like it's a posting.

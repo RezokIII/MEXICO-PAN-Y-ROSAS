@@ -1,0 +1,28 @@
+title: Los emisarios del pasado
+new-page: true
+subtitle: Julio de 1971
+tags: event
+view-if: year = 1971 and month = 7
+priority: 2
+max-visits: 1
+
+= Los emisarios del pasado
+
+The regent of the city, Martínez Domínguez, resigns — thrown, as the capital instantly understands, from the presidential sled. His voice on certain tapes discussing the Halcones will circulate for years, and his conviction that he was sacrificed for obeying orders is the one point on which he and the students agree.
+
+The President tours the aftermath as chief mourner of his own apertura: the attack, he explains, was aimed at *him* — reactionaries, foreign interests, emissaries of the past, conspiring to make the opening fail. It is a masterpiece of the genre. The man who commands every armed body in the Republic presents himself as the victim of an ambush conducted by his own payroll, and invites the progressive forces to close ranks around him against the true enemy, whose name he never quite pronounces.
+
+Some of the intellectuals accept the invitation; the alternative reading is unbearable to them. The Party must choose its reading, in print.
+
+- @ficcion: Accept the fiction at face value — condemn the "emissaries," bank the President's debt to those who helped him change the subject.
+- @nombrar: Name it: Halcones are trained, paid, and aimed. Aimed by whom, señor Presidente?
+
+@ficcion
+on-arrival: pri_reformist_rel += 5; presidente_cooptacion += 3; sup_students -= 4; fac_nueva_izquierda -= 3
+
+The editorial is a small masterpiece of the deniable: outrage at the violence, support for the investigation, not one sentence that costs the President sleep. Doors open discreetly all autumn — a printing permit, two visas, a professorship. The students read the same editorial and file it where they keep the silences of 1968.
+
+@nombrar
+on-arrival: sup_students += 5; represion += 3; expediente += 4; pri_reformist_rel -= 4
+
+The headline asks the question with the four words the entire press corps has been walking around: *¿Quién armó los Halcones?* No answer comes, which is the answer. The issue sells out three printings; the print shop's licenses develop sudden irregularities; and in the university the Party's name is pronounced, for the first time since 1968, without the footnote.

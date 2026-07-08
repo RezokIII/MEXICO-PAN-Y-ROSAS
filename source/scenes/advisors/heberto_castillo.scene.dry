@@ -1,0 +1,33 @@
+title: Heberto Castillo
+is-pinned-card: true
+tags: advisor
+new-page: true
+view-if: heberto_advisor = 1
+
+= Heberto Castillo
+
+*Corriente: la nueva izquierda. Cada consejo suyo fortalece a su corriente — y las otras participan menos.*
+
+Engineer, professor, inventor of the tridilosa, survivor of Cerro del Zorrillo and three years of Lecumberri. He is not a member of the Party and says so with a courtesy that stings; he thinks the old left is a beautiful ruin and intends to build something new on the lot next door — with the '68 generation, the nationalist tradition, and Lázaro Cárdenas's ghost as load-bearing elements. But he takes your calls, shares your prisoners' lawyers, and fights beside you more reliably than several people on your Central Committee.
+
+- @heberto_frente
+- @heberto_pluma
+- @root: Return to main
+
+@heberto_frente
+title: El frente nuevo
+subtitle: Help him build the new-left current. It will not be yours, but it will be needed.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; fac_nueva_izquierda += 5; ax_nacpop += 3; sup_students += 3; sup_middle += 2; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1
+
+Committees of engineers, agronomists, teachers — people who fix things for a living and have concluded the Republic is a structural problem. It smells more of Cárdenas than of Lenin, and the ortodoxos say so at volume. Let them. Every bridge in the country was built by people who argued about the design.
+
+@heberto_pluma
+title: La pluma
+subtitle: His column runs where the Party's paper cannot go: into the middle-class living room.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; sup_middle += 3; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1
+
+He writes the way he calculates loads: no adjectives that don't bear weight. This week's column walks a doctor's wife in Polanco through exactly where the public works budget goes, name by name, and she finishes it angrier than any manifesto has ever made her. The censors read him twice and can never find the illegal sentence; it is somehow the whole page.

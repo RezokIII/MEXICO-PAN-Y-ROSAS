@@ -1,0 +1,30 @@
+title: The eyes
+new-page: true
+subtitle: A war is fought on what you can see
+view-if: via = "armada" or via = "dual"
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 80
+tags: sierra
+
+= The eyes
+
+Sympathetic conscripts, a telegraph clerk, the laundry contractor of a barracks: the real map of the war is drawn from such sources — and without them, the Sierra tab shows you fog and guesses.
+
+- @redes: Build the intelligence networks.
+- @silencio_total: Radio silence — a season of lying low. The garrisons relax; the columns rest.
+- @easy_discard
+
+@redes
+subtitle: -3 funds
+choose-if: funds >= 3
+unavailable-subtitle: Informants have families, and families eat.
+on-arrival: funds -= 3; inteligencia += 9
+
+The map sharpens: garrison rotations, convoy schedules, which comandante inflates his patrol reports. Intelligence is the difference between a war and a seance.
+
+@silencio_total
+on-arrival: represion -= 3; guerrilla_meter -= 1; pres_guerrero -= 1; pres_valle -= 1
+
+Nothing moves; nothing answers. The analysts of the state write hopeful memos about attrition. The columns mend boots, read, and memorize next season on the map.

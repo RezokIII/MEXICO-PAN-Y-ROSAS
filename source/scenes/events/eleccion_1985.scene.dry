@@ -1,0 +1,64 @@
+title: La elección de 1985
+new-page: true
+subtitle: Julio de 1985
+tags: event
+view-if: year = 1985 and month = 7 and registro >= 1
+priority: 3
+max-visits: 1
+on-arrival: {!
+Q.real_izq = Q.izq_votes_display;
+Q.real_pri = Q.pri_votes_display;
+Q.real_pan = Q.pan_votes_display + 3;
+var alq = 0.3;
+if (Q.real_izq > 12) { alq = 0.42; }
+alq -= Q.red_casillas * 0.0015;
+if (Q.alquimia_expuesta) { alq -= 0.05; }
+if (alq < 0.05) { alq = 0.05; }
+Q.oficial_izq = Math.round(Q.real_izq * (1 - alq));
+if (Q.oficial_izq < 1) { Q.oficial_izq = 1; }
+Q.oficial_pan = Math.round(Q.real_pan * 0.8);
+Q.oficial_pri = 100 - Q.oficial_izq - Q.oficial_pan - Q.real_pps - Q.real_otros;
+var opp = 100 - Q.oficial_pri;
+Q.izq_seats = Math.round(100 * Q.oficial_izq / opp);
+Q.robo_79 = Q.real_izq - Q.oficial_izq;
+function bar(n) { var k = Math.max(1, Math.round(n/2)); var s=''; for (var i=0;i<k;i++){s+='█';} return s; }
+Q.b_real_pri = bar(Q.real_pri); Q.b_real_pan = bar(Q.real_pan); Q.b_real_izq = bar(Q.real_izq);
+Q.b_of_pri = bar(Q.oficial_pri); Q.b_of_pan = bar(Q.oficial_pan); Q.b_of_izq = bar(Q.oficial_izq);
+!}
+
+= La elección de 1985
+
+Midterms in the third year of austerity: the first national vote since the crisis began eating the wage, and the regime's first electoral test of the De la Madrid method. In the north the surprise is not you — it is the PAN, riding a *neopanismo* of businessmen-candidates and middle-class fury at the devaluations, filling plazas in Chihuahua and Sonora that no opposition ever filled.
+
+**The real count (network: [+ red_casillas +] of 100):**
+
+PRI [+ b_real_pri +] [+ real_pri +]%
+
+PAN [+ b_real_pan +] [+ real_pan +]%
+
+Ustedes [+ b_real_izq +] [+ real_izq +]%
+
+**The official count:**
+
+PRI [+ b_of_pri +] [+ oficial_pri +]%
+
+PAN [+ b_of_pan +] [+ oficial_pan +]%
+
+Ustedes [+ b_of_izq +] [+ oficial_izq +]%
+
+Seats: **[+ izq_seats +]**. The alquimia now shaves the right as well as the left — Bartlett's machine is nonpartisan in its partisanship — and something new is visible in the arithmetic: the regime is stealing from *two* directions at once, which doubles the witnesses.
+
+- @norte: Open a quiet channel to the PAN's electoral lawyers: shared documentation standards, parallel counts compared. Fraud has made strange colleagues before.
+- @propio: Keep your own counsel and your own count. The PAN's businessmen would not cross a street for your dead; document alone.
+
+@norte
+choose-if: red_casillas >= 20
+unavailable-subtitle: To share a methodology you must first have one: the network is too small.
+on-arrival: alquimia_expuesta = 1; sup_middle += 2; political_capital += 2; fac_ortodoxos -= 2
+
+The meetings happen in notary offices, of all neutral grounds: your teachers' acta discipline meets their accountants' audit habits, and the hybrid is formidable. Nothing is signed; everything is standardized. The ortodoxos gag at the company. But from this July forward, the Republic's two oppositions count with one method — and in some future emergency, that shared arithmetic may be the only institution left standing.
+
+@propio
+on-arrival: red_casillas += 4; unity += 2
+
+The network grows on its own rigor; the count stays sovereign. There is cleanliness in it — no photographs with the class enemy — and a cost that will be tallied later: when the great fraud comes, whenever it comes, the witnesses will testify separately, and separate witnesses are what every defense attorney prays for.

@@ -1,0 +1,26 @@
+title: Los últimos presos del 68
+new-page: true
+subtitle: Mayo de 1971
+tags: event
+view-if: year = 1971 and month = 5
+priority: 2
+max-visits: 1
+on-arrival: heberto_advisor = 1; revueltas_advisor = 1; sup_students += 4; political_capital += 3; presidente_cooptacion += 3
+
+= Los últimos presos del 68
+
+MÉXICO, D.F., mayo de 1971 —
+
+The apertura continues its inventory of the prisons. This month Lecumberri returns two of its most expensive guests.
+
+Heberto Castillo comes out the way he went in: an engineer. Three years, much of it in solitary after they took him half-dead from the beating on Cerro del Zorrillo, and his chief complaint on the steps is that they interrupted his structural calculations — he has patented, from a cell, a three-dimensional truss he calls the *tridilosa*, which will hold up buildings long after it stops holding up conversation. He is already talking about something else new: not the old parties, he says, looking at your delegation without cruelty, something *new*.
+
+José Revueltas comes out smaller, older, and incandescent. Prison was, he says, the one Mexican institution that ever took him seriously. He has *El apando* in a folder under his arm — the punishment cell rendered in sentences with no exits, already with its publisher. The students at the gate carry him on their shoulders; he protests, and counts heads from up there out of organizer's habit.
+
+Both men are released *sin condiciones*, the newspapers say, and everyone understands the phrase decorates its opposite: the sexenio is watching to see what gratitude produces. Castillo will not join you — that much is clear within the week — but the door between his people and yours is open, and doors are the scarcest thing in the Republic.
+
+- @seguir: The Movement is larger this evening than it was this morning. Continue.
+
+@seguir
+
+In a kitchen in Coyoacán, Revueltas asks for the Party's membership figures, laughs at them with genuine affection, and asks when the next study circle meets. Someone tells him. He is early.

@@ -1,0 +1,25 @@
+title: La auditoría
+new-page: true
+subtitle: Money organizes too — in its own way
+tags: event
+view-if: funds >= 45 and time >= 30
+priority: 1
+frequency: 50
+max-visits: 2
+
+= La auditoría
+
+Prosperity, the Movement discovers, has its own security problems. The treasury has grown past the shoebox era — dues, the registro money, the solidarity checks — and the annual review finds what reviews find: a regional committee whose accounts describe a car that does not exist, receipts in a handwriting that argues with itself, and a treasurer, twenty years a militant, who does not meet eyes.
+
+- @publico: Full public accounting — the books opened to the membership, the case handled in daylight, whatever it costs the man and the season.
+- @discreto_audit: Handle it inside: restitution, removal, silence. The regime's press would feast for a month on one crooked communist.
+
+@publico
+on-arrival: funds -= 6; unity += 4; political_capital += 3; members -= 1
+
+The assembly is brutal and clean: the numbers read aloud, the man's twenty years weighed aloud too, the restitution scheduled, the expulsion voted with more grief than anger. The regime's press gets its paragraph and chokes on the second one — the audit itself, published unredacted, a transparency no institution in the Republic dares imitate. Dues rise the following quarter. Trust, it turns out, is also a currency.
+
+@discreto_audit
+on-arrival: funds -= 2; expediente += 2; unity -= 2
+
+Quietly done: the money mostly returns, the man retires to his pueblo with his years intact, the books close. But secrets travel inside parties faster than circulars, arriving everywhere slightly wrong — by the third telling the car is a house — and in the cells the lesson lands crooked: the center protects its own. Some economies are false ones.

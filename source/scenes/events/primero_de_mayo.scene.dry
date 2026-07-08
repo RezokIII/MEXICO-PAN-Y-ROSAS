@@ -1,0 +1,29 @@
+title: El Primero de Mayo insurgente
+new-page: true
+subtitle: The parade itself is contested
+tags: event
+view-if: huelgas >= 30 and year >= 1983 and mayday = 0
+priority: 2
+max-visits: 1
+on-arrival: mayday = 1
+
+= El Primero de Mayo insurgente
+
+For fifty years the First of May has belonged to don Fidel: the columns filing past the Palacio balcony in their assigned order, the banners printed by the state they salute, labor's day performed as labor's obedience. This year the insurgent unions — the coordinadoras, the September 19th seamstresses, the democratic sections, everything the strike wave built — propose the unthinkable: a separate column. An independent First of May, marching the same day, to the same Zócalo, under its own banners.
+
+The CTM has announced, through channels, that the plaza has room for one parade.
+
+- @columna: March. The whole independent movement, one column, your banners at its heart — and whatever meets it.
+- @plaza_propia: March elsewhere — a separate plaza, a separate hour. The symbol at half strength, the ribs intact.
+
+@columna
+choose-if: sup_workers >= 30 and organizers >= 3
+unavailable-subtitle: Contesting the Zócalo with don Fidel requires real factory strength and cadres to hold the column.
+on-arrival: mayday = 2; huelga_prep += 6; huelgas += 8; charrismo -= 4; sup_workers += 4; represion += 3; expediente += 3; political_capital += 3; memorial += 1
+
+The column enters the Zócalo forty thousand strong behind the seamstresses' banner, and for eleven minutes the plaza holds two labor movements in plain sight of each other — the owned and the free. The golpeadores take their toll at the exit streets; one name is added to the list. But the photograph exists now, forever: the balcony reviewing a parade, and beside it, the parade nobody ordered.
+
+@plaza_propia
+on-arrival: huelgas += 3; sup_workers += 2
+
+The Monument to the Revolution fills respectably; the speeches are better than the CTM's and the cameras fewer. The wall took no new crack today — but the habit of a separate day is founded, and habits, in the labor movement, are how walls eventually learn their dates.

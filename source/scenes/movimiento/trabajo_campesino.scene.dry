@@ -1,0 +1,33 @@
+title: Trabajo campesino
+new-page: true
+subtitle: The land promised in 1917
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 85
+tags: movimiento
+
+= Trabajo campesino
+
+The Constitution of 1917 promised the land to those who work it, and half a century of paperwork has perfected the art of promising it again. In the valleys the solicitantes wait with their stamped petitions; in the hills the coffee price is set by men the growers never see; and the CNC, the official peasant central, delivers the villages' votes and calls it representation.
+
+- @comites: Organize petition committees — the legal road, with lawyers and stamped paper.
+- @invasion: Support a land occupation. The fences come down before dawn.
+- @root: The valley waits, as it has waited.
+- @easy_discard
+
+@comites
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even the revenue stamps cost.
+on-arrival: funds -= 2; sup_peasants += 4
+
+Assemblies under the ahuehuete, minutes in a school notebook, the file hand-carried to the Agrarian Department by a delegation in their good hats. The clerk assigns it a number. The number is real; the committee more so.
+
+@invasion
+subtitle: The risks are known
+choose-if: sup_peasants >= 15
+unavailable-subtitle: A land occupation without a base to hold it is a gift to the judiciales.
+on-arrival: sup_peasants += 7; represion += 3; expediente += 3
+
+White flags on fence posts at first light, furrows plowed straight across the disputed title. Sometimes the state negotiates rather than photograph itself evicting the Constitution. Sometimes the judiciales come at dusk. The Party's lawyers sleep by the phone either way.

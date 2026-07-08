@@ -1,0 +1,26 @@
+title: El provocador
+new-page: true
+subtitle: At the factory gate
+tags: event
+view-if: sup_workers >= 12 and time >= provocador_last + 10
+priority: 1
+frequency: 40
+on-arrival: provocador_last = time
+max-visits: 2
+
+= El provocador
+
+At the gate of a metal works in Xalostoc, mid-leaflet, a stranger begins shouting the things your people are careful never to shout: burn the trucks, hang the delegate, *¡a las armas!* He has new boots. His callouses, a welder observes later, are from a desk.
+
+- @desmarcar: Denounce him on the spot as police theater. Loudly, by the book.
+- @retirar: Fold the operation instantly. If the theater has started, the cameras are already rolling.
+
+@desmarcar
+on-arrival: sup_workers += 2; charrismo -= 1; expediente += 2
+
+The comrade on the crate does not miss a beat: points at the boots, names the script, invites the gentleman to shout his slogans at his employers in Bucareli. The gate laughs — the deep laugh of men who have seen this act before — and the stranger dissolves. Two workers who watched ask for the leaflet afterward. That kind of theater sells tickets to the wrong show.
+
+@retirar
+on-arrival: sup_workers -= 1
+
+Bundles vanish, the crate becomes a crate again, everyone is a pedestrian within ninety seconds — flawless drill. The judiciales who arrive find a man with new boots shouting alone at a fence. Prudence has costs: the workers who were listening conclude you scare easily, and the next leaflet gets a colder hand.

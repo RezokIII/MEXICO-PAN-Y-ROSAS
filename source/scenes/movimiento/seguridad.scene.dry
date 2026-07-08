@@ -1,0 +1,34 @@
+title: Seguridad
+new-page: true
+subtitle: The expediente fattens by itself; slimming it costs
+view-if: expediente >= 20
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 60
+tags: movimiento
+
+= Seguridad
+
+Somewhere in Bucareli there is a room with your name on a drawer, and the drawer is gaining weight: photographs of doorways, lists of license plates, the minutes of meetings you thought were small. Counter-surveillance is unglamorous work — routes, codes, discipline about telephones — and it is the tax the living pay.
+
+- @depurar: A full security review: compartmentalize the cells, rotate the safe houses, retire the burned routines.
+- @minimo: The minimum — new locks, new habits, a quiet word to the careless.
+- @root: Trust to luck another month. Luck has a file too.
+- @easy_discard
+
+@depurar
+subtitle: -4 funds
+choose-if: funds >= 4 and organizers >= 3
+unavailable-subtitle: New safe houses cost money.
+on-arrival: funds -= 4; expediente -= 8; unity -= 1
+
+A month of tedium that reads like spy fiction written by an accountant: every list rewritten in heads, every meeting moved, two comrades gently quarantined for talking in cantinas. The DFS's informers report a sudden silence, which they will describe, accurately, as suspicious.
+
+@minimo
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even padlocks cost money.
+on-arrival: funds -= 2; expediente -= 4
+
+New locks, a rule about telephones, the mimeograph moved across the street. Hygiene, not surgery. The drawer in Bucareli gains weight more slowly for a season.

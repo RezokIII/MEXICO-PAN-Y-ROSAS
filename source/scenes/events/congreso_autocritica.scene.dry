@@ -1,33 +1,46 @@
 title: La autocrítica
 new-page: true
-subtitle: 1969 — el congreso que nadie quería
+subtitle: 1969 — el pleno que nadie quería
 tags: event
 view-if: year = 1969 and month = 6
 priority: 2
 max-visits: 1
-face-image: img/congreso.jpg
 
 = La autocrítica
 
-The question cannot be postponed past the second round of mezcal: where was the Party in July, in August, in September? The ortodoxos have an answer — *infiltrated provocateurs, objective conditions* — delivered in the tone of men reading a train schedule. The young people have a shorter answer: *nowhere*.
+The Central Committee meets in a borrowed hall with paper over the windows, and the question cannot be postponed past the second round of coffee: where was the Party in July, in August, in September?
 
-A congress must say something. What it says will decide who stays.
+Arnoldo Martínez Verdugo, First Secretary — a former sign painter with a bureaucrat's patience and a heretic's private library — has let the discussion run, which old hands recognize as his way of taking a side. The ortodoxos have their answer ready: *the movement was spontaneous, infiltrated, petit-bourgeois in composition; the objective conditions were absent; the Party correctly avoided an adventure.* It is delivered in the tone of men reading a train schedule, and it has the advantage of being half true.
 
-- @ruptura: Adopt the hard self-criticism. The Party failed the movement; say so in print, and open the leadership to the '68 generation.
+The Juventud Comunista has a shorter answer: *nowhere.* The Party was nowhere. The greatest mass movement in the Republic's history rose, fought, and bled without it and partly against it — the students invented their own structures precisely because yours moved at the speed of a seminar. The JC delegates say this while looking at the floor, which is how the young announce that they are one resolution away from leaving.
+
+Between the two positions sits everything the Party is: forty years of survival purchased with caution, and the bill for the caution now arriving. A pleno must say something. What it says will decide who is still in the room next year.
+
+- @ruptura: Adopt the hard self-criticism. The Party failed the movement; say so in print, and open the leadership to the generation of '68.
 - @equilibrio: A balanced resolution — errors were committed, conditions were difficult, unity is paramount.
-- @cerrar: Close ranks around the old leadership. Discipline held under torture; that is not nothing.
+- @cerrar: Close ranks around the old leadership. Discipline held under torture in '59; that is not nothing.
 
 @ruptura
+choose-if: fac_renovadores >= 20
+unavailable-subtitle: The hard self-criticism lacks the votes: the renovadores are too weak.
 on-arrival: autocritica_done = 1; fac_renovadores += 12; fac_nueva_izquierda += 8; fac_ortodoxos -= 12; unity -= 8; sup_students += 8; political_capital += 5
 
-The resolution reads like nothing the Party has printed in thirty years, because it is true and it hurts. Three veterans resign with dignity; one without it. In the back of the hall, students applaud a communist congress, which has not happened in living memory.
+The resolution reads like nothing the Party has printed in thirty years, because it is true and it hurts: *the Party did not understand the movement, arrived late, and counseled prudence where history demanded presence.* Three veterans resign with dignity, one without it, and a delegate from Sonora tears his card in the doorway for the benefit of witnesses.
+
+But in the back of the hall, students applaud a communist pleno — which no one present has ever seen — and Martínez Verdugo, watching the room change hands, permits himself the small economical smile of a man whose defeat has been voted down. Something has been opened that will not close again: the Party has admitted it can be wrong, which means it can also be argued with, which means it can also be joined.
 
 @equilibrio
 on-arrival: autocritica_done = 2; unity += 5; political_capital -= 2
 
-The resolution is a masterpiece of the semicolon. Everyone can sign it; no one will quote it. The Party survives another year the way a man survives on soup.
+The resolution is a masterpiece of the semicolon: errors were committed, though conditions were adverse; vigilance was warranted, though initiative was insufficient; the Party reaffirms, deepens, and moves forward. Everyone can sign it. No one will ever quote it.
+
+The delegates go home with the family intact, which is worth something — ask the parties that split. But the JC delegates sign it the way men sign an armistice they intend to violate, and the students who were watching for a sign conclude, not unreasonably, that the Party's deepest instinct is still the management of its own funeral.
 
 @cerrar
+choose-if: fac_ortodoxos >= 40
+unavailable-subtitle: The old guard can no longer impose closed ranks.
 on-arrival: autocritica_done = 3; fac_ortodoxos += 10; fac_nueva_izquierda -= 8; unity -= 3; sup_students -= 8; ax_sovietico += 5
 
-Discipline. The old men did hold — in '59, in the cells, under things that are not spoken of at congresses. The young people do not doubt it. They simply leave, and take the next decade with them.
+Discipline. The old men did hold — in '59, in the roundups, in interrogation rooms whose techniques are not discussed at plenos — and the resolution honors that: the Party's line was fundamentally correct, its caution vindicated by the repression itself. The applause is real; loyalty is not a small thing in a hunted organization.
+
+The young people do not even argue, which should worry someone. They simply stop coming — to the JC locals, to the study circles, to the paper sales — and take the next decade with them: to the new fronts, to the universities, and a few of them to the mountains, where a different kind of discipline is waiting.

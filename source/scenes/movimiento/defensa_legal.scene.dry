@@ -1,0 +1,26 @@
+title: Defensa de los presos
+new-page: true
+subtitle: Lawyers, amparos, Sunday visits to Lecumberri
+on-arrival: month_actions += 1
+max-visits: 12
+is-card: true
+card-image: img/cards/lecumberri_gate.jpg
+frequency: 80
+view-if: campa_released = 0
+tags: movimiento
+
+= Defensa de los presos
+
+The amparo is a beautiful instrument: a writ that says the Constitution applies to you personally. The judges deny them with the regularity of a metronome. You file them anyway. The filing is the message.
+
+- @pagar: Pay the lawyers, organize the visits.
+- @root: The money is needed elsewhere.
+- @easy_discard
+
+@pagar
+subtitle: -4 funds
+choose-if: funds >= 4
+unavailable-subtitle: Lawyers eat too.
+on-arrival: funds -= 4; political_capital += 3; sup_students += 2; pri_reformist_rel += 2; sup_students += 2 if lecumberri_campaign = 1
+
+Denied, denied, denied, and one astonishing afternoon: *admitted for review*. It will die in review. But a boy in Crujía M gets his name in a court document instead of a ledger, and his mother tells the neighbors the Party did that.

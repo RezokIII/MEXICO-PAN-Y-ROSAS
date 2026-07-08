@@ -1,0 +1,43 @@
+title: La batalla de las ideas
+new-page: true
+subtitle: Hegemony is organized too
+view-if: year >= 1980
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 75
+tags: movimiento
+
+= La batalla de las ideas
+
+The decade's deepest war is fought in editorial pages, seminars, and the vocabulary of taxi drivers: the market creed advances with the creditors, socialism's star dims with every Moscow winter, and *democracia* is becoming the word everyone wants to own. Hegemony is not weather. It is built — and contested.
+
+- @contra_neo: The case against the creed — pamphlets, debates, the Pacto's arithmetic made legible. Works best when the wage is bleeding.
+- @renovar_soc: Renew socialism's meaning — seminars, the Italians, self-criticism in public. Rescue the word from its custodians.
+- @democracia: Claim democracy — the count, the casilla, the vote as the left's own banner.
+- @root: The ideas fight on without you.
+- @easy_discard
+
+@contra_neo
+subtitle: -3 funds
+choose-if: funds >= 3 and sup_students >= 15
+unavailable-subtitle: The counteroffensive needs funds and young pens.
+on-arrival: funds -= 3; sup_middle += 1 + (100 - salario_real)*0.06; clima_neoliberal -= 2
+
+The pamphlet does not argue theory; it prints the grocery lists — 1980 and today, side by side — and asks who signed the difference. Against a bleeding wage, the market creed's best rhetoric reads like a ransom note, and some of the professionals who left come back reading.
+
+@renovar_soc
+subtitle: -2 funds
+choose-if: funds >= 2 and fac_renovadores >= 20
+unavailable-subtitle: Renewing socialism requires renovadores strong enough to hold the seminar.
+on-arrival: funds -= 2; prestigio_socialismo += 3; sup_students += 2; moscow_relation -= 1; fac_renovadores += 1
+
+The seminar says in public what the ortodoxos say nowhere: that the word must be rescued from the states that embalmed it. The students come back for the second session, which has not happened in years. Moscow's cultural attaché requests a copy of the proceedings, in the tone of a man requesting a confession.
+
+@democracia
+subtitle: -2 funds
+choose-if: funds >= 2 and registro >= 1
+unavailable-subtitle: Claiming democracy requires legally existing inside it.
+on-arrival: funds -= 2; red_casillas += 3; political_capital += 2; sup_middle += 1
+
+The campaign is one sentence on ten thousand walls: *la democracia se cuenta*. It is the rare banner the middle class and the colonias can hold at the same time, and every new casilla volunteer it recruits is a soldier in the only battle of 1988 that will matter at midnight.

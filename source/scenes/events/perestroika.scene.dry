@@ -1,0 +1,29 @@
+title: Perestroika
+new-page: true
+subtitle: 1987 — the ice is moving
+tags: event
+view-if: year = 1987 and month = 2
+priority: 2
+max-visits: 1
+on-arrival: prestigio_socialismo -= 4; moscow_relation -= 2
+
+= Perestroika
+
+The general secretary in Moscow speaks of *glasnost* and *perestroika*, and the words land in your cells like weather from another planet: the center of the faith is auditing itself in public. Archives crack open; the certainties of forty years develop footnotes. The ortodoxos read the dispatches the way one reads a parent's medical results. The young read them the way one reads a permission slip.
+
+Every party of the tradition must now answer the question the tradition forbade: if it must be reformed there, what was it here?
+
+- @audacia: Get ahead of it — the Movement embraces the audit, publishes its own, and claims renewal as its native ground. The heretics were right early; say so.
+- @silencio_sov: Weather it in silence. The storm is Moscow's; commentary buys nothing but casualties among the old guard.
+
+@audacia
+choose-if: fac_renovadores >= 25
+unavailable-subtitle: Getting ahead of Moscow requires strong renovadores; yours cannot carry that much.
+on-arrival: prestigio_socialismo += 4; fac_renovadores += 5; fac_ortodoxos -= 5; sup_students += 3; ax_sovietico -= 4; unity -= 3
+
+The essay runs under the title the ortodoxos will never forgive: *Nosotros lo dijimos en 1968.* It claims the Prague condemnation, the Eurocommunist turn, the whole heretical lineage as vindicated inheritance — and among the students, for one season, the Movement is the interesting answer instead of the old one. The cost is paid in veterans' silences at meetings.
+
+@silencio_sov
+on-arrival: fac_ortodoxos += 2; unity += 1; prestigio_socialismo -= 2; sup_students -= 2
+
+The Party says little, and this time the language of silence reads as embarrassment. The campus concludes the left has no answer to its own history — and the answer existed, was yours by right of 1968, and went unclaimed. Some inheritances lapse.

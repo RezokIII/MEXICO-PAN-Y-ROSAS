@@ -1,0 +1,83 @@
+title: La elección de 1979
+new-page: true
+subtitle: 1 de julio de 1979 — la primera boleta
+tags: event
+view-if: year = 1979 and month = 7 and registro >= 1
+priority: 3
+max-visits: 1
+on-arrival: {!
+// ---- the real count (from the sympathy engine) ----
+Q.real_izq = Q.izq_votes_display;
+Q.real_pri = Q.pri_votes_display;
+Q.real_pan = Q.pan_votes_display;
+Q.real_pps = Q.pps_votes_display;
+Q.real_otros = 100 - Q.real_izq - Q.real_pri - Q.real_pan - Q.real_pps;
+// ---- la alquimia: the engineered count ----
+var alq = 0.25;
+if (Q.real_izq > 12) { alq = 0.4; }
+if (Q.alquimia_expuesta) { alq -= 0.05; }
+Q.oficial_izq = Math.round(Q.real_izq * (1 - alq));
+if (Q.oficial_izq < 1) { Q.oficial_izq = 1; }
+Q.oficial_pan = Q.real_pan;
+Q.oficial_pps = Q.real_pps + 1;
+Q.oficial_otros = Q.real_otros;
+Q.oficial_pri = 100 - Q.oficial_izq - Q.oficial_pan - Q.oficial_pps - Q.oficial_otros;
+// ---- 100 PR seats split among the opposition ----
+var opp = 100 - Q.oficial_pri;
+Q.izq_seats = Math.round(100 * Q.oficial_izq / opp);
+Q.pan_seats = Math.round(100 * Q.oficial_pan / opp);
+Q.robo_79 = Q.real_izq - Q.oficial_izq;
+// ---- bars ----
+function bar(n) { var k = Math.max(1, Math.round(n/2)); var s=''; for (var i=0;i<k;i++){s+='█';} return s; }
+Q.b_real_pri = bar(Q.real_pri); Q.b_real_pan = bar(Q.real_pan); Q.b_real_izq = bar(Q.real_izq);
+Q.b_of_pri = bar(Q.oficial_pri); Q.b_of_pan = bar(Q.oficial_pan); Q.b_of_izq = bar(Q.oficial_izq);
+!}
+
+= La elección de 1979
+
+MÉXICO, D.F., julio de 1979 —
+
+For the first time since 1946, the hammer and sickle is printed on a federal ballot. The campaign was three months of firsts: spots on state radio (fifteen minutes, at hours chosen by an enemy), Campa and the veterans stumping legally in plazas where being seen with them was recently a file entry, and at every casilla the Party could staff — nowhere near all of them — a representative with a copy of the acta and instructions to guard it like a relic.
+
+By midnight your people have their own count, casilla by casilla, wired in from every district you could cover. Then, across the following days, the Comisión Federal Electoral publishes its own arithmetic.
+
+**The real count (your actas):**
+
+PRI [+ b_real_pri +] [+ real_pri +]%
+
+PAN [+ b_real_pan +] [+ real_pan +]%
+
+PCM [+ b_real_izq +] [+ real_izq +]%
+
+**The official count (la alquimia):**
+
+PRI [+ b_of_pri +] [+ oficial_pri +]%
+
+PAN [+ b_of_pan +] [+ oficial_pan +]%
+
+PCM [+ b_of_izq +] [+ oficial_izq +]%
+
+Between the two counts: [+ robo_79 +] points of your vote, dissolved in the Comisión's ink. Rural casillas reporting one hundred percent for the PRI at one hundred percent turnout; urns *embarazadas* — pregnant before the polls opened; your representatives expelled from counting rooms in districts where the acta and the bulletin disagree by double digits.
+
+And yet: **[+ izq_seats +] diputados** — the proportional seats survive the shave, because the reform needs you visible to function. The Party enters the Chamber of Deputies for the first time in the lives of most of its members.
+
+- @actas: Publish the parallel count, acta by acta. Make the alquimia itself the story — build the case, election by election, that the count can be watched.
+- @tribuna: Take the seats and make the tribune thunder. The count is theirs; the microphone, for the first time, is yours.
+- @denunciar: Denounce the whole exercise as decorated fraud and threaten to walk from the reform.
+
+@actas
+choose-if: political_capital >= 10
+unavailable-subtitle: Publishing the parallel count requires the authority and means to defend it under fire. Not enough of either.
+on-arrival: political_capital -= 3; alquimia_expuesta = 1; sup_middle += 3; pri_reformist_rel += 1; expediente += 2
+
+The documentation runs as a supplement: two counts, printed in facing columns, with photographs of actas. The government does not answer — answering would dignify arithmetic — but the method is now public property, and every opposition force in the country takes notes. The next election will be watched by people who learned watching from you. The alquimia has been named, measured, and put on a shelf where history can reach it.
+
+@tribuna
+on-arrival: tribuna = 1; political_capital += 5; sup_students += 2; funds += 3
+
+The eighteen walk in together on opening day, past murals of the Revolution that jailed them. Within a month the tribune is the best theater in the Republic: interpellations with footnotes, the dirty war named from the well of the chamber with immunity's thin shield, the budget dissected by people who read it. Bills die in committee, loudly — and that is the point: the Chamber cannot pass your laws, but it can no longer pretend you are not in the room.
+
+@denunciar
+on-arrival: unity -= 3; pri_reformist_rel -= 6; sup_students += 2; fac_renovadores -= 4
+
+The threat lands hard inside and outside: the reformers feel betrayed at the first count, the renovadores feel sabotaged, the ortodoxos feel vindicated, and the regime feels — briefly — afraid, which is worth something. The walk is not taken in the end; the seats are too useful. But the relationship with the door's designers will need years of repair, and the young hear one lesson: even legalized, the Party does not believe in the law.

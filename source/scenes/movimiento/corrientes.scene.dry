@@ -1,0 +1,44 @@
+title: The work of corrientes
+new-page: true
+subtitle: A party is a coalition that never signs its treaty
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 70
+tags: movimiento
+
+= The work of corrientes
+
+The three families of the house, each with its ledger of grievances. Tending a corriente costs — resources, symbols, agenda — and neglect costs more, in the currency of unity. Who gets the season's attention?
+
+Ortodoxos: [+ des_ortodoxos : animo +]. Renovadores: [+ des_renovadores : animo +]. Nueva izquierda: [+ des_nueva : animo +].
+
+- @atender_orto: The ortodoxos — honor the tradition: the veterans' pensions fund, the anniversary of the founding, a seat restored.
+- @atender_renov: The renovadores — feed the project: the theoretical review funded, a congress delegation to Rome, their people on the electoral lists.
+- @atender_nueva: The nueva izquierda — open the agenda: the movements' demands adopted, youth on the executive, the street budget doubled.
+- @root: The families manage themselves this month.
+- @easy_discard
+
+@atender_orto
+subtitle: -3 funds
+choose-if: funds >= 3
+unavailable-subtitle: Even symbolism has a caterer.
+on-arrival: funds -= 3; des_ortodoxos -= 12; fac_ortodoxos += 2; des_nueva += 2
+
+The founding anniversary is held with full honors — Campa generation names read aloud, the old songs in the old keys. The veterans leave standing straighter. The young leave early, noting who the party spends its evenings honoring.
+
+@atender_renov
+subtitle: -3 funds
+choose-if: funds >= 3
+unavailable-subtitle: Reviews and delegations bill in advance.
+on-arrival: funds -= 3; des_renovadores -= 12; fac_renovadores += 2; des_ortodoxos += 2
+
+The review gets its print run, the delegation its tickets, the project its oxygen. The ortodoxos read the new issue with a pencil, underlining heresies for the file they keep and everyone knows they keep.
+
+@atender_nueva
+subtitle: -3 funds
+choose-if: funds >= 3
+unavailable-subtitle: The street budget is a real budget.
+on-arrival: funds -= 3; des_nueva -= 12; fac_nueva_izquierda += 2; des_renovadores += 2
+
+The movements' platform enters the party program with its verbs intact; two twenty-six-year-olds join the executive, terrifying it usefully. The renovadores worry aloud about electoral costs. The street, for a season, believes the house is theirs too.

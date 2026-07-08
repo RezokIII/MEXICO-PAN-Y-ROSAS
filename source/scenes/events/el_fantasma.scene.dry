@@ -1,0 +1,29 @@
+title: El expediente delgado
+new-page: true
+subtitle: Bucareli distrusts silence
+tags: event
+view-if: expediente <= 14 and time >= 36
+priority: 1
+frequency: 50
+max-visits: 2
+
+= El expediente delgado
+
+The fuente's envelope this month contains a compliment shaped like a threat: your file has grown so thin that it has become, itself, suspicious. An organization this disciplined, the analysts reason, must be hiding something proportional to the discipline — and a proposal is circulating upstairs to *equip* the file: an informant inserted, or failing that, invented; documents discovered, or failing that, manufactured.
+
+The perfect security posture, it turns out, has a failure mode: it starves the beast into creativity.
+
+- @carnada: Feed them something true and harmless — let the file gain honest weight: the public meetings, the legal work, the boring truth.
+- @doble: The riskier art: accept their informant and know him — feed the drawer a party that exists only for its benefit.
+
+@carnada
+on-arrival: expediente += 8; unity += 1
+
+The public calendar gets fatter and so, gratifyingly, does the file: rallies announced in advance, minutes practically mailed to Bucareli, a party performing its legality with the diligence of an actor who knows exactly where the camera is. The manufactured-informant proposal dies upstairs for lack of budget justification. Sometimes the best cover is the truth, worn loudly.
+
+@doble
+choose-if: organizers >= 3
+unavailable-subtitle: A double agent is handled by master cadres; none are available.
+on-arrival: expediente += 4; political_capital += 3; represion -= 2
+
+He is identified within a month — new man, old questions — and handled like porcelain: given a party to report on, complete with factional gossip scripted by your best novelist of a security officer. For years, Bucareli's picture of the Movement will be a portrait you painted. The technique has a long name in the manuals and a short one in the cells: *el espejo*.

@@ -1,0 +1,184 @@
+title: El legado
+new-page: true
+on-arrival: {!
+if (Q.ending == "aniquilacion") { this.achieve('el_palacio_negro'); }
+if (Q.ending == "debil") { this.achieve('la_semilla'); }
+if (Q.ending == "media") { this.achieve('la_acumulacion'); }
+if (Q.ending == "fuerte") { this.achieve('la_fuerza'); }
+if (Q.ending == "reconocimiento") { this.achieve('el_seis_de_julio'); }
+if (Q.ending == "historico") { this.achieve('el_partido_nuevo'); }
+if (Q.ending == "ruptura") { this.achieve('la_cerilla'); }
+if (Q.ending == "irrelevancia") { this.achieve('la_orilla'); }
+if (Q.fdn == 2) { this.achieve('la_ola_con_terminos'); }
+if (Q.red_casillas >= 60) { this.achieve('la_lampara'); }
+if (Q.colonia_saga >= 3) { this.achieve('la_oficina'); }
+if (Q.barrios == 1) { this.achieve('superbarrio'); }
+if (Q.jc_saga >= 1) { this.achieve('el_relevo'); }
+if (Q.mayday >= 2) { this.achieve('la_columna'); }
+if (Q.rius_tinta == 1) { this.achieve('la_tinta'); }
+if (Q.anatomia == 1) { this.achieve('anatomia'); }
+if (Q.camino1 + Q.camino2 + Q.camino3 + Q.camino4 + Q.camino5 == 5) { this.achieve('los_cinco_hitos'); }
+if (Q.ending == "historico" && Q.fuerza_final >= 130) { this.achieve('la_hegemonia'); }
+if (Q.ending == "ruptura" && Q.members >= 25 && Q.huelgas >= 35) { this.achieve('la_comuna'); }
+if (Q.spicer == 1) { this.achieve('los_120_dias'); }
+if (Q.laguna == 1) { this.achieve('las_madres'); }
+if (Q.auge_armada == 1) { this.achieve('el_auge'); }
+if (Q.via == "institucional" && (Q.ending == "historico" || Q.ending == "reconocimiento")) { this.achieve('el_entrismo'); }
+if (Q.via == "dual" && Q.ending != "aniquilacion" && Q.ending != "irrelevancia") { this.achieve('la_sintesis'); }
+if (Q.praga_line == 1) { this.achieve('no_llega_en_tanque'); }
+if (Q.campa76 == 1) { this.achieve('un_millon_de_nombres'); }
+if (Q.huelga_general == 1) { this.achieve('la_huelga_general'); }
+if (Q.bajaron == 1) { this.achieve('los_que_bajaron'); }
+if (Q.insobornables == 1) { this.achieve('los_insobornables'); }
+if (Q.declaracion == 1) { this.achieve('la_declaracion'); }
+if (Q.memorial >= 8) { this.achieve('la_lista'); }
+if (Q.ax_sovietico <= -20) { this.achieve('herejes_con_carnet'); }
+if (Q.registro >= 1) { this.achieve('el_registro'); }
+if (Q.izq_seats >= 15) { this.achieve('las_curules'); }
+if (Q.psum == 1) { this.achieve('la_fusion'); }
+if (Q.municipio_alcozauca == 1) { this.achieve('alcozauca'); }
+if (Q.postura_guerrilla == 3 && Q.ending != "aniquilacion") { this.achieve('los_canales'); }
+this.achieve('game_completed');
+!}
+go-to: slide_logros
+
+@slide_logros
+new-page: true
+
+= What was
+
+[? if ending = "aniquilacion" : The Mexican Communist Party ceased to exist as a national organization at some point not even its enemies could date. There was no final communique; organizations do not die of one shot but of a thousand casualties without funerals. Its archives — the ones the DFS never captured — slept in three basements in three cities, waiting for historians who would take decades to arrive. ?]
+
+[? if ending = "debil" : The Movement survived — which in this country and this era is a transitive verb: it survived THE dirty war, THE charrismo, THE charola. It ended small, battered, with more martyrs than militants — but with the list intact, the paper printing, and in three or four corners of the Republic, people who never sold. ?]
+
+[? if ending = "media" : The Movement came out of the long decade as something that seemed impossible in 1968: a real national organization — present in the factories, in the Montana of Guerrero, in the normal schools and universities, with tested cadres and a press the regime read with professional attention. It was not power. It was, for the first time in a generation, the possibility of power. ?]
+
+[? if ending = "fuerte" : What came out of the decade nobody had budgeted for, Bucareli least of all: a mass left — still a minority, but a mass — with real presence among workers despite don Fidel, a peasant base in three states, the generation of 68 formed in its ranks, and a national sympathy the regime could no longer round to zero. The political reform was not a gracious concession. It was a recognition of force. Yours. ?]
+
+[? if ending = "reconocimiento" : The impossible, with a date on it: on the sixth of July, 1988, the Republic voted, the system attempted its greatest alquimia, and the alquimia broke against twenty years of watched casillas, duplicated actas, and witnesses who did not go home to sleep. An elected president took office. The apparatus did not die — apparatuses never do — but from that night on it governs a country that knows how to count. ?]
+
+[? if ending = "historico" : The fraud was consummated; the country that watched it did not come apart. Out of the wave and the wound came, in May of 1989, the new party — founded on the registro your Movement carried for two decades, with the cadres you formed and the lists you kept. It was not the victory. It was the founding of the house where victory, someday, would have an address to arrive at. ?]
+
+[? if ending = "ruptura" : Eleven days the Republic will neither forget nor forgive nor resolve: the country stopped, the state answering in its oldest language, and the lists growing at a pace memory could barely sustain. History will judge the match — you struck it, with open eyes — and no version of that judgment will be able to say the people were unwilling. ?]
+
+[? if ending = "irrelevancia" : The wave passed you by. Coherence was preserved whole — program, independence, tradition — and history, which rewards presence rather than coherence, founded its next decade under other names. What remains: the cadres, the analysis, and the question with no statute of limitations: what is the use of being right in the next room? ?]
+
+[? if memorial >= 6 : The list carries [+ memorial +] names added in these years. It was kept complete: name, date, place. None of the three copies fell. ?]
+[? if memorial >= 1 and memorial <= 5 : The list carries [+ memorial +] names added in these years. Few, for the decade it was. Enough to never sleep quite the same. ?]
+
+- @slide_faltas: Continue.
+
+@slide_faltas
+new-page: true
+
+= What was not
+
+[? if postura_guerrilla = 1 : The deslinde from the armed road kept the Party alive and legal-in-waiting — and left the bravest generation of the era to die alone in the sierras and the safe houses. If there was another road, nobody found it in time. The corridos do not forgive, and neither do the minutes. ?]
+[? if postura_guerrilla = 2 : The calculated ambiguity proved exactly that: calculated, by both sides. The DFS never forgave you; the guerrilla never embraced you. The wire was walked — but a wire is not a bridge. ?]
+[? if postura_guerrilla = 3 : The discreet channels saved lives no archive will ever count, and cost a mortgage of expediente paid with interest. When the history is written, that line will not appear — which was the point. ?]
+[? if postura_guerrilla = 0 : On the armed question the Movement never said anything, which was its way of saying everything. Silence was the only line executed to perfection. ?]
+
+[? if charrismo >= 80 : The charro wall ended the era intact. Don Fidel buried another challenge and kept smoking; the working class remained organized by the state against itself. The Mexican century largest unpaid debt remains unpaid. ?]
+[? if charrismo < 80 : The charro wall ended the era cracked — not broken, but cracked in plain sight, and walls that crack once are surveyed differently forever. ?]
+
+[? if registro = 0 : And the electoral door was never opened: without registro, a million hands writing names the Comision burns unread. What the reform made possible, others will play. Or you — in the next of history rounds. ?]
+
+- @snap_libro: Continue.
+
+@snap_libro
+new-page: true
+
+= Snapshot: a book, 2014
+
+*(From "El siglo de las izquierdas en Mexico", Fondo de Cultura Economica, 2014 — chapter 7, translated:)*
+
+[? if ending = "aniquilacion" : "...by the late seventies the old party was already the property of doctoral theses rather than police reports. The question that organizes this chapter is not why it disappeared — causes abound — but why its disappearance mattered so much: for half a century it had been the only institutional deposit of a memory the state required not to exist. When the deposit closed, memory passed to private hands: mothers, widows, schoolteachers with notebooks. It would take twenty years to find premises again." ?]
+
+[? if ending = "debil" or ending = "media" : "...historiography has been unjust to that short decade. Seen from 1988 it looks like a mere prologue; seen from inside, it was politics in its phase of primitive accumulation: every assembly in Nezahualcoyotl, every contested teachers section, every list of the disappeared preserved against all practical reason, constituted the capital with which the left arrived — thin but alive — at the door that 1977 half-opened. The protagonists of this book did not know they were a prologue. They worked as if they were the whole volume." ?]
+
+[? if ending = "fuerte" : "...it should be remembered that none of it was written in advance. In October of 1968 the Mexican left was five thousand militants with sealed offices and imprisoned cadres. That a decade later it was the force that obliged the state to reform constitutes one of the rare Latin American cases in which an organization defeated in the plaza remade the board without taking a single palace." ?]
+
+[? if ending = "reconocimiento" : "...the manuals call the Mexican 88 the first counted transition: not a pact of elites but a ledger defended. The lampara — as the cadres called their casilla network — proved the century most improbable revolutionary instrument: a form, guarded by rural schoolteachers, against which a sixty-year regime broke." ?]
+
+[? if ending = "historico" : "...the founding paradox of 88: the fraud triumphed and, in triumphing, manufactured its own gravedigger. The party born in May of 1989 inherited from the old movement its infrastructure, its martyrology and its arithmetical stubbornness; from cardenismo, the millions. Mexican democratization, one of its architects would later write, was the illegitimate daughter of that night of dead screens." ?]
+
+[? if ending = "ruptura" : "...over the Eleven Days the historiography maintains a civil war of its own: crushed insurrection, or a general strike betrayed by its own grandeur? What is not disputed: after 1988 the Mexican state never again pretended normality, and the lists — all three copies survived — founded the jurisprudence of memory that would, decades later, seat the responsible before judges." ?]
+
+[? if ending = "irrelevancia" : "...a chapter apart belongs to the historic left that arrived whole and alone at the shore of 88: its program was the most coherent of the era, and its absence from the wave remains the most studied decision in Mexican political science, which has used it ever since as the classic illustration that, in transitions, presence is the only theory that votes." ?]
+
+- @snap_foro: Continue.
+
+@snap_foro
+new-page: true
+
+= Snapshot: a thread, 2019
+
+**ForoMexico / History / What actually happened to the 70s left?**
+
+**tlacuache_rojo:** My grandmother says she hid the party mimeograph on her roof in 71. Anyone else have stories like this or is my abuela pulling my leg?
+
+[? if ending = "aniquilacion" : **doctor_atl_fan:** She is not. There was a whole network. It got eaten alive between the DFS and the internal wars. My uncle says the saddest part was not the repression — it was that by the end there was no one left to tell. ?]
+
+[? if ending = "aniquilacion" : **moderador_charro:** Thread locked for politics. You know the rules. ?]
+
+[? if ending = "debil" or ending = "media" : **doctor_atl_fan:** My dad sold the paper outside the SEP. He says they were four cats, but the four cats kept THE LIST. That list is in the memory museum now, if you feel like crying a little. ?]
+
+[? if ending = "debil" or ending = "media" : **ana.sin.acentos:** The wild part is that half of today social movements come out of that. Scratch any democratic union or neighborhood committee and there is one of those old-timers underneath. ?]
+
+[? if ending = "fuerte" : **doctor_atl_fan:** "What happened"? Compa, half of today political map descends from it. The detail they skip in school — when the government "opened up" in 77, it was not kindness. It opened because it could no longer count to a hundred without a million annulled votes left over. ?]
+
+[? if ending = "fuerte" : **tlacuache_rojo:** LOL the Campa corrido my abuela sings says exactly that — "un millon de nombres que el gobierno no conto." ?]
+
+[? if ending = "reconocimiento" : **doctor_atl_fan:** My mom was a casilla representative in 88. She still has her copy of the acta, framed. She says when "the system crashed," nobody at her casilla moved: "let it crash — WE already counted." ?]
+
+[? if ending = "historico" : **doctor_atl_fan:** What nobody tells you: today big party exists because the old-timers NEVER let go of the registro. Decades hauling papers from basement to basement so there would be somewhere to found something the night it was needed. Heroic bureaucracy — that is the technical term. ?]
+
+[? if ending = "ruptura" : **doctor_atl_fan:** My uncle was in the Eleven Days. He will not talk about it. He talks about the day BEFORE — says he has never again seen the country that awake, and that is why he regrets nothing. Screenshot this thread, they are going to lock it. ?]
+
+[? if ending = "irrelevancia" : **doctor_atl_fan:** That is my grandparents party. Serious program, serious people — and in 88 they watched the wave from the shore, out of purity. My grandfather calls it "coherence." My grandmother, who was in the CEU, uses a different word. ?]
+
+- @snap_final: Continue.
+
+@snap_final
+new-page: true
+
+= Snapshot: a transcript, 2023
+
+*(Auto-generated transcript, video: "I interviewed my great-grandmother about 68" — 340K views)*
+
+—Were you afraid, bisabuela?
+
+—Every day, mijo. Fear was not the rare thing. The rare thing was the people who did the work with the fear still on.
+
+[? if ending = "aniquilacion" : —Was it worth it, if it all ended? ?]
+
+[? if ending = "aniquilacion" : —(long pause in the video) ...The apparatus ended, mijo. Apparatuses end. What we made with our hands is still out there, it just does not carry a card anymore. You, for example. You are here asking me. We made that too. ?]
+
+[? if ending = "debil" or ending = "media" : —And did it help anything? ?]
+
+[? if ending = "debil" or ending = "media" : —Look: every name we wrote down, somebody came searching for later. Every name. When the archives opened, the families arrived carrying OUR lists, because the government lists lied. It helped. It took forty years, but it helped. Patience is also a form of politics — just the kind that never gets photographed. ?]
+
+[? if ending = "fuerte" : —At school they told us your generation changed the country. ?]
+
+[? if ending = "fuerte" : —(laughs) It took us twenty years to win the first election they counted for us. TWENTY YEARS, mijo. People think history is the day of the triumph. No. History is the nineteen years, eleven months and twenty-nine days before it, with the rain coming down and the mimeograph broken. Write that down for your video. ?]
+
+[? if ending = "reconocimiento" : —What did you do that night, bisabuela? ?]
+
+[? if ending = "reconocimiento" : —I counted, mijo. All of Mexico counted that night. That is why I laugh when they say democracy was given to us: I watched it being added up, column by column, in pencil. ?]
+
+[? if ending = "historico" : —Were you not furious they stole the election? ?]
+
+[? if ending = "historico" : —The fury has lasted me to this day. But look: from the theft we built a house. On the sixth of July we lost a president and gained a people that never again went along quietly. In the long run, I could not tell you which was worth more. ?]
+
+[? if ending = "ruptura" : —Were you in the Eleven Days, bisabuela? ?]
+
+[? if ending = "ruptura" : —(silence) ...Just write down this much: do not let anyone tell you it was madness. It was the most expensive sanity of my life. And write down the names — that is what we always kept the list for. ?]
+
+[? if ending = "irrelevancia" : —Why did your people not join the wave in 88? ?]
+
+[? if ending = "irrelevancia" : —We had reasons, mijo. Very good ones. So good I still recite them alone in the kitchen, to see if they can convince the walls. ?]
+
+- @terminar: Fin.
+
+@terminar
+go-to: game_over

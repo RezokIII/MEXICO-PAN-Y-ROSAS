@@ -1,0 +1,22 @@
+title: La generación bisagra
+new-page: true
+subtitle: 1980 — the 68ers pass the banner
+tags: event
+view-if: year = 1980 and month = 9 and jc_saga >= 1
+priority: 2
+max-visits: 1
+
+= La generación bisagra
+
+The '68 generation crosses into its thirties this year and the JC's leadership passes, in one congress, to people who were children when the plaza happened. The transfer is the test every left fails eventually: whether the organization is a generation, or a relay.
+
+[? if jc_saga = 1 : The school model shows its worth: the outgoing cohort leaves behind formed successors — treasurers who can read books, section chiefs who have run campaigns — and the relay passes clean as a baton. ?]
+
+[? if jc_saga = 2 : The wide-door model shows its worth: the outgoing cohort leaves behind a small city of the formed and half-formed, and the congress is chaos, and out of the chaos comes a leadership nobody chose and everybody follows. It is not tidy. It is alive. ?]
+
+- @relevo: Hand it over whole. The relay, not the generation.
+
+@relevo
+on-arrival: sup_students += 3; unity += 2; political_capital += 1
+
+The new secretariat's average age is twenty-two. Their first circular misquotes Lenin and organizes three prepas in a month. In six years, when the CEU explodes at the university, the people running its sound system, its printing, and half its strategy table will be exactly these kids — and they will remember which party raised them.

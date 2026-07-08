@@ -1,0 +1,23 @@
+title: El emisario
+new-page: true
+subtitle: Arguing the line where the line is a firing line
+on-arrival: month_actions += 1
+max-visits: 20
+is-card: true
+frequency: 50
+tags: canales
+
+= El emisario
+
+Once or twice a year it can be done: an emisario up the mule tracks with newspapers, tobacco, and the argument — the old argument, masses against foco, patience against the beautiful gesture — conducted at a campfire with men who have buried the counterarguments. Nobody has ever won this debate. The point is to keep it open: an armed current that still argues with you is one that has not yet decided you are the enemy.
+
+- @subir: Send the emissary up. The argument, the newspapers, the door kept open.
+- @root: The tracks stay unwalked this season.
+- @easy_discard
+
+@subir
+choose-if: organizers >= 2 and postura_guerrilla >= 2
+unavailable-subtitle: The emissary must exist, and the line must permit him.
+on-arrival: guerrilla_meter -= 3; sup_peasants += 2; expediente += 3; political_capital += 1
+
+Two weeks, one campfire, the whole heresiology of the Mexican left argued to a draw under Orion. Nothing is conceded. But a comandante who has read this month's paper quotes it grudgingly at the next one, and two of his younger men begin asking about the amnesty rumor — which is how every war in Guerrero has actually ended: one campfire conversation at a time.

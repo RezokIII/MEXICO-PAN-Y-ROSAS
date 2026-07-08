@@ -1,0 +1,28 @@
+title: Managua
+new-page: true
+subtitle: 19 de julio de 1979
+tags: event
+view-if: year = 1979 and month = 7
+priority: 2
+max-visits: 1
+
+= Managua
+
+Somoza's dynasty — forty-five years, three dictators, one surname — collapses in a week of columns converging on Managua, and on the nineteenth of July the Frente Sandinista enters the capital. The Mexican government, which broke relations months ago and let the Frente's people organize openly in the Federal District, celebrates as if it had planned the whole thing; the President's men are already talking oil credits and reconstruction.
+
+For the left the emotion is older and harder to govern. It is the first victorious revolution in the Americas since Cuba — done with rifles, catechists, and poets, none of it by ballot — and every JC local wants to talk about it, and not abstractly. The generation you kept off the guerrilla road watches the road win, somewhere else, on television.
+
+- @brigadas: Organize solidarity brigades — coffee harvests, literacy volunteers, medical supplies. Give the emotion honest work.
+- @distancia: Salute and stay home. Nicaragua's road ran through a dynasty, not a corporatist machine; analogy is the era's most dangerous drug.
+
+@brigadas
+choose-if: funds >= 3
+unavailable-subtitle: The brigades travel by bus, and they eat. The box is empty.
+on-arrival: funds -= 3; sup_students += 4; moscow_relation += 2; expediente += 2; guerrilla_meter += 2
+
+The brigades go south with the euphoria and come back with something better: the sight of a state being rebuilt from nothing by people their own age. The DFS registers every passport. The energy pours into the fronts and the campaign — though in some eyes you can see the other lesson glinting, the one about what rifles accomplished, and you will be managing that glint for years.
+
+@distancia
+on-arrival: fac_nueva_izquierda -= 3; sup_students -= 2
+
+The editorial salutes the Nicaraguan people and analyzes, correctly, the differences of structure. Correct analysis is the Party's specialty and its tax: the JC reads it as one more prudence in the long ledger of prudences, and a dozen of the restless find their own way south without you.

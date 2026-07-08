@@ -1,0 +1,28 @@
+title: La Coordinadora
+new-page: true
+subtitle: Diciembre de 1979 — Tuxtla Gutiérrez
+tags: event
+view-if: year = 1979 and month = 12
+priority: 2
+max-visits: 1
+
+= La Coordinadora
+
+It begins where the SNTE's writ runs thinnest and the paychecks arrive latest: Chiapas, teachers striking over salaries eaten by inflation, then Tabasco, then the Montaña. In December the currents meet in Tuxtla Gutiérrez and found the **Coordinadora Nacional de Trabajadores de la Educación** — not a rival union, something craftier: a coordination *inside* the SNTE, contesting it section by section, assembly by assembly, with the one weapon Vanguardia Revolucionaria cannot confiscate: the teachers themselves.
+
+Half the founding activists learned organizing in your circles, Othón's people above all. The question is the Party's posture toward its unruly godchild.
+
+- @adentro: Commit organizers to the CNTE's section wars. The largest union in Latin America, contested from below — there is no bigger prize in the labor movement.
+- @bendicion: Bless it from a respectful distance. Coordinadoras guard their autonomy like theology; a Party embrace could kill what it loves.
+
+@adentro
+choose-if: organizers >= 3
+unavailable-subtitle: Section wars are fought with cadres present, not with editorials.
+on-arrival: sup_teachers += 7; charrismo -= 2; expediente += 3; huelgas += 4
+
+Section 7, Section 22: names that will carry decades. Your people work the assemblies as teachers first and militants second, which is the only way the Coordinadora tolerates — and Vanguardia's answer runs from bribes to beatings to worse. The teachers bury their dead, elect their committees anyway, and the SNTE discovers that a million members include a great many people who can read.
+
+@bendicion
+on-arrival: sup_teachers += 3; political_capital += 1
+
+Editorial support, legal help when sections are assaulted, and scrupulous distance from their assemblies. The Coordinadora notes the respect. It grows on its own logic, wilder and slower than you could have made it, and entirely itself — which may, in the long run, be worth more than influence. May.

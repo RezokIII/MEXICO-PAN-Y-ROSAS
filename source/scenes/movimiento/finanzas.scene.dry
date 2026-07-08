@@ -1,0 +1,33 @@
+title: Finanzas del Movimiento
+new-page: true
+subtitle: The treasury is a shoebox
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 90
+tags: movimiento
+
+= Finanzas del Movimiento
+
+The treasurer reports with the brevity of a man reporting a drought. Dues arrive in coins; the press eats paper; the lawyers eat everything else. Money is politics in its most honest costume.
+
+- @cuotas: A dues campaign. Ask the members for what the members barely have.
+- @simpatizantes: Pass the hat among the wealthy sympathizers — the doctors, the architects, the guilty.
+- @festival: A festival: music, mezcal, poetry, a raffle. Politics disguised as a party.
+- @root: The shoebox survives another month.
+- @easy_discard
+
+@cuotas
+on-arrival: funds += 1 + members*0.3; unity += 1
+
+The section treasurers do their rounds. A peso from the teacher, two from the printer, a folded five from the widow who says don Valentín once fixed her husband's pension. It is not much. It is owned outright.
+
+@simpatizantes
+on-arrival: funds += 6; expediente += 2; fac_ortodoxos -= 2
+
+Dinner in the Roma: a cardiologist, two architects, a novelist between prizes. The checks are generous and the conversation is exhausting — everyone at the table has a strategy for the Party and none of them has a membership card. The DFS photographs the doorway from a parked Galaxie, which will cost the cardiologist a customs audit.
+
+@festival
+on-arrival: funds += 3; sup_students += 2
+
+Judith Reyes sings the corrido of Tlatelolco and the hall goes quiet in the middle of the dancing; then Los Nakos, then the raffle — first prize a mimeograph, donated, slightly jailed. The take is modest. The eight hundred people who now know each other's faces are not.

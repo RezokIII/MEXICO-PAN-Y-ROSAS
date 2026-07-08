@@ -1,0 +1,30 @@
+title: El charrazo
+new-page: true
+subtitle: The state remembers who owns the strike
+tags: event
+view-if: (huelgas >= 25 or huelga_prep >= 45) and time >= charrazo_last + 14
+priority: 2
+frequency: 70
+max-visits: 5
+on-arrival: charrazo_last = time; huelgas -= 8; represion += 2
+
+= El charrazo
+
+The counterstroke arrives with the full toolkit: strikes declared *inexistentes* by labor boards that met for eleven minutes; the cláusula de exclusión wielded like a scythe — expelled from the union, therefore fired, therefore blacklisted; golpeadores at three plant gates with credentials and bats; and where the theater demands it, the requisa clause dusted off and read aloud. Don Fidel does not appear in person. Don Fidel never appears in person.
+
+The insurgent committees are the target; the question is what survives the season.
+
+- @resistir_charrazo: Fight it gate by gate — legal defense for the expelled, strike funds opened, the pickets held against the bats.
+- @repliegue_charrazo: Planned retreat — save the delegate web and the funds, concede the visible structures, rebuild in the dark.
+
+@resistir_charrazo
+choose-if: huelga_prep >= 30
+unavailable-subtitle: Resistance takes the committees you did not finish building: readiness below 30 means bats win.
+on-arrival: huelga_prep -= 5; sup_workers += 3; memorial += 1; represion += 3; political_capital += 2
+
+The gates hold at two plants of five; the expelled are carried on the strike funds through the worst of it; one delegate's name goes on the list. Costly — and clarifying: the committees that stood are now veterans, and the sectors watching learned that the charrazo can be survived, which don Fidel's whole method depends on nobody knowing.
+
+@repliegue_charrazo
+on-arrival: huelga_prep -= 12; huelgas -= 4; sup_workers -= 2; unity += 1
+
+The visible structures fold in good order; the web of delegates submerges intact. It is the textbook answer and the textbook cost: months of readiness surrendered, and in the plants a bitterness with two addresses — one for the charros, one for the leadership that chose to live.

@@ -1,0 +1,25 @@
+title: The cadre school
+new-page: true
+subtitle: Organizers are made, not found
+view-if: members >= 8
+on-arrival: month_actions += 1
+max-visits: 4
+is-card: true
+frequency: 50
+tags: movimiento
+
+= The cadre school
+
+The rarest resource in the Movement is not money or courage; it is the formed cadre — the person who can run a strike fund, read a legal notice, hold an assembly, and disappear a membership list in the correct order. A school can make them: six months, full time, the best veterans teaching. It is the most expensive thing the Movement can buy, and the only investment that raises the ceiling on everything else.
+
+- @graduar: Run a generation through the school. (This card appears only four times in twenty years: the school is a sacrifice each time.)
+- @root: The school waits for a richer season.
+- @easy_discard
+
+@graduar
+subtitle: -10 funds, requires 12,000 members
+choose-if: funds >= 10 and members >= 12
+unavailable-subtitle: The school eats the treasury and draws on the membership. Ten funds and twelve thousand members, or it cannot open.
+on-arrival: funds -= 10; organizers += 1; unity += 2; political_capital += 2
+
+Six months later the Movement has something it cannot buy elsewhere at any price: one more person who can be trusted with everything. The graduates take the school's habit with them — teaching the person behind them — and the ceiling on every plan you will ever make rises by exactly one.

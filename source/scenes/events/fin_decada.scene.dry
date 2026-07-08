@@ -1,0 +1,30 @@
+title: Veinte años
+new-page: true
+subtitle: Febrero de 1988 — vísperas
+tags: event
+view-if: year = 1988 and month = 2
+priority: 3
+max-visits: 1
+on-arrival: {!
+Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital + Math.round(Q.unity / 2) - Q.memorial + Q.registro * 10 + Q.izq_seats + Q.municipio_alcozauca * 8 + Q.psum * 8 + Q.pms * 8 + Q.red_casillas / 4 + Q.cd_rel * 6 + Q.municipio_juchitan * 6 + Q.costureras * 4;
+if (Q.fuerza_final >= 95) { Q.ending = "fuerte"; }
+else if (Q.fuerza_final >= 60) { Q.ending = "media"; }
+else { Q.ending = "debil"; }
+if (Q.fuerza_final >= 95) { this.achieve('la_fuerza'); }
+else if (Q.fuerza_final >= 60) { this.achieve('la_acumulacion'); }
+else { this.achieve('la_semilla'); }
+!}
+
+= Veinte años
+
+MÉXICO, D.F., febrero de 1988 —
+
+The campaign is in the plazas: Cárdenas in La Laguna drawing crowds the press declines to count, Castillo working the union halls, Salinas touring a country that has stopped applauding, and in every district office of the Comisión, Bartlett's men preparing July's arithmetic. Twenty years since the plaza of Tlatelolco — and five months from the night the system will have to choose between counting and surviving.
+
+The eve. Twenty years of work — members, casillas, alliances, the list — are about to be weighed on a single July night. The leadership takes stock of what October's orphans bring to the battle.
+
+- @balance: El balance — y a la campaña.
+
+@balance
+
+The inventory is read without adjectives: [? if fuerza_final >= 95 : the Movement arrives strong — a real force with real infrastructure, and the wave rising to meet it. ?][? if fuerza_final >= 60 and fuerza_final < 95 : the Movement arrives standing — enough built to matter, not enough to be safe. ?][? if fuerza_final < 60 : the Movement arrives thin — twenty years distilled into too few hands. The wave may carry others. ?] Five months to the sixth of July.

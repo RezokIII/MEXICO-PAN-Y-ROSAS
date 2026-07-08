@@ -1,0 +1,29 @@
+title: Ciudad Nezahualcóyotl
+new-page: true
+subtitle: 1972 — la ciudad que la ciudad no admite
+tags: event
+view-if: year = 1972 and month = 5
+priority: 2
+max-visits: 1
+
+= Ciudad Nezahualcóyotl
+
+East of the airport, on the dust of the dead lake, the largest city nobody planned keeps doubling: Nezahualcóyotl, half a million people and counting, streets of talc in the dry season and of mud in the wet, no water mains, no drainage, no titles — and a plague of *fraccionadores*, developers who sold the same unserviced lot three times and collect on all three sales with lawyers and golpeadores.
+
+The colonos have begun a payment strike against the fraccionadores — tens of thousands of families simply refusing — and their movement is raw, enormous, and looking for allies who won't try to own it.
+
+- @echar_raices: Commit to Neza for the long haul: an office, two organizers, the legal team on the títulos fight. Not a campaign — a residency.
+- @apoyo_leve: Support the payment strike from outside — press, lawyers on loan, solidarity when called.
+
+@echar_raices
+subtitle: -4 funds, 2 cuadros comprometidos
+choose-if: funds >= 4 and organizers >= 2
+unavailable-subtitle: Putting down roots in the lost city requires funds and full-time cadres.
+on-arrival: funds -= 4; colonia_saga = 1; sup_colonos += 5; expediente += 3
+
+The office is a room with a tin roof that doubles as school, notary line, and assembly hall. Your organizers learn the colonia's real map — which wells work, which cacique sells protection, which señoras actually run each street — and the colonia learns your people stay after the marches. Roots, in Neza, are the only currency that appreciates.
+
+@apoyo_leve
+on-arrival: sup_colonos += 2
+
+The strike wins its restructuring without you at the center: the state, terrified of half a million organized squatters, expropriates the fraccionadores itself and takes the credit. Support duly noted, distantly. The lake bed keeps growing its city, and its politics, with other gardeners.

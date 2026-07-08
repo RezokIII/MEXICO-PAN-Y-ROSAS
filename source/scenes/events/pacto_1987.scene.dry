@@ -1,0 +1,21 @@
+title: El año del crac
+new-page: true
+subtitle: Octubre-diciembre de 1987
+tags: event
+view-if: year = 1987 and month = 12
+priority: 2
+max-visits: 1
+on-arrival: salario_real -= 4; peso_dolar = 2200; gran_capital += 4; capital_extranjero += 4; sup_middle += 2; clima_neoliberal += 5
+
+= El año del crac
+
+October: the Bolsa, inflated all year into the sexenio's one advertised miracle, collapses — small savers who were coaxed in by the government's own optimism watch a decade of patrimony evaporate in three weeks. November: the peso falls off its crawling peg. December: inflation touches one hundred sixty percent, and the government answers with the **Pacto de Solidaridad Económica** — wages, prices and the exchange rate corseted by agreement between the state, don Fidel's unions, and the businessmen, signed with the solemnity of a treaty and paid, as all three signatories understand, chiefly by the wage.
+
+It is the austerity's final form: the crisis managed *into* the election year, the bill presented to the only party not at the table. In the colonias and the gates, the fury has stopped being economic and become something older. The Republic enters 1988 with a broken market, a corseted wage, a defecting elite, a candidate named Cárdenas — and a count run by Manuel Bartlett.
+
+- @cosechar: The Movement spends the winter where the bill is being delivered: gates, mercados, colonias. Let the Pacto's arithmetic make the argument; you provide the conclusion.
+
+@cosechar
+on-arrival: sup_colonos += 3; sup_workers += 2; political_capital += 2
+
+The leaflet is one page and mostly numbers: what the Pacto holds down, for whom, signed by whom. At the gates men read it and fold it into shirt pockets, which is where arguments are carried when they have been accepted. Twenty years of work, and history itself has taken over the agitprop. July is seven months away.

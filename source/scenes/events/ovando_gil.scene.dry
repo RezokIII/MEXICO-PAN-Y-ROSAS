@@ -1,0 +1,29 @@
+title: Los dos de Cárdenas
+new-page: true
+subtitle: 2 de julio de 1988
+tags: event
+view-if: year = 1988 and month = 7
+priority: 3
+max-visits: 1
+on-arrival: memorial += 2; represion += 3
+
+= Los dos de Cárdenas
+
+Four days before the vote, at nightfall, Francisco Xavier Ovando — the cardenista campaign's electoral operations chief, the man building their parallel count — and his aide Román Gil are shot dead in their car in the middle of the capital, the documents they carried gone. No robbery; nothing else taken. The message requires no cryptographer: *we see your count.*
+
+The campaign refuses the bait of panic; Cárdenas announces the deaths to a stone-silent Zócalo and continues. In your own headquarters the security review is immediate — the red de casillas is now, demonstrably, a target list.
+
+- @blindar: Harden the network: duplicate the acta routes, anonymize the couriers, lawyers on standby at every district. Spend what it costs.
+- @denunciar_martires: Put the murders at the campaign's center — the state is killing the count; say it in every plaza before the state can kill the saying.
+
+@blindar
+choose-if: funds >= 5
+unavailable-subtitle: Hardening the network costs funds you do not have — with four days left.
+on-arrival: funds -= 5; red_casillas += 5; expediente += 2
+
+Ninety-six hours of quiet fury: routes tripled, copies quadrupled, the telephone tree rebuilt around dead drops an old clandestino designed from memory. If they intend to take the count, they will now have to take it casilla by casilla, in front of witnesses, all night long.
+
+@denunciar_martires
+on-arrival: political_capital += 3; sup_middle += 2; represion += 1
+
+The names go onto the closing rallies' banners between the candidates': OVANDO Y GIL — LOS PRIMEROS VOTOS. The dead men make the argument no living speaker could: whatever happens on the sixth is not an election but a defense. Turnout instructions change accordingly: vote early, stay near, do not go home.

@@ -1,0 +1,24 @@
+title: The ground campaign
+new-page: true
+subtitle: The wave needs a skeleton
+on-arrival: month_actions += 1
+max-visits: 12
+is-card: true
+frequency: 85
+tags: fdn
+
+= The ground campaign
+
+The crowds are enormous and the machinery is improvised: the Frente has enthusiasm where it needs infrastructure. Your networks — the casillas, the colonias, the CEU brigades — are the only professional ground game the coalition owns.
+
+- @desplegar: Deploy them under Frente colors: rallies staffed, districts mapped, casillas assigned.
+- @root: Hold them in reserve.
+- @easy_discard
+
+@desplegar
+subtitle: -3 funds
+choose-if: funds >= 3 and organizers >= 2
+unavailable-subtitle: The ground game runs on funds and cadres.
+on-arrival: funds -= 3; frente_unidad += 4; red_casillas += 3; sup_colonos += 1; expediente += 2
+
+The brigades that learned logistics in the earthquake and discipline at the CEU now run the wave's street operation. Every district mapped is alquimia denied in advance; every rally that ends in casilla signups converts emotion into arithmetic — the only currency July will honor.

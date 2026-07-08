@@ -1,0 +1,37 @@
+title: El senador en la sierra
+new-page: true
+subtitle: Mayo-septiembre de 1974
+tags: event
+view-if: year = 1974 and month = 6
+priority: 3
+max-visits: 1
+on-arrival: represion += 6
+
+= El senador en la sierra
+
+Lucio Cabañas has taken Rubén Figueroa — senator, cacique, the President's friend and Guerrero's next governor, a man built like the system he embodies — and holds him somewhere in the folds of the Costa Grande. The Partido de los Pobres asks ransom and releases; the state answers with the largest military operation in modern Mexican memory: a third of the army into one state, roadblocks at every junction, entire villages emptied for interrogation, and the flights out of Pie de la Cuesta that leave loaded and return light.
+
+Officially none of this is happening. The capital's papers cover the World Cup. In Atoyac the disappearances are counted in the dozens per month, and the count is kept by widows, because keeping it is now itself a crime with no name.
+
+Your networks in the state — Othón's teachers, the coffee committees — are inside the dragnet with everyone else, and they are asking for instructions.
+
+- @denunciar: Denounce the kidnapping, demand the senator's release — and buy the standing to say the word "desapariciones" in the same breath.
+- @refugio: The committees hide the hunted — not the combatants, the *neighbors*: the teacher on a list, the widow who counted, the boy whose brother went up the hill.
+- @silencio: Instruct the networks to freeze. Survive the sweep; organize the ashes after.
+
+@denunciar
+on-arrival: pri_reformist_rel += 3; sup_middle += 2; sup_students -= 3; guerrilla_meter += 1
+
+The statement condemns the kidnapping and itemizes, with dates, eleven disappearances from three municipios — the first time the two phenomena share a paragraph in anything printed south of the border. The government quotes the first half. The mothers of Atoyac notice the second half, and begin arriving at the Party's Guerrero locals holding photographs.
+
+@refugio
+choose-if: sup_peasants >= 20
+unavailable-subtitle: Hiding people requires a peasant base that trusts you with its lives. You do not have it on the Costa Grande.
+on-arrival: sup_peasants += 6; represion += 4; expediente += 5; memorial += 1
+
+Attics, wells, a coffee warehouse with a double count, the old routes over the sierra to Michoacán walked at night. Most make it. One safe house falls — a name on the memorial, a family moved north — and still the villages keep offering their attics, because the arithmetic of the Costa Grande has resolved to this: the Party hides people, the government hides *from* people what it does with them.
+
+@silencio
+on-arrival: sup_peasants -= 4; unity -= 2
+
+The networks freeze; the sweep passes over them like weather over stones. Organizationally impeccable. In the villages it is remembered differently — doors that did not open, in the year when doors were the whole of politics — and when the committees reconvene next spring, some chairs stay empty out of something other than fear.

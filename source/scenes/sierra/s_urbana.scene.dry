@@ -1,0 +1,42 @@
+title: Urban operations
+new-page: true
+subtitle: Safe houses, bus routes, the border
+view-if: via = "armada" or via = "dual"
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 85
+tags: sierra
+
+= Urban operations
+
+The rural columns hold ranges; the urban networks hold something subtler — printing, logistics, money, the doors the hunted knock on. Three cities carry the weight, each with its own craft.
+
+- @urb_tijuana: Tijuana — the border: crossings, supplies, dollars, the longest escape route in the Republic.
+- @urb_valle: Mexico City — deepest waters, thickest garrison, the war argued in paint and print.
+- @urb_jalisco: Guadalajara — the old Liga country: cadres who know the craft, police who remember it too.
+- @easy_discard
+
+@urb_tijuana
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Border work runs on cash by definition.
+on-arrival: funds -= 2; pres_tijuana += 5; guar_tijuana += 4; funds += 4; inteligencia += 1; expediente += 2
+
+The line pays for itself: dollars change hands at honest rates, medical supplies cross south in produce trucks, and two compañeros with warm names cross north into long lives. The border is the war's pressure valve — and the customs post's new plainclothes team means the state has noticed the valve.
+
+@urb_valle
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: The capital is the most expensive city to be invisible in.
+on-arrival: funds -= 2; pres_valle += 5; guar_valle += 5; sup_students += 1; represion += 2; expediente += 3
+
+Safe houses in three colonias, a print shop behind a print shop, slogans on the periférico overpasses gone by noon and photographed by thousands first. The capital network is the war's voice — and the Brigada's first priority, which is the entire arithmetic of working here.
+
+@urb_jalisco
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even the old craft has overhead.
+on-arrival: funds -= 2; pres_jalisco += 5; guar_jalisco += 4; guerrilla_meter -= 1; expediente += 2
+
+Guadalajara remembers: the old Liga safe-house discipline, the tianguis counter-surveillance, the seminarians who went left and stayed. The network rebuilds on craft the DFS thought it had buried — and the city's files, thick with the seventies, begin acquiring fresh pages.

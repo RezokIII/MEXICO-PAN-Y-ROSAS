@@ -1,0 +1,30 @@
+title: La CONAMUP
+new-page: true
+subtitle: 1980 — the city's poor coordinate
+tags: event
+view-if: year = 1980 and month = 5
+priority: 2
+max-visits: 1
+
+= La CONAMUP
+
+In Monterrey, the urban popular movements of the Republic — posesionarios, water committees, renters' unions, the whole insurgent city — found their coordinadora: the CONAMUP. The Maoists who walked out of your party in '77 arrive as founders; so do the caciques' enemies from twenty cities; so does everyone who has ever built a school out of a payment strike.
+
+[? if colonia_saga >= 2 : And so do los de la oficina: the Neza committees arrive as one of the largest and best-organized delegations in the hall, their señoras chairing two working groups, your school of cuadros visible in the way their motions are drafted. Eight years of roots walk into the founding congress as founders. ?]
+
+[? if colonia_saga <= 1 : Your delegation attends as guests — welcomed, watched, and seated toward the back, in the space reserved for parties that discovered the colonias late. ?]
+
+- @construir: Build the coordinadora — resources and respect, autonomy honored, the long alliance.
+- @recelo: Engage carefully; coordinadoras eat parties that hug too hard.
+
+@construir
+choose-if: colonia_saga >= 2 or sup_colonos >= 25
+unavailable-subtitle: To build it you must arrive with a base of your own; you have none in the colonias.
+on-arrival: colonia_saga = 3; sup_colonos += 6; huelgas += 3; political_capital += 2
+
+The alliance sets its terms honestly — coordination without capture — and holds, because it was built on eight years of evidence rather than a resolution. When the austerity decade opens its wounds in the cities, the CONAMUP will be the ambulance and the fist, and your people will be inside both.
+
+@recelo
+on-arrival: sup_colonos += 2
+
+Respectful distance, dues paid in solidarity. The coordinadora grows its own way. In its assemblies your name is one ally among many — which, in the hard years coming, is the difference between being called first and being called eventually.

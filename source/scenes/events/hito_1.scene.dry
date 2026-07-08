@@ -1,0 +1,25 @@
+title: El camino: sobrevivir
+new-page: true
+subtitle: First milestone
+tags: event
+view-if: year >= 1971 and camino1 = 0 and members >= 5 and unity >= 40
+priority: 2
+max-visits: 1
+on-arrival: {!
+Q.camino1 = 1;
+Q.political_capital += 3;
+Q.unity += 3;
+this.achieve('camino_sobrevivir');
+!}
+
+= El camino: sobrevivir
+
+The Central Committee's year-end balance is one page, and its first line would read as modest anywhere but here: *the Party exists.* Two years after Tlatelolco — after the raids, the frame-up, the exodus and the winter — the organization stands: cells meeting, presses printing, dues arriving in coins, the family still at one table.
+
+In the graveyard of Mexican oppositions, existence is the first victory, and the precondition of every other. The old cadres, who have buried more parties than the young ones have joined, permit themselves one small toast, seated.
+
+- @adelante: The first stone is laid. The road runs twenty years. Adelante.
+
+@adelante
+
+On the wall of the local someone pins a hand-lettered card that will stay there, yellowing, through everything that follows: *SEGUIMOS.* We continue. It is not a slogan. It is a report.

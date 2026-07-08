@@ -1,0 +1,23 @@
+title: La toma de posesión
+new-page: true
+subtitle: 1 de diciembre de 1976
+tags: event
+view-if: year = 1976 and month = 12
+priority: 3
+max-visits: 1
+on-arrival: presidente = "Lopez Portillo"; gobernacion = "Reyes Heroles"; sexenio_year = 1; presidente_cooptacion = 45; presidente_represion = 50; pri_aperturistas += 15; pri_tecnicos += 5; destape_phase = 0
+
+= La toma de posesión
+
+José López Portillo receives a Republic with a broken peso, an emptied treasury, a business class in open sulk, and a legitimacy elected by acclamation — and gives, everyone concedes, the speech of his life: reconciliation, discipline, *"we can do it,"* the professor's baritone steadying a room that arrived braced for worse. The markets exhale. The Monterrey Group returns some of its money from Texas on approval.
+
+For your purposes the appointment that matters is announced with the cabinet: at Gobernación, don Jesús Reyes Heroles — historian of liberalism, ideologue of the system's serious wing, a man who has argued for years, in books the regime displays and rarely reads, that a legitimacy crisis this deep has exactly one exit: *widen the arena*. Let the opposition in, count some of its votes, trade the street for the tribune. He now holds the ministry that owns the political police, the electoral commission, and the registry of parties — every door, and every lock.
+
+The whisper is already in the corridors, and it has a shape: a political reform, next year, perhaps profound. After Campa's million uncounted names, after the empty ballot, even the system's accountants concede the arithmetic. The question being drafted in Bucareli is the one this Party has waited thirty years to be asked — and the price tag is being drafted with it.
+
+- @medir: Year one of the new sexenio. Take the measure of the man, the minister, and the door about to be tested.
+
+@medir
+on-arrival: political_capital += 2
+
+On the Gobierno panel the meters settle to the new reign: cooptación moderate and calculating, represión lowered to the technocratic setting — selective, quieter, no less final for the selected. Between those needles, and behind Reyes Heroles' spectacles, sits the next act of this long game: the registry. Everything until now was the price of the ticket. The theater is about to open its doors.

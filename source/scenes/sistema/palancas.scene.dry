@@ -1,0 +1,24 @@
+title: The levers
+new-page: true
+subtitle: Every prisoner has a price; every judge has a friend
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 60
+tags: sistema
+
+= The levers
+
+The system is not a wall; it is a machine with operators, and operators have cousins, debts, ambitions and mortgages. When someone of yours is inside — or a raid needs softening, or a warrant needs losing — there are levers: the licenciado who clerked with the judge, the funcionario who owes the favor, the newspaper column that could name the torturer but might not.
+
+- @jalar: Pull the levers for the current cases — lawyers briefed, favors called, columns loaded.
+- @root: Save the levers; they wear out with use.
+- @easy_discard
+
+@jalar
+subtitle: -5 funds
+choose-if: funds >= 5 and pri_reformist_rel >= 10
+unavailable-subtitle: Levers need money in one hand and a relationship in the other.
+on-arrival: funds -= 5; represion -= 4; political_capital += 2; expediente -= 3
+
+Two files migrate to slower desks; a detainee acquires paperwork and therefore existence; a scheduled raid is rescheduled into oblivion by a signature with second thoughts. Nothing is won, exactly — the machine merely runs your people through its gentler gears for a season. In this Republic, that is a form of victory with a body count of zero, which is the rarest kind.

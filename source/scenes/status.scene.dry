@@ -1,0 +1,255 @@
+title: Status
+new-page: true
+is-special: true
+on-arrival: {!
+Q.peso_display = Q.peso_dolar.toFixed(2);
+Q.crecimiento_display = Q.crecimiento.toFixed(1);
+Q.inflacion_display = Q.inflacion.toFixed(1);
+Q.mando = 'estado';
+if (Q.gran_capital > Q.burguesia_estado && Q.gran_capital >= Q.capital_extranjero) { Q.mando = 'capital'; }
+if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_capital) { Q.mando = 'extranjero'; }
+!}
+
+= The Movement
+
+*Hover any highlighted term — people, institutions, mechanics — for context.*
+
+
+[+ month : month +] [+ year +]
+
+Funds: [+ funds +]
+
+Members (thousands): [+ members +]
+
+Organizers: [+ organizers +]
+
+Unity: [+ unity +]
+
+Political capital: [+ political_capital +]
+
+Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence is also read ?][? if postura_guerrilla = 1 : public deslinde ?][? if postura_guerrilla = 2 : calculated ambiguity ?][? if postura_guerrilla = 3 : discreet channels ?]
+
+= El camino
+
+[? if camino1 = 1 : I. Survive — DONE ?][? if camino1 = 0 : I. Survive: still exist in 1971 (5,000 members, the family at one table) — pending ?]
+
+[? if camino2 = 1 : II. Break the cerco — DONE ?][? if camino2 = 0 and camino1 = 1 : II. Break the cerco: 10,000 members — pending ?]
+
+[? if camino3 = 1 : III. The door — DONE ?][? if camino3 = 0 and camino2 = 1 : III. The door: registro plus ten seats — pending ?]
+
+[? if camino4 = 1 : IV. The foundations — DONE ?][? if camino4 = 0 and camino3 = 1 : IV. The foundations: a 30-casilla network and a governed municipio — pending ?]
+
+[? if camino5 = 1 : V. The convergence — DONE. July decides. ?][? if camino5 = 0 and camino4 = 1 : V. The convergence: the united front, with you as a founding wall — pending ?]
+
+= Internal corrientes
+
+Ortodoxos: [+ fac_ortodoxos : fuerza +] — mood: [+ des_ortodoxos : animo +][? if des_ortodoxos >= 60 : (they need Moscow respected or the tradition fed — soon) ?]
+
+Renovadores: [+ fac_renovadores : fuerza +] — mood: [+ des_renovadores : animo +][? if des_renovadores >= 60 : (they need the electoral-democratic road honored — soon) ?]
+
+Nueva izquierda: [+ fac_nueva_izquierda : fuerza +] — mood: [+ des_nueva : animo +][? if des_nueva >= 60 : (they need the street and the movements back on the agenda — soon) ?]
+
+[? if des_ortodoxos >= 50 or des_renovadores >= 50 or des_nueva >= 50 : A corriente past 50 dissent drains unity monthly and can force a fronda. The corrientes card in El Movimiento deck is the instrument. ?]
+
+= El sistema
+
+President: [? if presidente == "Diaz Ordaz" : Gustavo Díaz Ordaz (1964-1970) ?][? if presidente == "Echeverria" : Luis Echeverría Álvarez (1970-1976) ?][? if presidente == "Lopez Portillo" : José López Portillo (1976-1982) ?][? if presidente == "De la Madrid" : Miguel de la Madrid (1982-1988) ?]
+
+Year [+ sexenio_year +] of the sexenio.
+
+Co-optation: [+ presidente_cooptacion : cooptacion +]
+
+Repression: [+ represion : represion +]
+
+Gobernación: [? if gobernacion == "Echeverria" : Luis Echeverría — the man who signed the October orders. ?][? if gobernacion == "Moya" : Mario Moya Palencia — he inherited the files. All of them. ?][? if gobernacion == "Reyes Heroles" : Jesús Reyes Heroles — the ideologue. He speaks of reform, and may mean it. ?][? if gobernacion == "Bartlett" : Manuel Bartlett — smooth, patient, owner of the count. Remember the name. ?]
+
+Your DFS file: [+ expediente : expediente +]
+
+= PRI factions
+
+Políticos: [+ pri_politicos : fuerza +]
+
+Técnicos: [+ pri_tecnicos : fuerza +]
+
+Aperturistas: [+ pri_aperturistas : fuerza +]
+
+Duros: [+ pri_duros : fuerza +]
+
+[? if cd_formed = 1 : Corriente Democrática: the regime's prodigal sons are looking for the door. ?]
+
+= La sucesión
+
+[? if destape_phase = 0 : The President governs. Nobody discusses the succession. Aloud. ?]
+[? if destape_phase = 1 : Rumor season. The columnists write in code; the precandidatos smile too much. ?]
+[? if destape_phase = 2 : The pasarela. The hopefuls parade. The tapado already exists; only he does not know it — or only he does. ?]
+[? if destape_phase = 3 : The dedazo has fallen. The country just does not know it yet. ?]
+[? if destape_phase = 4 : The destape. The cargada begins: everyone always supported him. ?]
+
+= The Senate
+
+[? if year <= 1987 : 64 of 64 for the PRI. Nothing to see here. Yet. ?]
+[? if year >= 1988 and fdn >= 1 : 60 for the PRI — and 4 for the Frente: the DF and Michoacán elected the first opposition senators in the chamber's history. The room is no longer unanimous, and rooms never go back. ?]
+[? if year >= 1988 and fdn = 0 : 64 of 64 for the PRI, still — the wave broke on another shore, and the Senate never felt the spray. ?]
+
+@politics
+
+= Politics
+
+**The road**
+
+The line in force: [? if via = "politica" : insurgent political opposition ?][? if via = "institucional" : the reformist road — inside the antechambers ?][? if via = "armada" : the armed road — the Sierra desk is open ?][? if via = "dual" : the synthesis — two faces, one strategy, compounding risk ?]
+
+**The electoral road**
+
+Registro: [? if registro = 0 : none. The Party does not exist before the Comisión Federal Electoral — which exists entirely too much before the Party. ?][? if registro = 1 : conditional. You exist on probation, like new employees. ?][? if registro = 2 : definitive. A legal party, with everything that opens and everything it obliges. ?]
+
+The Movement's line: [? if ax_electoral >= 15 : firmly electoral ?][? if ax_electoral >= -14 and ax_electoral <= 14 : contested between the ballot and the street ?][? if ax_electoral <= -15 : mass-line and insurrectionary ?]
+
+Ideological definition: [? if ax_nacpop >= 10 : nacional-popular — the Mexican Revolution as native tongue ?][? if ax_nacpop >= -9 and ax_nacpop <= 9 : between the patria and the manifesto ?][? if ax_nacpop <= -10 : classical Marxist-Leninist ?]
+
+The Soviet question: [? if ax_sovietico >= 10 : aligned with Moscow ?][? if ax_sovietico >= -9 and ax_sovietico <= 9 : an uneasy balance ?][? if ax_sovietico <= -10 : declared independence — heretics with party cards ?]
+
+**The climate of ideas**
+
+Neoliberal hegemony: [+ clima_neoliberal : fuerza +][? if clima_neoliberal >= 50 : — the market creed has become common sense; swimming against it costs the middle class ?]
+
+Socialism's prestige: [+ prestigio_socialismo : fuerza +][? if prestigio_socialismo < 40 : — the word itself is losing the young; the battle of ideas will not wait ?]
+
+**Relations**
+
+With the PRI reformists: [+ pri_reformist_rel : relacion +]
+
+With Moscow: [+ moscow_relation : relacion +]
+
+Charro control of organized labor: [+ charrismo : fuerza +]
+
+@paramilitaries
+
+= Defense
+
+**The state's apparatus**
+
+Repression: [+ represion : represion +]
+
+Your DFS file: [+ expediente : expediente +]
+
+[? if year <= 1976 : Active instruments: the DFS of Gutiérrez Barrios and Nazar Haro; the granaderos; the white guards in the countryside[? if year >= 1971 : ; the Halcones, who officially do not exist ?][? if year >= 1974 : ; the Brigada Blanca, which exists even less and works even more ?]. ?]
+[? if year >= 1977 : Active instruments: the DFS at its technical peak; the Brigada Blanca in the cities; the army in what remains of the sierras. The dirty war no longer makes noise — it has perfected silence. ?]
+
+**The armed question**
+
+The Movement's line: [? if postura_guerrilla = 0 : undefined. Silence is also a position, and the worst one. ?][? if postura_guerrilla = 1 : public deslinde. The gun hands the state the war it prefers. ?][? if postura_guerrilla = 2 : calculated ambiguity. The DFS and the guerrilla both file you under "pending." ?][? if postura_guerrilla = 3 : discreet channels. Medicine travels without return addresses; names are warned before operations. The ledger of deniability thins every month. ?]
+
+The armed temptation among the young: [+ guerrilla_meter : tentacion +]
+
+[? if year >= 1971 and year <= 1974 : In arms: Lucio Cabañas' Partido de los Pobres on the Costa Grande[? if year <= 1972 : ; Genaro Vázquez's ACNR ?]; the Liga Comunista 23 de Septiembre in the cities from '73. Every action of theirs brings the judiciales through YOUR doors first. ?]
+[? if year >= 1975 and year <= 1980 : In arms: the remnants — the Liga, more hunted and more ferocious each year, tracked house by house by the Brigada Blanca. The sierra of Guerrero has gone quiet; silence, too, is administered. ?]
+
+**El memorial**
+
+Names added on your watch: [+ memorial +]. The state's deepest wager is that everyone forgets. The list is how that wager is lost.
+
+@polls
+
+= Polls
+
+The Republic publishes no polls; results are drafted before questions. What follows are the Movement's internal estimates — assembly counts, paper sales, dues, and the organizers' noses, which err less than the Comisión Federal Electoral.
+
+**National sympathy (the Movement's estimate)**
+
+PRI: [+ pri_votes_display +]% — the party of the state; its figure includes habit, fear and machinery, in proportions no one has measured.
+
+PAN: [+ pan_votes_display +]% — the permitted opposition; strong among the middle classes of the north and the Bajío.
+
+The left (you): [+ izq_votes_display +]% — [? if registro = 0 : sympathy without a ballot box: people who would vote for you if you legally existed. ?][? if registro >= 1 : sympathy that can finally become a ballot — wherever there is a watched casilla. ?]
+
+PPS: [+ pps_votes_display +]% — Marxist in speech, officialist at the urn.
+
+PARM: [+ parm_votes_display +]% — the system's retired generals.
+
+Others and spoiled: [+ otros_votes_display +]%
+
+**Support by sector**
+
+Students and intellectuals: [+ sup_students +]
+
+Industrial workers: [+ sup_workers +] [? if charrismo >= 50 : (the charro ceiling is in force: the wall caps growth) ?]
+
+Electricians and dissident unions: [+ sup_electricians +]
+
+Teachers: [+ sup_teachers +]
+
+Campesinos: [+ sup_peasants +]
+
+Urban colonos: [+ sup_colonos +]
+
+Middle classes: [+ sup_middle +]
+
+[? if registro = 0 : Electoral projection: not applicable. First, exist. ?]
+[? if registro >= 1 : Electoral projection: the cadres are working on it. One watched casilla is worth more than any poll. ?]
+
+@economia
+
+= Economy
+
+**The numbers of the milagro**
+
+Annual growth: [+ crecimiento_display +]%
+
+Inflation: [+ inflacion_display +]%
+
+The peso: [+ peso_display +] to the dollar[? if peso_dolar <= 12.5 : — fixed since 1954, the regime's household god ?][? if peso_dolar > 12.5 : — the household god is broken; savings speak English now ?]
+
+Urban unemployment and underemployment: [+ desempleo +]%
+
+Real wage (1968 = 100): [+ salario_real +][? if salario_real >= 100 : — the milagro still pays for dinner ?][? if salario_real < 100 and salario_real >= 85 : — the basket is shrinking; nobody says so aloud yet ?][? if salario_real < 85 : — the class that produces everything eats a little less each year ?]
+
+**Labor insurgency**
+
+Strike activity: [+ huelgas : huelgas +]
+
+General strike readiness: [+ huelga_prep +] of 100 [? if huelga_prep >= 50 : — one telephone call from a stopped country ?]
+
+[? if huelgas >= 25 : Stoppages chain from plant to plant; the charros lose assemblies; the wage is defended at the gate, not at the table. You built this, strike by strike. ?]
+[? if huelgas >= 10 and huelgas < 25 : Sparks: wildcat stoppages, work-to-rule, assemblies that vote wrong. Don Fidel takes note. ?]
+[? if huelgas < 10 : The apparatus's labor peace: contracts signed before they are read. The silence of the factories is charrismo's masterpiece. ?]
+
+**Who runs Mexico?**
+
+The state bourgeoisie: [+ burguesia_estado : fuerza +][? if mando = "estado" : — IN COMMAND. The system's politician-businessmen: concessions, contracts, commissions. Power IS the business. ?]
+
+Big private capital: [+ gran_capital : fuerza +][? if mando = "capital" : — IN COMMAND. The Monterrey Group and its cousins: money no longer asks permission; it grants it. ?]
+
+Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : — IN COMMAND. Debts are collected in politics; the creditors draft the budgets. ?]
+
+[? if mando = "estado" : The Revolution's arrangement stands: the state presides, capital consents, and labor — organized by the state against itself — pays the bill. ?]
+[? if mando = "capital" : The arrangement has inverted: Monterrey and its allies set the limits of the possible, and the government governs inside them. ?]
+[? if mando = "extranjero" : Sovereignty now has a payment schedule. What the people vote, the creditor amends. ?]
+
+**Your people**
+
+[? if inflacion >= 15 : Inflation is the tax no one legislates: the tortilla, the bus, the rent. In the colonias, queues; in the assemblies, arithmetic. Every point of inflation works for you — and bites your own people first. ?]
+[? if inflacion < 15 and salario_real >= 100 : The milagro years: there is work, the wage stretches, and organizing is harder for exactly that reason. The system's prosperity is its best police force. ?]
+[? if inflacion < 15 and salario_real < 100 : The table holds, but thinner than yesterday. The memory of the full wage is recent — and memory organizes better than hunger. ?]
+[? if desempleo >= 9 : The unemployed fill the corners and the stalled construction sites. They are available mass — for you, or for whoever pays the charola first. ?]
+
+
+@guerra
+
+= La sierra
+
+[? if via != "armada" and via != "dual" : The Movement maintains no armed structures. This desk is empty — and in this Republic, an empty desk of this kind is an achievement of a certain school of thought, and a failure of another. The strategy congress at each sexenio can change the line. ?]
+
+[? if via = "armada" or via = "dual" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any region for the analysts' current picture — detail sharpens with intelligence capacity. ?]
+
+[? if via = "armada" or via = "dual" : {!<div id="mapa_sierra" style="position:relative"><svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg"><polygon points="48,20 140,44 186,58 204,78 198,100 210,120 252,118 300,106 312,126 296,150 258,146 224,152 216,170 186,166 158,164 126,150 96,116 74,90 56,50" style="fill:#e8e4d4;stroke:#999;stroke-width:0.8"/><polygon id="z_tijuana" points="16,34 30,32 40,52 54,76 66,100 60,114 46,96 32,68 20,46" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_chihuahua" points="48,20 140,44 150,60 120,84 84,74 60,44" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_nl" points="140,44 186,58 202,78 196,96 160,86 150,60" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_jalisco" points="84,74 120,84 136,110 118,128 92,112 76,92" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_valle" points="150,112 170,108 178,126 158,132" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_guerrero" points="118,128 158,132 176,146 160,162 128,148" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_oaxaca" points="176,146 206,138 224,150 216,168 186,164 160,162" style="fill:#ccc;stroke:#333;stroke-width:1"/><text x="18" y="28" font-size="9">BCN</text><text x="80" y="42" font-size="10">CHIH</text><text x="165" y="56" font-size="10">NL</text><text x="92" y="104" font-size="10">JAL</text><text x="151" y="124" font-size="8">CDMX</text><text x="130" y="150" font-size="9">GRO</text><text x="188" y="160" font-size="9">OAX</text></svg><div id="mapa_tip" style="display:none;position:absolute;background:#2a2118;color:#f3ecd8;border:1px solid #8a6d3b;padding:7px 10px;font-size:12px;max-width:230px;pointer-events:none;z-index:99;border-radius:3px"></div></div>!} ?]
+
+[? if via = "armada" or via = "dual" : **Intelligence capacity: [+ inteligencia : fuerza +].** [? if inteligencia < 40 : The map below is guesswork and rumor — garrison figures are the analysts shrugging. Build the eyes. ?][? if inteligencia >= 40 : Sources inside the garrisons give you real numbers: rotations, strengths, the mood of conscripts. ?] ?]
+
+[? if (via = "armada" or via = "dual") and inteligencia >= 40 : Guerrero — presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Chihuahua — presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. Valle de México — presence [+ pres_valle +], garrison [+ guar_valle +]. Jalisco — presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León — presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca — presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana — presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
+
+[? if (via = "armada" or via = "dual") and inteligencia < 40 : Guerrero: [? if pres_guerrero >= 20 : strong columns ?][? if pres_guerrero < 20 and pres_guerrero >= 5 : some structure ?][? if pres_guerrero < 5 : almost nothing ?]; army posture [? if guar_guerrero >= 45 : heavy ?][? if guar_guerrero < 45 : routine ?]. Valle: [? if pres_valle >= 20 : strong networks ?][? if pres_valle < 20 and pres_valle >= 5 : cells ?][? if pres_valle < 5 : almost nothing ?]; posture [? if guar_valle >= 45 : heavy ?][? if guar_valle < 45 : routine ?]. The other zones: reports too thin to trust. ?]
+
+[? if via = "armada" or via = "dual" : **Doctrine.** Garrisons concentrate where you act and thin where you rest: the state's map is a mirror of yours, drawn late. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. Rotate zones, rest the hot ones, and remember what the sierra teaches: the army wins every battle it can find, so the war is won by not being found. ?]
+
+[? if via = "armada" or via = "dual" : **The state's allocation (your analysts' estimate).** [? if guar_guerrero >= 45 or guar_valle >= 55 : The bulk of federal attention sits on [? if guar_guerrero >= guar_valle : Guerrero ?][? if guar_valle > guar_guerrero : the Valle ?]; provincial commands elsewhere run on routine and complaint. ?][? if guar_guerrero < 45 and guar_valle < 55 : No extraordinary concentrations: the army is garrisoned as in peacetime, which means the war has not yet forced its budget. That is either an opportunity or a verdict. ?] ?]

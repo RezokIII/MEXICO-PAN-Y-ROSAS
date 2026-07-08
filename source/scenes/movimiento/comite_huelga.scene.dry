@@ -1,0 +1,27 @@
+title: The strike committees
+new-page: true
+subtitle: A general strike is built years before it is called
+view-if: huelgas >= 12 and year >= 1975
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 75
+tags: movimiento
+
+= The strike committees
+
+A general strike is not an event; it is infrastructure pretending to be an event. Committees in every workplace that can name its delegates in the dark, strike funds that survive raids, food networks, pickets that know the law and the exits — build it now, in the boring months, and someday one telephone call moves a country.
+
+General strike readiness: [+ huelga_prep +] of 100.
+
+- @construir_comites: Build the committees — training, funds, the delegate web.
+- @root: The infrastructure waits.
+- @easy_discard
+
+@construir_comites
+subtitle: -3 funds, requires cadres
+choose-if: funds >= 3 and organizers >= 2
+unavailable-subtitle: Strike committees are built with funds and full-time cadres.
+on-arrival: funds -= 3; huelga_prep += 7; charrismo -= 1
+
+Another sector maps its delegates; another strike fund opens under a grandmother's mattressed name. Don Fidel's inspectors find nothing, because there is nothing to find yet — only a telephone tree, memorized, waiting for its one sentence.

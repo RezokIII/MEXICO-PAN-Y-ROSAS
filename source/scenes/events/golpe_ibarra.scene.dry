@@ -1,0 +1,26 @@
+title: The warning to the mother
+new-page: true
+subtitle: They threatened the one asking ¿dónde están?
+tags: event
+view-if: ibarra_advisor = 1 and represion >= 85 and expediente >= 75 and time >= repadv_last + 15
+priority: 2
+frequency: 60
+max-visits: 1
+on-arrival: repadv_last = time; unity -= 3
+
+= The warning to the mother
+
+They do not disappear Rosario Ibarra — even this state grasps what that would detonate. Instead: the telephone calls at three, the Galaxie at the school gate of her grandchildren, the funeral wreath delivered to her door with her own name on the ribbon. The message is artisanal in its cowardice: stop asking, or the question becomes hereditary. She calls the leadership not for protection but to dictate her response, in case.
+
+- @r1: Surround her family with the movement — visible, permanent, international accompaniment.
+- @r2: Her instruction, executed: escalate the question. New case files, new embassies, louder.
+
+@r1
+on-arrival: political_capital += 3; sup_middle += 2; represion += 1
+
+Grandmothers from the committee sleep at her house in rotation; a Nobel laureate's secretary telephones daily at 2:55, on principle; the school gate acquires a permanent circle of mothers of the disappeared, holding photographs, staring at the Galaxie until it is the one that leaves. The state discovers that the doña cannot be isolated: she has spent years building the exact instrument that now defends her — organized grief, which does not blink.
+
+@r2
+on-arrival: unity += 3; guerrilla_meter += 2
+
+She answers threats the only way she recognizes: the following week the Comité files eleven NEW cases and she reads every name at a rally with the wreath — her wreath — on the podium beside her, relabeled: PARA LOS QUE FIRMAN LAS ÓRDENES. The state made one more mother angry. It is, as ever, the whole of what it knows how to do, and the whole of why it is losing.

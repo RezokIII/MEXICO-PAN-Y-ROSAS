@@ -1,0 +1,24 @@
+title: Las raíces
+new-page: true
+subtitle: 1978 — where you came from
+tags: event
+view-if: year = 1978 and month = 5
+priority: 2
+max-visits: 1
+
+= Las raíces
+
+A decade into the leadership, the past sends its invoice — payable, for once, to you.
+
+[? if herencia = 1 : From the yards at Nonoalco: the pension case you carried as a young militant — eleven widows of the '58 strike, two decades of stamps and appeals — is finally won on a technicality some junior justice failed to notice was justice. The widows bring the check to the local to show it, as if it might evaporate outside company. The yards remember who filed first. ?]
+
+[? if herencia = 2 : From the Montaña: the normal school where you taught invites you back to give the graduation address — over the SNTE delegate's objection, which is the honor's better half. Two hundred new teachers, posted to the poorest municipios in the Republic, hear their profession described as what it is: the state's promise, kept by its opponents. ?]
+
+[? if herencia = 3 : From the university: the seminar you founded in the MLN years has become, without anyone deciding it, the standard reading room of the reform-era left — your old syllabus mimeographed past legibility, your marginalia transcribed like scripture. A generation of economists cites arguments you made when citing them was a filing offense. ?]
+
+- @cobrar: The past pays. Bank it.
+
+@cobrar
+on-arrival: sup_workers += 4 if herencia = 1; unity += 2 if herencia = 1; sup_teachers += 4 if herencia = 2; sup_peasants += 2 if herencia = 2; sup_students += 3 if herencia = 3; sup_middle += 3 if herencia = 3; political_capital += 2
+
+Organizations, like people, are their oldest debts. This one, for once, arrived as an asset.

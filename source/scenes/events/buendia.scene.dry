@@ -1,0 +1,31 @@
+title: Buendía
+new-page: true
+subtitle: 30 de mayo de 1984
+tags: event
+view-if: year = 1984 and month = 5
+priority: 2
+max-visits: 1
+on-arrival: memorial += 1; represion += 2
+
+= Buendía
+
+Manuel Buendía — the most read columnist in the Republic, the man whose *Red Privada* named CIA station chiefs, narco-generals, and the ultra-right by their first names — is shot in the back at rush hour on the Insurgentes sidewalk, five times, by a killer who walks away through the crowd.
+
+The head of the DFS arrives at the scene with improbable speed and takes personal charge of the investigation — and of Buendía's private archive, which leaves in official vehicles and is never seen again. Even by this Republic's standards, the performance is baroque: the political police investigating a murder that all of political Mexico assumes the political police committed.
+
+The columns Buendía was reportedly preparing concerned the DFS itself: its highways, its cargoes, the business its commanders run under the counter of the dirty war.
+
+- @investigar: Put your press on it — the sacred cow the dailies won't touch. Name the apparatus.
+- @honrar: Honor him, carefully. The Party has enough dead; the DFS is a wall you climb, not one you charge.
+
+@investigar
+choose-if: political_capital >= 8
+unavailable-subtitle: Naming the DFS requires public weight you do not have.
+on-arrival: political_capital -= 2; sup_middle += 3; sup_students += 2; expediente += 6
+
+The supplement runs what can be documented and implies the rest with white space: the agency's fleet, its commanders' ranches, the archive that vanished uphill. Nothing is answered; everything is read. Within the apparatus itself, someone begins to consider — for reasons entirely selfish — whether the DFS has become too expensive to keep. Walls are sometimes demolished by their owners.
+
+@honrar
+on-arrival: political_capital += 1; sup_middle += 1
+
+The tribute is printed, the funeral attended, the questions asked in the tribune with parliamentary caution. It is enough to stand with the press corps in its shock, and not enough to stand out of it. The wall stays uncharged. The archive stays wherever archives go.

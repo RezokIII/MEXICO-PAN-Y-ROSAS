@@ -1,0 +1,27 @@
+title: El fin del milagro
+new-page: true
+subtitle: Otoño de 1976
+tags: event
+view-if: year = 1976 and month = 11
+priority: 3
+max-visits: 1
+on-arrival: sup_middle += 2; pri_duros += 5; peso_dolar = 22.7; salario_real -= 4; gran_capital += 6; burguesia_estado -= 4; capital_extranjero += 3
+
+= El fin del milagro
+
+On the last day of August the peso fell — devalued for the first time since 1954, the fixed rate that was the regime's household god broken at a stroke, and then broken again in October for those who missed it. Twenty-two years of *desarrollo estabilizador* end in a season: capital stampedes to Texas, prices jump like startled cats, and the outgoing President, whose rhetoric fed the panic and whose policies fed the rhetoric, responds by expropriating a hundred thousand hectares of the Yaqui valley's best land and handing it to the campesinos in his final weeks — a parting gift to the left, a declaration of war to the north, and to the political class the act of a man redecorating a house on his way out the door.
+
+November belongs to the rumor: *golpe*. The capital repeats a date — the twentieth, Revolution Day — with troop movements alleged, business federations meeting late, Washington unreadable. The Republic has not seriously discussed a coup since 1938, and discovers it has forgotten how to laugh one off. It will come to nothing; no one knows that yet.
+
+- @constitucional: Declare loudly for constitutional order — the left defends the institutions against any barracks adventure, whatever it thinks of the tenants.
+- @preparar: Say little; prepare much. If tanks are possible, the Party's survival kit — archives, funds, routes — had better predate them.
+
+@constitucional
+on-arrival: pri_reformist_rel += 4; sup_middle += 2; political_capital += 2
+
+The statement is quoted where it counts: the left that the right paints as the abyss stands, in the crisis hour, with the constitutional floor. Among the reformers drafting next year's opening it settles something — these people can be dealt in. Among your own young hards it lands otherwise: defending *this* constitution, in *this* Republic, strikes them as guarding the warden's house against burglars.
+
+@preparar
+on-arrival: expediente += 3; unity += 2
+
+Archives split three ways, the treasury converted to things that hold value in a panic, routes refreshed north and south — the old clandestine muscle memory, exercised without a word in print. The coup never comes. The drill's real yield is internal: the Party has reminded itself, in one autumn, that it knows how to survive a state that stops pretending. That knowledge has a shelf life of a generation, and it has just been restocked.

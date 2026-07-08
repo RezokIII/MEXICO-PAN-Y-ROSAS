@@ -1,0 +1,31 @@
+title: La requisa
+new-page: true
+subtitle: 16 de julio de 1976
+tags: event
+view-if: year = 1976 and month = 8
+priority: 3
+max-visits: 1
+on-arrival: charrismo += 2
+
+= La requisa
+
+The Tendencia Democrática announced its strike for the sixteenth of July: the electrical industry, nationally, for union democracy and the Guadalajara program. In March they had put a hundred thousand marchers at the Monumento a la Revolución — the largest independent labor demonstration since 1958 — and the government took the measurement seriously. Its answer came the night before the deadline.
+
+*Requisa*: the wartime seizure clause of a 1936 law, invoked against the strike as if against an invasion. By dawn of the sixteenth the army holds every generating station and substation in the Republic — soldiers among the turbines, technicians working at gunpoint beside them — and the strike is not broken so much as rendered legally imaginary: the walkout that occurs inside a requisitioned industry is not a strike but sabotage, and sabotage is tried by different courts.
+
+Then the second instrument, the quieter one: the purge lists. In the weeks that follow, thousands of TD electricians are dismissed plant by plant — no massacre, no headlines, a payroll operation. Galván's tendency is being deleted by personnel department, and the CTM's men escort the replacements through the gates.
+
+- @huelga: General solidarity strike — throw every union current the Party can reach against the requisa, and find out what the independent labor movement actually weighs.
+- @retirada: Orderly retreat: legal defense for the purged, jobs found, archives saved, the cadre dispersed into the movement's bloodstream rather than annihilated on the wire.
+
+@huelga
+choose-if: td_apoyo = 2 and (sup_workers >= 25 or huelga_prep >= 30)
+unavailable-subtitle: Una huelga general exige lo que no hay: peso real en las fábricas y un compromiso total previo con la Tendencia.
+on-arrival: sup_workers += 5; sup_electricians += 3; charrismo -= 4; represion += 5; expediente += 5; political_capital += 4; unity -= 2; huelgas += 15; salario_real += 1; huelga_general = 1
+
+It holds for two days — two days of stopped buses and dark workshops in a dozen cities, the first taste in eighteen years of what the class can do when the charro dam cracks. Then the weight of the state settles: requisa extended, ringleaders' lists, don Fidel's men at every gate with the federal district police behind them. The strike is lost. The demonstration is permanent: everyone in the Republic — Bucareli, the CTM, the reformers drafting next year's opening, and a hundred thousand workers who walked out — has now seen the wall crack with their own eyes. Walls that crack once are surveyed differently ever after.
+
+@retirada
+on-arrival: sup_electricians -= 4; td_apoyo = 0; unity -= 2; sup_workers -= 1; political_capital += 1
+
+The Tendencia winds down through the autumn with the discipline it showed all along: files buried, purged men placed two hundred at a time in workshops and cooperatives, the young cadre steered into the teachers' and university unions where the next round will be fought. Galván — sixty-one, expelled, blacklisted — keeps writing until his heart quits in 1980, and his wake will fill a street. The defeat is total and unusually fertile: for the next decade, every independent union current in Mexico is run by somebody who learned the trade in the TD.

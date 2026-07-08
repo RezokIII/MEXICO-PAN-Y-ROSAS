@@ -1,0 +1,89 @@
+title: El seis de julio
+new-page: true
+subtitle: 6 de julio de 1988
+tags: event
+view-if: year = 1988 and month = 7
+priority: 2
+max-visits: 1
+on-arrival: {!
+var ola = 22 + (100 - Q.salario_real) * 0.15 + Q.cd_rel * 2 + Q.costureras * 3 + Q.sup_students * 0.06 + Q.sup_colonos * 0.08 + (Q.barrios ? 2 : 0) + (Q.huelga_general ? 2 : 0) + (Q.mayday >= 2 ? 1 : 0) + (Q.laguna ? 2 : 0) + (Q.auge_armada ? 2 : 0) + Q.frente_unidad * 0.06;
+if (Q.fdn >= 1) {
+    Q.real_fdn = Math.round(Math.min(52, ola + Q.izq_votes_display * 0.6));
+    Q.real_castillo = 0;
+} else {
+    Q.real_fdn = Math.round(Math.min(40, ola));
+    Q.real_castillo = Math.max(2, Math.round(Q.izq_votes_display * 0.5));
+}
+Q.real_pan = Q.pan_votes_display + 4;
+Q.real_pri88 = 100 - Q.real_fdn - Q.real_castillo - Q.real_pan - 4;
+var alq = 0.5 - Q.red_casillas * 0.003;
+if (Q.alquimia_expuesta) { alq -= 0.05; }
+if (alq < 0.1) { alq = 0.1; }
+Q.oficial_fdn = Math.round(Q.real_fdn * (1 - alq));
+if (Q.oficial_fdn > 31) { Q.oficial_fdn = 31; }
+Q.oficial_pan = 17;
+Q.oficial_pri88 = 100 - Q.oficial_fdn - Q.oficial_pan - Q.real_castillo - 2;
+if (Q.oficial_pri88 < 50) { Q.oficial_pri88 = 50; }
+Q.resultado_88 = 0;
+if (Q.real_fdn >= 45 && Q.red_casillas >= 55 && Q.fdn >= 1 && Q.alquimia_expuesta) { Q.resultado_88 = 1; }
+function bar(n) { var k = Math.max(1, Math.round(n/2)); var s=''; for (var i=0;i<k;i++){s+='█';} return s; }
+Q.b_r_fdn = bar(Q.real_fdn); Q.b_r_pri = bar(Q.real_pri88); Q.b_r_pan = bar(Q.real_pan);
+Q.b_o_fdn = bar(Q.oficial_fdn); Q.b_o_pri = bar(Q.oficial_pri88); Q.b_o_pan = bar(Q.oficial_pan);
+!}
+
+= El seis de julio
+
+The lines form before the casillas open. By noon the reports coming up your telephone tree describe something no operator has heard before; by six the first actas photograph themselves into history; and at Gobernación, where the Comisión's terminals feed Bartlett's ballroom of journalists, the early returns from the wired districts begin arriving — Cárdenas ahead in the capital, ahead in Michoacán, ahead in Morelos, ahead in the state of México.
+
+At which point the screens stop.
+
+*"Se cayó el sistema,"* the officials explain: the system has crashed. The phrase enters the language permanently within the hour. The count suspends; the ballroom empties; and in the improvised arithmetic of that long night, two republics take shape — one in your actas, one being assembled behind Bucareli's dead screens.
+
+**The real count (your actas plus the FDN's — network: [+ red_casillas +] of 100):**
+
+[? if fdn >= 1 : FDN (Cárdenas) [+ b_r_fdn +] [+ real_fdn +]% ?][? if fdn = 0 : FDN (Cárdenas) [+ b_r_fdn +] [+ real_fdn +]% — y Castillo (PMS): [+ real_castillo +]% ?]
+
+PRI (Salinas) [+ b_r_pri +] [+ real_pri88 +]%
+
+PAN (Clouthier) [+ b_r_pan +] [+ real_pan +]%
+
+**The official count, one week later:**
+
+FDN [+ b_o_fdn +] [+ oficial_fdn +]%
+
+PRI [+ b_o_pri +] [+ oficial_pri88 +]%
+
+PAN [+ b_o_pan +] [+ oficial_pan +]%
+
+[? if resultado_88 = 1 : And this time the arithmetic will not close. The network held [+ red_casillas +] casillas of every hundred; the parallel count is public before the official one exists; the PAN's lawyers certify the methodology they share with you; and inside the regime itself, men who can read numbers begin calling each other at strange hours. The steal has been attempted against a country that can prove it — and the proof is organizing faster than the fraud. ?]
+
+[? if resultado_88 = 0 : The official arithmetic lands where it must: above fifty, the majority the system cannot survive without. Between the two counts lies the largest theft in the Republic's electoral history — documented, in your hands, to the exact casilla where the darkness begins. ?]
+
+[? if resultado_88 = 1 : - @victoria: The count is the count. Hold the country to it. ?]
+[? if resultado_88 = 0 : - @movilizar: Permanent mobilization — the Zócalo filled weekly, the actas published daily, the qualification fought vote by vote. ?]
+[? if resultado_88 = 0 : - @negociar_88: Negotiate through the crack: seats, registries, reforms — concede the presidency's arithmetic, collect everything else, live to 1994. ?]
+[? if resultado_88 = 0 : - @cerilla: La cerilla. The crowd in the Zócalo is asking, in so many words, to be told the hour. Strike the match. ?]
+
+@victoria
+on-arrival: respuesta_88 = 4; political_capital += 10
+
+What follows fills its own books: the ballots defended physically in a hundred districts, the regime's software experts contradicting each other under oath, two governors and a sector of the army privately informing Los Pinos that they will not fire on the count, and Salinas — the técnico, able as ever to read a balance sheet — declining the presidency of a burning building. It takes until December, and it holds. The general's son takes office over a fractured regime with your Movement inside the victory's architecture, holding the blueprints.
+
+@movilizar
+on-arrival: respuesta_88 = 1; political_capital += 5; sup_colonos += 3; huelgas += 5; represion += 2
+
+The Zócalo becomes a weekly institution: half a million, then more, disciplined and terrible. Cárdenas — with the crowd chanting for more — chooses the legal road deliberately, aloud: *no le daré al Estado el pretexto.* Whether the refusal was wisdom or the wave's one great error will be argued at every table in Mexico for fifty years. The mobilization does not reverse the count. It makes the count unforgettable, which is a different kind of victory, payable later.
+
+@negociar_88
+choose-if: pri_reformist_rel >= 20
+unavailable-subtitle: Negotiation requires interlocutors; the PRI reformists are not taking your calls.
+on-arrival: respuesta_88 = 2; political_capital += 2; funds += 4; unity -= 4; sup_students -= 4
+
+The tables convene discreetly while the plazas roar: registries confirmed, senate seats seated, an electoral reform promised in writing. It is real currency and it spends — and the crowds, who were not consulted, watch the negotiators emerge with briefcases and draw the era's bitterest conclusion about the distance between the street and the table.
+
+@cerilla
+choose-if: (huelga_prep >= 50 and sup_colonos >= 25) or (plan_b = 1 and huelga_prep >= 40)
+unavailable-subtitle: Insurrection is not declaimed: it requires strike readiness (50) and organized colonias — or a Plan B drawn in advance with readiness 40. Neither exists.
+on-arrival: respuesta_88 = 3; represion += 15; expediente += 10; memorial += 4; huelgas += 15; political_capital += 3 if plan_b = 1
+
+The call goes out through every network twenty years built: general strike, the highways, the plazas held overnight. For eleven days the Republic stands genuinely still — and then the state, which has rehearsed this its entire life, answers in the older language. What follows belongs to the epilogue, and to the lists.

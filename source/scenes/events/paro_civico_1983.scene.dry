@@ -1,0 +1,28 @@
+title: El paro cívico
+new-page: true
+subtitle: October 1983 — the civic strike
+tags: event
+view-if: year = 1983 and month = 10
+priority: 2
+max-visits: 1
+
+= El paro cívico
+
+The coordinadoras call it: a National Civic Strike against the austerity — CNTE teachers, CONAMUP's colonias, the peasant currents, the independent unions, the whole insurgent society assembled in one instrument. Not a general strike; the CTM's grip makes that impossible. A civic one: streets, markets, schools, buses — the country of the unorganized, organizing for a day.
+
+The Party's networks are wired through every convening organization. The question is whether to throw the entire apparatus behind a weapon nobody has tested.
+
+- @todo: Everything in. If the civic strike works, the crisis decade has found its weapon.
+- @medido: Support without betting the house — contingents, presses, lawyers, but the Party's name second.
+
+@todo
+choose-if: organizers >= 3 and funds >= 3
+unavailable-subtitle: A national strike is built with cadres and cash.
+on-arrival: funds -= 3; huelga_prep += 8; huelgas += 10; sup_colonos += 4; sup_workers += 2; political_capital += 3; expediente += 3; represion += 2
+
+The day is real: markets shuttered in twenty cities, the colonias silent, buses thin. Not the earthquake its convokers dreamed — the CTM's Mexico goes to work — but the largest coordinated protest since the Tendencia, and the government's economists notice that austerity now has an organized opposition with a working telephone tree. So does Bartlett.
+
+@medido
+on-arrival: huelgas += 4; sup_colonos += 1; unity += 1
+
+The contingents march, the presses print, the Party's name stays in the second paragraph. Proportionate — and noted with a certain coolness by the coordinadora people, who keep accounts of enthusiasm the way bankers keep collateral. The instrument fires at half its charge; whose fault that was will be argued for years.

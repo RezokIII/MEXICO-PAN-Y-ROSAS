@@ -1,0 +1,23 @@
+title: No hay registro
+new-page: true
+subtitle: —
+tags: event
+view-if: represion >= 75 and time >= desap_last + 9
+priority: 2
+frequency: 50
+max-visits: 4
+on-arrival: memorial += 1; guerrilla_meter += 2; sup_students += 1; desap_last = time
+
+= No hay registro
+
+He missed the Tuesday meeting, which he had never done, and by Thursday the compañeras had done the rounds in the fixed order, oldest protocol in the book: the delegación, the Red Cross, the hospitals by ward, the agencia, the morgue. *No hay registro.* No record — the phrase the Republic has perfected, flat as a filing cabinet, repeated at every window by clerks who have learned not to meet the eyes of mothers.
+
+He was twenty-four. He taught the literacy circle in the colonia on Sundays; his students, señoras in their sixties, are the ones who keep asking longest.
+
+There are men who know which car took him and there are offices where the car's log exists, and between that knowledge and any consequence stands the entire architecture of the state. The Party does what the living can: his name goes on the list, with the date and the corner where the car was seen. The list is memory in its fighting form. It will outwait the filing cabinets — this is either a certainty or a vow, and by now no one in the Party distinguishes the two.
+
+- @lista: Name, date, place. Keep counting.
+
+@lista
+
+In the colonia the literacy circle meets anyway on Sunday, taught now by a girl from the JC who arrives with her own chalk and her own fury and the attendance book he kept — where the señoras, one by one, have signed the page for the week he vanished, so that the record would show they came.

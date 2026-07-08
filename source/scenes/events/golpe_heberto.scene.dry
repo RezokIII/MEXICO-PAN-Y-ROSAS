@@ -1,0 +1,26 @@
+title: The engineer, again
+new-page: true
+subtitle: The second time they came for Castillo
+tags: event
+view-if: heberto_advisor = 1 and represion >= 82 and expediente >= 75 and time >= repadv_last + 15
+priority: 2
+frequency: 60
+max-visits: 1
+on-arrival: repadv_last = time; unity -= 3
+
+= The engineer, again
+
+Heberto Castillo has been theirs before — Cerro del Zorrillo, the beating half to death, three years of Lecumberri — and now a white Rambler follows his children to school for a week before the men come for him at his engineering office, in front of his students. The tridilosa calculations stay on the blackboard. The Republic's most stubborn honest man is once more a state secret.
+
+- @r1: His method: publish his columns anyway, every week, from wherever he is.
+- @r2: The engineers' answer: his colleagues and students refuse all state contracts until he surfaces.
+
+@r1
+on-arrival: political_capital += 3; sup_middle += 2; represion += 1
+
+The column appears on schedule with a note: 'The author is unavailable; his argument is not.' Old drafts, students' reconstructions, one page smuggled out in a lawyer's cuff that ends: 'the numbers still do not lie, whatever is done to the arithmetician.' By the third missing week the column is the most read in Mexico, and holding him has become more expensive than his freedom ever was. They dump him near Toluca with two ribs' interest on the old debt. He files the next column early.
+
+@r2
+on-arrival: unity += 3; guerrilla_meter += 2
+
+An engineers' strike is a strange and terrible weapon — bridges unreviewed, works stalled, the technocrats' own caste withholding its stamp. The técnicos in the cabinet, men who respect load calculations if nothing else, quietly arrange the release. Castillo emerges convinced, more than ever, that the professions are a sleeping army. He begins organizing them within the month.

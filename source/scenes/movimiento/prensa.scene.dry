@@ -1,0 +1,42 @@
+title: La prensa del Movimiento
+new-page: true
+subtitle: A mimeograph is a repeating weapon
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 100
+tags: movimiento
+
+= La prensa del Movimiento
+
+The paper exists this month if you decide it does: newsprint bought at PIPSA's pleasure, plates burned in a basement, bundles moved before dawn by comrades who have learned to walk like men delivering bread. Print for whom?
+
+- @p_estudiantes: For the universities — theory, prisoners' letters, the '68 anniversary count.
+- @p_obreros: For the factory gates — wage tables, contract clauses, the CTM's arithmetic exposed.
+- @p_campo: For the ejidos — read aloud at assemblies by whoever has the schooling.
+- @root: The plates stay cold this month.
+- @easy_discard
+
+@p_estudiantes
+subtitle: -3 funds
+choose-if: funds >= 3 and sup_students >= 10
+unavailable-subtitle: Without a student network there is no one to carry the bundles; without funds, no paper.
+on-arrival: funds -= 3; sup_students += 2 + unity*0.04; members += 1; expediente += 2
+
+The issue moves through the faculties folded inside notebooks. The letters page is the best-read thing in the university: this month, a nineteen-year-old writes from Crujía M about the exact sound the lock makes, and three hundred students read it standing still.
+
+@p_obreros
+subtitle: -3 funds
+choose-if: funds >= 3 and sup_workers >= 8
+unavailable-subtitle: Without people at the gates there is no distribution; without funds, no paper.
+on-arrival: funds -= 3; sup_workers += 3; charrismo -= 1; expediente += 3
+
+At the gates of Vallejo and Xalostoc the bundles are gone in twenty minutes. The centerfold is a wage table comparing the contract to the cost of beans, with sources. The charro delegate confiscates every copy he can reach, thereby confirming the arithmetic to everyone watching.
+
+@p_campo
+subtitle: -3 funds
+choose-if: funds >= 3 and sup_peasants >= 8
+unavailable-subtitle: Without a base in the ejidos, the bundle dies at the bus station.
+on-arrival: funds -= 3; sup_peasants += 3; expediente += 2
+
+It travels by bus and saddlebag, and in the assemblies a schoolteacher reads it aloud entire — the news, the credit tables, the letter from Danzós — while men who sign with a thumbprint memorize the arguments whole. No medium in the Republic is more efficient per copy.

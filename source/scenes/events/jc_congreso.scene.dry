@@ -1,0 +1,24 @@
+title: El congreso de la Juventud
+new-page: true
+subtitle: 1974 — the JC decides what it is
+tags: event
+view-if: year = 1974 and month = 3
+priority: 2
+max-visits: 1
+
+= El congreso de la Juventud
+
+The Juventud Comunista convenes its first congress since the catastrophe years, and the hall is a map of everything unresolved: veterans of '68 now pushing thirty, the post-Halconazo cohort with their guerrilla-adjacent grief, and sixteen-year-olds from the vocacionales who know Tlatelolco as their older siblings' wound. The question on the floor is the JC's whole nature: youth wing or youth movement — the Party's seedbed, or the young left's own house?
+
+- @escuela_cuadros: Make it the seedbed, deliberately: political school, discipline, a conveyor of formed cadres into the Party.
+- @movimiento_joven: Open it wide: rock festivals and prepa committees, cultural brigades, the CLETA theater people, room for everyone the era radicalizes.
+
+@escuela_cuadros
+on-arrival: jc_saga = 1; members += 1; unity += 2; fac_ortodoxos += 2; sup_students -= 2
+
+The JC tightens into the best political school in the country: reading lists, section work, the discipline of minutes. Its graduates will staff the Party's next two decades. Its doors, narrower now, will be walked past by thousands the era radicalizes into other houses.
+
+@movimiento_joven
+on-arrival: jc_saga = 2; sup_students += 5; fac_nueva_izquierda += 3; expediente += 2; unity -= 2
+
+The JC becomes a weather system: peñas and prepa strikes, the CLETA carpas, mimeographed songbooks, a thousand members who cannot recite the program and would die for the organization. The old cadres despair of the discipline. The future files in through the wide door anyway.

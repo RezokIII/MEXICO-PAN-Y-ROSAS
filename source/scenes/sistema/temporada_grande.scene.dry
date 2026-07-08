@@ -1,0 +1,33 @@
+title: La temporada grande
+new-page: true
+subtitle: The succession is played once per sexenio
+view-if: destape_phase >= 1 and destape_phase <= 3
+on-arrival: month_actions += 1
+max-visits: 12
+is-card: true
+frequency: 100
+tags: sistema
+
+= La temporada grande
+
+The destape season: the one interval when the monolith is genuinely soft, every camarilla over-leveraged on its horse, every functionary suddenly courteous to everyone, since anyone might be somebody under the next sun. Information is cheap, promises cheaper, and attention to small parties briefly sincere.
+
+- @apostar: Read the tea leaves and position early — cultivate the circle of the likely tapado before the cargada makes courtesy worthless.
+- @cosechar_nerviosos: Harvest the nervous: the camarillas that fear losing sell information and favors at panic prices.
+- @root: Watch the theater from the cheap seats.
+- @easy_discard
+
+@apostar
+choose-if: political_capital >= 5
+unavailable-subtitle: Approaching a precandidato requires something to offer: weight of your own.
+on-arrival: political_capital -= 2; pri_reformist_rel += 4; expediente += 1
+
+The likely man's people receive yours with the exquisite noncommitment of the season — but they receive you, and take notes, and in the ledger such men keep of who arrived before the destape, your entry now exists. If the tea leaves were read correctly, that ledger governs six years.
+
+@cosechar_nerviosos
+subtitle: -3 funds
+choose-if: funds >= 3
+unavailable-subtitle: The nervous sell cheap, but never on credit.
+on-arrival: funds -= 3; political_capital += 3; represion -= 1; expediente -= 2
+
+A losing camarilla's fixer, liquidating his portfolio of favors before the cargada devalues it: a file pulled here, a stalled permiso unstalled there, a name whispered off a list. The fire sale of a dying court is the small opposition's one reliable market.

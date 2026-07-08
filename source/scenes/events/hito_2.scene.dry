@@ -1,0 +1,24 @@
+title: El camino: romper el cerco
+new-page: true
+subtitle: Second milestone
+tags: event
+view-if: camino1 = 1 and camino2 = 0 and members >= 10
+priority: 2
+max-visits: 1
+on-arrival: {!
+Q.camino2 = 1;
+Q.funds += 6;
+this.achieve('camino_cerco');
+!}
+
+= El camino: romper el cerco
+
+Ten thousand members. The number crosses the threshold quietly, in a treasurer's quarterly report, and means more than any communiqué: the Party has broken the cerco — the encirclement of fear and smallness the state built around it in 1968. Ten thousand is dues that pay for presses. Ten thousand is a cell in places the DFS has to look up on a map. Ten thousand is too many to disappear.
+
+The state's arithmetic of repression works on hundreds. On tens of thousands it must switch instruments — to the charola, to the registry, to politics — and politics is a terrain where you can fight.
+
+- @adelante: The circle is broken. What grows now can no longer be simply erased.
+
+@adelante
+
+In Bucareli, the analysts adjust the file's classification upward, which is their language for the same news.

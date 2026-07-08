@@ -1,0 +1,20 @@
+title: La calificación
+new-page: true
+subtitle: Septiembre de 1988
+tags: event
+view-if: year = 1988 and month = 9 and resultado_88 = 0
+priority: 3
+max-visits: 1
+
+= La calificación
+
+On the first of September, Miguel de la Madrid rises for his final Informe — and cannot finish a paragraph: from the opposition benches, for the first time in the institution's history, a president of the Republic is interrupted, heckled, interpellated to his face by deputies waving actas. Muñoz Ledo stands to challenge him directly; the old deputies look physically ill; the broadcast, live, cannot be uninvented.
+
+Days later the Chamber, sitting as electoral college with its PRI majority, qualifies the election of Carlos Salinas — over the opposition's walkout, over the sealed ballot packets that will be guarded like plutonium and eventually burned. The legal road ends here, at a locked and voted door.
+
+- @constancia: Read the full documentation into the record first — every casilla, every acta, three hours of arithmetic aloud, so the burning later will burn a copy.
+
+@constancia
+on-arrival: political_capital += 3; alquimia_expuesta = 1
+
+The stenographers take it all down; the Diario de los Debates becomes the count's tombstone and its backup. When the packets burn in 1991 — and they will — the numbers will already live where fire is not jurisdiction. The next reform, and the one after that, will be drafted by men who remember this afternoon with fear. It is not victory. It is the receipt.

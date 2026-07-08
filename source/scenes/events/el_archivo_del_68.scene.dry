@@ -1,0 +1,26 @@
+title: El archivo del 68
+new-page: true
+subtitle: What your notebooks kept
+tags: event
+view-if: verano68 = 3 and year >= 1979 and registro >= 1
+priority: 2
+max-visits: 1
+
+= El archivo del 68
+
+Ten years the notebooks waited — the unit numbers, the hospital counts, the orders overheard in the plazas, everything your cell wrote down that summer while others fought or hid. The reform has opened a crack of tribune and press wide enough to fit a decade of evidence through it.
+
+The anniversary approaches. The archive could make it a reckoning.
+
+- @publicar_68: Publish it entire: the special supplement, the tribune reading, the documented second of October laid on the Republic's table.
+- @guardar_mas: Hold it still. Evidence spends once; the trials this Republic will someday owe its dead deserve the full charge.
+
+@publicar_68
+on-arrival: political_capital += 5; sup_students += 4; sup_middle += 3; expediente += 3; memorial += 1
+
+The supplement sells out four printings; the tribune reading empties even the PRI's benches into the corridors, where listening is deniable. Names are named with footnotes attached. Nothing is prosecuted — prosecution was never this Republic's genre — but the official version of 1968 dies in public that week, and official versions do not resurrect. Your cell's summer of notebooks turns out to have been the movement's longest weapon.
+
+@guardar_mas
+on-arrival: political_capital += 1; unity += 1
+
+The copies go back to their three cities, verified and resealed, a deposit maturing toward some future court. The discipline of it is admired inside and unfelt outside. Archives held too long have a history of outliving their power to wound — but so do republics that never face their evidence, and you have chosen to keep both clocks running.

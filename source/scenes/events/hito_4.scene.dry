@@ -1,0 +1,24 @@
+title: El camino: los cimientos
+new-page: true
+subtitle: Fourth milestone
+tags: event
+view-if: camino3 = 1 and camino4 = 0 and red_casillas >= 30 and (municipio_alcozauca = 1 or municipio_juchitan = 1)
+priority: 2
+max-visits: 1
+on-arrival: {!
+Q.camino4 = 1;
+Q.red_casillas += 5;
+this.achieve('camino_cimientos');
+!}
+
+= El camino: los cimientos
+
+The inventory the state cannot see, because none of it exists on paper it controls: a casilla network past thirty in every hundred, trained, drilled, and blooded in two elections; a municipality actually governed, its books read aloud in the plaza; coordinadoras, committees, the printing routes, the lawyer tree, the lists.
+
+This is infrastructure — the thing Mexican oppositions never had, the reason every previous wave broke and drained into sand. Whatever 1988 turns out to be, the Movement will meet it with foundations.
+
+- @adelante: The foundations hold. Build the house on them.
+
+@adelante
+
+An old ferrocarrilero, shown the network map, studies it the way he once studied timetables and delivers the verdict of his profession: *ya hay vía.* There is track now. Things can run on it.

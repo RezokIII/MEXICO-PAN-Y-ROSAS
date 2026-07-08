@@ -1,0 +1,66 @@
+title: La elección de 1982
+new-page: true
+subtitle: 4 de julio de 1982
+tags: event
+view-if: year = 1982 and month = 7 and registro >= 1
+priority: 3
+max-visits: 1
+on-arrival: {!
+Q.real_izq = Q.izq_votes_display;
+Q.real_pri = Q.pri_votes_display;
+Q.real_pan = Q.pan_votes_display;
+var alq = 0.3;
+if (Q.real_izq > 12) { alq = 0.42; }
+alq -= Q.red_casillas * 0.0015;
+if (Q.alquimia_expuesta) { alq -= 0.05; }
+if (alq < 0.05) { alq = 0.05; }
+Q.oficial_izq = Math.round(Q.real_izq * (1 - alq));
+if (Q.oficial_izq < 1) { Q.oficial_izq = 1; }
+Q.oficial_pan = Q.real_pan + 1;
+Q.oficial_pri = 100 - Q.oficial_izq - Q.oficial_pan - Q.real_pps - Q.real_otros;
+var opp = 100 - Q.oficial_pri;
+Q.izq_seats = Math.round(100 * Q.oficial_izq / opp);
+Q.robo_79 = Q.real_izq - Q.oficial_izq;
+function bar(n) { var k = Math.max(1, Math.round(n/2)); var s=''; for (var i=0;i<k;i++){s+='█';} return s; }
+Q.b_real_pri = bar(Q.real_pri); Q.b_real_pan = bar(Q.real_pan); Q.b_real_izq = bar(Q.real_izq);
+Q.b_of_pri = bar(Q.oficial_pri); Q.b_of_pan = bar(Q.oficial_pan); Q.b_of_izq = bar(Q.oficial_izq);
+!}
+
+= La elección de 1982
+
+The first presidential campaign with your name legally on the ballot. The candidate stumps a country in free-fall — the peso broke in February, the boom is dissolving weekly — while, on the PRT's line, Rosario Ibarra runs as the first woman candidate for the presidency in Mexican history and carries the question of the disappeared into every plaza the cameras cover.
+
+De la Madrid wins; nobody imagined otherwise. What matters is the count beneath the count:
+
+**The real count (your actas — [+ red_casillas +] of every 100 casillas watched):**
+
+PRI [+ b_real_pri +] [+ real_pri +]%
+
+PAN [+ b_real_pan +] [+ real_pan +]%
+
+Ustedes [+ b_real_izq +] [+ real_izq +]%
+
+**The official count:**
+
+PRI [+ b_of_pri +] [+ oficial_pri +]%
+
+PAN [+ b_of_pan +] [+ oficial_pan +]%
+
+Ustedes [+ b_of_izq +] [+ oficial_izq +]%
+
+Seats won: **[+ izq_seats +]**. The shave this cycle: [+ robo_79 +] points. Every casilla your network covered reported clean; the alquimia lives where you are absent — which is the entire argument for the network.
+
+- @consolidar: Bank the seats, publish the coverage map, and let every district see where fraud survives: wherever the red de casillas is not.
+- @escalar: File a formal challenge on the worst districts — spend standing now to build the jurisprudence for later.
+
+@consolidar
+on-arrival: political_capital += 4; red_casillas += 4; sup_middle += 2
+
+The map is the message: fraud correlates perfectly with darkness. Volunteer applications for the network triple, many from people who have never joined anything. The Comisión declines to comment on cartography.
+
+@escalar
+choose-if: political_capital >= 12
+unavailable-subtitle: A formal legal challenge requires more political capital than exists.
+on-arrival: political_capital -= 4; alquimia_expuesta = 1; pri_reformist_rel -= 2; sup_middle += 3
+
+The challenges die in the electoral college, as designed — but the record now exists: districts named, arithmetic documented, precedents of protest properly filed. Jurisprudence is a wall built of lost cases. Someone will stand on it, some July.

@@ -5,25 +5,32 @@ tags: event
 view-if: year = 1968 and month = 11
 priority: 2
 max-visits: 1
-face-image: img/lecumberri.jpg
 
 = El Palacio Negro
 
 MÉXICO, D.F., noviembre de 1968 —
 
-Lecumberri. The Black Palace. Crujía "M" for the políticos. Demetrio Vallejo has been inside since '59; Valentín Campa nearly as long. Now the crujías fill with boys of nineteen — and with José Revueltas, who has taken responsibility for the entire student movement in writing, mostly to embarrass a government that cannot decide whether he is a criminal or a novelist.
+Lecumberri was built in 1900 as a model prison, a Porfirian panopticon of radiating corridors called *crujías*. The politicals are kept in Crujía M, and by now it is the best political education in the country: Demetrio Vallejo, nine years inside, still writing union circulars nobody may deliver; Valentín Campa, who has spent more of his life in prison than in the party he helped build; and since September and October, the new class — CNH delegates, brigade kids of nineteen, professors picked up at their blackboards, the engineer Heberto Castillo taken half-dead from a beating, the philosopher Eli de Gortari, and José Revueltas.
 
-On New Year's Day the common prisoners will be sent into the political crujías with clubs while the guards watch. The families outside are organizing visits, food, lawyers. They are asking if the Party is with them.
+Revueltas, the country's greatest living novelist of prisons, has solved the government's evidentiary problem by writing a letter claiming *intellectual authorship* of the entire student movement — a confession constructed as an indictment, since a state that accepts it admits it is jailing an idea. They put him in Crujía M with the rest. He seems almost at home, which is the saddest thing anyone has seen there.
 
-- @defensa: Fund the legal defense committees. Lawyers, visits, names published abroad.
-- @clandestino: Conserve everything. Rebuild the cells first; the prisoners would understand.
+Outside, the families have organized themselves with the terrible efficiency of grief: Sunday queues with baskets, lists of names, a rotation of lawyers filing *amparos* that the judges deny like men swatting flies. Word has come, too, from the common crujías: the authorities are letting it be known that on some convenient day the apolitical prisoners will be sent into M with clubs, and the guards will be busy elsewhere. The families are asking, plainly: is the Party with us or not?
+
+- @defensa: Fund the legal defense committees. Lawyers, visits, names published abroad — make each prisoner too famous to disappear.
+- @clandestino: Conserve everything. Rebuild the cells first; the prisoners, of all people, would understand.
 
 @defensa
+choose-if: funds >= 10
+unavailable-subtitle: The shoebox treasury cannot cover lawyers. (Requires 10 funds.)
 on-arrival: lecumberri_campaign = 1; funds -= 10; sup_students += 8; expediente += 8; political_capital += 5
 
-The committees get lawyers who ask for writs and get insults, but the names cross borders: Paris signs letters, Rome signs letters. In Crujía M, Revueltas gets paper. He is writing something about the apando — the punishment cell. It will outlive everyone who put him there.
+The committees get their lawyers, who ask for writs and collect insults, but the names begin crossing borders: Sartre signs a letter, Calvino signs a letter, a PEN Club telegram lands on a desk at Gobernación like a small dead bird. The government discovers that each prisoner with a famous name costs more to keep than to feed.
+
+In Crujía M, Revueltas gets paper. He is writing something about the *apando*, the stone punishment cell — a short book with walls inside it. It will outlive everyone who put him there, and they suspect it, which is why the paper sometimes doesn't arrive.
 
 @clandestino
 on-arrival: lecumberri_campaign = 2; unity -= 5; sup_students -= 4
 
-The cells are rebuilt, quietly, five by five. It is the correct decision by every manual ever written in exile. In the visiting yard at Lecumberri, a mother asks a question about the Party, and nobody has an answer for her.
+The cells are rebuilt, quietly, five by five — no member knowing more than four others, the old discipline from the forties, correct by every manual ever written in exile. The Party will survive, and survival is not nothing; ask anyone who has watched a party die.
+
+But in the visiting yard at Lecumberri on Sunday, a mother from the Politécnico — her son is nineteen, his crime was a mimeograph — asks your comrade's wife what the Party is doing for the boys inside. And there is an answer, a correct answer about the long term and the relationship of forces, and nobody can say it to her face.

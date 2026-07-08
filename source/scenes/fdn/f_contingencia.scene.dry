@@ -1,0 +1,32 @@
+title: Plan B
+new-page: true
+subtitle: If they steal it — what then?
+view-if: frente_unidad >= 20
+on-arrival: month_actions += 1
+max-visits: 8
+is-card: true
+frequency: 60
+tags: fdn
+
+= Plan B
+
+The question nobody at the table asks aloud, assigned quietly to the people most likely to have an answer: if the count is stolen in daylight, what does the Frente DO? The Movement's strike committees, the colonia networks, the CDMX brigades — sketched, in certain notebooks, into something with an order of operations: the capital stopped, the plazas held, the response ready before the theft instead of after.
+
+Preparing it is itself a decision: plans this shape have a way of insisting on their own use.
+
+- @preparar_b: Draw the plan: the general strike and the capital rising, sequenced, resourced, deniable until needed.
+- @solo_legal: Refuse the notebooks. The Frente wins legally or exhausts legality first — contingencies corrupt strategies.
+- @easy_discard
+
+@preparar_b
+subtitle: Requires strike infrastructure
+choose-if: huelga_prep >= 25 and organizers >= 3
+unavailable-subtitle: Plan B is drawn on strike committees (readiness 25) and trusted cadres. The paper alone is worthless.
+on-arrival: plan_b = 1; huelga_prep += 6; frente_unidad += 3; expediente += 4; guerrilla_meter += 1
+
+The sequencing is done the old way — memorized, compartmented, three people holding the whole picture. The telephone tree acquires a second sentence it hopes never to send. If July is stolen, the response will not be improvised grief: it will be infrastructure, executing.
+
+@solo_legal
+on-arrival: frente_unidad += 2; pri_reformist_rel += 2; unity += 1
+
+The refusal is principled and public enough to reassure the nervous: this coalition fights with actas, not barricades. The reformists inside the system relax fractionally — and the crowd in the Zócalo, come the hour, will be told to wait, with whatever history decides that costs.

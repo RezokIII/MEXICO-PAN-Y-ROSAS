@@ -1,0 +1,26 @@
+title: The custodian
+new-page: true
+subtitle: They aimed at the center of the web
+tags: event
+view-if: verdugo_advisor = 1 and represion >= 82 and expediente >= 75 and time >= repadv_last + 15
+priority: 2
+frequency: 60
+max-visits: 1
+on-arrival: repadv_last = time; unity -= 3
+
+= The custodian
+
+Arnoldo Martínez Verdugo is ambushed between the print shop and his apartment — three men, a doorway, professional. He survives by the accidents such nights are made of: a neighbor's dog, a stuck pistol, a taxi that did not stop but slowed. He is alive, hospitalized, and the message requires no interpreter: the state has decided the Movement's patience is a strategic threat, and patience has an address.
+
+- @r1: Guard him publicly — round-the-clock compañeros, foreign journalists in the corridor, his survival made a spectacle the state must now protect.
+- @r2: Move him to clandestinity and run the leadership from shadow, as in the old years.
+
+@r1
+on-arrival: political_capital += 3; sup_middle += 2; represion += 1
+
+The hospital corridor becomes the safest room in Mexico: Italian communists send a delegation, the wire services rotate shifts. Having failed to kill him quietly, the state must now visibly keep him alive — a jiu-jitsu the old sign painter appreciates from his bed, planning the next pleno on hospital stationery.
+
+@r2
+on-arrival: unity += 3; guerrilla_meter += 2
+
+The First Secretary vanishes from public Mexico and the Party rediscovers its oldest skill: existing where the state cannot see. His circulars arrive undated, unsigned, and unmistakable. The DFS spends a fortune confirming he is nowhere.

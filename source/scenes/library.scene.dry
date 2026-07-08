@@ -1,0 +1,130 @@
+title: library
+new-page: true
+is-special: true
+go-to: menu
+
+= La Biblioteca
+
+Background for the struggle: the system you face, the tradition you inherit, the words that need no translation, and the list that must be kept.
+
+@menu
+
+- @sistema: El Sistema — how the regime actually works
+- @izquierda: The left before you — 1919 to 1968
+- @personajes: Dramatis personae
+- @glosario: Glossary of the Republic
+- @mecanica: The organizer manual — how the world moves
+- @sexenio_manual: The sexenio playbook — what to do, six years at a time
+- @memorial: El memorial
+- @backSpecialScene: Exit library.
+
+@sistema
+go-to: menu
+
+Mexico is not a dictatorship of the familiar Latin American type — no sunglasses, no junta — and it holds elections on schedule, which it does not lose. Political scientists will spend decades naming the arrangement; a Peruvian novelist will eventually land the killing phrase, *the perfect dictatorship*.
+
+Its skeleton: the Partido Revolucionario Institucional, heir of the Revolution's victors, fused with the state to the point where the distinction is a courtesy. The President rules for a single six-year term — the *sexenio* — with powers a king would envy, then names his successor (*el dedazo*) in a ritual of concealment and revelation (*el tapado*, *el destape*) that is the Republic's true election. The party's three "sectors" — official unions (CTM), official peasants (CNC), official everyone-else (CNOP) — deliver their millions in exchange for the right to deliver them. Elections are administered by the government through the Comisión Federal Electoral, chaired by the Secretary of Gobernación; the count is the count.
+
+The system's genius is digestion: it would always rather buy an opponent than bury one, though it keeps both departments funded. Its weapons, in ascending order: the *charola* (the bribe, the post, the favor), the registry (legal existence is a license the state grants and revokes), the newsprint monopoly (PIPSA), the charro unions, the granaderos, and at the end of the corridor, the DFS and the army. You will meet them all.
+
+@izquierda
+go-to: menu
+
+The Mexican Communist Party was founded in 1919, two years after the Constitution and two before the muralists made it briefly fashionable. It has been legal, illegal, and — its longest condition — technically legal but administratively impossible: without electoral registration since the 1940s, watched always, its cadres cycling through Lecumberri like students through a brutal university.
+
+What it inherits, and you with it: the railway insurgency of 1958-59 (Vallejo and Campa, the great strike, ten thousand arrests, Article 145); the teachers of Othón Salazar, clubbed in the Zócalo; the campesino martyrs — Jaramillo above all, murdered with his family in 1962; the Madera assault of 1965, the first guerrilla of the era, crushed in a morning; the National Liberation Movement of Lázaro Cárdenas, proof that even a general of the Revolution could not open the system from outside; and 1968 — the movement the Party did not lead, could not lead, and was punished for anyway.
+
+Alongside the Party, a whole archipelago: lombardistas of the PPS orbiting the regime, Trotskyists in their seminar rooms, Maoists heading for the colonias, cristianos going left as the Church looks away, and in the sierra of Guerrero, schoolteachers concluding that the ballot and the strike are exhausted. The next twenty years will be the story of whether this archipelago becomes a continent.
+
+@personajes
+go-to: menu
+
+*Arnoldo Martínez Verdugo* — First Secretary. Sign painter, autodidact, heretic by temperament, custodian by trade.
+
+*Valentín Campa y Demetrio Vallejo* — the railwaymen. Eleven years in Lecumberri for the strike of '58-59; the Party's living proof that some people cannot be bought.
+
+*Othón Salazar* — the teacher of the Montaña de Guerrero. Mass line made flesh.
+
+*Ramón Danzós Palomino* — campesino, ex-candidate of an unregistered front, the independent countryside's memory.
+
+*Benita Galeana* — fifty-eight arrests across five decades. The Party's grandmother and its sharpest tongue.
+
+*José Revueltas* — novelist, twice expelled, permanently loyal. The conscience the Party cannot silence and cannot spare.
+
+*Heberto Castillo* — engineer of '68, not one of yours, indispensable anyway. Building a new left next door.
+
+*Luis Echeverría Álvarez* — Secretary of Gobernación on the second of October; President from 1970. Both hands extended: study them.
+
+*Gustavo Díaz Ordaz* — the President of Tlatelolco. History will not be persuaded otherwise, and neither will you.
+
+@glosario
+go-to: menu
+
+*Sexenio* — the six-year presidential reign; also the Republic's unit of historical time.
+
+*Dedazo / tapado / destape / cargada* — the succession: the pointing finger, the hidden one, the unveiling, the stampede of loyalty.
+
+*Charola* — literally a badge or tray; in practice, the offer you should have refused.
+
+*Charro* — a state-controlled union boss; hence *charrismo*, the whole apparatus of captive labor.
+
+*Granaderos* — the riot police. *DFS* — the Federal Security Directorate, the political police. *Judiciales* — plainclothes state police, the dirty war's day labor.
+
+*Amparo* — the constitutional writ of protection; beautiful instrument, routinely denied.
+
+*Paracaidistas / posesionarios* — "parachutists," the urban poor who seize land by night and build by dawn.
+
+*Disolución social* — Article 145, the crime of dissolving society; repealed 1970, eleven years too late for the men it caged.
+
+*Apertura democrática* — the opening; the regime's word for the space it sells you at prices to be determined.
+
+@mecanica
+go-to: menu
+
+= The organizer manual
+
+*(Internal circular. Not theory — plumbing.)*
+
+**Money follows the people — or Moscow.** Dues yield by membership: every five thousand members is quarterly income. Moscow pays each January — as long as the line does not grow too independent. A mass party finances itself; a small party obeys someone. Choose which one you are building.
+
+**Unity multiplies.** All organizing work yields more with a united party and less with a broken one. Sidelined corrientes (strength below 15) bleed unity month by month: advisor management IS faction management. Rotating advisors is not courtesy; it is maintenance.
+
+**The charro wall is a ceiling, not a decoration.** Worker support cannot grow past what charrismo permits. First the wall cracks — independent unions, coordinadoras, strikes — then the factory is harvested. In that order. There is no shortcut.
+
+**Crisis organizes — for whoever is present.** When the real wage falls, factory and colonia work yields double. The system lean years are the organizer fat ones: position BEFORE the crisis, harvest during it.
+
+**The expediente is the shadow of everything.** It grows with every visible action and brings the raid when it fattens. Security costs funds; raids cost more — including cadres. The balance between growing and lasting is the entire game.
+
+**The armed temptation consumes the young.** With the rifle running hot among the youth, some leave every month — to the Liga, to the sierra, into everyone files. It cools through deslinde (paid in prestige) or through mass work that gives the rage something to do.
+
+**The line has a price list.** Every ideological axis charges: Soviet alignment pays in gold and costs students and the middle class; independence costs the subsidy and pays in credibility. The electoral road opens seats and closes streets; the insurrectionary one, the reverse. There is no free line. There are only lines whose price you have not yet read.
+
+@sexenio_manual
+go-to: menu
+
+= The sexenio playbook
+
+Mexican politics breathes in six-year cycles, and so should your strategy. The rhythm:
+
+**Year 1 — read the new reign.** Every president opens with a purge of his predecessor people (openings for you) and a posture: check the Sistema tab meters. The strategy congress meets in February — the four roads are chosen here, and the choice shapes everything until the next inauguration.
+
+**Years 2 through 4 — build.** This is accumulation season: sector cards where the crisis bites, the sagas (Neza, the JC, the unions) that compound across decades, advisors rotated so no corriente rots, the expediente managed before it brings the four a.m. knock. Whatever the era great chains offer — the Tendencia, the coordinadoras, the casilla network — they are built NOW, in the boring years. The player who waits for the crisis to organize has already lost it.
+
+**Year 5 — succession fever.** The destape season opens: the temporada grande card appears, the columnists write in code, the camarillas overpay for friends. Position toward the likely tapado, harvest the nervous losers, and read the pasarela for what the next reign will cost you.
+
+**Year 6 — the test.** Elections where you have registro: the count is fought at the casillas your network covers, and answered afterward from the tribune or the street. Then the toma de posesion — and February question again.
+
+**Across all cycles:** el camino five milestones are the win condition road: survive, break the cerco, take the door, pour the foundations, forge the convergence. Check the status bar. If the current milestone is not moving, your strategy is decoration.
+
+@memorial
+go-to: menu
+
+= El memorial
+
+The list. Kept since the twenties, hidden better than money, copied in three hands and stored in none of the places the raids have looked.
+
+[? if memorial = 0 : It stands, for now, at the names inherited from before October — the railwaymen dead in the yards, Jaramillo and Epifania and the boys, the eight of Madera. No new names have been added on your watch. Keep it so, if the Republic permits. It will not permit. ?]
+
+[? if memorial >= 1 : Names added on your watch: [+ memorial +]. Each with a date, a place, a corner where a car was seen. The state deepest wager is that everyone forgets. The list is how the wager is lost. ?]
+
+[? if memorial >= 8 : The page is filling. Someone has begun a second copy in a school notebook in the Montana, because the era arithmetic demands it. Whatever else the Movement wins or loses, this document must survive it: years are coming when it will be the only census the dead receive. ?]

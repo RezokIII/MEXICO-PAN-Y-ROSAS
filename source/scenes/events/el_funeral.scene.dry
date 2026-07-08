@@ -1,0 +1,30 @@
+title: El entierro
+new-page: true
+subtitle: Civil cemetery
+tags: event
+view-if: represion >= 70 and time >= funeral_last + 8
+priority: 1
+frequency: 40
+max-visits: 2
+on-arrival: memorial += 1; funeral_last = time
+
+= El entierro
+
+The coffin is closed, on instructions no one will put in writing. He was picked up on a Tuesday; he was delivered to his mother twelve days later with the paperwork calling it a road accident, and the family was advised, gently, by men with credentials, that a small funeral would be best for everyone.
+
+The cemetery workers know the genre and dig quickly. The question is only how many stand at the grave, and how loudly the Internationale may be hummed.
+
+- @multitud: Turn out everyone. Some things are answered with numbers.
+- @intimo: The family, a flag folded small, and the list. The list above all: name, date, place. The Party keeps the list.
+
+@multitud
+choose-if: sup_students >= 20
+unavailable-subtitle: Four hundred people are not summoned with one phone call. (Requires student support.)
+on-arrival: sup_students += 3; represion += 2; expediente += 3; political_capital += 2
+
+Four hundred people who received no invitation. The humming becomes singing at the second verse — nobody decides it, it decides itself — and the men photographing from the chapel roof get four hundred faces for their files and one long lesson about arithmetic: they cannot pick up everyone. Not yet.
+
+@intimo
+on-arrival: unity += 2; political_capital += 1
+
+Nine people and the cypress wind. His mother asks whether it mattered, what he did, and the comrade who answers has the sense to say only: *it is written down. All of it.* The list is the Party's oldest sacrament — kept since the twenties, hidden better than money — because the state's deepest wager is that everyone forgets, and the list is how the wager is lost.

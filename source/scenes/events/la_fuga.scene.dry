@@ -1,0 +1,28 @@
+title: La fuga
+new-page: true
+subtitle: A cell walks out
+tags: event
+view-if: guerrilla_meter >= 18 and time >= fuga_last + 10
+priority: 2
+frequency: 50
+max-visits: 4
+on-arrival: fuga_last = time; members -= 1; sup_students -= 2; expediente += 3
+
+= La fuga
+
+The Tuesday cell of the vocational school does not come to the Tuesday meeting, or the next one. By the third week the pattern is old and legible: the mimeograph gone, two pistols missing from a place nobody admits knowing about, and a note left with the cell's youngest — too young to take along — that reads, in its entirety: *ustedes esperan; nosotros no podemos.*
+
+They have gone to the Liga, or to what is left of the sierra's people, or to a group with no name yet. The DFS will learn it within the month, and will not distinguish their file from yours.
+
+- @puertas: Leave the door open behind them. When it breaks them — and it will — they must have somewhere to come back to that isn't an interrogation room.
+- @cerrar: Close their files, formally. The Party cannot be the antechamber of the armed groups; the survivors of the next redada will thank you.
+
+@puertas
+on-arrival: guerrilla_meter -= 3; expediente += 2
+
+Nothing is announced. But the mother of one of them keeps getting the paper delivered, no charge, and a lawyer's card sits behind the counter of a fonda they used to eat at, in case. In two years, or five, whoever is left alive will know where the door is. It is the most Mexican of policies: the official position and the real one, working different shifts.
+
+@cerrar
+on-arrival: guerrilla_meter -= 5; unity += 2; sup_students -= 2; fac_ortodoxos += 2
+
+The expulsions are read into the minutes; the discipline is real and the cells respect it. Among the students the word is colder: the Party closes its doors faster than the state closes its files. Both reputations are earned, and only one of them was chosen.

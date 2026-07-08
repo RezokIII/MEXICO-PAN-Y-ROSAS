@@ -1,0 +1,31 @@
+title: El golpe a Excélsior
+new-page: true
+subtitle: 8 de julio de 1976
+tags: event
+view-if: year = 1976 and month = 7
+priority: 2
+max-visits: 1
+on-arrival: excelsior_caido = 1
+
+= El golpe a Excélsior
+
+For a decade Julio Scherer's Excélsior has been the one great daily that read like a free country's paper — Halconazo payrolls, Guerrero's disappeared, the President's economics examined without anesthesia. The regime has answered in its own genre: an engineered revolt of the paper's cooperative, paracaidistas bused onto the paper's land holdings, and today the assembly, packed and steered, that votes Scherer and two hundred journalists out of their own building while the police keep order in the courtyard.
+
+It is done entirely with lawful instruments — an assembly, a vote, a minute-book — which is the Mexican signature: the pillow held down with notarized hands. By nightfall the best newsroom in the Republic is on the sidewalk of Reforma with nowhere to print.
+
+Rumors already: Scherer's people will found something — a weekly, fierce and undercapitalized. Others from the diaspora talk of a new daily. The next press ecosystem is being born on that sidewalk, and it will remember its midwives.
+
+- @solidaridad: The Party's locals, lists, and distribution networks — offered to the expelled journalists, no conditions.
+- @prudencia: Sympathy in print. The Party's own presses are too precarious to adopt orphans with famous enemies.
+
+@solidaridad
+choose-if: funds >= 2
+unavailable-subtitle: Even solidarity has stationery costs.
+on-arrival: funds -= 2; political_capital += 3; sup_middle += 2; sup_students += 2
+
+Meeting rooms, a mailing list, two vans and their drivers on the day the new weekly's first issue must reach the stands before the government's buyers can corner it. The journalists are not yours and never will be — they guard their independence like burn victims — but the debt is banked where it matters: in the memory of the people who will write the next ten years of scandals.
+
+@prudencia
+on-arrival: sup_middle -= 1
+
+Correct, and quietly filed by everyone on that sidewalk. The new weekly rises anyway, on middle-class subscriptions and pure nerve, and when in future years its reporters weigh which calls to return, the Party's number is neither first nor blackened. Neutrality has a price schedule too; it is merely deferred.

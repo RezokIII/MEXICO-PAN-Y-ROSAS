@@ -1,0 +1,37 @@
+title: La Corriente
+new-page: true
+subtitle: 1986-87 — the system cracks from above
+tags: event
+view-if: year = 1987 and month = 3
+priority: 3
+max-visits: 1
+on-arrival: cd_formed = 1; pri_politicos -= 5
+
+= La Corriente
+
+It has been building for months in the PRI's own salons: Cuauhtémoc Cárdenas — governor, engineer, and son of the only president the Mexican poor ever canonized — and Porfirio Muñoz Ledo, the system's most dangerous debater, have formed a *Corriente Democrática* inside the ruling party itself. Their demands sound modest and are revolutionary: open selection of the presidential candidate, an end to the dedazo, a turn away from the debt-payment economics bleeding the country.
+
+The March assembly of the PRI answers with orchestrated humiliation — hours of speakers denouncing the Corriente while its members sit motionless — and the political class understands: they will comply, or leave. The son of Lázaro Cárdenas, leaving the PRI. The sentence rearranges every table in Mexican politics, including yours.
+
+Emissaries reach out — informally, deniably — in both directions.
+
+- @abrazar: Open serious channels now. Whatever the Corriente becomes, be inside its becoming.
+- @condiciones: Talk, but price it: program first, candidacies second, no dissolving the left into a nostalgia for the good PRI.
+- @rechazar: These are the system's men quarreling over the system's steering wheel. The left's road does not run through Los Pinos' family disputes.
+
+@abrazar
+choose-if: ax_nacpop >= 0
+unavailable-subtitle: Embracing cardenismo requires a nacional-popular line no pleno ever voted.
+on-arrival: cd_rel = 2; pri_reformist_rel += 4; fac_nueva_izquierda += 4; fac_ortodoxos -= 5; ax_nacpop += 4; political_capital += 3
+
+The dinners multiply; the trust builds the slow way, over shared readings of the same disaster. The ortodoxos warn, correctly, that cardenismo is not socialism. The reply, also correct, is that six million people may be about to go looking for a car to crash into the regime, and the Movement can be the road or the ditch. When the break comes, you will be the first call.
+
+@condiciones
+on-arrival: cd_rel = 1; political_capital += 2; unity += 2
+
+The memo is respectful and hard: convergence yes, absorption no; the program is the bride price. Muñoz Ledo, connoisseur of negotiating positions, reads it twice and smiles. Nothing is settled and everything is possible, which is the correct posture eighteen months from a hurricane.
+
+@rechazar
+on-arrival: cd_rel = 0; fac_ortodoxos += 4; unity += 1; sup_students -= 2
+
+The analysis is classical and clean: bourgeois faction fight, nationalist mystique, the masses' energies to be husbanded for the class's own instrument. It will read well in the theoretical review. The hurricane, when it comes, will not stop to read it.

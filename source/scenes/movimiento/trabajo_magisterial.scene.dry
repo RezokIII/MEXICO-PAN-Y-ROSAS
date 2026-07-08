@@ -1,0 +1,33 @@
+title: Trabajo magisterial
+new-page: true
+subtitle: Every teacher is a cell armed with chalk
+on-arrival: month_actions += 1
+max-visits: 60
+is-card: true
+frequency: 85
+tags: movimiento
+
+= Trabajo magisterial
+
+The teachers are the state's largest workforce and its worst-kept promise: normal-school idealists posted to villages without roads, paid late, governed by a union whose leaders live in the capital and vote by acclamation. Vanguardia Revolucionaria owns the SNTE the way a rancher owns cattle. But every teacher owns a classroom, and a classroom is a distribution network.
+
+- @seccion: Work the union sections — grievances, elections, the long war for the SNTE.
+- @escuela: Support the militant classrooms — books, materials, and cover for the teachers who teach true things.
+- @root: The chalk rests.
+- @easy_discard
+
+@seccion
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Not enough even for bus tickets.
+on-arrival: funds -= 2; sup_teachers += 4; charrismo -= 1
+
+Section meetings in Chiapas and Oaxaca where the delegates from Mexico City arrive to find the agenda already voted. Vanguardia's men take photographs and names. The names keep coming anyway; there is a particular courage that runs on sixty pesos a fortnight.
+
+@escuela
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Books cost money.
+on-arrival: funds -= 2; sup_teachers += 3; sup_peasants += 1
+
+Boxes of books that the official curriculum forgot, chalk, a stipend for the teacher in the Montaña who feeds half her students. Nothing illegal crosses the state line, only arithmetic and Juárez. The inspectors sense the difference and cannot cite it.

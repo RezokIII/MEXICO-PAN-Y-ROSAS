@@ -1,0 +1,23 @@
+title: El destape de los técnicos
+new-page: true
+subtitle: Septiembre-octubre de 1981
+tags: event
+view-if: year = 1981 and month = 10
+priority: 3
+max-visits: 1
+on-arrival: destape_phase = 4; pri_tecnicos += 15; pri_politicos -= 8
+
+= El destape de los técnicos
+
+The ritual runs its course — rumores, pasarela, the columnists in clave — and lands, this time, on a man the plazas have never heard of: Miguel de la Madrid Hurtado, Secretary of Programming and Budget, Harvard, a técnico's técnico who has never held elected office in his life. The políticos' candidates — the men of the corporations and the plazas — are passed over entire.
+
+Inside the PRI the destape is read correctly as a coup by spreadsheet: the oil boom is being managed by a new caste of economists, and the succession has just certified their ascent. Don Fidel swallows the cargada with visible effort. The old guard performs loyalty and begins, very quietly, to feel like tenants in their own house — a feeling that will take five years to acquire a name and a leader.
+
+For the Party: a sexenio of technocrats promises quieter repression, colder arithmetic, and a state that speaks fluent World Bank precisely as the boom begins to wobble.
+
+- @archivar: File the analysis and watch the oil numbers. Spreadsheet regimes break on spreadsheets.
+
+@archivar
+on-arrival: political_capital += 1
+
+The circular notes what the festive coverage does not: the boom is borrowed, the peso is creeping, and the incoming caste's loyalty is to balances no Mexican elected. If the numbers turn, this destape will look less like a coronation than a handover of the controls mid-storm.

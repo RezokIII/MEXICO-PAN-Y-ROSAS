@@ -1,0 +1,39 @@
+title: El Halconazo
+new-page: true
+subtitle: Jueves de Corpus — 10 de junio de 1971
+tags: event
+view-if: year = 1971 and month = 6
+priority: 3
+max-visits: 1
+on-arrival: represion += 8; guerrilla_meter += 5; memorial += 1
+
+= El Halconazo
+
+MÉXICO, D.F., 10 de junio de 1971 —
+
+The first big student march since 1968 — ten thousand from the Casco de Santo Tomás, testing the apertura the President has been selling for six months. The granaderos stand aside, which the marchers take for the promise kept.
+
+Then, from the side streets, the others: young men in sneakers with bamboo staves and kendo training, moving in disciplined wedges. *Los Halcones* — the Falcons, a force that officially does not exist, trained on a city payroll for exactly this afternoon. They beat the march apart down San Cosme; they fire on the crowd; they follow the wounded into the Rubén Leñero hospital and finish some of them in the wards while the police direct traffic around the operation. The count begins at a dozen and climbs for weeks.
+
+By evening the television carries the government's astonishment. By midnight the President himself appears, grave and wounded: he condemns the violence, promises the fullest investigation, hints at dark forces — *emisarios del pasado* — conspiring against his opening. The apertura extends one hand. The other has just been photographed holding a stave.
+
+- @marchar: March again within the week. The answer to the stave is the street — if the students will fill it.
+- @documentar: Document everything: names of Halcones, payroll trails, ward-by-ward testimony. Build the dossier the courts will refuse and history will not.
+- @repliegue: Pull the youth sections off the streets before the meter of martyrs runs higher.
+
+@marchar
+choose-if: sup_students >= 25
+unavailable-subtitle: Nobody marches again behind an organization with no weight among the students.
+on-arrival: sup_students += 6; represion += 3; expediente += 4; political_capital += 3
+
+Thousands come, jaws set, walking the same route like a sentence being finished. The Halcones do not appear twice; even a covert instrument has a budget of deniability, and it was spent Thursday. The city takes note of who kept walking. So does Bucareli.
+
+@documentar
+on-arrival: political_capital += 4; expediente += 3; pri_reformist_rel += 1
+
+Nurses talk, two bus drivers talk, a Halcón with an unpaid wage talks most of all. The dossier — payrolls, training fields, the chain of command climbing toward the regency and vanishing into fog — circulates in carbon copies that will outlive everyone named in them. The investigation the President promised concludes nothing, twice. Your carbon copies conclude a great deal.
+
+@repliegue
+on-arrival: sup_students -= 5; guerrilla_meter += 4
+
+The youth sections stand down; the funerals are attended in small numbers, quietly. It is defensible — every manual defends it — and the cost arrives anyway: the angriest of the young conclude that marching is a form of target practice for the other side, and begin listening to the compañeros who say so out loud, the ones with the geography maps.

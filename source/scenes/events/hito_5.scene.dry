@@ -1,0 +1,24 @@
+title: El camino: la convergencia
+new-page: true
+subtitle: Fifth milestone — the last before July
+tags: event
+view-if: camino4 = 1 and camino5 = 0 and fdn >= 1 and pms = 1 and cd_rel >= 2 and year >= 1987
+priority: 2
+max-visits: 1
+on-arrival: {!
+Q.camino5 = 1;
+Q.political_capital += 5;
+this.achieve('camino_convergencia');
+!}
+
+= El camino: la convergencia
+
+It exists. The thing three generations of the left died without seeing: one front — the socialist tradition fused in the PMS, the cardenista flood, the fronts and coordinadoras and the network — pointed at one July, with your Movement not as passenger but as load-bearing wall.
+
+Twenty years ago you were five thousand people the state had marked for digestion. Whatever happens on the sixth of July, this — the convergence itself — is already the largest political construction in the Republic's modern history built outside the PRI's walls.
+
+- @adelante: All five stones laid. Now the night itself.
+
+@adelante
+
+The old card still hangs in the local, yellowed: *SEGUIMOS.* Someone has finally added a second line beneath it, in fresh ink: *Y LLEGAMOS.* We continue — and we arrived.

@@ -1,27 +1,36 @@
 title: Los liberados
 new-page: true
-subtitle: 1970 — las puertas del Palacio Negro se entreabren
+subtitle: 1970 — the doors of the Black Palace crack open
 tags: event
 view-if: year = 1970 and month = 8
 priority: 2
 max-visits: 1
-face-image: img/campa_vallejo.jpg
 
 = Los liberados
 
-The president-elect wants a gesture, and the gesture is men. Vallejo first, then Campa: eleven years, and the state hands each of them a release paper as if returning an umbrella.
+The president-elect wants a gesture, and the gesture is men.
 
-There will be more — the '68 prisoners, in twos and threes across the next two years, many put on planes to Chile whether they asked or not. Every release is a gift with a ribbon of implication: *the new sexenio is generous. Note who is generous. Note what gratitude costs.*
+Vallejo first, then Campa, in the last days of July: eleven years, and the state hands each of them a release paper as if returning an umbrella it had borrowed. There is no apology, because an apology would name the crime, and the crime was theirs by statute: *disolución social*, Article 145, the law that made society a thing two railwaymen could dissolve. The article itself is being repealed — quietly, as part of the new administration's redecorating — which means the men who served eleven years under it were imprisoned, the state now concedes by implication, for grammar.
 
-- @recibir: Receive them with a public act. Let the city see who is coming home.
-- @discreto: Quietly. The DFS photographs every abrazo at that gate.
+Campa walks out lighter than his file. Vallejo walks out asking about the pension tables. Neither man blinks at the cameras, having had eleven years to practice not giving the guards a face worth photographing.
+
+The '68 prisoners will follow across the next two years, in twos and threes, many of them put on planes — to Chile, mostly, President Allende's Chile, exile dressed as liberation so that the release papers need never say *innocent*. Every freed man is a gift with a ribbon of implication: *the new sexenio is generous. Note who is generous. Note what gratitude costs, and to whom it is payable.*
+
+- @recibir: Receive them with a public act. Let the city see who is coming home, and who kept the list of names.
+- @discreto: Quietly. The DFS photographs every abrazo at that gate, and gratitude is the regime's favorite currency.
 
 @recibir
-on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; organizers += 1; sup_students += 5; sup_workers += 3; political_capital += 4; expediente += 6; presidente_cooptacion += 5
+choose-if: funds >= 4
+unavailable-subtitle: The hall, the sound system, the posters: 4 funds you do not have.
+on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; vallejo_advisor = 1; organizers += 1; sup_students += 5; sup_workers += 3; political_capital += 4; expediente += 6; presidente_cooptacion += 5
 
-The hall is full, the speeches short. Campa says thirteen words about the pension tables of the railway workers and sits down to the longest ovation the Party has heard since the thirties. Somewhere in Bucareli, a functionary adds a page to a file and a line to a budget: these people can be moved by gratitude. Worth testing.
+The hall is full an hour early; the aisles fill next; the street outside fills last, and stays. The speeches are short because nothing needs explaining to this audience. Campa says thirteen words about the pension tables of the railway workers — updated, in his head, through eleven years of cell light — and sits down to the longest ovation the Party has heard since the thirties, from railwaymen who were apprentices when he went in and are grandfathers now.
+
+It is a great day, and it is also noted. Somewhere in Bucareli a functionary adds a page to a file and a line to a budget estimate: *these people can be moved by gratitude. Worth testing.* The apertura has your measurements now.
 
 @discreto
-on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; organizers += 1; political_capital += 1
+on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; vallejo_advisor = 1; organizers += 1; political_capital += 1
 
-Two cars, a side street, coffee in a kitchen in Colonia Guerrero. Campa asks for the membership figures before he asks for the news. Vallejo asks for the railway figures. Neither man asks about the men who put them inside, which is its own kind of report on their condition.
+Two cars, a side street, coffee in a kitchen in Colonia Guerrero with the radio on out of old habit, because a radio complicates the microphones. Campa asks for the membership figures before he asks for the news. Vallejo asks for the railway figures and corrects them from memory. Neither man asks about the men who put them inside — not from serenity, you understand after a while, but from economy: they have eleven years to spend and no intention of spending a peso of it on jailers.
+
+The city does not see them come home. The DFS gets no photograph. And the Party banks, in silence, the only asset the state could not devalue at that gate: two men it failed to break, returned to circulation.

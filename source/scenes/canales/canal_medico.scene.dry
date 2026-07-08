@@ -1,0 +1,33 @@
+title: El canal médico
+new-page: true
+subtitle: Medicine has no party line
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 90
+tags: canales
+
+= El canal médico
+
+Up in the sierra and down in the safe houses there are fevers, wounds gone bad, a midwife needed where no doctor will sign a travel log. The channel exists for this: supplies without return addresses, a médico who examines patients and forgets faces. It is not support for the armed road. It is the refusal to let the state decide who receives quinine.
+
+- @surtir: Move the supplies — the mule track, the coffee warehouse, the clinic that keeps two sets of books.
+- @medico_bajar: Bring one down: a wounded boy whose war is over, whatever he thinks. Hospital, papers, a new city.
+- @root: The channel rests. The fevers do not.
+- @easy_discard
+
+@surtir
+subtitle: -3 funds
+choose-if: funds >= 3
+unavailable-subtitle: Quinine is bought; the rest is improvised.
+on-arrival: funds -= 3; sup_peasants += 2; guerrilla_meter -= 1; expediente += 3
+
+The bundles travel as coffee, as schoolbooks, as a stove part. In the villages the arithmetic is noticed without being spoken: the state sends soldiers, the Party sends penicillin. Loyalties in the sierra are built of exactly such freight.
+
+@medico_bajar
+subtitle: -4 funds, high risk
+choose-if: funds >= 4 and organizers >= 2
+unavailable-subtitle: Bringing someone down alive requires fully trusted cadres and cash for papers.
+on-arrival: funds -= 4; guerrilla_meter -= 2; expediente += 4; members += 1
+
+Three weeks, four vehicles, one forged baptism certificate of surpassing beauty. The boy sleeps a whole day in the safe apartment and wakes asking for work, any work, that isn't the other work. In five years he will be a section treasurer with a limp nobody asks about. This is what winning looks like on this front: one at a time, alive.

@@ -1,0 +1,24 @@
+title: El camino: la puerta
+new-page: true
+subtitle: Third milestone
+tags: event
+view-if: camino2 = 1 and camino3 = 0 and registro >= 1 and izq_seats >= 10
+priority: 2
+max-visits: 1
+on-arrival: {!
+Q.camino3 = 1;
+Q.political_capital += 6;
+this.achieve('camino_puerta');
+!}
+
+= El camino: la puerta
+
+Legal, registered, and seated: a parliamentary group with double digits, salaries that fund organizers, immunity that shields speakers, and a tribune the whole Republic can hear. The generation that joined in clandestinity walks past the Chamber's murals to work every morning and has not stopped finding it funny.
+
+The door of 1977 was a wager on both sides: the regime bet you would be domesticated; you bet you would be amplified. The wager is still open — but you are inside, and the amplifier is on.
+
+- @adelante: The door is held open. Now build what walks through it.
+
+@adelante
+
+The old question — *reform or betrayal* — is argued now from within the answer. The young deputies note that the argument sounds different with a microphone.

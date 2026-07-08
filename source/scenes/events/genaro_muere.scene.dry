@@ -1,0 +1,29 @@
+title: Muere Genaro
+new-page: true
+subtitle: Febrero de 1972
+tags: event
+view-if: year = 1972 and month = 2
+priority: 2
+max-visits: 1
+on-arrival: memorial += 1
+
+= Muere Genaro
+
+Genaro Vázquez Rojas — normal-school teacher, civic organizer beaten off the electoral road years before he ever picked up a rifle, leader of the ACNR — dies on the Morelia highway: a car against a bridge abutment in the dark, the army arriving with unusual speed, a coffin sealed with unusual firmness. The official account is an accident. In Guerrero nobody bothers to believe it or disbelieve it; the sierra files it with everything else the government says.
+
+What is not disputable: the man the state could not defeat in the mountains is dead at forty, and in the normal schools they are already singing about it. The corrido is how Guerrero keeps its minutes.
+
+- @honrar: A public homage — the teacher who was driven to the mountain, named in a hall in the capital.
+- @privado: A line in the paper, correct and cold. The Party keeps its distance from the armed dead.
+
+@honrar
+choose-if: sup_students >= 15
+unavailable-subtitle: A half-empty homage is a gift to the regime's press.
+on-arrival: sup_students += 4; sup_peasants += 2; expediente += 3; guerrilla_meter += 1
+
+The hall fills past the fire code. Nobody defends the armed road from the podium — the speakers are careful, the DFS stenographer will find nothing quotable — but the room itself is the statement: a man's history recited whole, from the ballot boxes they stuffed against him to the bridge. The state made him, the room concludes silently. Whatever else, the state made him.
+
+@privado
+on-arrival: fac_ortodoxos += 2; sup_students -= 2; guerrilla_meter += 1
+
+Three sentences on page four, syntactically impeccable, warm as a receipt. In the JC locals they read it twice to make sure. The old argument gets a new exhibit: when ours die, says Marta's generation, the Party sends condolences by registered mail.

@@ -1,0 +1,28 @@
+title: El aviso oportuno
+new-page: true
+subtitle: Sometimes a voice arrives before the convoy
+on-arrival: month_actions += 1
+max-visits: 30
+is-card: true
+frequency: 70
+tags: canales
+
+= El aviso oportuno
+
+The network hears things — a requisition of vehicles, leave cancelled at a barracks, the fuente's envelope naming a valley. Between hearing and the convoy's arrival there is a window, measured in hours, in which a telephone call to the right tienda changes what the soldiers find.
+
+- @avisar: Make the call. Whoever is in that valley — combatant, courier, coffee farmer on a list — gets the hours.
+- @callar: Not this time: the source is too exposed, and a warning that traces back kills the channel and its man.
+- @easy_discard
+
+@avisar
+choose-if: expediente <= 75
+unavailable-subtitle: With the DFS this close, the call itself is a confession. The channel would not survive it.
+on-arrival: guerrilla_meter -= 1; sup_peasants += 3; expediente += 4; represion += 1
+
+The convoy finds hearths still warm and a village of shrugs. Somewhere in the operation's paperwork a colonel writes *información comprometida* and requests an investigation that will eat months. In the valley they do not know whose voice it was on the tienda's phone. They know the direction gratitude points.
+
+@callar
+on-arrival: unity -= 1; guerrilla_meter += 2; memorial += 1
+
+The window closes unspent. What the convoy finds, the corridos will report before the newspapers don't. The source lives to hear another requisition — that was the trade, and it was probably correct, and the man who made it will keep the other half of it in his chest for years: the arithmetic of channels is paid in exactly this coin.
