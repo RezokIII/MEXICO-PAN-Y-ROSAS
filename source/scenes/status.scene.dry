@@ -12,6 +12,9 @@ if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_c
 
 = The Movement
 
+*Hover any highlighted term — people, institutions, mechanics — for context.*
+
+
 [+ month : month +] [+ year +]
 
 Funds: [+ funds +]
@@ -40,11 +43,13 @@ Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence 
 
 = Internal corrientes
 
-Ortodoxos: [+ fac_ortodoxos : fuerza +]
+Ortodoxos: [+ fac_ortodoxos : fuerza +] — mood: [+ des_ortodoxos : animo +][? if des_ortodoxos >= 60 : (they need Moscow respected or the tradition fed — soon) ?]
 
-Renovadores: [+ fac_renovadores : fuerza +]
+Renovadores: [+ fac_renovadores : fuerza +] — mood: [+ des_renovadores : animo +][? if des_renovadores >= 60 : (they need the electoral-democratic road honored — soon) ?]
 
-Nueva izquierda: [+ fac_nueva_izquierda : fuerza +]
+Nueva izquierda: [+ fac_nueva_izquierda : fuerza +] — mood: [+ des_nueva : animo +][? if des_nueva >= 60 : (they need the street and the movements back on the agenda — soon) ?]
+
+[? if des_ortodoxos >= 50 or des_renovadores >= 50 or des_nueva >= 50 : A corriente past 50 dissent drains unity monthly and can force a fronda. The corrientes card in El Movimiento deck is the instrument. ?]
 
 = El sistema
 

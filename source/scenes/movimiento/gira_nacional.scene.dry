@@ -1,0 +1,25 @@
+title: The national tour
+new-page: true
+subtitle: The leadership shows the flag, everywhere at once
+view-if: organizers >= 3
+on-arrival: month_actions += 1
+max-visits: 8
+is-card: true
+frequency: 45
+tags: movimiento
+
+= The national tour
+
+Once in a great while the Movement does the expensive thing: the whole leadership on the roads for a season — plazas in twelve states, every regional committee visited, the press following because crowds are news even when the censors prefer otherwise. A tour spends everything at once and pays everywhere at once.
+
+- @girar: Launch the tour.
+- @root: The roads can wait.
+- @easy_discard
+
+@girar
+subtitle: -8 funds, the whole leadership committed
+choose-if: funds >= 8 and organizers >= 3 and unity >= 40
+unavailable-subtitle: A national tour takes a full treasury, the whole bench, and a party united enough to leave home unsupervised.
+on-arrival: funds -= 8; sup_workers += 2; sup_peasants += 2; sup_colonos += 2; sup_students += 2; sup_teachers += 2; members += 2; expediente += 4; unity += 2
+
+Twelve states, forty plazas, one bus with a rebuilt transmission and a mimeograph bolted to the floor. The regional committees, visited for the first time in years, work double for a season out of sheer acknowledgment. The DFS motorcade follows the whole route at a respectful distance, compiling the most complete map of the Movement ever assembled — the tour price, paid in the usual coin.

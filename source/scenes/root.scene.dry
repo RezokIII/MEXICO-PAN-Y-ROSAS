@@ -92,6 +92,10 @@ Q.spicer = 0;
 Q.laguna = 0;
 Q.auge_armada = 0;
 Q.pres_total = 0;
+Q.des_ortodoxos = 10;
+Q.des_renovadores = 10;
+Q.des_nueva = 15;
+Q.fronda_last = 0;
 Q.herencia = 0;
 Q.verano68 = 0;
 Q.rescate = 0;
@@ -771,6 +775,8 @@ new-page: true
 **The costs.** Almost everything that grows the Movement also fattens your expediente — the DFS file that brings raids when heavy. Unity multiplies all organizing; sidelined internal corrientes drain it, so rotate your advisors. The charro wall caps worker support until you crack it. Crisis years make colonia and factory work pay double: position early.
 
 **The two roads.** After each presidential succession, a strategy congress sets the line: the political road (elections, fronts, the long accumulation) or the armed road (the Sierra tab: zones, columns, garrisons, and intelligence to see them). The armed road forfeits legal tools while it runs; the amnesty of 1978 is its one door back.
+
+**The rhythm.** The Library carries the full sexenio playbook — what each of the six years is for. Read it after your first cycle.
 
 **Elections are counted twice.** Your actas against the state's alquimia. The casilla network — built card by card across years — is what closes the gap between the vote and the result.
 

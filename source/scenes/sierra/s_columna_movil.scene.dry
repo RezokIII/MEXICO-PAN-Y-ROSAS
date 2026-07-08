@@ -1,0 +1,39 @@
+title: The mobile column
+new-page: true
+subtitle: A war that will not be found must move
+view-if: via = "armada" or via = "dual"
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 70
+tags: sierra
+
+= The mobile column
+
+The sierra doctrine, applied: presence is not a garrison, it is a current. When a zone runs hot, the column that stays is a casualty list; the column that moves arrives where the state is not.
+
+- @mover_gro_oax: Shift strength: Guerrero into Oaxaca — over the ranges the army maps badly.
+- @mover_valle_jal: Shift strength: the Valle into Jalisco — cell by cell along the bus routes.
+- @mover_chih_nl: Shift strength: Chihuahua into Nuevo Leon — the northern corridor.
+- @easy_discard
+
+@mover_gro_oax
+choose-if: pres_guerrero >= 8
+unavailable-subtitle: There is not enough structure in Guerrero to move.
+on-arrival: pres_guerrero -= 6; pres_oaxaca += 5; inteligencia += 1
+
+The trails over the Mixteca carry the current south. The Istmo receives it the way the Istmo receives everything: on its own terms, into its own history — and the army sweep arrives in Guerrero eleven days behind the war.
+
+@mover_valle_jal
+choose-if: pres_valle >= 8
+unavailable-subtitle: There is not enough structure in the Valle to move.
+on-arrival: pres_valle -= 6; pres_jalisco += 5; inteligencia += 1
+
+Second-class buses, forged teacher credentials, the network re-knitting in Guadalajara neighborhoods the Liga once knew. The capital garrison, thickest in the Republic, is left guarding an address book of empty rooms.
+
+@mover_chih_nl
+choose-if: pres_chihuahua >= 8
+unavailable-subtitle: There is not enough structure in Chihuahua to move.
+on-arrival: pres_chihuahua -= 6; pres_nl += 5; inteligencia += 1
+
+The northern corridor: railway men remember Vallejo, and freight moves more than freight. Monterrey acquires cells inside the industrial belt — the one geography where the war and the strike committees can someday shake hands.

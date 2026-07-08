@@ -1,0 +1,25 @@
+title: The airtime
+new-page: true
+subtitle: The reform pays in minutes of radio
+view-if: registro >= 1
+on-arrival: month_actions += 1
+max-visits: 40
+is-card: true
+frequency: 65
+tags: sistema
+
+= The airtime
+
+Registration bought the strangest of assets: state airtime — fifteen minutes at hours chosen by an enemy, on stations that announce you like a weather warning. Badly used, it is a lecture into the void. Well used, it is the only place the Republic ever hears the left unmediated by Excelsior adjectives or PIPSA arithmetic.
+
+- @programa: Produce it properly — real programs: testimony, numbers, the corrido at the end.
+- @root: Let the minutes lapse.
+- @easy_discard
+
+@programa
+subtitle: -4 funds
+choose-if: funds >= 4
+unavailable-subtitle: Production costs: a studio hour, an engineer, tape.
+on-arrival: funds -= 4; sup_middle += 3; clima_neoliberal -= 1; prestigio_socialismo += 1; sup_colonos += 1
+
+The format someone invents — a señora from the committees interviewed like a minister, the week arithmetic read like news, four minutes of Judith Reyes — turns the punishment slot into an institution. Taxi drivers report retuning. In the medium the regime designed to bore you to death, the Movement learns to broadcast, which is a weapon the eighties will reward.

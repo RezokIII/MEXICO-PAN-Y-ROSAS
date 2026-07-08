@@ -114,4 +114,17 @@ face-images ~700px, portraits ~256px square-ish.
 | img/camioneta.jpg | the white Galaxie / the unmarked van — used by state-retaliation events |
 | img/huelga_general.jpg | the stopped country — an empty avenue, a raised switch lever |
 
+## TIER 8 — the July additions (impact cards & corrientes)
+
+| filename | subject |
+|---|---|
+| img/cards/escuela.jpg | the cadre school — a blackboard, six chairs, one lamp |
+| img/cards/gira.jpg | the national tour — the bus with the mimeograph bolted down |
+| img/cards/palancas.jpg | the levers — a courthouse corridor, two men talking sideways |
+| img/cards/radio_estudio.jpg | the airtime — a 1970s radio studio, ON AIR light |
+| img/cards/archivo.jpg | the war archive — affidavits, a notary seal, three envelopes |
+| img/cards/columna_movil.jpg | the mobile column — figures crossing a range at dusk |
+| img/cards/corrientes.jpg | the three families — one long table, three clusters of chairs |
+| img/fronda.jpg | la fronda — a delegation standing, a document with signatures |
+
 Start with Tier 1 + Tier 2 + the urna: those cover ~90% of what a player sees per hour. Superbarrio is Tier 6 by number and Tier 1 by soul.

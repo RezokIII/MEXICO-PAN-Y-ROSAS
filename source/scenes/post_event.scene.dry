@@ -30,6 +30,12 @@ if (Q.month != Q.last_drift_month) {
     if (Q.postura_guerrilla == 1 && Q.guerrilla_meter > 0) { Q.guerrilla_meter -= 1; }
     if (Q.huelgas > 0 && Q.time % 2 == 0) { Q.huelgas -= 1; }
     if (Q.fac_ortodoxos < 15 || Q.fac_renovadores < 15 || Q.fac_nueva_izquierda < 15) { Q.unity -= 1; }
+    // faction mood: the line, and marginalization, generate dissent
+    Q.des_ortodoxos += (Q.ax_sovietico <= -15 ? 1 : 0) + (Q.ax_nacpop >= 15 ? 1 : 0) + (Q.fac_ortodoxos < 18 ? 1 : 0) - 1;
+    Q.des_renovadores += (Q.ax_sovietico >= 10 ? 1 : 0) + (Q.ax_electoral <= -15 ? 1 : 0) + (Q.fac_renovadores < 18 ? 1 : 0) - 1;
+    Q.des_nueva += (Q.ax_electoral >= 20 ? 1 : 0) + (Q.via == "institucional" ? 1 : 0) + (Q.fac_nueva_izquierda < 18 ? 1 : 0) - 1;
+    var desl = ['des_ortodoxos','des_renovadores','des_nueva'];
+    for (var dq of desl) { if (Q[dq] < 0) Q[dq] = 0; if (Q[dq] > 100) Q[dq] = 100; if (Q[dq] >= 50) Q.unity -= 1; }
     // dues: members feed the treasury, quarterly
     if (Q.time % 3 == 0) { Q.funds += Math.min(6, Math.floor(Q.members / 5)); }
     // Moscow pays its friends, each January - independence means self-financing

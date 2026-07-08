@@ -23,7 +23,7 @@ The line is not a decree; it is a resolution, argued in a borrowed hall until da
 subtitle: Requires political capital
 choose-if: political_capital >= 8
 unavailable-subtitle: Imposing a line costs political capital you do not have.
-on-arrival: political_capital -= 5; congreso_last = time; ax_electoral += 6; fac_renovadores += 4; fac_nueva_izquierda -= 2; unity -= 2
+on-arrival: political_capital -= 5; congreso_last = time; ax_electoral += 6; fac_renovadores += 4; fac_nueva_izquierda -= 2; unity -= 2; des_renovadores -= 8; des_nueva += 8
 
 The resolution passes after eleven hours: the electoral road is the main road. The renovadores leave the hall walking taller; the street cadres fold the resolution into their pockets like a bill they intend to dispute.
 
@@ -31,7 +31,7 @@ The resolution passes after eleven hours: the electoral road is the main road. T
 subtitle: Requires political capital
 choose-if: political_capital >= 8
 unavailable-subtitle: Imposing a line costs political capital you do not have.
-on-arrival: political_capital -= 5; congreso_last = time; ax_electoral -= 6; fac_nueva_izquierda += 4; fac_renovadores -= 2; unity -= 2
+on-arrival: political_capital -= 5; congreso_last = time; ax_electoral -= 6; fac_nueva_izquierda += 4; fac_renovadores -= 2; unity -= 2; des_nueva -= 8; des_renovadores += 8
 
 The resolution passes at three in the morning: the masses are the road, the ballot one tool among several. The coordinadora people applaud with their boots. The diputados applaud with their fingertips.
 
@@ -39,7 +39,7 @@ The resolution passes at three in the morning: the masses are the road, the ball
 subtitle: Requires political capital
 choose-if: political_capital >= 8
 unavailable-subtitle: Imposing a line costs political capital you do not have.
-on-arrival: political_capital -= 5; congreso_last = time; ax_nacpop += 6; fac_nueva_izquierda += 3; fac_ortodoxos -= 3; unity -= 2
+on-arrival: political_capital -= 5; congreso_last = time; ax_nacpop += 6; fac_nueva_izquierda += 3; fac_ortodoxos -= 3; unity -= 2; des_ortodoxos += 8; des_nueva -= 5
 
 Zapata enters the statutes and Lenin moves one shelf down. The old militants grumble that the Party is dressing for a wedding nobody has proposed yet. Give it a decade, says someone from the back, and nobody laughs, and the phrase is remembered.
 
@@ -47,6 +47,6 @@ Zapata enters the statutes and Lenin moves one shelf down. The old militants gru
 subtitle: Requires political capital
 choose-if: political_capital >= 8
 unavailable-subtitle: Imposing a line costs political capital you do not have.
-on-arrival: political_capital -= 5; congreso_last = time; ax_nacpop -= 6; ax_sovietico += 3; fac_ortodoxos += 4; fac_renovadores -= 2; unity -= 2
+on-arrival: political_capital -= 5; congreso_last = time; ax_nacpop -= 6; ax_sovietico += 3; fac_ortodoxos += 4; fac_renovadores -= 2; unity -= 2; des_ortodoxos -= 10; des_renovadores += 8
 
 The tradition reaffirmed, the vocabulary retightened, the classics restored to the syllabus. The house feels more like itself — and slightly smaller, the way houses do when the windows are closed for the season.
