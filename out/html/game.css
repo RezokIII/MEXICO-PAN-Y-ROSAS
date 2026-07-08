@@ -597,8 +597,10 @@ table {
 
 
 /* ===== La Izquierda: layout pass - wider sidebars, split columns ===== */
-#tools_wrapper { max-width: 78em; }
-.tools { width: 19rem; padding: 0.9em; }
+#tools_wrapper { max-width: 84em; }
+.tools { width: 16rem; padding: 0.85em; }
+@media screen and (max-width: 1300px) { .tools { width: 14rem; padding: 0.6em; } }
+@media screen and (max-width: 1120px) { .tools { width: 12rem; font-size: 0.85em; } }
 #qualities, #qualities2 { line-height: 1.55; font-size: 0.95em; text-indent: 0; }
 #qualities p, #qualities2 p { margin: 0.55em 0; }
 #qualities h1, #qualities2 h1 { font-size: 1.05em; margin: 0.9em 0 0.4em; border-bottom: 1px solid rgba(0,0,0,0.15); padding-bottom: 2px; }
