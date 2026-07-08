@@ -145,7 +145,7 @@ is-deck: true
 
 @movimiento
 title: El Movimiento
-card-image: img/Vorwaerts_nr_1.png
+card-image: img/cards/deck_movimiento.jpg
 is-deck: true
 
 - #movimiento
