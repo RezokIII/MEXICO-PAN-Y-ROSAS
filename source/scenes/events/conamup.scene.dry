@@ -1,6 +1,7 @@
 title: La CONAMUP
 new-page: true
 subtitle: 1980 — the city's poor coordinate
+face-image: img/conamup.jpg
 tags: event
 view-if: year = 1980 and month = 5
 priority: 2

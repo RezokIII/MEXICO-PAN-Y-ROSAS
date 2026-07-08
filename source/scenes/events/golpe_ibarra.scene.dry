@@ -1,6 +1,7 @@
 title: The warning to the mother
 new-page: true
 subtitle: They threatened the one asking ¿dónde están?
+face-image: img/camioneta.jpg
 tags: event
 view-if: ibarra_advisor = 1 and represion >= 85 and expediente >= 75 and time >= repadv_last + 15
 priority: 2

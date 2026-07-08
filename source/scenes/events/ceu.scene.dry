@@ -1,6 +1,7 @@
 title: El CEU
 new-page: true
 subtitle: 1986-87 — the university wakes
+face-image: img/ceu.jpg
 tags: event
 view-if: year = 1986 and month = 11
 priority: 2

@@ -1,6 +1,7 @@
 title: El Primero de Mayo insurgente
 new-page: true
 subtitle: The parade itself is contested
+face-image: img/mayday.jpg
 tags: event
 view-if: huelgas >= 30 and year >= 1983 and mayday = 0
 priority: 2

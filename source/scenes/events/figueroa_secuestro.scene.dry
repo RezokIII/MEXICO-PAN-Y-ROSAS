@@ -1,6 +1,7 @@
 title: El senador en la sierra
 new-page: true
 subtitle: Mayo-septiembre de 1974
+face-image: img/guerrero_sierra.jpg
 tags: event
 view-if: year = 1974 and month = 6
 priority: 3

@@ -1,6 +1,7 @@
 title: The cadre school
 new-page: true
 subtitle: Organizers are made, not found
+card-image: img/cards/escuela.jpg
 view-if: members >= 8
 on-arrival: month_actions += 1
 max-visits: 4

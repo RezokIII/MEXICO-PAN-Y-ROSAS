@@ -1,6 +1,7 @@
 title: El congreso de la Juventud
 new-page: true
 subtitle: 1974 — the JC decides what it is
+face-image: img/jc_pena.jpg
 tags: event
 view-if: year = 1974 and month = 3
 priority: 2

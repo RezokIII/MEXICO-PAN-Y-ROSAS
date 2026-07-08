@@ -1,6 +1,7 @@
 title: Expropriation
 new-page: true
 subtitle: The revolution banks where it can
+card-image: img/cards/expropiacion.jpg
 view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 40

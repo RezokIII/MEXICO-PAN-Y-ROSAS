@@ -1,6 +1,7 @@
 title: Recruitment
 new-page: true
 subtitle: Columns are built one trusted name at a time
+card-image: img/cards/recluta.jpg
 view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 60

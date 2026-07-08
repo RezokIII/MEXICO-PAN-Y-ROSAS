@@ -1,6 +1,7 @@
 title: Defensa del voto
 new-page: true
 subtitle: The casilla network
+card-image: img/cards/casilla.jpg
 view-if: registro >= 1
 on-arrival: month_actions += 1
 max-visits: 25

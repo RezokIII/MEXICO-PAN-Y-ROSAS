@@ -1,6 +1,7 @@
 title: La ola
 new-page: true
 subtitle: Marzo-mayo de 1988
+face-image: img/cardenas_campana.jpg
 tags: event
 view-if: year = 1988 and month = 4
 priority: 3

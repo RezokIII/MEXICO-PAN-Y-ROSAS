@@ -1,6 +1,7 @@
 title: Finanzas del Movimiento
 new-page: true
 subtitle: The treasury is a shoebox
+card-image: img/cards/finanzas.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

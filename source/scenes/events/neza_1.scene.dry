@@ -1,6 +1,7 @@
 title: Ciudad Nezahualcóyotl
 new-page: true
 subtitle: 1972 — la ciudad que la ciudad no admite
+face-image: img/neza.jpg
 tags: event
 view-if: year = 1972 and month = 5
 priority: 2

@@ -1,6 +1,7 @@
 title: El camino: la puerta
 new-page: true
 subtitle: Third milestone
+face-image: img/camino.jpg
 tags: event
 view-if: camino2 = 1 and camino3 = 0 and registro >= 1 and izq_seats >= 10
 priority: 2

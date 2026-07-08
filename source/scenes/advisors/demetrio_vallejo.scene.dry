@@ -17,6 +17,7 @@ Eleven years, four months, and some days, most of them in Lecumberri, several of
 @vallejo_independientes
 title: Sindicalismo independiente
 subtitle: Outside the CTM there is a country. Organize it.
+card-image: img/portraits/vallejo.jpeg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_electricians += 5; sup_workers += 3; charrismo -= 2; expediente += 3; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1

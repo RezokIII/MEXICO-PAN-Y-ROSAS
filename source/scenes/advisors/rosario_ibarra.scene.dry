@@ -17,6 +17,7 @@ A doctor's wife from Monterrey. In April of 1975 the police took her son Jesús,
 @ibarra_madres
 title: Las madres
 subtitle: Help the committee of the disappeared organize. Grief, in formation.
+card-image: img/portraits/ibarra.jpg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 4; sup_middle += 2; represion -= 2; fac_renovadores += 2; fac_ortodoxos -= 1; fac_nueva_izquierda -= 1

@@ -1,6 +1,7 @@
 title: Trabajo en colonias
 new-page: true
 subtitle: The city the city refuses to admit
+card-image: img/cards/colonia.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

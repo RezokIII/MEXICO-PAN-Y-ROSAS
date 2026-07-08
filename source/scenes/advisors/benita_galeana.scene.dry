@@ -17,6 +17,7 @@ She sold gum on the street as a girl in Guerrero, taught herself to read as a gr
 @benita_mujeres
 title: Las mujeres
 subtitle: Half the movement is carrying the other half. Organize the half that carries.
+card-image: img/portraits/benita.jpeg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_colonos += 4; members += 1; unity += 2; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1

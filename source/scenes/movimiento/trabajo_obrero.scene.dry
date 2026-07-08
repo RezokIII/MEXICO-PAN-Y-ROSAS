@@ -1,6 +1,7 @@
 title: Trabajo obrero
 new-page: true
 subtitle: The charro wall has cracks
+card-image: img/cards/fabrica.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

@@ -1,6 +1,7 @@
 title: El día siguiente
 new-page: true
 subtitle: 1989
+face-image: img/zocalo_88.jpg
 tags: event
 view-if: year = 1989 and month = 5
 priority: 3

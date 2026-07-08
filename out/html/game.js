@@ -418,11 +418,13 @@
       pending = false;
       markup(document.getElementById('content'));
       markup(document.getElementById('qualities'));
+      markup(document.getElementById('qualities2'));
     }, 60);
   }
   window.addEventListener('load', function() {
     var content = document.getElementById('content');
     var quals = document.getElementById('qualities');
+    var quals2 = document.getElementById('qualities2');
     var obs = new MutationObserver(function(muts) {
       for (var i = 0; i < muts.length; i++) {
         var t = muts[i].target;
@@ -433,33 +435,124 @@
     });
     if (content) obs.observe(content, {childList: true, subtree: true});
     if (quals) obs.observe(quals, {childList: true, subtree: true});
+    if (quals2) obs.observe(quals2, {childList: true, subtree: true});
     schedule();
   });
 })();
 
 
-// ===== Sierra war map colorizer =====
+// ===== Sierra war map: colorizer + hover intelligence =====
 (function(){
+  var prev = {};
+  var INFO = {
+    tijuana:  ['Baja California Norte','The border: dollars, crossings, the longest escape route in the Republic.'],
+    chihuahua:['Chihuahua','Madera country: the northern sierra, long memories, thin garrisons.'],
+    nl:       ['Nuevo Leon','Monterrey: the industrial belt, railway veins, money with its own foreign policy.'],
+    jalisco:  ['Jalisco','Guadalajara: old Liga craft, seminarians gone left, police who remember.'],
+    valle:    ['Valle de Mexico','The capital: deepest waters, thickest garrison, the war argued in print.'],
+    guerrero: ['Guerrero','The Costa Grande: Lucio country. The dirty war deepest theater.'],
+    oaxaca:   ['Oaxaca','The Istmo: COCEI country, Zapotec politics, ranges the army maps badly.']
+  };
+  function trend(z, guar){
+    if (prev[z] === undefined) { return 'no prior data'; }
+    var d = Math.round(guar - prev[z]);
+    if (d >= 5) return 'REINFORCING (+' + d + ')';
+    if (d >= 2) return 'building up (+' + d + ')';
+    if (d <= -3) return 'drawing down (' + d + ')';
+    return 'static';
+  }
+  function qual(v, hi, mid){ return v >= hi ? 'heavy' : (v >= mid ? 'moderate' : 'light'); }
   function paint(){
     var el = document.getElementById('mapa_sierra');
     if (!el || !window.dendryUI || !window.dendryUI.dendryEngine) return;
     var Q = window.dendryUI.dendryEngine.state.qualities;
-    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca'];
+    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
+    var tip = document.getElementById('mapa_tip');
     for (var i=0;i<zonas.length;i++){
-      var z=zonas[i]; var poly=document.getElementById('z_'+z);
-      if(!poly) continue;
-      var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
-      var r=Math.round(200+(55*Math.min(1,pres/40)));
-      var gb=Math.round(200-(160*Math.min(1,pres/40)));
-      poly.style.fill='rgb('+r+','+gb+','+gb+')';
-      poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px';
-      poly.style.stroke = guar>=55 ? '#0f7040' : '#333';
+      (function(z){
+        var poly=document.getElementById('z_'+z);
+        if(!poly) return;
+        var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0, intel=Q['inteligencia']||0;
+        var r=Math.round(200+(55*Math.min(1,pres/40)));
+        var gb=Math.round(200-(160*Math.min(1,pres/40)));
+        poly.style.fill='rgb('+r+','+gb+','+gb+')';
+        poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px';
+        poly.style.stroke = guar>=55 ? '#0f7040' : '#333';
+        poly.style.cursor='help';
+        poly.onmousemove=function(ev){
+          if(!tip) return;
+          var body;
+          if (intel >= 40){
+            body='Columns: <b>'+Math.round(pres)+'</b> &middot; Garrison: <b>'+Math.round(guar)+'</b><br>Troop movements: '+trend(z,guar)+(guar>=55?'<br><b>Ground too hot: presence erodes here.</b>':'');
+          } else {
+            body='Columns: '+(pres>=20?'strong':(pres>=5?'some structure':'almost none'))+' &middot; Army posture: '+qual(guar,45,30)+'<br>Troop movements: <i>estimates only (intel '+Math.round(intel)+' of 40 needed)</i>';
+          }
+          tip.innerHTML='<b>'+INFO[z][0]+'</b><br><span style="opacity:.85">'+INFO[z][1]+'</span><br>'+body;
+          tip.style.display='block';
+          var rect=el.getBoundingClientRect();
+          tip.style.left=Math.max(0,Math.min(rect.width-240,(ev.clientX-rect.left+12)))+'px';
+          tip.style.top=(ev.clientY-rect.top+12)+'px';
+        };
+        poly.onmouseleave=function(){ if(tip) tip.style.display='none'; };
+      })(zonas[i]);
+    }
+    if (prev._time !== Q.time){
+      for (var j=0;j<zonas.length;j++){
+        var zz=zonas[j];
+        if (prev._time !== undefined && prev['_pending_'+zz] !== undefined) { prev[zz] = prev['_pending_'+zz]; }
+        prev['_pending_'+zz] = Q['guar_'+zz];
+      }
+      prev._time = Q.time;
     }
   }
   var obs=new MutationObserver(function(){ setTimeout(paint,80); });
   window.addEventListener('load', function(){
     var q=document.getElementById('qualities');
     if(q) obs.observe(q,{childList:true,subtree:true});
+    var q2=document.getElementById('qualities2');
+    if(q2) obs.observe(q2,{childList:true,subtree:true});
     setTimeout(paint,500);
   });
+})();
+
+
+// ===== La Izquierda: right sidebar (militant column) =====
+(function(){
+  window.statusTabRight = 'status.paramilitaries';
+  window.updateSidebarRight = function() {
+    var el = $('#qualities2');
+    if (!el.length || !window.dendryUI || !dendryUI.game) return;
+    el.empty();
+    var scene = dendryUI.game.scenes[window.statusTabRight];
+    if (!scene) return;
+    dendryUI.dendryEngine._runActions(scene.onArrival);
+    var dc = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+    el.append(dendryUI.contentToHTML.convert(dc));
+  };
+  function setActive(container, tabId){
+    var btns = document.querySelectorAll(container + ' .tab_button');
+    for (var i=0;i<btns.length;i++){ btns[i].className = btns[i].className.replace(' active',''); }
+    var b = document.getElementById(tabId);
+    if (b) b.className += ' active';
+  }
+  var baseChange = window.changeTab;
+  window.changeTab = function(newTab, tabId){
+    if (tabId == 'poll_tab' && dendryUI.dendryEngine.state.qualities.historical_mode) {
+      window.alert('Polls are not available in historical mode.');
+      return;
+    }
+    setActive('#stats_sidebar', tabId);
+    window.statusTab = newTab;
+    window.updateSidebar();
+  };
+  window.changeTabRight = function(newTab, tabId){
+    setActive('#tools_right', tabId);
+    window.statusTabRight = newTab;
+    window.updateSidebarRight();
+  };
+  window.onDisplayContent = function(){
+    window.updateSidebar();
+    window.updateSidebarRight();
+  };
+  window.addEventListener('load', function(){ setTimeout(window.updateSidebarRight, 600); });
 })();

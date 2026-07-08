@@ -1,6 +1,7 @@
 title: La prensa del Movimiento
 new-page: true
 subtitle: A mimeograph is a repeating weapon
+card-image: img/cards/prensa.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

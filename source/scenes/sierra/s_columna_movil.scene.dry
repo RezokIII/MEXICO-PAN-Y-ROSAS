@@ -1,6 +1,7 @@
 title: The mobile column
 new-page: true
 subtitle: A war that will not be found must move
+card-image: img/cards/columna_movil.jpg
 view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 40

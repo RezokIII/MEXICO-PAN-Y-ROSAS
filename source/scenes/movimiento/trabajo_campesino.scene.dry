@@ -1,6 +1,7 @@
 title: Trabajo campesino
 new-page: true
 subtitle: The land promised in 1917
+card-image: img/cards/ejido.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

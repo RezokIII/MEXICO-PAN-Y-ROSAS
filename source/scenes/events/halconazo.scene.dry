@@ -1,6 +1,7 @@
 title: El Halconazo
 new-page: true
 subtitle: Jueves de Corpus — 10 de junio de 1971
+face-image: img/halconazo.jpg
 tags: event
 view-if: year = 1971 and month = 6
 priority: 3

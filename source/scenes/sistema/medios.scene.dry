@@ -1,6 +1,7 @@
 title: The airtime
 new-page: true
 subtitle: The reform pays in minutes of radio
+card-image: img/cards/radio_estudio.jpg
 view-if: registro >= 1
 on-arrival: month_actions += 1
 max-visits: 40

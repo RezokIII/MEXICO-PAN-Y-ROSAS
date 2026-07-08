@@ -1,6 +1,7 @@
 title: The engineer, again
 new-page: true
 subtitle: The second time they came for Castillo
+face-image: img/camioneta.jpg
 tags: event
 view-if: heberto_advisor = 1 and represion >= 82 and expediente >= 75 and time >= repadv_last + 15
 priority: 2

@@ -1,6 +1,7 @@
 title: Muere Genaro
 new-page: true
 subtitle: Febrero de 1972
+face-image: img/guerrero_sierra.jpg
 tags: event
 view-if: year = 1972 and month = 2
 priority: 2
