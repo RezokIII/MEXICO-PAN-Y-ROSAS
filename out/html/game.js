@@ -559,3 +559,30 @@
   };
   window.addEventListener('load', function(){ setTimeout(window.updateSidebarRight, 600); });
 })();
+
+
+// ===== La Izquierda: inject advisor portraits (engine drops pinned-card images) =====
+(function(){
+  var MAP = {
+    valentin_campa:'campa.jpg', demetrio_vallejo:'vallejo.jpeg', martinez_verdugo:'verdugo.jpeg',
+    othon_salazar:'othon.jpeg', danzos_palomino:'danzos.jpeg', benita_galeana:'benita.jpeg',
+    jose_revueltas:'revueltas.jpg', heberto_castillo:'heberto.jpeg', rosario_ibarra:'ibarra.jpg'
+  };
+  function inject(){
+    var cards = document.querySelectorAll('a.card[card-id]');
+    for (var i=0;i<cards.length;i++){
+      var a=cards[i], id=a.getAttribute('card-id');
+      if (MAP[id] && !a.querySelector('img.card-img')){
+        var img=document.createElement('img');
+        img.className='card-img';
+        img.src='img/portraits/'+MAP[id];
+        a.insertBefore(img, a.firstChild);
+      }
+    }
+  }
+  window.addEventListener('load', function(){
+    var c=document.getElementById('content');
+    if(c){ var o=new MutationObserver(function(){ setTimeout(inject,30); }); o.observe(c,{childList:true,subtree:true}); }
+    setTimeout(inject,600);
+  });
+})();

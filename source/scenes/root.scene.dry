@@ -707,7 +707,7 @@ Q.estudiantes_pri = 35; Q.estudiantes_pan = 15; Q.estudiantes_izq = 36; Q.estudi
 Q.maestros_pri = 70; Q.maestros_pan = 5; Q.maestros_izq = 6; Q.maestros_pps = 12; Q.maestros_parm = 2; Q.maestros_otros = 8;
 Q.electricistas_pri = 70; Q.electricistas_pan = 5; Q.electricistas_izq = 7; Q.electricistas_pps = 8; Q.electricistas_parm = 3; Q.electricistas_otros = 8;
 !}
-set-bg: img/map_2.jpg
+set-bg: img/fondo_escritorio.jpg
 new-page: true
 
 > *"No queremos olimpiadas, queremos revolución."*
