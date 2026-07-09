@@ -470,8 +470,8 @@
     var el = document.getElementById('mapa_sierra');
     if (!atWar) { if (el) { el.parentNode.removeChild(el); } return; }
     if (!el) {
-      if (window.statusTab !== 'status.guerra') return;
-      var host = document.getElementById('qualities');
+      if (window.statusTabRight !== 'status.guerra') return;
+      var host = document.getElementById('qualities2');
       if (!host) return;
       el = document.createElement('div');
       el.id = 'mapa_sierra';
@@ -571,7 +571,6 @@
     setActive('#stats_sidebar', tabId);
     window.statusTab = newTab;
     window.updateSidebar();
-    if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
   };
   window.changeTabRight = function(newTab, tabId){
     setActive('#tools_right', tabId);
@@ -579,7 +578,8 @@
     window.updateSidebarRight();
   };
   window.onDisplayContent = function(){
-    try { window.updateSidebar(); } catch(e){ if(window.console)console.warn('sidebar:',e); }
+    try { window.updateSidebar(); } catch(e){ if(window.console)console.warn('left sidebar:',e); }
+    try { window.updateSidebarRight(); } catch(e){ if(window.console)console.warn('right sidebar:',e); }
     if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
   };
   window.addEventListener('load', function(){
@@ -588,8 +588,8 @@
     setTimeout(function(){
       var d = document.getElementById('paramilitary_tab');
       var g = document.getElementById('sierra_tab');
-      if (d) d.addEventListener('click', function(e){ e.preventDefault(); window.changeTab('status.paramilitaries','paramilitary_tab'); });
-      if (g) g.addEventListener('click', function(e){ e.preventDefault(); window.changeTab('status.guerra','sierra_tab'); });
+      if (d) d.addEventListener('click', function(e){ e.preventDefault(); window.changeTabRight('status.paramilitaries','paramilitary_tab'); });
+      if (g) g.addEventListener('click', function(e){ e.preventDefault(); window.changeTabRight('status.guerra','sierra_tab'); });
     }, 700);
   });
 })();
@@ -618,5 +618,29 @@
     var c=document.getElementById('content');
     if(c){ var o=new MutationObserver(function(){ setTimeout(inject,30); }); o.observe(c,{childList:true,subtree:true}); }
     setTimeout(inject,600);
+  });
+})();
+
+
+// ===== La Izquierda: force event images above the text (bypass show_portraits/bg gating) =====
+(function(){
+  function currentScene(){
+    try { var e=window.dendryUI.dendryEngine; return e.game.scenes[e.state.sceneId]; } catch(x){ return null; }
+  }
+  function injectFace(){
+    var c=document.getElementById('content');
+    if(!c) return;
+    var sc=currentScene();
+    if(!sc || !sc.faceImage){ return; }
+    if(c.querySelector('.face-figure')){ return; }
+    var fig=document.createElement('div'); fig.className='face-figure';
+    var img=new Image(); img.className='face-img'; img.src=sc.faceImage;
+    fig.appendChild(img);
+    c.insertBefore(fig, c.firstChild);
+  }
+  window.addEventListener('load', function(){
+    var c=document.getElementById('content');
+    if(c){ var o=new MutationObserver(function(){ setTimeout(injectFace,25); }); o.observe(c,{childList:true,subtree:false}); }
+    setTimeout(injectFace,700);
   });
 })();
