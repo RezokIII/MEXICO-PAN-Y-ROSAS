@@ -463,8 +463,21 @@
   }
   function qual(v, hi, mid){ return v >= hi ? 'heavy' : (v >= mid ? 'moderate' : 'light'); }
   window.paintSierraMap = function(){
+    if (!window.dendryUI || !window.dendryUI.dendryEngine) return;
     var el = document.getElementById('mapa_sierra');
-    if (!el || !window.dendryUI || !window.dendryUI.dendryEngine) return;
+    if (!el) {
+      // only build on the Sierra tab; construct the container ourselves (no magic-HTML dependency)
+      if (window.statusTabRight !== 'status.guerra') return;
+      var host = document.getElementById('qualities2');
+      if (!host) return;
+      el = document.createElement('div');
+      el.id = 'mapa_sierra';
+      el.style.position = 'relative';
+      el.style.margin = '0.5em 0';
+      var h = host.querySelector('h1');
+      if (h && h.nextSibling) { host.insertBefore(el, h.nextSibling); }
+      else { host.appendChild(el); }
+    }
     var Q = window.dendryUI.dendryEngine.state.qualities;
     var via = Q.via;
     var atWar = (via === 'armada' || via === 'dual');

@@ -242,8 +242,6 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 [? if via = "armada" or via = "dual" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any region for the analysts' current picture — detail sharpens with intelligence capacity. ?]
 
-{!<div id="mapa_sierra" style="position:relative"></div>!}
-
 [? if via = "armada" or via = "dual" : **Intelligence capacity: [+ inteligencia : fuerza +].** [? if inteligencia < 40 : The map below is guesswork and rumor — garrison figures are the analysts shrugging. Build the eyes. ?][? if inteligencia >= 40 : Sources inside the garrisons give you real numbers: rotations, strengths, the mood of conscripts. ?] ?]
 
 [? if (via = "armada" or via = "dual") and inteligencia >= 40 : Guerrero — presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Chihuahua — presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. Valle de México — presence [+ pres_valle +], garrison [+ guar_valle +]. Jalisco — presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León — presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca — presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana — presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
