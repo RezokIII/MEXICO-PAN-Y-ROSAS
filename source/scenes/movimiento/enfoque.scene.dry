@@ -1,0 +1,69 @@
+title: El enfoque del mes
+new-page: true
+subtitle: Aim the month's organizing where the Movement needs it
+card-image: img/cards/pleno.jpg
+view-if: time >= enfoque_cd + 2
+on-arrival: month_actions += 1; enfoque_cd = time
+max-visits: 90
+is-card: true
+frequency: 95
+tags: movimiento
+
+= El enfoque del mes
+
+Some months the work chooses itself — a strike, a raid, a funeral. But most months the leadership actually decides where to point the cadres it has, and the decision is the whole art of it: the sector that is ripening, the one the state is reclaiming, the base that will matter three years from now. This is that decision, made deliberately instead of by whatever the week happens to bring.
+
+Where do the organizers go this month?
+
+- @foco_obrero: The factories. Steady work at the gates and in the clandestine nuclei.
+- @foco_campesino: The countryside. The committees, the petitions, the disputed titles.
+- @foco_magisterial: The schools. The democratic sections and the militant classrooms.
+- @foco_colono: The colonias. The committees, the services, the threatened lots.
+- @foco_estudiantil: The universities and normales. The seedbed of every cadre.
+- @root: Let the month bring what it brings.
+- @easy_discard
+
+@foco_obrero
+title: A las fábricas
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even aimed organizing needs bus fare.
+on-arrival: funds -= 2; sup_workers += 3; charrismo -= 1; workers_last = time
+
+The cadres go where you sent them, and the plants that were drifting feel the Movement's attention return. Nothing spectacular — a committee steadied, a delegate visited, a grievance carried forward — but attention, in organizing, is the whole of love and most of the work.
+
+@foco_campesino
+title: Al campo
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: The revenue stamps still cost.
+on-arrival: funds -= 2; sup_peasants += 3; peasants_last = time; tierra_presion += 1
+
+The delegation goes back up the mountain roads with their stamped papers and their good hats, and the valleys that were slipping remember they have friends in the capital. A title pressed, a committee reconvened, a solicitud advanced one desk. The countryside is won by returning.
+
+@foco_magisterial
+title: A las escuelas
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Books and bus tickets cost.
+on-arrival: funds -= 2; sup_teachers += 3; charrismo -= 1; teachers_last = time; magisterio_presion += 1
+
+The organizers work the sections and the classrooms, and the democratic teachers who were drifting back toward Vanguardia feel the current reverse. A section assembly held on time, a militant classroom resupplied, a delegate kept warm. The largest workforce in Mexico responds to exactly one thing: someone who keeps showing up.
+
+@foco_colono
+title: A las colonias
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Amparos cost money.
+on-arrival: funds -= 2; sup_colonos += 3; members += 1; colonos_last = time; colonia_presion += 1
+
+The committees on the periphery feel the Movement's weight return: a threatened lot defended, a water petition carried, an assembly called before the PRI's líder could call his own. The city is won block by block, and this month you chose which blocks.
+
+@foco_estudiantil
+title: A las aulas
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even mimeographs cost.
+on-arrival: funds -= 2; sup_students += 3; organizers += 1 if sup_students >= 40
+
+The seedbed gets tended: circles of study, the journal, the long arguments that turn readers into cadres. The university gives the Movement what it always gave — not numbers, but the people who will spend the next twenty years organizing everyone else.

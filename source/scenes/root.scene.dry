@@ -152,6 +152,7 @@ Q.huelgas = 4;
 Q.paro_presion = 0; Q.llamar_paro_cd = -5;
 Q.tierra_presion = 0; Q.magisterio_presion = 0; Q.colonia_presion = 0;
 Q.toma_tierras_cd = -5; Q.paro_magisterial_cd = -5; Q.invasion_urbana_cd = -5;
+Q.enfoque_cd = -5;
 Q.dotaciones = 0;
 Q.workers_last = 0; Q.peasants_last = 0; Q.teachers_last = 0; Q.colonos_last = 0;
 // el bloque en el poder
