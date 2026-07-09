@@ -1,24 +1,28 @@
 title: Return card to hand.
 view-if: difficulty <= 0 and last_advisor_action = 0 and last_cabinet_action = 0
-go-to: root
 on-arrival: {!
 if (Q.month_actions > 0) {
     Q.month_actions -= 1;
 }
-// return card to hand
+// return card to hand — to the CURRENTLY ACTIVE hand, not a hardcoded one
 var card = this.state.lastPlayedCard;
-card.image = card.cardImage;
-if (Q.difficulty >= 0) {
-    this.state.currentHands['main'].push(card);
-} else {
-    this.state.currentHands['main.main_easy'].push(card);
-}
-// reset the timer...
-if (Q[card.id + "_timer"]) {
-    Q[card.id + "_timer"] = 0;
-}
-// reduce visit count
-if (this.state.visits[card.id]) {
-    this.state.visits[card.id] -= 1;
+if (card) {
+    card.image = card.cardImage;
+    var handId;
+    if (Q.difficulty < 0) { handId = 'main.main_easy'; }
+    else if (Q.year >= 1985) { handId = 'main.main_85'; }
+    else if (Q.year >= 1978) { handId = 'main.main_78'; }
+    else { handId = 'main'; }
+    if (!this.state.currentHands[handId]) { this.state.currentHands[handId] = []; }
+    this.state.currentHands[handId].push(card);
+    // reset the cooldown timer if any
+    if (Q[card.id + "_timer"]) {
+        Q[card.id + "_timer"] = 0;
+    }
+    // reduce visit count so returning doesn't burn a max-visit
+    if (this.state.visits[card.id]) {
+        this.state.visits[card.id] -= 1;
+    }
 }
 !}
+go-to: main.main_85 if year >= 1985 and difficulty >= 0; main.main_78 if year >= 1978 and difficulty >= 0; main if difficulty >= 0; main.main_easy if difficulty < 0
