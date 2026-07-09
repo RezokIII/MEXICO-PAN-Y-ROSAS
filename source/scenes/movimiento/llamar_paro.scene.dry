@@ -1,0 +1,140 @@
+title: Llamar al paro
+new-page: true
+subtitle: Three shifts leafleted. The floor is ready.
+card-image: img/huelga_general.jpg
+view-if: paro_presion >= 3 and time >= llamar_paro_cd + 2
+on-arrival: month_actions += 1; llamar_paro_cd = time
+max-visits: 20
+is-card: true
+frequency: 85
+tags: movimiento
+
+= Llamar al paro
+
+You have leafleted the gates three shifts running. The clandestine nuclei have names now; the delegates can be found in the dark. There is a moment in every plant when agitation stops being propaganda and becomes a decision, and the moment has arrived: the men are waiting to be told whether Thursday's shift change is when the tools go down.
+
+A strike you call and cannot sustain is worse than no strike — it teaches the floor that you are loud and weak. But a strike you never call teaches them you are only ever loud.
+
+- @lanzar: Call it. Down tools at shift change, pickets at every gate.
+- @esperar: Not yet. Keep building; the whistle can wait.
+- @easy_discard
+
+@esperar
+subtitle: Hold the pressure. Build more before you spend it.
+on-arrival: unity += 1
+
+The delegates nod, half-relieved, half-disappointed. The pressure does not dissipate — it banks. When you come back to the gates, the floor will still be warm.
+
+@lanzar
+subtitle: -3 funds, requires cadres to lead it
+choose-if: funds >= 3 and organizers >= 2
+unavailable-subtitle: A strike without funds for the fund and cadres to lead the pickets is a strike that breaks itself. Build first.
+on-arrival: funds -= 3; paro_presion = 0; huelgas += 3; huelga_prep += 4; charrismo -= 3; expediente += 6
+
+At shift change the machines stop one by one, and then all at once, and the silence in a foundry is a sound no one who hears it forgets. Pickets go up at every gate. The charro delegate telephones the CTM; the CTM telephones Gobernacion; Gobernacion asks the only question the state ever asks about a strike — how dangerous are these people — and pulls your file to answer it.
+
+What happens next is written in that file.
+
+- @paro_tolerado: [? if expediente < 45 : Continue ?]
+- @paro_negociado: [? if expediente >= 45 : Continue ?]
+
+@paro_tolerado
+title: Un paro que arde y se apaga
+subtitle: You are not yet worth the cost of crushing.
+on-arrival: sup_workers += 6; charrismo -= 4; salario_real += 2; political_capital += 2; expediente += 2
+
+Your file is thin enough that the calculation comes back the same as always: let it burn out. No riot police, no arrests — just the slow attrition of men who have rent to pay and a company that can wait. But the company blinks first on the small things: a reinstated delegate, a bathroom-break clause, a foreman transferred. Nothing that reaches the papers. Everything that reaches the floor.
+
+The men learn the lesson that builds unions: we stopped it, and the sky did not fall, and we won something. Next time more of them will be at the gate before dawn.
+
+- @root: Back to the work.
+
+@paro_negociado
+title: La CTM huele sangre
+subtitle: Dangerous enough to buy, not yet dangerous enough to kill.
+on-arrival: expediente += 3
+
+Your file is thick enough now that the state prefers a cheaper instrument than the police: don Fidel himself. A CTM emissary arrives at the strike committee with a settlement already typed — real raises, real reinstatements, more than the men dared ask — on one condition, unspoken but total: the CTM signs it, the CTM announces it, the CTM owns the victory. Your committee becomes a footnote in your own strike.
+
+- @aceptar_trato: Take the deal. The men eat this winter; the charro takes the credit.
+- @rechazar_trato: Refuse. This strike is ours or it is nobody's.
+
+@aceptar_trato
+subtitle: Concrete wins, but the charro's name goes on them.
+on-arrival: sup_workers += 4; salario_real += 5; charrismo += 6; unity -= 3; expediente -= 2
+
+The raises are real; the men are not fools, and they know who actually walked the picket at four in the morning. But don Fidel's photograph is in the paper under the settlement, and the checkoff still flows to his empire. You traded a piece of the future for bread today. Some winters that is exactly the right trade. Your cadres will argue about it for years.
+
+- @root: Back to the work.
+
+@rechazar_trato
+subtitle: Keep the strike pure — and make yourself worth crushing.
+on-arrival: sup_workers += 3; charrismo -= 5; unity += 4; expediente += 12; huelga_prep += 6
+
+The committee sends the emissary back with his typed settlement folded into his pocket. Word travels the industrial belt within the day: there is a plant where the workers told the CTM no. It is the most dangerous sentence in Mexico. Gobernacion reopens your file, and this time the question is not how dangerous you are but how quickly that can be fixed.
+
+- @represalia: [? if expediente >= 70 : Continue ?]
+- @root: [? if expediente < 70 : Back to the work — for now. ?]
+
+@represalia
+title: La respuesta del regimen
+subtitle: The state has decided you are worth the cost.
+new-page: true
+on-arrival: expediente += 5; represion += 4
+
+They come before dawn on the fourth day, the way they always come: granaderos in trucks, the plant retaken gate by gate, the strike committee's leaders lifted from their homes in the same hour so no two of them can confer. By the time the shift that would have refused to work arrives, the machines are already running and the men who ran them yesterday are in vehicles with no plates.
+
+This is the hinge. What you built before this morning is the only thing you have to answer it with.
+
+- @responder_solidaria: [? if huelga_prep >= 20 : Spread it. Call the solidarity strikes. ?]
+- @responder_legal: [? if political_capital >= 15 : Fight it in the courts and the press. ?]
+- @responder_armado: [? if via = "armada" : Answer the trucks in kind. ?]
+- @responder_armado2: [? if via = "dual" : Answer the trucks in kind. ?]
+- @responder_replegar: Pull back. Save the cadres you have left.
+
+@responder_solidaria
+title: Que pare todo
+subtitle: The infrastructure you built in the boring months moves now.
+on-arrival: sup_workers += 12; huelgas += 6; charrismo -= 8; unity += 5; expediente += 15; represion += 6; members += 4; salario_real += 4
+
+The telephone tree you memorized in the boring months does the one thing it was built to do. By noon a second plant is down; by nightfall a third; by the weekend the industrial belt is a map of dark chimneys. The state overreached and now cannot arrest a region. They release your committee in the night, quietly, and pretend it was mercy. The floor knows better. You have shown the thing the regime most needs no one to see: that it can be made to blink.
+
+The file on you is now enormous. Everything from here is more dangerous. It was worth it.
+
+- @root: Back to the work — changed.
+
+@responder_legal
+title: Amparos y primeras planas
+subtitle: A reformist deputy smells an opening; the press smells blood.
+on-arrival: sup_workers += 4; political_capital -= 6; pri_reformist_rel += 8; expediente -= 4; represion -= 3; sup_students += 3
+
+You spend the political capital you hoarded like a man spending savings in an emergency: lawyers filing amparos before the ink dries on the arrest orders, a reformist deputy who has wanted a cause rising on the Chamber floor to read the names of the disappeared committee, an Excelsior stringer with photographs of empty trucks. It works, partially, the way legal defense always works partially — most of your people come home, the raid becomes an embarrassment the regime must manage, and a faction of the PRI files your restraint away as evidence you can be dealt with. That filing is a weapon pointed both ways.
+
+- @root: Back to the work.
+
+@responder_armado
+title: Responder a los camiones
+subtitle: The martyrs of the plant become an argument the sierra has been making for years.
+on-arrival: sup_workers += 5; guerrilla_meter += 12; expediente += 20; represion += 10; charrismo -= 4; unity -= 4; members += 3
+
+The self-defense brigades were always the argument the electoral road could not answer, and this morning made the argument for you. Young men from the plant who watched the trucks take their delegates go looking for the comrades who have been saying, for years, that there is another way to answer a truck. Some of them do not come back to the plant. They come back to the sierra, or to a safe house in the city, with a new understanding of what the state is and is not willing to do. The line between the strike and the war has just become very thin. It will not thicken again easily.
+
+- @root: Back to the work — armed now.
+
+@responder_armado2
+title: Responder a los camiones
+subtitle: The martyrs of the plant become an argument the sierra has been making for years.
+on-arrival: sup_workers += 5; guerrilla_meter += 12; expediente += 20; represion += 10; charrismo -= 4; unity -= 4; members += 3
+
+The self-defense brigades were always the argument the electoral road could not answer, and this morning made the argument for you. Young men from the plant who watched the trucks take their delegates go looking for the comrades who have been saying, for years, that there is another way to answer a truck. Some of them do not come back to the plant. They come back to the sierra, or to a safe house in the city, with a new understanding of what the state is and is not willing to do. The line between the strike and the war has just become very thin. It will not thicken again easily.
+
+- @root: Back to the work — armed now.
+
+@responder_replegar
+title: Salvar a los cuadros
+subtitle: You did not build enough to answer this. Save what you can.
+on-arrival: sup_workers -= 6; organizers -= 1; unity -= 5; charrismo += 5; expediente -= 6; huelga_prep -= 8; salario_real -= 2
+
+There is no answer in your hands this morning, and a leadership that spends cadres it cannot replace on a fight it cannot win is not brave, only finished. You pull the pickets before they can be beaten, move the committee's known faces out of the city, and let the plant go back to work under the charro's terms. It is a defeat, and the floor feels it as a defeat — some of them will not trust the whistle again for years. But the men who would have been broken this morning are alive and free to organize the next plant. That is what a retreat is for. Learn the lesson the trucks were teaching: build the answer before you call the strike.
+
+- @root: Back to the work — chastened.

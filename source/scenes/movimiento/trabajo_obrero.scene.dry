@@ -30,6 +30,6 @@ Five men in a fonda studying a contract clause; a foundry worker who keeps the l
 subtitle: -3 funds
 choose-if: funds >= 3 and organizers >= 3
 unavailable-subtitle: Open agitation requires cadres you can afford to burn. You have none to spare.
-on-arrival: funds -= 3; sup_workers += 2 + (100 - salario_real)*0.12 + unity*0.02; charrismo -= 1; expediente += 4; huelgas += 2
+on-arrival: funds -= 3; sup_workers += 2 + (100 - salario_real)*0.12 + unity*0.02; charrismo -= 1; expediente += 4; huelgas += 2; paro_presion += 1
 
 Dawn at the gates, leaflets moving hand to hand, a comrade on a crate saying the forbidden arithmetic out loud. The charro delegate arrives with his photographer; the DFS's man does not bother to hide. Some workers look away. The ones who don't are the harvest.

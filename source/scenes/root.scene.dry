@@ -148,6 +148,7 @@ Q.peso_dolar = 12.5;
 Q.salario_real = 100;
 Q.desempleo = 6;
 Q.huelgas = 4;
+Q.paro_presion = 0; Q.llamar_paro_cd = -5;
 // el bloque en el poder
 Q.burguesia_estado = 55;
 Q.gran_capital = 28;
