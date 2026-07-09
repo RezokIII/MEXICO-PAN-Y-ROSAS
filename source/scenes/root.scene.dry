@@ -797,7 +797,7 @@ this.state.disableSaves = true;
 go-to: 1928_main
 
 @1928_main
-face-image: img/milagromexicano.jpg
+face-image: img/rivera_mural.jpg
 new-page: true
 
 = El sueño y el muro
@@ -813,6 +813,14 @@ There is a campesino on the Costa Grande who was promised land in 1917 and has w
 There is a railwayman in Lecumberri who has kept the pension tables in his head for nine years, and recites them to the wall because the wall, at least, does not sign what it is told.
 
 There was a dream in Mexico. It had a date — 1910 — and a price paid in a million lives, and it was never finished. They wrote it into the Constitution and then declined to keep the appointment: the land that stopped being handed down, the unions handed instead to their keepers, the vote counted before it was ever cast. The dream became a mural — beautiful, official, immovable — admired precisely so that it need never be obeyed.
+
+- @1928_contexto: Continuar.
+
+@1928_contexto
+face-image: img/milagromexicano.jpg
+new-page: true
+
+= El milagro y la jaula
 
 MÉXICO, 1968 —
 

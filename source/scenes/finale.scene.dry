@@ -83,7 +83,7 @@ new-page: true
 
 [? if registro = 0 : And the electoral door was never opened: without registro, a million hands writing names the Comision burns unread. What the reform made possible, others will play. Or you — in the next of history rounds. ?]
 
-- @snap_libro: Continue.
+- @slide_mural: Continue.
 
 @snap_libro
 new-page: true
@@ -182,6 +182,7 @@ new-page: true
 
 @slide_mural
 new-page: true
+face-image: img/rivera_mural.jpg
 
 = El muro, de nuevo
 

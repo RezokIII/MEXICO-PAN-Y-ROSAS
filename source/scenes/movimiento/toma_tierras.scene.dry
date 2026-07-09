@@ -1,7 +1,7 @@
 title: La toma de tierras
 new-page: true
 subtitle: Three occupations held. The valley is ready for a real one.
-card-image: img/cards/ejido.jpg
+card-image: img/toma_tierras.jpg
 view-if: tierra_presion >= 3 and time >= toma_tierras_cd + 2
 on-arrival: month_actions += 1; toma_tierras_cd = time
 max-visits: 30
@@ -75,6 +75,7 @@ The committee sends the CNC man back down the mountain with his titles folded in
 
 @guardias
 title: Las guardias blancas
+face-image: img/guardias_blancas.jpg
 subtitle: The state need not come itself. In the countryside it never has to.
 new-page: true
 on-arrival: expediente += 5; represion += 4; memorial += 2

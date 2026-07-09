@@ -1,7 +1,7 @@
 title: La invasión de tierras
 new-page: true
 subtitle: Three lots defended. The colonia is ready to found itself.
-card-image: img/neza.jpg
+card-image: img/invasion_urbana.jpg
 view-if: colonia_presion >= 3 and time >= invasion_urbana_cd + 2
 on-arrival: month_actions += 1; invasion_urbana_cd = time
 max-visits: 30
@@ -75,6 +75,7 @@ The committee sends the líder back to his delegación with his offer refused, a
 
 @desalojo
 title: El desalojo
+face-image: img/desalojo.jpg
 subtitle: The bulldozers, the granaderos, and the demolition order at dawn.
 new-page: true
 on-arrival: expediente += 5; represion += 4; memorial += 1

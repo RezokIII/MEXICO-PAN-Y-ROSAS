@@ -74,6 +74,7 @@ on-arrival: respuesta_88 = 4; political_capital += 10
 What follows fills its own books: the ballots defended physically in a hundred districts, the regime's software experts contradicting each other under oath, two governors and a sector of the army privately informing Los Pinos that they will not fire on the count, and Salinas — the técnico, able as ever to read a balance sheet — declining the presidency of a burning building. It takes until December, and it holds. The general's son takes office over a fractured regime with your Movement inside the victory's architecture, holding the blueprints.
 
 @movilizar
+face-image: img/Zocalo1988.jpeg
 view-if: resultado_88 = 0
 on-arrival: respuesta_88 = 1; political_capital += 5; sup_colonos += 3; huelgas += 5; represion += 2
 
