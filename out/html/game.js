@@ -462,7 +462,7 @@
     return 'static';
   }
   function qual(v, hi, mid){ return v >= hi ? 'heavy' : (v >= mid ? 'moderate' : 'light'); }
-  function paint(){
+  window.paintSierraMap = function(){
     var el = document.getElementById('mapa_sierra');
     if (!el || !window.dendryUI || !window.dendryUI.dendryEngine) return;
     var Q = window.dendryUI.dendryEngine.state.qualities;
@@ -514,13 +514,13 @@
       prev._time = Q.time;
     }
   }
-  var obs=new MutationObserver(function(){ setTimeout(paint,80); });
+  var obs=new MutationObserver(function(){ setTimeout(window.paintSierraMap,80); });
   window.addEventListener('load', function(){
     var q=document.getElementById('qualities');
     if(q) obs.observe(q,{childList:true,subtree:true});
     var q2=document.getElementById('qualities2');
     if(q2) obs.observe(q2,{childList:true,subtree:true});
-    setTimeout(paint,500);
+    setTimeout(window.paintSierraMap,500);
   });
 })();
 
@@ -537,6 +537,7 @@
     dendryUI.dendryEngine._runActions(scene.onArrival);
     var dc = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
     el.append(dendryUI.contentToHTML.convert(dc));
+    if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
   };
   function setActive(container, tabId){
     var btns = document.querySelectorAll(container + ' .tab_button');
