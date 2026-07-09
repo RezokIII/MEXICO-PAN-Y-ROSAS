@@ -10,8 +10,8 @@ on-arrival: {!
 Q.real_izq = Q.izq_votes_display;
 Q.real_pri = Q.pri_votes_display;
 Q.real_pan = Q.pan_votes_display;
-var alq = 0.3;
-if (Q.real_izq > 12) { alq = 0.42; }
+var alq = 0.2;
+if (Q.real_izq > 16) { alq = 0.32; }
 alq -= Q.red_casillas * 0.0015;
 if (Q.alquimia_expuesta) { alq -= 0.05; }
 if (alq < 0.05) { alq = 0.05; }

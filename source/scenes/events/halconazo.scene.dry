@@ -29,12 +29,21 @@ on-arrival: sup_students += 6; represion += 3; expediente += 4; political_capita
 
 Thousands come, jaws set, walking the same route like a sentence being finished. The Halcones do not appear twice; even a covert instrument has a budget of deniability, and it was spent Thursday. The city takes note of who kept walking. So does Bucareli.
 
+- @secuela_go: Continuar.
+
 @documentar
 on-arrival: political_capital += 4; expediente += 3; pri_reformist_rel += 1
 
 Nurses talk, two bus drivers talk, a Halcón with an unpaid wage talks most of all. The dossier — payrolls, training fields, the chain of command climbing toward the regency and vanishing into fog — circulates in carbon copies that will outlive everyone named in them. The investigation the President promised concludes nothing, twice. Your carbon copies conclude a great deal.
 
+- @secuela_go: Continuar.
+
 @repliegue
 on-arrival: sup_students -= 5; guerrilla_meter += 4
 
 The youth sections stand down; the funerals are attended in small numbers, quietly. It is defensible — every manual defends it — and the cost arrives anyway: the angriest of the young conclude that marching is a form of target practice for the other side, and begin listening to the compañeros who say so out loud, the ones with the geography maps.
+
+- @secuela_go: Continuar.
+
+@secuela_go
+go-to: halconazo_secuela

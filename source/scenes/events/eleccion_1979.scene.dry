@@ -14,8 +14,8 @@ Q.real_pan = Q.pan_votes_display;
 Q.real_pps = Q.pps_votes_display;
 Q.real_otros = 100 - Q.real_izq - Q.real_pri - Q.real_pan - Q.real_pps;
 // ---- la alquimia: the engineered count ----
-var alq = 0.25;
-if (Q.real_izq > 12) { alq = 0.4; }
+var alq = 0.12;
+if (Q.real_izq > 18) { alq = 0.22; }
 if (Q.alquimia_expuesta) { alq -= 0.05; }
 Q.oficial_izq = Math.round(Q.real_izq * (1 - alq));
 if (Q.oficial_izq < 1) { Q.oficial_izq = 1; }

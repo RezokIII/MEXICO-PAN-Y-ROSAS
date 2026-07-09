@@ -597,10 +597,17 @@ table {
 
 
 /* ===== La Izquierda: layout pass - wider sidebars, split columns ===== */
-#tools_wrapper { max-width: 84em; }
-.tools { width: 16rem; padding: 0.85em; }
-@media screen and (max-width: 1300px) { .tools { width: 14rem; padding: 0.6em; } }
-@media screen and (max-width: 1120px) { .tools { width: 12rem; font-size: 0.85em; } }
+#tools_wrapper { max-width: 88em; }
+.tools { width: 15rem; padding: 0.85em; }
+/* keep the center column strictly between the sidebars so nothing overlaps */
+header, #content, footer { max-width: 34em; margin-left: 17rem; margin-right: 17rem; }
+@media screen and (max-width: 1240px) {
+  .tools { width: 12.5rem; padding: 0.55em; font-size: 0.9em; }
+  header, #content, footer { margin-left: 14rem; margin-right: 14rem; }
+}
+@media screen and (max-width: 980px) {
+  header, #content, footer { margin-left: 13rem; margin-right: 0.5rem; max-width: none; }
+}
 #qualities, #qualities2 { line-height: 1.55; font-size: 0.95em; text-indent: 0; }
 #qualities p, #qualities2 p { margin: 0.55em 0; }
 #qualities h1, #qualities2 h1 { font-size: 1.05em; margin: 0.9em 0 0.4em; border-bottom: 1px solid rgba(0,0,0,0.15); padding-bottom: 2px; }
