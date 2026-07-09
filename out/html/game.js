@@ -725,7 +725,7 @@
       .then(function(data){
         if (data && data.tracks && data.tracks.length){
           data.tracks.forEach(function(t){
-            tracks.push({name:t.title||t.file, url:'music/'+t.file, isLocal:false});
+            tracks.push({name:t.title||t.file, url:'music/'+encodeURIComponent(t.file), isLocal:false});
           });
           renderList();
           titleEl.textContent = tracks.length + ' canciones en la banda sonora';
