@@ -789,7 +789,7 @@ this.state.disableSaves = true;
 go-to: 1928_main
 
 @1928_main
-face-image: img/tlatelolco.jpg
+face-image: img/milagromexicano.jpg
 new-page: true
 
 = El milagro y la jaula
@@ -829,7 +829,7 @@ new-page: true
 - @intro_precursores: Continuar.
 
 @intro_precursores
-face-image: img/lecumberri.jpg
+face-image: img/railwaystrike.jpg
 new-page: true
 
 = Los precursores

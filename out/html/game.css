@@ -600,15 +600,15 @@ table {
 #tools_wrapper { position: static; max-width: none; }
 .tools.left {
   position: fixed; left: 0.6em; top: 4.2em;
-  width: 21rem; padding: 0.9em;
+  width: 19rem; padding: 0.85em;
   max-height: 88vh; overflow-y: auto;
   z-index: 5;
 }
 .tools.right { display: none; }
-header, #content, footer { max-width: 50em; margin-left: 23rem !important; margin-right: 1.5rem !important; }
-@media screen and (max-width: 1200px) {
-  .tools.left { width: 16rem; font-size: 0.9em; }
-  header, #content, footer { margin-left: 17.5rem !important; }
+header, #content, footer { max-width: 60em; margin-left: 20.5rem !important; margin-right: auto !important; }
+@media screen and (max-width: 1150px) {
+  .tools.left { width: 15rem; font-size: 0.9em; }
+  header, #content, footer { margin-left: 16rem !important; }
 }
 @media screen and (max-width: 1300px) {
   .tools { width: 13rem; padding: 0.55em; font-size: 0.9em; }

@@ -1,7 +1,7 @@
 title: La calificación
 new-page: true
 subtitle: Septiembre de 1988
-face-image: img/seis_de_julio.jpg
+face-image: img/presidencia.jpg
 tags: event
 view-if: year = 1988 and month >= 9 and month <= 11 and resultado_88 = 0
 priority: 3
