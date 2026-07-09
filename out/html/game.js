@@ -609,3 +609,129 @@
     setTimeout(injectFace,700);
   });
 })();
+
+/* ===================== PAN Y ROSAS — music player ===================== */
+(function(){
+  if (window.__pyrMusicInit) return; window.__pyrMusicInit = true;
+  function init(){
+    if (document.getElementById('pyr-music')) return;
+    var tracks = [];        // {name, url, isLocal}
+    var idx = -1;
+    var audio = new Audio();
+    audio.volume = parseFloat(localStorage.getItem('pyr_music_vol') || '0.55');
+    var loop = false, shuffle = false;
+
+    var css = document.createElement('style');
+    css.textContent = ''
+      + '#pyr-music{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:Georgia,serif;}'
+      + '#pyr-music-btn{width:44px;height:44px;border-radius:50%;background:#3a2e22;color:#e8d9b5;'
+      + 'border:1px solid #6b5638;cursor:pointer;font-size:20px;line-height:44px;text-align:center;'
+      + 'box-shadow:0 2px 8px rgba(0,0,0,.45);user-select:none;}'
+      + '#pyr-music-panel{display:none;position:absolute;right:0;bottom:52px;width:260px;'
+      + 'background:#241d16;color:#e8d9b5;border:1px solid #6b5638;border-radius:8px;'
+      + 'box-shadow:0 4px 16px rgba(0,0,0,.55);padding:10px;}'
+      + '#pyr-music-panel.open{display:block;}'
+      + '#pyr-music-title{font-size:12px;font-style:italic;margin:2px 0 8px;min-height:16px;'
+      + 'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#cdb893;}'
+      + '#pyr-music .row{display:flex;align-items:center;gap:6px;margin:6px 0;}'
+      + '#pyr-music button.ctl{background:#3a2e22;color:#e8d9b5;border:1px solid #6b5638;'
+      + 'border-radius:4px;cursor:pointer;padding:3px 8px;font-size:13px;}'
+      + '#pyr-music button.ctl.on{background:#6b5638;color:#fff;}'
+      + '#pyr-music input[type=range]{flex:1;accent-color:#a8894f;}'
+      + '#pyr-music-list{max-height:150px;overflow-y:auto;margin-top:6px;border-top:1px solid #48392790;padding-top:4px;}'
+      + '#pyr-music-list div{font-size:12px;padding:3px 4px;cursor:pointer;border-radius:3px;'
+      + 'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}'
+      + '#pyr-music-list div:hover{background:#3a2e22;}'
+      + '#pyr-music-list div.playing{background:#6b5638;color:#fff;}'
+      + '#pyr-music label.add{display:block;font-size:11px;color:#cdb893;cursor:pointer;'
+      + 'margin-top:8px;text-decoration:underline;}'
+      + '#pyr-music label.add input{display:none;}';
+    document.head.appendChild(css);
+
+    var wrap = document.createElement('div'); wrap.id = 'pyr-music';
+    wrap.innerHTML = ''
+      + '<div id="pyr-music-btn" title="Música">♪</div>'
+      + '<div id="pyr-music-panel">'
+      +   '<div id="pyr-music-title">—</div>'
+      +   '<div class="row">'
+      +     '<button class="ctl" id="pyr-prev" title="Anterior">⏮</button>'
+      +     '<button class="ctl" id="pyr-play" title="Play/Pause">▶</button>'
+      +     '<button class="ctl" id="pyr-next" title="Siguiente">⏭</button>'
+      +     '<button class="ctl" id="pyr-loop" title="Repetir">↻</button>'
+      +     '<button class="ctl" id="pyr-shuf" title="Aleatorio">⇄</button>'
+      +   '</div>'
+      +   '<div class="row"><span style="font-size:12px">\u{1F509}</span>'
+      +     '<input type="range" id="pyr-vol" min="0" max="1" step="0.01"></div>'
+      +   '<div id="pyr-music-list"></div>'
+      +   '<label class="add">+ Añadir canciones de tu equipo<input type="file" id="pyr-file" accept="audio/*" multiple></label>'
+      + '</div>';
+    document.body.appendChild(wrap);
+
+    var panel = wrap.querySelector('#pyr-music-panel');
+    var titleEl = wrap.querySelector('#pyr-music-title');
+    var listEl = wrap.querySelector('#pyr-music-list');
+    var playBtn = wrap.querySelector('#pyr-play');
+    var vol = wrap.querySelector('#pyr-vol'); vol.value = audio.volume;
+
+    wrap.querySelector('#pyr-music-btn').onclick = function(){ panel.classList.toggle('open'); };
+
+    function renderList(){
+      listEl.innerHTML = '';
+      tracks.forEach(function(t,i){
+        var d = document.createElement('div');
+        d.textContent = t.name; if (i===idx) d.className='playing';
+        d.onclick = function(){ play(i); };
+        listEl.appendChild(d);
+      });
+    }
+    function play(i){
+      if (i<0 || i>=tracks.length) return;
+      idx = i; audio.src = tracks[i].url;
+      audio.play().catch(function(){});
+      titleEl.textContent = tracks[i].name;
+      playBtn.textContent = '⏸'; renderList();
+    }
+    function toggle(){
+      if (!audio.src){ if (tracks.length) play(0); return; }
+      if (audio.paused){ audio.play().catch(function(){}); playBtn.textContent='⏸'; }
+      else { audio.pause(); playBtn.textContent='▶'; }
+    }
+    function next(){
+      if (!tracks.length) return;
+      if (shuffle){ play(Math.floor(Math.random()*tracks.length)); return; }
+      play((idx+1) % tracks.length);
+    }
+    function prev(){ if (tracks.length) play((idx-1+tracks.length)%tracks.length); }
+
+    playBtn.onclick = toggle;
+    wrap.querySelector('#pyr-next').onclick = next;
+    wrap.querySelector('#pyr-prev').onclick = prev;
+    var loopBtn = wrap.querySelector('#pyr-loop');
+    loopBtn.onclick = function(){ loop=!loop; audio.loop=loop; loopBtn.classList.toggle('on',loop); };
+    var shufBtn = wrap.querySelector('#pyr-shuf');
+    shufBtn.onclick = function(){ shuffle=!shuffle; shufBtn.classList.toggle('on',shuffle); };
+    vol.oninput = function(){ audio.volume=parseFloat(vol.value); localStorage.setItem('pyr_music_vol',vol.value); };
+    audio.onended = function(){ if(!loop) next(); };
+    wrap.querySelector('#pyr-file').onchange = function(e){
+      Array.prototype.forEach.call(e.target.files, function(f){
+        tracks.push({name:f.name.replace(/\.[^.]+$/,''), url:URL.createObjectURL(f), isLocal:true});
+      });
+      renderList();
+      if (idx<0 && tracks.length) titleEl.textContent = 'Listo — ' + tracks.length + ' canciones';
+    };
+
+    // load bundled soundtrack manifest, if present
+    fetch('music/playlist.json').then(function(r){ return r.ok?r.json():null; })
+      .then(function(data){
+        if (data && data.tracks && data.tracks.length){
+          data.tracks.forEach(function(t){
+            tracks.push({name:t.title||t.file, url:'music/'+t.file, isLocal:false});
+          });
+          renderList();
+          titleEl.textContent = tracks.length + ' canciones en la banda sonora';
+        }
+      }).catch(function(){});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
