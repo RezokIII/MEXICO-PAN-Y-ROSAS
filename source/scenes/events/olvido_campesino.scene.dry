@@ -1,0 +1,20 @@
+title: El cacique recupera el valle
+new-page: true
+subtitle: The countryside you left untended did not stay yours
+face-image: img/cards/ejido.jpg
+tags: event
+view-if: time >= peasants_last + 20 and sup_peasants >= 22
+priority: 1
+on-arrival: peasants_last = time; sup_peasants -= 6; memorial += 1; guerrilla_meter += 3; charrismo += 2; unity -= 1
+
+= El cacique recupera el valle
+
+In the valleys where your committees stopped meeting, the cacique has taken back what the state always let him take: a committee president found on a road at dawn, a disputed title quietly re-registered, the CNC arriving with credits and a reminder about who really governs the countryside. The countryside forgets slowly and forgives nothing, and the news that reaches you is the worst kind — a name for the memorial, and the sons of the dead man looking, this time, not for the Party's lawyers but for the sierra.
+
+Presence is survival in the countryside more than anywhere. Leave a valley unwatched and the guardias blancas fill the silence.
+
+- @olvido_campesino_ok: Send the cadres back to the mountains. Continuar.
+
+@olvido_campesino_ok
+
+You write the circular knowing it is half a lie: there are not enough cadres for every valley, and the valleys you cannot reach will be governed by the men who never left. The countryside is won by staying, and staying is the one thing a hunted movement can least afford.

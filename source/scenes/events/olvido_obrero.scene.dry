@@ -1,0 +1,20 @@
+title: El regreso del charro
+new-page: true
+subtitle: You stopped tending the factories, and don Fidel noticed
+face-image: img/cards/fabrica.jpg
+tags: event
+view-if: time >= workers_last + 20 and sup_workers >= 25
+priority: 1
+on-arrival: workers_last = time; sup_workers -= 5; charrismo += 5; unity -= 1
+
+= El regreso del charro
+
+A cell untended is a cell recovered. In the plants where your organizers stopped coming, the CTM's men have quietly done what they always do in a vacuum: a new protection contract signed over the workers' heads, a dissident delegate transferred to the night shift in another state, a strike fund "audited" into the union's accounts. Nothing dramatic. Just the slow tide of charrismo coming back in where the Movement left the sand unwatched.
+
+The lesson is old and expensive: in the factories, presence is the only thing that holds. Stop showing up, and don Fidel's empire reabsorbs what you built, one shift at a time.
+
+- @olvido_obrero_ok: Send the organizers back. Continuar.
+
+@olvido_obrero_ok
+
+The circular is one line: nobody's plant goes a season unvisited again. Easy to write. The bus fare and the cadres are the hard part, and they always were.

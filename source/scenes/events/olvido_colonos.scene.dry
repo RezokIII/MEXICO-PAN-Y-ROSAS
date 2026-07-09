@@ -1,0 +1,20 @@
+title: El líder priista vuelve a la colonia
+new-page: true
+subtitle: The colonias you left alone were reclaimed by the machine
+face-image: img/neza.jpg
+tags: event
+view-if: time >= colonos_last + 20 and sup_colonos >= 20
+priority: 1
+on-arrival: colonos_last = time; sup_colonos -= 5; charrismo += 3; unity -= 1
+
+= El líder priista vuelve a la colonia
+
+In the colonias where your committees stopped meeting, the PRI's territorial machine has flowed back into the vacuum the way water finds the low ground: the líder who sells protection by the meter reappears with a promise of pipes, a portrait of the governor goes up where the committee's banner used to hang, and the regularization paperwork suddenly moves — for the families who understand how to vote for it. The periphery is held block by block by presence, and where the Movement withdrew its presence, the machine restored its own.
+
+The city is not won once. It is won every month, or lost the same way.
+
+- @olvido_colonos_ok: Send the committees back into the colonias. Continuar.
+
+@olvido_colonos_ok
+
+The circular goes out to the committees that remain: no colonia goes dark, no assembly goes uncalled, no líder goes unanswered. It is the right instruction and an impossible one, because there is always one more edge of the city than there are cadres to hold it.

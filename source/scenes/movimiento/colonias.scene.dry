@@ -22,7 +22,7 @@ Every month the city grows a new edge: paracaidistas staking lots in the dust of
 subtitle: -2 funds
 choose-if: funds >= 2
 unavailable-subtitle: Amparos cost money.
-on-arrival: funds -= 2; sup_colonos += 2 + (100 - salario_real)*0.1 + unity*0.02; members += 1; expediente += 2
+on-arrival: funds -= 2; sup_colonos += 2 + (100 - salario_real)*0.1 + unity*0.02; members += 1; expediente += 2; colonos_last = time; colonia_presion += 1
 
 When the bulldozers come, the whole colonia is somehow already in the road — women in front, the amparo in a plastic bag, a comrade reading the writ aloud over the engines. The operator looks to the licenciado; the licenciado looks at the cameras that a student happens to have brought. Not today. Today is what victory looks like here.
 
@@ -30,6 +30,6 @@ When the bulldozers come, the whole colonia is somehow already in the road — w
 subtitle: -2 funds
 choose-if: funds >= 2
 unavailable-subtitle: The pipe is not free.
-on-arrival: funds -= 2; sup_colonos += 3; political_capital += 1
+on-arrival: funds -= 2; sup_colonos += 3; political_capital += 1; colonos_last = time
 
 Petitions, marches to the delegación, and finally the pipe itself, laid by the residents in a weekend of communal labor the PRI will claim credit for on a banner. Let them hang the banner. Everyone who dug knows who called the assembly, and water tastes of the committee that won it.

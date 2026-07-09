@@ -22,7 +22,7 @@ The Constitution of 1917 promised the land to those who work it, and half a cent
 subtitle: -2 funds
 choose-if: funds >= 2
 unavailable-subtitle: Even the revenue stamps cost.
-on-arrival: funds -= 2; sup_peasants += 4
+on-arrival: funds -= 2; sup_peasants += 4; peasants_last = time
 
 Assemblies under the ahuehuete, minutes in a school notebook, the file hand-carried to the Agrarian Department by a delegation in their good hats. The clerk assigns it a number. The number is real; the committee more so.
 
@@ -30,6 +30,6 @@ Assemblies under the ahuehuete, minutes in a school notebook, the file hand-carr
 subtitle: The risks are known
 choose-if: sup_peasants >= 15
 unavailable-subtitle: A land occupation without a base to hold it is a gift to the judiciales.
-on-arrival: sup_peasants += 7; represion += 3; expediente += 3
+on-arrival: sup_peasants += 7; represion += 3; expediente += 3; peasants_last = time; tierra_presion += 1
 
 White flags on fence posts at first light, furrows plowed straight across the disputed title. Sometimes the state negotiates rather than photograph itself evicting the Constitution. Sometimes the judiciales come at dusk. The Party's lawyers sleep by the phone either way.

@@ -1,0 +1,20 @@
+title: Vanguardia reconquista las secciones
+new-page: true
+subtitle: The teachers you stopped organizing drifted back to the charros
+face-image: img/maestros.jpg
+tags: event
+view-if: time >= teachers_last + 20 and sup_teachers >= 22
+priority: 1
+on-arrival: teachers_last = time; sup_teachers -= 5; charrismo += 5; red_casillas -= 2; unity -= 1
+
+= Vanguardia reconquista las secciones
+
+In the sections where your delegates stopped organizing, Vanguardia Revolucionaria has reconquered the ground the patient way: a democratic assembly "postponed," a militant teacher promoted out of the classroom and into a desk far from her base, the checkoff flowing back to the charros unchallenged. The democratic teachers do not disappear — they simply stop being a network and go back to being individuals, which is exactly the state's preferred condition for its largest workforce.
+
+And with them thins the finest recruits your casilla network ever had. What the teachers hold, the lampara holds; what they lose, it loses.
+
+- @olvido_magisterial_ok: Send the organizers back to the sections. Continuar.
+
+@olvido_magisterial_ok
+
+The circular reaches the delegates who are left: hold the assemblies, keep the sections warm, do not let a democratic section go a term unattended. They nod. They are tired, and posted to villages without roads, and there are never enough of them. There never were.
