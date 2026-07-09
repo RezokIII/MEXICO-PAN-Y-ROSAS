@@ -130,6 +130,7 @@ Q.spicer = 0;
 Q.laguna = 0;
 Q.auge_armada = 0;
 Q.pres_total = 0;
+Q.op_ready = 0; Q.op_type = ""; Q.op_result = -1;
 Q.des_ortodoxos = 10;
 Q.des_renovadores = 10;
 Q.des_nueva = 15;

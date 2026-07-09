@@ -1,0 +1,117 @@
+title: La gran operación
+new-page: true
+subtitle: 1988 — one operation to shape the succession
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: (via = "armada" or via = "dual") and year = 1988 and month >= 3 and month <= 4
+priority: 3
+max-visits: 1
+on-arrival: {!
+Q.pres_total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
+Q.op_ready = Q.inteligencia + Q.pres_total * 0.5 + Q.guerrilla_meter * 0.3;
+Q.op_type = "";
+Q.op_result = -1;
+!}
+
+= La gran operación
+
+The succession is months away and the whole country can feel the machine warming to steal it. In the safe houses the argument is old and urgent: twenty years of accumulation, and for what, if not for a moment exactly like this one? The columns can mount one spectacular operation before July — one, because the second would be answered from a state now fully awake. The question is only what it should say, and whether you are strong enough to say it and live.
+
+The organizers on the political side beg you to reconsider. Every rifle fired in the spring of 1988, they warn, is a vote the regime will use to frighten the middle class back into its arms. They are not wrong. Neither are the men in the sierra who have buried friends waiting for permission that never comes.
+
+- @radio: Seize a broadcast station. Put a demand for a clean count into every living room before they can cut the signal.
+- @fuerza: A coordinated show of force — sabotage and simultaneous actions across the states, to prove the state does not own the territory it counts.
+- @presos: Storm a prison. Bring the political prisoners out and make their freedom the campaign's opening image.
+- @abstenerse_op: Stand the columns down. This is not the season; the political road carries this cycle.
+- @easy_discard
+
+@abstenerse_op
+title: No es la temporada
+on-arrival: unity += 2; ax_electoral += 2; pri_reformist_rel += 2
+
+The rifles stay buried. Some cadres take it as wisdom and some as one more betrayal filed for later, but the political organizers exhale: the spring will belong to the ballot and the plaza, not to the communiqué. Whatever 1988 becomes, the state will not be able to say you started the shooting.
+
+@radio
+title: La toma de la señal
+subtitle: Broadcast the demand. Easiest to attempt, hardest to survive if the intel is thin.
+on-arrival: {! if (Q.op_ready >= 55) { Q.op_result = 2; } else if (Q.op_ready >= 35) { Q.op_result = 1; } else { Q.op_result = 0; } Q.op_type = "radio"; expediente += 6; !}
+
+The plan is elegant and brief: a station taken at dawn, a text read twice — the demand for a counted, respected vote, the names of the disappeared, the promise that the sierra is watching the casillas — and everyone gone before the army's response can arrive. Elegant plans depend entirely on knowing what the army will do, which is to say on the one thing money cannot buy in a hurry: intelligence.
+
+- @op_triunfo: [? if op_result = 2 : Continue ?]
+- @op_parcial: [? if op_result = 1 : Continue ?]
+- @op_desastre: [? if op_result = 0 : Continue ?]
+
+@fuerza
+title: La ofensiva coordinada
+subtitle: Prove the state does not own its map. Needs real column presence.
+choose-if: pres_total >= 15
+unavailable-subtitle: A coordinated multi-state offensive requires columns actually present in the territory. You have almost none.
+on-arrival: {! if (Q.op_ready >= 65) { Q.op_result = 2; } else if (Q.op_ready >= 45) { Q.op_result = 1; } else { Q.op_result = 0; } Q.op_type = "fuerza"; expediente += 8; !}
+
+Not one action but a dozen, timed to the same hour across the states where you have men: a pipeline, a barracks probed, a highway held for ninety minutes, a garrison pinned in its own courtyard. No single blow decisive; the message is the simultaneity itself — that on a morning of its choosing the opposition can make the map flicker. If the coordination holds. Coordination, at this scale, is another word for intelligence and nerve.
+
+- @op_triunfo: [? if op_result = 2 : Continue ?]
+- @op_parcial: [? if op_result = 1 : Continue ?]
+- @op_desastre: [? if op_result = 0 : Continue ?]
+
+@presos
+title: El asalto al penal
+subtitle: Free the prisoners. The hardest operation there is.
+choose-if: pres_total >= 25 and inteligencia >= 25
+unavailable-subtitle: Storming a prison and getting away is the most demanding operation of all: it needs strong columns and deep intelligence. Anything less is a massacre with your name on it.
+on-arrival: {! if (Q.op_ready >= 75) { Q.op_result = 2; } else if (Q.op_ready >= 55) { Q.op_result = 1; } else { Q.op_result = 0; } Q.op_type = "presos"; expediente += 10; !}
+
+The oldest dream in the movement: the gates open, the politicals walking out into daylight, the campaign's first image not a coffin but a resurrection. It has been done, once or twice, by people who knew the guard rotations, the wall, the road out, the safe houses at the far end — and it has ended in slaughter a dozen more times for people who knew slightly less. There is no operation where the margin between the two is thinner.
+
+- @op_triunfo: [? if op_result = 2 : Continue ?]
+- @op_parcial: [? if op_result = 1 : Continue ?]
+- @op_desastre: [? if op_result = 0 : Continue ?]
+
+@op_triunfo
+title: Salió
+subtitle: It worked — and the political organizers were right about the cost.
+on-arrival: legitimidad_regimen -= 12; auge_armada = 1; sup_students += 5; sup_colonos += 3; frente_unidad += 3; memorial += 1; represion += 8; expediente += 10; ax_electoral -= 6; pri_reformist_rel -= 9
+
+It goes the way it goes perhaps one time in five: cleanly. [? if op_type = "radio" : The demand reaches the living rooms twice before the signal dies, and the phrase about the sierra watching the casillas is repeated in markets for weeks. ?][? if op_type = "fuerza" : For one morning the map flickers, and every editor in the country understands that the state's monopoly on the territory is a courtesy, not a fact. ?][? if op_type = "presos" : The politicals walk out into daylight and the photograph runs on front pages the censors cannot fully suppress; the campaign has its resurrection. ?] The regime's legitimacy takes a wound that shows. And the political road pays exactly the bill it was warned of: the middle class recoils, the reformist interlocutors stop returning calls, and the moderates in your own house look at the ballot and wonder whether the sierra has just cost them the country. The wave is bigger and angrier now. Whether it is more likely to be counted is a question July will answer.
+
+- @root: The die is cast.
+
+@op_parcial
+title: Salió a medias
+subtitle: Half of what you wanted, most of the cost.
+on-arrival: legitimidad_regimen -= 5; auge_armada = 1; sup_students += 2; memorial += 2; represion += 7; expediente += 10; ax_electoral -= 3; pri_reformist_rel -= 5
+
+It half-works, which in this business is the most common and most expensive outcome. [? if op_type = "radio" : The signal is cut mid-sentence; the demand half-lands, a rumor more than a broadcast. ?][? if op_type = "fuerza" : Some actions fire, others fold; the simultaneity that was the whole point frays into a scatter of incidents. ?][? if op_type = "presos" : A few come out; others do not; the daylight photograph is real but so is the shorter, worse list beside it. ?] The regime is embarrassed, not wounded, and it answers the embarrassment the way it prefers — with the Brigada, with the files, with a spring of funerals. The political road is tainted for the middle class all the same. You spent the operation and got a fraction of its promise, which is what unprepared audacity usually buys.
+
+- @root: On to July, lighter and more hunted.
+
+@op_desastre
+title: El desastre
+subtitle: You were not strong enough, and the state had rehearsed this its whole life.
+on-arrival: {! Q.memorial += 5; Q.expediente += 18; Q.represion += 14; Q.guerrilla_meter -= 12; Q.pres_guerrero = Math.max(0, Q.pres_guerrero - 12); Q.pres_valle = Math.max(0, Q.pres_valle - 8); Q.legitimidad_regimen += 4; Q.auge_armada = 0; !}
+
+The intelligence was thin and the columns were not what the plan pretended, and the state — which has war-gamed exactly this morning for twenty years — closes the trap before the operation clears its first objective. [? if op_type = "presos" : The assault on the walls becomes the massacre the manuals warned of. ?][? if op_type = "fuerza" : The simultaneity collapses into a dozen isolated ambushes, each rolled up in turn. ?][? if op_type = "radio" : The station was a lure; the army was waiting inside it. ?] What follows is the older language: safe houses blown in a single night, the best cadres killed or lifted, the sierra presence gutted, and the regime handed the gift of a spring it can point to and say *this is what they are.* The middle class believes it. The wave breaks early, on the wrong rocks.
+
+- @op_sobrevive: [? if plan_b = 1 : Continue ?]
+- @op_fin: [? if plan_b = 0 : Continue ?]
+
+@op_sobrevive
+title: El Plan B
+on-arrival: unity -= 6; political_capital -= 4
+
+But the Plan B drawn in colder blood holds: a fallback compartment the state did not know to roll up, the archive moved a month ago, a second-string leadership kept deliberately clear of the operation. The Movement survives the disaster — halved, hunted, and forced to reach July on its knees, but alive. The men who insisted on the fallback are, for once, not argued with.
+
+- @root: Survive. Reach July, barely.
+
+@op_fin
+title: Sin red
+new-page: true
+
+There was no fallback. There is nothing behind the leadership that walked into the trap, because the leadership was all of it, and now it is gone in a single night the way the state always preferred to take it. The columns without their heads dissolve into the sierra and the exile and the ground; the political comrades read about it and understand that the cycle they were building toward will not have them in it.
+
+- @fin_op: Fin.
+
+@fin_op
+on-arrival: ending = "aniquilacion"
+go-to: la_derrota
