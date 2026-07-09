@@ -142,6 +142,14 @@ With Moscow: [+ moscow_relation : relacion +]
 
 Charro control of organized labor: [+ charrismo : fuerza +]
 
+**La guerra de posición**
+
+The regime's legitimacy: [? if legitimidad_regimen >= 65 : intact — the story of the eternal party still mostly tells itself. ?][? if legitimidad_regimen >= 45 and legitimidad_regimen <= 64 : fraying — the middle class has begun to hear the seams. ?][? if legitimidad_regimen >= 25 and legitimidad_regimen <= 44 : badly cracked — the regime now argues where it once merely asserted. ?][? if legitimidad_regimen <= 24 : in tatters — even its own técnicos read the numbers and wince. ?]
+
+Scandal in the air: [? if escandalos = 0 : the closets stay shut, for now. ?][? if escandalos >= 1 and escandalos <= 2 : a few scandals circulate; the columns have found their nerve. ?][? if escandalos >= 3 : scandal has become weather — the regime governs through a haze of its own exposed sins. ?]
+
+The alquimia: [? if alquimia_expuesta = 1 : its anatomy is public. The next steal will be measured against a ruler the country now holds. ?][? if alquimia_expuesta = 0 and fraude_documentado >= 3 : the archive of stolen races is thickening; the theft is becoming provable. ?][? if alquimia_expuesta = 0 and fraude_documentado <= 2 : still hidden in the dark it depends on. ?]
+
 @paramilitaries
 
 = Defense

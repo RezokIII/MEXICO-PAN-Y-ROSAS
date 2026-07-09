@@ -6,7 +6,7 @@ tags: event
 view-if: year = 1985 and month >= 9 and month <= 11
 priority: 3
 max-visits: 1
-on-arrival: memorial += 2; burguesia_estado -= 5; sup_middle += 2
+on-arrival: memorial += 2; burguesia_estado -= 5; sup_middle += 2; legitimidad_regimen -= 10
 
 = El diecinueve de septiembre
 

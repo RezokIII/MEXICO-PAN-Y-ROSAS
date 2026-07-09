@@ -6,7 +6,7 @@ tags: event
 view-if: year = 1984 and month = 11
 priority: 3
 max-visits: 1
-on-arrival: memorial += 1; burguesia_estado -= 3; sup_colonos += 2
+on-arrival: memorial += 1; burguesia_estado -= 3; sup_colonos += 2; legitimidad_regimen -= 6
 
 = San Juanico
 

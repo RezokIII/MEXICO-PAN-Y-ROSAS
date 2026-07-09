@@ -128,7 +128,7 @@ is-deck: true
 @canales
 card-image: img/cards/deck_canales.jpeg
 title: Los canales
-subtitle: Coordinación discreta
+subtitle: CoordinaciÃ³n discreta
 view-if: postura_guerrilla >= 2
 is-deck: true
 
@@ -137,8 +137,8 @@ is-deck: true
 @fdn
 card-image: img/cards/casilla.jpg
 title: El Frente
-subtitle: The coalition, October 1987 to July 1988
-view-if: fdn >= 1
+subtitle: The Corriente, then the Frente — 1987–88
+view-if: fdn >= 1 or cd_formed = 1
 is-deck: true
 
 - #fdn

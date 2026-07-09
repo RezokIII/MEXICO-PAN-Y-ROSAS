@@ -165,6 +165,8 @@ Q.izq_seats = 0;
 Q.municipio_alcozauca = 0;
 Q.psum = 0;
 Q.alquimia_expuesta = 0;
+Q.legitimidad_regimen = 72; Q.escandalos = 0; Q.fraude_documentado = 0;
+Q.escandalo_cd = -5; Q.el_giro_cd = -5; Q.documentar_cd = -5;
 Q.real_izq = 0; Q.real_pri = 0; Q.real_pan = 0;
 Q.oficial_izq = 0; Q.oficial_pri = 0; Q.oficial_pan = 0;
 

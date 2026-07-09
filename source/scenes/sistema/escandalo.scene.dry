@@ -1,0 +1,48 @@
+title: El escandalo
+new-page: true
+subtitle: The regime's legitimacy is a currency; you can counterfeit doubt
+card-image: img/cards/jugar_facciones.jpg
+on-arrival: month_actions += 1; escandalo_cd = time
+max-visits: 40
+view-if: (political_capital >= 4) and time >= escandalo_cd + 3
+is-card: true
+frequency: 70
+tags: sistema
+
+= El escandalo
+
+The PRI does not rule by force alone — force is expensive and looks bad in photographs. It rules by a story the country half-believes: that it is the Revolution made government, that there is no outside, that its arithmetic is destiny. Every story has a seam, and a small opposition with a good archive and a friendly columnist can work a seam until it shows.
+
+Political capital is not a savings account. It is spent, here, buying doubt.
+
+- @dirty: The dirty war. Names, dates, the flights from Pie de la Cuesta. Make the silence expensive.
+- @corrupcion: The corruption. The ranch deeds, the brother-in-law's construction firm, the accounts that do not add.
+- @alquimia_seam: The machine itself. Document a stolen municipal election until the theft is undeniable.
+- @root: Keep your powder dry.
+- @easy_discard
+
+@dirty
+title: Que el silencio cueste
+subtitle: -5 political capital. Dangerous — you are naming the men who keep files.
+choose-if: political_capital >= 5 and expediente >= 20
+unavailable-subtitle: To prove the dirty war you must already be inside it — a thick enough file to have seen things, capital enough to publish them.
+on-arrival: political_capital -= 5; legitimidad_regimen -= 9; escandalos += 1; expediente += 6; sup_students += 3; pri_reformist_rel += 3; fac_ortodoxos -= 3
+
+The mother of a disappeared boy reads eleven names into a microphone at a press conference the regime cannot quite prevent. A magazine prints the flight logs. Nothing is prosecuted — nothing is ever prosecuted — but the word *desaparecido* enters the middle-class dinner table, and a government that must explain its own cellars has already lost the argument it most needed to never have.
+
+@corrupcion
+title: Las cuentas que no cierran
+subtitle: -4 political capital. Safer ground; the regime bleeds slower here.
+choose-if: political_capital >= 4
+on-arrival: political_capital -= 4; legitimidad_regimen -= 5; escandalos += 1; sup_middle += 2; pri_tecnicos -= 2; fac_ortodoxos -= 2
+
+Corruption is the one accusation the regime cannot answer with ideology, because everyone already knows and only lacks the documents. You supply the documents: a deed, a signature, a number too round to be innocent. The columnist runs it under a headline shaped like a question, which is how the law is obeyed and destroyed in the same sentence. The functionary is not punished. He is merely, forever, the man from that article.
+
+@alquimia_seam
+title: Un robo innegable
+subtitle: -4 political capital. Turn one stolen town into everyone's evidence.
+choose-if: political_capital >= 4 and red_casillas >= 15
+unavailable-subtitle: To prove a theft you need witnesses at the tables — a casilla network worth the name.
+on-arrival: political_capital -= 4; legitimidad_regimen -= 4; escandalos += 1; fraude_documentado += 2; sup_middle += 3; pri_reformist_rel -= 1
+
+Your people held the actas from one municipio the regime thought too small to steal carefully. The parallel count is public, notarized, undeniable; the official count is a work of fiction with worse sourcing. It is one town. But the method travels — every casilla trained on it, every reporter handed the template — and the alquimia's oldest protection, the assumption that fraud cannot be proven, develops its first documented crack.
