@@ -613,3 +613,8 @@ header, #content, footer { max-width: 46em; margin: 0 auto; }
 #qualities h1, #qualities2 h1 { font-size: 1.05em; margin: 0.9em 0 0.4em; border-bottom: 1px solid rgba(0,0,0,0.15); padding-bottom: 2px; }
 .tab_container { display: flex; flex-wrap: wrap; gap: 2px; }
 .tab_button { flex: 1 1 auto; }
+
+
+/* ===== La Izquierda: event images above the text (not floated beside) ===== */
+.face-figure { float: none !important; display: block !important; max-width: 78% !important; margin: 0.3em auto 1.1em auto !important; }
+.face-img { width: 100%; max-height: 340px; object-fit: cover; }

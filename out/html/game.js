@@ -581,7 +581,16 @@
     try { window.updateSidebar(); } catch(e){ if(window.console)console.warn('left sidebar:',e); }
     try { window.updateSidebarRight(); } catch(e){ if(window.console)console.warn('right sidebar:',e); }
   };
-  window.addEventListener('load', function(){ setTimeout(window.updateSidebarRight, 600); });
+  window.addEventListener('load', function(){
+    setTimeout(window.updateSidebarRight, 600);
+    // directly bind the right-sidebar tab buttons in case inline onclick is unreliable
+    setTimeout(function(){
+      var d = document.getElementById('paramilitary_tab');
+      var g = document.getElementById('sierra_tab');
+      if (d) d.addEventListener('click', function(e){ e.preventDefault(); window.changeTabRight('status.paramilitaries','paramilitary_tab'); });
+      if (g) g.addEventListener('click', function(e){ e.preventDefault(); window.changeTabRight('status.guerra','sierra_tab'); });
+    }, 700);
+  });
 })();
 
 
