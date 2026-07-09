@@ -41,3 +41,24 @@ All twelve go in: `out/html/img/`
 
 Start with Tier 1 — it's the game's very first image. Everything else already reuses
 art you uploaded, so the events are illustrated the moment these twelve land.
+
+---
+
+## OPTIONAL — dedicated card art (everything works now via reused art)
+
+Every card and event is currently illustrated by reusing art you already uploaded, so
+nothing is blank. These are ONLY if you want unique art for specific cards later — drop
+in `out/html/img/cards/`, same filename = auto-wired. No rush, no gaps without them.
+
+| filename | card |
+|---|---|
+| solidaridad.jpg | Solidaridad internacional |
+| programa.jpg | The economic program |
+| corrientes.jpg | The work of corrientes |
+| enlace.jpg | The liaison (armed path) |
+| medico.jpg | The medical channel |
+| inteligencia.jpg | The eyes / intelligence |
+| operaciones.jpg | Special operations |
+| sabotaje.jpg | Sabotage |
+| propaganda.jpg | Armed propaganda |
+| urbana.jpg | Urban operations |
