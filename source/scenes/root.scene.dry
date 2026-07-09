@@ -48,6 +48,7 @@ Q.ibarra_advisor = 0;
 Q.vallejo_advisor = 0;
 Q.moscow_relation = 35;
 Q.us_pressure = 15;
+Q.armada_entered = 0;
 Q.memorial = 0;
 Q.postura_guerrilla = 0;
 Q.td_apoyo = 0;
