@@ -2,6 +2,9 @@ title: Status
 new-page: true
 is-special: true
 on-arrival: {!
+if (Q.peso_dolar == null) { Q.peso_dolar = 12.5; }
+if (Q.crecimiento == null) { Q.crecimiento = 6; }
+if (Q.inflacion == null) { Q.inflacion = 4; }
 Q.peso_display = Q.peso_dolar.toFixed(2);
 Q.crecimiento_display = Q.crecimiento.toFixed(1);
 Q.inflacion_display = Q.inflacion.toFixed(1);

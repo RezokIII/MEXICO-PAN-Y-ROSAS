@@ -578,8 +578,8 @@
     window.updateSidebarRight();
   };
   window.onDisplayContent = function(){
-    window.updateSidebar();
-    window.updateSidebarRight();
+    try { window.updateSidebar(); } catch(e){ if(window.console)console.warn('left sidebar:',e); }
+    try { window.updateSidebarRight(); } catch(e){ if(window.console)console.warn('right sidebar:',e); }
   };
   window.addEventListener('load', function(){ setTimeout(window.updateSidebarRight, 600); });
 })();
