@@ -2,8 +2,8 @@ title: The liaison
 new-page: true
 subtitle: The underground still needs the daylight world
 card-image: img/cards/enlace.jpg
-view-if: via = "armada" or via = "dual"
-on-arrival: month_actions += 1
+view-if: (via = "armada" or via = "dual") and time >= el_enlace_cd + 2
+on-arrival: month_actions += 1; el_enlace_cd = time
 max-visits: 40
 is-card: true
 frequency: 75

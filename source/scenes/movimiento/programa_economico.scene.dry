@@ -2,8 +2,8 @@ title: The economic program
 new-page: true
 subtitle: What the left says the economy is for
 card-image: img/cards/prensa.jpg
-view-if: year >= 1971
-on-arrival: month_actions += 1
+view-if: (year >= 1971) and time >= programa_economico_cd + 2
+on-arrival: month_actions += 1; programa_economico_cd = time
 max-visits: 40
 is-card: true
 frequency: 65

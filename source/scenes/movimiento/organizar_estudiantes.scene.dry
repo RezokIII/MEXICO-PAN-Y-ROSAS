@@ -1,8 +1,9 @@
 title: Trabajo estudiantil
 new-page: true
 subtitle: Brigades, study circles, one working mimeograph
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; organizar_estudiantes_cd = time
 max-visits: 24
+view-if: time >= organizar_estudiantes_cd + 2
 is-card: true
 card-image: img/cards/mimeografo.jpg
 frequency: 100

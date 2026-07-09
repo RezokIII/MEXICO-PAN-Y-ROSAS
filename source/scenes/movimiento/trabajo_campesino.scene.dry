@@ -2,8 +2,9 @@ title: Trabajo campesino
 new-page: true
 subtitle: The land promised in 1917
 card-image: img/cards/ejido.jpg
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; trabajo_campesino_cd = time
 max-visits: 60
+view-if: time >= trabajo_campesino_cd + 2
 is-card: true
 frequency: 85
 tags: movimiento

@@ -2,8 +2,9 @@ title: The levers
 new-page: true
 subtitle: Every prisoner has a price; every judge has a friend
 card-image: img/cards/palancas.jpg
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; palancas_cd = time
 max-visits: 40
+view-if: time >= palancas_cd + 2
 is-card: true
 frequency: 60
 tags: sistema

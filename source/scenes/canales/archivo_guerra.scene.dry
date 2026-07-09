@@ -2,8 +2,9 @@ title: The war archive
 new-page: true
 subtitle: Evidence outlives everyone
 card-image: img/cards/archivo.jpg
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; archivo_guerra_cd = time
 max-visits: 30
+view-if: time >= archivo_guerra_cd + 2
 is-card: true
 frequency: 55
 tags: canales

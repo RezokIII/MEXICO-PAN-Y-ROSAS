@@ -2,8 +2,8 @@ title: Defensa del voto
 new-page: true
 subtitle: The casilla network
 card-image: img/cards/casilla.jpg
-view-if: registro >= 1
-on-arrival: month_actions += 1
+view-if: (registro >= 1) and time >= defensa_voto_cd + 2
+on-arrival: month_actions += 1; defensa_voto_cd = time
 max-visits: 25
 is-card: true
 frequency: 80

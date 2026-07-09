@@ -2,8 +2,8 @@ title: La batalla de las ideas
 new-page: true
 subtitle: Hegemony is organized too
 card-image: img/cards/prensa.jpg
-view-if: year >= 1980
-on-arrival: month_actions += 1
+view-if: (year >= 1980) and time >= batalla_ideas_cd + 2
+on-arrival: month_actions += 1; batalla_ideas_cd = time
 max-visits: 40
 is-card: true
 frequency: 75

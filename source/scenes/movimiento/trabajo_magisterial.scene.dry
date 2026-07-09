@@ -2,8 +2,9 @@ title: Trabajo magisterial
 new-page: true
 subtitle: Every teacher is a cell armed with chalk
 card-image: img/cards/mimeografo.jpg
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; trabajo_magisterial_cd = time
 max-visits: 60
+view-if: time >= trabajo_magisterial_cd + 2
 is-card: true
 frequency: 85
 tags: movimiento

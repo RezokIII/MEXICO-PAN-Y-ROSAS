@@ -2,8 +2,9 @@ title: Solidaridad internacional
 new-page: true
 subtitle: The world is on fire too
 card-image: img/cards/gira.jpg
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; solidaridad_cd = time
 max-visits: 60
+view-if: time >= solidaridad_cd + 2
 is-card: true
 frequency: 70
 tags: movimiento

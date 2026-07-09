@@ -2,8 +2,8 @@ title: Armed propaganda
 new-page: true
 subtitle: The argument, made without firing
 card-image: img/cards/recluta.jpg
-view-if: via = "armada" or via = "dual"
-on-arrival: month_actions += 1
+view-if: (via = "armada" or via = "dual") and time >= s_propaganda_cd + 2
+on-arrival: month_actions += 1; s_propaganda_cd = time
 max-visits: 60
 is-card: true
 frequency: 80

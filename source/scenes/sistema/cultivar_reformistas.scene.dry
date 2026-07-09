@@ -2,8 +2,9 @@ title: Cultivar a los reformistas
 new-page: true
 subtitle: The system has dissidents too; they dine better
 card-image: img/cards/cultivar_reformistas.jpg
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; cultivar_reformistas_cd = time
 max-visits: 60
+view-if: time >= cultivar_reformistas_cd + 2
 is-card: true
 frequency: 90
 tags: sistema

@@ -2,8 +2,9 @@ title: El canal médico
 new-page: true
 subtitle: Medicine has no party line
 card-image: img/cards/columna_movil.jpg
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; canal_medico_cd = time
 max-visits: 40
+view-if: time >= canal_medico_cd + 2
 is-card: true
 frequency: 90
 tags: canales

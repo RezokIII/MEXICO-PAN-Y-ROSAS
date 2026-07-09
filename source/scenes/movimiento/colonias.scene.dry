@@ -2,8 +2,9 @@ title: Trabajo en colonias
 new-page: true
 subtitle: The city the city refuses to admit
 card-image: img/cards/colonia.jpg
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; colonias_cd = time
 max-visits: 60
+view-if: time >= colonias_cd + 2
 is-card: true
 frequency: 85
 tags: movimiento
