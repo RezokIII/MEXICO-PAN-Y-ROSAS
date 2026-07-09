@@ -605,10 +605,13 @@ table {
   z-index: 5;
 }
 .tools.right { display: none; }
-header, #content, footer { max-width: 60em; margin-left: 20.5rem !important; margin-right: auto !important; }
+/* content fills from just past the fixed sidebar to near the right edge */
+#page { max-width: none !important; margin: 0 !important; }
+#mid_panel { margin-left: 20rem !important; margin-right: 1.2rem !important; }
+header, #content, footer { max-width: none !important; margin: 0 !important; width: auto !important; }
 @media screen and (max-width: 1150px) {
   .tools.left { width: 15rem; font-size: 0.9em; }
-  header, #content, footer { margin-left: 16rem !important; }
+  #mid_panel { margin-left: 15.5rem !important; }
 }
 @media screen and (max-width: 1300px) {
   .tools { width: 13rem; padding: 0.55em; font-size: 0.9em; }
