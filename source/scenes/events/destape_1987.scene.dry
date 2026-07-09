@@ -1,7 +1,7 @@
 title: El destape roto
 new-page: true
 subtitle: Octubre de 1987
-face-image: img/destape.jpg
+face-image: img/portraits/salinas.jpg
 tags: event
 view-if: year = 1987 and month >= 10 and month <= 12
 priority: 3

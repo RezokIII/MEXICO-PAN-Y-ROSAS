@@ -1,7 +1,7 @@
 title: La temporada de rumores
 new-page: true
 subtitle: August 1969 — rumor season
-face-image: img/destape.jpg
+face-image: img/portraits/diaz_ordaz.jpg
 tags: event
 view-if: year = 1969 and month >= 8 and month <= 10
 priority: 2

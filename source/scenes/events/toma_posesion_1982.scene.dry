@@ -1,7 +1,7 @@
 title: La toma de posesión
 new-page: true
 subtitle: 1 de diciembre de 1982
-face-image: img/presidencia.jpg
+face-image: img/portraits/delamadrid.jpg
 tags: event
 view-if: year = 1982 and month = 12
 priority: 3
