@@ -255,11 +255,11 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 @guerra
 
-= La sierra
+= El territorio
 
-[? if via = "politica" or via = "institucional" : The Movement maintains no armed structures. There is nothing to command here — no columns, no zones, no war. This is a choice, and in this Republic a defensible one. Should the Movement ever take up the gun, the strategy congress at the start of a sexenio opens the armed road, and this desk becomes a map of it. ?]
+[? if via = "politica" or via = "institucional" : The map below reads the country by the left's implantation — each region colored by how strong you are there. The south (Guerrero, Oaxaca) turns on peasants and teachers; the Valle de México on students, colonos and workers; the north on the industrial working class. Organize those sectors to turn a region red. Hover any region for its read. Should the Movement ever take up the gun, this same map becomes the war. ?]
 
-[? if not via : The Movement maintains no armed structures yet. Should it ever take up the gun, the strategy congress opens the armed road, and this desk becomes a map of it. ?]
+[? if not via : The map below reads the country by the left's regional implantation. Organize the sectors that anchor each region to turn it red. ?]
 
 [? if via = "armada" or via = "dual" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any province for the analysts' current picture. ?]
 

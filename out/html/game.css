@@ -597,9 +597,10 @@ table {
 
 
 /* ===== La Izquierda: layout pass - wider sidebars, bigger centered middle ===== */
-#tools_wrapper { max-width: 88em; }
-.tools { width: 15rem; padding: 0.85em; }
-header, #content, footer { max-width: 46em; margin: 0 auto; }
+#tools_wrapper { max-width: 92em; }
+.tools.left { width: 21rem; padding: 0.9em; }
+.tools.right { width: 15rem; padding: 0.85em; }
+header, #content, footer { max-width: 44em; margin: 0 auto; }
 @media screen and (max-width: 1300px) {
   .tools { width: 13rem; padding: 0.55em; font-size: 0.9em; }
   header, #content, footer { max-width: 40em; }

@@ -441,100 +441,67 @@
 })();
 
 
-// ===== Sierra war map: colorizer + hover intelligence =====
+// ===== Territorio map: dual mode (political strength / war), colorizer + hover =====
 (function(){
-  var prev = {};
-  var INFO = {
-    tijuana:  ['Baja California Norte','The border: dollars, crossings, the longest escape route in the Republic.'],
-    chihuahua:['Chihuahua','Madera country: the northern sierra, long memories, thin garrisons.'],
-    nl:       ['Nuevo Leon','Monterrey: the industrial belt, railway veins, money with its own foreign policy.'],
-    jalisco:  ['Jalisco','Guadalajara: old Liga craft, seminarians gone left, police who remember.'],
-    valle:    ['Valle de Mexico','The capital: deepest waters, thickest garrison, the war argued in print.'],
-    guerrero: ['Guerrero','The Costa Grande: Lucio country. The dirty war deepest theater.'],
-    oaxaca:   ['Oaxaca','The Istmo: COCEI country, Zapotec politics, ranges the army maps badly.']
+  var prev={};
+  var INFO={
+    tijuana:['Baja California Norte','The border: maquilas, colonos, the long escape route.'],
+    chihuahua:['Chihuahua','Madera country: mining north, PAN strongholds, thin garrisons.'],
+    nl:['Nuevo Leon','Monterrey: the industrial belt, charro unions, capital with its own foreign policy.'],
+    jalisco:['Jalisco','Guadalajara: students and workers, old Liga craft, conservative bastion.'],
+    valle:['Valle de Mexico','The capital: students, colonos, the industrial belt. The decisive ground.'],
+    guerrero:['Guerrero','The Costa Grande: campesinos and teachers, Lucio country, the deepest poverty.'],
+    oaxaca:['Oaxaca','The Istmo: COCEI country, Zapotec politics, teachers and peasants.']
   };
-  function trend(z, guar){
-    if (prev[z] === undefined) { return 'no prior data'; }
-    var d = Math.round(guar - prev[z]);
-    if (d >= 5) return 'REINFORCING (+' + d + ')';
-    if (d >= 2) return 'building up (+' + d + ')';
-    if (d <= -3) return 'drawing down (' + d + ')';
-    return 'static';
-  }
-  function qual(v, hi, mid){ return v >= hi ? 'heavy' : (v >= mid ? 'moderate' : 'light'); }
-  window.paintSierraMap = function(){
-    if (!window.dendryUI || !window.dendryUI.dendryEngine) return;
-    var Q = window.dendryUI.dendryEngine.state.qualities;
-    var via = Q.via;
-    var atWar = (via === 'armada' || via === 'dual');
-    var el = document.getElementById('mapa_sierra');
-    if (!atWar) { if (el) { el.parentNode.removeChild(el); } return; }
-    if (!el) {
-      if (window.statusTabRight !== 'status.guerra') return;
-      var host = document.getElementById('qualities2');
-      if (!host) return;
-      el = document.createElement('div');
-      el.id = 'mapa_sierra';
-      el.style.position = 'relative';
-      el.style.margin = '0.5em 0';
-      var h = host.querySelector('h1');
-      if (h && h.nextSibling) { host.insertBefore(el, h.nextSibling); }
-      else { host.appendChild(el); }
-    }
-    if (!document.getElementById('z_guerrero')) { el.innerHTML = '<svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg"><polygon points="48,20 140,44 186,58 204,78 198,100 210,120 252,118 300,106 312,126 296,150 258,146 224,152 216,170 186,166 158,164 126,150 96,116 74,90 56,50" style="fill:#e8e4d4;stroke:#999;stroke-width:0.8"/><polygon id="z_tijuana" points="16,34 30,32 40,52 54,76 66,100 60,114 46,96 32,68 20,46" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_chihuahua" points="48,20 140,44 150,60 120,84 84,74 60,44" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_nl" points="140,44 186,58 202,78 196,96 160,86 150,60" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_jalisco" points="84,74 120,84 136,110 118,128 92,112 76,92" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_valle" points="150,112 170,108 178,126 158,132" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_guerrero" points="118,128 158,132 176,146 160,162 128,148" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_oaxaca" points="176,146 206,138 224,150 216,168 186,164 160,162" style="fill:#ccc;stroke:#333;stroke-width:1"/><text x="18" y="28" font-size="9">BCN</text><text x="80" y="42" font-size="10">CHIH</text><text x="165" y="56" font-size="10">NL</text><text x="92" y="104" font-size="10">JAL</text><text x="151" y="124" font-size="8">CDMX</text><text x="130" y="150" font-size="9">GRO</text><text x="188" y="160" font-size="9">OAX</text></svg><div id="mapa_tip" style="display:none;position:absolute;background:#2a2118;color:#f3ecd8;border:1px solid #8a6d3b;padding:7px 10px;font-size:12px;max-width:230px;pointer-events:none;z-index:99;border-radius:3px"></div>'; }
-    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
-    var tip = document.getElementById('mapa_tip');
-    for (var i=0;i<zonas.length;i++){
-      (function(z){
-        var poly=document.getElementById('z_'+z);
-        if(!poly) return;
-        var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0, intel=Q['inteligencia']||0;
-        if (!atWar) {
-          poly.style.fill='#d8d4c4'; poly.style.strokeWidth='1px'; poly.style.stroke='#999';
-        } else {
-          var r=Math.round(200+(55*Math.min(1,pres/40)));
-          var gb=Math.round(200-(160*Math.min(1,pres/40)));
-          poly.style.fill='rgb('+r+','+gb+','+gb+')';
-          poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px';
-          poly.style.stroke = guar>=55 ? '#0f7040' : '#333';
-        }
-        poly.style.cursor='help';
-        poly.onmousemove=function(ev){
-          if(!tip) return;
-          var body;
-          if (!atWar){
-            body='<i>No armed presence. The war opens only on the armed road (choose it at a strategy congress).</i>';
-          } else if (intel >= 40){
-            body='Columns: <b>'+Math.round(pres)+'</b> &middot; Garrison: <b>'+Math.round(guar)+'</b><br>Troop movements: '+trend(z,guar)+(guar>=55?'<br><b>Ground too hot: presence erodes here.</b>':'');
-          } else {
-            body='Columns: '+(pres>=20?'strong':(pres>=5?'some structure':'almost none'))+' &middot; Army posture: '+qual(guar,45,30)+'<br>Troop movements: <i>estimates only (intel '+Math.round(intel)+' of 40 needed)</i>';
-          }
-          tip.innerHTML='<b>'+INFO[z][0]+'</b><br><span style="opacity:.85">'+INFO[z][1]+'</span><br>'+body;
-          tip.style.display='block';
-          var rect=el.getBoundingClientRect();
-          tip.style.left=Math.max(0,Math.min(rect.width-240,(ev.clientX-rect.left+12)))+'px';
-          tip.style.top=(ev.clientY-rect.top+12)+'px';
-        };
-        poly.onmouseleave=function(){ if(tip) tip.style.display='none'; };
-      })(zonas[i]);
-    }
-    if (prev._time !== Q.time){
-      for (var j=0;j<zonas.length;j++){
-        var zz=zonas[j];
-        if (prev._time !== undefined && prev['_pending_'+zz] !== undefined) { prev[zz] = prev['_pending_'+zz]; }
-        prev['_pending_'+zz] = Q['guar_'+zz];
+  var SECT={
+    guerrero:['sup_peasants','sup_teachers'], oaxaca:['sup_peasants','sup_teachers'],
+    valle:['sup_students','sup_colonos','sup_workers'], jalisco:['sup_workers','sup_students'],
+    nl:['sup_workers','sup_electricians'], chihuahua:['sup_workers','sup_peasants'],
+    tijuana:['sup_colonos','sup_workers']
+  };
+  var SVG='"""+svg+"""';
+  function trend(z,g){ if(prev[z]===undefined)return 'no prior data'; var d=Math.round(g-prev[z]); if(d>=5)return 'REINFORCING (+'+d+')'; if(d>=2)return 'building up (+'+d+')'; if(d<=-3)return 'drawing down ('+d+')'; return 'static'; }
+  function q(v,hi,mid){ return v>=hi?'strong':(v>=mid?'moderate':'weak'); }
+  function polScore(Q,z){ var a=SECT[z], t=0; for(var i=0;i<a.length;i++){ t+=Q[a[i]]||0; } return t/a.length; }
+  window.paintSierraMap=function(){
+    if(!window.dendryUI||!window.dendryUI.dendryEngine) return;
+    if(window.statusTab!=='status.guerra') return;
+    var Q=window.dendryUI.dendryEngine.state.qualities;
+    var atWar=(Q.via==='armada'||Q.via==='dual');
+    var el=document.getElementById('mapa_sierra');
+    if(!el){ var host=document.getElementById('qualities'); if(!host)return; el=document.createElement('div'); el.id='mapa_sierra'; el.style.position='relative'; el.style.margin='0.5em 0'; var h=host.querySelector('h1'); if(h&&h.nextSibling){host.insertBefore(el,h.nextSibling);}else{host.appendChild(el);} }
+    if(!document.getElementById('z_guerrero')){ el.innerHTML=SVG; }
+    var zonas=['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
+    var tip=document.getElementById('mapa_tip');
+    for(var i=0;i<zonas.length;i++){ (function(z){
+      var poly=document.getElementById('z_'+z); if(!poly)return;
+      var intel=Q['inteligencia']||0;
+      var val, r,gb;
+      if(atWar){ val=Q['pres_'+z]||0; var guar=Q['guar_'+z]||0;
+        r=Math.round(200+55*Math.min(1,val/40)); gb=Math.round(200-160*Math.min(1,val/40));
+        poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px'; poly.style.stroke=guar>=55?'#0f7040':'#333';
+      } else { val=polScore(Q,z);
+        r=Math.round(230+25*Math.min(1,val/60)); gb=Math.round(225-150*Math.min(1,val/60));
+        poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth='1px'; poly.style.stroke='#999';
       }
-      prev._time = Q.time;
-    }
-  }
-  var obs=new MutationObserver(function(){ setTimeout(window.paintSierraMap,80); });
-  window.addEventListener('load', function(){
-    var q=document.getElementById('qualities');
-    if(q) obs.observe(q,{childList:true,subtree:true});
-    var q2=document.getElementById('qualities2');
-    if(q2) obs.observe(q2,{childList:true,subtree:true});
-    setTimeout(window.paintSierraMap,500);
-  });
+      poly.style.cursor='help';
+      poly.onmousemove=function(ev){ if(!tip)return; var body;
+        if(atWar){ var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
+          if(intel>=40){ body='Columns: <b>'+Math.round(pres)+'</b> &middot; Garrison: <b>'+Math.round(guar)+'</b><br>Troop movements: '+trend(z,guar)+(guar>=55?'<br><b>Ground too hot: presence erodes.</b>':''); }
+          else { body='Columns: '+(pres>=20?'strong':(pres>=5?'some':'almost none'))+' &middot; Army posture: '+q(guar,45,30)+'<br><i>estimates only (intel '+Math.round(intel)+'/40)</i>'; }
+        } else { var ps=polScore(Q,z);
+          body='Left implantation: <b>'+q(ps,35,18)+'</b><br>Built on: '+SECT[z].map(function(x){return x.replace("sup_","");}).join(", ")+'.<br><i>Organize these sectors to turn the region red.</i>';
+        }
+        tip.innerHTML='<b>'+INFO[z][0]+'</b><br><span style="opacity:.85">'+INFO[z][1]+'</span><br>'+body;
+        tip.style.display='block'; var rect=el.getBoundingClientRect();
+        tip.style.left=Math.max(0,Math.min(rect.width-240,ev.clientX-rect.left+12))+'px'; tip.style.top=(ev.clientY-rect.top+12)+'px';
+      };
+      poly.onmouseleave=function(){ if(tip)tip.style.display='none'; };
+    })(zonas[i]); }
+    if(atWar && prev._time!==Q.time){ for(var j=0;j<zonas.length;j++){ var zz=zonas[j]; if(prev._time!==undefined&&prev['_p_'+zz]!==undefined)prev[zz]=prev['_p_'+zz]; prev['_p_'+zz]=Q['guar_'+zz]; } prev._time=Q.time; }
+  };
+  var obs=new MutationObserver(function(){ setTimeout(window.paintSierraMap,60); });
+  window.addEventListener('load',function(){ var qd=document.getElementById('qualities'); if(qd)obs.observe(qd,{childList:true,subtree:true}); setTimeout(window.paintSierraMap,500); });
 })();
 
 
@@ -571,6 +538,7 @@
     setActive('#stats_sidebar', tabId);
     window.statusTab = newTab;
     window.updateSidebar();
+    if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
   };
   window.changeTabRight = function(newTab, tabId){
     setActive('#tools_right', tabId);
@@ -578,18 +546,15 @@
     window.updateSidebarRight();
   };
   window.onDisplayContent = function(){
-    try { window.updateSidebar(); } catch(e){ if(window.console)console.warn('left sidebar:',e); }
-    try { window.updateSidebarRight(); } catch(e){ if(window.console)console.warn('right sidebar:',e); }
+    try { window.updateSidebar(); } catch(e){ if(window.console)console.warn('sidebar:',e); }
     if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
   };
   window.addEventListener('load', function(){
-    setTimeout(window.updateSidebarRight, 600);
-    // directly bind the right-sidebar tab buttons in case inline onclick is unreliable
     setTimeout(function(){
       var d = document.getElementById('paramilitary_tab');
       var g = document.getElementById('sierra_tab');
-      if (d) d.addEventListener('click', function(e){ e.preventDefault(); window.changeTabRight('status.paramilitaries','paramilitary_tab'); });
-      if (g) g.addEventListener('click', function(e){ e.preventDefault(); window.changeTabRight('status.guerra','sierra_tab'); });
+      if (d) d.addEventListener('click', function(e){ e.preventDefault(); window.changeTab('status.paramilitaries','paramilitary_tab'); });
+      if (g) g.addEventListener('click', function(e){ e.preventDefault(); window.changeTab('status.guerra','sierra_tab'); });
     }, 700);
   });
 })();
