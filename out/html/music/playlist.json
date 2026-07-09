@@ -1,4 +1,21 @@
 {
-  "_comment": "Drop audio files (mp3/ogg/m4a) into this music/ folder and list them here. First entry is the opening theme.",
-  "tracks": []
+  "_comment": "Soundtrack manifest. Drop audio files (mp3/ogg/m4a) into this music/ folder named EXACTLY as each 'file' below, and they auto-load in the in-game player. The FIRST entry is the opening theme. 'artist' and 'note' are documentation only — the player shows 'title'. The audio itself must be added by you (copyright); these are the recommended tracks.",
+  "tracks": [
+    { "file": "la_maldicion_de_malinche.mp3", "title": "La Maldicion de Malinche — Amparo Ochoa", "artist": "Amparo Ochoa / Gabino Palomares", "note": "OPENING THEME. The betrayed, unfinished nation — the thesis of the Rivera prologue." },
+    { "file": "me_gustan_los_estudiantes.mp3", "title": "Me gustan los estudiantes — Violeta Parra", "artist": "Violeta Parra", "note": "The 1968 student movement; the summer, the brigades." },
+    { "file": "tlatelolco_judith_reyes.mp3", "title": "Tlatelolco — Judith Reyes", "artist": "Judith Reyes", "note": "The corrido of October 2. The movement's own documentary songwriter." },
+    { "file": "a_desalambrar.mp3", "title": "A desalambrar — Daniel Viglietti", "artist": "Daniel Viglietti", "note": "Tear down the fences — the campesino land struggle, the toma de tierras." },
+    { "file": "el_barzon.mp3", "title": "El Barzon — Amparo Ochoa", "artist": "Amparo Ochoa", "note": "The peasant's debt and dignity; the countryside." },
+    { "file": "cuando_tenga_la_tierra.mp3", "title": "Cuando tenga la tierra — Mercedes Sosa", "artist": "Mercedes Sosa", "note": "The agrarian dream; the land promised in 1917." },
+    { "file": "te_recuerdo_amanda.mp3", "title": "Te recuerdo Amanda — Victor Jara", "artist": "Victor Jara", "note": "The worker and the factory gate; tenderness under repression." },
+    { "file": "manifiesto_victor_jara.mp3", "title": "Manifiesto — Victor Jara", "artist": "Victor Jara", "note": "Why one sings. Resonates with the 1976 Chile-style intervention ending." },
+    { "file": "solo_le_pido_a_dios.mp3", "title": "Solo le pido a Dios — Mercedes Sosa", "artist": "Mercedes Sosa / Leon Gieco", "note": "The dirty war, the memorial, the dead in the game treated accordingly." },
+    { "file": "gracias_a_la_vida.mp3", "title": "Gracias a la vida — Mercedes Sosa", "artist": "Mercedes Sosa / Violeta Parra", "note": "An elegiac note for the finale / the Rivera coda." },
+    { "file": "corrido_de_lucio_cabanas.mp3", "title": "Corrido de Lucio Cabanas", "artist": "traditional / movement corrido", "note": "The armed road, the sierra of Guerrero, the schoolteacher who went up the mountain." },
+    { "file": "venceremos.mp3", "title": "Venceremos — Inti-Illimani", "artist": "Inti-Illimani", "note": "The offensive, the grand operation, the auge armada." },
+    { "file": "metro_balderas.mp3", "title": "Metro Balderas — Rockdrigo Gonzalez", "artist": "Rockdrigo Gonzalez", "note": "1980s urban Mexico City; the colonos, the periphery, the bard who died in the 1985 quake." },
+    { "file": "la_era_esta_pariendo.mp3", "title": "La era esta pariendo un corazon — Silvio Rodriguez", "artist": "Silvio Rodriguez", "note": "The long accumulation; a new era being born, painfully." },
+    { "file": "yo_pisare_las_calles.mp3", "title": "Yo pisare las calles nuevamente — Pablo Milanes", "artist": "Pablo Milanes", "note": "Return and vindication after the dictatorship; hope deferred, not dead." },
+    { "file": "el_pueblo_unido.mp3", "title": "El pueblo unido jamas sera vencido — Quilapayun", "artist": "Quilapayun", "note": "The 1988 mobilization, the Zocalo filled, the reconocimiento ending. (Pointed irony given the PCM's condemnation of Prague.)" }
+  ]
 }
