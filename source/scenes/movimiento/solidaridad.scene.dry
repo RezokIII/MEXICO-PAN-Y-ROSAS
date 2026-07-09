@@ -9,25 +9,39 @@ tags: movimiento
 
 = Solidaridad internacional
 
-The Republic's foreign policy is a costume ball — asylum for every exile, votes for every liberation, and the DFS checking coats at the door. But underneath the government's theater there is a real internationalism to be organized: the wars in Indochina and the prisons of the South are close to every student's heart, and closer to some doorways than anyone admits.
+The Republic's foreign policy is a costume ball — asylum for every exile, votes for every liberation, and the DFS checking coats at the door. Underneath the theater there is a real internationalism to organize, and the cause of the hour changes with the decade.
 
-- @vietnam: A solidarity campaign for Vietnam — marches, collections, the embassy picketed.
+- @vietnam: A campaign for Vietnam — marches, collections, the embassy picketed.
+- @chile: Solidarity with the Chilean and Southern Cone exiles — beds, presses, the Casa de Chile.
+- @centroamerica: The Central American wars — Nicaragua, El Salvador, the Guatemalan refugees in Chiapas.
 - @europa: Cultivate the European parties — the Italians, the French, their money and their heresies.
-- @latinoamerica: The southern comrades — presses and beds for the hunted of the continent.
 - @root: The world manages without you this month.
 - @easy_discard
 
 @vietnam
+choose-if: year <= 1975
+unavailable-subtitle: Vietnam's war is ending; the cause of the hour has moved on.
 on-arrival: sup_students += 3; moscow_relation += 2; expediente += 2
 
-The march goes from the university to within two blocks of the embassy, which is the legal limit of Mexican anti-imperialism. Collections buy medicine shipped via prickly channels. Moscow approves of the theme, loudly, which is almost enough to make one reconsider it.
+The march goes from the university to within two blocks of the embassy, the legal limit of Mexican anti-imperialism. Collections buy medicine shipped via prickly channels. Moscow approves of the theme, loudly, which is almost enough to make one reconsider it.
+
+@chile
+choose-if: year >= 1973
+unavailable-subtitle: The Southern Cone dictatorships have not yet begun their exodus.
+on-arrival: sup_students += 2; sup_middle += 2; exiliados += 1; expediente += 2
+
+The Casa de Chile fills with maté and grief and the best-trained Marxists on the continent; a MIR printer sets your type faster than anyone you have. The DFS photographs the doorway and files it by accent. Solidarity abroad, surveillance at home: the Republic's signature chord.
+
+@centroamerica
+choose-if: year >= 1979
+unavailable-subtitle: The isthmus has not yet caught fire; this cause belongs to the 1980s.
+on-arrival: sup_students += 3; moscow_relation += 1; us_pressure += 3; guerrilla_meter += 2; expediente += 3
+
+Coffee brigades to Nicaragua, medical caravans toward the Salvadoran border, the Guatemalan refugee camps in Chiapas fed and documented. Washington notices — the embassy keeps a list — and the youth come back with the glint of people who have seen a revolution win somewhere. You will be managing that glint for years.
 
 @europa
-on-arrival: funds += 2; ax_sovietico -= 2; moscow_relation -= 2
+choose-if: year >= 1974
+unavailable-subtitle: The Eurocommunist current has not yet ripened into something worth crossing an ocean for.
+on-arrival: funds += 2; ax_sovietico -= 2; prestigio_socialismo += 1; moscow_relation -= 2
 
-A delegation returns from Rome with book crates, a small check, and the peculiar light in the eyes of men who have seen a communist party win municipal elections. The ortodoxos inspect the books like customs officers. Some of the books get through; that is what books are for.
-
-@latinoamerica
-on-arrival: political_capital += 2; expediente += 3; guerrilla_meter += 1
-
-A Guatemalan poet sleeps three nights behind the press; a Brazilian's pamphlet is set in your type with the accents adjusted. The continent's wounded pass through the city constantly — the government admits the famous ones at the airport and the DFS meets the rest at the bus stations. Some of what they carry is hope. Some is doctrine with a fuse in it.
+A delegation returns from Rome with book crates, a small check, and the peculiar light in the eyes of men who have watched a communist party win municipal elections. The ortodoxos inspect the books like customs officers. Some get through; that is what books are for.
