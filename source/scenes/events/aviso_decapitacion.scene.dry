@@ -1,0 +1,23 @@
+title: A change in the weather
+new-page: true
+subtitle: The state stops managing and starts ending
+face-image: img/camioneta.jpg
+tags: event
+view-if: represion >= 80 and expediente >= 72 and decap_warned = 0
+priority: 5
+max-visits: 1
+on-arrival: decap_warned = 1
+
+= A change in the weather
+
+The fuente's envelope this month is shorter than usual, and colder: the file on the Movement has been moved to a different desk — one that does not open investigations, only closes them. The security men who used to photograph your doorways have been replaced by men who do not carry cameras.
+
+In this Republic the line between the political police and the traffickers was always a courtesy fiction; the DFS licenses the narcos and the narcos lend the DFS their pistoleros, and the arrangement has a spare capacity that is now, the envelope suggests, being pointed at you. This is how the dirty war ends an organization it has decided to end: not with a decree, but with a series of ordinary crimes that no one will ever be charged with.
+
+**Lower the temperature — cut the expediente, ease the represión — or the leadership begins to die, one by one.** The El camino and the memorial both hang on what you do in the next year. You have been warned the only way this state ever warns anyone: quietly, and once.
+
+- @entendido: Understood. Continuar.
+
+@entendido
+
+The circular to the cells is three words: *bajen el perfil.* Lower the profile. Whether the organization can, having climbed this high, is the question the next months will answer in the only currency that counts.
