@@ -51,6 +51,7 @@ Q.us_pressure = 15;
 Q.armada_entered = 0;
 Q.decap_last = 0;
 Q.decap_warned = 0;
+Q.trabajo_obrero_cd = -5;
 Q.memorial = 0;
 Q.postura_guerrilla = 0;
 Q.td_apoyo = 0;
