@@ -771,7 +771,11 @@ new-page: true
 
 = The organizer primer
 
-**The month.** Each turn you play up to three cards from your decks (more as the Movement matures). Cards are actions: organizing sectors, moving money, working the system. Events — history, and the consequences of your file — interrupt on their own schedule.
+**HOW YOU WIN.** The goal is the presidential election of July 6, 1988: force a result the regime cannot steal (the "reconocimiento" ending). You get there by completing the five milestones of El camino — shown in the left sidebar — over twenty years: (I) survive to 1971, (II) reach 10,000 members, (III) win registro and 10 seats, (IV) build a 30-casilla network and govern a town, (V) forge the united front. Fall short and you still get one of several graded endings — but the true victory is a counted election.
+
+**HOW YOU GROW SUPPORT.** Your national vote share (Encuestas tab) comes directly from your support among seven sectors (workers, campesinos, students, teachers, colonos, electricians, middle class). You raise sector support by PLAYING CARDS from El Movimiento deck: Trabajo obrero, Trabajo campesino, Colonias, Prensa, and so on. Each card played that names a sector raises that sector's support, which raises your vote. The economic program card decides WHICH classes your message reaches. No cards played = no growth. This is the core loop: draw a card, play it, watch the sector rise.
+
+**The month.** Each turn you play up to three cards from your decks (more as the Movement matures). Click a deck to draw, click a card to play it. Events — history, and the consequences of your file — interrupt on their own schedule.
 
 **El camino.** The status bar tracks five milestones from survival to the united front of 1988. They are the visible road to the one true victory: a 1988 election the state fails to steal. Everything else — the sagas, the network, the alliances — feeds that night.
 
