@@ -464,9 +464,12 @@
   function qual(v, hi, mid){ return v >= hi ? 'heavy' : (v >= mid ? 'moderate' : 'light'); }
   window.paintSierraMap = function(){
     if (!window.dendryUI || !window.dendryUI.dendryEngine) return;
+    var Q = window.dendryUI.dendryEngine.state.qualities;
+    var via = Q.via;
+    var atWar = (via === 'armada' || via === 'dual');
     var el = document.getElementById('mapa_sierra');
+    if (!atWar) { if (el) { el.parentNode.removeChild(el); } return; }
     if (!el) {
-      // only build on the Sierra tab; construct the container ourselves (no magic-HTML dependency)
       if (window.statusTabRight !== 'status.guerra') return;
       var host = document.getElementById('qualities2');
       if (!host) return;
@@ -478,9 +481,6 @@
       if (h && h.nextSibling) { host.insertBefore(el, h.nextSibling); }
       else { host.appendChild(el); }
     }
-    var Q = window.dendryUI.dendryEngine.state.qualities;
-    var via = Q.via;
-    var atWar = (via === 'armada' || via === 'dual');
     if (!document.getElementById('z_guerrero')) { el.innerHTML = '<svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg"><polygon points="48,20 140,44 186,58 204,78 198,100 210,120 252,118 300,106 312,126 296,150 258,146 224,152 216,170 186,166 158,164 126,150 96,116 74,90 56,50" style="fill:#e8e4d4;stroke:#999;stroke-width:0.8"/><polygon id="z_tijuana" points="16,34 30,32 40,52 54,76 66,100 60,114 46,96 32,68 20,46" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_chihuahua" points="48,20 140,44 150,60 120,84 84,74 60,44" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_nl" points="140,44 186,58 202,78 196,96 160,86 150,60" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_jalisco" points="84,74 120,84 136,110 118,128 92,112 76,92" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_valle" points="150,112 170,108 178,126 158,132" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_guerrero" points="118,128 158,132 176,146 160,162 128,148" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_oaxaca" points="176,146 206,138 224,150 216,168 186,164 160,162" style="fill:#ccc;stroke:#333;stroke-width:1"/><text x="18" y="28" font-size="9">BCN</text><text x="80" y="42" font-size="10">CHIH</text><text x="165" y="56" font-size="10">NL</text><text x="92" y="104" font-size="10">JAL</text><text x="151" y="124" font-size="8">CDMX</text><text x="130" y="150" font-size="9">GRO</text><text x="188" y="160" font-size="9">OAX</text></svg><div id="mapa_tip" style="display:none;position:absolute;background:#2a2118;color:#f3ecd8;border:1px solid #8a6d3b;padding:7px 10px;font-size:12px;max-width:230px;pointer-events:none;z-index:99;border-radius:3px"></div>'; }
     var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
     var tip = document.getElementById('mapa_tip');

@@ -238,7 +238,7 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 = La sierra
 
-[? if via != "armada" and via != "dual" : The Movement maintains no armed structures. The map below shows the ground as it lies — uncontested, the garrisons at peacetime routine. Hover any province to read it. The strategy congress at each sexenio can open the armed road, and the map with it. ?]
+[? if via != "armada" and via != "dual" : The Movement maintains no armed structures. There is nothing to command here — no columns, no zones, no war. This is a choice, and in this Republic a defensible one. Should the Movement ever take up the gun, the strategy congress at the start of a sexenio opens the armed road, and this desk becomes a map of it. ?]
 
 [? if via = "armada" or via = "dual" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any region for the analysts' current picture — detail sharpens with intelligence capacity. ?]
 
