@@ -21,7 +21,7 @@ if (Q.works_program && Q.works_program > 1) {
 // moved demographic changes to post_event
 !}
 tags: weimar_event
-view-if: year = 1931 and month = 1 
+view-if: year = 1931 and month >= 1 and month <= 3 
 priority: 2
 max-visits: 1
 

@@ -1,6 +1,7 @@
 title: El Palacio Negro
 new-page: true
 subtitle: Noviembre de 1968
+face-image: img/lecumberri.jpg
 tags: event
 view-if: year = 1968 and month = 11
 priority: 2

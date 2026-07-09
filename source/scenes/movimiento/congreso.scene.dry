@@ -1,6 +1,7 @@
 title: Convocar un pleno
 new-page: true
 subtitle: The line is set at the pleno
+card-image: img/cards/pleno.jpg
 view-if: time >= congreso_last + 30
 on-arrival: month_actions += 1
 max-visits: 20

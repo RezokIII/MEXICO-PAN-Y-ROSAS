@@ -1,8 +1,10 @@
 title: The work of corrientes
 new-page: true
 subtitle: A party is a coalition that never signs its treaty
-on-arrival: month_actions += 1
+card-image: img/cards/pleno.jpg
+on-arrival: month_actions += 1; corrientes_cd = time
 max-visits: 60
+view-if: time >= corrientes_cd + 2
 is-card: true
 frequency: 70
 tags: movimiento

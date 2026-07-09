@@ -418,11 +418,13 @@
       pending = false;
       markup(document.getElementById('content'));
       markup(document.getElementById('qualities'));
+      markup(document.getElementById('qualities2'));
     }, 60);
   }
   window.addEventListener('load', function() {
     var content = document.getElementById('content');
     var quals = document.getElementById('qualities');
+    var quals2 = document.getElementById('qualities2');
     var obs = new MutationObserver(function(muts) {
       for (var i = 0; i < muts.length; i++) {
         var t = muts[i].target;
@@ -433,33 +435,303 @@
     });
     if (content) obs.observe(content, {childList: true, subtree: true});
     if (quals) obs.observe(quals, {childList: true, subtree: true});
+    if (quals2) obs.observe(quals2, {childList: true, subtree: true});
     schedule();
   });
 })();
 
 
-// ===== Sierra war map colorizer =====
+// ===== Territorio map: dual mode (political strength / war), colorizer + hover =====
 (function(){
-  function paint(){
-    var el = document.getElementById('mapa_sierra');
-    if (!el || !window.dendryUI || !window.dendryUI.dendryEngine) return;
-    var Q = window.dendryUI.dendryEngine.state.qualities;
-    var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca'];
-    for (var i=0;i<zonas.length;i++){
-      var z=zonas[i]; var poly=document.getElementById('z_'+z);
-      if(!poly) continue;
-      var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
-      var r=Math.round(200+(55*Math.min(1,pres/40)));
-      var gb=Math.round(200-(160*Math.min(1,pres/40)));
-      poly.style.fill='rgb('+r+','+gb+','+gb+')';
-      poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px';
-      poly.style.stroke = guar>=55 ? '#0f7040' : '#333';
+  var prev={};
+  var INFO={
+    tijuana:['Baja California Norte','The border: maquilas, colonos, the long escape route.'],
+    chihuahua:['Chihuahua','Madera country: mining north, PAN strongholds, thin garrisons.'],
+    nl:['Nuevo Leon','Monterrey: the industrial belt, charro unions, capital with its own foreign policy.'],
+    jalisco:['Jalisco','Guadalajara: students and workers, old Liga craft, conservative bastion.'],
+    valle:['Valle de Mexico','The capital: students, colonos, the industrial belt. The decisive ground.'],
+    guerrero:['Guerrero','The Costa Grande: campesinos and teachers, Lucio country, the deepest poverty.'],
+    oaxaca:['Oaxaca','The Istmo: COCEI country, Zapotec politics, teachers and peasants.']
+  };
+  var SECT={
+    guerrero:['sup_peasants','sup_teachers'], oaxaca:['sup_peasants','sup_teachers'],
+    valle:['sup_students','sup_colonos','sup_workers'], jalisco:['sup_workers','sup_students'],
+    nl:['sup_workers','sup_electricians'], chihuahua:['sup_workers','sup_peasants'],
+    tijuana:['sup_colonos','sup_workers']
+  };
+  var SVG='<svg viewBox="0 0 340 240" width="100%" xmlns="http://www.w3.org/2000/svg"><polygon id="z_tijuana" points="28,44 44,40 60,66 78,104 84,128 74,132 60,110 44,74 30,56" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_chihuahua" points="60,30 150,44 176,70 150,104 96,98 74,66 58,44" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_nl" points="150,44 232,58 250,96 208,116 176,96 176,70" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_jalisco" points="96,98 150,104 168,140 138,164 104,146 84,120" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_valle" points="168,140 196,132 208,158 180,168" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_guerrero" points="138,164 180,168 196,190 160,204 128,186" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_oaxaca" points="196,190 208,158 240,150 296,150 312,176 268,188 224,196 200,208" style="fill:#ccc;stroke:#333;stroke-width:1"/><text x="44" y="80" font-size="9">BCN</text><text x="96" y="66" font-size="11">CHIH</text><text x="196" y="82" font-size="11">NL</text><text x="108" y="128" font-size="11">JAL</text><text x="176" y="152" font-size="8">CDMX</text><text x="140" y="184" font-size="10">GRO</text><text x="250" y="176" font-size="11">OAX</text></svg><div id="mapa_tip" style="display:none;position:absolute;background:#2a2118;color:#f3ecd8;border:1px solid #8a6d3b;padding:7px 10px;font-size:12px;max-width:230px;pointer-events:none;z-index:99;border-radius:3px"></div>';
+  function trend(z,g){ if(prev[z]===undefined)return 'no prior data'; var d=Math.round(g-prev[z]); if(d>=5)return 'REINFORCING (+'+d+')'; if(d>=2)return 'building up (+'+d+')'; if(d<=-3)return 'drawing down ('+d+')'; return 'static'; }
+  function q(v,hi,mid){ return v>=hi?'strong':(v>=mid?'moderate':'weak'); }
+  function polScore(Q,z){ var a=SECT[z], t=0; for(var i=0;i<a.length;i++){ t+=Q[a[i]]||0; } return t/a.length; }
+  window.paintSierraMap=function(){
+    if(!window.dendryUI||!window.dendryUI.dendryEngine) return;
+    if(window.statusTab!=='status.guerra') return;
+    var Q=window.dendryUI.dendryEngine.state.qualities;
+    var atWar=(Q.via==='armada'||Q.via==='dual');
+    var el=document.getElementById('mapa_sierra');
+    if(!el){ var host=document.getElementById('qualities'); if(!host)return; el=document.createElement('div'); el.id='mapa_sierra'; el.style.position='relative'; el.style.margin='0.5em 0'; var h=host.querySelector('h1'); if(h&&h.nextSibling){host.insertBefore(el,h.nextSibling);}else{host.appendChild(el);} }
+    if(!document.getElementById('z_guerrero')){ el.innerHTML=SVG; }
+    var zonas=['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
+    var tip=document.getElementById('mapa_tip');
+    for(var i=0;i<zonas.length;i++){ (function(z){
+      var poly=document.getElementById('z_'+z); if(!poly)return;
+      var intel=Q['inteligencia']||0;
+      var val, r,gb;
+      if(atWar){ val=Q['pres_'+z]||0; var guar=Q['guar_'+z]||0;
+        r=Math.round(200+55*Math.min(1,val/40)); gb=Math.round(200-160*Math.min(1,val/40));
+        poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px'; poly.style.stroke=guar>=55?'#0f7040':'#333';
+      } else { val=polScore(Q,z);
+        r=Math.round(230+25*Math.min(1,val/60)); gb=Math.round(225-150*Math.min(1,val/60));
+        poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth='1px'; poly.style.stroke='#999';
+      }
+      poly.style.cursor='help';
+      poly.onmousemove=function(ev){ if(!tip)return; var body;
+        if(atWar){ var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
+          if(intel>=40){ body='Columns: <b>'+Math.round(pres)+'</b> &middot; Garrison: <b>'+Math.round(guar)+'</b><br>Troop movements: '+trend(z,guar)+(guar>=55?'<br><b>Ground too hot: presence erodes.</b>':''); }
+          else { body='Columns: '+(pres>=20?'strong':(pres>=5?'some':'almost none'))+' &middot; Army posture: '+q(guar,45,30)+'<br><i>estimates only (intel '+Math.round(intel)+'/40)</i>'; }
+        } else { var ps=polScore(Q,z);
+          body='Left implantation: <b>'+q(ps,35,18)+'</b><br>Built on: '+SECT[z].map(function(x){return x.replace("sup_","");}).join(", ")+'.<br><i>Organize these sectors to turn the region red.</i>';
+        }
+        tip.innerHTML='<b>'+INFO[z][0]+'</b><br><span style="opacity:.85">'+INFO[z][1]+'</span><br>'+body;
+        tip.style.display='block'; var rect=el.getBoundingClientRect();
+        tip.style.left=Math.max(0,Math.min(rect.width-240,ev.clientX-rect.left+12))+'px'; tip.style.top=(ev.clientY-rect.top+12)+'px';
+      };
+      poly.onmouseleave=function(){ if(tip)tip.style.display='none'; };
+    })(zonas[i]); }
+    if(atWar && prev._time!==Q.time){ for(var j=0;j<zonas.length;j++){ var zz=zonas[j]; if(prev._time!==undefined&&prev['_p_'+zz]!==undefined)prev[zz]=prev['_p_'+zz]; prev['_p_'+zz]=Q['guar_'+zz]; } prev._time=Q.time; }
+  };
+  var obs=new MutationObserver(function(){ setTimeout(window.paintSierraMap,60); });
+  window.addEventListener('load',function(){ var qd=document.getElementById('qualities'); if(qd)obs.observe(qd,{childList:true,subtree:true}); setTimeout(window.paintSierraMap,500); });
+})();
+
+
+// ===== La Izquierda: right sidebar (militant column) =====
+(function(){
+  window.statusTabRight = 'status.paramilitaries';
+  window.updateSidebarRight = function() {
+    var el = $('#qualities2');
+    if (!el.length || !window.dendryUI || !dendryUI.game) return;
+    el.empty();
+    var scene = dendryUI.game.scenes[window.statusTabRight];
+    if (!scene) return;
+    try {
+      if (scene.onArrival) { dendryUI.dendryEngine._runActions(scene.onArrival); }
+      var dc = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      el.append(dendryUI.contentToHTML.convert(dc));
+    } catch(err) {
+      el.append('<p>(display error: '+ (err && err.message ? err.message : err) +')</p>');
+    }
+    if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
+  };
+  function setActive(container, tabId){
+    var btns = document.querySelectorAll(container + ' .tab_button');
+    for (var i=0;i<btns.length;i++){ btns[i].className = btns[i].className.replace(' active',''); }
+    var b = document.getElementById(tabId);
+    if (b) b.className += ' active';
+  }
+  var baseChange = window.changeTab;
+  window.changeTab = function(newTab, tabId){
+    if (tabId == 'poll_tab' && dendryUI.dendryEngine.state.qualities.historical_mode) {
+      window.alert('Polls are not available in historical mode.');
+      return;
+    }
+    setActive('#stats_sidebar', tabId);
+    window.statusTab = newTab;
+    window.updateSidebar();
+    if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
+  };
+  window.changeTabRight = function(newTab, tabId){
+    setActive('#tools_right', tabId);
+    window.statusTabRight = newTab;
+    window.updateSidebarRight();
+  };
+  window.onDisplayContent = function(){
+    try { window.updateSidebar(); } catch(e){ if(window.console)console.warn('sidebar:',e); }
+    if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
+  };
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      var d = document.getElementById('paramilitary_tab');
+      var g = document.getElementById('sierra_tab');
+      if (d) d.addEventListener('click', function(e){ e.preventDefault(); window.changeTab('status.paramilitaries','paramilitary_tab'); });
+      if (g) g.addEventListener('click', function(e){ e.preventDefault(); window.changeTab('status.guerra','sierra_tab'); });
+    }, 700);
+  });
+})();
+
+
+// ===== La Izquierda: inject advisor portraits (engine drops pinned-card images) =====
+(function(){
+  var MAP = {
+    valentin_campa:'campa.jpg', demetrio_vallejo:'vallejo.jpeg', martinez_verdugo:'verdugo.jpeg',
+    othon_salazar:'othon.jpeg', danzos_palomino:'danzos.jpeg', benita_galeana:'benita.jpeg',
+    jose_revueltas:'revueltas.jpg', heberto_castillo:'heberto.jpeg', rosario_ibarra:'ibarra.jpg'
+  };
+  function inject(){
+    var cards = document.querySelectorAll('a.card[card-id]');
+    for (var i=0;i<cards.length;i++){
+      var a=cards[i], id=a.getAttribute('card-id');
+      if (MAP[id] && !a.querySelector('img.card-img')){
+        var img=document.createElement('img');
+        img.className='card-img';
+        img.src='img/portraits/'+MAP[id];
+        a.insertBefore(img, a.firstChild);
+      }
     }
   }
-  var obs=new MutationObserver(function(){ setTimeout(paint,80); });
   window.addEventListener('load', function(){
-    var q=document.getElementById('qualities');
-    if(q) obs.observe(q,{childList:true,subtree:true});
-    setTimeout(paint,500);
+    var c=document.getElementById('content');
+    if(c){ var o=new MutationObserver(function(){ setTimeout(inject,30); }); o.observe(c,{childList:true,subtree:true}); }
+    setTimeout(inject,600);
   });
+})();
+
+
+// ===== La Izquierda: force event images above the text (bypass show_portraits/bg gating) =====
+(function(){
+  function currentScene(){
+    try { var e=window.dendryUI.dendryEngine; return e.game.scenes[e.state.sceneId]; } catch(x){ return null; }
+  }
+  function injectFace(){
+    var c=document.getElementById('content');
+    if(!c) return;
+    var sc=currentScene();
+    if(!sc || !sc.faceImage){ return; }
+    if(c.querySelector('.face-figure')){ return; }
+    var fig=document.createElement('div'); fig.className='face-figure';
+    var img=new Image(); img.className='face-img'; img.src=sc.faceImage;
+    fig.appendChild(img);
+    c.insertBefore(fig, c.firstChild);
+  }
+  window.addEventListener('load', function(){
+    var c=document.getElementById('content');
+    if(c){ var o=new MutationObserver(function(){ setTimeout(injectFace,25); }); o.observe(c,{childList:true,subtree:false}); }
+    setTimeout(injectFace,700);
+  });
+})();
+
+/* ===================== PAN Y ROSAS — music player ===================== */
+(function(){
+  if (window.__pyrMusicInit) return; window.__pyrMusicInit = true;
+  function init(){
+    if (document.getElementById('pyr-music')) return;
+    var tracks = [];        // {name, url, isLocal}
+    var idx = -1;
+    var audio = new Audio();
+    audio.volume = parseFloat(localStorage.getItem('pyr_music_vol') || '0.55');
+    var loop = false, shuffle = false;
+
+    var css = document.createElement('style');
+    css.textContent = ''
+      + '#pyr-music{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:Georgia,serif;}'
+      + '#pyr-music-btn{width:44px;height:44px;border-radius:50%;background:#3a2e22;color:#e8d9b5;'
+      + 'border:1px solid #6b5638;cursor:pointer;font-size:20px;line-height:44px;text-align:center;'
+      + 'box-shadow:0 2px 8px rgba(0,0,0,.45);user-select:none;}'
+      + '#pyr-music-panel{display:none;position:absolute;right:0;bottom:52px;width:260px;'
+      + 'background:#241d16;color:#e8d9b5;border:1px solid #6b5638;border-radius:8px;'
+      + 'box-shadow:0 4px 16px rgba(0,0,0,.55);padding:10px;}'
+      + '#pyr-music-panel.open{display:block;}'
+      + '#pyr-music-title{font-size:12px;font-style:italic;margin:2px 0 8px;min-height:16px;'
+      + 'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#cdb893;}'
+      + '#pyr-music .row{display:flex;align-items:center;gap:6px;margin:6px 0;}'
+      + '#pyr-music button.ctl{background:#3a2e22;color:#e8d9b5;border:1px solid #6b5638;'
+      + 'border-radius:4px;cursor:pointer;padding:3px 8px;font-size:13px;}'
+      + '#pyr-music button.ctl.on{background:#6b5638;color:#fff;}'
+      + '#pyr-music input[type=range]{flex:1;accent-color:#a8894f;}'
+      + '#pyr-music-list{max-height:150px;overflow-y:auto;margin-top:6px;border-top:1px solid #48392790;padding-top:4px;}'
+      + '#pyr-music-list div{font-size:12px;padding:3px 4px;cursor:pointer;border-radius:3px;'
+      + 'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}'
+      + '#pyr-music-list div:hover{background:#3a2e22;}'
+      + '#pyr-music-list div.playing{background:#6b5638;color:#fff;}'
+      + '#pyr-music label.add{display:block;font-size:11px;color:#cdb893;cursor:pointer;'
+      + 'margin-top:8px;text-decoration:underline;}'
+      + '#pyr-music label.add input{display:none;}';
+    document.head.appendChild(css);
+
+    var wrap = document.createElement('div'); wrap.id = 'pyr-music';
+    wrap.innerHTML = ''
+      + '<div id="pyr-music-btn" title="Música">♪</div>'
+      + '<div id="pyr-music-panel">'
+      +   '<div id="pyr-music-title">—</div>'
+      +   '<div class="row">'
+      +     '<button class="ctl" id="pyr-prev" title="Anterior">⏮</button>'
+      +     '<button class="ctl" id="pyr-play" title="Play/Pause">▶</button>'
+      +     '<button class="ctl" id="pyr-next" title="Siguiente">⏭</button>'
+      +     '<button class="ctl" id="pyr-loop" title="Repetir">↻</button>'
+      +     '<button class="ctl" id="pyr-shuf" title="Aleatorio">⇄</button>'
+      +   '</div>'
+      +   '<div class="row"><span style="font-size:12px">\u{1F509}</span>'
+      +     '<input type="range" id="pyr-vol" min="0" max="1" step="0.01"></div>'
+      +   '<div id="pyr-music-list"></div>'
+      +   '<label class="add">+ Añadir canciones de tu equipo<input type="file" id="pyr-file" accept="audio/*" multiple></label>'
+      + '</div>';
+    document.body.appendChild(wrap);
+
+    var panel = wrap.querySelector('#pyr-music-panel');
+    var titleEl = wrap.querySelector('#pyr-music-title');
+    var listEl = wrap.querySelector('#pyr-music-list');
+    var playBtn = wrap.querySelector('#pyr-play');
+    var vol = wrap.querySelector('#pyr-vol'); vol.value = audio.volume;
+
+    wrap.querySelector('#pyr-music-btn').onclick = function(){ panel.classList.toggle('open'); };
+
+    function renderList(){
+      listEl.innerHTML = '';
+      tracks.forEach(function(t,i){
+        var d = document.createElement('div');
+        d.textContent = t.name; if (i===idx) d.className='playing';
+        d.onclick = function(){ play(i); };
+        listEl.appendChild(d);
+      });
+    }
+    function play(i){
+      if (i<0 || i>=tracks.length) return;
+      idx = i; audio.src = tracks[i].url;
+      audio.play().catch(function(){});
+      titleEl.textContent = tracks[i].name;
+      playBtn.textContent = '⏸'; renderList();
+    }
+    function toggle(){
+      if (!audio.src){ if (tracks.length) play(0); return; }
+      if (audio.paused){ audio.play().catch(function(){}); playBtn.textContent='⏸'; }
+      else { audio.pause(); playBtn.textContent='▶'; }
+    }
+    function next(){
+      if (!tracks.length) return;
+      if (shuffle){ play(Math.floor(Math.random()*tracks.length)); return; }
+      play((idx+1) % tracks.length);
+    }
+    function prev(){ if (tracks.length) play((idx-1+tracks.length)%tracks.length); }
+
+    playBtn.onclick = toggle;
+    wrap.querySelector('#pyr-next').onclick = next;
+    wrap.querySelector('#pyr-prev').onclick = prev;
+    var loopBtn = wrap.querySelector('#pyr-loop');
+    loopBtn.onclick = function(){ loop=!loop; audio.loop=loop; loopBtn.classList.toggle('on',loop); };
+    var shufBtn = wrap.querySelector('#pyr-shuf');
+    shufBtn.onclick = function(){ shuffle=!shuffle; shufBtn.classList.toggle('on',shuffle); };
+    vol.oninput = function(){ audio.volume=parseFloat(vol.value); localStorage.setItem('pyr_music_vol',vol.value); };
+    audio.onended = function(){ if(!loop) next(); };
+    wrap.querySelector('#pyr-file').onchange = function(e){
+      Array.prototype.forEach.call(e.target.files, function(f){
+        tracks.push({name:f.name.replace(/\.[^.]+$/,''), url:URL.createObjectURL(f), isLocal:true});
+      });
+      renderList();
+      if (idx<0 && tracks.length) titleEl.textContent = 'Listo — ' + tracks.length + ' canciones';
+    };
+
+    // load bundled soundtrack manifest, if present
+    fetch('music/playlist.json').then(function(r){ return r.ok?r.json():null; })
+      .then(function(data){
+        if (data && data.tracks && data.tracks.length){
+          data.tracks.forEach(function(t){
+            tracks.push({name:t.title||t.file, url:'music/'+t.file, isLocal:false});
+          });
+          renderList();
+          titleEl.textContent = tracks.length + ' canciones en la banda sonora';
+        }
+      }).catch(function(){});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();

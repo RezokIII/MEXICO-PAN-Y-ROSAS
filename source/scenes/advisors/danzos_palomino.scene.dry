@@ -17,6 +17,7 @@ A campesino from Sonora who has been, in one lifetime, cotton picker, union man,
 @danzos_cci
 title: La Central Campesina Independiente
 subtitle: Rebuild the independent peasant central, ejido by ejido.
+card-image: img/portraits/danzos.jpeg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 6; expediente += 3; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1

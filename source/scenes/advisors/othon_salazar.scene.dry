@@ -17,6 +17,7 @@ A schoolteacher from Alcozauca, in the Montaña of Guerrero, where the earth is 
 @othon_magisterio
 title: El magisterio
 subtitle: The teachers' union is charro property. Work the schools anyway, one teacher at a time.
+card-image: img/portraits/othon.jpeg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_teachers += 6; charrismo -= 1; expediente += 2; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1

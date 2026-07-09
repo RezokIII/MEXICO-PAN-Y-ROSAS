@@ -1,6 +1,7 @@
 title: Fifty-nine
 new-page: true
 subtitle: They finally dared
+face-image: img/camioneta.jpg
 tags: event
 view-if: benita_advisor = 1 and represion >= 85 and expediente >= 70 and time >= repadv_last + 15
 priority: 2

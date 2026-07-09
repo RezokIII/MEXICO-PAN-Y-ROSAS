@@ -1,8 +1,9 @@
 title: La amnistía
 new-page: true
 subtitle: Septiembre de 1978
+face-image: img/lecumberri.jpg
 tags: event
-view-if: year = 1978 and month = 9
+view-if: year = 1978 and month >= 9 and month <= 11
 priority: 2
 max-visits: 1
 on-arrival: organizers += 1; political_capital += 2; represion -= 5
@@ -31,6 +32,11 @@ Q.members += 2;
 Q.represion -= 8;
 Q.guerrilla_meter -= 5;
 Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
+// LEGACY into the political phase: the war's dead inspire the next generation,
+// its base survives as rural sympathy, its veterans as the hardest cadres
+Q.sup_students += Math.min(12, Q.memorial);
+Q.sup_peasants += 4;
+Q.organizers += 1;
 !}
 
 They come down in groups small enough to be deniable and large enough to be counted, hand in weapons that are logged and vanish, and receive papers whose ink smells fresh. Not all come; a remnant stays up where amnesties do not reach. But the war, as an institution of yours, ends this season — and its survivors become the political road's hardest, quietest cadres.

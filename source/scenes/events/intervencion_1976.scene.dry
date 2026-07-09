@@ -1,0 +1,30 @@
+title: El septiembre mexicano
+new-page: true
+subtitle: 1976 — Washington does not wait for the vote
+face-image: img/septiembre_mexicano.jpg
+tags: event
+view-if: (via = "armada" or via = "dual") and year = 1976 and month = 5 and guerrilla_meter >= 45 and (huelga_general = 1 or auge_armada = 1 or legitimidad_regimen <= 42)
+priority: 6
+max-visits: 1
+on-arrival: {! Q.ending = "intervencion"; this.achieve('el_septiembre_mexicano'); this.achieve('game_completed'); !}
+
+= El septiembre mexicano
+
+It worked. That is the terrible sentence at the center of this ending: it worked.
+
+By the spring of 1976 the thing the regime spent every peso and every torturer to prevent has happened anyway — the country has become ungovernable from Bucareli. The columns hold ground the army cannot clear without burning the villages the army needs. The strikes cascade faster than the CTM can buy them. López Portillo is to be crowned in July over a state whose legitimacy has drained into the sierra and the street, and the men who read balance sheets for a living — in Monterrey, in the embassy on the Paseo de la Reforma, in a building in Langley — have finished reading Mexico's.
+
+They have seen this film before, and recently. Santiago, September 1973: an elected left, a destabilized economy, a general who could be spoken to, a stadium that could be filled with the wrong kind of people. The doctrine has a name now, and a budget, and a hemisphere-wide filing system called Condor. Mexico is not Chile — it is bigger, it borders Texas, and that makes Washington's tolerance for a red contagion on the Rio Grande not larger but very much smaller.
+
+It does not come as an invasion. It never does. It comes as a phone call to the right colonels, a line of credit abruptly withdrawn, a shipment of matériel that arrives for one side and not the other, and a communiqué — read on a morning that smells of rain and burning paper — announcing that the Armed Forces have assumed the salvation of the Nation from the chaos into which subversion has plunged Her.
+
+The DFS lists, so patiently compiled across the years your file thickened, become manifests. The stadiums fill. The lucky ones reach an embassy that still answers its door; the Cubans take some, the Swedes a few, and the rest enter the long grammar of the verb *desaparecer*, conjugated now at industrial scale.
+
+You made the regime fall. You were not, it turns out, the only ones waiting for it to.
+
+Rivera's mural is still on the wall of the National Palace — Zapata, the white horse, the word *Tierra* — untouched, because a painted revolution frightens no one, and the new managers of the ruins rather like the reminder that dreams belong on plaster. What was flesh they have taken away. It always begins again. Not here. Not now. Not with you.
+
+- @fin_intervencion: Fin.
+
+@fin_intervencion
+go-to: game_over

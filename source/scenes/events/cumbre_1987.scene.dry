@@ -1,6 +1,7 @@
 title: The balance of 1987
 new-page: true
 subtitle: The commanders take stock, one year before July
+face-image: img/guerrero_sierra.jpg
 tags: event
 view-if: (via = "armada" or via = "dual") and year = 1987 and month = 8
 priority: 3
@@ -20,11 +21,12 @@ The commanders' balance, drawn at the cycle's end, by lamplight, in a hand that 
 
 [? if pres_total < 25 : **The encirclement is winning.** The balance reads like a eulogy drafted early: columns at half strength, two zones dark, couriers taking three weeks where one sufficed. The structure is dying at the speed the state prefers — slowly, namelessly. The choice the lamplight forces: fold the war before it folds you, or feed it what remains. ?]
 
-[? if pres_total < 25 : - @plegar: Fold the armed structures — bring down who can be brought down, bury the rest, return everything to the political road. ?]
-[? if pres_total < 25 : - @persistir: Persist. Wars have turned on less; the structure holds while one column stands. ?]
-[? if pres_total >= 25 : - @continuar: The balance is filed where such things are filed. The war continues. ?]
+- @plegar: Fold the armed structures — bring down who can be brought down, bury the rest, return everything to the political road.
+- @persistir: Persist. Wars have turned on less; the structure holds while one column stands.
+- @continuar: The balance is filed where such things are filed. The war continues.
 
 @plegar
+view-if: pres_total < 25
 on-arrival: {!
 Q.via = "politica";
 Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
@@ -34,11 +36,13 @@ Q.members += 1; Q.represion -= 6; Q.guerrilla_meter -= 4; Q.unity -= 3;
 The order goes up the trails: it is over. Some come down to papers and quiet lives; some cross borders; a remnant refuses and is heard from, diminishingly, for years. The war closes its books at a loss — except the one entry no ledger holds: the state was made, for a while, to fight instead of merely to rule.
 
 @persistir
+view-if: pres_total < 25
 on-arrival: memorial += 2; guerrilla_meter += 2
 
 The structure persists, thinner. The lamp is turned down. In Bucareli, an analyst annotates the file with the phrase the whole apparatus has learned to distrust: *reducción a niveles manejables.* Manageable levels. They wrote that about Guerrero once, twice, three times, and the sierra keeps disagreeing at intervals.
 
 @continuar
+view-if: pres_total >= 25
 on-arrival: political_capital += 1
 
 Filed, burned, continued.

@@ -1,8 +1,10 @@
 title: Jugar las facciones
 new-page: true
 subtitle: The PRI is a civil war with office space
-on-arrival: month_actions += 1
+card-image: img/cards/jugar_facciones.jpg
+on-arrival: month_actions += 1; jugar_facciones_cd = time
 max-visits: 60
+view-if: time >= jugar_facciones_cd + 2
 is-card: true
 frequency: 80
 tags: sistema

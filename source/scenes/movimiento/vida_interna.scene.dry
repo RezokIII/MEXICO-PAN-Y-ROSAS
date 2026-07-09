@@ -1,6 +1,7 @@
 title: La vida interna
 new-page: true
 subtitle: A month of militant routine
+card-image: img/cards/mimeografo.jpg
 on-arrival: month_actions += 1
 is-card: true
 frequency: 15

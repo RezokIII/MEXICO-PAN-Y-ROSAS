@@ -1,0 +1,136 @@
+title: La invasión de tierras
+new-page: true
+subtitle: Three lots defended. The colonia is ready to found itself.
+card-image: img/invasion_urbana.jpg
+view-if: colonia_presion >= 3 and time >= invasion_urbana_cd + 2
+on-arrival: month_actions += 1; invasion_urbana_cd = time
+max-visits: 30
+is-card: true
+frequency: 85
+tags: movimiento
+
+= La invasión de tierras
+
+Three times the bulldozers came and three times the colonia was already in the road ahead of them, women in front and the amparo in a plastic bag. The city has learned it can hold ground. Now there is a bigger piece of dust at the edge of Neza — a *predio* tied up in the kind of ownership dispute that means, in practice, that it belongs to whoever dares to sleep on it — and the committees are asking whether this is the night a thousand families stop renting and start possessing.
+
+A land seizure you cannot hold hands the granaderos a photo opportunity. One you never dare tells the colonia bosses the dust is theirs to sell.
+
+- @invadir: Take it. A thousand families on the predio overnight, streets staked out by dawn.
+- @esperar_colonia: Not yet. Deepen the committees; the dust will keep.
+- @easy_discard
+
+@esperar_colonia
+title: El polvo espera
+on-arrival: unity += 1
+
+The committees argue it down a season. The pressure banks — an invasión rehearsed is an invasión that survives its first night — and the colonia comes back to the edge of the city readier than before.
+
+@invadir
+title: Se toma el predio
+subtitle: Requires an organized colonos base and cadres to lead the night.
+choose-if: sup_colonos >= 18 and organizers >= 2
+unavailable-subtitle: A land invasion without an organized base and cadres to hold it is a night of arrests. Build first.
+on-arrival: sup_colonos += 4; colonia_presion = 0; members += 2; expediente += 5; represion += 2
+
+It happens in a single night, the way these things must: a thousand families move onto the predio in the dark, and by dawn there are staked lots, a numbered grid of streets that exist because people decided they exist, and a name — always a name, *Colonia 2 de Octubre*, *Colonia Emiliano Zapata* — painted on a bedsheet at the entrance. The delegado telephones the police; the police telephone the regency; and the state pulls the file to ask the only question it asks about a land invasion — *how dangerous are these people* — because the answer decides whether the colonia gets water mains or a demolition order.
+
+- @colonia_tolerada: [? if expediente < 45 : Continue ?]
+- @colonia_negociada: [? if expediente >= 45 : Continue ?]
+
+@colonia_tolerada
+title: La regularización
+subtitle: Not worth the cameras of an eviction. The colonia stays.
+on-arrival: sup_colonos += 7; colonia_saga += 1; members += 2; political_capital += 2; legitimidad_regimen -= 2
+
+Your file is thin enough that the regency prefers the cheap solution: it discovers the predio can be regularized after all. The surveyors come, the titles begin their decade-long crawl through the offices, and the water main is laid — by the residents, in a weekend of communal labor, but connected at last. A new colonia exists on the map of the Republic because a thousand people decided it should, and it exists *organized*, with committees that governed it before the state agreed it was there. It is a piece of the city that is, quietly, yours.
+
+- @root: Back to the work.
+
+@colonia_negociada
+title: El líder priista
+subtitle: Dangerous enough to buy — the PRI's colonia machine arrives.
+on-arrival: expediente += 3
+
+Your file is thick enough now that the state sends its cheaper instrument first: the PRI's own colonia boss, the *líder* who sells protection by the meter, arrives with an offer already arranged — regularization, water, a clinic even — on one condition, unspoken and total: the colonia joins the PRI's territorial machine, votes as the machine votes, and hangs the governor's portrait at the entrance where the bedsheet used to be.
+
+- @aceptar_colonia: Take the services. The families get water; the machine gets the colonia.
+- @rechazar_colonia: Refuse. This colonia governs itself or the bulldozers can come.
+
+@aceptar_colonia
+subtitle: Water and title — flying the PRI's colors.
+on-arrival: sup_colonos += 4; colonia_saga += 1; charrismo += 3; unity -= 2; expediente -= 2
+
+The water is real and the families are not fools; they know who staked the lots at midnight. But the líder's banner flies at the entrance and the colonia enters the machine that will deliver its vote for a generation. You traded a piece of the city's independence for pipes today. In a colonia where the children were drinking from tanker trucks, that is not always the wrong trade. Your cadres will argue about it for years.
+
+- @root: Back to the work.
+
+@rechazar_colonia
+subtitle: Keep the colonia independent — and dare the demolition order.
+on-arrival: sup_colonos += 3; unity += 4; expediente += 12; barrios = 1
+
+The committee sends the líder back to his delegación with his offer refused, and the word travels the periphery within the week: *there is a colonia that told the machine no, and governs itself.* It is a dangerous example in a city the PRI holds block by block through exactly such líderes. The regency reopens the file. This time the question is not whether the colonia is dangerous but how quickly a demolition order can be signed.
+
+- @desalojo: [? if expediente >= 70 : Continue ?]
+- @root: [? if expediente < 70 : Back to the work — watched. ?]
+
+@desalojo
+title: El desalojo
+face-image: img/desalojo.jpg
+subtitle: The bulldozers, the granaderos, and the demolition order at dawn.
+new-page: true
+on-arrival: expediente += 5; represion += 4; memorial += 1
+
+They come at dawn with the paperwork perfected: a demolition order, granaderos to enforce it, bulldozers to make it permanent, and the delegado's assurance to the press that these were paracaidistas, invaders, a public-safety matter. By the time the city wakes, the bedsheet is down and the numbered streets are being un-numbered by machines.
+
+This is the hinge. What you built before this dawn is the only thing that answers it.
+
+- @colonia_solidaria: [? if sup_colonos >= 30 : Spread it. Every colonia in the city rises — the CONAMUP is born. ?]
+- @colonia_legal: [? if political_capital >= 15 : Fight it with amparos, cameras, and the press. ?]
+- @colonia_armada: [? if via = "armada" : The periphery has its own answer to the granaderos. ?]
+- @colonia_armada2: [? if via = "dual" : The periphery has its own answer to the granaderos. ?]
+- @colonia_replegar: Pull back. Move the families before the machines reach them.
+
+@colonia_solidaria
+title: Nace la CONAMUP
+subtitle: The infrastructure you built turns one eviction into a city-wide fact.
+on-arrival: sup_colonos += 12; barrios = 1; colonia_saga += 1; legitimidad_regimen -= 6; unity += 5; expediente += 14; represion += 6; members += 4
+
+The eviction of one colonia becomes the founding of a hundred. The committees you spent years building coordinate overnight into a national council of the urban poor — the CONAMUP — and by the weekend every threatened colonia in the valley of Mexico has put its women in the road at once. The regency cannot bulldoze a city. It cannot even bulldoze one colonia while the cameras of forty others are watching. The demolition order is quietly rescinded, and the periphery learns the lesson that will fill the Zócalo in 1988: organized, it cannot be moved.
+
+- @root: Back to the work — and the city is yours block by block.
+
+@colonia_legal
+title: Amparos y cámaras
+subtitle: The writ, the reporters, and a colonia that will not be un-numbered.
+on-arrival: sup_colonos += 4; political_capital -= 6; pri_reformist_rel += 4; colonia_saga += 1; expediente -= 3; sup_middle += 2
+
+You spend the capital turning a routine eviction into a scandal the regency must manage: the amparo read aloud over the engines, a student's camera running, a reporter who makes "bulldozing the poor at dawn" into the morning's worst headline. The order is suspended pending review — and reviews, in this Republic, are where inconvenient demolitions go to be forgotten. The colonia stands, provisionally, which on the periphery is the only way anything stands.
+
+- @root: Back to the work.
+
+@colonia_armada
+title: La guerrilla urbana
+subtitle: The periphery answers the trucks in the cities' own way.
+on-arrival: sup_colonos += 3; guerrilla_meter += 10; pres_valle += 4; pres_tijuana += 3; expediente += 18; represion += 10; unity -= 4; memorial += 1
+
+Some of the young men who watched the bulldozers take their families' streets do not go back to the committees. They find the comrades who have been saying that the city, too, is terrain — that Tijuana and Guadalajara and the valley of Mexico have their own war to fight, house by house. The colonia becomes a base of a different kind. The line between the urban movement and the urban guerrilla, always thin on the periphery, dissolves.
+
+- @root: Back to the work — and the city columns are heavier now.
+
+@colonia_armada2
+title: La guerrilla urbana
+subtitle: The periphery answers the trucks in the cities' own way.
+on-arrival: sup_colonos += 3; guerrilla_meter += 10; pres_valle += 4; pres_tijuana += 3; expediente += 18; represion += 10; unity -= 4; memorial += 1
+
+Some of the young men who watched the bulldozers take their families' streets do not go back to the committees. They find the comrades who have been saying that the city, too, is terrain — that Tijuana and Guadalajara and the valley of Mexico have their own war to fight, house by house. The colonia becomes a base of a different kind. The line between the urban movement and the urban guerrilla, always thin on the periphery, dissolves.
+
+- @root: Back to the work — and the city columns are heavier now.
+
+@colonia_replegar
+title: Mover a las familias
+subtitle: You did not build enough to hold it. Save the families.
+on-arrival: sup_colonos -= 6; organizers -= 1; unity -= 4; charrismo += 3; expediente -= 5
+
+There is no answer in your hands this dawn. You move the families out ahead of the machines — to relatives, to another edge of the city, to the next predio that will need founding — and let this one fall. It is a defeat, and the colonia feels it: some will not answer the committee's call again. But the thousand families who would have been beaten into the rubble are alive and housed somewhere, and the periphery always has another edge. Learn the lesson: build the base before you found the colonia.
+
+- @root: Back to the work — chastened.

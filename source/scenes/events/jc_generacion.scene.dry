@@ -1,8 +1,9 @@
 title: La generación bisagra
 new-page: true
 subtitle: 1980 — the 68ers pass the banner
+face-image: img/relevo.jpg
 tags: event
-view-if: year = 1980 and month = 9 and jc_saga >= 1
+view-if: year = 1980 and month >= 9 and month <= 11 and jc_saga >= 1
 priority: 2
 max-visits: 1
 

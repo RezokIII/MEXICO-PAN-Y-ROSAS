@@ -1,8 +1,9 @@
 title: Recruitment
 new-page: true
 subtitle: Columns are built one trusted name at a time
-view-if: via = "armada" or via = "dual"
-on-arrival: month_actions += 1
+card-image: img/cards/recluta.jpg
+view-if: (via = "armada" or via = "dual") and time >= s_reclutar_cd + 2
+on-arrival: month_actions += 1; s_reclutar_cd = time
 max-visits: 60
 is-card: true
 frequency: 90

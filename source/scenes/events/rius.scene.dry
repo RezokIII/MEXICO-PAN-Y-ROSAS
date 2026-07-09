@@ -1,8 +1,9 @@
 title: El fusilamiento de Rius
 new-page: true
 subtitle: 29 de enero de 1969
+face-image: img/rius.jpg
 tags: event
-view-if: year = 1969 and month = 1
+view-if: year = 1969 and month >= 1 and month <= 3
 priority: 2
 max-visits: 1
 

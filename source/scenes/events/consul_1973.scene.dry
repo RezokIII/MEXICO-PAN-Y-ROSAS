@@ -1,0 +1,37 @@
+title: The consul
+new-page: true
+subtitle: April 1973 — Guadalajara
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: (via = "armada" or via = "dual") and year = 1973 and month >= 4 and month <= 6
+priority: 3
+max-visits: 1
+
+= The consul
+
+The urban columns bring the leadership a plan that is either the movement's boldest hour or its grave: seize the United States consul in Guadalajara, Terrance Leonhardy, and trade him — not for money first, but for comrades. Thirty political prisoners, named, flown to Havana, in exchange for one diplomat the empire cannot afford to lose.
+
+It has never been done in Mexico. If it works, the state's untouchable prisons open by radio command, and the world watches a handful of the hunted dictate terms to Washington and Los Pinos at once. If it fails, every gun in the Republic turns north, and the yanquis bring their own.
+
+- @canje: Do it — the exchange. Thirty comrades for one consul.
+- @rescate: Do it, but take the money too — a million dollars funds the war for years.
+- @vetar: Veto it. The blowback will fall on the legal left and the villages, and the empire never forgets.
+
+@canje
+choose-if: pres_jalisco >= 12 or inteligencia >= 30
+unavailable-subtitle: An operation this precise needs Guadalajara networks or deep intelligence. Neither is ready.
+on-arrival: members += 3; political_capital += 6; represion += 6; us_pressure += 10; expediente += 5; guerrilla_meter += 3
+
+It holds. For seventy-two hours the Republic negotiates with a communiqué, and then the plane lifts from the capital: thirty prisoners — cadres, students, a poet, two survivors of Madera — bound for Havana and life. The photograph of them boarding runs on every front page the censors cannot reach. Washington is apoplectic; the embassy's list of your names doubles overnight. But thirty of the disappeared-who-weren't are alive and free, and the movement has done what the whole legal left could not: it opened the prisons by force.
+
+@rescate
+choose-if: pres_jalisco >= 12 or inteligencia >= 30
+unavailable-subtitle: An operation this precise needs Guadalajara networks or deep intelligence. Neither is ready.
+on-arrival: funds += 15; members += 1; represion += 7; us_pressure += 12; gran_capital += 2; sup_middle -= 3
+
+Prisoners freed AND a million dollars across the border — the war is solvent for years and the columns eat well. But the regime's press has its frame ready before the consul is home: bandits, not revolutionaries, kidnappers for cash. The ransom pays for everything except the reputation it costs, and Washington files you under "terrorism" in a language that will echo for decades.
+
+@vetar
+on-arrival: guerrilla_meter += 2; pres_jalisco -= 2; represion -= 2
+
+The leadership forbids it, and the Guadalajara comrades obey with the particular silence of the young overruled by the cautious. The operation that would have freed thirty is filed unexecuted. Perhaps it would have failed and brought the deluge. Perhaps thirty people who will now die in clandestine cells would have seen Havana. No one will ever know, which is the veto's permanent cost.

@@ -1,8 +1,10 @@
 title: La fuente de Bucareli
 new-page: true
 subtitle: Every apparatus has men with debts
-on-arrival: month_actions += 1
+card-image: img/cards/fuente_bucareli.jpg
+on-arrival: month_actions += 1; fuente_bucareli_cd = time
 max-visits: 40
+view-if: time >= fuente_bucareli_cd + 2
 is-card: true
 frequency: 60
 tags: sistema

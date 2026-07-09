@@ -1,6 +1,7 @@
 title: La elección de 1985
 new-page: true
 subtitle: Julio de 1985
+face-image: img/urna.jpg
 tags: event
 view-if: year = 1985 and month = 7 and registro >= 1
 priority: 3
@@ -9,8 +10,8 @@ on-arrival: {!
 Q.real_izq = Q.izq_votes_display;
 Q.real_pri = Q.pri_votes_display;
 Q.real_pan = Q.pan_votes_display + 3;
-var alq = 0.3;
-if (Q.real_izq > 12) { alq = 0.42; }
+var alq = 0.28;
+if (Q.real_izq > 14) { alq = 0.4; }
 alq -= Q.red_casillas * 0.0015;
 if (Q.alquimia_expuesta) { alq -= 0.05; }
 if (alq < 0.05) { alq = 0.05; }

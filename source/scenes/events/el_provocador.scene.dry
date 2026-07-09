@@ -1,6 +1,7 @@
 title: El provocador
 new-page: true
 subtitle: At the factory gate
+face-image: img/camioneta.jpg
 tags: event
 view-if: sup_workers >= 12 and time >= provocador_last + 10
 priority: 1

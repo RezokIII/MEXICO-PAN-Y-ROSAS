@@ -1,6 +1,7 @@
 title: La elección de 1970
 new-page: true
 subtitle: Julio de 1970
+face-image: img/urna.jpg
 tags: event
 view-if: year = 1970 and month = 7
 priority: 3

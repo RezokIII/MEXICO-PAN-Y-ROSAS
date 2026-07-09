@@ -1,8 +1,9 @@
 title: La requisa
 new-page: true
 subtitle: 16 de julio de 1976
+face-image: img/mayday.jpg
 tags: event
-view-if: year = 1976 and month = 8
+view-if: year = 1976 and month >= 8 and month <= 10
 priority: 3
 max-visits: 1
 on-arrival: charrismo += 2

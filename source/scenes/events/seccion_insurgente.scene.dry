@@ -1,6 +1,7 @@
 title: La sección insurgente
 new-page: true
 subtitle: The teachers knock
+face-image: img/mayday.jpg
 tags: event
 view-if: sup_teachers >= 45 and year >= 1981
 priority: 2

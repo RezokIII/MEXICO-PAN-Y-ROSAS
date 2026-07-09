@@ -1,6 +1,7 @@
 title: The Montaña goes quiet
 new-page: true
 subtitle: A teacher missing between two villages
+face-image: img/camioneta.jpg
 tags: event
 view-if: othon_advisor = 1 and represion >= 78 and expediente >= 65 and time >= repadv_last + 15
 priority: 2

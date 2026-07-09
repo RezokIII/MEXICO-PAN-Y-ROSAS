@@ -2,6 +2,9 @@ title: Status
 new-page: true
 is-special: true
 on-arrival: {!
+if (Q.peso_dolar == null) { Q.peso_dolar = 12.5; }
+if (Q.crecimiento == null) { Q.crecimiento = 6; }
+if (Q.inflacion == null) { Q.inflacion = 4; }
 Q.peso_display = Q.peso_dolar.toFixed(2);
 Q.crecimiento_display = Q.crecimiento.toFixed(1);
 Q.inflacion_display = Q.inflacion.toFixed(1);
@@ -13,6 +16,22 @@ if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_c
 = The Movement
 
 *Hover any highlighted term — people, institutions, mechanics — for context.*
+
+= El pulso
+
+[? if funds <= 6 : The treasury runs on coins. Some doors will stay shut until the caja is fed. ?]
+[? if des_ortodoxos >= 45 or des_renovadores >= 45 or des_nueva >= 45 : A corriente is turning restless. Tend to the internal work, or the house will bleed. ?]
+[? if expediente >= 60 : The file thickens. When it is this heavy, the four-a.m. knock is a matter of time — quiet the profile or invest in security. ?]
+[? if unity <= 25 : The house is divided against itself. Mend it before the factions decide the matter for you. ?]
+[? if represion >= 78 : The state has stopped managing and started ending. Lower the temperature, or the leadership will be taken one by one. ?]
+[? if salario_real < 90 : The wage is bleeding. The factory gates and the colonias have never been more open — organize where the crisis bites. ?]
+[? if registro >= 1 and red_casillas < 20 and year >= 1978 : The casilla network is thin. A vote is coming that will be won or stolen at the tables you fail to cover. ?]
+[? if camino1 = 0 : The first task is survival — exist, hold the family at one table, reach 1971 intact. ?]
+[? if camino1 = 1 and camino2 = 0 : Grow. Ten thousand members is the wall the state cannot easily disappear. ?]
+[? if camino2 = 1 and camino3 = 0 : The door of the reform is the next stone: registro, and seats to speak from. ?]
+[? if camino3 = 1 and camino4 = 0 : Lay foundations the state cannot see: the casilla network, a town governed with open books. ?]
+[? if camino4 = 1 and camino5 = 0 : The convergence: the united front, with the Movement as a founding wall. 1988 is the reckoning. ?]
+[? if funds > 6 and expediente < 60 and unity > 25 and represion < 78 and (des_ortodoxos < 45 and des_renovadores < 45 and des_nueva < 45) : The Movement is steady this season. Press the advantage — organize, and read the road ahead. ?]
 
 
 [+ month : month +] [+ year +]
@@ -122,6 +141,14 @@ With the PRI reformists: [+ pri_reformist_rel : relacion +]
 With Moscow: [+ moscow_relation : relacion +]
 
 Charro control of organized labor: [+ charrismo : fuerza +]
+
+**La guerra de posición**
+
+The regime's legitimacy: [? if legitimidad_regimen >= 65 : intact — the story of the eternal party still mostly tells itself. ?][? if legitimidad_regimen >= 45 and legitimidad_regimen <= 64 : fraying — the middle class has begun to hear the seams. ?][? if legitimidad_regimen >= 25 and legitimidad_regimen <= 44 : badly cracked — the regime now argues where it once merely asserted. ?][? if legitimidad_regimen <= 24 : in tatters — even its own técnicos read the numbers and wince. ?]
+
+Scandal in the air: [? if escandalos = 0 : the closets stay shut, for now. ?][? if escandalos >= 1 and escandalos <= 2 : a few scandals circulate; the columns have found their nerve. ?][? if escandalos >= 3 : scandal has become weather — the regime governs through a haze of its own exposed sins. ?]
+
+The alquimia: [? if alquimia_expuesta = 1 : its anatomy is public. The next steal will be measured against a ruler the country now holds. ?][? if alquimia_expuesta = 0 and fraude_documentado >= 3 : the archive of stolen races is thickening; the theft is becoming provable. ?][? if alquimia_expuesta = 0 and fraude_documentado <= 2 : still hidden in the dark it depends on. ?]
 
 @paramilitaries
 
@@ -236,20 +263,20 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 @guerra
 
-= La sierra
+= El territorio
 
-[? if via != "armada" and via != "dual" : The Movement maintains no armed structures. This desk is empty — and in this Republic, an empty desk of this kind is an achievement of a certain school of thought, and a failure of another. The strategy congress at each sexenio can change the line. ?]
+[? if via = "politica" or via = "institucional" : The map below reads the country by the left's implantation — each region colored by how strong you are there. The south (Guerrero, Oaxaca) turns on peasants and teachers; the Valle de México on students, colonos and workers; the north on the industrial working class. Organize those sectors to turn a region red. Hover any region for its read. Should the Movement ever take up the gun, this same map becomes the war. ?]
 
-[? if via = "armada" or via = "dual" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any region for the analysts' current picture — detail sharpens with intelligence capacity. ?]
+[? if not via : The map below reads the country by the left's regional implantation. Organize the sectors that anchor each region to turn it red. ?]
 
-[? if via = "armada" or via = "dual" : {!<div id="mapa_sierra" style="position:relative"><svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg"><polygon points="48,20 140,44 186,58 204,78 198,100 210,120 252,118 300,106 312,126 296,150 258,146 224,152 216,170 186,166 158,164 126,150 96,116 74,90 56,50" style="fill:#e8e4d4;stroke:#999;stroke-width:0.8"/><polygon id="z_tijuana" points="16,34 30,32 40,52 54,76 66,100 60,114 46,96 32,68 20,46" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_chihuahua" points="48,20 140,44 150,60 120,84 84,74 60,44" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_nl" points="140,44 186,58 202,78 196,96 160,86 150,60" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_jalisco" points="84,74 120,84 136,110 118,128 92,112 76,92" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_valle" points="150,112 170,108 178,126 158,132" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_guerrero" points="118,128 158,132 176,146 160,162 128,148" style="fill:#ccc;stroke:#333;stroke-width:1"/><polygon id="z_oaxaca" points="176,146 206,138 224,150 216,168 186,164 160,162" style="fill:#ccc;stroke:#333;stroke-width:1"/><text x="18" y="28" font-size="9">BCN</text><text x="80" y="42" font-size="10">CHIH</text><text x="165" y="56" font-size="10">NL</text><text x="92" y="104" font-size="10">JAL</text><text x="151" y="124" font-size="8">CDMX</text><text x="130" y="150" font-size="9">GRO</text><text x="188" y="160" font-size="9">OAX</text></svg><div id="mapa_tip" style="display:none;position:absolute;background:#2a2118;color:#f3ecd8;border:1px solid #8a6d3b;padding:7px 10px;font-size:12px;max-width:230px;pointer-events:none;z-index:99;border-radius:3px"></div></div>!} ?]
+[? if via = "armada" or via = "dual" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any province for the analysts' current picture. ?]
 
-[? if via = "armada" or via = "dual" : **Intelligence capacity: [+ inteligencia : fuerza +].** [? if inteligencia < 40 : The map below is guesswork and rumor — garrison figures are the analysts shrugging. Build the eyes. ?][? if inteligencia >= 40 : Sources inside the garrisons give you real numbers: rotations, strengths, the mood of conscripts. ?] ?]
+[? if via = "armada" or via = "dual" : Intelligence capacity: [+ inteligencia : fuerza +]. ?]
 
-[? if (via = "armada" or via = "dual") and inteligencia >= 40 : Guerrero — presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Chihuahua — presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. Valle de México — presence [+ pres_valle +], garrison [+ guar_valle +]. Jalisco — presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León — presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca — presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana — presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
+[? if (via = "armada" or via = "dual") and inteligencia < 40 : The map is guesswork and rumor — build the eyes for real garrison numbers. ?]
 
-[? if (via = "armada" or via = "dual") and inteligencia < 40 : Guerrero: [? if pres_guerrero >= 20 : strong columns ?][? if pres_guerrero < 20 and pres_guerrero >= 5 : some structure ?][? if pres_guerrero < 5 : almost nothing ?]; army posture [? if guar_guerrero >= 45 : heavy ?][? if guar_guerrero < 45 : routine ?]. Valle: [? if pres_valle >= 20 : strong networks ?][? if pres_valle < 20 and pres_valle >= 5 : cells ?][? if pres_valle < 5 : almost nothing ?]; posture [? if guar_valle >= 45 : heavy ?][? if guar_valle < 45 : routine ?]. The other zones: reports too thin to trust. ?]
+[? if (via = "armada" or via = "dual") and inteligencia >= 40 : Sources inside the garrisons give real numbers: Guerrero presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Valle presence [+ pres_valle +], garrison [+ guar_valle +]. Chihuahua presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. ?]
 
-[? if via = "armada" or via = "dual" : **Doctrine.** Garrisons concentrate where you act and thin where you rest: the state's map is a mirror of yours, drawn late. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. Rotate zones, rest the hot ones, and remember what the sierra teaches: the army wins every battle it can find, so the war is won by not being found. ?]
+[? if (via = "armada" or via = "dual") and inteligencia >= 40 : Jalisco presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
 
-[? if via = "armada" or via = "dual" : **The state's allocation (your analysts' estimate).** [? if guar_guerrero >= 45 or guar_valle >= 55 : The bulk of federal attention sits on [? if guar_guerrero >= guar_valle : Guerrero ?][? if guar_valle > guar_guerrero : the Valle ?]; provincial commands elsewhere run on routine and complaint. ?][? if guar_guerrero < 45 and guar_valle < 55 : No extraordinary concentrations: the army is garrisoned as in peacetime, which means the war has not yet forced its budget. That is either an opportunity or a verdict. ?] ?]
+[? if via = "armada" or via = "dual" : Doctrine: garrisons concentrate where you act and thin where you rest. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. The army wins every battle it can find, so the war is won by not being found. ?]

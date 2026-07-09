@@ -1,8 +1,9 @@
 title: Special operations
 new-page: true
 subtitle: Key figures — leverage where presence permits
-view-if: via = "armada" or via = "dual"
-on-arrival: month_actions += 1
+card-image: img/cards/expropiacion.jpg
+view-if: (via = "armada" or via = "dual") and time >= s_operaciones_cd + 2
+on-arrival: month_actions += 1; s_operaciones_cd = time
 max-visits: 30
 is-card: true
 frequency: 55

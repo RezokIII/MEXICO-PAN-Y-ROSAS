@@ -1,6 +1,7 @@
 title: The manuscript
 new-page: true
 subtitle: They took the writer to frighten the written
+face-image: img/camioneta.jpg
 tags: event
 view-if: revueltas_advisor = 1 and represion >= 80 and expediente >= 70 and time >= repadv_last + 15 and year <= 1975
 priority: 2

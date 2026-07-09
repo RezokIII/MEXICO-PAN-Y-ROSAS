@@ -1,0 +1,44 @@
+title: The liaison
+new-page: true
+subtitle: The underground still needs the daylight world
+card-image: img/cards/enlace.jpg
+view-if: (via = "armada" or via = "dual") and time >= el_enlace_cd + 2
+on-arrival: month_actions += 1; el_enlace_cd = time
+max-visits: 40
+is-card: true
+frequency: 75
+tags: canales
+
+= The liaison
+
+A war fought only with guns is a war already lost; the underground survives on its threads to the daylight world — the sympathetic deputy who reads a name into the record, the lawyer who turns a disappearance into a case, the editor who prints the communiqué the government denies exists. These threads are thin, deniable, and the difference between a movement and a manhunt.
+
+- @enlace_politico: Political allies — quiet channels to the legal left and the reformist deputies, so the war has a voice in the daylight.
+- @enlace_legal: The lawyers — a defense network for the captured, habeas corpus filed loud and fast before the silence closes.
+- @enlace_prensa: The press — get the communiqués and the disappearances into print the state cannot fully censor.
+- @root: The threads rest this month.
+- @easy_discard
+
+@enlace_politico
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even deniable meetings have expenses.
+on-arrival: funds -= 2; pri_reformist_rel += 2; political_capital += 2; expediente += 2
+
+A deputy of the legal left agrees, without ever agreeing, to ask certain questions from the tribune. The reformist wing of the PRI takes a discreet meeting and takes discreet notes. Nothing is promised; a channel exists. When the war needs a voice that cannot be shot, it will have a number to call.
+
+@enlace_legal
+subtitle: -3 funds
+choose-if: funds >= 3
+unavailable-subtitle: Habeas corpus runs on retainers paid in advance.
+on-arrival: funds -= 3; represion -= 3; political_capital += 2; expediente += 2
+
+The defense network drills the reflex: a capture reported within hours, a writ filed by noon, the name in a foreign wire service by nightfall. It does not free many. It forces some onto the books — and what is on the books is harder to disappear. The lawyers work for almost nothing, which is fortunate, because that is almost what there is.
+
+@enlace_prensa
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Ink and risk both cost.
+on-arrival: funds -= 2; sup_students += 2; expediente += 3; guerrilla_meter += 1
+
+The communiqué runs — buried, deniable, but printed — beside a list of the vanished the government swears are neither detained nor missing nor real. The daylight world reads it and cannot fully unread it. The DFS adds the editor to a list. The editor, who has been on lists before, prints the next one anyway.

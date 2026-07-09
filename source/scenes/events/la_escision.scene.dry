@@ -1,6 +1,7 @@
 title: La escisión
 new-page: true
 subtitle: The house cracks
+face-image: img/fronda.jpg
 tags: event
 view-if: unity <= 22 and time >= 24
 priority: 2

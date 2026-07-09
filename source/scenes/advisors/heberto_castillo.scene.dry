@@ -17,6 +17,7 @@ Engineer, professor, inventor of the tridilosa, survivor of Cerro del Zorrillo a
 @heberto_frente
 title: El frente nuevo
 subtitle: Help him build the new-left current. It will not be yours, but it will be needed.
+card-image: img/portraits/heberto.jpeg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; fac_nueva_izquierda += 5; ax_nacpop += 3; sup_students += 3; sup_middle += 2; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1

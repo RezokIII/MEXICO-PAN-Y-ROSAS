@@ -1,8 +1,9 @@
 title: Los liberados
 new-page: true
 subtitle: 1970 — the doors of the Black Palace crack open
+face-image: img/lecumberri.jpg
 tags: event
-view-if: year = 1970 and month = 8
+view-if: year = 1970 and month >= 8 and month <= 10
 priority: 2
 max-visits: 1
 

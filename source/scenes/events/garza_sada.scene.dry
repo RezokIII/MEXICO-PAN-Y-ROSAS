@@ -1,8 +1,9 @@
 title: El funeral de Monterrey
 new-page: true
 subtitle: Septiembre-octubre de 1973
+face-image: img/camioneta.jpg
 tags: event
-view-if: year = 1973 and month = 10
+view-if: year = 1973 and month >= 10 and month <= 12
 priority: 2
 max-visits: 1
 on-arrival: pri_duros += 5; represion += 3; gran_capital += 5; burguesia_estado -= 3

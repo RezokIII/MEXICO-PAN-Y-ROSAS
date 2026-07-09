@@ -1,0 +1,46 @@
+title: One by one
+new-page: true
+subtitle: The killing of the leadership
+face-image: img/camioneta.jpg
+tags: event
+view-if: represion >= 88 and expediente >= 82 and time >= decap_last + 4
+priority: 4
+frequency: 90
+max-visits: 12
+on-arrival: {!
+Q.decap_last = Q.time;
+Q.members -= 3;
+Q.organizers -= 1;
+Q.memorial += 2;
+Q.unity -= 4;
+Q.sup_students += 1;
+// take an advisor if any are on the bench
+if (Q.campa_advisor) { Q.campa_advisor = 0; }
+else if (Q.othon_advisor) { Q.othon_advisor = 0; }
+else if (Q.danzos_advisor) { Q.danzos_advisor = 0; }
+else if (Q.benita_advisor) { Q.benita_advisor = 0; }
+else if (Q.verdugo_advisor) { Q.verdugo_advisor = 0; }
+!}
+
+= One by one
+
+It is not a massacre. A massacre would be a scandal, and scandals can be survived. This is worse: an ordinary crime a month, each one deniable, each one final. A regional secretary shot at a taquería by men on a motorcycle who are never found. An organizer's car forced off the highway. A lawyer who simply does not come home, and whose case the authorities investigate with the enthusiasm of men filling out a form they wrote themselves.
+
+The pistoleros carry no credentials, because they do not need them; the credentials are in the offices that sent them. The Movement buries another of its best this month, and the funeral is watched from a parked car, and the watching is the message: *there is more of this, and it does not stop until you do.*
+
+[? if members < 4 : The organization is coming apart at the top faster than it can promote from below. Cells lose contact; the ones still standing meet in twos, or not at all. This cannot continue much longer and remain a Movement at all. ?]
+
+- @resistir_decap: Bury them, name them on the list, and hold — reduce the profile, spend everything on security, wait for the storm to exhaust its budget.
+- @replegarse_decap: Sound the retreat — scatter the leadership abroad and into hiding, concede the field, try to save the people if not the position.
+
+@resistir_decap
+choose-if: funds >= 4
+unavailable-subtitle: Holding under this requires funds for security and defense that the treasury no longer has.
+on-arrival: funds -= 4; expediente -= 10; represion -= 2; unity += 2
+
+Every routine is rebuilt, every list re-hidden, every meeting halved. It buys a little time and costs a great deal, and whether the storm's budget runs out before the Movement's is the only question that matters now. The list grows. The survivors grow harder, and fewer.
+
+@replegarse_decap
+on-arrival: members -= 1; represion -= 6; expediente -= 8; sup_students -= 3; unity -= 2
+
+The leadership scatters — Cuba, the campus underground, a cousin's farm in Michoacán — and the field is conceded. It is a defeat, and it saves lives, and the organization that reassembles afterward, if it reassembles, will be smaller, warier, and alive. Sometimes surviving to be small is the only victory the decade permits.

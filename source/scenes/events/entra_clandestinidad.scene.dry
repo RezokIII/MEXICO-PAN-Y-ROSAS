@@ -1,0 +1,25 @@
+title: Below ground
+new-page: true
+subtitle: The Movement changes its nature
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: (via = "armada" or via = "dual") and armada_entered = 0
+priority: 5
+max-visits: 1
+on-arrival: armada_entered = 1
+
+= Below ground
+
+Something changes the day the resolution is burned instead of filed, and it is not only tactics. The Movement stops being an organization that *has* meetings and becomes one that *survives* them. The language changes with it.
+
+There is no more "the Party says." There is what the column decides, at night, and tells no one it cannot trust with a life. There is no more calendar of congresses; there is the calendar of the enemy's patrols, which you learn or you die. The compañero who was a name on a membership list is now a name you must be able to forget under interrogation. Prudence is no longer a faction's argument; it is the wall between the living and the memorial.
+
+From here the world is read differently: every stranger is a question, every safe house a loan, every month survived a small unrepeatable victory. The daylight organization continues — the press, the fronts, the legal face — but it no longer knows what its other half is doing, and that ignorance is now a form of love.
+
+The Sierra desk is open. Read the map as your intelligence permits; move before the garrisons do; and remember that this road has one door back, and it is called amnesty, and it does not open every year.
+
+- @abajo: We are below ground now. Continuar.
+
+@abajo
+
+The last thing entered in the open minutes, before the minutes stop: *the leadership will be traveling.* Everyone who needs to understand, understands.

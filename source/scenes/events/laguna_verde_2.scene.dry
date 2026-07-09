@@ -2,7 +2,7 @@ title: The mothers and the highway
 new-page: true
 subtitle: 1988 — Laguna Verde reaches the ballot
 tags: event
-view-if: year = 1988 and month = 3
+view-if: year = 1988 and month >= 3 and month <= 5
 priority: 2
 max-visits: 1
 

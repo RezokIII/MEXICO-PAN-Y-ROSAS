@@ -1,8 +1,10 @@
 title: Los capturados
 new-page: true
 subtitle: Whoever falls alive can still be defended
-on-arrival: month_actions += 1
+card-image: img/cards/lecumberri_gate.jpg
+on-arrival: month_actions += 1; defensa_capturados_cd = time
 max-visits: 30
+view-if: time >= defensa_capturados_cd + 2
 is-card: true
 frequency: 60
 tags: canales

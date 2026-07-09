@@ -1,8 +1,9 @@
 title: Managua
 new-page: true
 subtitle: 19 de julio de 1979
+face-image: img/sandinistas.jpg
 tags: event
-view-if: year = 1979 and month = 7
+view-if: year = 1979 and month >= 7 and month <= 9
 priority: 2
 max-visits: 1
 

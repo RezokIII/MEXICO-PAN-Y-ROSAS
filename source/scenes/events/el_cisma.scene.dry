@@ -1,0 +1,22 @@
+title: El cisma
+new-page: true
+subtitle: The house comes apart
+face-image: img/fronda.jpg
+tags: event
+view-if: unity <= 4
+priority: 6
+max-visits: 1
+on-arrival: ending = "aniquilacion"
+
+= El cisma
+
+It does not end with a vote, because a vote would require the factions to still be speaking. It ends with three sets of keys on three desks, three mimeographs carried out three doors, and three groups each certain it is the true Movement and the others are the wreckers. The ortodoxos keep the name and the doctrine and a dwindling roll of veterans. The renovadores take the project and the reviews and a promise of relevance that recedes as they walk toward it. The nueva izquierda takes the street and the young and a magnificent contempt for structure that will cost them everything within the year.
+
+Sixty years of accumulation — the lists, the presses, the networks, the dead — divides into portions too small to matter, and the state, which spent a decade unable to defeat the Movement, watches it defeat itself and does not even bother to send anyone to watch.
+
+A party is a coalition that never signs its treaty. This one tore the draft to pieces, and the pieces are what remain.
+
+- @fin_cisma: Fin.
+
+@fin_cisma
+go-to: finale

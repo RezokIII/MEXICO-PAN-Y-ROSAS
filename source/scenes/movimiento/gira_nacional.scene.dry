@@ -1,6 +1,7 @@
 title: The national tour
 new-page: true
 subtitle: The leadership shows the flag, everywhere at once
+card-image: img/cards/gira.jpg
 view-if: organizers >= 3
 on-arrival: month_actions += 1
 max-visits: 8

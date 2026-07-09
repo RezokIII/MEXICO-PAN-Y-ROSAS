@@ -1,11 +1,12 @@
 title: El diecinueve de septiembre
 new-page: true
 subtitle: 19 de septiembre de 1985, 7:19 a.m.
+face-image: img/terremoto.jpg
 tags: event
-view-if: year = 1985 and month = 9
+view-if: year = 1985 and month >= 9 and month <= 11
 priority: 3
 max-visits: 1
-on-arrival: memorial += 2; burguesia_estado -= 5; sup_middle += 2
+on-arrival: memorial += 2; burguesia_estado -= 5; sup_middle += 2; legitimidad_regimen -= 10
 
 = El diecinueve de septiembre
 

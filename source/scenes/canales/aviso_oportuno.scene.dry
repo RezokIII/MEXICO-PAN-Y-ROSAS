@@ -1,8 +1,10 @@
 title: El aviso oportuno
 new-page: true
 subtitle: Sometimes a voice arrives before the convoy
-on-arrival: month_actions += 1
+card-image: img/cards/columna_movil.jpg
+on-arrival: month_actions += 1; aviso_oportuno_cd = time
 max-visits: 30
+view-if: time >= aviso_oportuno_cd + 2
 is-card: true
 frequency: 70
 tags: canales

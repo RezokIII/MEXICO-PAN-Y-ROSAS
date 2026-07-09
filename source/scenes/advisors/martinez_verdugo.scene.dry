@@ -17,6 +17,7 @@ First Secretary since 1963. A sign painter from Sinaloa who taught himself four 
 @verdugo_disciplina
 title: Paciencia y organización
 subtitle: Smooth the quarrels; keep the family at one table.
+card-image: img/portraits/verdugo.jpeg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; unity += 6; political_capital += 2; fac_renovadores += 2; fac_ortodoxos -= 1; fac_nueva_izquierda -= 1

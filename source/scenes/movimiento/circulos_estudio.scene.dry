@@ -1,8 +1,10 @@
 title: Círculos de estudio
 new-page: true
 subtitle: The line is contested at the kitchen table
-on-arrival: month_actions += 1
+card-image: img/cards/circulos_estudio.jpg
+on-arrival: month_actions += 1; circulos_estudio_cd = time
 max-visits: 60
+view-if: time >= circulos_estudio_cd + 2
 is-card: true
 frequency: 70
 tags: movimiento

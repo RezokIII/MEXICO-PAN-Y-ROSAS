@@ -1,8 +1,9 @@
 title: La Tendencia Democrática
 new-page: true
 subtitle: 5 de abril de 1975 — Guadalajara
+face-image: img/excelsior.jpg
 tags: event
-view-if: year = 1975 and month = 4
+view-if: year = 1975 and month >= 4 and month <= 6
 priority: 3
 max-visits: 1
 

@@ -1,0 +1,37 @@
+title: Documentar la alquimia
+new-page: true
+subtitle: Fraud needs darkness; you are building a lamp
+card-image: img/cards/casilla.jpg
+on-arrival: month_actions += 1; documentar_cd = time
+max-visits: 40
+view-if: (registro >= 1) and time >= documentar_cd + 3
+is-card: true
+frequency: 70
+tags: sistema
+
+= Documentar la alquimia
+
+The alquimia — pregnant urns, carousel voters, tallies rewritten in better handwriting — survives on one assumption: that it cannot be proven. Break the assumption and you have not stopped the fraud, but you have made it a scandal instead of a weather event. This is the patient work between elections: the templates, the notarized actas, the parallel-count methodology shared with the PAN's lawyers and anyone else who can count.
+
+- @compilar: Compile the archive. Templates, training, a documented case from every stolen race you can reach.
+- @exponer: [? if fraude_documentado >= 6 : Go national. Publish the anatomy of the machine before the next election, not after. ?]
+- @root: The archive waits for a season with more capital.
+- @easy_discard
+
+@compilar
+title: El archivo
+subtitle: -4 political capital, uses the casilla network.
+choose-if: political_capital >= 4 and red_casillas >= 20
+unavailable-subtitle: Documenting fraud takes capital to fund it and a casilla network to witness it.
+on-arrival: political_capital -= 4; fraude_documentado += 2; red_casillas += 2; sup_middle += 2; pri_reformist_rel += 1
+
+Another stolen municipio enters the archive with its actas notarized and its arithmetic exposed. Each case is small; the collection is not. Lawyers begin citing it, reporters begin trusting it, and the middle class — the regime's necessary audience — begins to suspect that the numbers it reads every six years are a kind of national theater staged for its benefit.
+
+@exponer
+title: La anatomia del fraude
+subtitle: -6 political capital. Make the machine undeniable before the country votes.
+choose-if: political_capital >= 6 and fraude_documentado >= 6 and red_casillas >= 30
+unavailable-subtitle: A national exposure needs a full archive and a network wide enough to make it stick.
+on-arrival: political_capital -= 6; alquimia_expuesta = 1; legitimidad_regimen -= 6; sup_middle += 5; pri_reformist_rel += 2; fac_ortodoxos -= 3
+
+You publish the whole anatomy at once — the methods named, the cases documented, the methodology certified — so that when the next steal comes, the country already holds the ruler to measure it. The regime discovers the worst thing that can happen to a magician: an audience that has read the manual. The fraud will still be attempted. It will simply no longer be able to pretend it was arithmetic.

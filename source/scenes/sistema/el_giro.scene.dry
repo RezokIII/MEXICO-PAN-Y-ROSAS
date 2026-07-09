@@ -1,0 +1,47 @@
+title: El giro
+new-page: true
+subtitle: The ballot has a price, and the price is paid in purity
+card-image: img/cards/palancas.jpg
+on-arrival: month_actions += 1; el_giro_cd = time
+max-visits: 40
+view-if: (registro < 2 and via = "politica") and time >= el_giro_cd + 3
+is-card: true
+frequency: 65
+tags: sistema
+
+= El giro
+
+There is a road onto the ballot, and it does not run through heroism. It runs through moderation: a program the Comisión can tolerate, a language the middle class can hear, a public distance from the men in the sierra. Every step toward legal existence is a step the base experiences as betrayal — and they are not entirely wrong. The question is whether a legal party that can defend a vote is worth more than a pure one that cannot.
+
+- @moderar: Soften the line. Speak of democracy before revolution; court the middle class; earn the Comisión's tolerance.
+- @gestionar1: [? if registro = 0 : Petition for conditional registro. Spend the capital, sign the forms, accept the leash. ?]
+- @gestionar2: [? if registro = 1 : Convert to definitive registro — a real party, with everything it opens and obliges. ?]
+- @root: The line holds. Purity is also a strategy, and sometimes the right one.
+- @easy_discard
+
+@moderar
+title: Suavizar la linea
+subtitle: Moves the Movement toward the ballot. Costs unity and the students' trust.
+choose-if: ax_electoral < 20
+unavailable-subtitle: The line is already as electoral as it will go without a registro to justify it.
+on-arrival: ax_electoral += 5; ax_nacpop += 2; sup_middle += 3; political_capital += 2; unity -= 3; sup_students -= 3
+
+The manifesto loses three adjectives and gains a paragraph about the Constitution. Old comrades read it and feel the temperature drop. But a schoolteacher who would never have joined a revolution signs up to defend a vote, and a newspaper that would never have quoted a Marxist quotes a democrat, and the Movement discovers the specific loneliness of growing in the direction the base fears.
+
+@gestionar1
+title: El registro condicional
+subtitle: -6 political capital. Legal existence, on probation.
+choose-if: political_capital >= 6 and ax_electoral >= 12 and registro = 0
+unavailable-subtitle: Conditional registro requires a moderated line the Comisión can tolerate (a firmly electoral orientation) and the capital to pursue it.
+on-arrival: political_capital -= 6; registro = 1; fac_renovadores += 5; fac_ortodoxos -= 3; pri_reformist_rel += 3; unity -= 2; sup_middle += 2
+
+The forms are humiliating and the leash is real: registro condicional means you exist as long as you behave, and the Comisión defines behavior. But you are on the ballot now, which changes the arithmetic of every casilla, every poll, every future negotiation. A million sympathies that were rounding errors become, in principle, countable votes. In principle. The counting is the next war.
+
+@gestionar2
+title: El registro definitivo
+subtitle: -8 political capital. A real party, with everything that binds.
+choose-if: political_capital >= 8 and ax_electoral >= 15 and registro = 1
+unavailable-subtitle: Definitive registro requires proven electoral weight and the capital to consolidate it.
+on-arrival: political_capital -= 8; registro = 2; fac_renovadores += 6; pri_reformist_rel += 4; unity -= 2; sup_middle += 3; sup_students -= 2
+
+The probation ends; the party is permanent, with headquarters the DFS need no longer pretend not to watch, funding lines, ballot access that cannot be revoked on a functionary's mood. You have become an institution, and institutions can be negotiated with, co-opted, and — this is the wager — can also outlast the men who tolerate them. The base that remembers 1968 is not sure it recognizes what it built. Neither, some nights, are you.

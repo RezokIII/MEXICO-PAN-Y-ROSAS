@@ -1,0 +1,73 @@
+title: La antesala
+new-page: true
+subtitle: The month before the count — where do you actually stand?
+face-image: img/cards/casilla.jpg
+tags: event
+view-if: month = 6 and (year = 1970 or year = 1976 or year = 1979 or year = 1982 or year = 1985)
+priority: 4
+max-visits: 5
+on-arrival: {!
+Q.antesala_fuerza = Q.members + Q.political_capital + Q.red_casillas * 0.3 + Q.unity * 0.15 + Q.registro * 8 + (Q.sup_workers + Q.sup_peasants + Q.sup_students + Q.sup_teachers + Q.sup_colonos) * 0.08;
+if (Q.antesala_fuerza >= 45) { Q.antesala_banda = 2; }
+else if (Q.antesala_fuerza >= 25) { Q.antesala_banda = 1; }
+else if (Q.antesala_fuerza >= 12) { Q.antesala_banda = 0; }
+else { Q.antesala_banda = -1; }
+Q.antesala_peligro = (Q.antesala_fuerza < 12 && Q.expediente >= 68) ? 1 : 0;
+!}
+
+= La antesala
+
+[? if year = 1970 : The first vote since Tlatelolco. You have no registration and no illusions — the question is only what posture arrives at July with the least self-deception. ?][? if year = 1976 : López Portillo runs unopposed; the PRI has arranged even the appearance of a contest away. Whatever you do this July, you do it into a vacuum the regime built on purpose. ?][? if year = 1979 : The first federal election under the reform — your first real ballot. The reform was designed to manage you; July decides whether it manages you or you use it. ?][? if year = 1982 : The country is sliding toward the crash, and the election arrives before the peso finishes falling. What you have built among the sectors is about to be weighed. ?][? if year = 1985 : A mid-term in a wounded country — the earthquake still in everyone's lungs, the regime's competence in open question. The casilla network faces its dress rehearsal for 1988. ?]
+
+A month out, the leadership does the one honest thing a campaign ever does: it counts itself.
+
+[? if antesala_banda = 2 : What the count shows is a Movement that has become a fact — members in real numbers, a base across several sectors, a network that can watch what it cannot yet win. You arrive at this election as a force, not a gesture. ?][? if antesala_banda = 1 : What the count shows is a real organization, still thin in places but present — enough to contest seriously in the ground you have worked, not enough to be everywhere at once. A creditable position, honestly earned. ?][? if antesala_banda = 0 : What the count shows is a Movement surviving more than growing — a base in a few strongholds, a treasury that flinches, a network more aspiration than instrument. You can make a showing. You cannot yet make a difference. ?][? if antesala_banda = -1 : What the count shows is alarming: almost nothing built, a membership that has not grown or has bled, a network that does not exist, and — worse — a file thick enough that the state has noticed you precisely as you are weakest. This is the most dangerous condition in politics: visible and hollow. ?]
+
+How do you spend the last month before the count?
+
+- @antesala_base: Shore up the base. Steady the strongholds, deepen the network, arrive solid where you are strong.
+- @antesala_apostar: Go big. Spend everything on visibility and reach — make the campaign larger than the Movement.
+- @antesala_conservar: Conserve. Bank the resources; the count is a formality this cycle, and next cycle is the one that counts.
+
+@antesala_base
+title: Afianzar la base
+subtitle: -3 funds. Solid where you are strong.
+choose-if: funds >= 3
+unavailable-subtitle: Even shoring up costs. The treasury is empty.
+on-arrival: funds -= 3; red_casillas += 3; unity += 3; political_capital += 2
+
+You spend the month where the Movement is already real: the strongholds deepened, the casilla people drilled one more time, the committees that will actually hold on election day steadied. It is unglamorous and it is correct. You arrive at the count without illusions about your reach and without weakness where you chose to stand.
+
+@antesala_apostar
+title: Apostar en grande
+subtitle: -5 funds. Make the campaign larger than the Movement — and hope it holds.
+choose-if: funds >= 5
+unavailable-subtitle: Going big requires a treasury you do not have. This gamble is not even affordable.
+on-arrival: funds -= 5; sup_students += 4; sup_middle += 3; political_capital += 2; expediente += 6
+
+You throw the month at visibility: the mitin larger than the membership justifies, the manifesto everywhere, the reach that makes the Movement look like more than it is. Sometimes the appearance of strength summons the substance. Sometimes it only summons attention you cannot afford.
+
+- @antesala_colapso: [? if antesala_peligro = 1 : Continue ?]
+- @root: [? if antesala_peligro = 0 : The gamble is placed. On to the count. ?]
+
+@antesala_colapso
+title: Visible y hueco
+subtitle: The worst combination in politics, punished the way the state prefers.
+new-page: true
+on-arrival: {! Q.ending = "aniquilacion"; this.achieve('el_palacio_negro'); this.achieve('game_completed'); !}
+
+You made yourself loud in exactly the month you could least afford to be seen, and you did it with nothing behind the noise — no base to protect the exposed cadres, no network to sound the alarm, no allies to raise a cost. The state has spent years waiting for precisely this: an opposition that has made itself worth arresting and cannot make itself worth the trouble of arresting carefully.
+
+They take the campaign apart in a single week, quietly, the way they always preferred — the leadership lifted from a mitin that drew cameras and then, conveniently, the cameras left; the treasury frozen; the membership scattered by the simple arithmetic of fear. There is no plaza to fill in protest because there was never really a Movement, only its advertisement. What you built was a poster of a party. The state does not fear posters. It removes them.
+
+- @fin_antesala: Fin.
+
+@fin_antesala
+go-to: la_derrota
+
+@antesala_conservar
+title: Conservar para después
+subtitle: Bank the resources for the cycle that matters.
+on-arrival: funds += 2; political_capital += 3; unity -= 2
+
+You decline the gamble and the exhaustion both, and pocket the month: the treasury a little heavier, the powder dry, the cadres rested for a fight further down the calendar. Some in the assembly call it wisdom and some call it cowardice, and both will cite this month as evidence when they argue, years from now, about whether the Movement was ever serious about power or only about surviving until power became someone else's problem.

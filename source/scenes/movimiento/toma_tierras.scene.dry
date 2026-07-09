@@ -1,0 +1,136 @@
+title: La toma de tierras
+new-page: true
+subtitle: Three occupations held. The valley is ready for a real one.
+card-image: img/toma_tierras.jpg
+view-if: tierra_presion >= 3 and time >= toma_tierras_cd + 2
+on-arrival: month_actions += 1; toma_tierras_cd = time
+max-visits: 30
+is-card: true
+frequency: 85
+tags: movimiento
+
+= La toma de tierras
+
+Three times now the fences have come down at dawn and gone back up by dusk, and each time the valley learned it could be done. The solicitantes have stopped waiting for the Agrarian Department's number; the committees can name their delegates in the dark; and the disputed hacienda — a grant promised in 1917 and eaten by a cacique in 1934 — sits there in the morning light like a question the whole village is finally ready to answer.
+
+A toma you cannot hold hands the judiciales a photograph. A toma you never call tells the cacique the land is his in perpetuity.
+
+- @ocupar: Take it. The whole ejido on the land at first light, furrows plowed across the title.
+- @esperar_tierra: Not yet. Let the committees deepen; the land is not going anywhere.
+- @easy_discard
+
+@esperar_tierra
+title: La tierra espera
+on-arrival: unity += 1
+
+The delegates argue it down a season. The pressure banks rather than dissipates — a toma deferred is a toma rehearsed — and when you come back to the fence line, the furrows will still be waiting to be plowed.
+
+@ocupar
+title: Se toma la tierra
+subtitle: Requires a real peasant base and cadres to hold it.
+choose-if: sup_peasants >= 20 and organizers >= 2
+unavailable-subtitle: An occupation without a base to hold it and cadres to lead it is a gift to the judiciales. Build first.
+on-arrival: sup_peasants += 4; tierra_presion = 0; expediente += 6; represion += 3
+
+By first light the whole ejido is on the land — the old men who remember the grant, the women with the cooking fires, the children set to watch the road. The furrows go in straight across the disputed title, which is the oldest legal argument in the Mexican countryside: possession, plowed. The cacique telephones the municipal president; the president telephones the governor; the governor's office pulls the file to ask the only question the state ever asks about a land seizure — *how dangerous are these people* — and the answer decides whether the answer comes in a courtroom or a truck.
+
+- @tierra_tolerada: [? if expediente < 45 : Continue ?]
+- @tierra_negociada: [? if expediente >= 45 : Continue ?]
+
+@tierra_tolerada
+title: La dotación
+subtitle: You are not yet worth a massacre. The paperwork moves.
+on-arrival: sup_peasants += 7; dotaciones += 1; political_capital += 2; legitimidad_regimen -= 2; expediente += 2
+
+Your file is thin enough that the governor prefers the cheaper solution: he discovers, suddenly, that the grant of 1917 was valid all along. A *dotación* is signed; the surveyors come; the cacique is compensated in some other coin, in some other county. It is one hacienda in one valley — but the villages three ridges over hear that a fence came down and stayed down, and the Agrarian Department's number stops being the only road to land.
+
+- @root: Back to the work.
+
+@tierra_negociada
+title: La CNC llega
+subtitle: Dangerous enough to buy — the official peasant central arrives with an offer.
+on-arrival: expediente += 3
+
+Your file is thick enough now that the state sends its cheaper instrument before its crueler one: the CNC, the official peasant central, arrives with a settlement already drawn — the land titled, the credits arranged, more than the solicitantes dared petition — on one unspoken condition: the villages affiliate to the CNC, vote as the CNC votes, and remember at every election who *really* delivered the land.
+
+- @aceptar_tierra: Take the titles. The families get the land; the PRI gets the votes.
+- @rechazar_tierra: Refuse. This land is the village's, not the ruling party's ledger entry.
+
+@aceptar_tierra
+subtitle: Real land, delivered — under the PRI's brand.
+on-arrival: sup_peasants += 5; dotaciones += 1; charrismo += 3; unity -= 2; expediente -= 2
+
+The titles are real and the families are not fools; they know who plowed the furrows at four in the morning. But the CNC's banner flies over the ceremony, and the villages enter the ruling party's rural machine with the ink still wet. You traded a piece of the countryside's independence for land today. Some valleys that is exactly the right trade. Your cadres will argue about it for years.
+
+- @root: Back to the work.
+
+@rechazar_tierra
+subtitle: Keep the land independent — and make yourself worth killing for it.
+on-arrival: sup_peasants += 3; unity += 4; expediente += 12; guerrilla_meter += 4
+
+The committee sends the CNC man back down the mountain with his titles folded in his pocket, and word travels the sierra within the week: *there is a valley that told the CNC no.* It is a dangerous sentence in the countryside, where the state has always kept a freer hand than in the cities, and where the men who enforce the caciques' will wear no uniforms and file no reports. The governor's office reopens your file. This time the question is not how dangerous you are but which of the cacique's guns should answer it.
+
+- @guardias: [? if expediente >= 70 : Continue ?]
+- @root: [? if expediente < 70 : Back to the work — watched. ?]
+
+@guardias
+title: Las guardias blancas
+face-image: img/guardias_blancas.jpg
+subtitle: The state need not come itself. In the countryside it never has to.
+new-page: true
+on-arrival: expediente += 5; represion += 4; memorial += 2
+
+They come the way they always come in the countryside: not granaderos in trucks but the cacique's guardias blancas, white guards in civilian hats with rifles the state pretends not to see, and behind them, if needed, the judiciales who will call it a land dispute that turned violent. They come at dusk to the houses of the committee, and by the time the valley wakes the leaders are dead or gone and the fence is back up.
+
+This is the hinge. What you built before this dusk is the only thing that answers it.
+
+- @tierra_solidaria: [? if sup_peasants >= 35 : Spread it. Every disputed valley rises at once. ?]
+- @tierra_legal: [? if political_capital >= 15 : Fight it in the courts and the national press. ?]
+- @tierra_armada: [? if via = "armada" : The survivors go to the sierra. Answer the guns in kind. ?]
+- @tierra_armada2: [? if via = "dual" : The survivors go to the sierra. Answer the guns in kind. ?]
+- @tierra_replegar: Pull back. Bury the dead, save the living.
+
+@tierra_solidaria
+title: Que arda todo el valle
+subtitle: The base you built across the region moves at once.
+on-arrival: sup_peasants += 12; legitimidad_regimen -= 6; unity += 5; expediente += 14; represion += 6; members += 3; guerrilla_meter += 6
+
+The word goes out along the ridgelines the old way, mouth to mouth, and by the weekend every disputed valley in the region has plowed its title. The state cannot massacre a countryside; the guardias blancas are enough to terrorize a village and useless against a region. The governor discovers that the cacique's private army has made him a national embarrassment, and quietly, the killings stop being ordered. You have shown the rural poor the one thing the state most needs them never to see: that the caciques can be made to blink.
+
+- @root: Back to the work — and the valley remembers.
+
+@tierra_legal
+title: Amparos y primeras planas
+subtitle: A reformist deputy and a city reporter make the countryside visible.
+on-arrival: sup_peasants += 4; political_capital -= 6; pri_reformist_rel += 6; legitimidad_regimen -= 4; expediente -= 3; sup_middle += 3
+
+You spend the capital dragging the killing into the light the countryside is usually spared: a reporter from the capital photographs the widows, a reformist deputy reads the committee's names into the Chamber, lawyers file amparos naming the cacique the state pretends not to employ. Most of it fails, the way rural justice always fails — but the cacique becomes, for one season, a liability instead of an asset, and the middle class learns a word it prefers not to know: *guardias blancas*.
+
+- @root: Back to the work.
+
+@tierra_armada
+title: Los que suben a la sierra
+subtitle: The dispossessed become the argument the mountain has always made.
+on-arrival: sup_peasants += 4; guerrilla_meter += 16; pres_guerrero += 8; expediente += 20; represion += 10; unity -= 4; memorial += 1
+
+The sons of the murdered committee do not go back to the furrows. They go up — to the sierra, to the comrades who have said for years that in the countryside the only title the state respects is the one held at gunpoint, and this dusk proved them right in the oldest way. The line between the land struggle and the war has just dissolved, exactly as it dissolved for a schoolteacher named Lucio Cabañas when they fired on the parents outside his school. The Partido de los Pobres was not founded by ideologues. It was founded by mornings like this one.
+
+- @root: Back to the work — and the sierra is heavier now.
+
+@tierra_armada2
+title: Los que suben a la sierra
+subtitle: The dispossessed become the argument the mountain has always made.
+on-arrival: sup_peasants += 4; guerrilla_meter += 16; pres_guerrero += 8; expediente += 20; represion += 10; unity -= 4; memorial += 1
+
+The sons of the murdered committee do not go back to the furrows. They go up — to the sierra, to the comrades who have said for years that in the countryside the only title the state respects is the one held at gunpoint, and this dusk proved them right in the oldest way. The line between the land struggle and the war has just dissolved, exactly as it dissolved for a schoolteacher named Lucio Cabañas when they fired on the parents outside his school. The Partido de los Pobres was not founded by ideologues. It was founded by mornings like this one.
+
+- @root: Back to the work — and the sierra is heavier now.
+
+@tierra_replegar
+title: Enterrar a los muertos
+subtitle: You did not build enough to answer this. Save the living.
+on-arrival: sup_peasants -= 6; organizers -= 1; unity -= 4; charrismo += 3; expediente -= 5; memorial += 1
+
+There is no answer in your hands this dusk, and a leadership that spends villagers it cannot protect on a fight it cannot win is not brave, only responsible for more funerals. You pull the surviving committee out over the mountain passes, let the fence stand, and let the valley go back to the cacique's peace. It is a defeat, and the countryside feels defeats in its bones for generations. But the families who would have been buried this week are alive, and the land struggle is a patient one. Learn the lesson the guardias were teaching: in the countryside, build the answer before you plow the title.
+
+- @root: Back to the work — chastened.

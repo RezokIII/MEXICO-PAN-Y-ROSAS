@@ -1,8 +1,9 @@
 title: The 120 days of Spicer
 new-page: true
 subtitle: July-October 1975 — the strike that taught the decade
+face-image: img/mayday.jpg
 tags: event
-view-if: year = 1975 and month = 7
+view-if: year = 1975 and month >= 7 and month <= 9
 priority: 2
 max-visits: 1
 

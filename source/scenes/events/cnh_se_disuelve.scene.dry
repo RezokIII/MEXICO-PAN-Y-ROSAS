@@ -1,6 +1,7 @@
 title: El CNH se disuelve
 new-page: true
 subtitle: Diciembre de 1968
+face-image: img/cnh1968.jpg
 tags: event
 view-if: year = 1968 and month = 12
 priority: 2

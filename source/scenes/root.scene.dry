@@ -47,6 +47,44 @@ Q.revueltas_dead = 0;
 Q.ibarra_advisor = 0;
 Q.vallejo_advisor = 0;
 Q.moscow_relation = 35;
+Q.us_pressure = 15;
+Q.armada_entered = 0;
+Q.decap_last = 0;
+Q.decap_warned = 0;
+Q.trabajo_campesino_cd = -5;
+Q.organizar_estudiantes_cd = -5;
+Q.solidaridad_cd = -5;
+Q.batalla_ideas_cd = -5;
+Q.corrientes_cd = -5;
+Q.programa_economico_cd = -5;
+Q.ayuntamiento_cd = -5;
+Q.seguridad_cd = -5;
+Q.comite_huelga_cd = -5;
+Q.finanzas_cd = -5;
+Q.prensa_cd = -5;
+Q.circulos_estudio_cd = -5;
+Q.colonias_cd = -5;
+Q.defensa_voto_cd = -5;
+Q.trabajo_magisterial_cd = -5;
+Q.cultivar_reformistas_cd = -5;
+Q.palancas_cd = -5;
+Q.jugar_facciones_cd = -5;
+Q.fuente_bucareli_cd = -5;
+Q.medios_cd = -5;
+Q.aviso_oportuno_cd = -5;
+Q.archivo_guerra_cd = -5;
+Q.defensa_capturados_cd = -5;
+Q.el_enlace_cd = -5;
+Q.canal_medico_cd = -5;
+Q.s_urbana_cd = -5;
+Q.s_reclutar_cd = -5;
+Q.s_columna_movil_cd = -5;
+Q.s_inteligencia_cd = -5;
+Q.s_propaganda_cd = -5;
+Q.s_operaciones_cd = -5;
+Q.s_expropiacion_cd = -5;
+Q.s_sabotaje_cd = -5;
+Q.trabajo_obrero_cd = -5;
 Q.memorial = 0;
 Q.postura_guerrilla = 0;
 Q.td_apoyo = 0;
@@ -92,6 +130,7 @@ Q.spicer = 0;
 Q.laguna = 0;
 Q.auge_armada = 0;
 Q.pres_total = 0;
+Q.op_ready = 0; Q.op_type = ""; Q.op_result = -1;
 Q.des_ortodoxos = 10;
 Q.des_renovadores = 10;
 Q.des_nueva = 15;
@@ -110,6 +149,13 @@ Q.peso_dolar = 12.5;
 Q.salario_real = 100;
 Q.desempleo = 6;
 Q.huelgas = 4;
+Q.paro_presion = 0; Q.llamar_paro_cd = -5;
+Q.tierra_presion = 0; Q.magisterio_presion = 0; Q.colonia_presion = 0;
+Q.toma_tierras_cd = -5; Q.paro_magisterial_cd = -5; Q.invasion_urbana_cd = -5;
+Q.enfoque_cd = -5;
+Q.antesala_fuerza = 0; Q.antesala_banda = 0; Q.antesala_peligro = 0;
+Q.dotaciones = 0;
+Q.workers_last = 0; Q.peasants_last = 0; Q.teachers_last = 0; Q.colonos_last = 0;
 // el bloque en el poder
 Q.burguesia_estado = 55;
 Q.gran_capital = 28;
@@ -126,6 +172,8 @@ Q.izq_seats = 0;
 Q.municipio_alcozauca = 0;
 Q.psum = 0;
 Q.alquimia_expuesta = 0;
+Q.legitimidad_regimen = 72; Q.escandalos = 0; Q.fraude_documentado = 0;
+Q.escandalo_cd = -5; Q.el_giro_cd = -5; Q.documentar_cd = -5;
 Q.real_izq = 0; Q.real_pri = 0; Q.real_pan = 0;
 Q.oficial_izq = 0; Q.oficial_pri = 0; Q.oficial_pan = 0;
 
@@ -707,7 +755,7 @@ Q.estudiantes_pri = 35; Q.estudiantes_pan = 15; Q.estudiantes_izq = 36; Q.estudi
 Q.maestros_pri = 70; Q.maestros_pan = 5; Q.maestros_izq = 6; Q.maestros_pps = 12; Q.maestros_parm = 2; Q.maestros_otros = 8;
 Q.electricistas_pri = 70; Q.electricistas_pan = 5; Q.electricistas_izq = 7; Q.electricistas_pps = 8; Q.electricistas_parm = 3; Q.electricistas_otros = 8;
 !}
-set-bg: img/map_2.jpg
+set-bg: img/fondo_escritorio.jpg
 new-page: true
 
 > *"No queremos olimpiadas, queremos revolución."*
@@ -751,6 +799,27 @@ this.state.disableSaves = true;
 go-to: 1928_main
 
 @1928_main
+face-image: img/rivera_mural.jpg
+new-page: true
+
+= El sueño y el muro
+
+Every revolution that fails leaves behind a mural where its future was supposed to be.
+
+Climb the stairwell of the National Palace and look up: there is Mexico as it dreamed itself. Zapata at the bridle of a white horse, and beneath him the single word a million people died to underline — *Tierra*. The campesino bent to the corn. The worker with the future held in his two hands. The Revolution marching left across the plaster toward a dawn the painter believed in and the men who hired him did not. He was of the Party — expelled and readmitted, like all of them — and he painted the dream on the walls of the people who buried it. There is the whole country in a single joke: the Revolution, magnificent, framed and hung in the palace of its own executors.
+
+There is a mother in a village in Michoacán who wants only to see her boy walk out of the ejido with his back straight, and come home a man the cacique cannot touch.
+
+There is a campesino on the Costa Grande who was promised land in 1917 and has waited at the door of the agrarian office ever since, holding a paper the clerk will not read.
+
+There is a railwayman in Lecumberri who has kept the pension tables in his head for nine years, and recites them to the wall because the wall, at least, does not sign what it is told.
+
+There was a dream in Mexico. It had a date — 1910 — and a price paid in a million lives, and it was never finished. They wrote it into the Constitution and then declined to keep the appointment: the land that stopped being handed down, the unions handed instead to their keepers, the vote counted before it was ever cast. The dream became a mural — beautiful, official, immovable — admired precisely so that it need never be obeyed.
+
+- @1928_contexto: Continuar.
+
+@1928_contexto
+face-image: img/milagromexicano.jpg
 new-page: true
 
 = El milagro y la jaula
@@ -763,6 +832,8 @@ The cage is older than the miracle. One party has governed since 1929 under thre
 
 The system does not persecute its opposition, as a rule. It digests it. There is a word for every price: *la charola*.
 
+And in two weeks the doves will go up over the Olympic stadium. In ten, something will happen in a plaza called Tlatelolco that no fresh coat will cover — and the mural will crack, as murals do, exactly where the dream was painted thinnest.
+
 - @guia: How this game plays — the organizer primer (recommended for a first run).
 - @intro_precursores: Continuar.
 
@@ -771,7 +842,11 @@ new-page: true
 
 = The organizer primer
 
-**The month.** Each turn you play up to three cards from your decks (more as the Movement matures). Cards are actions: organizing sectors, moving money, working the system. Events — history, and the consequences of your file — interrupt on their own schedule.
+**HOW YOU WIN.** The goal is the presidential election of July 6, 1988: force a result the regime cannot steal (the "reconocimiento" ending). You get there by completing the five milestones of El camino — shown in the left sidebar — over twenty years: (I) survive to 1971, (II) reach 10,000 members, (III) win registro and 10 seats, (IV) build a 30-casilla network and govern a town, (V) forge the united front. Fall short and you still get one of several graded endings — but the true victory is a counted election.
+
+**HOW YOU GROW SUPPORT.** Your national vote share (Encuestas tab) comes directly from your support among seven sectors (workers, campesinos, students, teachers, colonos, electricians, middle class). You raise sector support by PLAYING CARDS from El Movimiento deck: Trabajo obrero, Trabajo campesino, Colonias, Prensa, and so on. Each card played that names a sector raises that sector's support, which raises your vote. The economic program card decides WHICH classes your message reaches. No cards played = no growth. This is the core loop: draw a card, play it, watch the sector rise.
+
+**The month.** Each turn you play up to three cards from your decks (more as the Movement matures). Click a deck to draw, click a card to play it. Events — history, and the consequences of your file — interrupt on their own schedule.
 
 **El camino.** The status bar tracks five milestones from survival to the united front of 1988. They are the visible road to the one true victory: a 1988 election the state fails to steal. Everything else — the sagas, the network, the alliances — feeds that night.
 
@@ -786,6 +861,7 @@ new-page: true
 - @intro_precursores: Continuar.
 
 @intro_precursores
+face-image: img/railwaystrike.jpg
 new-page: true
 
 = Los precursores
@@ -826,6 +902,7 @@ You came up through the journals and the MLN's great quarrels — you can cite t
 - @intro_verano: Continuar.
 
 @intro_verano
+face-image: img/1968students.jpg
 new-page: true
 
 = El verano
@@ -864,6 +941,7 @@ Your people carried notebooks instead of banners: unit numbers at the Casco, war
 - @intro_octubre: Continuar.
 
 @intro_octubre
+face-image: img/tlatelolco.jpg
 new-page: true
 
 = El dos de octubre
@@ -877,6 +955,7 @@ The government counted "some twenty" dead and jailed the survivors as the murder
 - @intro_partido: Continuar.
 
 @intro_partido
+face-image: img/pcm.jpg
 new-page: true
 
 = Lo que queda

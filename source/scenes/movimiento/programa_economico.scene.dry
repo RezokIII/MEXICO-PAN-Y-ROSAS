@@ -1,0 +1,53 @@
+title: The economic program
+new-page: true
+subtitle: What the left says the economy is for
+card-image: img/cards/prensa.jpg
+view-if: (year >= 1971) and time >= programa_economico_cd + 2
+on-arrival: month_actions += 1; programa_economico_cd = time
+max-visits: 40
+is-card: true
+frequency: 65
+tags: movimiento
+
+= The economic program
+
+Support is not won by organizing alone; it is won by an answer to the question every worker, campesino and colono is asking — what would YOU do differently? The economic doctrine is a weapon in the battle of ideas, and different doctrines reach different classes.
+
+- @doc_nacional: Economic nationalism — the commanding heights in public hands. (Workers, middle class, the nationalist mood.)
+- @doc_obrero: Workers' control — self-management, the factory to those who run it. (Industrial and electrical workers.)
+- @doc_agrario: The agrarian program — the Constitution's land promise kept. (The campesinos.)
+- @doc_austeridad: Anti-austerity — the debt is odious, the wage before the creditor. (Everyone the crisis bites.)
+- @root: The program waits for a sharper season.
+- @easy_discard
+
+@doc_nacional
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even a manifesto needs a print run.
+on-arrival: funds -= 2; sup_workers += 2; sup_middle += 2; ax_nacpop += 2; clima_neoliberal -= 2
+
+The program is Cárdenas's language in the Party's mouth: the expropriation of 1938 as unfinished business. It reaches living rooms the word *socialism* cannot, and the nationalist mood tilts a degree your way.
+
+@doc_obrero
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even a manifesto needs a print run.
+on-arrival: funds -= 2; sup_workers += 3; sup_electricians += 2; prestigio_socialismo += 2; charrismo -= 1
+
+Self-management, works councils, the argument made in the union halls. The hardest sell — but where it lands, among the electricians and the industrial insurgents, it lands deep, and renews the word the century is trying to bury.
+
+@doc_agrario
+subtitle: -2 funds
+choose-if: funds >= 2
+unavailable-subtitle: Even a manifesto needs a print run.
+on-arrival: funds -= 2; sup_peasants += 4; ax_nacpop += 1
+
+Zapata's program, updated: land, water, credit, and the ejido defended against the banks that circle it. Read aloud in the assemblies, it needs no translation.
+
+@doc_austeridad
+subtitle: -2 funds
+choose-if: funds >= 2 and year >= 1982
+unavailable-subtitle: Anti-austerity is a weapon of the crisis years; before 1982 it has no target.
+on-arrival: funds -= 2; sup_workers += 2; sup_colonos += 3; sup_middle += 2; clima_neoliberal -= 3; prestigio_socialismo += 1
+
+The debt is odious and the poor did not sign it: the argument writes itself once the wage is falling, and it reaches every class the crisis touches at once.

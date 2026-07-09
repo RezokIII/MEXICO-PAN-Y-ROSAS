@@ -1,8 +1,9 @@
 title: La Asamblea de Barrios
 new-page: true
 subtitle: 1987 — y Superbarrio
+face-image: img/superbarrio.jpg
 tags: event
-view-if: year = 1987 and month = 4
+view-if: year = 1987 and month >= 4 and month <= 6
 priority: 2
 max-visits: 1
 

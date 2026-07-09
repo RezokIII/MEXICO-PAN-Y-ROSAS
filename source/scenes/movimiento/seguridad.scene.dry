@@ -1,8 +1,9 @@
 title: Seguridad
 new-page: true
 subtitle: The expediente fattens by itself; slimming it costs
-view-if: expediente >= 20
-on-arrival: month_actions += 1
+card-image: img/cards/lecumberri_gate.jpg
+view-if: (expediente >= 20) and time >= seguridad_cd + 2
+on-arrival: month_actions += 1; seguridad_cd = time
 max-visits: 60
 is-card: true
 frequency: 60

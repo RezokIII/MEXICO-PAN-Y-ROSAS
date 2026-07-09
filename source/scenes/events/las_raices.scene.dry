@@ -1,8 +1,9 @@
 title: Las raíces
 new-page: true
 subtitle: 1978 — where you came from
+face-image: img/camino.jpg
 tags: event
-view-if: year = 1978 and month = 5
+view-if: year = 1978 and month >= 5 and month <= 7
 priority: 2
 max-visits: 1
 

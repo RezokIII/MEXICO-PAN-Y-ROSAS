@@ -2,7 +2,7 @@ title: The reactor on the coast
 new-page: true
 subtitle: 1986 — Chernobyl reaches Veracruz
 tags: event
-view-if: year = 1986 and month = 6
+view-if: year = 1986 and month >= 6 and month <= 8
 priority: 2
 max-visits: 1
 

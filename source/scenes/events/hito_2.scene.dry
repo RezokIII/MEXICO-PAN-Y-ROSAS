@@ -1,6 +1,7 @@
 title: El camino: romper el cerco
 new-page: true
 subtitle: Second milestone
+face-image: img/camino.jpg
 tags: event
 view-if: camino1 = 1 and camino2 = 0 and members >= 10
 priority: 2

@@ -1,8 +1,9 @@
 title: Chihuahua
 new-page: true
 subtitle: Julio de 1986
+face-image: img/urna.jpg
 tags: event
-view-if: year = 1986 and month = 7
+view-if: year = 1986 and month >= 7 and month <= 9
 priority: 3
 max-visits: 1
 on-arrival: pri_duros += 4

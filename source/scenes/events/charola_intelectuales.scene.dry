@@ -1,8 +1,9 @@
 title: La zanahoria
 new-page: true
 subtitle: 1972 — the sexenio goes shopping
+face-image: img/charola.jpg
 tags: event
-view-if: year = 1972 and month = 9
+view-if: year = 1972 and month >= 9 and month <= 11
 priority: 2
 max-visits: 1
 

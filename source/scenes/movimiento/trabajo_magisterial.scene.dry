@@ -1,8 +1,10 @@
 title: Trabajo magisterial
 new-page: true
 subtitle: Every teacher is a cell armed with chalk
-on-arrival: month_actions += 1
+card-image: img/cards/mimeografo.jpg
+on-arrival: month_actions += 1; trabajo_magisterial_cd = time
 max-visits: 60
+view-if: time >= trabajo_magisterial_cd + 2
 is-card: true
 frequency: 85
 tags: movimiento
@@ -20,7 +22,7 @@ The teachers are the state's largest workforce and its worst-kept promise: norma
 subtitle: -2 funds
 choose-if: funds >= 2
 unavailable-subtitle: Not enough even for bus tickets.
-on-arrival: funds -= 2; sup_teachers += 4; charrismo -= 1
+on-arrival: funds -= 2; sup_teachers += 4; charrismo -= 1; teachers_last = time; magisterio_presion += 1
 
 Section meetings in Chiapas and Oaxaca where the delegates from Mexico City arrive to find the agenda already voted. Vanguardia's men take photographs and names. The names keep coming anyway; there is a particular courage that runs on sixty pesos a fortnight.
 
@@ -28,6 +30,6 @@ Section meetings in Chiapas and Oaxaca where the delegates from Mexico City arri
 subtitle: -2 funds
 choose-if: funds >= 2
 unavailable-subtitle: Books cost money.
-on-arrival: funds -= 2; sup_teachers += 3; sup_peasants += 1
+on-arrival: funds -= 2; sup_teachers += 3; sup_peasants += 1; teachers_last = time
 
 Boxes of books that the official curriculum forgot, chalk, a stipend for the teacher in the Montaña who feeds half her students. Nothing illegal crosses the state line, only arithmetic and Juárez. The inspectors sense the difference and cannot cite it.

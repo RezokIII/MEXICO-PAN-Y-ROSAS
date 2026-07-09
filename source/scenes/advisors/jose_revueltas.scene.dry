@@ -17,6 +17,7 @@ The Party expelled him twice for telling it the truth, and he outlived both expu
 @revueltas_palabra
 title: La palabra
 subtitle: Turn him loose on a lecture hall. Fire hazard, in the good sense.
+card-image: img/portraits/revueltas.jpg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_students += 5; political_capital += 3; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1

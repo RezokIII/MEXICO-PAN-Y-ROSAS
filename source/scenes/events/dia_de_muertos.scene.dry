@@ -1,6 +1,7 @@
 title: Día de muertos
 new-page: true
 subtitle: November 2 — Día de muertos
+face-image: img/muertos.jpg
 tags: event
 view-if: month = 11 and muertos_year < year
 priority: 1

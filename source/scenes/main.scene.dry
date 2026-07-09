@@ -1,5 +1,5 @@
 title: Next month
-set-bg: img/map_2.jpg
+set-bg: img/fondo_escritorio.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
@@ -26,7 +26,7 @@ max-cards: 3
 
 @main_78
 title: Next month
-set-bg: img/map_2.jpg
+set-bg: img/fondo_escritorio.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
@@ -54,7 +54,7 @@ max-cards: 4
 
 @main_85
 title: Next month
-set-bg: img/map_2.jpg
+set-bg: img/fondo_escritorio.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
@@ -81,7 +81,7 @@ max-cards: 5
 
 
 @main_easy
-set-bg: img/map_2.jpg
+set-bg: img/fondo_escritorio.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
@@ -108,6 +108,7 @@ max-cards: 4
 
 
 @sierra
+card-image: img/cards/columna_movil.jpg
 title: La sierra
 subtitle: The war, where it exists
 view-if: via = "armada" or via = "dual"
@@ -117,6 +118,7 @@ is-deck: true
 
 @sistema
 title: El laberinto
+card-image: img/cards/deck_laberinto.jpg
 subtitle: Maniobras dentro del sistema
 view-if: time >= 4
 is-deck: true
@@ -124,24 +126,26 @@ is-deck: true
 - #sistema
 
 @canales
+card-image: img/cards/deck_canales.jpeg
 title: Los canales
-subtitle: Coordinación discreta
+subtitle: CoordinaciÃ³n discreta
 view-if: postura_guerrilla >= 2
 is-deck: true
 
 - #canales
 
 @fdn
+card-image: img/cards/casilla.jpg
 title: El Frente
-subtitle: The coalition, October 1987 to July 1988
-view-if: fdn >= 1
+subtitle: The Corriente, then the Frente — 1987–88
+view-if: fdn >= 1 or cd_formed = 1
 is-deck: true
 
 - #fdn
 
 @movimiento
 title: El Movimiento
-card-image: img/Vorwaerts_nr_1.png
+card-image: img/cards/deck_movimiento.jpg
 is-deck: true
 
 - #movimiento

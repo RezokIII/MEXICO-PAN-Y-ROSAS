@@ -1,6 +1,7 @@
 title: La fronda
 new-page: true
 subtitle: A corriente reaches the door
+face-image: img/fronda.jpg
 tags: event
 view-if: (des_ortodoxos >= 65 or des_renovadores >= 65 or des_nueva >= 65) and time >= fronda_last + 12
 priority: 2

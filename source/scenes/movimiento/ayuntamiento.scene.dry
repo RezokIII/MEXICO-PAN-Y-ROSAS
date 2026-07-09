@@ -1,8 +1,9 @@
 title: El Ayuntamiento Popular
 new-page: true
 subtitle: Govern small, demonstrate large
-view-if: municipio_alcozauca = 1 or municipio_juchitan = 1
-on-arrival: month_actions += 1
+card-image: img/radio_ayuntamiento.jpg
+view-if: (municipio_alcozauca = 1 or municipio_juchitan = 1) and time >= ayuntamiento_cd + 2
+on-arrival: month_actions += 1; ayuntamiento_cd = time
 max-visits: 30
 is-card: true
 frequency: 70

@@ -1,8 +1,9 @@
 title: The strategy congress of 1971
 new-page: true
 subtitle: February 1971 — the line for the Echeverria years
+face-image: img/congreso.jpg
 tags: event
-view-if: year = 1971 and month = 2
+view-if: year = 1971 and month >= 2 and month <= 4
 priority: 3
 max-visits: 1
 

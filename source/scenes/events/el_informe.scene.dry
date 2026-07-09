@@ -1,6 +1,7 @@
 title: El Informe
 new-page: true
 subtitle: September 1 — the ritual
+face-image: img/informe.jpg
 tags: event
 view-if: month = 9 and year >= 1969 and informe_year < year
 priority: 1

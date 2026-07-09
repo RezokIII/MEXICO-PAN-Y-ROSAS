@@ -1,8 +1,9 @@
 title: La nacionalización de la banca
 new-page: true
 subtitle: September 1 — the ritual de 1982
+face-image: img/crisis_economica.jpg
 tags: event
-view-if: year = 1982 and month = 9
+view-if: year = 1982 and month >= 9 and month <= 11
 priority: 3
 max-visits: 1
 on-arrival: burguesia_estado += 8; gran_capital -= 6; capital_extranjero += 4; peso_dolar = 70; salario_real -= 3

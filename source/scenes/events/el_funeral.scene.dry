@@ -1,6 +1,7 @@
 title: El entierro
 new-page: true
 subtitle: Civil cemetery
+face-image: img/camioneta.jpg
 tags: event
 view-if: represion >= 70 and time >= funeral_last + 8
 priority: 1

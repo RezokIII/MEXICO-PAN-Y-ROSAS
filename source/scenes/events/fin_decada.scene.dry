@@ -2,7 +2,7 @@ title: Veinte años
 new-page: true
 subtitle: Febrero de 1988 — vísperas
 tags: event
-view-if: year = 1988 and month = 2
+view-if: year = 1988 and month >= 2 and month <= 4
 priority: 3
 max-visits: 1
 on-arrival: {!

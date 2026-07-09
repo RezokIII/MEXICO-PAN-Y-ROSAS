@@ -1,8 +1,9 @@
 title: The airtime
 new-page: true
 subtitle: The reform pays in minutes of radio
-view-if: registro >= 1
-on-arrival: month_actions += 1
+card-image: img/cards/radio_estudio.jpg
+view-if: (registro >= 1) and time >= medios_cd + 2
+on-arrival: month_actions += 1; medios_cd = time
 max-visits: 40
 is-card: true
 frequency: 65
