@@ -1,7 +1,7 @@
 title: El diecinueve de septiembre
 new-page: true
 subtitle: 19 de septiembre de 1985, 7:19 a.m.
-face-image: img/zocalo_88.jpg
+face-image: img/terremoto.jpg
 tags: event
 view-if: year = 1985 and month >= 9 and month <= 11
 priority: 3

@@ -1,7 +1,7 @@
 title: La fuente de Bucareli
 new-page: true
 subtitle: Every apparatus has men with debts
-card-image: img/cards/palancas.jpg
+card-image: img/cards/fuente_bucareli.jpg
 on-arrival: month_actions += 1
 max-visits: 40
 is-card: true

@@ -1,7 +1,7 @@
 title: The liaison
 new-page: true
 subtitle: The underground still needs the daylight world
-card-image: img/cards/palancas.jpg
+card-image: img/cards/enlace.jpg
 view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 40
