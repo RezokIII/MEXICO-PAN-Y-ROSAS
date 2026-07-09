@@ -547,9 +547,13 @@
     el.empty();
     var scene = dendryUI.game.scenes[window.statusTabRight];
     if (!scene) return;
-    dendryUI.dendryEngine._runActions(scene.onArrival);
-    var dc = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
-    el.append(dendryUI.contentToHTML.convert(dc));
+    try {
+      if (scene.onArrival) { dendryUI.dendryEngine._runActions(scene.onArrival); }
+      var dc = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      el.append(dendryUI.contentToHTML.convert(dc));
+    } catch(err) {
+      el.append('<p>(display error: '+ (err && err.message ? err.message : err) +')</p>');
+    }
     if (window.paintSierraMap) { setTimeout(window.paintSierraMap, 20); }
   };
   function setActive(container, tabId){
