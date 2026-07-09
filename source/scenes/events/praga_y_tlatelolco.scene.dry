@@ -1,7 +1,7 @@
 title: Praga y Tlatelolco
 new-page: true
 subtitle: Octubre de 1968
-face-image: img/tlatelolco.jpg
+face-image: img/prauge1968.jpg
 tags: event
 view-if: year = 1968 and month >= 10 and month <= 12
 priority: 3

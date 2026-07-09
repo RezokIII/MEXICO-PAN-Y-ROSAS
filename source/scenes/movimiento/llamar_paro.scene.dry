@@ -20,12 +20,15 @@ A strike you call and cannot sustain is worse than no strike — it teaches the 
 - @easy_discard
 
 @esperar
+title: Aún no
 subtitle: Hold the pressure. Build more before you spend it.
 on-arrival: unity += 1
 
 The delegates nod, half-relieved, half-disappointed. The pressure does not dissipate — it banks. When you come back to the gates, the floor will still be warm.
 
 @lanzar
+title: Se lanza el paro
+face-image: img/huelga_general.jpg
 subtitle: -3 funds, requires cadres to lead it
 choose-if: funds >= 3 and organizers >= 2
 unavailable-subtitle: A strike without funds for the fund and cadres to lead the pickets is a strike that breaks itself. Build first.
@@ -60,6 +63,7 @@ Your file is thick enough now that the state prefers a cheaper instrument than t
 - @rechazar_trato: Refuse. This strike is ours or it is nobody's.
 
 @aceptar_trato
+title: El trato de la CTM
 subtitle: Concrete wins, but the charro's name goes on them.
 on-arrival: sup_workers += 4; salario_real += 5; charrismo += 6; unity -= 3; expediente -= 2
 
@@ -68,6 +72,7 @@ The raises are real; the men are not fools, and they know who actually walked th
 - @root: Back to the work.
 
 @rechazar_trato
+title: Este paro es nuestro
 subtitle: Keep the strike pure — and make yourself worth crushing.
 on-arrival: sup_workers += 3; charrismo -= 5; unity += 4; expediente += 12; huelga_prep += 6
 
@@ -80,6 +85,7 @@ The committee sends the emissary back with his typed settlement folded into his 
 title: La respuesta del regimen
 subtitle: The state has decided you are worth the cost.
 new-page: true
+face-image: img/halconazo.jpg
 on-arrival: expediente += 5; represion += 4
 
 They come before dawn on the fourth day, the way they always come: granaderos in trucks, the plant retaken gate by gate, the strike committee's leaders lifted from their homes in the same hour so no two of them can confer. By the time the shift that would have refused to work arrives, the machines are already running and the men who ran them yesterday are in vehicles with no plates.
