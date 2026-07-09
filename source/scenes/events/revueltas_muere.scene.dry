@@ -2,7 +2,7 @@ title: Muere Revueltas
 new-page: true
 subtitle: 14 de abril de 1976
 tags: event
-view-if: year = 1976 and month = 4
+view-if: year = 1976 and month >= 4 and month <= 6
 priority: 3
 max-visits: 1
 on-arrival: revueltas_dead = 1; unity += 2; sup_students += 2; political_capital += 2

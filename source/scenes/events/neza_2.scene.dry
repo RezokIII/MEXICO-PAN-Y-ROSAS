@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1976 — the first water main
 face-image: img/agua_neza.jpg
 tags: event
-view-if: year = 1976 and month = 5 and colonia_saga >= 1
+view-if: year = 1976 and month >= 5 and month <= 7 and colonia_saga >= 1
 priority: 2
 max-visits: 1
 

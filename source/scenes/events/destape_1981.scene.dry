@@ -3,7 +3,7 @@ new-page: true
 subtitle: Septiembre-octubre de 1981
 face-image: img/destape.jpg
 tags: event
-view-if: year = 1981 and month = 10
+view-if: year = 1981 and month >= 10 and month <= 12
 priority: 3
 max-visits: 1
 on-arrival: destape_phase = 4; pri_tecnicos += 15; pri_politicos -= 8

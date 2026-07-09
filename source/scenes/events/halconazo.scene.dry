@@ -3,7 +3,7 @@ new-page: true
 subtitle: Jueves de Corpus — 10 de junio de 1971
 face-image: img/halconazo.jpg
 tags: event
-view-if: year = 1971 and month = 6
+view-if: year = 1971 and month >= 6 and month <= 8
 priority: 3
 max-visits: 1
 on-arrival: represion += 8; guerrilla_meter += 5; memorial += 1

@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1974 — the JC decides what it is
 face-image: img/jc_pena.jpg
 tags: event
-view-if: year = 1974 and month = 3
+view-if: year = 1974 and month >= 3 and month <= 5
 priority: 2
 max-visits: 1
 

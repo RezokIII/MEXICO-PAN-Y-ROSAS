@@ -2,7 +2,7 @@ title: Word from the campuses
 new-page: true
 subtitle: On the horizon
 tags: event
-view-if: year = 1971 and month = 5
+view-if: year = 1971 and month >= 5 and month <= 7
 priority: 4
 max-visits: 1
 

@@ -3,7 +3,7 @@ new-page: true
 subtitle: Marzo de 1973
 face-image: img/liga.jpg
 tags: event
-view-if: year = 1973 and month = 3
+view-if: year = 1973 and month >= 3 and month <= 5
 priority: 2
 max-visits: 1
 on-arrival: guerrilla_meter += 3

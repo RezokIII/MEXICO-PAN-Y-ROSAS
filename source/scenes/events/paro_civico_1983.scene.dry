@@ -3,7 +3,7 @@ new-page: true
 subtitle: October 1983 — the civic strike
 face-image: img/mayday.jpg
 tags: event
-view-if: year = 1983 and month = 10
+view-if: year = 1983 and month >= 10 and month <= 12
 priority: 2
 max-visits: 1
 

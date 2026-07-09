@@ -2,7 +2,7 @@ title: The city, unaware
 new-page: true
 subtitle: On the horizon
 tags: event
-view-if: year = 1985 and month = 8
+view-if: year = 1985 and month >= 8 and month <= 10
 priority: 4
 max-visits: 1
 

@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1987 — the ice is moving
 face-image: img/perestroika.jpg
 tags: event
-view-if: year = 1987 and month = 2
+view-if: year = 1987 and month >= 2 and month <= 4
 priority: 2
 max-visits: 1
 on-arrival: prestigio_socialismo -= 4; moscow_relation -= 2

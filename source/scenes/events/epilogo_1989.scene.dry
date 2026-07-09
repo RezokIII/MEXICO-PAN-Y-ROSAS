@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1989
 face-image: img/zocalo_88.jpg
 tags: event
-view-if: year = 1989 and month = 5
+view-if: year = 1989 and month >= 5 and month <= 7
 priority: 3
 max-visits: 1
 on-arrival: {!

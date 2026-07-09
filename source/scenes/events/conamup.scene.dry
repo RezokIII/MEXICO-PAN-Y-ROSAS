@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1980 — the city's poor coordinate
 face-image: img/conamup.jpg
 tags: event
-view-if: year = 1980 and month = 5
+view-if: year = 1980 and month >= 5 and month <= 7
 priority: 2
 max-visits: 1
 

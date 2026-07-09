@@ -3,7 +3,7 @@ new-page: true
 subtitle: Septiembre de 1978
 face-image: img/lecumberri.jpg
 tags: event
-view-if: year = 1978 and month = 9
+view-if: year = 1978 and month >= 9 and month <= 11
 priority: 2
 max-visits: 1
 on-arrival: organizers += 1; political_capital += 2; represion -= 5

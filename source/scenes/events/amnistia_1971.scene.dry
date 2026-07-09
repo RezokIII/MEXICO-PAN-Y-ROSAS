@@ -3,7 +3,7 @@ new-page: true
 subtitle: Mayo de 1971
 face-image: img/lecumberri.jpg
 tags: event
-view-if: year = 1971 and month = 5
+view-if: year = 1971 and month >= 5 and month <= 7
 priority: 2
 max-visits: 1
 on-arrival: heberto_advisor = 1; revueltas_advisor = 1; sup_students += 4; political_capital += 3; presidente_cooptacion += 3

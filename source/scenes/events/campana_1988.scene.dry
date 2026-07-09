@@ -3,7 +3,7 @@ new-page: true
 subtitle: Marzo-mayo de 1988
 face-image: img/cardenas_campana.jpg
 tags: event
-view-if: year = 1988 and month = 4
+view-if: year = 1988 and month >= 4 and month <= 6
 priority: 3
 max-visits: 1
 

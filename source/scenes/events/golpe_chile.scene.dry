@@ -3,7 +3,7 @@ new-page: true
 subtitle: Chile, 1973
 face-image: img/chile_1973.jpg
 tags: event
-view-if: year = 1973 and month = 9
+view-if: year = 1973 and month >= 9 and month <= 11
 priority: 3
 max-visits: 1
 

@@ -3,7 +3,7 @@ new-page: true
 subtitle: Agosto de 1983 — la desaparición de poderes
 face-image: img/juchitan.jpg
 tags: event
-view-if: year = 1983 and month = 8
+view-if: year = 1983 and month >= 8 and month <= 10
 priority: 3
 max-visits: 1
 

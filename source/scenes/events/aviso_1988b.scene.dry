@@ -2,7 +2,7 @@ title: Five weeks to the sixth of July
 new-page: true
 subtitle: On the horizon
 tags: event
-view-if: year = 1988 and month = 6
+view-if: year = 1988 and month >= 6 and month <= 8
 priority: 4
 max-visits: 1
 

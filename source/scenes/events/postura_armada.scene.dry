@@ -3,7 +3,7 @@ new-page: true
 subtitle: Agosto de 1971
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: year = 1971 and month = 8
+view-if: year = 1971 and month >= 8 and month <= 10
 priority: 2
 max-visits: 1
 

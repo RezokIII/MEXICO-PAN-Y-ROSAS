@@ -3,7 +3,7 @@ new-page: true
 subtitle: 8 de julio de 1976
 face-image: img/excelsior.jpg
 tags: event
-view-if: year = 1976 and month = 7
+view-if: year = 1976 and month >= 7 and month <= 9
 priority: 2
 max-visits: 1
 on-arrival: excelsior_caido = 1

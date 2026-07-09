@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1986-87 — the system cracks from above
 face-image: img/cardenas_campana.jpg
 tags: event
-view-if: year = 1987 and month = 3
+view-if: year = 1987 and month >= 3 and month <= 5
 priority: 3
 max-visits: 1
 on-arrival: cd_formed = 1; pri_politicos -= 5

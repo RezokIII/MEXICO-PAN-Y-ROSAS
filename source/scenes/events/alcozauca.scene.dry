@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1980 — la Montaña vota
 face-image: img/radio_ayuntamiento.jpg
 tags: event
-view-if: year = 1980 and month = 7 and registro >= 1
+view-if: year = 1980 and month >= 7 and month <= 9 and registro >= 1
 priority: 3
 max-visits: 1
 

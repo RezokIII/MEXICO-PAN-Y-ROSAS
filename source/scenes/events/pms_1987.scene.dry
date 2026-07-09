@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1987 — the second fusion
 face-image: img/congreso.jpg
 tags: event
-view-if: year = 1987 and month = 5
+view-if: year = 1987 and month >= 5 and month <= 7
 priority: 3
 max-visits: 1
 

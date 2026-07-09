@@ -3,7 +3,7 @@ new-page: true
 subtitle: 30 de mayo de 1984
 face-image: img/camioneta.jpg
 tags: event
-view-if: year = 1984 and month = 5
+view-if: year = 1984 and month >= 5 and month <= 7
 priority: 2
 max-visits: 1
 on-arrival: memorial += 1; represion += 2

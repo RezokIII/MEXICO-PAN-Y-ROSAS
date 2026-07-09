@@ -3,7 +3,7 @@ new-page: true
 subtitle: February 1977 — the line for the reform years
 face-image: img/congreso.jpg
 tags: event
-view-if: year = 1977 and month = 2
+view-if: year = 1977 and month >= 2 and month <= 4
 priority: 3
 max-visits: 1
 

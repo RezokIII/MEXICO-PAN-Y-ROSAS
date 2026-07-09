@@ -3,7 +3,7 @@ new-page: true
 subtitle: Febrero de 1972
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: year = 1972 and month = 2
+view-if: year = 1972 and month >= 2 and month <= 4
 priority: 2
 max-visits: 1
 on-arrival: memorial += 1

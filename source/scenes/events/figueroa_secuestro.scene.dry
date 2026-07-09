@@ -3,7 +3,7 @@ new-page: true
 subtitle: Mayo-septiembre de 1974
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: year = 1974 and month = 6
+view-if: year = 1974 and month >= 6 and month <= 8
 priority: 3
 max-visits: 1
 on-arrival: represion += 6
