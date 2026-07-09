@@ -17,6 +17,22 @@ if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_c
 
 *Hover any highlighted term — people, institutions, mechanics — for context.*
 
+= El pulso
+
+[? if funds <= 6 : The treasury runs on coins. Some doors will stay shut until the caja is fed. ?]
+[? if des_ortodoxos >= 45 or des_renovadores >= 45 or des_nueva >= 45 : A corriente is turning restless. Tend to the internal work, or the house will bleed. ?]
+[? if expediente >= 60 : The file thickens. When it is this heavy, the four-a.m. knock is a matter of time — quiet the profile or invest in security. ?]
+[? if unity <= 25 : The house is divided against itself. Mend it before the factions decide the matter for you. ?]
+[? if represion >= 78 : The state has stopped managing and started ending. Lower the temperature, or the leadership will be taken one by one. ?]
+[? if salario_real < 90 : The wage is bleeding. The factory gates and the colonias have never been more open — organize where the crisis bites. ?]
+[? if registro >= 1 and red_casillas < 20 and year >= 1978 : The casilla network is thin. A vote is coming that will be won or stolen at the tables you fail to cover. ?]
+[? if camino1 = 0 : The first task is survival — exist, hold the family at one table, reach 1971 intact. ?]
+[? if camino1 = 1 and camino2 = 0 : Grow. Ten thousand members is the wall the state cannot easily disappear. ?]
+[? if camino2 = 1 and camino3 = 0 : The door of the reform is the next stone: registro, and seats to speak from. ?]
+[? if camino3 = 1 and camino4 = 0 : Lay foundations the state cannot see: the casilla network, a town governed with open books. ?]
+[? if camino4 = 1 and camino5 = 0 : The convergence: the united front, with the Movement as a founding wall. 1988 is the reckoning. ?]
+[? if funds > 6 and expediente < 60 and unity > 25 and represion < 78 and (des_ortodoxos < 45 and des_renovadores < 45 and des_nueva < 45) : The Movement is steady this season. Press the advantage — organize, and read the road ahead. ?]
+
 
 [+ month : month +] [+ year +]
 
