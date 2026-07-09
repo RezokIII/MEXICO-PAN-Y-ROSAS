@@ -1,6 +1,7 @@
 title: Trabajo magisterial
 new-page: true
 subtitle: Every teacher is a cell armed with chalk
+card-image: img/cards/mimeografo.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

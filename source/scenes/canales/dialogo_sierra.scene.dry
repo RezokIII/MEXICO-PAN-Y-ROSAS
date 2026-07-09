@@ -1,6 +1,7 @@
 title: El emisario
 new-page: true
 subtitle: Arguing the line where the line is a firing line
+card-image: img/cards/columna_movil.jpg
 on-arrival: month_actions += 1
 max-visits: 20
 is-card: true

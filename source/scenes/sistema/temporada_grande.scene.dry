@@ -1,6 +1,7 @@
 title: La temporada grande
 new-page: true
 subtitle: The succession is played once per sexenio
+card-image: img/cards/palancas.jpg
 view-if: destape_phase >= 1 and destape_phase <= 3
 on-arrival: month_actions += 1
 max-visits: 12

@@ -1,6 +1,7 @@
 title: Los capturados
 new-page: true
 subtitle: Whoever falls alive can still be defended
+card-image: img/cards/lecumberri_gate.jpg
 on-arrival: month_actions += 1
 max-visits: 30
 is-card: true

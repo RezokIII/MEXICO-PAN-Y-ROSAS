@@ -1,6 +1,7 @@
 title: Cultivar a los reformistas
 new-page: true
 subtitle: The system has dissidents too; they dine better
+card-image: img/cards/palancas.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

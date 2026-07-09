@@ -1,6 +1,7 @@
 title: Círculos de estudio
 new-page: true
 subtitle: The line is contested at the kitchen table
+card-image: img/cards/mimeografo.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

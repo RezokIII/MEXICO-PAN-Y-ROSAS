@@ -1,6 +1,7 @@
 title: El canal médico
 new-page: true
 subtitle: Medicine has no party line
+card-image: img/cards/columna_movil.jpg
 on-arrival: month_actions += 1
 max-visits: 40
 is-card: true

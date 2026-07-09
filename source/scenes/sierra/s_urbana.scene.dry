@@ -1,6 +1,7 @@
 title: Urban operations
 new-page: true
 subtitle: Safe houses, bus routes, the border
+card-image: img/cards/columna_movil.jpg
 view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 60

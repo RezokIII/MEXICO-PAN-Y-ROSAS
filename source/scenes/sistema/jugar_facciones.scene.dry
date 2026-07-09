@@ -1,6 +1,7 @@
 title: Jugar las facciones
 new-page: true
 subtitle: The PRI is a civil war with office space
+card-image: img/cards/palancas.jpg
 on-arrival: month_actions += 1
 max-visits: 60
 is-card: true

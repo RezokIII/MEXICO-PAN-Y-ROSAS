@@ -1,6 +1,7 @@
 title: Special operations
 new-page: true
 subtitle: Key figures — leverage where presence permits
+card-image: img/cards/expropiacion.jpg
 view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 30

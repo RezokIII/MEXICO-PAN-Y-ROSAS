@@ -1,6 +1,7 @@
 title: The economic program
 new-page: true
 subtitle: What the left says the economy is for
+card-image: img/cards/prensa.jpg
 view-if: year >= 1971
 on-arrival: month_actions += 1
 max-visits: 40

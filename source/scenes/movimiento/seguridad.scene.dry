@@ -1,6 +1,7 @@
 title: Seguridad
 new-page: true
 subtitle: The expediente fattens by itself; slimming it costs
+card-image: img/cards/lecumberri_gate.jpg
 view-if: expediente >= 20
 on-arrival: month_actions += 1
 max-visits: 60

@@ -1,6 +1,7 @@
 title: The eyes
 new-page: true
 subtitle: A war is fought on what you can see
+card-image: img/cards/recluta.jpg
 view-if: via = "armada" or via = "dual"
 on-arrival: month_actions += 1
 max-visits: 60
