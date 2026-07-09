@@ -178,6 +178,23 @@ new-page: true
 
 [? if ending = "irrelevancia" : —We had reasons, mijo. Very good ones. So good I still recite them alone in the kitchen, to see if they can convince the walls. ?]
 
+- @slide_mural: Continue.
+
+@slide_mural
+new-page: true
+
+= El muro, de nuevo
+
+Go back to the stairwell. Look up at Rivera's wall one more time — Zapata, the white horse, the word *Tierra* — and ask the only question the mural was ever really asking: did any of it come down off the plaster?
+
+[? if ending = "reconocimiento" or ending = "historico" or ending = "fuerte" : Once — on one counted night, in one founded party, in one arithmetic the state could not rewrite — the dream stepped down off the wall and stood in the plaza on its own feet. It did not stay long, and it did not do everything the painter promised. But a thing that was only ever paint had, for a season, a pulse. The mural is still up there. It is no longer the only place the dream lives. ?]
+
+[? if ending = "debil" or ending = "media" or ending = "ruptura" or ending = "irrelevancia" : The dream did not come down off the wall — not this decade, not on your watch. But look closely at the plaster: it is worn where a thousand hands reached up and touched it, year after year, refusing to accept that a painted promise is only paint. The mural outlasts the men who commissioned it precisely because people like you would not let it dry into decoration. The appointment is still unkept. Someone is still, always, at the door of the agrarian office. The dream continues because it was never allowed to finish being a dream. ?]
+
+[? if ending = "aniquilacion" or ending = "intervencion" : The dream was larger than the room they gave it, and the room won — this time. They hosed the plaza clean; they will not scrub the wall, because a mural of a revolution safely dead is the regime's favorite kind. And yet: paint outlives painters. The campesino is still bent to the corn up there, the worker still holds the future in his two hands, and somewhere a mother is telling a boy what the figures mean. It always begins again. It always begins again. But not, this time, with you. ?]
+
+The mother in Michoacán grew old. The campesino on the Costa Grande died at the door of the office, still holding the paper. The railwayman, at the end, got his name into a court document instead of a ledger. None of them saw the dawn on the wall. All of them were the reason the paint never quite dried.
+
 - @terminar: Fin.
 
 @terminar
