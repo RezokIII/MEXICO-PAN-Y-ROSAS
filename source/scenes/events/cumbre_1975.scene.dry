@@ -1,6 +1,7 @@
 title: The balance of 1975
 new-page: true
 subtitle: The commanders take stock of the Echeverria years
+face-image: img/guerrero_sierra.jpg
 tags: event
 view-if: (via = "armada" or via = "dual") and year = 1975 and month = 10
 priority: 3

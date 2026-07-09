@@ -1,6 +1,7 @@
 title: El charrazo
 new-page: true
 subtitle: The state remembers who owns the strike
+face-image: img/mayday.jpg
 tags: event
 view-if: (huelgas >= 25 or huelga_prep >= 45) and time >= charrazo_last + 14
 priority: 2

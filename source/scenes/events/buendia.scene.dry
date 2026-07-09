@@ -1,6 +1,7 @@
 title: Buendía
 new-page: true
 subtitle: 30 de mayo de 1984
+face-image: img/camioneta.jpg
 tags: event
 view-if: year = 1984 and month = 5
 priority: 2

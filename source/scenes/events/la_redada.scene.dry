@@ -1,6 +1,7 @@
 title: La redada
 new-page: true
 subtitle: Four in the morning
+face-image: img/camioneta.jpg
 tags: event
 view-if: expediente >= 60 and time >= redada_last + 12
 priority: 2

@@ -1,6 +1,7 @@
 title: La declinación
 new-page: true
 subtitle: Junio de 1988
+face-image: img/cardenas_campana.jpg
 tags: event
 view-if: year = 1988 and month = 6 and pms = 1
 priority: 3

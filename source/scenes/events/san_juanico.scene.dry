@@ -1,6 +1,7 @@
 title: San Juanico
 new-page: true
 subtitle: November 19, 1984 — the morning the sky burned
+face-image: img/san_juanico.jpg
 tags: event
 view-if: year = 1984 and month = 11
 priority: 3

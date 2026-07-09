@@ -1,6 +1,7 @@
 title: La amnistía
 new-page: true
 subtitle: Septiembre de 1978
+face-image: img/lecumberri.jpg
 tags: event
 view-if: year = 1978 and month = 9
 priority: 2

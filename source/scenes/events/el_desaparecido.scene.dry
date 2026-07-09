@@ -1,6 +1,7 @@
 title: No hay registro
 new-page: true
 subtitle: —
+face-image: img/camioneta.jpg
 tags: event
 view-if: represion >= 75 and time >= desap_last + 9
 priority: 2

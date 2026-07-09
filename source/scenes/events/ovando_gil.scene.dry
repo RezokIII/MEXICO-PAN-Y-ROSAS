@@ -1,6 +1,7 @@
 title: Los dos de Cárdenas
 new-page: true
 subtitle: 2 de julio de 1988
+face-image: img/camioneta.jpg
 tags: event
 view-if: year = 1988 and month = 7
 priority: 3

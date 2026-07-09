@@ -1,6 +1,7 @@
 title: El destape de los técnicos
 new-page: true
 subtitle: Septiembre-octubre de 1981
+face-image: img/destape.jpg
 tags: event
 view-if: year = 1981 and month = 10
 priority: 3

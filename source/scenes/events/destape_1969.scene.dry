@@ -1,6 +1,7 @@
 title: El destape
 new-page: true
 subtitle: Noviembre de 1969
+face-image: img/destape.jpg
 tags: event
 view-if: year = 1969 and month = 11
 priority: 3

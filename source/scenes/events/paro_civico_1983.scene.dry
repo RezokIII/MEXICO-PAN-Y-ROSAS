@@ -1,6 +1,7 @@
 title: El paro cívico
 new-page: true
 subtitle: October 1983 — the civic strike
+face-image: img/mayday.jpg
 tags: event
 view-if: year = 1983 and month = 10
 priority: 2

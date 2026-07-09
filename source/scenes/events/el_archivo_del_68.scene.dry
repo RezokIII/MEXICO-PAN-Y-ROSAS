@@ -1,6 +1,7 @@
 title: El archivo del 68
 new-page: true
 subtitle: What your notebooks kept
+face-image: img/tlatelolco.jpg
 tags: event
 view-if: verano68 = 3 and year >= 1979 and registro >= 1
 priority: 2

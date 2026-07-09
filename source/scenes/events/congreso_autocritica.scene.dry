@@ -1,6 +1,7 @@
 title: La autocrítica
 new-page: true
 subtitle: 1969 — el pleno que nadie quería
+face-image: img/congreso.jpg
 tags: event
 view-if: year = 1969 and month = 6
 priority: 2
