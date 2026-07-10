@@ -45,6 +45,7 @@ if (Q.dotaciones >= 3) { this.achieve('la_tierra_trabaja'); }
 if (Q.legitimidad_regimen <= 30) { this.achieve('el_regimen_desnudo'); }
 if (Q.ofrenda_armas == 1) { this.achieve('entre_las_flores'); }
 if (Q.enlace_sintesis == 1) { this.achieve('el_puente'); }
+if (Q.fe_voto >= 55) { this.achieve('la_fe_recuperada'); }
 this.achieve('game_completed');
 !}
 go-to: slide_logros

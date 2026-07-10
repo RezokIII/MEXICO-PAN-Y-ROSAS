@@ -235,6 +235,10 @@ Middle classes: [+ sup_middle +]
 [? if registro = 0 : Electoral projection: not applicable. First, exist. ?]
 [? if registro >= 1 : Electoral projection: the cadres are working on it. One watched casilla is worth more than any poll. ?]
 
+**La fe en el voto (turnout)**
+
+[? if fe_voto >= 55 : Renacida — people who long ago stopped believing the vote could matter are registering again. Turnout will not be the regime's friend. ?][? if fe_voto >= 35 and fe_voto <= 54 : Despertando — the cynicism of decades is cracking; more will come out than the machine expects. ?][? if fe_voto <= 34 : Baja — the country still believes the count is theirs, and low turnout is the regime's oldest ally. Break the grip and the believers return. ?]
+
 @economia
 
 = Economy

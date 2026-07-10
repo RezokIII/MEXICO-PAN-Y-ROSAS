@@ -49,6 +49,15 @@ if (Q.month != Q.last_drift_month) {
         // over half the country behind you: the regime stops managing and starts crushing
         Q.represion += 3; Q.expediente += 3;
     }
+    // --- belief that the vote can matter (turnout): the inverse of the PRI's grip on the process ---
+    Q.fe_voto += (72 - Q.legitimidad_regimen) * 0.02;              // as the regime's grip weakens, cynicism lifts
+    if (Q.alquimia_expuesta) { Q.fe_voto += 0.35; }                // proof the fraud can be documented
+    Q.fe_voto += Q.red_casillas * 0.012 + Q.escandalos * 0.06;     // a watched casilla, a scandal
+    if (Q.cd_formed) { Q.fe_voto += 0.4; }                          // the Corriente makes the vote feel open
+    if (_iz > 25) { Q.fe_voto += 0.1; }
+    Q.fe_voto -= 0.15;                                             // decades of cynicism creep back
+    if (Q.fe_voto < 0) { Q.fe_voto = 0; }
+    if (Q.fe_voto > 100) { Q.fe_voto = 100; }
     if (Q.inteligencia < 0) { Q.inteligencia = 0; }
     if (Q.inteligencia > 80) { Q.inteligencia = 80; }
     if (Q.huelga_prep > 0 && Q.time % 6 == 0) { Q.huelga_prep -= 1; }

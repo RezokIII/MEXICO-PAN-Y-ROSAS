@@ -361,6 +361,8 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 = Completed Achievements Overall
 
 
+[? if achievement_la_fe_recuperada : **La fe recuperada** — make a cynical country believe the vote can matter again. ?]
+
 [? if achievement_el_seis_de_julio : **El seis de julio** — force a counted 1988 — the reconocimiento the regime cannot survive. ?]
 
 [? if achievement_el_partido_nuevo : **El partido nuevo** — out of the stolen election, found the new party of 1989. ?]
@@ -453,6 +455,8 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 
 = Incomplete Achievements
+
+[? if not achievement_la_fe_recuperada : **La fe recuperada** — make a cynical country believe the vote can matter again. ?]
 
 [? if not achievement_el_seis_de_julio : **El seis de julio** — force a counted 1988 — the reconocimiento the regime cannot survive. ?]
 

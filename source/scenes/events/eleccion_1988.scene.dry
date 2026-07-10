@@ -9,6 +9,7 @@ max-visits: 1
 on-arrival: {!
 var ola = 22 + (100 - Q.salario_real) * 0.15 + Q.cd_rel * 2 + Q.costureras * 3 + Q.sup_students * 0.06 + Q.sup_colonos * 0.08 + (Q.barrios ? 2 : 0) + (Q.huelga_general ? 2 : 0) + (Q.mayday >= 2 ? 1 : 0) + (Q.laguna ? 2 : 0) + (Q.auge_armada ? 2 : 0) + Q.frente_unidad * 0.06;
 ola += (72 - Q.legitimidad_regimen) * 0.15;
+ola += (Q.fe_voto - 20) * 0.30;   // belief -> turnout -> the opposition wave
 if (Q.fdn >= 1) {
     Q.real_fdn = Math.round(Math.min(52, ola + Q.izq_votes_display * 0.6));
     Q.real_castillo = 0;
@@ -20,6 +21,7 @@ Q.real_pan = Q.pan_votes_display + 4;
 Q.real_pri88 = 100 - Q.real_fdn - Q.real_castillo - Q.real_pan - 4;
 var alq = 0.5 - Q.red_casillas * 0.003;
 alq -= (72 - Q.legitimidad_regimen) * 0.0025;
+alq -= (Q.fe_voto - 20) * 0.0025;   // a country that turns out is harder to defraud
 if (Q.alquimia_expuesta) { alq -= 0.05; }
 if (alq < 0.1) { alq = 0.1; }
 Q.oficial_fdn = Math.round(Q.real_fdn * (1 - alq));
