@@ -264,6 +264,7 @@ if (Q.month_actions >= 1) {
     Q.time += 1;
     Q.month_actions = 0;
     Q.month += 1;
+    Q.evt_loop = 0;
     if (Q.month >= 13) {
         Q.month = 1;
         Q.year += 1;
@@ -631,6 +632,8 @@ if (choices && choices[0].title != "Continue...") {
 } else {
     has_event = 0;
 }
+Q.evt_loop = (Q.evt_loop || 0) + 1;
+if (Q.evt_loop > 25) { Q.has_event = 0; }   // safety net: never loop forever
 Q.pending_events = Q.has_event;
 // pre-load all of the event images
 if (this.ui && this.ui.show_portraits) {

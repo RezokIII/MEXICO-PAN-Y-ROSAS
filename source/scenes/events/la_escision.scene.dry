@@ -3,7 +3,8 @@ new-page: true
 subtitle: The house cracks
 face-image: img/fronda.jpg
 tags: event
-view-if: unity <= 22 and time >= 24
+view-if: unity <= 22 and time >= 24 and time >= escision_last + 15
+on-arrival: escision_last = time
 priority: 2
 frequency: 70
 max-visits: 3

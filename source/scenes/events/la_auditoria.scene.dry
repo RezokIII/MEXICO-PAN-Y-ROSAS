@@ -2,7 +2,8 @@ title: La auditoría
 new-page: true
 subtitle: Money organizes too — in its own way
 tags: event
-view-if: funds >= 45 and time >= 30
+view-if: funds >= 45 and time >= 30 and time >= auditoria_last + 18
+on-arrival: auditoria_last = time
 priority: 1
 frequency: 50
 max-visits: 2

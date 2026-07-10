@@ -3,7 +3,8 @@ new-page: true
 subtitle: A schism looms
 face-image: img/fronda.jpg
 tags: event
-view-if: unity <= 14 and unity > 4
+view-if: unity <= 14 and unity > 4 and time >= cisma_aviso_last + 12
+on-arrival: cisma_aviso_last = time
 priority: 5
 frequency: 80
 max-visits: 3
