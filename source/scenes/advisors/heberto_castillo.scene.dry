@@ -2,7 +2,7 @@ title: Heberto Castillo
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: heberto_advisor = 1
+view-if: heberto_advisor = 1 and refugio_sierra = 0
 
 = Heberto Castillo
 

@@ -2,7 +2,7 @@ title: Demetrio Vallejo
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: vallejo_advisor = 1 and (via = "politica" or via = "institucional" or via = "dual")
+view-if: vallejo_advisor = 1 and (via = "politica" or via = "institucional" or via = "dual") and refugio_sierra = 0
 
 = Demetrio Vallejo
 

@@ -463,6 +463,25 @@
   function trend(z,g){ if(prev[z]===undefined)return 'no prior data'; var d=Math.round(g-prev[z]); if(d>=5)return 'REINFORCING (+'+d+')'; if(d>=2)return 'building up (+'+d+')'; if(d<=-3)return 'drawing down ('+d+')'; return 'static'; }
   function q(v,hi,mid){ return v>=hi?'strong':(v>=mid?'moderate':'weak'); }
   function polScore(Q,z){ var a=SECT[z], t=0; for(var i=0;i<a.length;i++){ t+=Q[a[i]]||0; } return t/a.length; }
+  function mix(a,b,t){ return [Math.round(a[0]+(b[0]-a[0])*t), Math.round(a[1]+(b[1]-a[1])*t), Math.round(a[2]+(b[2]-a[2])*t)]; }
+  // map each region's sectors to electorate classes; add historical regional PAN lean
+  var CLS={sup_workers:'obreros',sup_peasants:'campesinos',sup_colonos:'colonos',sup_middle:'medias',sup_students:'estudiantes',sup_teachers:'maestros',sup_electricians:'electricistas'};
+  var PANLEAN={tijuana:8,chihuahua:10,nl:8,jalisco:6,valle:0,guerrero:-4,oaxaca:-4};
+  function partyShares(Q,z){
+    var secs=SECT[z], izq=0,pri=0,pan=0,n=0;
+    for(var i=0;i<secs.length;i++){
+      var c=CLS[secs[i]]; if(!c) continue;
+      var vi=Q[c+'_izq_normalized'], vp=Q[c+'_pri_normalized'], va=Q[c+'_pan_normalized'];
+      if(vi===undefined){ vi=Q[secs[i]]||0; vp=60; va=10; } // pre-first-tick fallback
+      izq+=vi; pri+=vp; pan+=va; n++;
+    }
+    if(!n){ return {who:'pri',top:50,izq:0,pri:50,pan:10,contested:false}; }
+    izq/=n; pri/=n; pan/=n;
+    pan+=(PANLEAN[z]||0); pri-=(PANLEAN[z]||0)*0.6;
+    var arr=[['izq',izq],['pri',pri],['pan',pan]].sort(function(a,b){return b[1]-a[1];});
+    return {who:arr[0][0], top:arr[0][1], second:arr[1][1], izq:izq, pri:pri, pan:pan,
+            contested:(arr[0][1]-arr[1][1])<7};
+  }
   window.paintSierraMap=function(){
     if(!window.dendryUI||!window.dendryUI.dendryEngine) return;
     if(window.statusTab!=='status.guerra') return;
@@ -480,17 +499,31 @@
       if(atWar){ val=Q['pres_'+z]||0; var guar=Q['guar_'+z]||0;
         r=Math.round(200+55*Math.min(1,val/40)); gb=Math.round(200-160*Math.min(1,val/40));
         poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px'; poly.style.stroke=guar>=55?'#0f7040':'#333';
-      } else { val=polScore(Q,z);
-        r=Math.round(230+25*Math.min(1,val/60)); gb=Math.round(225-150*Math.min(1,val/60));
-        poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth='1px'; poly.style.stroke='#999';
+      } else {
+        // POLITICAL MODE: color by dominant party — red us, green PRI, blue PAN, ochre contested
+        var pp = partyShares(Q, z);
+        var col, t = Math.min(1, Math.max(0, (pp.top - 25) / 45)); // intensity by dominance
+        if (pp.contested) { col = mix([214,208,190],[164,140,66], t); }
+        else if (pp.who === 'izq') { col = mix([235,205,200],[178,34,34], t); }
+        else if (pp.who === 'pan') { col = mix([205,215,232],[27,95,168], t); }
+        else { col = mix([205,226,208],[28,122,61], t); }
+        poly.style.fill='rgb('+col[0]+','+col[1]+','+col[2]+')';
+        poly.style.strokeWidth='1px'; poly.style.stroke='#999';
       }
       poly.style.cursor='help';
       poly.onmousemove=function(ev){ if(!tip)return; var body;
         if(atWar){ var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
           if(intel>=40){ body='Columns: <b>'+Math.round(pres)+'</b> &middot; Garrison: <b>'+Math.round(guar)+'</b><br>Troop movements: '+trend(z,guar)+(guar>=55?'<br><b>Ground too hot: presence erodes.</b>':''); }
           else { body='Columns: '+(pres>=20?'strong':(pres>=5?'some':'almost none'))+' &middot; Army posture: '+q(guar,45,30)+'<br><i>estimates only (intel '+Math.round(intel)+'/40)</i>'; }
-        } else { var ps=polScore(Q,z);
-          body='Left implantation: <b>'+q(ps,35,18)+'</b><br>Built on: '+SECT[z].map(function(x){return x.replace("sup_","");}).join(", ")+'.<br><i>Organize these sectors to turn the region red.</i>';
+        } else {
+          var pp2=partyShares(Q,z);
+          var lbl = pp2.contested ? '<b style="color:#b09a5a">CONTESTED</b>'
+                  : (pp2.who==='izq' ? '<b style="color:#c0392b">THE LEFT</b>'
+                  : (pp2.who==='pan' ? '<b style="color:#5b8fc9">THE PAN</b>' : '<b style="color:#3f9e6a">THE PRI</b>'));
+          body='Leads here: '+lbl+'<br>'
+             + 'Us <b>'+Math.round(pp2.izq)+'</b> · PRI <b>'+Math.round(pp2.pri)+'</b> · PAN <b>'+Math.round(pp2.pan)+'</b><br>'
+             + 'Built on: '+SECT[z].map(function(x){return x.replace("sup_","");}).join(", ")
+             + '.<br><i>Organize these sectors to turn the region red.</i>';
         }
         tip.innerHTML='<b>'+INFO[z][0]+'</b><br><span style="opacity:.85">'+INFO[z][1]+'</span><br>'+body;
         tip.style.display='block'; var rect=el.getBoundingClientRect();
@@ -746,6 +779,16 @@
       tracks.push({name:t.t, url:'music/'+encodeURIComponent(t.f), isLocal:false});
     });
     if (tracks.length){ renderList(); titleEl.textContent = tracks.length + ' canciones en la banda sonora'; }
+
+    // Autoplay on the first user gesture (pressing Comenzar): browsers block
+    // play() before a click, so the first click anywhere starts the soundtrack.
+    function autostart(){
+      document.removeEventListener('click', autostart, true);
+      if (idx >= 0 || audio.src || !tracks.length) return;
+      shuffle = true; shufBtn.classList.add('on');
+      play(Math.floor(Math.random()*tracks.length));
+    }
+    document.addEventListener('click', autostart, true);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

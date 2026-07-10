@@ -1,0 +1,24 @@
+title: Bajan los escondidos
+new-page: true
+subtitle: The leadership comes down
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: refugio_sierra = 1 and (represion <= 68 or time >= refugio_time + 30)
+priority: 3
+max-visits: 1
+on-arrival: refugio_sierra = 0; advisor_action_timer = 0; unity += 4; sup_peasants += 2; expediente += 3
+
+= Bajan los escondidos
+
+The weather changes the way it changed before — quietly, in the tone of the envelopes — and one by one the absent resume existing: the teacher returns from the relatives no one ever met, the railwayman's construction job ends, the señora is home again and receiving visitors, thank you, as if the year had been a Sunday.
+
+They come back changed in the way the mountain changes people: thinner, unhurried, with the particular calm of those who have slept a year beyond the state's reach and learned that its reach is not, in fact, the weather. The cells that ran shallow without them are handed back deeper than they were left — the seconds-in-command grew into the work, which was, the old ones note with satisfaction, the other half of the plan.
+
+In Bucareli, a year of surveillance reports on empty doorways is filed under a word that has never once been true: *inactivos.*
+
+- @retomar: Take up the work where it was buried. There is a great deal of it.
+
+@retomar
+go-to: post_event
+
+The first meeting of the restored leadership runs eleven hours and feels, several participants say afterward, like breathing with both lungs.

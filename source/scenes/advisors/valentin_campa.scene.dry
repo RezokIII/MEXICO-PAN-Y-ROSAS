@@ -3,7 +3,7 @@ is-pinned-card: true
 tags: advisor
 card-image: img/portraits/campa.jpg
 new-page: true
-view-if: campa_advisor = 1 and (via = "politica" or via = "institucional" or via = "dual")
+view-if: campa_advisor = 1 and (via = "politica" or via = "institucional" or via = "dual") and refugio_sierra = 0
 
 # Also add Campa to shuffle_leadership.scene.dry (add + remove blocks),
 # per the guide. campa_advisor is set by los_liberados.scene.dry.

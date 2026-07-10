@@ -16,6 +16,7 @@ The sierra doctrine, applied: presence is not a garrison, it is a current. When 
 - @mover_gro_oax: Shift strength: Guerrero into Oaxaca — over the ranges the army maps badly.
 - @mover_valle_jal: Shift strength: the Valle into Jalisco — cell by cell along the bus routes.
 - @mover_chih_nl: Shift strength: Chihuahua into Nuevo Leon — the northern corridor.
+- @root: The columns hold their ground this month.
 - @easy_discard
 
 @mover_gro_oax

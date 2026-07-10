@@ -1,0 +1,42 @@
+title: El infiltrado
+new-page: true
+subtitle: The war's other inheritance
+face-image: img/camioneta.jpg
+tags: event
+view-if: veteranos >= 2 and infiltrado_done = 0 and via = "politica" and time >= armada_start + 60
+priority: 2
+frequency: 60
+max-visits: 1
+on-arrival: infiltrado_done = 1
+
+= El infiltrado
+
+The war sent down its veterans, and the state, which reads the same manuals, sent down one of its own among them: the compañero from the northern column — good record, good hands, a limp acquired honorably — has been seen, by someone whose eyes you trust, leaving a building on Bucareli by the door the public does not use.
+
+The old counterintelligence instinct wakes like a scar in cold weather. He has been inside the Movement for two years. What he has carried out is unknowable; what he could still carry matters more. And there is the other possibility, the one the security veterans force onto the table because it is the one amateurs skip: that he is being *shown* to you — that the DFS is spending him to make you gut your own veteran cadre in a season of suspicion.
+
+- @depurar_red: Quiet surgery: cut him out, rebuild every route he knew, say nothing. Trust the veterans to absorb it.
+- @doble: Feed him. A known channel into Bucareli is worth more than a punished traitor — run him back at his owners.
+- @tribunal: The old way: confront him before the cell, judgment in the open, the Movement's justice visible to its own.
+
+@depurar_red
+go-to: post_event
+choose-if: organizers >= 3
+unavailable-subtitle: Rebuilding routes in silence takes cadres you do not have.
+on-arrival: expediente -= 6; unity -= 2; inteligencia += 2
+
+He is invited to a meeting that does not exist, in a city where no one knows him, and by the time he reports the failure to his handlers, every address in his memory is a former address. No violence — the veterans are specific about this, having seen where it leads — only a man returned to his owners worthless, which among professionals is the harsher sentence.
+
+@doble
+go-to: post_event
+choose-if: inteligencia >= 25
+unavailable-subtitle: Running a double requires eyes good enough to check his every word. Yours are not, yet.
+on-arrival: inteligencia += 6; expediente += 4; unity -= 3
+
+For a year the northern veteran carries carefully cooked meals to Bucareli, and Bucareli's picture of the Movement acquires a persistent, useful wrongness: raids on vacated houses, files on invented committees. The cost is borne at home — the handful who must know carry the knowledge like a stone, and trust inside the veteran cadre, the war's best inheritance, develops its first hairline crack.
+
+@tribunal
+go-to: post_event
+on-arrival: unity += 3; sup_students -= 2; represion += 2; guerrilla_meter += 1
+
+He stands before the people he informed on, and the Movement discovers what it believes about justice when the courtroom is a basement. Nothing is done to him that the corridos would need to soften — expulsion, the name published, the long walk out — but the openness itself is the sentence, and the discipline it teaches inside is paid for outside: the DFS now knows precisely how its man was caught, and adjusts.

@@ -19,6 +19,7 @@ Where does the message land this season?
 - @prop_jalisco: Jalisco — Guadalajara.
 - @prop_nl: Nuevo León — Monterrey.
 - @prop_oaxaca: Oaxaca — the Istmo.
+- @root: The argument waits for a better month.
 - @easy_discard
 
 @prop_guerrero

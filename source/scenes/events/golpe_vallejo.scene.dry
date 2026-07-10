@@ -3,7 +3,7 @@ new-page: true
 subtitle: They came for the timetable-keeper
 face-image: img/camioneta.jpg
 tags: event
-view-if: vallejo_advisor = 1 and represion >= 80 and expediente >= 70 and time >= repadv_last + 15
+view-if: vallejo_advisor = 1 and represion >= 76 and expediente >= 65 and time >= repadv_last + 12 and refugio_sierra = 0
 priority: 2
 frequency: 60
 max-visits: 1

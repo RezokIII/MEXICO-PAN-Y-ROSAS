@@ -1,0 +1,26 @@
+title: La placa en la puerta
+new-page: true
+subtitle: The Party legally exists
+face-image: img/pcm.jpg
+tags: event
+view-if: registro >= 1 and legalizacion_done = 0
+priority: 3
+max-visits: 1
+on-arrival: legalizacion_done = 1; sup_middle += 2; funds += 3
+
+= La placa en la puerta
+
+It arrives without ceremony, because the state grants nothing ceremonially to you: a certificate with a folio number, and with it the strangest season in the Party's history — the season of coming up into the light.
+
+An office is rented, on a street, with the name on a plate by the door, and militants of thirty years stand across from it on the sidewalk simply looking, the way one looks at a thing that cannot be real by all prior experience. A bank account is opened. A telephone is listed — listed! — in the directory, under the name the DFS files used to abbreviate. The paper prints its masthead with an address instead of an apology. Young people walk in off the street and ask how one joins, through the front door, in daylight, and the compañera at the desk has to remember that the answer is no longer a security question.
+
+Nothing else changes. The files in Bucareli stay open; the men who watch keep watching, now from a legally required distance; the registro is conditional, which means revocable, which means the leash is the license. Every veteran holds both truths at once: this is what two decades in the basements bought — and it is a door the same hand can close.
+
+The transition is now official in both directions: the underground movement is a public party. What the Party does with the daylight — the count, the casillas, the tribune — decides whether the plate stays on the door.
+
+- @luz: In the light, then. Work.
+
+@luz
+go-to: post_event
+
+The first assembly in the legal office spends its opening minutes in an unaccustomed difficulty: nobody remembers how to run a meeting no one has to forget attending.

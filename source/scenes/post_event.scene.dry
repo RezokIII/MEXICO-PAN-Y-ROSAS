@@ -21,6 +21,9 @@ if (Q.month != Q.last_drift_month) {
         if (Q['pres_'+z] > 60) { Q['pres_'+z] = 60; }
         if (Q['guar_'+z] > 90) { Q['guar_'+z] = 90; }
     }
+    if (Q.auge_armada && !Q.sw_auge) { Q.sw_auge = 1; }
+    // the legend of the descent: a war ended on your terms keeps organizing the campo for years
+    if (Q.leyenda >= 1 && Q.sup_peasants < 20 + Q.leyenda * 6) { Q.sup_peasants += 0.2; }
     if (Q.via == "armada") { Q.represion += (Q.time % 2 == 0 ? 1 : 0); Q.inteligencia -= (Q.time % 4 == 0 ? 1 : 0); }
     if (Q.via == "dual") { Q.represion += (Q.time % 2 == 0 ? 1 : 0); Q.expediente += (Q.time % 2 == 0 ? 1 : 0); if (Q.time % 3 == 0) { Q.unity -= 1; } }
     if (Q.via == "institucional") { if (Q.time % 3 == 0) { Q.sup_students -= 1; Q.funds += 1; } }
@@ -93,10 +96,21 @@ if (Q.month != Q.last_drift_month) {
     if (Q.month == 1 && Q.ax_sovietico > -10) { Q.funds += Math.floor(Q.moscow_relation / 20); }
     // a hot guerrilla temptation bleeds your youth toward the armed groups
     if (Q.guerrilla_meter >= 15) { Q.sup_students -= 1; }
-    // support decays without upkeep: movements are rebuilt monthly or not at all
+    // support decays without upkeep: movements are rebuilt monthly or not at all.
+    // BUT a war that is being won is its own organizer: on the armed road, visible
+    // strength (presence, the corridos, the avisos) sustains the base the legal
+    // Movement can no longer tend. The armed road going WELL should not bleed the left.
     var decaylist = ['sup_workers','sup_electricians','sup_teachers','sup_students','sup_peasants','sup_colonos','sup_middle'];
+    var _decay = 0.03;
+    if (Q.via == 'armada' || Q.via == 'dual') {
+        var _war = Q.pres_guerrero + Q.pres_valle + Q.pres_chihuahua + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
+        if (_war >= 60) { _decay = 0.008; }
+        else if (_war >= 30) { _decay = 0.018; }
+        if (_war >= 60 && Q.memorial < 12) { Q.sup_peasants += 0.4; Q.sup_students += 0.3; }
+        if (_war >= 45 && Q.time % 3 == 0) { Q.members += 1; }   // clandestine growth: the war recruits
+    }
     for (var ds of decaylist) {
-        if (Q[ds] > 25) { Q[ds] -= (Q[ds] - 25) * 0.03; }
+        if (Q[ds] > 25) { Q[ds] -= (Q[ds] - 25) * _decay; }
     }
     // relationships with the system decay without maintenance - and are never limitless
     if (Q.pri_reformist_rel > 25 && Q.via != "institucional") { Q.pri_reformist_rel -= 0.7; }

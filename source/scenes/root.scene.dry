@@ -141,6 +141,12 @@ Q.plan_b = 0;
 Q.herencia = 0;
 Q.verano68 = 0;
 Q.rescate = 0;
+// --- el camino de la sierra (war milestones + carryover) ---
+Q.armada_start = 0;
+Q.sw_sobrevivir = 0; Q.sw_zona = 0; Q.sw_sintesis = 0; Q.sw_auge = 0; Q.sw_descenso = 0;
+Q.veteranos = 0; Q.leyenda = 0;
+Q.refugio_sierra = 0; Q.refugio_time = 0; Q.infiltrado_done = 0;
+Q.legalizacion_done = 0;
 
 // ---- la economía ----
 Q.crecimiento = 8;

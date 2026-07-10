@@ -30,6 +30,15 @@ go-to: post_event
 view-if: pres_total < 25
 on-arrival: {!
 Q.via = "politica";
+var _total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
+Q.veteranos = Math.max(Q.veteranos, Math.round(_total / 15));
+Q.members += Math.min(5, Math.floor(_total / 25));
+Q.organizers += (_total >= 50 ? 1 : 0);
+Q.red_casillas += Math.min(8, Math.floor(Q.pres_guerrero / 6) + Math.floor(Q.pres_oaxaca / 6));
+Q.sup_peasants += Math.min(8, _total * 0.05);
+if (!Q.leyenda) { Q.leyenda = (Q.sw_auge ? 2 : (_total >= 50 ? 1 : 0)); }
+if (_total >= 50) { Q.sw_descenso = 1; Q.political_capital += 4; }
+if (Q.expediente < 40) { Q.expediente = 40; }
 Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
 Q.members += 1; Q.represion -= 6; Q.guerrilla_meter -= 4; Q.unity -= 3;
 !}

@@ -11,13 +11,18 @@ tags: canales
 
 = El aviso oportuno
 
-The network hears things — a requisition of vehicles, leave cancelled at a barracks, the fuente's envelope naming a valley. Between hearing and the convoy's arrival there is a window, measured in hours, in which a telephone call to the right tienda changes what the soldiers find.
+[? if via = "politica" or via = "institucional" or via = "dual" : The network hears things — a requisition of vehicles, leave cancelled at a barracks, the fuente's envelope naming a valley. Between hearing and the convoy's arrival there is a window, measured in hours, in which a telephone call to the right tienda changes what the soldiers find. ?]
+
+[? if via = "armada" : The city ears hear things — a requisition of vehicles, leave cancelled at a barracks, a colonel's mistress complaining that his weekend is cancelled. The warnings flow up the mountain now: between hearing and the convoy's arrival there is a window, measured in hours, in which the column that moves lives and the column that sleeps is a list of names. The question every time is whether spending the source is worth the hours it buys. ?]
 
 - @avisar: Make the call. Whoever is in that valley — combatant, courier, coffee farmer on a list — gets the hours.
+- @avisar_columna: Move on the warning: the column decamps tonight, the village empties its compromised houses by dawn.
 - @callar: Not this time: the source is too exposed, and a warning that traces back kills the channel and its man.
+- @root: The channel stays silent this month, by choice.
 - @easy_discard
 
 @avisar
+view-if: via = "politica" or via = "institucional" or via = "dual"
 choose-if: expediente <= 75
 unavailable-subtitle: With the DFS this close, the call itself is a confession. The channel would not survive it.
 on-arrival: guerrilla_meter -= 1; sup_peasants += 3; expediente += 4; represion += 1
@@ -28,3 +33,11 @@ The convoy finds hearths still warm and a village of shrugs. Somewhere in the op
 on-arrival: unity -= 1; guerrilla_meter += 2; memorial += 1
 
 The window closes unspent. What the convoy finds, the corridos will report before the newspapers don't. The source lives to hear another requisition — that was the trade, and it was probably correct, and the man who made it will keep the other half of it in his chest for years: the arithmetic of channels is paid in exactly this coin.
+
+@avisar_columna
+view-if: via = "armada"
+choose-if: inteligencia >= 10
+unavailable-subtitle: Without a working ear inside the garrisons there is no warning to act on.
+on-arrival: inteligencia -= 3; guar_guerrero -= 2; sup_peasants += 2; expediente += 2
+
+The column is walking by midnight and the convoy finds cold hearths and a village of shrugs. It costs: the source who confirmed the requisition goes quiet for months, out of care or out of a cell, and no one will know which until much later. In the operation's paperwork a colonel writes *información comprometida* and requests an investigation that will eat his season. In the valley they know exactly whose voice saved them. That knowledge is the war's real currency, and it does not devalue.

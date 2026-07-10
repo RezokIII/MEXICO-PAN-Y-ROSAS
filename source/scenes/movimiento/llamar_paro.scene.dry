@@ -15,6 +15,8 @@ You have leafleted the gates three shifts running. The clandestine nuclei have n
 
 A strike you call and cannot sustain is worse than no strike — it teaches the floor that you are loud and weak. But a strike you never call teaches them you are only ever loud.
 
+[? if inflacion >= 20 : And this is a crisis year: the wage is dying in everyone's pocket at once, and the whole industrial belt knows it. A strike won in a year like this is worth three won in the fat years — the floor remembers who moved when the tortilla doubled. ?]
+
 - @lanzar: Call it. Down tools at shift change, pickets at every gate.
 - @esperar: Not yet. Keep building; the whistle can wait.
 - @easy_discard
@@ -44,7 +46,7 @@ What happens next is written in that file.
 view-if: expediente < 45
 title: Un paro que arde y se apaga
 subtitle: You are not yet worth the cost of crushing.
-on-arrival: sup_workers += 6; charrismo -= 4; salario_real += 2; political_capital += 2; expediente += 2; paros_ganados += 1
+on-arrival: sup_workers += 6; sup_workers += 4 if inflacion >= 20; charrismo -= 4; charrismo -= 2 if inflacion >= 20; salario_real += 2; political_capital += 2; expediente += 2; paros_ganados += 1
 
 Your file is thin enough that the calculation comes back the same as always: let it burn out. No riot police, no arrests — just the slow attrition of men who have rent to pay and a company that can wait. But the company blinks first on the small things: a reinstated delegate, a bathroom-break clause, a foreman transferred. Nothing that reaches the papers. Everything that reaches the floor.
 
@@ -61,6 +63,8 @@ on-arrival: expediente += 3
 Your file is thick enough now that the state prefers a cheaper instrument than the police: don Fidel himself. A CTM emissary arrives at the strike committee with a settlement already typed — real raises, real reinstatements, more than the men dared ask — on one condition, unspoken but total: the CTM signs it, the CTM announces it, the CTM owns the victory. Your committee becomes a footnote in your own strike.
 
 - @aceptar_trato: Take the deal. The men eat this winter; the charro takes the credit.
+- @contrapropuesta: Counter-sign: the CTM may co-sign YOUR settlement — the wins published under the committee's name beside don Fidel's.
+- @doble_juego: Take the deal — and keep the committee alive underground, dues and delegates intact, waiting inside the charro's victory.
 - @rechazar_trato: Refuse. This strike is ours or it is nobody's.
 
 @aceptar_trato
@@ -71,6 +75,28 @@ on-arrival: sup_workers += 4; salario_real += 5; charrismo += 6; unity -= 3; exp
 The raises are real; the men are not fools, and they know who actually walked the picket at four in the morning. But don Fidel's photograph is in the paper under the settlement, and the checkoff still flows to his empire. You traded a piece of the future for bread today. Some winters that is exactly the right trade. Your cadres will argue about it for years.
 
 - @root: Back to the work.
+
+@contrapropuesta
+title: La contrafirma
+subtitle: Strength at the table: requires strike readiness and capital.
+choose-if: huelga_prep >= 15 and political_capital >= 6
+unavailable-subtitle: A counter-signature is only worth what stands behind it: readiness 15 and the capital to make Gobernación prefer a deal.
+on-arrival: political_capital -= 4; sup_workers += 7; salario_real += 4; charrismo -= 2; unity += 2; expediente += 8; pri_reformist_rel += 3; paros_ganados += 1; huelga_prep += 2
+
+The emissary telephones don Fidel, and don Fidel — who did not build a fifty-year empire by fighting battles he can co-opt more cheaply next year — permits the experiment: the settlement retyped on plain paper, two signatures, the committee's first. It costs the CTM nothing it counts and gives you the one thing it never gives: the men saw who negotiated. In Gobernación the file gains a phrase that will follow you for a decade, half warning and half respect: *saben negociar.* They know how to negotiate.
+
+- @root: Back to the work — signed.
+
+@doble_juego
+title: El comité sumergido
+subtitle: Eat the winter, keep the weapon. Discipline required.
+choose-if: unity >= 50 and organizers >= 2
+unavailable-subtitle: Running a committee inside the CTM's victory takes iron cadres and a party that keeps secrets. Yours is short of both.
+on-arrival: sup_workers += 4; salario_real += 5; charrismo += 3; huelga_prep += 6; expediente += 4; unity -= 2; paros_ganados += 1
+
+Don Fidel's photograph goes in the paper; the raises are real; and on the third Sunday of every month, in a different kitchen each time, the committee that officially dissolved takes attendance. Dues in a coffee tin, delegates by workplace, minutes in nobody's handwriting. The CTM believes it digested you, which is the point: the charro system's one blindness is its certainty that everything it swallows is dead. Next time the whistle will not need three shifts of leaflets. It will need one sentence.
+
+- @root: Back to the work — twice.
 
 @rechazar_trato
 title: Este paro es nuestro

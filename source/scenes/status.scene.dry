@@ -289,7 +289,7 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 = El territorio
 
-[? if via = "politica" or via = "institucional" : The map below reads the country by the left's implantation — each region colored by how strong you are there. The south (Guerrero, Oaxaca) turns on peasants and teachers; the Valle de México on students, colonos and workers; the north on the industrial working class. Organize those sectors to turn a region red. Hover any region for its read. Should the Movement ever take up the gun, this same map becomes the war. ?]
+[? if via = "politica" or via = "institucional" : The map below reads the country by who holds it: **red** where the left leads, **green** where the PRI machine still delivers, **blue** where the PAN's middle-class Catholicism runs deepest, **ochre** where the ground is contested. The south (Guerrero, Oaxaca) turns on peasants and teachers; the Valle de México on students, colonos and workers; the north on the industrial working class — and on the PAN. Organize a region's sectors to turn it red. Hover any region for the breakdown. Should the Movement ever take up the gun, this same map becomes the war. ?]
 
 [? if not via : The map below reads the country by the left's regional implantation. Organize the sectors that anchor each region to turn it red. ?]
 
@@ -304,3 +304,17 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 [? if (via = "armada" or via = "dual") and inteligencia >= 40 : Jalisco presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
 
 [? if via = "armada" or via = "dual" : Doctrine: garrisons concentrate where you act and thin where you rest. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. The army wins every battle it can find, so the war is won by not being found. ?]
+
+[? if via = "armada" or via = "dual" : **El camino de la sierra** ?]
+
+[? if (via = "armada" or via = "dual") and sw_sobrevivir = 1 : I. Survive the hunt — DONE ?][? if (via = "armada" or via = "dual") and sw_sobrevivir = 0 : I. Survive the hunt: two years underground with the structure alive — pending ?]
+
+[? if (via = "armada" or via = "dual") and sw_zona = 1 : II. The zone — DONE: a range the state enters only in strength ?][? if (via = "armada" or via = "dual") and sw_zona = 0 : II. The zone: presence 35 in a region while its garrison stays under 45 — pending ?]
+
+[? if (via = "armada" or via = "dual") and sw_sintesis = 1 : III. The synthesis — DONE: the city and the sierra speak ?][? if (via = "armada" or via = "dual") and sw_sintesis = 0 : III. The synthesis: coordinate the urban and rural war through the enlace — pending ?]
+
+[? if (via = "armada" or via = "dual") and sw_auge = 1 : IV. El auge — DONE: the war stood at a cycle's end ?][? if (via = "armada" or via = "dual") and sw_auge = 0 : IV. El auge: reach a sexenio's balance with the war standing (total presence 60) — pending ?]
+
+[? if (via = "armada" or via = "dual") and sw_descenso = 0 : V. The descent from strength: end the war on your terms, not the state's. What comes down the mountain with you — veterans, legend, the southern networks — is the war's whole harvest. A war that ends in the dark harvests nothing. ?][? if sw_descenso = 1 : V. The descent — DONE: the war ended on the Movement's terms, and its harvest walks among you. ?]
+
+[? if via = "politica" and veteranos >= 1 : The war's veterans — [+ veteranos +] cohorts of them — hold the hardest posts in the Movement now: security, the campo, the places where a person needs to have already seen the worst. ?]

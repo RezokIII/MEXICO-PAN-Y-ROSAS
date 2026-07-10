@@ -2,7 +2,7 @@ title: La unificación de la izquierda
 new-page: true
 subtitle: Five thousand cannot win a country of seventy million alone
 card-image: img/congreso.jpg
-view-if: (registro >= 1 or fac_renovadores >= 30) and time >= unificacion_cd + 3
+view-if: (registro >= 1 or fac_renovadores >= 30 or fusion_prog >= 1) and time >= unificacion_cd + 3
 on-arrival: month_actions += 1; unificacion_cd = time
 max-visits: 40
 is-card: true

@@ -34,7 +34,7 @@ choose-if: political_capital >= 8
 unavailable-subtitle: Imposing a line costs political capital you do not have.
 on-arrival: political_capital -= 5; congreso_last = time; ax_electoral -= 6; fac_nueva_izquierda += 4; fac_renovadores -= 2; unity -= 2; des_nueva -= 8; des_renovadores += 8
 
-The resolution passes at three in the morning: the masses are the road, the ballot one tool among several. The coordinadora people applaud with their boots. The diputados applaud with their fingertips.
+The resolution passes at three in the morning: the masses are the road, the ballot one tool among several. The coordinadora people applaud with their boots. [? if izq_seats >= 1 : The diputados applaud with their fingertips. ?][? if izq_seats = 0 : The electoral wing applauds with its fingertips. ?]
 
 @linea_nacional
 subtitle: Requires political capital

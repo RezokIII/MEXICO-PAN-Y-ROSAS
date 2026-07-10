@@ -21,7 +21,7 @@ choose-if: political_capital >= 5
 unavailable-subtitle: To be useful to a movement this new, you must arrive with standing to lend, not to borrow.
 on-arrival: political_capital -= 2; laguna = 1; sup_middle += 3; sup_peasants += 2; expediente += 1
 
-Your engineers audit the cost overruns; your deputies read the safety files into the record; your lawyers teach blockade defense. The coalition accepts the tools and keeps its own flag — the correct arrangement, learned at the CEU — and a new kind of politics takes root on the coast: transversal, stubborn, and increasingly aimed at the one instrument the Republic offers for saying no: the ballot.
+Your engineers audit the cost overruns; [? if izq_seats >= 1 : your deputies read the safety files into the record; ?][? if izq_seats = 0 : a sympathetic PPS deputy is persuaded to read the safety files into the record; ?] your lawyers teach blockade defense. The coalition accepts the tools and keeps its own flag — the correct arrangement, learned at the CEU — and a new kind of politics takes root on the coast: transversal, stubborn, and increasingly aimed at the one instrument the Republic offers for saying no: the ballot.
 
 @distancia_lv
 go-to: post_event

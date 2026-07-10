@@ -6,7 +6,7 @@ tags: event
 view-if: (via = "armada" or via = "dual") and armada_entered = 0
 priority: 5
 max-visits: 1
-on-arrival: armada_entered = 1
+on-arrival: armada_entered = 1; armada_start = time
 
 = Below ground
 

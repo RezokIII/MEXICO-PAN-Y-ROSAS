@@ -1,3 +1,44 @@
+PAN Y ROSAS — 2026-07-10 (bugfix + vida armada update):
+
+CRITICAL FIXES:
+- Hand-wipe bug fixed: hands are stored per era-scene (main / main_78 / main_85); the
+  Jan-1978 and Jan-1985 slot upgrades stranded every held card. Hands now migrate.
+- 13 cards (all 8 sierra, 3 canales, vida_interna, f_contingencia) had no unconditional
+  exit: hard-mode softlock when all options were gated. Every card now has a free exit.
+- Volatile view-ifs (seguridad's expediente, escandalo's capital, comite_huelga's huelgas,
+  unificacion's factions) silently ejected held cards; moved to option gates.
+
+VIDA ARMADA UPDATE:
+- El camino de la sierra: five war milestones (survive the hunt / la zona / la sintesis /
+  el auge / the descent from strength) shown on the Territorio tab.
+- The descent now harvests the war: veterans, organizers, casilla seeds in Guerrero/Oaxaca,
+  campesino prestige (leyenda feeds the 1988 wave) — scaled to the strength you fold at.
+  Plus scars: a permanent expediente floor and the el_infiltrado counterintelligence event.
+- Two armada-only advisors: la comandancia de la sierra, la responsable urbana (revert to
+  the political bench when the war ends).
+- Support/membership no longer bleeds on the armed road while the war is going well.
+- Los canales cards now speak from your side of the war (mirrored POV texts and options).
+- LFOPPE and inauguration events get armed-path readings.
+
+POLITICAL ROAD:
+- Aviso decapitacion: option to hide the most burned leaders with the guerrillas
+  (blocks all golpe events; leadership returns via 'Bajan los escondidos').
+- Golpe (advisor assassination/disappearance) thresholds lowered: pushing hard while
+  unprepared now actually costs cadres.
+- El escandalo: costs raised (8/6/6), cooldown 3->8 months, diminishing returns.
+- Strikes: two new middle roads at the CTM table (la contrafirma, el comite sumergido)
+  and crisis-year (inflation >= 20) wage-strike multipliers.
+- Cardenas ascent arc: el apellido (1980), el gobernador que recibe (1984), plus
+  la guerra de las actas (August 1988) between the 6 de julio and the calificacion.
+- La placa en la puerta: legalization event when registro is first won; registration
+  leaks (deputies/candidacies implied without registro) patched across events.
+
+UI:
+- Soundtrack starts on the first click (pressing Comenzar).
+- Territorio map (political mode): regions colored by who leads them — red us, green PRI,
+  blue PAN, ochre contested — with per-party breakdown on hover. War map unchanged.
+- EVENT_CHAINS.md: auto-generated map of all 195 quality-mediated event chains.
+
 v0.5:
 
 

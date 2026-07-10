@@ -2,7 +2,7 @@ title: The strike committees
 new-page: true
 subtitle: A general strike is built years before it is called
 card-image: img/huelga_general.jpg
-view-if: (huelgas >= 12 and year >= 1975) and time >= comite_huelga_cd + 2
+view-if: (huelgas >= 12 or huelga_prep >= 5) and year >= 1975 and time >= comite_huelga_cd + 2
 on-arrival: month_actions += 1; comite_huelga_cd = time
 max-visits: 40
 is-card: true
