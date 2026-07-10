@@ -2,7 +2,7 @@ title: Benita Galeana
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: benita_advisor = 1
+view-if: benita_advisor = 1 and (via = "politica" or via = "institucional" or via = "dual")
 
 = Benita Galeana
 

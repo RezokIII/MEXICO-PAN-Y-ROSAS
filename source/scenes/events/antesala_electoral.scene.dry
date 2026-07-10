@@ -3,7 +3,7 @@ new-page: true
 subtitle: The month before the count — where do you actually stand?
 face-image: img/cards/casilla.jpg
 tags: event
-view-if: month = 6 and (year = 1970 or year = 1976 or year = 1979 or year = 1982 or year = 1985)
+view-if: month = 6 and antesala_year < year and (year = 1970 or year = 1976 or year = 1979 or year = 1982 or year = 1985)
 priority: 4
 max-visits: 5
 on-arrival: {!
@@ -13,6 +13,7 @@ else if (Q.antesala_fuerza >= 25) { Q.antesala_banda = 1; }
 else if (Q.antesala_fuerza >= 12) { Q.antesala_banda = 0; }
 else { Q.antesala_banda = -1; }
 Q.antesala_peligro = (Q.antesala_fuerza < 12 && Q.expediente >= 68) ? 1 : 0;
+Q.antesala_year = Q.year;
 !}
 
 = La antesala

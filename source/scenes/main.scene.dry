@@ -120,7 +120,7 @@ is-deck: true
 title: El laberinto
 card-image: img/cards/deck_laberinto.jpg
 subtitle: Maniobras dentro del sistema
-view-if: time >= 4
+view-if: (via = "politica" or via = "institucional" or via = "dual") and time >= 4
 is-deck: true
 
 - #sistema
@@ -129,7 +129,7 @@ is-deck: true
 card-image: img/cards/deck_canales.jpeg
 title: Los canales
 subtitle: CoordinaciÃ³n discreta
-view-if: postura_guerrilla >= 2
+view-if: (via = "armada" or via = "dual") or postura_guerrilla >= 2
 is-deck: true
 
 - #canales
@@ -138,7 +138,7 @@ is-deck: true
 card-image: img/cards/casilla.jpg
 title: El Frente
 subtitle: The Corriente, then the Frente — 1987–88
-view-if: fdn >= 1 or cd_formed = 1
+view-if: (via = "politica" or via = "institucional" or via = "dual") and (fdn >= 1 or cd_formed = 1)
 is-deck: true
 
 - #fdn
@@ -146,6 +146,7 @@ is-deck: true
 @movimiento
 title: El Movimiento
 card-image: img/cards/deck_movimiento.jpg
+view-if: (via = "politica" or via = "institucional" or via = "dual")
 is-deck: true
 
 - #movimiento
@@ -153,13 +154,14 @@ is-deck: true
 @party
 title: Party Affairs
 card-image: img/Vorwaerts_nr_1.png
+view-if: (via = "politica" or via = "institucional" or via = "dual")
 is-deck: true
 
 - #party_affairs
 
 @govt
 title: Government Affairs
-view-if: time >= 6
+view-if: (via = "politica" or via = "institucional" or via = "dual") and time >= 6
 card-image: img/reichstag_2.jpg
 is-deck: true
 

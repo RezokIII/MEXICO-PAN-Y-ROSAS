@@ -2,7 +2,7 @@ title: Ramón Danzós Palomino
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: danzos_advisor = 1
+view-if: danzos_advisor = 1 and (via = "politica" or via = "institucional" or via = "dual")
 
 = Ramón Danzós Palomino
 

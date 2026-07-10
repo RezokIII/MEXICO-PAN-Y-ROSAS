@@ -20,8 +20,8 @@ The ofrenda is the one Mexican space the state cannot quite enter: sacred, publi
 - @velar: Stand a quiet watch. No speeches — atole, the names read softly, the pan de muerto shared at dawn.
 - @mobilizar: Make it an accusation. Turn the vigil into a public act, the names into a charge the whole city hears.
 - @canal_muertos: Use the ofrenda network as a channel. Across the country, altars become the one drop the DFS will not search.
-- @armas_muertos: [? if via = "armada" : Move the matériel inside the ofrendas — through the one procession no soldier will stop. ?]
-- @armas_muertos2: [? if via = "dual" : Move the matériel inside the ofrendas — through the one procession no soldier will stop. ?]
+- @armas_muertos: Move the matériel inside the ofrendas — through the one procession no soldier will stop.
+- @armas_muertos2: Move the matériel inside the ofrendas — through the one procession no soldier will stop.
 
 @velar
 title: Velar
@@ -47,6 +47,7 @@ It works exactly because it is sacred: a message folded into the base of an ofre
 
 @armas_muertos
 title: Entre las flores
+view-if: via = "armada"
 subtitle: The matériel moves through the procession no soldier will stop. The campesinos will learn what they carried.
 on-arrival: pres_guerrero += 5; inteligencia += 4; guerrilla_meter += 4; sup_peasants -= 9; expediente += 6; memorial += 1
 
@@ -54,6 +55,7 @@ It is the perfect supply line and the last one you should ever use: the ofrendas
 
 @armas_muertos2
 title: Entre las flores
+view-if: via = "dual"
 subtitle: The matériel moves through the procession no soldier will stop. The campesinos will learn what they carried.
 on-arrival: pres_guerrero += 5; inteligencia += 4; guerrilla_meter += 4; sup_peasants -= 9; expediente += 6; memorial += 1
 
