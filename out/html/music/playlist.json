@@ -2,19 +2,19 @@
   "_comment": "Auto-generated to match the actual audio files in this folder. First entry is the opening theme. The in-game player URL-encodes these names, so spaces/accents are fine.",
   "tracks": [
     {
+      "file": "Judith Reyes - Tragedia de la Plaza de las Tres Culturas (Tragedy of Plaza of the Three Cultures).mp3",
+      "title": "Tlatelolco: Tragedia de la Plaza de las Tres Culturas — Judith Reyes",
+      "note": "OPENING THEME. The corrido of October 2 — the movement's own documentarian names the dead."
+    },
+    {
       "file": "Amparo Ochoa - La Maldición de La Malinche (feat. Los Folkloristas).mp3",
       "title": "La Maldicion de Malinche — Amparo Ochoa",
-      "note": "OPENING THEME. The betrayed, unfinished nation — the Rivera prologue."
+      "note": "The betrayed, unfinished nation — the Rivera prologue."
     },
     {
       "file": "Me gustan los estudiantes.mp3",
       "title": "Me gustan los estudiantes — Violeta Parra",
       "note": "The 1968 student movement."
-    },
-    {
-      "file": "Judith Reyes - Tragedia de la Plaza de las Tres Culturas (Tragedy of Plaza of the Three Cultures).mp3",
-      "title": "Tlatelolco: Tragedia de la Plaza de las Tres Culturas — Judith Reyes",
-      "note": "The corrido of October 2."
     },
     {
       "file": "Daniel Viglietti - A Desalambrar.mp3",
