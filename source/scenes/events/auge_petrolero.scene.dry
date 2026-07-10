@@ -1,0 +1,34 @@
+title: El auge petrolero
+new-page: true
+subtitle: 1979 — administrar la abundancia
+face-image: img/reyes_heroles.jpg
+tags: event
+view-if: year = 1979 and month >= 4 and month <= 6
+priority: 2
+max-visits: 1
+
+= El auge petrolero
+
+Cantarell is a sea of oil and López Portillo has announced that Mexico must now learn to *administer abundance*. The money is everywhere: new ministries, new highways, new subsidies, new envelopes. The regime is flush, and a flush regime is a generous one — the charola has never been fatter, the co-optation never smoother. Every price has risen, including the price of a conscience.
+
+- @denunciar_ilusion: Denounce the illusion — this abundance is borrowed, and the bill will fall on the poor.
+- @tomar_algo: Take what can be taken — presses, salaries, a headquarters — from a state too rich to count carefully.
+- @organizar_petroleros: Organize the new oil proletariat before the STPRM charros finish buying it.
+
+@denunciar_ilusion
+on-arrival: political_capital += 3; sup_students += 3; legitimidad_regimen -= 2; presidente_cooptacion -= 2
+go-to: post_event
+
+You spend the boom warning about the crash, which is the least popular thing a person can do in a country buying refrigerators on credit. The middle class finds you dour. Three years later, when the peso collapses and the bill arrives exactly where you said it would, a few of them remember who told them, and it changes how they read you forever.
+
+@tomar_algo
+on-arrival: funds += 10; expediente += 3; unity -= 2
+go-to: post_event
+
+You let the flush state pay, indirectly, for the instruments of its own opposition: a print shop that appears in a budget line no one audits, salaries covered for a season, a building. It is not corruption; it is redistribution by other means. The cadres who kept their hands cleanest disapprove, quietly, while typing on the new machines.
+
+@organizar_petroleros
+on-arrival: sup_workers += 5; charrismo -= 2; expediente += 4; funds -= 3
+go-to: post_event
+
+The oil camps are company towns with the company being the nation, and the STPRM's charros guard them like a private estate. You get organizers into the periphery of the boom — the contract workers, the ones the union does not deign to sell — and plant something that will matter when abundance turns, as it always turns, to austerity.

@@ -1,0 +1,36 @@
+title: El fraude del norte
+new-page: true
+subtitle: 1983 — al PAN le roban el norte
+face-image: img/urna.jpg
+tags: event
+view-if: year = 1983 and month >= 7 and month <= 9 and registro >= 1
+priority: 2
+max-visits: 1
+
+= El fraude del norte
+
+The panistas won the northern cities — Chihuahua, Durango, the border towns — cleanly, in the open, and the regime took the victories back with the old alchemy, in front of a middle class that had never before watched it happen to *them*. For the first time the fraud is being denounced by respectable people in good suits, and the word *alquimia* is escaping the left's pamphlets and entering the national vocabulary.
+
+They are the right. Their votes were stolen exactly as yours have always been. What does the left do when the fraud robs its enemy?
+
+- @solidaridad_voto: Solidarity with the stolen vote as such — the fraud is the enemy, whoever it robs.
+- @distancia: Keep your distance. Their businessmen would not cross the street for your dead.
+- @construir_caso: Build the case — every documented northern theft strengthens the argument that the count can be watched.
+
+@solidaridad_voto
+on-arrival: fe_voto += 3; sup_middle += 3; pri_reformist_rel += 2; alquimia_expuesta = 1 if red_casillas >= 25; sup_students -= 2
+go-to: post_event
+
+You do the thing that scandalizes your own base: you defend the stolen votes of the right, because a fraud tolerated against anyone is a fraud perfected against everyone. The northern middle class, robbed and radicalized, discovers it has something in common with a left it despised, and the country inches toward the strange, wide coalition that fraud itself is building against the regime.
+
+@distancia
+on-arrival: unity += 2; sup_students += 2; fe_voto -= 1; sup_middle -= 2
+go-to: post_event
+
+You keep your distance — these are the bosses' men, and their sudden love of democracy smells of self-interest, which it is. The base approves. But the regime learns that the opposition can be divided against itself by choosing whom the fraud robs, and files the lesson for July of 1988.
+
+@construir_caso
+on-arrival: red_casillas += 3; fe_voto += 2; sup_middle += 2; political_capital += 1
+go-to: post_event
+
+You send the cadres north not with banners but with clipboards: document every stolen casilla, compare methodologies with the PAN's own lawyers, build the national anatomy of the theft one robbed city at a time. It is the least romantic work in politics and the most decisive: the lámpara that will matter in 1988 is being wired, in Chihuahua, by people who do not even like each other.
