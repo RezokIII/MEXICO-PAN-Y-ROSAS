@@ -24,6 +24,28 @@ if (Q.month != Q.last_drift_month) {
     if (Q.via == "armada") { Q.represion += (Q.time % 2 == 0 ? 1 : 0); Q.inteligencia -= (Q.time % 4 == 0 ? 1 : 0); }
     if (Q.via == "dual") { Q.represion += (Q.time % 2 == 0 ? 1 : 0); Q.expediente += (Q.time % 2 == 0 ? 1 : 0); if (Q.time % 3 == 0) { Q.unity -= 1; } }
     if (Q.via == "institucional") { if (Q.time % 3 == 0) { Q.sup_students -= 1; Q.funds += 1; } }
+    // --- The PRI responds to the Movement's growth: co-optation first, then repression ---
+    var _iz = Q.izq_votes_display || 0;
+    if (_iz > 22) {
+        var _pressure = (_iz - 22) * 0.9;
+        // your capacity to hold the front together and out-maneuver them
+        var _resist = Q.unity * 0.35 + Q.political_capital * 0.45 + Math.min(20, Q.funds) * 0.15;
+        if (_pressure > _resist) {
+            // grew faster than you can hold: the PRI reabsorbs part of the base
+            var _bleed = (_pressure - _resist) * 0.10;
+            Q.sup_workers -= _bleed; Q.sup_peasants -= _bleed; Q.sup_colonos -= _bleed;
+            Q.sup_teachers -= _bleed; Q.sup_students -= _bleed * 0.6; Q.sup_middle -= _bleed * 0.5;
+            Q.presidente_cooptacion += 1;
+            if (Q.time % 2 == 0) { Q.charrismo += 1; }
+        } else if (Q.time % 3 == 0) {
+            // you held the front: politicking keeps the regime at the table
+            Q.pri_reformist_rel += 1;
+        }
+    }
+    if (_iz >= 50) {
+        // over half the country behind you: the regime stops managing and starts crushing
+        Q.represion += 3; Q.expediente += 3;
+    }
     if (Q.inteligencia < 0) { Q.inteligencia = 0; }
     if (Q.inteligencia > 80) { Q.inteligencia = 80; }
     if (Q.huelga_prep > 0 && Q.time % 6 == 0) { Q.huelga_prep -= 1; }
