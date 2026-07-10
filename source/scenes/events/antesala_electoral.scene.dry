@@ -48,10 +48,10 @@ on-arrival: funds -= 5; sup_students += 4; sup_middle += 3; political_capital +=
 
 You throw the month at visibility: the mitin larger than the membership justifies, the manifesto everywhere, the reach that makes the Movement look like more than it is. Sometimes the appearance of strength summons the substance. Sometimes it only summons attention you cannot afford.
 
-- @antesala_colapso: [? if antesala_peligro = 1 : Continue ?]
-- @root: [? if antesala_peligro = 0 : The gamble is placed. On to the count. ?]
-
+- @antesala_colapso: Continue
+- @antesala_sigue: The gamble is placed. On to the count.
 @antesala_colapso
+view-if: antesala_peligro = 1
 title: Visible y hueco
 subtitle: The worst combination in politics, punished the way the state prefers.
 new-page: true
@@ -72,3 +72,10 @@ subtitle: Bank the resources for the cycle that matters.
 on-arrival: funds += 2; political_capital += 3; unity -= 2
 
 You decline the gamble and the exhaustion both, and pocket the month: the treasury a little heavier, the powder dry, the cadres rested for a fight further down the calendar. Some in the assembly call it wisdom and some call it cowardice, and both will cite this month as evidence when they argue, years from now, about whether the Movement was ever serious about power or only about surviving until power became someone else's problem.
+
+@antesala_sigue
+view-if: antesala_peligro = 0
+
+The moment passes without the state heaviest answer. You return to the work, watched and wiser.
+
+- @root: Back to the work.

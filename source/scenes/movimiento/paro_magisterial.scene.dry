@@ -34,10 +34,10 @@ on-arrival: funds -= 3; magisterio_presion = 0; charrismo -= 3; expediente += 5;
 
 The sections go out across the south and the buses roll north, and within a week the Zócalo holds a plantón of teachers that the capital cannot pretend not to see: tarps and cook fires and a discipline learned in ten thousand classrooms. Vanguardia telephones the Secretaría; the Secretaría telephones Gobernación; and the state pulls the teachers' file to ask the only question it ever asks about a strike of its own employees — *how dangerous are these people* — because the answer decides whether they get a raise or a beating.
 
-- @magisterio_tolerado: [? if expediente < 45 : Continue ?]
-- @magisterio_negociado: [? if expediente >= 45 : Continue ?]
-
+- @magisterio_tolerado: Continue
+- @magisterio_negociado: Continue
 @magisterio_tolerado
+view-if: expediente < 45
 title: La sección democrática
 subtitle: Not yet worth crushing — and the prize is the most useful in the game.
 on-arrival: sup_teachers += 6; charrismo -= 5; red_casillas += 5; political_capital += 2; legitimidad_regimen -= 2; secciones_ganadas += 1
@@ -47,6 +47,7 @@ The state's file on you is thin enough that it prefers the cheap solution: it le
 - @root: Back to the work.
 
 @magisterio_negociado
+view-if: expediente >= 45
 title: Vanguardia ofrece
 subtitle: Dangerous enough to buy — the charros arrive with a settlement.
 on-arrival: expediente += 3
@@ -70,10 +71,10 @@ on-arrival: sup_teachers += 3; charrismo -= 5; unity += 4; expediente += 12; hue
 
 The plantón sends the emissary back with his typed settlement folded in his pocket, and the word travels every normal school in the country: *there are teachers who told Vanguardia no.* Gobernación decides the dialogue is over. The teachers of Mexico have been beaten before — in '58 the last independent teachers' movement ended with Othón Salazar in Lecumberri — and the state remembers the precedent fondly.
 
-- @represion_magisterial: [? if expediente >= 70 : Continue ?]
-- @root: [? if expediente < 70 : Back to the work — watched. ?]
-
+- @represion_magisterial: Continue
+- @magisterio_sigue: Back to the work — watched.
 @represion_magisterial
+view-if: expediente >= 70
 title: Los granaderos en el plantón
 subtitle: The state answers its teachers the way it answered them in 1958.
 new-page: true
@@ -83,13 +84,14 @@ They clear the Zócalo before dawn, granaderos against tarps and cook fires, and
 
 This is the hinge. What you built before this morning is the only thing that answers it.
 
-- @magisterio_solidario: [? if sup_teachers >= 30 : Spread it. Found the CNTE — a national coordinator the SNTE cannot contain. ?]
-- @magisterio_legal: [? if political_capital >= 15 : Fight the firings in the courts and the press. ?]
-- @magisterio_armado: [? if via = "armada" : The normalistas take the older road. ?]
-- @magisterio_armado2: [? if via = "dual" : The normalistas take the older road. ?]
+- @magisterio_solidario: Spread it. Found the CNTE — a national coordinator the SNTE cannot contain.
+- @magisterio_legal: Fight the firings in the courts and the press.
+- @magisterio_armado: The normalistas take the older road.
+- @magisterio_armado2: The normalistas take the older road.
 - @magisterio_replegar: Pull back. Protect the sections you have left.
 
 @magisterio_solidario
+view-if: sup_teachers >= 30
 title: Nace la CNTE
 subtitle: The infrastructure you built becomes a permanent national fact.
 on-arrival: sup_teachers += 12; charrismo -= 8; red_casillas += 6; unity += 5; legitimidad_regimen -= 5; expediente += 12; represion += 6; members += 3; secciones_ganadas += 1; cnte_fundada = 1
@@ -99,6 +101,7 @@ The firings do the state's work in reverse: the democratic sections, with nothin
 - @root: Back to the work — and the lampara is lit.
 
 @magisterio_legal
+view-if: political_capital >= 15
 title: Amparos y reinstalaciones
 subtitle: A reformist deputy and the press force the firings back.
 on-arrival: sup_teachers += 4; political_capital -= 6; pri_reformist_rel += 6; red_casillas += 2; expediente -= 3; sup_middle += 2
@@ -108,6 +111,7 @@ You spend the capital fighting the cese letters one by one: labor lawyers, a ref
 - @root: Back to the work.
 
 @magisterio_armado
+view-if: via = "armada"
 title: Los normalistas
 subtitle: The rural normal schools have always been the sierra's seminary.
 on-arrival: sup_teachers += 3; guerrilla_meter += 12; pres_guerrero += 4; expediente += 18; represion += 10; unity -= 4; memorial += 1
@@ -117,6 +121,7 @@ Some of the fired normalistas do not file amparos. They remember that the rural 
 - @root: Back to the work — and the sierra has new cadres who can read a map.
 
 @magisterio_armado2
+view-if: via = "dual"
 title: Los normalistas
 subtitle: The rural normal schools have always been the sierra's seminary.
 on-arrival: sup_teachers += 3; guerrilla_meter += 12; pres_guerrero += 4; expediente += 18; represion += 10; unity -= 4; memorial += 1
@@ -133,3 +138,10 @@ on-arrival: sup_teachers -= 6; organizers -= 1; unity -= 4; charrismo += 5; expe
 There is no answer in your hands this morning. You pull the exposed delegates out of the firing lines, let the plantón dissolve, and let the schools reopen under Vanguardia's terms. It is a defeat, and the teachers feel it: some will not trust the assembly again for years. But the cadres who would have been fired and blacklisted are still teaching, still posted to every village, still able to guard a vote when the vote finally matters. Learn the lesson: build the base before you call the paro.
 
 - @root: Back to the work — chastened.
+
+@magisterio_sigue
+view-if: expediente < 70
+
+The moment passes without the state heaviest answer. You return to the work, watched and wiser.
+
+- @root: Back to the work.
