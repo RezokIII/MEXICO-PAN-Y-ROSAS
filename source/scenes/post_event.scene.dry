@@ -564,6 +564,7 @@ if (choices && choices[0].title != "Continue...") {
 } else {
     has_event = 0;
 }
+Q.pending_events = Q.has_event;
 // pre-load all of the event images
 if (this.ui && this.ui.show_portraits) {
     for (var choice of choices) {
