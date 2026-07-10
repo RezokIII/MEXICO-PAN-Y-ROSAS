@@ -15,9 +15,46 @@ The city builds its altars: cempasúchil by the ton, sugar skulls with the names
 
 The rectory pretends not to see it, which is the modern form of permission. The DFS photographs it, which is the modern form of prayer.
 
-- @velar: The Party's people stand a quiet watch at the ofrenda through the night.
+The ofrenda is the one Mexican space the state cannot quite enter: sacred, public, and older than the government. The Party has to decide what an altar is for.
+
+- @velar: Stand a quiet watch. No speeches — atole, the names read softly, the pan de muerto shared at dawn.
+- @mobilizar: Make it an accusation. Turn the vigil into a public act, the names into a charge the whole city hears.
+- @canal_muertos: Use the ofrenda network as a channel. Across the country, altars become the one drop the DFS will not search.
+- @armas_muertos: [? if via = "armada" : Move the matériel inside the ofrendas — through the one procession no soldier will stop. ?]
+- @armas_muertos2: [? if via = "dual" : Move the matériel inside the ofrendas — through the one procession no soldier will stop. ?]
 
 @velar
+title: Velar
 on-arrival: sup_students += 2; political_capital += 1
 
 No speeches. Atole passed around at three in the morning, names read softly at four, and at dawn the pan de muerto shared out equally, as the dead are said to prefer. The tradition is older than the Party, older than the state, older than the plaza itself, and standing inside it for one night the Movement remembers what it is for: the dead insist on being counted, and someone must do the counting.
+
+@mobilizar
+title: Que la ciudad lo oiga
+subtitle: The vigil becomes a demonstration. The names become a charge.
+choose-if: organizers >= 2
+unavailable-subtitle: To turn a vigil into a public act you need cadres to shape it. You have none to spare.
+on-arrival: sup_students += 4; sup_colonos += 2; political_capital += 2; legitimidad_regimen -= 3; expediente += 5; represion += 2
+
+The watch does not stay quiet. At the hour the names are read, a thousand candles move out of the plaza and into the street, and the reading becomes a roll call the whole city is made to hear: not mourning but indictment, each name followed by the same word, *presente*, until the word itself is a kind of resurrection. The state hates nothing more than grief that organizes. The cameras in Bucareli run all night, and the file thickens — but so does the thing the file was always meant to prevent: a public that refuses to forget on schedule.
+
+@canal_muertos
+title: El correo de los muertos
+subtitle: The altars become a network. Sacred ground used for the Movement's business.
+on-arrival: inteligencia += 5; organizers += 1; sup_peasants -= 3; expediente += 2
+
+It works exactly because it is sacred: a message folded into the base of an ofrenda, a name that means one thing to the family and another to the courier, coordination moving through the one week and the one space the DFS is too superstitious and too public to raid. The network hums for a season on grief's cover. But word reaches the villages that the altars for the dead are being used to carry the living's business, and the campesinos — for whom the ofrenda is not a metaphor — do not all forgive it. Some things, they will tell you with terrible patience, are not for that.
+
+@armas_muertos
+title: Entre las flores
+subtitle: The matériel moves through the procession no soldier will stop. The campesinos will learn what they carried.
+on-arrival: pres_guerrero += 5; inteligencia += 4; guerrilla_meter += 4; sup_peasants -= 9; expediente += 6; memorial += 1
+
+It is the perfect supply line and the last one you should ever use: the ofrendas travel to the villages and the sierras through the one week the army will not stop a procession, and among the marigolds and the copal go the things the columns need, wrapped in the cloth that covered someone's grandmother's photograph. It reaches the sierra. It always reaches the sierra. And then the campesinos who built the altar for their own dead learn what was hidden among their flowers, and something between them and the Movement breaks that no dotación will mend — because you asked the dead to carry guns, and in the villages the dead are not a figure of speech.
+
+@armas_muertos2
+title: Entre las flores
+subtitle: The matériel moves through the procession no soldier will stop. The campesinos will learn what they carried.
+on-arrival: pres_guerrero += 5; inteligencia += 4; guerrilla_meter += 4; sup_peasants -= 9; expediente += 6; memorial += 1
+
+It is the perfect supply line and the last one you should ever use: the ofrendas travel to the villages and the sierras through the one week the army will not stop a procession, and among the marigolds and the copal go the things the columns need, wrapped in the cloth that covered someone's grandmother's photograph. It reaches the sierra. It always reaches the sierra. And then the campesinos who built the altar for their own dead learn what was hidden among their flowers, and something between them and the Movement breaks that no dotación will mend — because you asked the dead to carry guns, and in the villages the dead are not a figure of speech.
