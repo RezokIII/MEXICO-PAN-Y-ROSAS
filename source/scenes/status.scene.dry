@@ -60,6 +60,26 @@ Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence 
 
 [? if camino5 = 1 : V. The convergence — DONE. July decides. ?][? if camino5 = 0 and camino4 = 1 : V. The convergence: the united front, with you as a founding wall — pending ?]
 
+= El haber del Movimiento
+
+*The ledger of what has actually been won — not promised, won.*
+
+[? if paros_ganados >= 1 : Huelgas ganadas: [+ paros_ganados +] — the machines stopped, and the floor learned it could stop them. ?]
+[? if secciones_ganadas >= 1 : Secciones magisteriales conquistadas: [+ secciones_ganadas +] — teachers who answer to an assembly, not a charro. ?]
+[? if cnte_fundada = 1 : La CNTE fue fundada — a national teachers' movement the SNTE cannot contain. ?]
+[? if colonias_fundadas >= 1 : Colonias fundadas o regularizadas: [+ colonias_fundadas +] — pieces of the city that govern themselves. ?]
+[? if conamup_fundada = 1 : La CONAMUP fue fundada — the urban poor, coordinated across the valley. ?]
+[? if dotaciones >= 1 : Dotaciones de tierra arrancadas: [+ dotaciones +] — fences down, and kept down. ?]
+[? if escandalos >= 1 : Escándalos destapados: [+ escandalos +] — seams worked in the regime's story until they showed. ?]
+[? if alquimia_expuesta = 1 : La alquimia quedó documentada — the fraud is provable now. ?]
+[? if registro >= 1 : Registro conquistado — the Party exists before the law at last. ?]
+[? if izq_seats >= 1 : Curules en la Cámara: [+ izq_seats +] — a microphone the regime cannot switch off. ?]
+[? if municipio_alcozauca = 1 : Alcozauca gobernada — the first red municipio of the Montaña. ?]
+[? if municipio_juchitan = 1 : Juchitán gobernada — la COCEI holds the isthmus. ?]
+[? if fdn >= 1 : El Frente fue forjado — the convergence of 1988, with you inside it. ?]
+
+[? if paros_ganados = 0 and secciones_ganadas = 0 and colonias_fundadas = 0 and dotaciones = 0 and escandalos = 0 and izq_seats = 0 and registro = 0 : Nothing decisive won yet — only built. The ledger fills the first time the state is made to give something back. ?]
+
 = Internal corrientes
 
 Ortodoxos: [+ fac_ortodoxos : fuerza +] — mood: [+ des_ortodoxos : animo +][? if des_ortodoxos >= 60 : (they need Moscow respected or the tradition fed — soon) ?]

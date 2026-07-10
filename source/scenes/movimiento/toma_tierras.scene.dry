@@ -93,7 +93,7 @@ This is the hinge. What you built before this dusk is the only thing that answer
 @tierra_solidaria
 title: Que arda todo el valle
 subtitle: The base you built across the region moves at once.
-on-arrival: sup_peasants += 12; legitimidad_regimen -= 6; unity += 5; expediente += 14; represion += 6; members += 3; guerrilla_meter += 6
+on-arrival: sup_peasants += 12; legitimidad_regimen -= 6; unity += 5; expediente += 14; represion += 6; members += 3; guerrilla_meter += 6; dotaciones += 1
 
 The word goes out along the ridgelines the old way, mouth to mouth, and by the weekend every disputed valley in the region has plowed its title. The state cannot massacre a countryside; the guardias blancas are enough to terrorize a village and useless against a region. The governor discovers that the cacique's private army has made him a national embarrassment, and quietly, the killings stop being ordered. You have shown the rural poor the one thing the state most needs them never to see: that the caciques can be made to blink.
 

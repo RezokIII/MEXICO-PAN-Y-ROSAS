@@ -40,7 +40,7 @@ The sections go out across the south and the buses roll north, and within a week
 @magisterio_tolerado
 title: La sección democrática
 subtitle: Not yet worth crushing — and the prize is the most useful in the game.
-on-arrival: sup_teachers += 6; charrismo -= 5; red_casillas += 5; political_capital += 2; legitimidad_regimen -= 2
+on-arrival: sup_teachers += 6; charrismo -= 5; red_casillas += 5; political_capital += 2; legitimidad_regimen -= 2; secciones_ganadas += 1
 
 The state's file on you is thin enough that it prefers the cheap solution: it lets a democratic section win. The charros lose Oaxaca — one section, elected clean, run from the assembly — and it changes the arithmetic of a whole region, because a democratic teachers' section is not only a union. It is a standing army of people who can read a form, argue a point of law politely, stand at a table for fourteen hours, and are posted to every village in the state. The casilla network gains its finest recruits. The lampara that will matter in 1988 is being wired, one classroom at a time.
 
@@ -58,7 +58,7 @@ Your file is thick enough now that the state sends the charros before the granad
 
 @aceptar_magisterio
 subtitle: A real raise — with Vanguardia's name on it.
-on-arrival: sup_teachers += 4; charrismo += 5; unity -= 3; red_casillas += 2; expediente -= 2
+on-arrival: sup_teachers += 4; charrismo += 5; unity -= 3; red_casillas += 2; expediente -= 2; secciones_ganadas += 1
 
 The raise is real and the teachers are not fools; they know who held the plantón in the rain. But Vanguardia's banner goes over the settlement and the checkoff keeps flowing to the charros. You traded a piece of the union's future for bread today, and gained, at least, a few hundred teachers who now know exactly how the machine works from the inside. Your cadres will argue about it for years.
 
@@ -92,7 +92,7 @@ This is the hinge. What you built before this morning is the only thing that ans
 @magisterio_solidario
 title: Nace la CNTE
 subtitle: The infrastructure you built becomes a permanent national fact.
-on-arrival: sup_teachers += 12; charrismo -= 8; red_casillas += 6; unity += 5; legitimidad_regimen -= 5; expediente += 12; represion += 6; members += 3
+on-arrival: sup_teachers += 12; charrismo -= 8; red_casillas += 6; unity += 5; legitimidad_regimen -= 5; expediente += 12; represion += 6; members += 3; secciones_ganadas += 1; cnte_fundada = 1
 
 The firings do the state's work in reverse: the democratic sections, with nothing left to lose, coordinate. Out of the plantones and the cese letters is born the Coordinadora Nacional de los Trabajadores de la Educación — a national teachers' movement running in parallel to the charro SNTE, present in every state where you built, impossible to fire because it is impossible to fully name. It will outlast every functionary who signed a firing. And it hands your Movement, for the elections to come, the single most valuable asset in the Republic: tens of thousands of trained, disciplined, everywhere-posted people who know how to guard a vote.
 

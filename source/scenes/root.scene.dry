@@ -155,6 +155,7 @@ Q.toma_tierras_cd = -5; Q.paro_magisterial_cd = -5; Q.invasion_urbana_cd = -5;
 Q.enfoque_cd = -5;
 Q.antesala_fuerza = 0; Q.antesala_banda = 0; Q.antesala_peligro = 0;
 Q.dotaciones = 0;
+Q.paros_ganados = 0; Q.secciones_ganadas = 0; Q.colonias_fundadas = 0; Q.cnte_fundada = 0; Q.conamup_fundada = 0;
 Q.workers_last = 0; Q.peasants_last = 0; Q.teachers_last = 0; Q.colonos_last = 0;
 // el bloque en el poder
 Q.burguesia_estado = 55;

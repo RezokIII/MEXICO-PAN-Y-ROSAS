@@ -40,7 +40,7 @@ It happens in a single night, the way these things must: a thousand families mov
 @colonia_tolerada
 title: La regularización
 subtitle: Not worth the cameras of an eviction. The colonia stays.
-on-arrival: sup_colonos += 7; colonia_saga += 1; members += 2; political_capital += 2; legitimidad_regimen -= 2
+on-arrival: sup_colonos += 7; colonia_saga += 1; members += 2; political_capital += 2; legitimidad_regimen -= 2; colonias_fundadas += 1
 
 Your file is thin enough that the regency prefers the cheap solution: it discovers the predio can be regularized after all. The surveyors come, the titles begin their decade-long crawl through the offices, and the water main is laid — by the residents, in a weekend of communal labor, but connected at last. A new colonia exists on the map of the Republic because a thousand people decided it should, and it exists *organized*, with committees that governed it before the state agreed it was there. It is a piece of the city that is, quietly, yours.
 
@@ -58,7 +58,7 @@ Your file is thick enough now that the state sends its cheaper instrument first:
 
 @aceptar_colonia
 subtitle: Water and title — flying the PRI's colors.
-on-arrival: sup_colonos += 4; colonia_saga += 1; charrismo += 3; unity -= 2; expediente -= 2
+on-arrival: sup_colonos += 4; colonia_saga += 1; charrismo += 3; unity -= 2; expediente -= 2; colonias_fundadas += 1
 
 The water is real and the families are not fools; they know who staked the lots at midnight. But the líder's banner flies at the entrance and the colonia enters the machine that will deliver its vote for a generation. You traded a piece of the city's independence for pipes today. In a colonia where the children were drinking from tanker trucks, that is not always the wrong trade. Your cadres will argue about it for years.
 
@@ -93,7 +93,7 @@ This is the hinge. What you built before this dawn is the only thing that answer
 @colonia_solidaria
 title: Nace la CONAMUP
 subtitle: The infrastructure you built turns one eviction into a city-wide fact.
-on-arrival: sup_colonos += 12; barrios = 1; colonia_saga += 1; legitimidad_regimen -= 6; unity += 5; expediente += 14; represion += 6; members += 4
+on-arrival: sup_colonos += 12; barrios = 1; colonia_saga += 1; legitimidad_regimen -= 6; unity += 5; expediente += 14; represion += 6; members += 4; colonias_fundadas += 1; conamup_fundada = 1
 
 The eviction of one colonia becomes the founding of a hundred. The committees you spent years building coordinate overnight into a national council of the urban poor — the CONAMUP — and by the weekend every threatened colonia in the valley of Mexico has put its women in the road at once. The regency cannot bulldoze a city. It cannot even bulldoze one colonia while the cameras of forty others are watching. The demolition order is quietly rescinded, and the periphery learns the lesson that will fill the Zócalo in 1988: organized, it cannot be moved.
 

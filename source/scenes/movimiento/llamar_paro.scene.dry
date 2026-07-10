@@ -44,7 +44,7 @@ What happens next is written in that file.
 @paro_tolerado
 title: Un paro que arde y se apaga
 subtitle: You are not yet worth the cost of crushing.
-on-arrival: sup_workers += 6; charrismo -= 4; salario_real += 2; political_capital += 2; expediente += 2
+on-arrival: sup_workers += 6; charrismo -= 4; salario_real += 2; political_capital += 2; expediente += 2; paros_ganados += 1
 
 Your file is thin enough that the calculation comes back the same as always: let it burn out. No riot police, no arrests — just the slow attrition of men who have rent to pay and a company that can wait. But the company blinks first on the small things: a reinstated delegate, a bathroom-break clause, a foreman transferred. Nothing that reaches the papers. Everything that reaches the floor.
 
@@ -65,7 +65,7 @@ Your file is thick enough now that the state prefers a cheaper instrument than t
 @aceptar_trato
 title: El trato de la CTM
 subtitle: Concrete wins, but the charro's name goes on them.
-on-arrival: sup_workers += 4; salario_real += 5; charrismo += 6; unity -= 3; expediente -= 2
+on-arrival: sup_workers += 4; salario_real += 5; charrismo += 6; unity -= 3; expediente -= 2; paros_ganados += 1
 
 The raises are real; the men are not fools, and they know who actually walked the picket at four in the morning. But don Fidel's photograph is in the paper under the settlement, and the checkoff still flows to his empire. You traded a piece of the future for bread today. Some winters that is exactly the right trade. Your cadres will argue about it for years.
 
@@ -101,7 +101,7 @@ This is the hinge. What you built before this morning is the only thing you have
 @responder_solidaria
 title: Que pare todo
 subtitle: The infrastructure you built in the boring months moves now.
-on-arrival: sup_workers += 12; huelgas += 6; charrismo -= 8; unity += 5; expediente += 15; represion += 6; members += 4; salario_real += 4
+on-arrival: sup_workers += 12; huelgas += 6; charrismo -= 8; unity += 5; expediente += 15; represion += 6; members += 4; salario_real += 4; paros_ganados += 1
 
 The telephone tree you memorized in the boring months does the one thing it was built to do. By noon a second plant is down; by nightfall a third; by the weekend the industrial belt is a map of dark chimneys. The state overreached and now cannot arrest a region. They release your committee in the night, quietly, and pretend it was mercy. The floor knows better. You have shown the thing the regime most needs no one to see: that it can be made to blink.
 
