@@ -9,7 +9,12 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+// event-queue loop: if more events are still pending this month, keep resolving them
+var _es = this.game.scenes['post_event.events_choice'];
+var _ch = this._compileChoices(_es);
+Q.has_event = (_ch && _ch[0] && _ch[0].title != "Continue...") ? 1 : 0;
 !}
+go-to: post_event.events_choice if has_event = 1
 max-cards: 3
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
@@ -36,7 +41,12 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+// event-queue loop: if more events are still pending this month, keep resolving them
+var _es = this.game.scenes['post_event.events_choice'];
+var _ch = this._compileChoices(_es);
+Q.has_event = (_ch && _ch[0] && _ch[0].title != "Continue...") ? 1 : 0;
 !}
+go-to: post_event.events_choice if has_event = 1
 max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
@@ -64,7 +74,12 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+// event-queue loop: if more events are still pending this month, keep resolving them
+var _es = this.game.scenes['post_event.events_choice'];
+var _ch = this._compileChoices(_es);
+Q.has_event = (_ch && _ch[0] && _ch[0].title != "Continue...") ? 1 : 0;
 !}
+go-to: post_event.events_choice if has_event = 1
 max-cards: 5
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
@@ -91,7 +106,12 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+// event-queue loop: if more events are still pending this month, keep resolving them
+var _es = this.game.scenes['post_event.events_choice'];
+var _ch = this._compileChoices(_es);
+Q.has_event = (_ch && _ch[0] && _ch[0].title != "Continue...") ? 1 : 0;
 !}
+go-to: post_event.events_choice if has_event = 1
 max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
