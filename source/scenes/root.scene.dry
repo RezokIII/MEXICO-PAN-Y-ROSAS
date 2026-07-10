@@ -156,7 +156,7 @@ Q.enfoque_cd = -5;
 Q.enlace_advisor = 1;
 Q.pending_events = 0;
 Q.ofrenda_armas = 0; Q.enlace_sintesis = 0;
-Q.antesala_fuerza = 0; Q.antesala_banda = 0; Q.antesala_peligro = 0; Q.izq_prev = 0; Q.fe_voto = 18; Q.antesala_year = 0;
+Q.antesala_fuerza = 0; Q.antesala_banda = 0; Q.antesala_peligro = 0; Q.izq_prev = 0; Q.fe_voto = 18; Q.pps_rel = 5; Q.parm_rel = 5; Q.fusion_prog = 0; Q.unificacion_cd = -5; Q.antesala_year = 0;
 Q.dotaciones = 0;
 Q.paros_ganados = 0; Q.secciones_ganadas = 0; Q.colonias_fundadas = 0; Q.cnte_fundada = 0; Q.conamup_fundada = 0;
 Q.workers_last = 0; Q.peasants_last = 0; Q.teachers_last = 0; Q.colonos_last = 0;

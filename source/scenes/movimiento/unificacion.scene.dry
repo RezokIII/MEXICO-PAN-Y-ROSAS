@@ -1,0 +1,50 @@
+title: La unificación de la izquierda
+new-page: true
+subtitle: Five thousand cannot win a country of seventy million alone
+card-image: img/congreso.jpg
+view-if: (registro >= 1 or fac_renovadores >= 30) and time >= unificacion_cd + 3
+on-arrival: month_actions += 1; unificacion_cd = time
+max-visits: 40
+is-card: true
+frequency: 70
+tags: movimiento
+
+= La unificación de la izquierda
+
+The left's oldest curse is not repression but arithmetic: a dozen parties of five thousand, each certain it holds the true line, each too pure to dissolve into anything larger. Unification is possible — the left has chased it for a decade — but the price is always the same: the Party must become *approachable*. It must shed its reddest edges, moderate its face until the nationalists and even the officialist satellites can stand beside it without flinching. The orthodox call this surrender. The renovadores call it growing up. Both are a little right.
+
+- @moderar_perfil: Transform the face — a program the wider left, and the satellites, could actually sign.
+- @fusionar_izquierda: Negotiate fusion with the socialist splinters, toward one unified party.
+- @cortejar_satelites: Court the officialist satellites — the PPS, the PARM — toward a common front.
+- @root: The Party stays itself: whole, coherent, and small.
+- @easy_discard
+
+@moderar_perfil
+title: Un perfil abrazable
+subtitle: Moderate the party into something the reformers can carry. Costs purity.
+choose-if: ax_electoral < 20
+unavailable-subtitle: The line is already as moderate as it can go without a fusion to justify it.
+on-arrival: ax_electoral += 4; fac_renovadores += 5; sup_middle += 3; political_capital += 1; des_ortodoxos += 6; prestigio_socialismo -= 1
+go-to: post_event
+
+You file down the edges: the program loses three adjectives and gains a paragraph the middle class can read without alarm; the renovadores — the reformers who always believed the future ran through breadth, not purity — rise inside the house and become the current that can carry a fusion. The orthodox watch their party being made approachable and pronounce the word *liquidacionismo* the way other people say a slur. They are not entirely wrong. Neither are the renovadores.
+
+@fusionar_izquierda
+title: Disolverse en algo mayor
+subtitle: -3 funds. Negotiate the merger of the splinters, toward the PSUM and the PMS.
+choose-if: funds >= 3 and fac_renovadores >= 25
+unavailable-subtitle: Fusion needs funds for the endless congresses and a reformer current strong enough to vote it.
+on-arrival: funds -= 3; fusion_prog += 3; frente_unidad += 3; members += 1; unity += 2; fac_ortodoxos -= 2; des_ortodoxos += 3
+go-to: post_event
+
+Another round of the endless negotiation: the MAP's left-nationalists, the guerrilla's political heirs, two smaller currents, all circling the unthinkable — dissolving their own names into a single party. Each meeting closes a comma and opens a wound, and each brings the day nearer when the oldest party in the Republic votes itself out of existence so that something broader can inherit its registro, its presses, and its dead. The fusion is being built, congress by boring congress, the way everything that lasts is built.
+
+@cortejar_satelites
+title: Los satélites
+subtitle: -2 political capital. Turn the regime's own tame parties toward the front. Requires a moderated line.
+choose-if: political_capital >= 2 and ax_electoral >= 8
+unavailable-subtitle: The satellites will not be seen with a party that still frightens their patrons. Moderate first.
+on-arrival: political_capital -= 2; pps_rel += 5; parm_rel += 5; frente_unidad += 2; sup_middle += 1; des_ortodoxos += 4
+go-to: post_event
+
+You take meetings the base would find obscene: the PPS, Marxist in speech and officialist at the urn; the PARM, the party of the regime's retired generals. They are the state's tame opposition, kept for the appearance of pluralism — and precisely because they are tame, the day the regime frightens or insults them is the day they can be turned. You are not fusing with them. You are teaching them the road to a door that, in 1987, a general's son will walk through, and you intend for them to arrive already knowing the way.

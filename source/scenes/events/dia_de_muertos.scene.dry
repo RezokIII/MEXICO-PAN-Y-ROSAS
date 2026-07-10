@@ -36,7 +36,7 @@ title: Que la ciudad lo oiga
 subtitle: The vigil becomes a demonstration. The names become a charge.
 choose-if: organizers >= 2
 unavailable-subtitle: To turn a vigil into a public act you need cadres to shape it. You have none to spare.
-on-arrival: sup_students += 4; sup_colonos += 2; political_capital += 2; legitimidad_regimen -= 3; expediente += 5; represion += 2
+on-arrival: sup_students += 2; sup_colonos += 1; political_capital += 1; legitimidad_regimen -= 1; expediente += 7; represion += 4
 
 The watch does not stay quiet. At the hour the names are read, a thousand candles move out of the plaza and into the street, and the reading becomes a roll call the whole city is made to hear: not mourning but indictment, each name followed by the same word, *presente*, until the word itself is a kind of resurrection. The state hates nothing more than grief that organizes. The cameras in Bucareli run all night, and the file thickens — but so does the thing the file was always meant to prevent: a public that refuses to forget on schedule.
 

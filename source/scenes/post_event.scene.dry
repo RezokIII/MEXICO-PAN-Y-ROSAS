@@ -28,20 +28,28 @@ if (Q.month != Q.last_drift_month) {
     var _iz = Q.izq_votes_display || 0;
     var _momentum = _iz - (Q.izq_prev || 0);   // points gained this month
     Q.izq_prev = _iz;
-    if (_iz > 15 || _momentum > 2) {
-        // pressure rises with your level of support AND how fast you are climbing
-        var _pressure = Math.max(0, _iz - 22) * 0.9 + Math.max(0, _momentum) * 2.5;
-        // your capacity to hold the front together and out-maneuver them
-        var _resist = Q.unity * 0.35 + Q.political_capital * 0.45 + Math.min(20, Q.funds) * 0.15;
+    if (_iz > 12 || _momentum > 1.5) {
+        // pressure rises with your level of support AND how fast you are climbing (harder now)
+        var _pressure = Math.max(0, _iz - 16) * 1.25 + Math.max(0, _momentum) * 3.8;
+        // INFRASTRUCTURE is what actually holds gains: regional presence + relationships + the front
+        var _infra = Q.red_casillas * 0.11 + Q.colonia_saga * 1.6
+                   + (Q.municipio_alcozauca + Q.municipio_juchitan) * 3
+                   + Q.pri_reformist_rel * 0.16 + Q.frente_unidad * 0.05
+                   + Q.pps_rel * 0.10 + Q.parm_rel * 0.10;
+        var _resist = Q.unity * 0.28 + Q.political_capital * 0.30 + Math.min(15, Q.funds) * 0.10 + _infra;
         if (_pressure > _resist) {
-            // grew faster than you can hold: the PRI reabsorbs part of the base
-            var _bleed = (_pressure - _resist) * 0.10;
+            // grew faster than your infrastructure can hold: the PRI reabsorbs the exposed base
+            var _bleed = (_pressure - _resist) * 0.16;
             Q.sup_workers -= _bleed; Q.sup_peasants -= _bleed; Q.sup_colonos -= _bleed;
             Q.sup_teachers -= _bleed; Q.sup_students -= _bleed * 0.6; Q.sup_middle -= _bleed * 0.5;
             Q.presidente_cooptacion += 1;
             if (Q.time % 2 == 0) { Q.charrismo += 1; }
+            // gains with no regional roots bleed even faster — the machine walks right back in
+            if (Q.red_casillas < 20 && Q.colonia_saga < 2 && Q.municipio_alcozauca == 0 && Q.municipio_juchitan == 0) {
+                Q.sup_workers -= _bleed * 0.5; Q.sup_peasants -= _bleed * 0.5; Q.sup_colonos -= _bleed * 0.5;
+            }
         } else if (Q.time % 3 == 0) {
-            // you held the front: politicking keeps the regime at the table
+            // your infrastructure held the front: politicking keeps the regime at the table
             Q.pri_reformist_rel += 1;
         }
     }
@@ -49,13 +57,16 @@ if (Q.month != Q.last_drift_month) {
         // over half the country behind you: the regime stops managing and starts crushing
         Q.represion += 3; Q.expediente += 3;
     }
+    // --- the regime's grip is sticky: legitimacy self-repairs unless kept under assault ---
+    // (the PRI was built to never lose; one blow is never enough)
+    if (Q.legitimidad_regimen < 66) { Q.legitimidad_regimen += 0.5; }
     // --- belief that the vote can matter (turnout): the inverse of the PRI's grip on the process ---
-    Q.fe_voto += (72 - Q.legitimidad_regimen) * 0.02;              // as the regime's grip weakens, cynicism lifts
+    Q.fe_voto += (72 - Q.legitimidad_regimen) * 0.017;              // as the regime's grip weakens, cynicism lifts
     if (Q.alquimia_expuesta) { Q.fe_voto += 0.35; }                // proof the fraud can be documented
     Q.fe_voto += Q.red_casillas * 0.012 + Q.escandalos * 0.06;     // a watched casilla, a scandal
     if (Q.cd_formed) { Q.fe_voto += 0.4; }                          // the Corriente makes the vote feel open
     if (_iz > 25) { Q.fe_voto += 0.1; }
-    Q.fe_voto -= 0.15;                                             // decades of cynicism creep back
+    Q.fe_voto -= 0.2;                                             // decades of cynicism creep back
     if (Q.fe_voto < 0) { Q.fe_voto = 0; }
     if (Q.fe_voto > 100) { Q.fe_voto = 100; }
     if (Q.inteligencia < 0) { Q.inteligencia = 0; }
@@ -150,7 +161,7 @@ collapse += Math.min(0.15, Q.escandalos * 0.04);                 // scandals
 collapse += Math.min(0.10, Math.max(0, Q.pri_reformist_rel - 10) * 0.004); // a real reformist current
 collapse += Math.min(0.08, Math.max(0, Q.pri_aperturistas - 15) * 0.004);
 if (collapse < 0) { collapse = 0; }
-if (collapse > 0.72) { collapse = 0.72; }
+if (collapse > 0.62) { collapse = 0.62; }
 var VB = {
  obreros:       {sup: Q.sup_workers,      pri: 78, sens: 1.05, izf: 0.55, pan: 6,  ot: 7},
  campesinos:    {sup: Q.sup_peasants,     pri: 85, sens: 1.15, izf: 0.55, pan: 4,  ot: 5},
@@ -167,7 +178,7 @@ for (var cls in VB) {
     if (newpri < 5) { newpri = 5; }
     var freed = v.pri - newpri;                                  // PRI voters shaken loose
     Q[cls + '_pri']   = newpri;
-    Q[cls + '_izq']   = v.sup * v.izf + freed * (0.30 + 0.55 * pen); // the left captures the freed, more if organized
+    Q[cls + '_izq']   = v.sup * v.izf + freed * (0.24 + 0.50 * pen); // the left captures the freed, more if organized
     Q[cls + '_pan']   = v.pan + freed * 0.15;
     Q[cls + '_otros'] = v.ot  + freed * (0.55 - 0.55 * pen);        // disorganized defection -> abstention/others
 }

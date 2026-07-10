@@ -10,6 +10,7 @@ on-arrival: {!
 var ola = 22 + (100 - Q.salario_real) * 0.15 + Q.cd_rel * 2 + Q.costureras * 3 + Q.sup_students * 0.06 + Q.sup_colonos * 0.08 + (Q.barrios ? 2 : 0) + (Q.huelga_general ? 2 : 0) + (Q.mayday >= 2 ? 1 : 0) + (Q.laguna ? 2 : 0) + (Q.auge_armada ? 2 : 0) + Q.frente_unidad * 0.06;
 ola += (72 - Q.legitimidad_regimen) * 0.15;
 ola += (Q.fe_voto - 20) * 0.30;   // belief -> turnout -> the opposition wave
+ola += (Q.pps_rel - 5) * 0.12 + (Q.parm_rel - 5) * 0.12 + Q.fusion_prog * 0.15;   // satellites + fusion broaden the Frente
 if (Q.fdn >= 1) {
     Q.real_fdn = Math.round(Math.min(52, ola + Q.izq_votes_display * 0.6));
     Q.real_castillo = 0;
@@ -30,7 +31,7 @@ Q.oficial_pan = 17;
 Q.oficial_pri88 = 100 - Q.oficial_fdn - Q.oficial_pan - Q.real_castillo - 2;
 if (Q.oficial_pri88 < 50) { Q.oficial_pri88 = 50; }
 Q.resultado_88 = 0;
-if (Q.real_fdn >= 45 && Q.red_casillas >= 55 && Q.fdn >= 1 && Q.alquimia_expuesta) { Q.resultado_88 = 1; }
+if (Q.real_fdn >= 45 && Q.red_casillas >= 55 && Q.fdn >= 1 && Q.alquimia_expuesta && Q.fe_voto >= 40) { Q.resultado_88 = 1; }
 function bar(n) { var k = Math.max(1, Math.round(n/2)); var s=''; for (var i=0;i<k;i++){s+='█';} return s; }
 Q.b_r_fdn = bar(Q.real_fdn); Q.b_r_pri = bar(Q.real_pri88); Q.b_r_pan = bar(Q.real_pan);
 Q.b_o_fdn = bar(Q.oficial_fdn); Q.b_o_pri = bar(Q.oficial_pri88); Q.b_o_pan = bar(Q.oficial_pan);
