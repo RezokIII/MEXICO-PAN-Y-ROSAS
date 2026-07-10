@@ -12,6 +12,7 @@ Engineer, professor, inventor of the tridilosa, survivor of Cerro del Zorrillo a
 
 - @heberto_frente
 - @heberto_pluma
+- @heberto_puente
 - @root: Return to main
 
 @heberto_frente
@@ -32,3 +33,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; sup_middle += 3; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1
 
 He writes the way he calculates loads: no adjectives that don't bear weight. This week's column walks a doctor's wife in Polanco through exactly where the public works budget goes, name by name, and she finishes it angrier than any manifesto has ever made her. The censors read him twice and can never find the illegal sentence; it is somehow the whole page.
+
+@heberto_puente
+title: El puente cardenista
+subtitle: He is already building the bridge to the nationalist reformers the whole board will cross in 1987. Help him lay it early.
+card-image: img/portraits/heberto.jpeg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; pri_reformist_rel += 4; ax_nacpop += 2; cd_rel += 1; political_capital += 2; fac_nueva_izquierda += 1
+
+Heberto does not believe the road runs through the old Party, and he is honest enough to say so to your face — while introducing you to the governors' sons and the Cárdenas people and the nationalist engineers who will, one day not yet named, come looking for a car to crash into the regime. He is laying the bridge years before anyone else sees the river. Walk out onto it a little.

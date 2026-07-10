@@ -12,6 +12,7 @@ A campesino from Sonora who has been, in one lifetime, cotton picker, union man,
 
 - @danzos_cci
 - @danzos_tierra
+- @danzos_alianza
 - @root: Return to main
 
 @danzos_cci
@@ -32,3 +33,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 8; represion += 3; expediente += 3; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 Before dawn the fences come down and the white flags of the *solicitantes* go up on land the paperwork has owed them for thirty years. Sometimes the state negotiates. Sometimes it sends the judiciales, and the Party's lawyers meet the survivors. Either way, the valley learns which side the Party stands on, fence by fence.
+
+@danzos_alianza
+title: La alianza campesina
+subtitle: Knit the independent peasant organizations into a bloc the CNC cannot swallow one by one.
+card-image: img/portraits/danzos.jpeg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 3; political_capital += 2; unity += 2; frente_unidad += 1; charrismo -= 1
+
+Danzós has spent his life learning that the countryside's curse is not the cacique but the isolation — every valley fighting alone, every central bought separately. He spends the month stitching: this ejido union to that coffee cooperative to the other land committee, until the CNC finds it is negotiating not with a village but with a bloc that remembers all the promises at once. Alone they are petitions. Together they are a force.

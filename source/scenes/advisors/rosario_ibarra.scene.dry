@@ -12,6 +12,7 @@ A doctor's wife from Monterrey. In April of 1975 the police took her son Jesús,
 
 - @ibarra_madres
 - @ibarra_denuncia
+- @ibarra_internacional
 - @root: Return to main
 
 @ibarra_madres
@@ -32,3 +33,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; expediente += 3; represion -= 1; fac_renovadores += 2; fac_ortodoxos -= 1; fac_nueva_izquierda -= 1
 
 Amnesty's researchers get the dossier; so do three wire services and a U.S. congressman with subcommittee ambitions. The Republic's diplomats spend a difficult month explaining that the disappeared are neither detained nor missing nor a category that exists. Abroad, for the first time, the phrase *guerra sucia* appears in print with Mexico attached.
+
+@ibarra_internacional
+title: El frente internacional
+subtitle: The Comité Eureka takes the regime's disappeared to the world. A relations weapon aimed straight at the regime's face.
+card-image: img/portraits/ibarra.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; legitimidad_regimen -= 4; pri_reformist_rel += 3; sup_middle += 2; political_capital += 3; expediente += 2
+
+She takes the photographs abroad — to Amnesty, to the Russell Tribunal, to any parliament that will seat a mother holding a picture of a son the Mexican state insists was never born. The regime that survives every domestic accusation cannot survive the specific shame of being explained, in French, to people who buy its oil. Each name she reads in Geneva costs Bucareli something no budget line covers.
