@@ -153,6 +153,7 @@ Q.paro_presion = 0; Q.llamar_paro_cd = -5;
 Q.tierra_presion = 0; Q.magisterio_presion = 0; Q.colonia_presion = 0;
 Q.toma_tierras_cd = -5; Q.paro_magisterial_cd = -5; Q.invasion_urbana_cd = -5;
 Q.enfoque_cd = -5;
+Q.enlace_advisor = 1;
 Q.antesala_fuerza = 0; Q.antesala_banda = 0; Q.antesala_peligro = 0;
 Q.dotaciones = 0;
 Q.paros_ganados = 0; Q.secciones_ganadas = 0; Q.colonias_fundadas = 0; Q.cnte_fundada = 0; Q.conamup_fundada = 0;

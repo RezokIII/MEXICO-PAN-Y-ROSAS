@@ -1,0 +1,58 @@
+title: El enlace con la montaña
+is-pinned-card: true
+tags: advisor
+new-page: true
+card-image: img/guerrero_sierra.jpg
+view-if: enlace_advisor = 1 and year >= 1971
+
+= El enlace con la montaña
+
+*Aplica a ambos caminos. En la vía política, es su contacto tenue y deniable con los que subieron a la sierra; en la vía armada, es quien le lleva la guerra a la ciudad y le trae la ciudad a la guerra.*
+
+You never learn the real name, and you make a point of not trying. The contact arrives at safe kitchens by routes that change every time, carries nothing written, and speaks of the compañeros in the sierra the way one speaks of relatives in a country at war — with love, and with the specific exhaustion of someone who buries them. This is the thread that runs under the whole Movement whether you admit it or not: the deniable link between the left that signs its name and the left that cannot. In the years of the dirty war it is the most dangerous relationship you have, and, some months, the most useful.
+
+- @enlace_aviso
+- @enlace_cobertura
+- @enlace_coordinar
+- @enlace_coordinar2
+- @root: Return to main
+
+@enlace_aviso
+title: El aviso
+subtitle: Warnings both ways — a coming sweep, a coming raid. Intelligence is a two-way street here.
+card-image: img/guerrero_sierra.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; inteligencia += 5; expediente -= 3; guerrilla_meter += 1
+
+The contact leaves a word — a saint's day that is not a saint's day, a bus line mentioned twice — and a house that would have been raided on Thursday is empty by Wednesday night. In return you pass what the legal world sees that the sierra cannot: which colonel was reassigned, which budget line grew, which journalist is really a listener. Neither side fully trusts the other. Both sides are alive because of it.
+
+@enlace_cobertura
+title: La cobertura
+subtitle: Political cover for the ones who cannot ask for it — lawyers, names, a deputy's question.
+card-image: img/guerrero_sierra.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; pri_reformist_rel += 2; sup_students += 2; represion -= 2; expediente += 2
+
+You spend the legal Movement's one advantage on people who have none: a lawyer who will file the amparo for a name the papers will not print, a reformist deputy persuaded to ask in the Chamber where a disappeared campesino went, a mother's committee given a microphone. It buys nothing tactical. It keeps a handful of people on the right side of the line between *detained* and *disappeared*, which in this Republic is the only line that finally matters.
+
+@enlace_coordinar
+title: Coordinar
+subtitle: [? if via = "armada" : Bring the war to the city and the city to the war — coordinate supply and operations. ?]
+card-image: img/guerrero_sierra.jpg
+choose-if: advisor_action_timer == 0 and via = "armada"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if advisor_action_timer = 0 : Only on the armed or dual road does coordination go this far. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; pres_guerrero += 4; inteligencia += 3; guerrilla_meter += 3; expediente += 5
+
+The contact stops being a warning system and becomes a nervous system: a safe house in the capital that receives what the sierra sends and sends back what the sierra needs, the urban and the rural war finally speaking to each other instead of dying separately. It is the synthesis every armed movement in the country failed to build in time. It is also the single thickest line in your file, and everyone in the kitchen knows it.
+
+@enlace_coordinar2
+title: Coordinar
+subtitle: [? if via = "dual" : Bring the war to the city and the city to the war — coordinate supply and operations. ?]
+card-image: img/guerrero_sierra.jpg
+choose-if: advisor_action_timer == 0 and via = "dual"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if advisor_action_timer = 0 : Only on the armed or dual road does coordination go this far. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; pres_guerrero += 4; inteligencia += 3; guerrilla_meter += 3; expediente += 5
+
+The contact stops being a warning system and becomes a nervous system: a safe house in the capital that receives what the sierra sends and sends back what the sierra needs, the urban and the rural war finally speaking to each other instead of dying separately. It is the synthesis every armed movement in the country failed to build in time. It is also the single thickest line in your file, and everyone in the kitchen knows it.
