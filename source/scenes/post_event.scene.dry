@@ -108,13 +108,35 @@ if (Q.pro_republic >= 100) {
     Q.pro_republic = 99;
 }
 // izquierda sympathy derives from the Movement's sector standing (idempotent)
-Q.obreros_izq = Q.sup_workers * 0.5;
-Q.campesinos_izq = Q.sup_peasants * 0.5;
-Q.colonos_izq = Q.sup_colonos * 0.5;
-Q.medias_izq = Q.sup_middle * 0.4;
-Q.estudiantes_izq = Q.sup_students * 0.8;
-Q.maestros_izq = Q.sup_teachers * 0.6;
-Q.electricistas_izq = Q.sup_electricians * 0.6;
+// --- PRI base erosion: the regime's base defects as its story cracks and the party fractures ---
+var leg = Q.legitimidad_regimen; if (leg > 100) leg = 100; if (leg < 0) leg = 0;
+var collapse = (72 - leg) / 72;                                   // regime legitimacy loss
+if (Q.cd_formed) { collapse += 0.10; }                            // the Corriente Democratica splits the base
+collapse += Math.min(0.15, Q.escandalos * 0.04);                 // scandals
+collapse += Math.min(0.10, Math.max(0, Q.pri_reformist_rel - 10) * 0.004); // a real reformist current
+collapse += Math.min(0.08, Math.max(0, Q.pri_aperturistas - 15) * 0.004);
+if (collapse < 0) { collapse = 0; }
+if (collapse > 0.72) { collapse = 0.72; }
+var VB = {
+ obreros:       {sup: Q.sup_workers,      pri: 78, sens: 1.05, izf: 0.55, pan: 6,  ot: 7},
+ campesinos:    {sup: Q.sup_peasants,     pri: 85, sens: 1.15, izf: 0.55, pan: 4,  ot: 5},
+ colonos:       {sup: Q.sup_colonos,      pri: 75, sens: 1.05, izf: 0.55, pan: 8,  ot: 10},
+ medias:        {sup: Q.sup_middle,       pri: 60, sens: 0.65, izf: 0.45, pan: 25, ot: 10},
+ estudiantes:   {sup: Q.sup_students,     pri: 35, sens: 0.80, izf: 0.85, pan: 15, ot: 15},
+ maestros:      {sup: Q.sup_teachers,     pri: 70, sens: 0.95, izf: 0.60, pan: 5,  ot: 8},
+ electricistas: {sup: Q.sup_electricians, pri: 70, sens: 0.95, izf: 0.60, pan: 5,  ot: 8}
+};
+for (var cls in VB) {
+    var v = VB[cls];
+    var pen = Math.min(1, v.sup / 55);                            // how organized the left is here
+    var newpri = v.pri * (1 - collapse * v.sens);
+    if (newpri < 5) { newpri = 5; }
+    var freed = v.pri - newpri;                                  // PRI voters shaken loose
+    Q[cls + '_pri']   = newpri;
+    Q[cls + '_izq']   = v.sup * v.izf + freed * (0.30 + 0.55 * pen); // the left captures the freed, more if organized
+    Q[cls + '_pan']   = v.pan + freed * 0.15;
+    Q[cls + '_otros'] = v.ot  + freed * (0.55 - 0.55 * pen);        // disorganized defection -> abstention/others
+}
 
 // re-calculate party support
 // calculate normalized class voting for the achievements
