@@ -43,7 +43,7 @@ subtitle: [? if via = "armada" : Bring the war to the city and the city to the w
 card-image: img/guerrero_sierra.jpg
 choose-if: advisor_action_timer == 0 and via = "armada"
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if advisor_action_timer = 0 : Only on the armed or dual road does coordination go this far. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; pres_guerrero += 4; inteligencia += 3; guerrilla_meter += 3; expediente += 5
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; pres_guerrero += 4; inteligencia += 3; guerrilla_meter += 3; expediente += 5; enlace_sintesis = 1
 
 The contact stops being a warning system and becomes a nervous system: a safe house in the capital that receives what the sierra sends and sends back what the sierra needs, the urban and the rural war finally speaking to each other instead of dying separately. It is the synthesis every armed movement in the country failed to build in time. It is also the single thickest line in your file, and everyone in the kitchen knows it.
 
@@ -53,6 +53,6 @@ subtitle: [? if via = "dual" : Bring the war to the city and the city to the war
 card-image: img/guerrero_sierra.jpg
 choose-if: advisor_action_timer == 0 and via = "dual"
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if advisor_action_timer = 0 : Only on the armed or dual road does coordination go this far. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; pres_guerrero += 4; inteligencia += 3; guerrilla_meter += 3; expediente += 5
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; pres_guerrero += 4; inteligencia += 3; guerrilla_meter += 3; expediente += 5; enlace_sintesis = 1
 
 The contact stops being a warning system and becomes a nervous system: a safe house in the capital that receives what the sierra sends and sends back what the sierra needs, the urban and the rural war finally speaking to each other instead of dying separately. It is the synthesis every armed movement in the country failed to build in time. It is also the single thickest line in your file, and everyone in the kitchen knows it.

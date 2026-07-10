@@ -38,6 +38,13 @@ if (Q.izq_seats >= 15) { this.achieve('las_curules'); }
 if (Q.psum == 1) { this.achieve('la_fusion'); }
 if (Q.municipio_alcozauca == 1) { this.achieve('alcozauca'); }
 if (Q.postura_guerrilla == 3 && Q.ending != "aniquilacion") { this.achieve('los_canales'); }
+if (Q.paros_ganados >= 3) { this.achieve('la_huelga_que_no_se_rompe'); }
+if (Q.cnte_fundada == 1) { this.achieve('seccion_democratica'); }
+if (Q.conamup_fundada == 1) { this.achieve('la_ciudad_organizada'); }
+if (Q.dotaciones >= 3) { this.achieve('la_tierra_trabaja'); }
+if (Q.legitimidad_regimen <= 30) { this.achieve('el_regimen_desnudo'); }
+if (Q.ofrenda_armas == 1) { this.achieve('entre_las_flores'); }
+if (Q.enlace_sintesis == 1) { this.achieve('el_puente'); }
 this.achieve('game_completed');
 !}
 go-to: slide_logros
