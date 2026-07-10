@@ -20,11 +20,13 @@ The Party must decide the tone of its first response. The substance will come wi
 - @cautela: Acknowledge, coldly. Fifty years of doors that were walls painted green counsel a certain reserve.
 
 @saludar
+go-to: post_event
 on-arrival: pri_reformist_rel += 5; political_capital += 2; fac_ortodoxos -= 2
 
 The Party's jurists testify with forty years of confiscated newspapers as exhibits. Reyes Heroles listens like a man taking professional pleasure in a well-made argument. Nothing is promised. But in the corridor afterward, a functionary asks — hypothetically — how many members a party would need to document for registration, and writes down the answer.
 
 @cautela
+go-to: post_event
 on-arrival: unity += 2; sup_students += 1
 
 The response runs two paragraphs and concedes one adverb. The old members approve: they have seen aperturas before, and the ones who believed in them fastest were always the first ones photographed. If the door is real, it will still be there after the law is published. If it is not, the Party will not have applauded a wall.

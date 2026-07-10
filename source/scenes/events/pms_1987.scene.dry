@@ -17,6 +17,7 @@ An internal election — an actual contested primary, a novelty the big parties 
 - @renuente: Fuse, but jockey — protect the old apparatus's weight inside the new house.
 
 @fusionar
+go-to: post_event
 choose-if: psum = 1 and unity >= 40
 unavailable-subtitle: Without the 1981 fusion consolidated and a minimum of internal unity, there is nothing to found the big house with.
 on-arrival: pms = 1; members += 2; funds += 3; political_capital += 4; fac_nueva_izquierda += 5; unity += 2; heberto_advisor = 1
@@ -24,6 +25,7 @@ on-arrival: pms = 1; members += 2; funds += 3; political_capital += 4; fac_nueva
 The primary is a small festival of the unfamiliar: real ballots, real counts, real concession speeches. Castillo wins the candidacy and the party a legitimacy money cannot mint. The PMS begins its campaign knowing one large thing it does not say aloud: eight months out, with the cardenista wave building, the unified left's candidate may yet face the era's hardest question — whether the greatest service a candidacy can render is its own withdrawal.
 
 @renuente
+go-to: post_event
 on-arrival: pms = 1; fac_ortodoxos += 3; unity -= 3; political_capital -= 2
 
 The fusion signs with its fingers crossed: parallel structures preserved, the primary managed a shade too visibly. Castillo wins anyway — he was always going to — but the new house opens with load-bearing resentments, and houses like that choose the worst nights to creak.

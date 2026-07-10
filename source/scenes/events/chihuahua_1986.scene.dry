@@ -20,11 +20,13 @@ The left's dilemma is the era's most instructive: the stolen votes are the class
 - @silencio_frio: Let the right eat its portion of the system it long defended. Your dead earned you the right to sit this one out.
 
 @principio
+go-to: post_event
 on-arrival: alquimia_expuesta = 1; political_capital += 3; sup_middle += 3; fac_ortodoxos -= 3; pri_reformist_rel -= 2
 
 The statement costs exactly what it should: the ortodoxos are furious, Moscú bemused, and half the JC needs the logic walked through twice. But the principle is now on the record in your name — *el voto se cuenta* — and principles filed in advance are the only kind that pay. In two years, when the counting stops on a July night, the first allies to answer will remember Chihuahua.
 
 @silencio_frio
+go-to: post_event
 on-arrival: fac_ortodoxos += 3; sup_middle -= 3
 
 The silence is understood by everyone precisely: class positions held, historical accounts respected. And a note goes into the Republic's other ledger — the one that records who defends the count only when the count is theirs — with your name in it, in the PAN's handwriting, available for citation at the worst possible moment.

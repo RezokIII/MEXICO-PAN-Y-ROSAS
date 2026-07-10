@@ -16,6 +16,7 @@ It is not a left movement; it is something new — and it is asking establishmen
 - @distancia_lv: Watch respectfully. Ranchers and priests make strange column-mates, and the Movement's plate is full.
 
 @adoptar_causa
+go-to: post_event
 choose-if: political_capital >= 5
 unavailable-subtitle: To be useful to a movement this new, you must arrive with standing to lend, not to borrow.
 on-arrival: political_capital -= 2; laguna = 1; sup_middle += 3; sup_peasants += 2; expediente += 1
@@ -23,6 +24,7 @@ on-arrival: political_capital -= 2; laguna = 1; sup_middle += 3; sup_peasants +=
 Your engineers audit the cost overruns; your deputies read the safety files into the record; your lawyers teach blockade defense. The coalition accepts the tools and keeps its own flag — the correct arrangement, learned at the CEU — and a new kind of politics takes root on the coast: transversal, stubborn, and increasingly aimed at the one instrument the Republic offers for saying no: the ballot.
 
 @distancia_lv
+go-to: post_event
 on-arrival: sup_middle -= 1
 
 The movement grows without you, finds other toolboxes, and files the left under absent — in the one arena where the middle class was organizing itself against the state unprompted. Opportunities of this shape come once a sexenio.

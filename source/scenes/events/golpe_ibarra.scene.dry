@@ -17,11 +17,13 @@ They do not disappear Rosario Ibarra — even this state grasps what that would 
 - @r2: Her instruction, executed: escalate the question. New case files, new embassies, louder.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 Grandmothers from the committee sleep at her house in rotation; a Nobel laureate's secretary telephones daily at 2:55, on principle; the school gate acquires a permanent circle of mothers of the disappeared, holding photographs, staring at the Galaxie until it is the one that leaves. The state discovers that the doña cannot be isolated: she has spent years building the exact instrument that now defends her — organized grief, which does not blink.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 She answers threats the only way she recognizes: the following week the Comité files eleven NEW cases and she reads every name at a rally with the wreath — her wreath — on the podium beside her, relabeled: PARA LOS QUE FIRMAN LAS ÓRDENES. The state made one more mother angry. It is, as ever, the whole of what it knows how to do, and the whole of why it is losing.

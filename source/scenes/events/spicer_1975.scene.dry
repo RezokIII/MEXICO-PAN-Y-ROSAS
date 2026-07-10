@@ -17,6 +17,7 @@ The state lets the labor boards and the company do the grinding. The independent
 - @saludar_spicer: Salute it, study it, husband your resources. The FAT's fight, your footnotes.
 
 @sostener_spicer
+go-to: post_event
 subtitle: -4 funds
 choose-if: funds >= 4
 unavailable-subtitle: A strike eats four months of tortillas; solidarity starts in the treasury.
@@ -25,6 +26,7 @@ on-arrival: funds -= 4; spicer = 1; huelga_prep += 6; sup_workers += 3; charrism
 The collections move through your gates weekly; the strike kitchen never quite empties. The 120 days end, as the era's strikes end, in a defeat with a long shadow: the strikers lose the plant and seed the decade — and the delegate networks your people built feeding them become, quietly, the first strike committees of something much larger. The general strike of the future acquired its oldest cadres at Spicer's gates.
 
 @saludar_spicer
+go-to: post_event
 on-arrival: sup_workers += 1
 
 The editorial is warm and the analysis excellent. The strike starves at its own pace. In the FAT's memory, and the metalworkers' — which is the same archive — the accounting is kept without rancor and without forgetting: who came with tortillas, who came with theory.

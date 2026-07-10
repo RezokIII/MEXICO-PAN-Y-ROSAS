@@ -67,6 +67,7 @@ And yet: **[+ izq_seats +] diputados** — the proportional seats survive the sh
 - @denunciar: Denounce the whole exercise as decorated fraud and threaten to walk from the reform.
 
 @actas
+go-to: post_event
 choose-if: political_capital >= 10
 unavailable-subtitle: Publishing the parallel count requires the authority and means to defend it under fire. Not enough of either.
 on-arrival: political_capital -= 3; alquimia_expuesta = 1; sup_middle += 3; pri_reformist_rel += 1; expediente += 2
@@ -74,11 +75,13 @@ on-arrival: political_capital -= 3; alquimia_expuesta = 1; sup_middle += 3; pri_
 The documentation runs as a supplement: two counts, printed in facing columns, with photographs of actas. The government does not answer — answering would dignify arithmetic — but the method is now public property, and every opposition force in the country takes notes. The next election will be watched by people who learned watching from you. The alquimia has been named, measured, and put on a shelf where history can reach it.
 
 @tribuna
+go-to: post_event
 on-arrival: tribuna = 1; political_capital += 5; sup_students += 2; funds += 3
 
 The eighteen walk in together on opening day, past murals of the Revolution that jailed them. Within a month the tribune is the best theater in the Republic: interpellations with footnotes, the dirty war named from the well of the chamber with immunity's thin shield, the budget dissected by people who read it. Bills die in committee, loudly — and that is the point: the Chamber cannot pass your laws, but it can no longer pretend you are not in the room.
 
 @denunciar
+go-to: post_event
 on-arrival: unity -= 3; pri_reformist_rel -= 6; sup_students += 2; fac_renovadores -= 4
 
 The threat lands hard inside and outside: the reformers feel betrayed at the first count, the renovadores feel sabotaged, the ortodoxos feel vindicated, and the regime feels — briefly — afraid, which is worth something. The walk is not taken in the end; the seats are too useful. But the relationship with the door's designers will need years of repair, and the young hear one lesson: even legalized, the Party does not believe in the law.

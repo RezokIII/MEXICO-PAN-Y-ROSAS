@@ -18,6 +18,7 @@ Splits are how the Mexican left reproduces; everyone in the room can name four. 
 - @dejar_ir: Open the door yourself. A party is not a hostage negotiation; let the current go and keep the house honest.
 
 @conciliar
+go-to: post_event
 choose-if: political_capital >= 8
 unavailable-subtitle: Conciliation requires authority to distribute; the leadership arrives at this crisis without any.
 on-arrival: political_capital -= 5; unity += 12
@@ -25,6 +26,7 @@ on-arrival: political_capital -= 5; unity += 12
 The special pleno runs fourteen hours and ends in the Mexican resolution: nobody satisfied, everybody staying. Two of their people join the center; one of yours graciously retires to "international work." The mimeograph of the current prints next month's issue on party paper. Expensive, undignified, and cheaper than every alternative.
 
 @dejar_ir
+go-to: post_event
 on-arrival: members -= 2; fac_ortodoxos -= 4; fac_renovadores -= 4; fac_nueva_izquierda -= 4; unity += 8; sup_students -= 2
 
 The despedida is correct and the wound is real: a new sigla appears within the season, staffed by faces from your file photos, competing for your students and your paper's street corners. The house is quieter and smaller. History will decide which mattered more, and history, on splits, has never once been kind to both halves.

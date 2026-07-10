@@ -19,16 +19,19 @@ The left's dilemma is exquisite: the state has done the thing your programs have
 - @control: Go maximal — occupy the moment: assemblies in the bank workers' union, a campaign to make reversal politically impossible.
 
 @critico
+go-to: post_event
 on-arrival: political_capital += 3; sup_workers += 2; pri_reformist_rel += 2; ax_nacpop += 3
 
 The line threads it: yes to the act, no to the theater, and a bill of particulars for making it real. For one strange season the Party's economists are quoted in papers that used to redact them. The técnicos take office in December and begin the quiet unwinding; your bill of particulars becomes the measuring stick of their betrayal, which is worth more than applause.
 
 @teatro
+go-to: post_event
 on-arrival: sup_students += 2; sup_middle += 2; fac_nueva_izquierda += 2; pri_reformist_rel -= 3
 
 The analysis is merciless and correct — and lands strangely: the right quotes you against the expropriation, the government quotes you against your own program, and honesty proves, as usual, the most expensive of the postures. History will vindicate the paragraph. Politics invoices it now.
 
 @control
+go-to: post_event
 choose-if: sup_workers >= 20 and huelgas >= 10
 unavailable-subtitle: Seizing the moment requires a base among the bank workers and strike muscle. Neither exists.
 on-arrival: sup_workers += 4; huelgas += 6; burguesia_estado += 2; expediente += 4; political_capital += 3

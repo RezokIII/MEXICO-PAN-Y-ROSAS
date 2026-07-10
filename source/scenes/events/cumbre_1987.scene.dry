@@ -26,6 +26,7 @@ The commanders' balance, drawn at the cycle's end, by lamplight, in a hand that 
 - @continuar: The balance is filed where such things are filed. The war continues.
 
 @plegar
+go-to: post_event
 view-if: pres_total < 25
 on-arrival: {!
 Q.via = "politica";
@@ -36,12 +37,14 @@ Q.members += 1; Q.represion -= 6; Q.guerrilla_meter -= 4; Q.unity -= 3;
 The order goes up the trails: it is over. Some come down to papers and quiet lives; some cross borders; a remnant refuses and is heard from, diminishingly, for years. The war closes its books at a loss — except the one entry no ledger holds: the state was made, for a while, to fight instead of merely to rule.
 
 @persistir
+go-to: post_event
 view-if: pres_total < 25
 on-arrival: memorial += 2; guerrilla_meter += 2
 
 The structure persists, thinner. The lamp is turned down. In Bucareli, an analyst annotates the file with the phrase the whole apparatus has learned to distrust: *reducción a niveles manejables.* Manageable levels. They wrote that about Guerrero once, twice, three times, and the sierra keeps disagreeing at intervals.
 
 @continuar
+go-to: post_event
 view-if: pres_total >= 25
 on-arrival: political_capital += 1
 

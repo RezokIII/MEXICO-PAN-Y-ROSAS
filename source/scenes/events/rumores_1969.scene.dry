@@ -21,6 +21,7 @@ For the Party this theater matters more than it should. Whoever emerges owns the
 - @observar: Watch closely and say nothing. Teach the cadres to read the ritual — they will see it three more times before this game of ours is done.
 
 @observar
+go-to: post_event
 on-arrival: political_capital += 1
 
 The analysis circulates internally, dry as an actuary's table: how a destape works, what a cargada is, why the loser-candidates will kiss the winner's hand within the hour. The young comrades find it grotesque and fascinating, like the anatomy of a predator. Good. They will be dissecting this animal for twenty years.

@@ -17,11 +17,13 @@ Othón Salazar leaves Alcozauca for Tlapa on the early camión and never reaches
 - @r2: The Montaña's own way: the villages search, the region closes like a hand.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 Forty thousand teachers in the streets of six state capitals with one photograph and one word: ¿DÓNDE? The state produces him — beaten, alive, dumped near a clinic in Chilpancingo — because a hundred thousand classrooms on strike is arithmetic even the dirty war respects. He returns to the Montaña thinner and unchanged: the lesson plans, he notes, kept without him. His card stays retired; his country does not.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 The Montaña conducts its own inquiry in Nahuatl and Mixtec, along paths the army does not know it does not know. What the villages find is not written down anywhere the state can subpoena — but from that season on, soldiers in the Montaña travel in larger groups, and sleep badly, and the sections teach his curriculum like scripture.

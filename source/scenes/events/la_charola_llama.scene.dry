@@ -20,6 +20,7 @@ They came to the leadership before answering, which is already loyalty. They are
 - @dejar: Let them go with honor — a public abrazo, the door left open. Better an ally in the apparatus than a resentment in the ranks.
 
 @igualar
+go-to: post_event
 choose-if: political_capital >= 6
 unavailable-subtitle: Offering a seat at the center requires the authority to clear one.
 on-arrival: political_capital -= 4; unity += 2
@@ -27,6 +28,7 @@ on-arrival: political_capital -= 4; unity += 2
 They stay — for the responsibility, they say, though everyone understands it was for being asked. The promotion ruffles two veterans whose turn it arguably was. The system's talent scout files a rare loss and adjusts next year's figures upward.
 
 @conciencia
+go-to: post_event
 choose-if: unity >= 50
 unavailable-subtitle: Asking for voluntary poverty requires a party worth it. Right now yours does not convince even its own people.
 on-arrival: unity += 3; political_capital += 2
@@ -34,6 +36,7 @@ on-arrival: unity += 3; political_capital += 2
 A long silence, then the answer the whole movement is secretly built on: *si me quisiera ir, ya me habría ido.* They stay. The story travels quietly through the cells and is worth three circulars on discipline.
 
 @dejar
+go-to: post_event
 on-arrival: members -= 1; funds += 2; pri_reformist_rel += 2; sup_students -= 1
 
 The despedida is warm and public, which is the point: no traitor's shadow, just a comrade seconded to the enemy's payroll. Sometimes a document arrives, unsigned, useful. Sometimes just the annual felicitación. In the JC they keep score of these departures with a bitterness the leadership pretends not to hear.

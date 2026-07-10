@@ -20,11 +20,13 @@ For the Party the arithmetic is bitter: a guerrilla you do not control has hande
 - @espiral: Condemn it — and name the spiral: a state that answers every ballot with a bullet has been teaching this course for years. Garza Sada's tuition was paid at Tlatelolco.
 
 @deslindar
+go-to: post_event
 on-arrival: sup_middle += 2; pri_reformist_rel += 2; sup_students -= 2
 
 The statement is unambiguous and costs nothing to quote, which is its purpose. The reasonable press notes it with faint surprise. In the JC someone asks, not gently, where the Party's unambiguous statements were parked when the dead were poorer.
 
 @espiral
+go-to: post_event
 on-arrival: sup_students += 3; sup_middle -= 3; expediente += 2
 
 The essay condemns the killing in its first sentence and spends the rest on the ecology that bred it — Madera, Tlatelolco, Corpus Christi, the ballots burned in Guerrero — and it reads true because it is. The business press calls it a justification, which it is not, and quotes it entire, which spreads it. In Monterrey the word *comunista* recovers its full liturgical heat.

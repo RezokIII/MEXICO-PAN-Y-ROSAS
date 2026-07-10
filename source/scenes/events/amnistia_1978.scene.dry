@@ -22,9 +22,11 @@ They come down from the mountains, out of Lecumberri and the Oblatos prison, bac
 - @bajar_sierra: Bring the columns down. The war ends; the war's people come home to the political road.
 
 @recibir
+go-to: post_event
 on-arrival: members += 1; sup_students += 2; sup_peasants += 2
 
 @bajar_sierra
+go-to: post_event
 view-if: via = "armada" or via = "dual"
 on-arrival: {!
 Q.via = "politica";

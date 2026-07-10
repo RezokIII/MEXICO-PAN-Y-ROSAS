@@ -19,6 +19,7 @@ Fifty years the Party has waited to be asked. The answer will define everything 
 - @rechazar: Refuse. Legitimacy is not the state's to license; the street and the factory do not require a ledger entry in Bucareli.
 
 @registrar
+go-to: post_event
 choose-if: political_capital >= 12 and via != "armada"
 unavailable-subtitle: Registration demands political capital and peace: no Comision registers a party whose other half is at war.
 on-arrival: registro = 1; funds += 8; ax_electoral += 6; fac_renovadores += 6; fac_ortodoxos -= 3; fac_nueva_izquierda -= 6; unity -= 4; sup_students -= 2; pri_reformist_rel += 4; des_renovadores -= 10; des_nueva += 12; des_ortodoxos += 6
@@ -28,6 +29,7 @@ The assemblies are certified, the notaries paid, the membership rolls — guarde
 In May the certificate arrives. Fifty-eight years after its founding, the Party legally exists. The hammer and sickle will appear on a Mexican ballot — conditionally, revocably, countably. Now the count itself becomes the battlefield.
 
 @rechazar
+go-to: post_event
 on-arrival: unity += 3; sup_students += 3; fac_nueva_izquierda += 4; fac_renovadores -= 6; pri_reformist_rel -= 5; ax_electoral -= 5
 
 The refusal is drafted with pride and read with relief in half the cells: the Party remains itself, unlicensed, unbought, unreferee'd. The coordinadoras and the colonias approve; the street belongs to those who never asked permission to be in it.

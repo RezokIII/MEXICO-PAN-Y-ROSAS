@@ -20,6 +20,7 @@ A decade into the leadership, the past sends its invoice — payable, for once, 
 - @cobrar: The past pays. Bank it.
 
 @cobrar
+go-to: post_event
 on-arrival: sup_workers += 4 if herencia = 1; unity += 2 if herencia = 1; sup_teachers += 4 if herencia = 2; sup_peasants += 2 if herencia = 2; sup_students += 3 if herencia = 3; sup_middle += 3 if herencia = 3; political_capital += 2
 
 Organizations, like people, are their oldest debts. This one, for once, arrived as an asset.

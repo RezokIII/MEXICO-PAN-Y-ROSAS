@@ -25,6 +25,7 @@ The question is what to tell the people who would have voted for you.
 - @tolerar: Say nothing loudly. If this apertura is real, someone should be positioned to walk through it.
 
 @abstencion
+go-to: post_event
 choose-if: members >= 5 and organizers >= 3
 unavailable-subtitle: A national abstention campaign requires an organization that does not yet exist.
 on-arrival: eleccion70_stance = 1; ax_electoral -= 5; sup_students += 4; pri_reformist_rel -= 5; political_capital += 3
@@ -34,6 +35,7 @@ The brigades paint it on walls from Azcapotzalco to the Doctores: NO VOTES — w
 You count it as a small victory of arithmetic. The government counts it too — differently, and in Bucareli.
 
 @anular
+go-to: post_event
 choose-if: sup_students >= 30
 unavailable-subtitle: The brigades that paint walls and hand out leaflets are students. You do not have them.
 on-arrival: eleccion70_stance = 2; sup_students += 6; expediente += 5; political_capital += 4
@@ -43,6 +45,7 @@ They come out of the booths having written names across the boleta: *los del edi
 Nothing changes. The count is the count; the annulled are a footnote. Something changes: several thousand people have now committed, in an official government document, in their own handwriting, the act of remembering.
 
 @tolerar
+go-to: post_event
 on-arrival: eleccion70_stance = 3; ax_electoral += 5; pri_reformist_rel += 8; sup_students -= 6; fac_nueva_izquierda -= 5
 
 The Party says little, which in Mexico is a language with its own grammar, and the men around the candidate parse it fluently: *they are listening.* Within the year there will be answers — professorships for comrades who have not taught in a decade, editorial pages suddenly open, scholarships, invitations to breakfast at restaurants where the bill never comes.

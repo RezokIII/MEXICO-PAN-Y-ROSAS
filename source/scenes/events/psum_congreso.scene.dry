@@ -18,6 +18,7 @@ Heberto Castillo came to the courtship and left it: his PMT will not merge where
 - @negarse: No fusion. The Party keeps its name, its history, and its size.
 
 @amplia
+go-to: post_event
 choose-if: unity >= 45 and political_capital >= 18
 unavailable-subtitle: Dissolving the oldest party in Mexico requires internal authority you do not have.
 on-arrival: psum = 1; members += 3; funds += 5; fac_renovadores += 8; fac_nueva_izquierda += 6; fac_ortodoxos -= 8; unity -= 5; ax_sovietico -= 5; moscow_relation -= 6; political_capital += 4
@@ -25,11 +26,13 @@ on-arrival: psum = 1; members += 3; funds += 5; fac_renovadores += 8; fac_nueva_
 The vote carries and the hall stands for the Internationale — sung, everyone notices, in the past tense. The PCM folds its sixty-two years into the new banner; the registration transfers; the MAP's economists take seats beside veterans of Lecumberri. It is bigger inside than the old house, and colder in corners, and the ortodoxos walk its halls like widowers. On the ballot line where the hammer and sickle stood, there is now a red star that offends fewer and warms fewer. Growth has a temperature.
 
 @estrecha
+go-to: post_event
 on-arrival: psum = 1; members += 1; funds += 2; fac_ortodoxos += 2; fac_renovadores += 2; unity += 2; political_capital -= 2
 
 The fusion signs, weighted: old statutes barely amended, the apparatus intact under new letterhead. The smaller partners feel it immediately — guests in a house that kept its locks — and two of the four currents drift out within the year, politely. PSUM exists, and is mostly the PCM wearing a scarf. The arithmetic of unity was satisfied; its chemistry was not.
 
 @negarse
+go-to: post_event
 on-arrival: fac_ortodoxos += 6; unity += 3; fac_renovadores -= 8; sup_students -= 2; political_capital -= 3
 
 The congress declines, with honors rendered to the guests. The Party keeps its name and its dead, which is not nothing — ask the parties that traded theirs. But the unification energy of the era flows elsewhere, around you: the currents fuse without the communists, the press writes the Party into the past tense, and the renovadores begin conversations you are not in.

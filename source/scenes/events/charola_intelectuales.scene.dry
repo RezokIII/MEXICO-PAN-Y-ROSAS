@@ -18,16 +18,19 @@ This is the charola in its highest form. Crude regimes buy silence. This one buy
 - @estrategia: Accept selectively, by Party decision — treat every post as a listening station and every salary as dues.
 
 @prohibir
+go-to: post_event
 on-arrival: unity += 3; fac_ortodoxos += 2; sup_middle -= 2; funds -= 2; insobornables = 1
 
 The circular is read aloud in the cells, and there is something bracing in it, like cold water: we are not for sale, not even by the piece. Two comrades resign to take their posts anyway, mailing back their cards with correct little notes. The rest close ranks. Poverty, at least, is a known quantity; the Party has forty years of expertise.
 
 @individual
+go-to: post_event
 on-arrival: unity -= 3; members -= 1; funds += 2; sup_middle += 2
 
 Conscience decides, and conscience, it turns out, has a mortgage. A dozen cadres migrate to programs and fellowships over the year — some genuinely doing good work, some genuinely lost, all of them suddenly very busy on meeting nights. What returns: occasional checks, occasional documents, occasional guilt. The cells feel the drafts where people used to sit.
 
 @estrategia
+go-to: post_event
 choose-if: pri_reformist_rel >= 15
 unavailable-subtitle: Placing people inside requires a door opened from within. It is not being opened to you.
 on-arrival: pri_reformist_rel += 5; funds += 4; expediente += 2; sup_students -= 4; ax_electoral += 2

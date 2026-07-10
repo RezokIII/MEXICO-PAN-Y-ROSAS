@@ -21,6 +21,7 @@ And in Guerrero, this same December, the army's sweeps through the coffee countr
 - @estudiar: A new sexenio, year one. The Movement takes the measure of its new adversary.
 
 @estudiar
+go-to: post_event
 on-arrival: political_capital += 2
 
 On the Gobierno panel the meters reset for a new reign: generosity up, the garrote lowered but not racked. Somewhere between those two needles, the next six years of your people's lives will be decided — some over coffee at Los Pinos, and some in unmarked cars on the Costa Grande.

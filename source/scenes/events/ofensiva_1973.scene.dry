@@ -25,11 +25,13 @@ The state's answer arrives on schedule: a third of a division into the Costa Gra
 - @resistir: Hold ground — the columns stand where they are known, and make the sweep pay for every canyon.
 
 @dispersar
+go-to: post_event
 on-arrival: pres_guerrero -= 3; pres_valle -= 2; represion -= 3; inteligencia += 3
 
 The structures dissolve like salt in the ranges. The army sweeps territory and captures geography; the war it came for declines to attend. Expensive in presence, cheap in blood — the sierra's oldest trade.
 
 @resistir
+go-to: post_event
 choose-if: pres_guerrero >= 20
 unavailable-subtitle: Holding ground requires ground held: the columns are too thin where the hammer falls.
 on-arrival: memorial += 2; political_capital += 3; sup_peasants += 3; guar_guerrero += 6

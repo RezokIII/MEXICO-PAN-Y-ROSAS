@@ -17,11 +17,13 @@ Arnoldo Martínez Verdugo is ambushed between the print shop and his apartment �
 - @r2: Move him to clandestinity and run the leadership from shadow, as in the old years.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 The hospital corridor becomes the safest room in Mexico: Italian communists send a delegation, the wire services rotate shifts. Having failed to kill him quietly, the state must now visibly keep him alive — a jiu-jitsu the old sign painter appreciates from his bed, planning the next pleno on hospital stationery.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 The First Secretary vanishes from public Mexico and the Party rediscovers its oldest skill: existing where the state cannot see. His circulars arrive undated, unsigned, and unmistakable. The DFS spends a fortune confirming he is nowhere.

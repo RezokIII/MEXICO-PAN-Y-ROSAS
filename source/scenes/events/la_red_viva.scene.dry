@@ -16,6 +16,7 @@ The result stands anyway, of course. The precedent does not care: for the first 
 - @publicarlo: Publish the anatomy — the full forensic file, a manual of how the alchemy works, casilla by casilla.
 
 @publicarlo
+go-to: post_event
 on-arrival: alquimia_expuesta = 1; anatomia = 1; political_capital += 3; sup_middle += 2; red_casillas += 3; pri_reformist_rel -= 1
 
 *Anatomía de un fraude* runs as a supplement and becomes the era's samizdat bestseller — photocopied by the PAN, cited by academics, studied, the fuente reports with some relish, inside Gobernación itself. The network trained for elections. It has learned it can also train the country's eyes. Volunteers arrive asking for the next by-election like it's a posting.

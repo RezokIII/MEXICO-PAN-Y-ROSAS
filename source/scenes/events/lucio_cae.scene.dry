@@ -18,6 +18,7 @@ The Party of the Poor does not survive him — organizations built on one man's 
 - @distancia: The Party cannot become the guerrilla's convalescent home; the ones the DFS follows down will lead them through your doors.
 
 @recibir
+go-to: post_event
 choose-if: sup_peasants >= 20 or postura_guerrilla >= 2
 unavailable-subtitle: Without a Guerrero base or prior channels, there is no way to reach them before the Brigada does.
 on-arrival: members += 1; sup_peasants += 3; expediente += 6; political_capital += 2; bajaron = 1
@@ -25,6 +26,7 @@ on-arrival: members += 1; sup_peasants += 3; expediente += 6; political_capital 
 It is done the slow way: a priest who owes Othón a favor, a clinic in Chilpancingo, bus tickets bought in threes. Not all of them want saving and not all of them are saved, but by spring there are young men repairing mimeographs who last year were cleaning rifles, and in the Montaña the Party's name is spoken with a new modifier: *los que bajaron por ellos*. The ones who went for them.
 
 @distancia
+go-to: post_event
 on-arrival: guerrilla_meter += 2; sup_peasants -= 2
 
 The reasoning is sound and the sound of it carries. Some of the descended are taken at the bus stations; some reach the Liga, which welcomes anything that still angers; a few simply vanish into day labor and silence, carrying their verdict with them. The Party's doors stayed clean. In Guerrero, clean doors have a particular reputation.

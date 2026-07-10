@@ -21,6 +21,7 @@ Outside, the families have organized themselves with the terrible efficiency of 
 - @clandestino: Conserve everything. Rebuild the cells first; the prisoners, of all people, would understand.
 
 @defensa
+go-to: post_event
 choose-if: funds >= 10
 unavailable-subtitle: The shoebox treasury cannot cover lawyers. (Requires 10 funds.)
 on-arrival: lecumberri_campaign = 1; funds -= 10; sup_students += 8; expediente += 8; political_capital += 5
@@ -30,6 +31,7 @@ The committees get their lawyers, who ask for writs and collect insults, but the
 In Crujía M, Revueltas gets paper. He is writing something about the *apando*, the stone punishment cell — a short book with walls inside it. It will outlive everyone who put him there, and they suspect it, which is why the paper sometimes doesn't arrive.
 
 @clandestino
+go-to: post_event
 on-arrival: lecumberri_campaign = 2; unity -= 5; sup_students -= 4
 
 The cells are rebuilt, quietly, five by five — no member knowing more than four others, the old discipline from the forties, correct by every manual ever written in exile. The Party will survive, and survival is not nothing; ask anyone who has watched a party die.

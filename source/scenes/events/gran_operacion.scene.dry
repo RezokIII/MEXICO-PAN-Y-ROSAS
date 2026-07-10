@@ -26,6 +26,7 @@ The organizers on the political side beg you to reconsider. Every rifle fired in
 - @easy_discard
 
 @abstenerse_op
+go-to: post_event
 title: No es la temporada
 on-arrival: unity += 2; ax_electoral += 2; pri_reformist_rel += 2
 

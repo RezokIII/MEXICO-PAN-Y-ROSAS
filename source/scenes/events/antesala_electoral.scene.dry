@@ -31,6 +31,7 @@ How do you spend the last month before the count?
 - @antesala_conservar: Conserve. Bank the resources; the count is a formality this cycle, and next cycle is the one that counts.
 
 @antesala_base
+go-to: post_event
 title: Afianzar la base
 subtitle: -3 funds. Solid where you are strong.
 choose-if: funds >= 3
@@ -67,6 +68,7 @@ They take the campaign apart in a single week, quietly, the way they always pref
 go-to: la_derrota
 
 @antesala_conservar
+go-to: post_event
 title: Conservar para después
 subtitle: Bank the resources for the cycle that matters.
 on-arrival: funds += 2; political_capital += 3; unity -= 2

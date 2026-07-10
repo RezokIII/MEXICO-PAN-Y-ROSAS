@@ -21,6 +21,7 @@ The Movement's people are in the rubble with everyone. [? if colonia_saga >= 3 :
 - @cuidado: Rescue work under strict nonpartisan colors; the DFS will be photographing the shelters and the government will call organizing "looting."
 
 @topos
+go-to: post_event
 choose-if: organizers >= 3
 unavailable-subtitle: Brigades need cadres to coordinate them; not enough are left standing.
 on-arrival: sup_colonos += 6; sup_students += 3; members += 2; political_capital += 4; expediente += 3; sup_colonos += 3 if colonia_saga >= 3; members += 1 if colonia_saga >= 3
@@ -28,6 +29,7 @@ on-arrival: sup_colonos += 6; sup_students += 3; members += 2; political_capital
 Weeks of dust and lists. The locals become shelters; the mimeographs print reunification registers; the young cadres learn more about organization in a month than in five years of circulars. When the government finally reasserts itself, it finds the damnificados already organized — into committees that know your people by their first names — and a city that has seen, with its own eyes, that the state is optional. That sentence cannot be unlearned.
 
 @costureras
+go-to: post_event
 choose-if: organizers >= 2 and sup_colonos >= 12
 unavailable-subtitle: Reaching San Antonio Abad in the first hour requires a prior urban base.
 on-arrival: costureras = 1; sup_colonos += 4; sup_workers += 3; political_capital += 4; huelgas += 4; expediente += 3
@@ -35,6 +37,7 @@ on-arrival: costureras = 1; sup_colonos += 4; sup_workers += 3; political_capita
 The photographs of machines lifted over bodies do in one week what a decade of agitation could not: the seamstresses — uncounted, un-unionized, invisible in the national arithmetic — organize on the rubble itself, and on the nineteenth of October a union is registered that no charro chose. Your compañeras were there from the first morning, and the September 19th Garment Workers Union knows it. A women's labor movement is born in the ruins, and it was born beside you.
 
 @cuidado
+go-to: post_event
 on-arrival: sup_colonos += 2; political_capital += 1
 
 The work is done and done carefully, under the Red Cross's colors more than your own. Lives are saved; the files stay thin. And the organizing moment of the generation — the week the city governed itself — passes with the Movement present as helpers rather than as builders. Some prudences are correct and cost everything anyway.

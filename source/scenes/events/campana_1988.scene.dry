@@ -18,6 +18,7 @@ The Movement's networks — the casillas, the colonias, the coordinadoras, the c
 - @ambas: Split the difference deliberately: casilla network to the whole opposition, political muscle to the PMS, doors open everywhere.
 
 @con_cardenas
+go-to: post_event
 choose-if: cd_rel >= 1
 unavailable-subtitle: Without prior bridges to the Corriente, the wave has nowhere to receive you.
 on-arrival: cd_rel += 1; fdn = 1; political_capital += 3; fac_ortodoxos -= 3; sup_colonos += 2
@@ -25,11 +26,13 @@ on-arrival: cd_rel += 1; fdn = 1; political_capital += 3; fac_ortodoxos -= 3; su
 The engineers around Cárdenas absorb your ground game with undisguised relief; the wave acquires a skeleton. In the colonias the two currents — the nationalist flood and your patient cadres — discover they have been organizing the same anger from different directions for years.
 
 @con_castillo
+go-to: post_event
 on-arrival: political_capital += 2; unity += 3; fac_ortodoxos += 2
 
 The left campaigns as itself: Castillo in the union halls, the program on the table, no surnames borrowed. It is coherent and honorable and visibly smaller than the wave beside it — and June will ask its question anyway, with interest.
 
 @ambas
+go-to: post_event
 choose-if: political_capital >= 12
 unavailable-subtitle: Playing every table requires more internal authority than exists.
 on-arrival: political_capital -= 4; fdn = 1; cd_rel += 1; red_casillas += 4; unity -= 2

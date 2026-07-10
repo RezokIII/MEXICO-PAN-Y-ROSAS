@@ -20,6 +20,7 @@ A candidacy now exists with the Revolution's own surname, aimed at the Revolutio
 - @observar: Hold one season more. Waves this sudden drown the first swimmers; let the fronts form before choosing yours.
 
 @acercarse
+go-to: post_event
 choose-if: cd_rel >= 1
 unavailable-subtitle: No bridges were ever built to the Corriente; approaching now means arriving as a stranger.
 on-arrival: cd_rel += 1; political_capital += 3; fac_ortodoxos -= 3; ax_nacpop += 3
@@ -27,6 +28,7 @@ on-arrival: cd_rel += 1; political_capital += 3; fac_ortodoxos -= 3; ax_nacpop +
 The meetings move from restaurants to kitchens, which in Mexican politics is the promotion that matters. Your casilla network interests them intensely — the engineers around Cárdenas can count, and know exactly what will be attempted against them in July. The convergence has begun writing itself.
 
 @observar
+go-to: post_event
 on-arrival: unity += 2; political_capital -= 1
 
 Discipline, while the satellites stampede and the columnists auction their forecasts. Not wrong — the wave's shape truly is unknowable this early — but waves reward presence, and every week of distance is a week someone else stands where you could have. The front is forming. The question is whether you are architecture or annex.

@@ -18,11 +18,13 @@ The line must be set. It can be revisited — history will offer occasions — b
 - @canales: Quiet channels. No communiqués, but medicine moves, and sometimes a name gets warned before a raid. Deniable, dangerous, human.
 
 @deslinde
+go-to: post_event
 on-arrival: postura_guerrilla = 1; represion -= 3; sup_students -= 4; guerrilla_meter -= 3; pri_reformist_rel += 3; fac_ortodoxos += 3
 
 The resolution is orthodox and closely argued and will be quoted approvingly by people the Party despises. In the sierra it changes nothing. In the cities it changes recruitment: the angriest of the young now cross the street when they see the paper sellers. Ten years from now this document will look either like wisdom or like an alibi, and possibly like both.
 
 @ambiguedad
+go-to: post_event
 choose-if: unity >= 45
 unavailable-subtitle: Walking the wire requires a united party; yours would fall at the first gust.
 on-arrival: postura_guerrilla = 2; represion += 2; expediente += 2; sup_students += 2
@@ -30,6 +32,7 @@ on-arrival: postura_guerrilla = 2; represion += 2; expediente += 2; sup_students
 The formula is lawyered to a shine: the Party "understands the desperation that the state's violence engenders" and "reaffirms the mass road" in the same paragraph, and every reader takes home the clause they came for. It buys time and space, at the standing cost that both the DFS and the guerrilla file you under *pending*.
 
 @canales
+go-to: post_event
 choose-if: organizers >= 3
 unavailable-subtitle: Discreet channels consume fully trusted cadres. You have none to spare.
 on-arrival: postura_guerrilla = 3; expediente += 5; guerrilla_meter += 2; sup_peasants += 2

@@ -68,12 +68,14 @@ PAN [+ b_o_pan +] [+ oficial_pan +]%
 - @cerilla: La cerilla. The crowd in the Zócalo is asking, in so many words, to be told the hour. Strike the match.
 
 @victoria
+go-to: post_event
 view-if: resultado_88 = 1
 on-arrival: respuesta_88 = 4; political_capital += 10
 
 What follows fills its own books: the ballots defended physically in a hundred districts, the regime's software experts contradicting each other under oath, two governors and a sector of the army privately informing Los Pinos that they will not fire on the count, and Salinas — the técnico, able as ever to read a balance sheet — declining the presidency of a burning building. It takes until December, and it holds. The general's son takes office over a fractured regime with your Movement inside the victory's architecture, holding the blueprints.
 
 @movilizar
+go-to: post_event
 face-image: img/Zocalo1988.jpeg
 view-if: resultado_88 = 0
 on-arrival: respuesta_88 = 1; political_capital += 5; sup_colonos += 3; huelgas += 5; represion += 2
@@ -81,6 +83,7 @@ on-arrival: respuesta_88 = 1; political_capital += 5; sup_colonos += 3; huelgas 
 The Zócalo becomes a weekly institution: half a million, then more, disciplined and terrible. Cárdenas — with the crowd chanting for more — chooses the legal road deliberately, aloud: *no le daré al Estado el pretexto.* Whether the refusal was wisdom or the wave's one great error will be argued at every table in Mexico for fifty years. The mobilization does not reverse the count. It makes the count unforgettable, which is a different kind of victory, payable later.
 
 @negociar_88
+go-to: post_event
 view-if: resultado_88 = 0
 choose-if: pri_reformist_rel >= 20
 unavailable-subtitle: Negotiation requires interlocutors; the PRI reformists are not taking your calls.
@@ -89,6 +92,7 @@ on-arrival: respuesta_88 = 2; political_capital += 2; funds += 4; unity -= 4; su
 The tables convene discreetly while the plazas roar: registries confirmed, senate seats seated, an electoral reform promised in writing. It is real currency and it spends — and the crowds, who were not consulted, watch the negotiators emerge with briefcases and draw the era's bitterest conclusion about the distance between the street and the table.
 
 @cerilla
+go-to: post_event
 view-if: resultado_88 = 0
 choose-if: (huelga_prep >= 50 and sup_colonos >= 25) or (plan_b = 1 and huelga_prep >= 40)
 unavailable-subtitle: Insurrection is not declaimed: it requires strike readiness (50) and organized colonias — or a Plan B drawn in advance with readiness 40. Neither exists.

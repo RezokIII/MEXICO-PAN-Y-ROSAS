@@ -17,11 +17,13 @@ Heberto Castillo has been theirs before — Cerro del Zorrillo, the beating half
 - @r2: The engineers' answer: his colleagues and students refuse all state contracts until he surfaces.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 The column appears on schedule with a note: 'The author is unavailable; his argument is not.' Old drafts, students' reconstructions, one page smuggled out in a lawyer's cuff that ends: 'the numbers still do not lie, whatever is done to the arithmetician.' By the third missing week the column is the most read in Mexico, and holding him has become more expensive than his freedom ever was. They dump him near Toluca with two ribs' interest on the old debt. He files the next column early.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 An engineers' strike is a strange and terrible weapon — bridges unreviewed, works stalled, the technocrats' own caste withholding its stamp. The técnicos in the cabinet, men who respect load calculations if nothing else, quietly arrange the release. Castillo emerges convinced, more than ever, that the professions are a sleeping army. He begins organizing them within the month.

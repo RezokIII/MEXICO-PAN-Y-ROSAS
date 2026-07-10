@@ -21,6 +21,7 @@ Into that vacancy the Party can, if it dares, insert an answer. There is talk in
 - @silencio: Neither. Conserve; the reform rumored for next year may make gestures expensive.
 
 @campa
+go-to: post_event
 choose-if: members >= 8 and funds >= 5
 unavailable-subtitle: A national campaign, even a symbolic one, requires membership and funds you do not have.
 on-arrival: campa76 = 1; funds -= 5; political_capital += 6; sup_students += 4; sup_workers += 2; ax_electoral += 4; expediente += 3
@@ -30,11 +31,13 @@ The old railwayman stumps the Republic like it owes him fare: factory gates at d
 And yet everyone in the government who can read has read it: a million hands moved for a name the state refused to print. The reform now being drafted in Bucareli acquires, this month, its entire motive: the system needs opponents it can count, urgently, before it meets any more it cannot.
 
 @abstener
+go-to: post_event
 on-arrival: political_capital += 2; ax_electoral -= 2
 
 The campaign against the campaign: NO HAY POR QUIÉN, says the stencil, and the regime's own emptiness does the heavy lifting. Abstention and annulment run high enough to require the Comisión's creativity in several states. It is a real wound, and an invisible one — which is the abstentionist's eternal bargain.
 
 @silencio
+go-to: post_event
 on-arrival: pri_reformist_rel += 2
 
 The Party sits out the empty election with its powder dry, and the men drafting the reform in Bucareli note the discipline approvingly: here is an opposition that can wait for a door, rather than kicking walls. Whether that reputation is an asset or a leash will be discovered at the door itself.

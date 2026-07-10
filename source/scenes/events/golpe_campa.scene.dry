@@ -17,11 +17,13 @@ Valentín Campa — eleven years of Lecumberri, the million uncounted names, the
 - @r2: Grieve inside, harden the structures, say little where microphones live.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 The campaign is enormous and unanswered — the Republic's oldest political prisoner, disappeared at seventy-plus, is an obscenity even this state cannot argue with, only outlast. His name joins the list he spent a lifetime keeping for others.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 The cells tighten around the wound. In the yards at Nonoalco, the old men work a shift in perfect silence — their kind of state funeral — and the pension tables he kept in his head are found written out, complete, in a notebook left with his neighbor. He knew. He left the arithmetic where you would find it.

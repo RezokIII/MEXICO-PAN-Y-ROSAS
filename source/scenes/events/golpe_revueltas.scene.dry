@@ -17,11 +17,13 @@ José Revueltas is lifted outside the university cinema — sixty years old, lun
 - @r2: Print everything he ever wrote, everywhere, at once.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 The letters land like ordnance: Sartre, Cortázar, Moravia, garcía Márquez's telegram of four words. A state obsessed with its international costume cannot wear this. He is surfaced in Lecumberri — officially arrested all along, the paperwork blushing — and resumes writing that same night, the confiscated manuscript reconstructed from a memory prison already trained twice. The new draft, he says, is better; captivity, he says, concentrates.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 The Party's presses run nothing else for a month: the complete Revueltas, essays and heresies and all, flooding the kiosks faster than confiscation. They took the writer; the written goes free in twenty thousand copies. Whichever office ordered the operation watches its objective invert weekly.

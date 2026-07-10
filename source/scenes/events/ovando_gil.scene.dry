@@ -18,6 +18,7 @@ The campaign refuses the bait of panic; Cárdenas announces the deaths to a ston
 - @denunciar_martires: Put the murders at the campaign's center — the state is killing the count; say it in every plaza before the state can kill the saying.
 
 @blindar
+go-to: post_event
 choose-if: funds >= 5
 unavailable-subtitle: Hardening the network costs funds you do not have — with four days left.
 on-arrival: funds -= 5; red_casillas += 5; expediente += 2
@@ -25,6 +26,7 @@ on-arrival: funds -= 5; red_casillas += 5; expediente += 2
 Ninety-six hours of quiet fury: routes tripled, copies quadrupled, the telephone tree rebuilt around dead drops an old clandestino designed from memory. If they intend to take the count, they will now have to take it casilla by casilla, in front of witnesses, all night long.
 
 @denunciar_martires
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 The names go onto the closing rallies' banners between the candidates': OVANDO Y GIL — LOS PRIMEROS VOTOS. The dead men make the argument no living speaker could: whatever happens on the sixth is not an election but a defense. Turnout instructions change accordingly: vote early, stay near, do not go home.

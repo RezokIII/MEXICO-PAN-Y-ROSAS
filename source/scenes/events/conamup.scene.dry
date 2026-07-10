@@ -19,6 +19,7 @@ In Monterrey, the urban popular movements of the Republic — posesionarios, wat
 - @recelo: Engage carefully; coordinadoras eat parties that hug too hard.
 
 @construir
+go-to: post_event
 choose-if: colonia_saga >= 2 or sup_colonos >= 25
 unavailable-subtitle: To build it you must arrive with a base of your own; you have none in the colonias.
 on-arrival: colonia_saga = 3; sup_colonos += 6; huelgas += 3; political_capital += 2
@@ -26,6 +27,7 @@ on-arrival: colonia_saga = 3; sup_colonos += 6; huelgas += 3; political_capital 
 The alliance sets its terms honestly — coordination without capture — and holds, because it was built on eight years of evidence rather than a resolution. When the austerity decade opens its wounds in the cities, the CONAMUP will be the ambulance and the fist, and your people will be inside both.
 
 @recelo
+go-to: post_event
 on-arrival: sup_colonos += 2
 
 Respectful distance, dues paid in solidarity. The coordinadora grows its own way. In its assemblies your name is one ally among many — which, in the hard years coming, is the difference between being called first and being called eventually.

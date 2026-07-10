@@ -34,6 +34,7 @@ The pistoleros carry no credentials, because they do not need them; the credenti
 - @replegarse_decap: Sound the retreat — scatter the leadership abroad and into hiding, concede the field, try to save the people if not the position.
 
 @resistir_decap
+go-to: post_event
 choose-if: funds >= 4
 unavailable-subtitle: Holding under this requires funds for security and defense that the treasury no longer has.
 on-arrival: funds -= 4; expediente -= 10; represion -= 2; unity += 2
@@ -41,6 +42,7 @@ on-arrival: funds -= 4; expediente -= 10; represion -= 2; unity += 2
 Every routine is rebuilt, every list re-hidden, every meeting halved. It buys a little time and costs a great deal, and whether the storm's budget runs out before the Movement's is the only question that matters now. The list grows. The survivors grow harder, and fewer.
 
 @replegarse_decap
+go-to: post_event
 on-arrival: members -= 1; represion -= 6; expediente -= 8; sup_students -= 3; unity -= 2
 
 The leadership scatters — Cuba, the campus underground, a cousin's farm in Michoacán — and the field is conceded. It is a defeat, and it saves lives, and the organization that reassembles afterward, if it reassembles, will be smaller, warier, and alive. Sometimes surviving to be small is the only victory the decade permits.

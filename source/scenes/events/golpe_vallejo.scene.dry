@@ -17,11 +17,13 @@ Demetrio Vallejo is taken in daylight from outside the rail workers' cooperative
 - @r2: Answer as he would: with discipline. The union work continues on schedule, to the minute.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 Telegrams arrive at Bucareli from rail unions on four continents; freight handlers in three ports refuse Mexican cargo for a symbolic hour. The Republic releases no one — but somewhere in a cell, the jailers are made to understand the world knows the timetable-keeper's name.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 The independent locals run his trains on time as testimony — every punctual departure a message to Bucareli that the man's work does not require the man's presence to continue. It is the coldest tribute the labor movement knows, and the truest.

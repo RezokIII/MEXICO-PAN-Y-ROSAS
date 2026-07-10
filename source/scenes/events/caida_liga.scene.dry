@@ -19,6 +19,7 @@ The decapitation is the dirty war's masterpiece: no bodies, no trials, no martyr
 - @bajar_todos: Read the writing: begin bringing people down while there are still people to bring.
 
 @reagrupar
+go-to: post_event
 choose-if: pres_valle >= 20 or pres_jalisco >= 15
 unavailable-subtitle: Rebuilding a broken command needs surviving urban structure. There is too little left.
 on-arrival: pres_valle += 3; represion += 4; expediente += 5; memorial += 1; guerrilla_meter += 2
@@ -26,11 +27,13 @@ on-arrival: pres_valle += 3; represion += 4; expediente += 5; memorial += 1; gue
 New commanders, new houses, new codes — and the Brigada learning each within the month, because a decapitated network leaks from every cut. The war continues, fiercer and shorter-lived, its cadres burning at both ends. Some victories are only the refusal to admit a defeat, and this is one; whether it is also more than that, the next sweep will decide.
 
 @dispersar_urbano
+go-to: post_event
 on-arrival: pres_valle -= 5; pres_jalisco -= 4; sup_students += 2; guerrilla_meter -= 2; inteligencia += 3
 
 The cities empty of columns; the structure dissolves into mass work, into the sierra, into ordinary jobs held by extraordinary people waiting for a better year. It is a retreat, and it saves lives, and it concedes the urban war the Liga generation swore they would win. The state declares victory in the cities. The state is, for once, telling most of the truth.
 
 @bajar_todos
+go-to: post_event
 on-arrival: {!
 Q.via = "politica";
 Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_tijuana = 0;

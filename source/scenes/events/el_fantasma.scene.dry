@@ -17,11 +17,13 @@ The perfect security posture, it turns out, has a failure mode: it starves the b
 - @doble: The riskier art: accept their informant and know him — feed the drawer a party that exists only for its benefit.
 
 @carnada
+go-to: post_event
 on-arrival: expediente += 8; unity += 1
 
 The public calendar gets fatter and so, gratifyingly, does the file: rallies announced in advance, minutes practically mailed to Bucareli, a party performing its legality with the diligence of an actor who knows exactly where the camera is. The manufactured-informant proposal dies upstairs for lack of budget justification. Sometimes the best cover is the truth, worn loudly.
 
 @doble
+go-to: post_event
 choose-if: organizers >= 3
 unavailable-subtitle: A double agent is handled by master cadres; none are available.
 on-arrival: expediente += 4; political_capital += 3; represion -= 2

@@ -26,5 +26,6 @@ The eve. Twenty years of work — members, casillas, alliances, the list — are
 - @balance: El balance — y a la campaña.
 
 @balance
+go-to: post_event
 
 The inventory is read without adjectives: [? if fuerza_final >= 95 : the Movement arrives strong — a real force with real infrastructure, and the wave rising to meet it. ?][? if fuerza_final >= 60 and fuerza_final < 95 : the Movement arrives standing — enough built to matter, not enough to be safe. ?][? if fuerza_final < 60 : the Movement arrives thin — twenty years distilled into too few hands. The wave may carry others. ?] Five months to the sixth of July.

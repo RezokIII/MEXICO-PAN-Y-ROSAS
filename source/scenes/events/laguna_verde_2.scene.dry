@@ -17,6 +17,7 @@ Cárdenas answers from the campaign: cancel Laguna Verde. The sentence detonates
 - @al_seis: Weld the coast's movement to July: voter registration drives at the sit-ins, casilla training for the coalition's own people.
 
 @al_seis
+go-to: post_event
 on-arrival: political_capital += 2; red_casillas += 3; sup_middle += 2
 
 The Saturday sit-in acquires a voter-registration table; the highway blockade schedule now avoids the casilla-training calendar, by coordination. A movement of mothers, ranchers and fishermen has decided the ballot is a blockade by other means — and on the sixth of July, the Gulf coast will count accordingly.

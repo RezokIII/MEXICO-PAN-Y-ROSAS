@@ -20,6 +20,7 @@ Rumors already: Scherer's people will found something — a weekly, fierce and u
 - @prudencia: Sympathy in print. The Party's own presses are too precarious to adopt orphans with famous enemies.
 
 @solidaridad
+go-to: post_event
 choose-if: funds >= 2
 unavailable-subtitle: Even solidarity has stationery costs.
 on-arrival: funds -= 2; political_capital += 3; sup_middle += 2; sup_students += 2
@@ -27,6 +28,7 @@ on-arrival: funds -= 2; political_capital += 3; sup_middle += 2; sup_students +=
 Meeting rooms, a mailing list, two vans and their drivers on the day the new weekly's first issue must reach the stands before the government's buyers can corner it. The journalists are not yours and never will be — they guard their independence like burn victims — but the debt is banked where it matters: in the memory of the people who will write the next ten years of scandals.
 
 @prudencia
+go-to: post_event
 on-arrival: sup_middle -= 1
 
 Correct, and quietly filed by everyone on that sidewalk. The new weekly rises anyway, on middle-class subscriptions and pure nerve, and when in future years its reporters weigh which calls to return, the Party's number is neither first nor blackened. Neutrality has a price schedule too; it is merely deferred.
