@@ -722,16 +722,30 @@
     };
 
     // load bundled soundtrack manifest, if present
-    fetch('music/playlist.json').then(function(r){ return r.ok?r.json():null; })
-      .then(function(data){
-        if (data && data.tracks && data.tracks.length){
-          data.tracks.forEach(function(t){
-            tracks.push({name:t.title||t.file, url:'music/'+encodeURIComponent(t.file), isLocal:false});
-          });
-          renderList();
-          titleEl.textContent = tracks.length + ' canciones en la banda sonora';
-        }
-      }).catch(function(){});
+    // embedded soundtrack manifest (works offline via file:// — no fetch needed)
+    var BUNDLED = [
+      {f:"Judith Reyes - Tragedia de la Plaza de las Tres Culturas (Tragedy of Plaza of the Three Cultures).mp3",t:"Tlatelolco: Tragedia de la Plaza de las Tres Culturas — Judith Reyes"},
+      {f:"Amparo Ochoa - La Maldición de La Malinche (feat. Los Folkloristas).mp3",t:"La Maldicion de Malinche — Amparo Ochoa"},
+      {f:"Me gustan los estudiantes.mp3",t:"Me gustan los estudiantes — Violeta Parra"},
+      {f:"Daniel Viglietti - A Desalambrar.mp3",t:"A desalambrar — Daniel Viglietti"},
+      {f:"AMPARO OCHOA - EL BARZÓN.mp3",t:"El Barzon — Amparo Ochoa"},
+      {f:"Mercedes Sosa - Cuando Tenga La Tierra (Audio).mp3",t:"Cuando tenga la tierra — Mercedes Sosa"},
+      {f:"Víctor Jara - Te Recuerdo Amanda (En Vivo Peña de los Parra).mp3",t:"Te recuerdo Amanda — Victor Jara"},
+      {f:"Víctor Jara - Manifiesto.mp3",t:"Manifiesto — Victor Jara"},
+      {f:"Mercedes Sosa - Solo le Pido a Dios.mp3",t:"Solo le pido a Dios — Mercedes Sosa"},
+      {f:"Mercedes Sosa - Gracias A La Vida.mp3",t:"Gracias a la vida — Mercedes Sosa"},
+      {f:"El corrido de Lucio Cabañas.mp3",t:"Corrido de Lucio Cabanas"},
+      {f:"Inti Illimani - Venceremos.mp3",t:"Venceremos — Inti-Illimani"},
+      {f:"Silvio Rodríguez - La Era Está Pariendo un Corazón.mp3",t:"La era esta pariendo un corazon — Silvio Rodriguez"},
+      {f:"Pablo Milanés - Yo Pisaré las Calles Nuevamente (En Vivo).mp3",t:"Yo pisare las calles nuevamente — Pablo Milanes"},
+      {f:"Mexican Zapatista Song - ¡Se Acabó!.mp3",t:"¡Se acabo! — cancion zapatista"},
+      {f:"Kaiserreich - Anthem of The United South American States.mp3",t:"Himno — United South American States (Kaiserreich)"},
+      {f:"LA ERA ESTÁ PARIENDO UN CORAZÓN - Silvio Rodríguez.mp3",t:"LA ERA ESTÁ PARIENDO UN CORAZÓN - Silvio Rodríguez"}
+    ];
+    BUNDLED.forEach(function(t){
+      tracks.push({name:t.t, url:'music/'+encodeURIComponent(t.f), isLocal:false});
+    });
+    if (tracks.length){ renderList(); titleEl.textContent = tracks.length + ' canciones en la banda sonora'; }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
