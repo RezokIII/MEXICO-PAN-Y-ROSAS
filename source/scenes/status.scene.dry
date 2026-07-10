@@ -27,7 +27,7 @@ if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_c
 [? if salario_real < 90 : The wage is bleeding. The factory gates and the colonias have never been more open — organize where the crisis bites. ?]
 [? if registro >= 1 and red_casillas < 20 and year >= 1978 : The casilla network is thin. A vote is coming that will be won or stolen at the tables you fail to cover. ?]
 [? if camino1 = 0 : The first task is survival — exist, hold the family at one table, reach 1971 intact. ?]
-[? if camino1 = 1 and camino2 = 0 : Grow. Ten thousand members is the wall the state cannot easily disappear. ?]
+[? if camino1 = 1 and camino2 = 0 : Grow. Twenty-five thousand members is the wall the state cannot easily disappear. ?]
 [? if camino2 = 1 and camino3 = 0 : The door of the reform is the next stone: registro, and seats to speak from. ?]
 [? if camino3 = 1 and camino4 = 0 : Lay foundations the state cannot see: the casilla network, a town governed with open books. ?]
 [? if camino4 = 1 and camino5 = 0 : The convergence: the united front, with the Movement as a founding wall. 1988 is the reckoning. ?]
@@ -50,9 +50,9 @@ Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence 
 
 = El camino
 
-[? if camino1 = 1 : I. Survive — DONE ?][? if camino1 = 0 : I. Survive: still exist in 1971 (5,000 members, the family at one table) — pending ?]
+[? if camino1 = 1 : I. Survive — DONE ?][? if camino1 = 0 : I. Survive: still exist in 1971 (8,000 members, the family at one table) — pending ?]
 
-[? if camino2 = 1 : II. Break the cerco — DONE ?][? if camino2 = 0 and camino1 = 1 : II. Break the cerco: 10,000 members — pending ?]
+[? if camino2 = 1 : II. Break the cerco — DONE ?][? if camino2 = 0 and camino1 = 1 : II. Break the cerco: 25,000 members — pending ?]
 
 [? if camino3 = 1 : III. The door — DONE ?][? if camino3 = 0 and camino2 = 1 : III. The door: registro plus ten seats — pending ?]
 

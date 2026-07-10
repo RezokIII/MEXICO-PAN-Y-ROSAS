@@ -3,7 +3,7 @@ new-page: true
 subtitle: Second milestone
 face-image: img/camino.jpg
 tags: event
-view-if: camino1 = 1 and camino2 = 0 and members >= 10
+view-if: camino1 = 1 and camino2 = 0 and members >= 25
 priority: 2
 max-visits: 1
 on-arrival: {!
