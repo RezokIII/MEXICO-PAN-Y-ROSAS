@@ -53,9 +53,13 @@ if (Q.month != Q.last_drift_month) {
             Q.pri_reformist_rel += 1;
         }
     }
-    if (_iz >= 50) {
-        // over half the country behind you: the regime stops managing and starts crushing
-        Q.represion += 3; Q.expediente += 3;
+    // the regime's grip: the more threatening you become, the harder it hunts you (scales, so it actually bites)
+    if (_iz >= 35) {
+        var _crack = (_iz - 35) * 0.30;
+        Q.represion += 2 + _crack;
+        Q.expediente += 2 + _crack;
+        if (Q.fe_voto >= 45) { Q.expediente += 1; }   // a believing country is the regime's nightmare
+        if (_iz >= 48) { Q.represion += 2; Q.presidente_cooptacion += 1; }   // near a majority: the gloves come off
     }
     // --- the regime's grip is sticky: legitimacy self-repairs unless kept under assault ---
     // (the PRI was built to never lose; one blow is never enough)
