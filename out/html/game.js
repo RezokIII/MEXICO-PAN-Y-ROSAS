@@ -712,6 +712,7 @@
     shufBtn.onclick = function(){ shuffle=!shuffle; shufBtn.classList.toggle('on',shuffle); };
     vol.oninput = function(){ audio.volume=parseFloat(vol.value); localStorage.setItem('pyr_music_vol',vol.value); };
     audio.onended = function(){ if(!loop) next(); };
+    audio.onerror = function(){ if (tracks.length > 1) next(); else { playBtn.textContent = String.fromCharCode(9654); } };
     wrap.querySelector('#pyr-file').onchange = function(e){
       Array.prototype.forEach.call(e.target.files, function(f){
         tracks.push({name:f.name.replace(/\.[^.]+$/,''), url:URL.createObjectURL(f), isLocal:true});
