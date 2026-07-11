@@ -1,7 +1,7 @@
 title: The balance of 1987
 new-page: true
 subtitle: The commanders take stock, one year before July
-face-image: img/guerrero_sierra.jpg
+face-image: img/jungleplan.jpg
 tags: event
 view-if: (via = "armada" or via = "dual") and year = 1987 and month = 8
 priority: 3

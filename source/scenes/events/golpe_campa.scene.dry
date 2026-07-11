@@ -2,7 +2,7 @@ title: The old railwayman does not arrive
 new-page: true
 subtitle: A Tuesday, a bus stop, no witnesses willing
 face-image: img/camioneta.jpg
-tags: event
+# routed via golpe_dispatch (no event tag: prevents co-queuing alternates)
 view-if: campa_advisor = 1 and represion >= 76 and expediente >= 65 and time >= repadv_last + 12 and refugio_sierra = 0
 priority: 2
 frequency: 60

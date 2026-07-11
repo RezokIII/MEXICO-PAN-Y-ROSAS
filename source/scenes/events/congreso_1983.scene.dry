@@ -1,7 +1,7 @@
 title: The strategy congress of 1983
 new-page: true
 subtitle: February 1983 — the line for the crisis years
-face-image: img/congreso.jpg
+face-image: img/pcmconf.jpg
 tags: event
 view-if: year = 1983 and month >= 2 and month <= 4
 priority: 3

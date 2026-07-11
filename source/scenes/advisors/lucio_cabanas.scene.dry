@@ -1,0 +1,64 @@
+title: Lucio Cabañas
+is-pinned-card: true
+tags: advisor
+new-page: true
+card-image: img/Lucio.jpg
+view-if: lucio_advisor = 1
+
+= Lucio Cabañas
+
+*Comandante of the Partido de los Pobres. The schoolteacher of Atoyac — the sierra's moral credit, on legs.*
+
+[? if lucio_vive = 0 or via = "armada" or via = "dual" : He was the gentlest man in the teachers' movement until the 18th of May, 1967, when the judiciales fired into the Atoyac schoolyard over a dispute about school fees, and the crowd pushed Lucio into the hills for his own life. He has been there since, building the only guerrilla in the Republic that is genuinely of its people rather than merely among them: brigades that plant as often as they fight, assemblies where the column votes, a war run like a rural school with the state for its truant. He distrusts the Party — the Party earned it — but he answers messages, and what moves between you moves on his terms. ?]
+
+[? if lucio_vive = 1 and via = "politica" : He came down through the amnesty with the survivors of his brigades, the only comandante of his generation to descend alive — and Guerrero received him the way it receives no politician: doors open, plates set, children named for him. He holds no office and wants none. What he holds is the Costa Grande's absolute trust, and he lends it, carefully, to work he judges honest. Yours, for now, qualifies. ?]
+
+- @brigadas
+- @escuela_sierra
+- @impuesto
+- @maestro_atoyac
+- @root: Return to main
+
+@brigadas
+title: Las brigadas campesinas
+subtitle: [? if via = "armada" or via = "dual" : The PDLP's brigades and your columns work the Costa Grande as one structure. ?][? if via = "politica" or via = "institucional" : The brigades' villages opened to your organizers — the sierra's credit spent on your work. ?]
+card-image: img/Lucio.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: {!
+Q.advisor_action_timer = 6; Q.last_advisor_action = 1;
+if (Q.via == 'armada' || Q.via == 'dual') { Q.pres_guerrero += 4; Q.guerrilla_meter += 1; Q.expediente += 3; }
+else { Q.sup_peasants += 4; Q.expediente += 3; }
+!}
+
+The brigade arrives at a village the way weather arrives — expected, unarguable, known by name — and where it vouches for your people, twenty years of official lies stop mattering for an afternoon. Coffee is weighed honestly on the brigade's scales; a cacique's overseer finds his accounts audited by teenagers with rifles and arithmetic; and the Party's organizer, introduced by the right nickname, is lent the sierra's scarcest commodity, which was never food or bullets but belief.
+
+@escuela_sierra
+title: La escuela de la sierra
+subtitle: His assemblies, taught to your cadres: the war council as classroom, the column as school.
+card-image: img/Lucio.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; inteligencia += 3; unity += 2; sup_teachers += 1
+
+He never stopped being a teacher; he only changed schools. The famous assemblies — every combatant speaking in turn, every decision argued to consensus under a tarp in the rain — are also, your observers realize, the best intelligence system in Guerrero: a hundred pairs of eyes debriefed nightly by a man who grades attention. What your cadres bring down from a season with him is not doctrine. It is the habit of listening to the base as if your life depended on it, because his does.
+
+@impuesto
+title: El impuesto de guerra
+subtitle: The sierra's treasury shares its sources — levies on the coffee brokers who bled the coast for decades.
+card-image: img/Lucio.jpg
+choose-if: advisor_action_timer == 0 and (via = "armada" or via = "dual")
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if advisor_action_timer = 0 : Only on the armed road does the war's treasury open to you. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; funds += 5; expediente += 4; represion += 1
+
+The brokers who set the coffee price with one hand and the interest rate with the other have paid the sierra's tax for years — Lucio's receipts are famous, itemized, and honored, which is more than anyone says of the state's. This season a share moves through three intermediaries to your treasury. It is the cleanest dirty money in Mexico: extracted from men who stole it first, by a man who publishes his accounts to a village assembly.
+
+@maestro_atoyac
+title: El maestro de Atoyac
+subtitle: The living legend campaigns — the man who came down whole, stumping the south for the Movement.
+card-image: img/Lucio.jpg
+choose-if: advisor_action_timer == 0 and lucio_vive = 1 and via = "politica"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if lucio_vive = 0 : Only in a history where the schoolteacher survived does this road exist. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 4; sup_teachers += 2; red_casillas += 2; fe_voto += 1
+
+He will not join the Party and will not run for anything, and precisely because of this, when he stands on a truck bed in a plaza in the Costa Grande and says the vote is a weapon now, take it up — the plaza believes him as it believes no one else alive. He survived the state's whole repertoire; his endorsement of the ballot is the ballot's best argument south of the capital. The casilla network grows along his old brigade routes, staffed by people who learned organization in a harder school.

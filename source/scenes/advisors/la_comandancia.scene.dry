@@ -2,7 +2,7 @@ title: La comandancia de la sierra
 is-pinned-card: true
 tags: advisor
 new-page: true
-card-image: img/guerrero_sierra.jpg
+card-image: img/jungleplan.jpg
 view-if: (via = "armada" or via = "dual") and armada_entered = 1
 
 = La comandancia de la sierra
@@ -19,7 +19,7 @@ They sit where Lucio's people sat and Genaro's before them, and they carry the s
 @doctrina_dispersion
 title: La doctrina de dispersión
 subtitle: Rest the hottest zone: the columns scatter, the garrison chases smoke, the ground cools.
-card-image: img/guerrero_sierra.jpg
+card-image: img/jungleplan.jpg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: {!
@@ -38,7 +38,7 @@ The order is the oldest one the sierra knows: be water. The column that held the
 @economia_guerra
 title: La economía de guerra
 subtitle: The zone feeds the war: levies argued not extorted, credit honored, the column as honest customer.
-card-image: img/guerrero_sierra.jpg
+card-image: img/jungleplan.jpg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; funds += 4; sup_peasants += 2; expediente += 2
@@ -48,7 +48,7 @@ The comandancia's quiet masterpiece is a ledger: what the coffee brokers skim, p
 @escuela_monte
 title: La escuela del monte
 subtitle: The mountain teaches: cadres rotated through the zone come back harder, quieter, better.
-card-image: img/guerrero_sierra.jpg
+card-image: img/jungleplan.jpg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; inteligencia += 4; guerrilla_meter += 1; unity += 2

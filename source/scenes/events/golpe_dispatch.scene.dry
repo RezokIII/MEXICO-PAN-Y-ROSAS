@@ -1,0 +1,23 @@
+title: Los pistoleros
+subtitle: A knock that was always coming
+tags: event
+priority: 2
+frequency: 60
+max-visits: 30
+view-if: represion >= 74 and expediente >= 60 and time >= repadv_last + 12 and refugio_sierra = 0 and (othon_advisor = 1 or danzos_advisor = 1 or campa_advisor = 1 or vallejo_advisor = 1 or verdugo_advisor = 1 or benita_advisor = 1 or heberto_advisor = 1 or ibarra_advisor = 1 or revueltas_advisor = 1)
+on-arrival: {!
+// The state strikes ONE leader per season, chosen from whoever is exposed enough.
+// (Previously each golpe event queued separately and resolving one voided the rest.)
+var cand = [];
+if (Q.othon_advisor == 1 && Q.represion >= 74 && Q.expediente >= 60) { cand.push('othon'); }
+if (Q.danzos_advisor == 1 && Q.represion >= 74 && Q.expediente >= 60) { cand.push('danzos'); }
+if (Q.campa_advisor == 1 && Q.represion >= 76 && Q.expediente >= 65) { cand.push('campa'); }
+if (Q.vallejo_advisor == 1 && Q.represion >= 76 && Q.expediente >= 65) { cand.push('vallejo'); }
+if (Q.revueltas_advisor == 1 && Q.revueltas_dead == 0 && Q.year <= 1975 && Q.represion >= 76 && Q.expediente >= 65) { cand.push('revueltas'); }
+if (Q.verdugo_advisor == 1 && Q.represion >= 78 && Q.expediente >= 70) { cand.push('verdugo'); }
+if (Q.heberto_advisor == 1 && Q.represion >= 78 && Q.expediente >= 70) { cand.push('heberto'); }
+if (Q.benita_advisor == 1 && Q.represion >= 81 && Q.expediente >= 65) { cand.push('benita'); }
+if (Q.ibarra_advisor == 1 && Q.year >= 1977 && Q.represion >= 81 && Q.expediente >= 70) { cand.push('ibarra'); }
+Q.golpe_target = cand.length ? cand[Q.time % cand.length] : "";
+!}
+go-to: golpe_othon if golpe_target = "othon"; golpe_danzos if golpe_target = "danzos"; golpe_campa if golpe_target = "campa"; golpe_vallejo if golpe_target = "vallejo"; golpe_revueltas if golpe_target = "revueltas"; golpe_verdugo if golpe_target = "verdugo"; golpe_heberto if golpe_target = "heberto"; golpe_benita if golpe_target = "benita"; golpe_ibarra if golpe_target = "ibarra"; post_event if golpe_target = ""

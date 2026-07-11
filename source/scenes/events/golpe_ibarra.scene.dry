@@ -2,7 +2,7 @@ title: The warning to the mother
 new-page: true
 subtitle: They threatened the one asking ¿dónde están?
 face-image: img/camioneta.jpg
-tags: event
+# routed via golpe_dispatch (no event tag: prevents co-queuing alternates)
 view-if: ibarra_advisor = 1 and represion >= 81 and expediente >= 70 and time >= repadv_last + 12 and refugio_sierra = 0
 priority: 2
 frequency: 60

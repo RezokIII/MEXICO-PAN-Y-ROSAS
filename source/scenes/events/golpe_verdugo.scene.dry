@@ -2,7 +2,7 @@ title: The custodian
 new-page: true
 subtitle: They aimed at the center of the web
 face-image: img/camioneta.jpg
-tags: event
+# routed via golpe_dispatch (no event tag: prevents co-queuing alternates)
 view-if: verdugo_advisor = 1 and represion >= 78 and expediente >= 70 and time >= repadv_last + 12 and refugio_sierra = 0
 priority: 2
 frequency: 60

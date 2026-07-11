@@ -598,7 +598,10 @@
   var MAP = {
     valentin_campa:'campa.jpg', demetrio_vallejo:'vallejo.jpeg', martinez_verdugo:'verdugo.jpeg',
     othon_salazar:'othon.jpeg', danzos_palomino:'danzos.jpeg', benita_galeana:'benita.jpeg',
-    jose_revueltas:'revueltas.jpg', heberto_castillo:'heberto.jpeg', rosario_ibarra:'ibarra.jpg'
+    jose_revueltas:'revueltas.jpg', heberto_castillo:'heberto.jpeg', rosario_ibarra:'ibarra.jpg',
+    // guerrilla leaders + war desks (full paths, uploaded to img/)
+    genaro_vazquez:'img/genaro.jpg', lucio_cabanas:'img/Lucio.jpg', guero_medrano:'img/medrano.jpg',
+    la_comandancia:'img/jungleplan.jpg', responsable_urbana:'img/cards/urbana.jpg'
   };
   function inject(){
     var cards = document.querySelectorAll('a.card[card-id]');
@@ -607,7 +610,7 @@
       if (MAP[id] && !a.querySelector('img.card-img')){
         var img=document.createElement('img');
         img.className='card-img';
-        img.src='img/portraits/'+MAP[id];
+        img.src = MAP[id].indexOf('/') >= 0 ? MAP[id] : 'img/portraits/'+MAP[id];
         a.insertBefore(img, a.firstChild);
       }
     }

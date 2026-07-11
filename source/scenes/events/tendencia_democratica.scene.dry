@@ -1,7 +1,7 @@
 title: La Tendencia Democrática
 new-page: true
 subtitle: 1975 — Rafael Galván y los electricistas
-face-image: img/mayday.jpg
+face-image: img/td_marcha.jpg
 tags: event
 view-if: year = 1975 and month >= 4 and month <= 6
 priority: 2

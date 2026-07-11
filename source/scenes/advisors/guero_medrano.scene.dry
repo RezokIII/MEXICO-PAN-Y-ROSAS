@@ -1,0 +1,42 @@
+title: El Güero Medrano
+is-pinned-card: true
+tags: advisor
+new-page: true
+card-image: img/medrano.jpg
+view-if: medrano_advisor = 1 and medrano_muerto = 0
+
+= Florencio "el Güero" Medrano
+
+*Comandante of the Colonia Proletaria Rubén Jaramillo. The urban land question, armed.*
+
+He learned expropriation in Monterrey's factories and revolution, briefly and literally, in Mao's China — then came home and did the most Mexican thing imaginable with the curriculum: he took land. The Colonia Rubén Jaramillo outside Cuernavaca — thousands of families on an invaded hillside, streets named for martyrs, its own police, its own school, its own arithmetic — is either the country's largest land invasion or its smallest liberated territory, depending on which ministry is reporting.
+
+The Party finds him undisciplined, adventurist, and impossible to disown: he is doing, with a pistol in his belt and a surveyor's chain in his hand, what the Constitution promised in 1917. Working with him is a risk. So is the housing deficit.
+
+- @colonia_proletaria
+- @autodefensa
+- @root: Return to main
+
+@colonia_proletaria
+title: La colonia proletaria
+subtitle: The invasion method, taught: surveyors, lists, and speed — a neighborhood born in one night.
+card-image: img/medrano.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_colonos += 4; colonia_presion += 1; expediente += 3
+
+His people teach yours the craft with the pride of artisans: the land scouted by day, the families organized by manzana, the stakes and cardboard moving in the dark, and by dawn a thousand homesteads that the law would need a small war to reverse — which is precisely the calculation. Where the method takes root, the colonos learn the lesson under the lesson: the city they were promised can be taken, lot by lot, by people holding hands in a line at sunrise.
+
+@autodefensa
+title: La autodefensa del barrio
+subtitle: [? if via = "armada" or via = "dual" : The colonia as the urban war's shore — recruits, safe houses, a population that does not see. ?][? if via = "politica" or via = "institucional" : The colonia holds its ground: pickets against the granaderos, the eviction made too expensive to order. ?]
+card-image: img/medrano.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: {!
+Q.advisor_action_timer = 6; Q.last_advisor_action = 1;
+if (Q.via == 'armada' || Q.via == 'dual') { Q.pres_valle += 3; Q.guerrilla_meter += 2; Q.expediente += 4; }
+else { Q.sup_colonos += 2; Q.colonia_presion += 1; Q.represion -= 1; Q.expediente += 2; }
+!}
+
+The colonia's defense committee drills what it hopes never to use and uses more than it hoped: the barricade plan, the whistle relay, the women's line that meets the granaderos first because even this state hesitates one extra minute before clubbing grandmothers on camera. That minute, multiplied by organization, is the whole science of not being evicted — and whatever else moves through the colonia moves behind it.

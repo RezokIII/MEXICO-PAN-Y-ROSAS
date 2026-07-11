@@ -1,7 +1,7 @@
 title: El congreso de la fusión
 new-page: true
 subtitle: Noviembre de 1981
-face-image: img/congreso.jpg
+face-image: img/merger.jpg
 tags: event
 view-if: year = 1981 and month = 11
 priority: 3
@@ -15,15 +15,21 @@ Heberto Castillo came to the courtship and left it: his PMT will not merge where
 
 [? if registro = 0 : One absence shadows the hall: a ballot line. The Movement never took the registro, so the new party is born the old way — real in the assemblies and invisible to the Comisión. Half the delegates call that purity; the other half call it the same door, still closed, now with a larger crowd outside it. The fusion proceeds regardless: parties are made of people, not certificates. But everyone signing knows which document the room does not contain. ?]
 
+[? if fusion_pact = 1 : The hall is not a gamble this year but a harvest: the joint declaration signed at la mesa binds every current in the room, the program was argued out in advance comma by comma, and the delegations arrive knowing each other's kitchens. What remains is large but merely formal — the courage to vote what was already promised. ?]
+
+[? if fusion_pact = 0 and fusion_prog >= 3 : The courtship was begun but never consummated — working tables, drafts, trust half-built. The congress must finish in one hall what should have taken two more years of kitchens, and everyone can feel the missing conversations under the agenda. ?]
+
+[? if fusion_prog = 0 : It arrives, if the delegates are honest, out of season: the fusion was never courted — no joint tables, no shared drafts, no habits of trust — and the congress is being asked to marry strangers on the strength of a common enemy. It can be done. It will cost. ?]
+
 - @amplia: The broad fusion: dissolve fully, concede the symbols, build PSUM as a genuinely shared house.
 - @estrecha: A narrow fusion: merge, but on the Party's terms — statutes, symbols, and apparatus weighted to the old house.
 - @negarse: No fusion. The Party keeps its name, its history, and its size.
 
 @amplia
 go-to: post_event
-choose-if: unity >= 45 and political_capital >= 18
+choose-if: (fusion_pact = 1 and unity >= 38 and political_capital >= 10) or (unity >= 45 and political_capital >= 18)
 unavailable-subtitle: Dissolving the oldest party in Mexico requires internal authority you do not have.
-on-arrival: psum = 1; members += 3; funds += 5; fac_renovadores += 8; fac_nueva_izquierda += 6; fac_ortodoxos -= 8; unity -= 5; ax_sovietico -= 5; moscow_relation -= 6; political_capital += 4
+on-arrival: psum = 1; members += 3; members += 2 if fusion_pact = 1; funds += 5; fac_renovadores += 8; fac_nueva_izquierda += 6; fac_ortodoxos -= 8; unity -= 5; unity += 4 if fusion_pact = 1; ax_sovietico -= 5; moscow_relation -= 6; political_capital += 4
 
 The vote carries and the hall stands for the Internationale — sung, everyone notices, in the past tense. The PCM folds its sixty-two years into the new banner; the registration transfers; the MAP's economists take seats beside veterans of Lecumberri. It is bigger inside than the old house, and colder in corners, and the ortodoxos walk its halls like widowers. On the ballot line where the hammer and sickle stood, there is now a red star that offends fewer and warms fewer. Growth has a temperature.
 

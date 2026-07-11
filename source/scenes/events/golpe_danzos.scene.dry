@@ -2,7 +2,7 @@ title: The valley without him
 new-page: true
 subtitle: The CCI decapitated at harvest
 face-image: img/camioneta.jpg
-tags: event
+# routed via golpe_dispatch (no event tag: prevents co-queuing alternates)
 view-if: danzos_advisor = 1 and represion >= 74 and expediente >= 60 and time >= repadv_last + 12 and refugio_sierra = 0
 priority: 2
 frequency: 60

@@ -147,6 +147,12 @@ Q.sw_sobrevivir = 0; Q.sw_zona = 0; Q.sw_sintesis = 0; Q.sw_auge = 0; Q.sw_desce
 Q.veteranos = 0; Q.leyenda = 0;
 Q.refugio_sierra = 0; Q.refugio_time = 0; Q.infiltrado_done = 0;
 Q.legalizacion_done = 0;
+Q.golpe_target = "";
+// guerrilla leaders as allies/advisors
+Q.genaro_advisor = 1; Q.genaro_canje = 0;
+Q.lucio_advisor = 1; Q.lucio_vive = 0;
+Q.medrano_advisor = 0; Q.medrano_muerto = 0;
+Q.fusion_pact = 0; Q.fusion_mesa = 0;
 
 // ---- la economía ----
 Q.crecimiento = 8;
