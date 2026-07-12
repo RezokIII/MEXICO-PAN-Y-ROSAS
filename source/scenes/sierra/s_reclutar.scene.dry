@@ -2,7 +2,7 @@ title: Recruitment
 new-page: true
 subtitle: Columns are built one trusted name at a time
 card-image: img/cards/recluta.jpg
-view-if: (via = "armada" or via = "dual") and time >= s_reclutar_cd + 2
+view-if: via = "armada" and time >= s_reclutar_cd + 2
 on-arrival: month_actions += 1; s_reclutar_cd = time
 max-visits: 60
 is-card: true
@@ -19,34 +19,35 @@ Where does the structure grow this season?
 - @rec_jalisco: Jalisco — Guadalajara.
 - @rec_nl: Nuevo León — Monterrey.
 - @rec_oaxaca: Oaxaca — the Istmo.
+- @root: No new names this month. Trust is grown slowly or not at all.
 - @easy_discard
 
 @rec_guerrero
-on-arrival: funds -= 2; pres_guerrero += 6; guar_guerrero += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_guerrero += 6; guar_guerrero += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_chihuahua
-on-arrival: funds -= 2; pres_chihuahua += 6; guar_chihuahua += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_chihuahua += 6; guar_chihuahua += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_valle
-on-arrival: funds -= 2; pres_valle += 6; guar_valle += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_valle += 6; guar_valle += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_jalisco
-on-arrival: funds -= 2; pres_jalisco += 6; guar_jalisco += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_jalisco += 6; guar_jalisco += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_nl
-on-arrival: funds -= 2; pres_nl += 6; guar_nl += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_nl += 6; guar_nl += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_oaxaca
-on-arrival: funds -= 2; pres_oaxaca += 6; guar_oaxaca += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_oaxaca += 6; guar_oaxaca += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.

@@ -22,11 +22,13 @@ In the Party's basement office the significance needs no seminar: the Secretary 
 - @grieta: Read the whisper too: guilty men buy indulgences. An opening bought with blood is still an opening — position for it.
 
 @continuidad
+go-to: post_event
 on-arrival: represion += 2; sup_students += 2; pri_reformist_rel -= 3
 
 The internal circular is one sentence long: *El que firmó, cobrará.* The cells tighten their hygiene; the safe houses rotate early. If the sexenio proves gentler than expected, nothing is lost but pessimism, and pessimism in this country has never once been wasted.
 
 @grieta
+go-to: post_event
 on-arrival: pri_reformist_rel += 5; fac_ortodoxos -= 2; expediente += 2
 
 A discreet analysis argues the heresy: the man will need to launder October, and laundering requires water — releases, gestures, money, dialogue. Position a hand near every tap. The ortodoxos call it dining with the devil; the reply writes itself: in Mexico, everyone dines with the devil. The skill is in reading the menu.

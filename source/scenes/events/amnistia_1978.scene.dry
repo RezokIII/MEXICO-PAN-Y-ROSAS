@@ -6,39 +6,58 @@ tags: event
 view-if: year = 1978 and month >= 9 and month <= 11
 priority: 2
 max-visits: 1
-on-arrival: organizers += 1; political_capital += 2; represion -= 5
+on-arrival: organizers += 1; political_capital += 2; represion -= 5; organizers += 1 if lfope_dote = 1; members += 1 if lfope_dote = 1; represion -= 3 if lfope_dote = 1
 
 = La amnistía
 
 The second half of the reform arrives: an amnesty law for political prisoners and the pursued. It is drawn narrow — common-order "crimes" excluded, the disappeared unmentioned, the books of the dirty war closed rather than opened — but through its gate, over the following year, come fifteen hundred lives: the last of the '68ers, the survivors of the sierra, men and women who have been names on your list and now stand at bus stations blinking at a country that pretends to have been here waiting.
 
+[? if lfope_dote = 1 : The law is broader than its first draft — categories widened, exclusions trimmed, a schedule that empties galleries rather than cells — and only a handful of people know why the width was politically possible. A lunch, a cold coffee, a man who wrote nothing down. ?]
+
 They come down from the mountains, out of Lecumberri and the Oblatos prison, back from exile with Chilean and Cuban accents on their children. Rosario Ibarra takes the microphone at the reception in the capital and says the sentence the law was built to avoid: *amnesty for the living is not an answer for the disappeared — ¿dónde están?*
 
 [? if postura_guerrilla = 3 : Among the returning, a particular traffic finds your locals: people who knew the channels, who were warned once by a voice they never identified, who received medicine with no return address. They ask no questions at the door either. They simply stay, and work, and are the best cadres anyone has seen in years. The road that officially did not exist is quietly paying its dividend. ?]
 
-[? if via = "armada" or via = "dual" : And the law speaks to you directly: the columns can come down. The government offers papers and silence in exchange for the war's end — the exit the sierra's dead never got. ?]
+[? if via = "armada" : And the law speaks to you directly: the columns can come down. The government offers papers and silence in exchange for the war's end — the exit the sierra's dead never got. ?]
 
 - @recibir: The Party organizes the reception: work, papers, doctors, and the discipline of not asking who did what in the years that are now legally imaginary.
 - @bajar_sierra: Bring the columns down. The war ends; the war's people come home to the political road.
 
 @recibir
+go-to: post_event
 on-arrival: members += 1; sup_students += 2; sup_peasants += 2
 
 @bajar_sierra
-view-if: via = "armada" or via = "dual"
+go-to: post_event
+view-if: via = "armada"
 on-arrival: {!
 Q.via = "politica";
-Q.members += 2;
 Q.represion -= 8;
 Q.guerrilla_meter -= 5;
-Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
-// LEGACY into the political phase: the war's dead inspire the next generation,
-// its base survives as rural sympathy, its veterans as the hardest cadres
+// THE WAR'S HARVEST: what comes down the mountain is proportional to what stood on it.
+// A war folded at strength delivers veterans, southern networks, prestige, and a
+// negotiating reputation. A war folded in collapse delivers survivors and a list.
+var _total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
+Q.veteranos = Math.max(1, Math.round(_total / 15));
+Q.members += 2 + Math.min(6, Math.floor(_total / 20));
+Q.organizers += 1 + (_total >= 50 ? 1 : 0) + (_total >= 90 ? 1 : 0);
+Q.red_casillas += Math.min(12, Math.floor(Q.pres_guerrero / 5) + Math.floor(Q.pres_oaxaca / 5));
+Q.sup_peasants += Math.min(12, 4 + _total * 0.06);
 Q.sup_students += Math.min(12, Q.memorial);
-Q.sup_peasants += 4;
-Q.organizers += 1;
+Q.leyenda = (Q.sw_auge ? 2 : (_total >= 50 ? 1 : 0));
+if (_total >= 50) { Q.sw_descenso = 1; Q.political_capital += 5; Q.pri_reformist_rel += 3; }
+if (Q.sw_sintesis) { Q.inteligencia = Math.max(Q.inteligencia, 30); Q.expediente -= 5; }
+// the scar: the file on a demobilized army never closes
+if (Q.expediente < 40) { Q.expediente = 40; }
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
 !}
 
-They come down in groups small enough to be deniable and large enough to be counted, hand in weapons that are logged and vanish, and receive papers whose ink smells fresh. Not all come; a remnant stays up where amnesties do not reach. But the war, as an institution of yours, ends this season — and its survivors become the political road's hardest, quietest cadres.
+They come down in groups small enough to be deniable and large enough to be counted, hand in weapons that are logged and vanish, and receive papers whose ink smells fresh. Not all come; a remnant stays up where amnesties do not reach. But the war, as an institution of yours, ends this season — and everything it built comes down the mountain with it.
+
+[? if sw_descenso = 1 : It ends, moreover, on your terms: the columns descend at strength, in order, with the state visibly relieved to see them go — a relief that is itself a currency. The veterans take over the Movement's hardest desks; the Costa Grande and the Istmo keep the habit of your organization under new names (the casilla network inherits routes the DFS never mapped); and in the campo they will sing about the ones who came down whole for thirty years. The general's men write "pacificación" in their reports and do not entirely believe it. They are right not to. ?]
+
+[? if lucio_vive = 1 : And down with the columns, unhurried, in the same huaraches he climbed in eleven years ago, comes the schoolteacher of Atoyac — alive, in this history, because a warning once beat an army to El Otatal. The government's negotiators, confronted with an amnesty applicant their files list as killed in action, process the paperwork with the expression of men handling a ghost's passport. In the Costa Grande the church bells ring for a man who can hear them. ?]
+
+[? if sw_descenso = 0 : It ends quietly, at less than strength — survivors rather than victors, and both words true. What descends still matters: cadres no course could produce, a campo that remembers medicine with no return address, and the discipline of people who have already been hunted. But the war's full harvest — the zone, the auge, the descent that negotiates — stays on the mountain, unharvested. The next generation will argue about what it would have taken. ?]
 
 Committees for employment, a clinic that keeps no records, evening schools where a man can finish the studies the DFS interrupted. Some of the returned want politics; more want quiet; all of them are watched, and know it, and teach the young ones how to be watched gracefully — the era's most transferable skill.

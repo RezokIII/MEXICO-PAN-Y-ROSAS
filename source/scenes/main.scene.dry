@@ -2,6 +2,17 @@ title: Next month
 set-bg: img/fondo_escritorio.jpg
 is-hand: true
 on-arrival: {!
+// FIX: migrate cards stranded in other era-hands into this hand
+// (hands are stored per-scene-id; the 1978/1985 hand upgrades used to wipe the hand)
+var _me = this.state.sceneId;
+var _hands = this.state.currentHands;
+if (!_hands[_me]) { _hands[_me] = []; }
+var _eras = ['main', 'main.main_78', 'main.main_85', 'main.main_easy'];
+for (var _hi = 0; _hi < _eras.length; _hi++) {
+    var _h = _eras[_hi];
+    if (_h === _me || !_hands[_h] || !_hands[_h].length) { continue; }
+    while (_hands[_h].length) { _hands[_me].push(_hands[_h].shift()); }
+}
 if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - an action is available.';
 } else if (Q.advisor_action_timer == 1) {
@@ -9,7 +20,13 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+// event-queue loop: if more events are still pending this month, keep resolving them
+var _es = this.game.scenes['post_event.events_choice'];
+var _ch = this._compileChoices(_es);
+Q.has_event = (_ch && _ch[0] && _ch[0].title != "Continue...") ? 1 : 0;
+if (Q.has_event == 0) { Q.pending_events = 0; }
 !}
+go-to: post_event.events_choice if pending_events = 1
 max-cards: 3
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
@@ -29,6 +46,17 @@ title: Next month
 set-bg: img/fondo_escritorio.jpg
 is-hand: true
 on-arrival: {!
+// FIX: migrate cards stranded in other era-hands into this hand
+// (hands are stored per-scene-id; the 1978/1985 hand upgrades used to wipe the hand)
+var _me = this.state.sceneId;
+var _hands = this.state.currentHands;
+if (!_hands[_me]) { _hands[_me] = []; }
+var _eras = ['main', 'main.main_78', 'main.main_85', 'main.main_easy'];
+for (var _hi = 0; _hi < _eras.length; _hi++) {
+    var _h = _eras[_hi];
+    if (_h === _me || !_hands[_h] || !_hands[_h].length) { continue; }
+    while (_hands[_h].length) { _hands[_me].push(_hands[_h].shift()); }
+}
 if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - an action is available.';
 } else if (Q.advisor_action_timer == 1) {
@@ -36,7 +64,13 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+// event-queue loop: if more events are still pending this month, keep resolving them
+var _es = this.game.scenes['post_event.events_choice'];
+var _ch = this._compileChoices(_es);
+Q.has_event = (_ch && _ch[0] && _ch[0].title != "Continue...") ? 1 : 0;
+if (Q.has_event == 0) { Q.pending_events = 0; }
 !}
+go-to: post_event.events_choice if pending_events = 1
 max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
@@ -57,6 +91,17 @@ title: Next month
 set-bg: img/fondo_escritorio.jpg
 is-hand: true
 on-arrival: {!
+// FIX: migrate cards stranded in other era-hands into this hand
+// (hands are stored per-scene-id; the 1978/1985 hand upgrades used to wipe the hand)
+var _me = this.state.sceneId;
+var _hands = this.state.currentHands;
+if (!_hands[_me]) { _hands[_me] = []; }
+var _eras = ['main', 'main.main_78', 'main.main_85', 'main.main_easy'];
+for (var _hi = 0; _hi < _eras.length; _hi++) {
+    var _h = _eras[_hi];
+    if (_h === _me || !_hands[_h] || !_hands[_h].length) { continue; }
+    while (_hands[_h].length) { _hands[_me].push(_hands[_h].shift()); }
+}
 if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - an action is available.';
 } else if (Q.advisor_action_timer == 1) {
@@ -64,7 +109,13 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+// event-queue loop: if more events are still pending this month, keep resolving them
+var _es = this.game.scenes['post_event.events_choice'];
+var _ch = this._compileChoices(_es);
+Q.has_event = (_ch && _ch[0] && _ch[0].title != "Continue...") ? 1 : 0;
+if (Q.has_event == 0) { Q.pending_events = 0; }
 !}
+go-to: post_event.events_choice if pending_events = 1
 max-cards: 5
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
@@ -84,6 +135,17 @@ max-cards: 5
 set-bg: img/fondo_escritorio.jpg
 is-hand: true
 on-arrival: {!
+// FIX: migrate cards stranded in other era-hands into this hand
+// (hands are stored per-scene-id; the 1978/1985 hand upgrades used to wipe the hand)
+var _me = this.state.sceneId;
+var _hands = this.state.currentHands;
+if (!_hands[_me]) { _hands[_me] = []; }
+var _eras = ['main', 'main.main_78', 'main.main_85', 'main.main_easy'];
+for (var _hi = 0; _hi < _eras.length; _hi++) {
+    var _h = _eras[_hi];
+    if (_h === _me || !_hands[_h] || !_hands[_h].length) { continue; }
+    while (_hands[_h].length) { _hands[_me].push(_hands[_h].shift()); }
+}
 if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - an action is available.';
 } else if (Q.advisor_action_timer == 1) {
@@ -91,7 +153,13 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+// event-queue loop: if more events are still pending this month, keep resolving them
+var _es = this.game.scenes['post_event.events_choice'];
+var _ch = this._compileChoices(_es);
+Q.has_event = (_ch && _ch[0] && _ch[0].title != "Continue...") ? 1 : 0;
+if (Q.has_event == 0) { Q.pending_events = 0; }
 !}
+go-to: post_event.events_choice if pending_events = 1
 max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
@@ -111,7 +179,7 @@ max-cards: 4
 card-image: img/cards/columna_movil.jpg
 title: La sierra
 subtitle: The war, where it exists
-view-if: via = "armada" or via = "dual"
+view-if: via = "armada"
 is-deck: true
 
 - #sierra
@@ -120,7 +188,7 @@ is-deck: true
 title: El laberinto
 card-image: img/cards/deck_laberinto.jpg
 subtitle: Maniobras dentro del sistema
-view-if: time >= 4
+view-if: (via = "politica" or via = "institucional") and time >= 4
 is-deck: true
 
 - #sistema
@@ -129,7 +197,7 @@ is-deck: true
 card-image: img/cards/deck_canales.jpeg
 title: Los canales
 subtitle: CoordinaciÃ³n discreta
-view-if: postura_guerrilla >= 2
+view-if: via = "armada" or postura_guerrilla >= 2
 is-deck: true
 
 - #canales
@@ -138,7 +206,7 @@ is-deck: true
 card-image: img/cards/casilla.jpg
 title: El Frente
 subtitle: The Corriente, then the Frente — 1987–88
-view-if: fdn >= 1 or cd_formed = 1
+view-if: (via = "politica" or via = "institucional") and (fdn >= 1 or cd_formed = 1)
 is-deck: true
 
 - #fdn
@@ -146,6 +214,7 @@ is-deck: true
 @movimiento
 title: El Movimiento
 card-image: img/cards/deck_movimiento.jpg
+view-if: (via = "politica" or via = "institucional")
 is-deck: true
 
 - #movimiento
@@ -153,13 +222,14 @@ is-deck: true
 @party
 title: Party Affairs
 card-image: img/Vorwaerts_nr_1.png
+view-if: (via = "politica" or via = "institucional")
 is-deck: true
 
 - #party_affairs
 
 @govt
 title: Government Affairs
-view-if: time >= 6
+view-if: (via = "politica" or via = "institucional") and time >= 6
 card-image: img/reichstag_2.jpg
 is-deck: true
 

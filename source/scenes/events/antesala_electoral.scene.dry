@@ -3,7 +3,7 @@ new-page: true
 subtitle: The month before the count — where do you actually stand?
 face-image: img/cards/casilla.jpg
 tags: event
-view-if: month = 6 and (year = 1970 or year = 1976 or year = 1979 or year = 1982 or year = 1985)
+view-if: month = 6 and antesala_year < year and (year = 1970 or year = 1976 or year = 1979 or year = 1982 or year = 1985)
 priority: 4
 max-visits: 5
 on-arrival: {!
@@ -13,6 +13,7 @@ else if (Q.antesala_fuerza >= 25) { Q.antesala_banda = 1; }
 else if (Q.antesala_fuerza >= 12) { Q.antesala_banda = 0; }
 else { Q.antesala_banda = -1; }
 Q.antesala_peligro = (Q.antesala_fuerza < 12 && Q.expediente >= 68) ? 1 : 0;
+Q.antesala_year = Q.year;
 !}
 
 = La antesala
@@ -30,6 +31,7 @@ How do you spend the last month before the count?
 - @antesala_conservar: Conserve. Bank the resources; the count is a formality this cycle, and next cycle is the one that counts.
 
 @antesala_base
+go-to: post_event
 title: Afianzar la base
 subtitle: -3 funds. Solid where you are strong.
 choose-if: funds >= 3
@@ -47,10 +49,10 @@ on-arrival: funds -= 5; sup_students += 4; sup_middle += 3; political_capital +=
 
 You throw the month at visibility: the mitin larger than the membership justifies, the manifesto everywhere, the reach that makes the Movement look like more than it is. Sometimes the appearance of strength summons the substance. Sometimes it only summons attention you cannot afford.
 
-- @antesala_colapso: [? if antesala_peligro = 1 : Continue ?]
-- @root: [? if antesala_peligro = 0 : The gamble is placed. On to the count. ?]
-
+- @antesala_colapso: Continue
+- @antesala_sigue: The gamble is placed. On to the count.
 @antesala_colapso
+view-if: antesala_peligro = 1
 title: Visible y hueco
 subtitle: The worst combination in politics, punished the way the state prefers.
 new-page: true
@@ -66,8 +68,16 @@ They take the campaign apart in a single week, quietly, the way they always pref
 go-to: la_derrota
 
 @antesala_conservar
+go-to: post_event
 title: Conservar para después
 subtitle: Bank the resources for the cycle that matters.
 on-arrival: funds += 2; political_capital += 3; unity -= 2
 
 You decline the gamble and the exhaustion both, and pocket the month: the treasury a little heavier, the powder dry, the cadres rested for a fight further down the calendar. Some in the assembly call it wisdom and some call it cowardice, and both will cite this month as evidence when they argue, years from now, about whether the Movement was ever serious about power or only about surviving until power became someone else's problem.
+
+@antesala_sigue
+view-if: antesala_peligro = 0
+
+The moment passes without the state heaviest answer. You return to the work, watched and wiser.
+
+- @root: Back to the work.

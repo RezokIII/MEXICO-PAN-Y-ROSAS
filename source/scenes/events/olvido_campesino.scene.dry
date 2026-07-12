@@ -16,5 +16,6 @@ Presence is survival in the countryside more than anywhere. Leave a valley unwat
 - @olvido_campesino_ok: Send the cadres back to the mountains. Continuar.
 
 @olvido_campesino_ok
+go-to: post_event
 
 You write the circular knowing it is half a lie: there are not enough cadres for every valley, and the valleys you cannot reach will be governed by the men who never left. The countryside is won by staying, and staying is the one thing a hunted movement can least afford.

@@ -3,7 +3,7 @@ new-page: true
 subtitle: Second milestone
 face-image: img/camino.jpg
 tags: event
-view-if: camino1 = 1 and camino2 = 0 and members >= 10
+view-if: camino1 = 1 and camino2 = 0 and members >= 25
 priority: 2
 max-visits: 1
 on-arrival: {!
@@ -21,5 +21,6 @@ The state's arithmetic of repression works on hundreds. On tens of thousands it 
 - @adelante: The circle is broken. What grows now can no longer be simply erased.
 
 @adelante
+go-to: post_event
 
 In Bucareli, the analysts adjust the file's classification upward, which is their language for the same news.

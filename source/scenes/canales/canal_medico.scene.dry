@@ -11,10 +11,12 @@ tags: canales
 
 = El canal médico
 
-Up in the sierra and down in the safe houses there are fevers, wounds gone bad, a midwife needed where no doctor will sign a travel log. The channel exists for this: supplies without return addresses, a médico who examines patients and forgets faces. It is not support for the armed road. It is the refusal to let the state decide who receives quinine.
+[? if via = "politica" or via = "institucional" : Up in the sierra and down in the safe houses there are fevers, wounds gone bad, a midwife needed where no doctor will sign a travel log. The channel exists for this: supplies without return addresses, a médico who examines patients and forgets faces. It is not support for the armed road. It is the refusal to let the state decide who receives quinine. ?]
+
+[? if via = "armada" : The war's quietest front: your own wounded, your own fevers, a compañera eight months pregnant in a camp two days from the nearest doctor who can be trusted not to telephone anyone. The channel is the column's bloodstream — supplies without return addresses, a médico who climbs on Thursdays and forgets faces on Fridays. Armies march on their stomachs; guerrillas survive on their penicillin. ?]
 
 - @surtir: Move the supplies — the mule track, the coffee warehouse, the clinic that keeps two sets of books.
-- @medico_bajar: Bring one down: a wounded boy whose war is over, whatever he thinks. Hospital, papers, a new city.
+- @medico_bajar: [? if via = "armada" : Bring one of yours down: a wounded compañero whose war is over, whatever he thinks. Hospital, papers, a new name. ?][? if via = "politica" or via = "institucional" : Bring one down: a wounded boy whose war is over, whatever he thinks. Hospital, papers, a new city. ?]
 - @root: The channel rests. The fevers do not.
 - @easy_discard
 

@@ -27,7 +27,7 @@ if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_c
 [? if salario_real < 90 : The wage is bleeding. The factory gates and the colonias have never been more open — organize where the crisis bites. ?]
 [? if registro >= 1 and red_casillas < 20 and year >= 1978 : The casilla network is thin. A vote is coming that will be won or stolen at the tables you fail to cover. ?]
 [? if camino1 = 0 : The first task is survival — exist, hold the family at one table, reach 1971 intact. ?]
-[? if camino1 = 1 and camino2 = 0 : Grow. Ten thousand members is the wall the state cannot easily disappear. ?]
+[? if camino1 = 1 and camino2 = 0 : Grow. Twenty-five thousand members is the wall the state cannot easily disappear. ?]
 [? if camino2 = 1 and camino3 = 0 : The door of the reform is the next stone: registro, and seats to speak from. ?]
 [? if camino3 = 1 and camino4 = 0 : Lay foundations the state cannot see: the casilla network, a town governed with open books. ?]
 [? if camino4 = 1 and camino5 = 0 : The convergence: the united front, with the Movement as a founding wall. 1988 is the reckoning. ?]
@@ -50,15 +50,35 @@ Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence 
 
 = El camino
 
-[? if camino1 = 1 : I. Survive — DONE ?][? if camino1 = 0 : I. Survive: still exist in 1971 (5,000 members, the family at one table) — pending ?]
+[? if camino1 = 1 : I. Survive — DONE ?][? if camino1 = 0 : I. Survive: still exist in 1971 (8,000 members, the family at one table) — pending ?]
 
-[? if camino2 = 1 : II. Break the cerco — DONE ?][? if camino2 = 0 and camino1 = 1 : II. Break the cerco: 10,000 members — pending ?]
+[? if camino2 = 1 : II. Break the cerco — DONE ?][? if camino2 = 0 and camino1 = 1 : II. Break the cerco: 25,000 members — pending ?]
 
 [? if camino3 = 1 : III. The door — DONE ?][? if camino3 = 0 and camino2 = 1 : III. The door: registro plus ten seats — pending ?]
 
 [? if camino4 = 1 : IV. The foundations — DONE ?][? if camino4 = 0 and camino3 = 1 : IV. The foundations: a 30-casilla network and a governed municipio — pending ?]
 
 [? if camino5 = 1 : V. The convergence — DONE. July decides. ?][? if camino5 = 0 and camino4 = 1 : V. The convergence: the united front, with you as a founding wall — pending ?]
+
+= El haber del Movimiento
+
+*The ledger of what has actually been won — not promised, won.*
+
+[? if paros_ganados >= 1 : Huelgas ganadas: [+ paros_ganados +] — the machines stopped, and the floor learned it could stop them. ?]
+[? if secciones_ganadas >= 1 : Secciones magisteriales conquistadas: [+ secciones_ganadas +] — teachers who answer to an assembly, not a charro. ?]
+[? if cnte_fundada = 1 : La CNTE fue fundada — a national teachers' movement the SNTE cannot contain. ?]
+[? if colonias_fundadas >= 1 : Colonias fundadas o regularizadas: [+ colonias_fundadas +] — pieces of the city that govern themselves. ?]
+[? if conamup_fundada = 1 : La CONAMUP fue fundada — the urban poor, coordinated across the valley. ?]
+[? if dotaciones >= 1 : Dotaciones de tierra arrancadas: [+ dotaciones +] — fences down, and kept down. ?]
+[? if escandalos >= 1 : Escándalos destapados: [+ escandalos +] — seams worked in the regime's story until they showed. ?]
+[? if alquimia_expuesta = 1 : La alquimia quedó documentada — the fraud is provable now. ?]
+[? if registro >= 1 : Registro conquistado — the Party exists before the law at last. ?]
+[? if izq_seats >= 1 : Curules en la Cámara: [+ izq_seats +] — a microphone the regime cannot switch off. ?]
+[? if municipio_alcozauca = 1 : Alcozauca gobernada — the first red municipio of the Montaña. ?]
+[? if municipio_juchitan = 1 : Juchitán gobernada — la COCEI holds the isthmus. ?]
+[? if fdn >= 1 : El Frente fue forjado — the convergence of 1988, with you inside it. ?]
+
+[? if paros_ganados = 0 and secciones_ganadas = 0 and colonias_fundadas = 0 and dotaciones = 0 and escandalos = 0 and izq_seats = 0 and registro = 0 : Nothing decisive won yet — only built. The ledger fills the first time the state is made to give something back. ?]
 
 = Internal corrientes
 
@@ -116,7 +136,15 @@ Duros: [+ pri_duros : fuerza +]
 
 **The road**
 
-The line in force: [? if via = "politica" : insurgent political opposition ?][? if via = "institucional" : the reformist road — inside the antechambers ?][? if via = "armada" : the armed road — the Sierra desk is open ?][? if via = "dual" : the synthesis — two faces, one strategy, compounding risk ?]
+The line in force: [? if via = "politica" : insurgent political opposition ?][? if via = "institucional" : the reformist road — inside the antechambers ?][? if via = "armada" : the armed road — the Sierra desk is open ?][? if via = "institucional" : **La digestión** — absorcion: [+ absorcion +] of 100. The reformist road runs through the antechambers, and the antechambers are a stomach: every post accepted, every favor banked, every year inside raises the count. Keep the Movement's teeth visible — strikes, scandals, victories with your name on them — or at 70 the system completes the meal and offers you the only thing it ever really sells: a place at the table, in exchange for the table's rules. ?]
+
+[? if exiliados >= 1 : The Party shelters the continent's defeated — Chileans, Argentines, the survivors of the coups — and their presence keeps a flame the decade is trying to put out: proof that socialism was tried, and murdered, not merely abandoned. ?]
+
+[? if excelsior_caido = 1 : Since the 1976 golpe against Excelsior, the Republic has no great newspaper that reads like a free country's — and a regime with no watchdog heals its own story faster than you can wound it. ?]
+
+**El semáforo de Bucareli**
+
+Gobernación's current reading of you (threat index [+ pri_threat +]): [? if pri_posture = "ignorar" : *ignorar* — you are a folder among folders. The apparatus spends its attention elsewhere, which is the most useful thing it can do with it. ?][? if pri_posture = "cooptar" : *cooptar* — the checkbook is open. Expect offers, charro pressure on your flanks, and the patient arithmetic of the charola. ?][? if pri_posture = "vigilar" : *vigilar* — the cameras are out. The file fattens monthly; the men in parked cars have a budget again. ?][? if pri_posture = "reprimir" : *reprimir* — the hard desks hold the file. Raids, beatings, the machinery warming. Lower the temperature or feed it. ?][? if pri_posture = "robar" : *robar* — you are big enough to steal from. The alquimia is being tuned against your casillas specifically. Guard the count. ?][? if pri_posture = "contener" : *contener* — the war is being managed: garrisons, checkpoints, patience. The state believes time is on its side. ?][? if pri_posture = "aniquilar" : *aniquilar* — the state has decided to end the war rather than manage it. Everything is now aimed. ?]
 
 **The electoral road**
 
@@ -215,6 +243,10 @@ Middle classes: [+ sup_middle +]
 [? if registro = 0 : Electoral projection: not applicable. First, exist. ?]
 [? if registro >= 1 : Electoral projection: the cadres are working on it. One watched casilla is worth more than any poll. ?]
 
+**La fe en el voto (turnout)**
+
+[? if fe_voto >= 55 : Renacida — people who long ago stopped believing the vote could matter are registering again. Turnout will not be the regime's friend. ?][? if fe_voto >= 35 and fe_voto <= 54 : Despertando — the cynicism of decades is cracking; more will come out than the machine expects. ?][? if fe_voto <= 34 : Baja — the country still believes the count is theirs, and low turnout is the regime's oldest ally. Break the grip and the believers return. ?]
+
 @economia
 
 = Economy
@@ -265,18 +297,48 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 = El territorio
 
-[? if via = "politica" or via = "institucional" : The map below reads the country by the left's implantation — each region colored by how strong you are there. The south (Guerrero, Oaxaca) turns on peasants and teachers; the Valle de México on students, colonos and workers; the north on the industrial working class. Organize those sectors to turn a region red. Hover any region for its read. Should the Movement ever take up the gun, this same map becomes the war. ?]
+[? if via = "politica" or via = "institucional" : The map below reads the country by who holds it: **red** where the left leads, **green** where the PRI machine still delivers, **blue** where the PAN's middle-class Catholicism runs deepest, **ochre** where the ground is contested. The south (Guerrero, Oaxaca) turns on peasants and teachers; the Valle de México on students, colonos and workers; the north on the industrial working class — and on the PAN. Organize a region's sectors to turn it red. Hover any region for the breakdown. Should the Movement ever take up the gun, this same map becomes the war. ?]
 
 [? if not via : The map below reads the country by the left's regional implantation. Organize the sectors that anchor each region to turn it red. ?]
 
-[? if via = "armada" or via = "dual" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any province for the analysts' current picture. ?]
+[? if via = "armada" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any province for the analysts' current picture. ?]
 
-[? if via = "armada" or via = "dual" : Intelligence capacity: [+ inteligencia : fuerza +]. ?]
+[? if via = "armada" : Intelligence capacity: [+ inteligencia : fuerza +]. ?]
 
-[? if (via = "armada" or via = "dual") and inteligencia < 40 : The map is guesswork and rumor — build the eyes for real garrison numbers. ?]
+[? if via = "armada" and inteligencia < 40 : The map is guesswork and rumor — build the eyes for real garrison numbers. ?]
 
-[? if (via = "armada" or via = "dual") and inteligencia >= 40 : Sources inside the garrisons give real numbers: Guerrero presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Valle presence [+ pres_valle +], garrison [+ guar_valle +]. Chihuahua presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. ?]
+[? if via = "armada" and inteligencia >= 40 : Sources inside the garrisons give real numbers: Guerrero presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Valle presence [+ pres_valle +], garrison [+ guar_valle +]. Chihuahua presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. ?]
 
-[? if (via = "armada" or via = "dual") and inteligencia >= 40 : Jalisco presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
+[? if via = "armada" and inteligencia >= 40 : Jalisco presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
 
-[? if via = "armada" or via = "dual" : Doctrine: garrisons concentrate where you act and thin where you rest. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. The army wins every battle it can find, so the war is won by not being found. ?]
+[? if via = "armada" : Doctrine: garrisons concentrate where you act and thin where you rest. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. The army wins every battle it can find, so the war is won by not being found. ?]
+
+[? if via = "armada" : **El estado de la guerra** ?]
+
+[? if via = "armada" : Materiel (parque): [+ parque +] — spent on operations, earned by expropriations and the zone. Without it the war can only hide. ?]
+
+[? if via = "armada" : Column morale: [+ moral_columnas +]. [? if moral_columnas >= 78 : High — the camps recruit themselves; presence grows on its own. ?][? if moral_columnas >= 45 and moral_columnas < 78 : Holding. ?][? if moral_columnas < 45 : Low — desertions bleed presence monthly. Win something, or lose the columns. ?] ?]
+
+[? if via = "armada" and presos >= 1 : Comrades held: [+ presos +]. A jailbreak can bring them back — or the interrogations will empty their heads into the Colonel's file. ?]
+
+[? if via = "armada" and coronel_activo = 1 : **El Coronel.** The campaign has a name now. His informer network in your zones: [+ coronel_red +] of 100. [? if coronel_red < 30 : Thin — he is still learning the ground. ?][? if coronel_red >= 30 and coronel_red < 60 : Growing — his map of you thickens monthly. Cut it, or feed it false readings. ?][? if coronel_red >= 60 : Deep — he can sit on your roads and find your villages. This cannot continue. ?][? if coronel_expuesto = 1 : His vanity has given you a crack: expose him, or take the shot when the window opens. ?] ?]
+
+[? if via = "armada" and coronel_muerto = 1 : The Colonel is dead. The campaign that bore his name is decapitated — and the reprisal that followed is written in the memorial. ?]
+
+[? if via = "armada" and coronel_removido = 1 : The Colonel was transferred to a beach posting after the scandal broke. His successor starts from zero, and knows he is watched. ?]
+
+[? if via = "armada" and (op_cacique = 1 or op_archivo = 1 or op_magnate = 1 or op_aduana = 1) : Signature operations pulled off: [? if op_cacique = 1 : the cacique-senator · ?][? if op_archivo = 1 : the DFS archive · ?][? if op_magnate = 1 : the Monterrey magnate · ?][? if op_aduana = 1 : the border ledger ?] — each one a permanent mark on the war's ledger and the enemy's. ?]
+
+[? if via = "armada" : **El camino de la sierra** ?]
+
+[? if via = "armada" and sw_sobrevivir = 1 : I. Survive the hunt — DONE ?][? if via = "armada" and sw_sobrevivir = 0 : I. Survive the hunt: two years underground with the structure alive — pending ?]
+
+[? if via = "armada" and sw_zona = 1 : II. The zone — DONE: a range the state enters only in strength ?][? if via = "armada" and sw_zona = 0 : II. The zone: presence 35 in a region while its garrison stays under 45 — pending ?]
+
+[? if via = "armada" and sw_sintesis = 1 : III. The synthesis — DONE: the city and the sierra speak ?][? if via = "armada" and sw_sintesis = 0 : III. The synthesis: coordinate the urban and rural war through the enlace — pending ?]
+
+[? if via = "armada" and sw_auge = 1 : IV. El auge — DONE: the war stood at a cycle's end ?][? if via = "armada" and sw_auge = 0 : IV. El auge: reach a sexenio's balance with the war standing (total presence 60) — pending ?]
+
+[? if via = "armada" and sw_descenso = 0 : V. The descent from strength: end the war on your terms, not the state's. What comes down the mountain with you — veterans, legend, the southern networks — is the war's whole harvest. A war that ends in the dark harvests nothing. ?][? if sw_descenso = 1 : V. The descent — DONE: the war ended on the Movement's terms, and its harvest walks among you. ?]
+
+[? if via = "politica" and veteranos >= 1 : The war's veterans — [+ veteranos +] cohorts of them — hold the hardest posts in the Movement now: security, the campo, the places where a person needs to have already seen the worst. ?]

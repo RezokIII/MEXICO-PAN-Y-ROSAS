@@ -4,7 +4,7 @@ on-arrival: {!
 if (Q.month_actions > 0) {
     Q.month_actions -= 1;
 }
-// return card to hand — to the CURRENTLY ACTIVE hand, not a hardcoded one
+// return the card to the CURRENTLY ACTIVE hand
 var card = this.state.lastPlayedCard;
 if (card) {
     card.image = card.cardImage;
@@ -15,14 +15,17 @@ if (card) {
     else { handId = 'main'; }
     if (!this.state.currentHands[handId]) { this.state.currentHands[handId] = []; }
     this.state.currentHands[handId].push(card);
-    // reset the cooldown timer if any
-    if (Q[card.id + "_timer"]) {
-        Q[card.id + "_timer"] = 0;
+    // CRITICAL: playing the card set its cooldown (<id>_cd = time), which makes its
+    // view-if false, so the hand's viewable-filter would splice it back out. Undo that
+    // so the returned card stays visible and re-playable.
+    var idc = "" + card.id;
+    var keys = [idc + "_cd", idc.split(".").pop() + "_cd"];
+    for (var k = 0; k < keys.length; k++) {
+        if (Q[keys[k]] !== undefined) { Q[keys[k]] = Q.time - 5; }
     }
-    // reduce visit count so returning doesn't burn a max-visit
-    if (this.state.visits[card.id]) {
-        this.state.visits[card.id] -= 1;
-    }
+    if (Q[idc + "_timer"] !== undefined) { Q[idc + "_timer"] = 0; }
+    // don't let returning burn a max-visit
+    if (this.state.visits[card.id]) { this.state.visits[card.id] -= 1; }
 }
 !}
 go-to: main.main_85 if year >= 1985 and difficulty >= 0; main.main_78 if year >= 1978 and difficulty >= 0; main if difficulty >= 0; main.main_easy if difficulty < 0

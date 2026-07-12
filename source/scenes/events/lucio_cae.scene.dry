@@ -1,30 +1,43 @@
 title: El Otatal
 new-page: true
 subtitle: 2 de diciembre de 1974
-face-image: img/guerrero_sierra.jpg
+face-image: img/Luciodeath.jpg
 tags: event
 view-if: year = 1974 and month = 12
 priority: 3
 max-visits: 1
-on-arrival: memorial += 2; guerrilla_meter -= 3; represion -= 2
 
 = El Otatal
 
-Figueroa was ransomed out in September by an army column; Lucio's luck ran three months longer. On the second of December, at a place called El Otatal, the encirclement closes: the schoolteacher of Atoyac dies with his last brigade around him, and the army photographs the body with the care of men preparing a receipt.
+Figueroa was ransomed out in September by an army column; Lucio's luck has run three months longer, and is running out tonight. At a place called El Otatal, ten thousand soldiers have drawn the year's last encirclement around the schoolteacher of Atoyac and what remains of his brigade — the noose the whole campaign was built toward, closing in the dark.
 
-The Party of the Poor does not survive him — organizations built on one man's moral credit rarely do. What survives comes down the mountain in twos and threes over the winter: sick, hunted, eighteen and twenty years old, carrying nothing but the sierra's verdict that the armed road, for this generation, in this state, is closed. The DFS knows they are coming down. Everyone knows. The question is who reaches them first: the Brigada, the Liga's recruiters — or a Party that never blessed their war and must now decide what it owes their peace.
+If it closes, the Party of the Poor will not survive him — organizations built on one man's moral credit rarely do. What survives will come down the mountain in twos and threes over the winter: sick, hunted, eighteen and twenty years old, carrying nothing but the sierra's verdict that the armed road, for this generation, in this state, is closed. The DFS knows they will be coming down. Everyone knows. The question is who reaches them first: the Brigada, the Liga's recruiters — or a Party that never blessed their war and must now decide what it owes their peace.
 
+[? if via = "armada" and inteligencia >= 35 : Except that this time there is an hour in which history is still wet ink: your people inside the garrisons' supply chain saw the encirclement forming two days ago, and a runner is already on the trails. Whether the warning beats the army to El Otatal is a question of hours and luck — but for once, uniquely in this war, the question exists. ?]
+
+- @salvarlo: Spend everything on the warning: every route, every source, the whole network's cover, to get one schoolteacher off El Otatal alive.
 - @recibir: Reach them first. Lawyers where there are charges, doctors where there are wounds, silence where there are neither.
 - @distancia: The Party cannot become the guerrilla's convalescent home; the ones the DFS follows down will lead them through your doors.
 
+@salvarlo
+go-to: post_event
+view-if: via = "armada" and inteligencia >= 35
+on-arrival: lucio_vive = 1; memorial += 1; guerrilla_meter -= 1; represion += 4; expediente += 6; inteligencia -= 8; pres_guerrero += 3; sup_peasants += 2
+
+The runner reaches the camp at dusk with the map of the noose, and the schoolteacher — who has broken more encirclements than the army admits attempting — reads it by feel, argues it in assembly per his unbreakable custom, and moves the column at midnight through the one seam the operation left unsewn. The last brigade bleeds crossing the river; the army closes on a campsite of cold fires and photographs those instead.
+
+The cost is enormous and itemized: two sources burned, a route abandoned forever, the Brigada suddenly, furiously aware of how deeply it is seen. And against it, a single entry that no ledger can weigh: on the third of December, 1974, in this history and no other, Lucio Cabañas is alive. The corrido writers, cheated of an ending, will have to learn to write beginnings.
+
 @recibir
+go-to: post_event
+on-arrival: memorial += 2; guerrilla_meter -= 3; represion -= 2; lucio_advisor = 0; members += 1; sup_peasants += 3; expediente += 6; political_capital += 2; bajaron = 1
 choose-if: sup_peasants >= 20 or postura_guerrilla >= 2
 unavailable-subtitle: Without a Guerrero base or prior channels, there is no way to reach them before the Brigada does.
-on-arrival: members += 1; sup_peasants += 3; expediente += 6; political_capital += 2; bajaron = 1
 
-It is done the slow way: a priest who owes Othón a favor, a clinic in Chilpancingo, bus tickets bought in threes. Not all of them want saving and not all of them are saved, but by spring there are young men repairing mimeographs who last year were cleaning rifles, and in the Montaña the Party's name is spoken with a new modifier: *los que bajaron por ellos*. The ones who went for them.
+On the second of December the noose closes: Lucio dies with his last brigade around him, and the army photographs the body with the care of men preparing a receipt. For the ones coming down, it is done the slow way: a priest who owes Othón a favor, a clinic in Chilpancingo, bus tickets bought in threes. Not all of them want saving and not all of them are saved, but by spring there are young men repairing mimeographs who last year were cleaning rifles, and in the Montaña the Party's name is spoken with a new modifier: *los que bajaron por ellos*. The ones who went for them.
 
 @distancia
-on-arrival: guerrilla_meter += 2; sup_peasants -= 2
+go-to: post_event
+on-arrival: memorial += 2; guerrilla_meter -= 1; represion -= 2; sup_peasants -= 2; lucio_advisor = 0
 
-The reasoning is sound and the sound of it carries. Some of the descended are taken at the bus stations; some reach the Liga, which welcomes anything that still angers; a few simply vanish into day labor and silence, carrying their verdict with them. The Party's doors stayed clean. In Guerrero, clean doors have a particular reputation.
+On the second of December the noose closes, and the schoolteacher of Atoyac enters the corridos. The reasoning for distance is sound and the sound of it carries. Some of the descended are taken at the bus stations; some reach the Liga, which welcomes anything that still angers; a few simply vanish into day labor and silence, carrying their verdict with them. The Party's doors stayed clean. In Guerrero, clean doors have a particular reputation.

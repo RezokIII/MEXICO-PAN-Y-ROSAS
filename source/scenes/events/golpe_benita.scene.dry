@@ -2,8 +2,8 @@ title: Fifty-nine
 new-page: true
 subtitle: They finally dared
 face-image: img/camioneta.jpg
-tags: event
-view-if: benita_advisor = 1 and represion >= 85 and expediente >= 70 and time >= repadv_last + 15
+# routed via golpe_dispatch (no event tag: prevents co-queuing alternates)
+view-if: benita_advisor = 1 and represion >= 81 and expediente >= 65 and time >= repadv_last + 12 and refugio_sierra = 0
 priority: 2
 frequency: 60
 max-visits: 1
@@ -17,11 +17,13 @@ Benita Galeana — fifty-eight arrests across five decades, the Party's grandmot
 - @r2: Her own doctrine: no tears, more corners. Speakers on every street she ever worked.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 The empty-chair readings spread to bookshops, universities, two theaters — her autobiography recited in relay by actresses, señoras, a bishop who surprised everyone. On day nineteen she is released without explanation, waving from a taxi, furious at the fuss and demanding the clippings. The fifty-ninth arrest enters her legend; the state, having gained nothing, files the operation under errors.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 The Party answers as she trained it to: a woman on a crate on every corner she ever shouted from, saying true things loudly. Some are arrested, refuse to be sad about it, and thereby multiply. It is her method, executed in her honor, and when she is finally released she inspects the arrest tally like a foreman reviewing good work.

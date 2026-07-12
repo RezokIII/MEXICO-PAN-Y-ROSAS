@@ -53,6 +53,7 @@ Seats: **[+ izq_seats +]**. The alquimia now shaves the right as well as the lef
 - @propio: Keep your own counsel and your own count. The PAN's businessmen would not cross a street for your dead; document alone.
 
 @norte
+go-to: post_event
 choose-if: red_casillas >= 20
 unavailable-subtitle: To share a methodology you must first have one: the network is too small.
 on-arrival: alquimia_expuesta = 1; sup_middle += 2; political_capital += 2; fac_ortodoxos -= 2
@@ -60,6 +61,7 @@ on-arrival: alquimia_expuesta = 1; sup_middle += 2; political_capital += 2; fac_
 The meetings happen in notary offices, of all neutral grounds: your teachers' acta discipline meets their accountants' audit habits, and the hybrid is formidable. Nothing is signed; everything is standardized. The ortodoxos gag at the company. But from this July forward, the Republic's two oppositions count with one method — and in some future emergency, that shared arithmetic may be the only institution left standing.
 
 @propio
+go-to: post_event
 on-arrival: red_casillas += 4; unity += 2
 
 The network grows on its own rigor; the count stays sovereign. There is cleanliness in it — no photographs with the class enemy — and a cost that will be tallied later: when the great fraud comes, whenever it comes, the witnesses will testify separately, and separate witnesses are what every defense attorney prays for.

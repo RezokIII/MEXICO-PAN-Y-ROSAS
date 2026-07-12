@@ -2,6 +2,7 @@ title: El legado
 new-page: true
 on-arrival: {!
 if (Q.ending == "aniquilacion") { this.achieve('el_palacio_negro'); }
+if (Q.ending == "exterminio") { this.achieve('el_exterminio'); }
 if (Q.ending == "debil") { this.achieve('la_semilla'); }
 if (Q.ending == "media") { this.achieve('la_acumulacion'); }
 if (Q.ending == "fuerte") { this.achieve('la_fuerza'); }
@@ -24,7 +25,8 @@ if (Q.spicer == 1) { this.achieve('los_120_dias'); }
 if (Q.laguna == 1) { this.achieve('las_madres'); }
 if (Q.auge_armada == 1) { this.achieve('el_auge'); }
 if (Q.via == "institucional" && (Q.ending == "historico" || Q.ending == "reconocimiento")) { this.achieve('el_entrismo'); }
-if (Q.via == "dual" && Q.ending != "aniquilacion" && Q.ending != "irrelevancia") { this.achieve('la_sintesis'); }
+// dual road removed; la_sintesis achievement now earned via the war milestone
+if (Q.sw_sintesis == 1 && Q.ending != "aniquilacion" && Q.ending != "irrelevancia") { this.achieve('la_sintesis'); }
 if (Q.praga_line == 1) { this.achieve('no_llega_en_tanque'); }
 if (Q.campa76 == 1) { this.achieve('un_millon_de_nombres'); }
 if (Q.huelga_general == 1) { this.achieve('la_huelga_general'); }
@@ -38,6 +40,14 @@ if (Q.izq_seats >= 15) { this.achieve('las_curules'); }
 if (Q.psum == 1) { this.achieve('la_fusion'); }
 if (Q.municipio_alcozauca == 1) { this.achieve('alcozauca'); }
 if (Q.postura_guerrilla == 3 && Q.ending != "aniquilacion") { this.achieve('los_canales'); }
+if (Q.paros_ganados >= 3) { this.achieve('la_huelga_que_no_se_rompe'); }
+if (Q.cnte_fundada == 1) { this.achieve('seccion_democratica'); }
+if (Q.conamup_fundada == 1) { this.achieve('la_ciudad_organizada'); }
+if (Q.dotaciones >= 3) { this.achieve('la_tierra_trabaja'); }
+if (Q.legitimidad_regimen <= 30) { this.achieve('el_regimen_desnudo'); }
+if (Q.ofrenda_armas == 1) { this.achieve('entre_las_flores'); }
+if (Q.enlace_sintesis == 1) { this.achieve('el_puente'); }
+if (Q.fe_voto >= 55) { this.achieve('la_fe_recuperada'); }
 this.achieve('game_completed');
 !}
 go-to: slide_logros
@@ -46,6 +56,8 @@ go-to: slide_logros
 new-page: true
 
 = What was
+
+[? if ending = "exterminio" : The war did not end. It was ended — physically, one camp at a time, until there were no camps. What the state annihilated was a generation: the schoolteachers who took the mountain when the plaza was closed to them, the students who followed, the campesinos who fed them and were made to pay for the meal. No congress dissolved this Movement; a runway dissolved it, over the sea, in loads. Its archive is a mother's memory and a chalkboard nobody erased. Decades later a Fiscalia will exhume a fraction of the names and call it truth, and it will be a fraction, and it will be true. ?]
 
 [? if ending = "aniquilacion" : The Mexican Communist Party ceased to exist as a national organization at some point not even its enemies could date. There was no final communique; organizations do not die of one shot but of a thousand casualties without funerals. Its archives — the ones the DFS never captured — slept in three basements in three cities, waiting for historians who would take decades to arrive. ?]
 
@@ -78,6 +90,8 @@ new-page: true
 [? if postura_guerrilla = 3 : The discreet channels saved lives no archive will ever count, and cost a mortgage of expediente paid with interest. When the history is written, that line will not appear — which was the point. ?]
 [? if postura_guerrilla = 0 : On the armed question the Movement never said anything, which was its way of saying everything. Silence was the only line executed to perfection. ?]
 
+[? if ending = "exterminio" : There was no armed question in the end, only an armed answer, and the state's was louder and lasted longer. Whether the mountain was a road or only a beautiful way to die will be argued at every table in Mexico for fifty years, and every argument will be conducted, on both sides, by people who were not there — because the people who were there are on the runway, over the water, in the loads. The corridos keep the count the courts refused. That is not justice. In this Republic, for this generation, it was the only thing that did not get confiscated. ?]
+
 [? if charrismo >= 80 : The charro wall ended the era intact. Don Fidel buried another challenge and kept smoking; the working class remained organized by the state against itself. The Mexican century largest unpaid debt remains unpaid. ?]
 [? if charrismo < 80 : The charro wall ended the era cracked — not broken, but cracked in plain sight, and walls that crack once are surveyed differently forever. ?]
 
@@ -91,6 +105,8 @@ new-page: true
 = Snapshot: a book, 2014
 
 *(From "El siglo de las izquierdas en Mexico", Fondo de Cultura Economica, 2014 — chapter 7, translated:)*
+
+[? if ending = "exterminio" : "...the armed cycle of the Mexican seventies has no monument and, until recently, no dossier. What the historiography can establish is grim and spare: that the counterinsurgency succeeded completely, that its methods — the flights, the clandestine airbases, the trophy photographs — were imported and refined and denied, and that the state's victory was so total it produced, for two decades, the illusion that nothing had been fought. The chapter that should exist here cannot yet be written; its sources are being dug, literally, from the ground." ?]
 
 [? if ending = "aniquilacion" : "...by the late seventies the old party was already the property of doctoral theses rather than police reports. The question that organizes this chapter is not why it disappeared — causes abound — but why its disappearance mattered so much: for half a century it had been the only institutional deposit of a memory the state required not to exist. When the deposit closed, memory passed to private hands: mothers, widows, schoolteachers with notebooks. It would take twenty years to find premises again." ?]
 
@@ -116,6 +132,12 @@ new-page: true
 **ForoMexico / History / What actually happened to the 70s left?**
 
 **tlacuache_rojo:** My grandmother says she hid the party mimeograph on her roof in 71. Anyone else have stories like this or is my abuela pulling my leg?
+
+[? if ending = "exterminio" : **doctor_atl_fan:** Not the party mimeograph — my great-uncle was in the OTHER thing, up in the sierra. Family never said the word "guerrilla" out loud until like 2005. He is a name on a wall now. The wall took thirty years to build and the government still calls it "alleged." ?]
+
+[? if ending = "exterminio" : **ana.sin.acentos:** My mom is from Atoyac. Everyone there knows exactly what happened and exactly who did it. The only people who say "we may never know" are the ones who signed the orders. ?]
+
+[? if ending = "exterminio" : **moderador_charro:** Thread locked. Take the politics elsewhere. ?]
 
 [? if ending = "aniquilacion" : **doctor_atl_fan:** She is not. There was a whole network. It got eaten alive between the DFS and the internal wars. My uncle says the saddest part was not the repression — it was that by the end there was no one left to tell. ?]
 
@@ -149,6 +171,10 @@ new-page: true
 —Were you afraid, bisabuela?
 
 —Every day, mijo. Fear was not the rare thing. The rare thing was the people who did the work with the fear still on.
+
+[? if ending = "exterminio" : —They killed all of them, bisabuela? ?]
+
+[? if ending = "exterminio" : —(the video is quiet for a while) ...They killed the ones they could catch, mijo. That is not the same as all of them, though they wanted us to think it was. I am here. You are here. The name you found on that wall — you found it. They spent a fortune making sure no one could, and a child with a telephone undid it in an afternoon. Write down his name in your video. Say it out loud. That is the whole war, mijo — whether the name gets said. ?]
 
 [? if ending = "aniquilacion" : —Was it worth it, if it all ended? ?]
 
@@ -192,11 +218,21 @@ Go back to the stairwell. Look up at Rivera's wall one more time — Zapata, the
 
 [? if ending = "debil" or ending = "media" or ending = "ruptura" or ending = "irrelevancia" : The dream did not come down off the wall — not this decade, not on your watch. But look closely at the plaster: it is worn where a thousand hands reached up and touched it, year after year, refusing to accept that a painted promise is only paint. The mural outlasts the men who commissioned it precisely because people like you would not let it dry into decoration. The appointment is still unkept. Someone is still, always, at the door of the agrarian office. The dream continues because it was never allowed to finish being a dream. ?]
 
-[? if ending = "aniquilacion" or ending = "intervencion" : The dream was larger than the room they gave it, and the room won — this time. They hosed the plaza clean; they will not scrub the wall, because a mural of a revolution safely dead is the regime's favorite kind. And yet: paint outlives painters. The campesino is still bent to the corn up there, the worker still holds the future in his two hands, and somewhere a mother is telling a boy what the figures mean. It always begins again. It always begins again. But not, this time, with you. ?]
+[? if ending = "aniquilacion" or ending = "intervencion" or ending = "exterminio" : The dream was larger than the room they gave it, and the room won — this time. They hosed the plaza clean; they will not scrub the wall, because a mural of a revolution safely dead is the regime's favorite kind. And yet: paint outlives painters. The campesino is still bent to the corn up there, the worker still holds the future in his two hands, and somewhere a mother is telling a boy what the figures mean. It always begins again. It always begins again. But not, this time, with you. ?]
 
 The mother in Michoacán grew old. The campesino on the Costa Grande died at the door of the office, still holding the paper. The railwayman, at the end, got his name into a court document instead of a ledger. None of them saw the dawn on the wall. All of them were the reason the paint never quite dried.
 
 - @terminar: Fin.
 
 @terminar
+new-page: true
+face-image: img/theend.jpg
+
+= —
+
+*"Y sin embargo se mueve."*
+
+- @terminar_2: Fin.
+
+@terminar_2
 go-to: game_over

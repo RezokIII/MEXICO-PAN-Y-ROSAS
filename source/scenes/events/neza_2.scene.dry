@@ -16,6 +16,7 @@ The office's ledger of small victories is now the neighborhood's political memor
 - @profundizar: Deepen it: train the committee leaders as organizers in their own right. The colonia should run its own politics — with your school behind it.
 
 @profundizar
+go-to: post_event
 subtitle: -3 funds
 choose-if: funds >= 3
 unavailable-subtitle: The colonia cadre school costs money too.

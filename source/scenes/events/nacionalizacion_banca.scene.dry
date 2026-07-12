@@ -1,36 +1,34 @@
 title: La nacionalización de la banca
 new-page: true
-subtitle: September 1 — the ritual de 1982
-face-image: img/crisis_economica.jpg
+subtitle: 1 de septiembre de 1982
+face-image: img/presidencia.jpg
 tags: event
 view-if: year = 1982 and month >= 9 and month <= 11
 priority: 3
 max-visits: 1
-on-arrival: burguesia_estado += 8; gran_capital -= 6; capital_extranjero += 4; peso_dolar = 70; salario_real -= 3
 
 = La nacionalización de la banca
 
-In his final Informe, voice breaking, José López Portillo announces the expropriation of the private banking system — and weeps, on camera, apologizing to the poor of Mexico: *ya no los volverán a saquear.* The man who promised to defend the peso like a dog — the country has not stopped repeating the joke since February — exits scattering the largest structural reform since Cárdenas, like a gambler flipping the table on his way out.
+In his last Informe, a weeping López Portillo does the unthinkable: he nationalizes the banks and slaps exchange controls on a fleeing peso. *"Ya nos saquearon,"* he says — they have already looted us — and for one delirious afternoon the man who spent a sexenio administering abundance sounds like a Cárdenas. The nationalist left cheers in the streets. The bankers flee to Texas. And the whole spectrum has to decide what a revolutionary makes of a revolutionary act performed by the executioner.
 
-The left's dilemma is exquisite: the state has done the thing your programs have demanded for fifty years — while broke, as blame-shifting theater, with compensation to the bankers still to be negotiated by the incoming técnicos, who are already signaling reversal. Applaud, and you endorse the theater. Denounce, and you denounce your own program.
+- @apoyar_nacional: Back it as a popular victory — nationalize the credit, and push for more.
+- @critica_izquierda: Critique from the left — this rescues the system that looted, on the public's tab.
+- @usar_crisis: Say little; use the opening. A cracked regime organizes better than a confident one.
 
-- @critico: Support the expropriation, demand it be made real: workers' control, credit steered to the base, no reversal.
-- @teatro: Name the theater: a looted treasury nationalizing its creditors to change the subject from the looting.
-- @control: Go maximal — occupy the moment: assemblies in the bank workers' union, a campaign to make reversal politically impossible.
+@apoyar_nacional
+on-arrival: ax_nacpop += 5; sup_middle += 3; sup_workers += 2; political_capital += 2; pri_reformist_rel += 2; fac_ortodoxos -= 2
+go-to: post_event
 
-@critico
-on-arrival: political_capital += 3; sup_workers += 2; pri_reformist_rel += 2; ax_nacpop += 3
+You stand with the measure, and for a season the Movement and the cardenista nationalists breathe the same air — a rehearsal, though no one names it, for 1988. The orthodox mutter that state capitalism is not socialism, which is true and beside the point: six years from now, a great many of these nationalists will be looking for a car to crash into the regime, and today you rode beside them.
 
-The line threads it: yes to the act, no to the theater, and a bill of particulars for making it real. For one strange season the Party's economists are quoted in papers that used to redact them. The técnicos take office in December and begin the quiet unwinding; your bill of particulars becomes the measuring stick of their betrayal, which is worth more than applause.
+@critica_izquierda
+on-arrival: prestigio_socialismo += 3; sup_students += 2; ax_nacpop -= 3; sup_middle -= 2
+go-to: post_event
 
-@teatro
-on-arrival: sup_students += 2; sup_middle += 2; fac_nueva_izquierda += 2; pri_reformist_rel -= 3
+You say the unpopular, precise thing: that nationalizing the banks after they have looted is not expropriating the rich but socializing their losses, and that the applauding crowd is cheering its own future austerity. It is correct. It is lonely. The students who can follow the argument come closer; the nationalists you will need in 1988 remember you as the ones who could not simply be glad.
 
-The analysis is merciless and correct — and lands strangely: the right quotes you against the expropriation, the government quotes you against your own program, and honesty proves, as usual, the most expensive of the postures. History will vindicate the paragraph. Politics invoices it now.
+@usar_crisis
+on-arrival: political_capital += 3; sup_colonos += 2; legitimidad_regimen -= 3; unity += 1
+go-to: post_event
 
-@control
-choose-if: sup_workers >= 20 and huelgas >= 10
-unavailable-subtitle: Seizing the moment requires a base among the bank workers and strike muscle. Neither exists.
-on-arrival: sup_workers += 4; huelgas += 6; burguesia_estado += 2; expediente += 4; political_capital += 3
-
-The bank workers' assemblies vote resolutions on credit democracy that terrify everyone correctly; for a month the question is genuinely open. Then December comes with the técnicos and the counter-reform — but the assemblies happened, the cadres exist, and a generation of bank employees knows the Party as the people who took their work seriously. Deposits of another kind.
+While the country argues theology, you organize: the crisis has cracked the regime's confidence, the debt has made the future negotiable, and a cracked, frightened state is the best recruiting sergeant the left ever had. You let the bankers and the president fight over the wreckage and quietly gather what falls off the table.

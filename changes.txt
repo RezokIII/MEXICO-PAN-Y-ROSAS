@@ -1,3 +1,128 @@
+PAN Y ROSAS — la aniquilacion (armed-path tragic ending):
+
+- New unique ending for the armed road: "El cerco se cierra" / "El exterminio" — a
+  distinct, poetic annihilation when the guerrilla is crushed (members reach 0 on the
+  armed road). Not the generic collapse: the informer web, the encirclement, the last
+  camp taken before dawn, the flights over the sea, the state's victory so total it
+  spends forty years denying there was a war. Its own achievement, finale slides
+  (What was / What was not / the 2014 book / the 2019 forum / the 2023 transcript / the
+  mural), and closing image.
+- New warning event: "El ultimo invierno" — fires when the war crosses the one-way
+  threshold (morale <=30, Coronel's network >=60, and thinning ranks), telling you the
+  ring is closing and there is still time — barely — to come down.
+- New images wired: muertos.jpg (the annihilation ending, la decapitacion),
+  stareguerilla.jpg (the warning, going underground), theend.jpg (the final screen).
+- Verified: 120-card audit clean, exterminio ending routes correctly, armed fuzz runs
+  crash-free.
+
+PAN Y ROSAS — war overhaul + ledger fix:
+
+- LA GUERRA IS A GAME NOW. New operations card (La operación): ambush, barracks raid,
+  payroll, jailbreak, seize the airwaves — each ROLLS your presence + intelligence +
+  morale + materiel against the garrison for triumph / costly success / disaster, with
+  distinct outcomes. The sierra can finally surprise you.
+- EL CORONEL: a named hunter takes over the campaign in 1972 and escalates — his
+  informer network grows monthly unless you cut it, feed it false readings, expose him,
+  or (when his vanity opens a window) put him in your sights. The war has a face and a duel.
+- Counterpunch events driven by the PRI AI's contener/aniquilar postures: la barrida
+  (a sweep on your strongest zone — melt, fight, or counterstrike elsewhere), el reten
+  (a checkpoint takes a courier), la quinta columna (an informer in a base village —
+  turn / try / execute, with real hearts-and-minds cost).
+- New war economy: parque (materiel, spent on ops, earned by expropriations and the zone)
+  and morale (recruits when high, deserts when low). Named-column events: la columna
+  quiere sangre (discipline vs. initiative) and la deriva (a starving column drifting to
+  banditry). All feed the auge balance and the 1988 tally.
+- Flavor-to-mechanics: the special operations (cacique, archive, magnate, aduana) now
+  count as war leverage; exiliados keeps socialism's prestige alive; excelsior_caido
+  speeds the regime's legitimacy self-repair; documented fraud now measurably weakens the
+  1988 alquimia. Full war status panel on the Territorio tab.
+- LEDGER FIX: the saldo line now hooks the engine's scene renderer directly, so it fires
+  on event decisions (not just cards) — pick an option, see exactly what it moved.
+- Music: era + vida armada playlists — the war gets its own soundtrack (corrido de Lucio
+  Cabanas, Se acabo, Cuando tenga la tierra) while anthems (Venceremos, Manifiesto) play
+  in both; added Rockdrigo's Metro Balderas for the crisis years.
+- Verified: 120-card audit clean, ops dice variance confirmed, armed fuzz runs no crashes.
+
+PAN Y ROSAS — 2026-07-10 (three roads, cleanly drawn):
+
+- The DUAL ROAD IS REMOVED: the strategy congresses now offer three lines — política,
+  institucional, armada. All dual options, variants, drift, and text swept (48 files).
+- Guerrilla leaders (Genaro, Lucio, el Güero) are armada-only advisors now: they appear
+  when the Movement is at war and vanish from the political phase. Lucio's survival
+  dividend on the political road became a one-time event (El maestro de Atoyac).
+- Political advisors freeze during the war — none are added, none appear; the bench
+  returns when you come down.
+- THE REFORMIST ROAD IS A REAL GAME NOW: la digestión (absorcion 0-100) is its clock —
+  the antechambers digest their guests. New card "Desde adentro" (place cadres, bank
+  favors, work the archive channel), new events "La cartera" (a real post, a real
+  photograph) and "El abrazo" (at absorcion 70: break out loudly or become a PPS with
+  better martyrs). el_giro fixed: institucional can finally pursue registro.
+- Verified: 119-card audit clean; el abrazo, absorcion drift, and advisor visibility
+  all simulation-tested; full random runs on both roads without crashes.
+
+PAN Y ROSAS — 2026-07-10 (the PRI learns to play):
+
+- PRI AI: every quarter Gobernación re-reads your file and sets a posture — ignorar /
+  cooptar / vigilar / reprimir / robar (political road) or contener / aniquilar (armed
+  road) — chosen from a threat index and the sitting president's temperament. The
+  posture leans on you monthly (charro pressure, file growth, casilla attrition,
+  garrison surges) and gates the regime's targeted moves. Visible in the Política tab
+  as "El semáforo de Bucareli."
+- New PRI plays: "La elección robada" (the machine rehearses the alquimia on one of
+  your towns) and "La izquierda de charola" (a regime-funded discount left planted in
+  your best districts — contrast it, infiltrate it, or ignore it).
+- LFOPPE negotiation chain: "El sondeo de Bucareli" (Reyes Heroles' emissary asks your
+  price — the prisoners or the seats) and "El pleno de la puerta" (pre-clear the
+  December decision cell by cell). Both pay dividends in the reform, the amnesty
+  breadth, and the unity cost of registering.
+- Escisiones are real now: letting a current walk founds a rival sigla that eats your
+  student/teacher base monthly until a fusion (PSUM/PMS) reabsorbs it.
+- Consequence ledger: every event/card page now ends with "— el saldo: expediente −8 ·
+  fondos −4" showing what your last action actually moved.
+- Event-queue fix (continued): golpe alternates routed through one dispatcher event.
+- Fuzz-tested: 9 full random 1968-89 runs, both roads — no crashes, no softlocks.
+
+PAN Y ROSAS — 2026-07-10 (bugfix + vida armada update):
+
+CRITICAL FIXES:
+- Hand-wipe bug fixed: hands are stored per era-scene (main / main_78 / main_85); the
+  Jan-1978 and Jan-1985 slot upgrades stranded every held card. Hands now migrate.
+- 13 cards (all 8 sierra, 3 canales, vida_interna, f_contingencia) had no unconditional
+  exit: hard-mode softlock when all options were gated. Every card now has a free exit.
+- Volatile view-ifs (seguridad's expediente, escandalo's capital, comite_huelga's huelgas,
+  unificacion's factions) silently ejected held cards; moved to option gates.
+
+VIDA ARMADA UPDATE:
+- El camino de la sierra: five war milestones (survive the hunt / la zona / la sintesis /
+  el auge / the descent from strength) shown on the Territorio tab.
+- The descent now harvests the war: veterans, organizers, casilla seeds in Guerrero/Oaxaca,
+  campesino prestige (leyenda feeds the 1988 wave) — scaled to the strength you fold at.
+  Plus scars: a permanent expediente floor and the el_infiltrado counterintelligence event.
+- Two armada-only advisors: la comandancia de la sierra, la responsable urbana (revert to
+  the political bench when the war ends).
+- Support/membership no longer bleeds on the armed road while the war is going well.
+- Los canales cards now speak from your side of the war (mirrored POV texts and options).
+- LFOPPE and inauguration events get armed-path readings.
+
+POLITICAL ROAD:
+- Aviso decapitacion: option to hide the most burned leaders with the guerrillas
+  (blocks all golpe events; leadership returns via 'Bajan los escondidos').
+- Golpe (advisor assassination/disappearance) thresholds lowered: pushing hard while
+  unprepared now actually costs cadres.
+- El escandalo: costs raised (8/6/6), cooldown 3->8 months, diminishing returns.
+- Strikes: two new middle roads at the CTM table (la contrafirma, el comite sumergido)
+  and crisis-year (inflation >= 20) wage-strike multipliers.
+- Cardenas ascent arc: el apellido (1980), el gobernador que recibe (1984), plus
+  la guerra de las actas (August 1988) between the 6 de julio and the calificacion.
+- La placa en la puerta: legalization event when registro is first won; registration
+  leaks (deputies/candidacies implied without registro) patched across events.
+
+UI:
+- Soundtrack starts on the first click (pressing Comenzar).
+- Territorio map (political mode): regions colored by who leads them — red us, green PRI,
+  blue PAN, ochre contested — with per-party breakdown on hover. War map unchanged.
+- EVENT_CHAINS.md: auto-generated map of all 195 quality-mediated event chains.
+
 v0.5:
 
 

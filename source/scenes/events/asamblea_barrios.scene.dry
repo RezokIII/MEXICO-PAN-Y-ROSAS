@@ -16,6 +16,7 @@ Out of the earthquake's organized grief, the capital's renters and damnificados 
 - @barrios_88: Put the Movement's weight behind the Asamblea — and point this glorious carnival of the organized poor toward July of 1988.
 
 @barrios_88
+go-to: post_event
 choose-if: colonia_saga >= 3 or sup_colonos >= 30
 unavailable-subtitle: The Asamblea works with people it has known for years, not months.
 on-arrival: barrios = 1; sup_colonos += 5; political_capital += 3

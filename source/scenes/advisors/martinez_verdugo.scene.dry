@@ -2,7 +2,7 @@ title: Arnoldo Martínez Verdugo
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: verdugo_advisor = 1
+view-if: verdugo_advisor = 1 and (via = "politica" or via = "institucional") and refugio_sierra = 0
 
 = Arnoldo Martínez Verdugo
 
@@ -12,6 +12,7 @@ First Secretary since 1963. A sign painter from Sinaloa who taught himself four 
 
 - @verdugo_disciplina
 - @verdugo_renovacion
+- @verdugo_unidad
 - @root: Return to main
 
 @verdugo_disciplina
@@ -32,3 +33,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; ax_sovietico -= 3; fac_renovadores += 4; moscow_relation -= 2; fac_renovadores += 2; fac_ortodoxos -= 1; fac_nueva_izquierda -= 1
 
 Mimeographed Togliatti, Gramsci in the study circles, a seminar on "the Mexican road" that says nothing censurable and means everything. The ortodoxos smell it — they always smell it — but you cannot expel a man for his bookshelf. Yet.
+
+@verdugo_unidad
+title: La unidad de la izquierda
+subtitle: The patient work of fusion — the scattered left toward one party, one registro, one address for the future.
+card-image: img/portraits/verdugo.jpeg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; unity += 3; frente_unidad += 2; political_capital += 3; fac_renovadores += 2; pri_reformist_rel += 1
+
+Verdugo's genius is not fire but glue. He spends the month in the least glamorous rooms in Mexican politics — the ones where four splinter parties argue about a comma in a joint declaration — and comes out with a comma they can all sign. Every fusion he brokers is a step toward the thing the left has never had and the state has always counted on it never having: a single house, with a single door, that the night of 1988 can knock on.

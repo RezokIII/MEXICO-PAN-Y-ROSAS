@@ -18,6 +18,7 @@ He comes to the leadership before deciding — twenty years since Lecumberri, si
 - @sostener: Hold the candidacy. The left's independence was not built over sixty years to be donated to a general's son in an election year.
 
 @ceder
+go-to: post_event
 choose-if: fdn = 1
 unavailable-subtitle: Ceding toward a wave you built no bridges to is not politics; it is shipwreck.
 on-arrival: political_capital += 4; sup_students += 2; fac_ortodoxos -= 3; ax_nacpop += 3
@@ -25,6 +26,7 @@ on-arrival: political_capital += 4; sup_students += 2; fac_ortodoxos -= 3; ax_na
 He announces it on television with the dryness he reserves for load calculations: the candidacy is withdrawn in favor of Cuauhtémoc Cárdenas, because Mexico matters more than the sigla. For a generation of the left it is the hardest sentence ever spoken into a microphone, and the most adult. The front is whole now. July will test what whole means.
 
 @negociar_cesion
+go-to: post_event
 choose-if: fdn = 1 and cd_rel >= 2 and political_capital >= 15
 unavailable-subtitle: Setting terms requires deep bridges and political capital; at least one is missing.
 on-arrival: political_capital -= 5; fdn = 2; sup_students += 2; unity += 2; ax_nacpop += 2
@@ -32,6 +34,7 @@ on-arrival: political_capital -= 5; fdn = 2; sup_students += 2; unity += 2; ax_n
 Three weeks of kitchens and drafts: the program planks initialed, the candidacies slated, the registro's place codified. When Castillo declines, he reads the agreement's headings aloud on camera — the left arrives at the front as founder, not furniture. The engineers on both sides shake hands like men who have load-tested the bridge.
 
 @sostener
+go-to: post_event
 on-arrival: fdn = 0; unity += 3; fac_ortodoxos += 4; sup_students -= 3; political_capital -= 3
 
 The candidacy holds; the argument is honorable and will be footnoted forever: independence, program, the long game. The wave rolls past regardless, gathering everything loose — including, by July, a painful share of your own voters, who love the Party and are voting, this once, for their grandfather's ghost.

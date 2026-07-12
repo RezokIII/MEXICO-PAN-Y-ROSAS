@@ -55,11 +55,13 @@ Seats won: **[+ izq_seats +]**. The shave this cycle: [+ robo_79 +] points. Ever
 - @escalar: File a formal challenge on the worst districts — spend standing now to build the jurisprudence for later.
 
 @consolidar
+go-to: post_event
 on-arrival: political_capital += 4; red_casillas += 4; sup_middle += 2
 
 The map is the message: fraud correlates perfectly with darkness. Volunteer applications for the network triple, many from people who have never joined anything. The Comisión declines to comment on cartography.
 
 @escalar
+go-to: post_event
 choose-if: political_capital >= 12
 unavailable-subtitle: A formal legal challenge requires more political capital than exists.
 on-arrival: political_capital -= 4; alquimia_expuesta = 1; pri_reformist_rel -= 2; sup_middle += 3

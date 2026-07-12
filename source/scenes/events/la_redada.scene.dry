@@ -18,6 +18,7 @@ By six it is over. By eight the lawyers are at the agencia del ministerio públi
 - @responder: Denounce, litigate, rebuild. The answer to the sledgehammer is the receipt: everything documented, everything replaced, nothing conceded.
 
 @responder
+go-to: post_event
 choose-if: funds >= 2
 unavailable-subtitle: Nothing left even for the amparo.
 on-arrival: political_capital += 2; sup_students += 2

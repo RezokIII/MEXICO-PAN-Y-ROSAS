@@ -1,0 +1,44 @@
+title: La oferta
+new-page: true
+subtitle: Un emisario, un sobre, una curul
+face-image: img/charola.jpg
+tags: event
+view-if: (izq_votes_display >= 20 and unity < 68 and time >= oferta_last + 20) and (pri_posture = "cooptar" or pri_posture = "robar" or presidente_cooptacion >= 40)
+priority: 3
+max-visits: 6
+on-arrival: oferta_last = time
+
+= La oferta
+
+The regime prefers to buy. It is cheaper than the police and photographs better. So an emissary — a deputy who was once, he reminds everyone, on the left himself — reaches the leaders your growth has made visible, with the offer the machine has perfected over sixty years: a plurinominal seat, a directorship, a budget for "cultural work," a future. The charola at its most refined, aimed with precision at exactly the moment you began to matter. Co-opt the head before it becomes a threat.
+
+Whether it works is not about the offer. It is about how tightly the front is held.
+
+- @rechazar_expuesto: Refuse, and publish the offer — let the country see the price list.
+- @rechazar_discreto: Refuse quietly; do not embarrass the men who might one day be needed.
+- @ceden: Some cannot say no. Let those who take it, take it.
+
+@rechazar_expuesto
+subtitle: Requires a united front to hold every leader in line.
+choose-if: unity >= 55
+unavailable-subtitle: A front this loose cannot guarantee every leader refuses — expose the offer and someone accepts it live. (Requires unity 55.)
+on-arrival: unity += 3; legitimidad_regimen -= 2; sup_students += 3; pri_reformist_rel -= 2; fe_voto += 1
+go-to: post_event
+
+You publish it — the seat, the sum, the signature — and the offer meant to buy your leaders becomes, instead, the receipt that proves the regime buys leaders. The front holds because it was built to hold; not one of your people is standing in the photograph accepting a check. The reformists are furious to be named. The country files another small proof that everything here has a price and the left, this once, was not for sale.
+
+@rechazar_discreto
+subtitle: -4 political capital. Refuse without burning the bridge.
+choose-if: political_capital >= 8
+unavailable-subtitle: Refusing gracefully — keeping the door open while closing it — takes political capital you do not have.
+on-arrival: political_capital -= 4; unity += 1; pri_reformist_rel += 1
+go-to: post_event
+
+You send the emissary away with his envelope and his dignity both intact, which is its own kind of skill: the men who make these offers remember who refused them cruelly and who refused them well, and one of them, a sexenio from now, will take your call because of this afternoon. The base never hears about it, which is the point.
+
+@ceden
+subtitle: The front was too loose to hold. The machine takes what it reached for.
+on-arrival: members -= 1; organizers -= 1; unity -= 4; presidente_cooptacion += 4; charrismo += 2; sup_students -= 2
+go-to: post_event
+
+You cannot hold what you have not bound tightly enough, and the machine knows it — that is why it made the offer now. A rising cadre takes the seat; a treasurer takes the directorship; each explains it to himself as entrism, as working from within, as feeding a family. The base watches its leaders absorbed one envelope at a time and learns the lesson the regime most wants taught: that everyone, eventually, has a number. Build the front tighter, or keep paying this bill.

@@ -1,7 +1,7 @@
 title: The strategy congress of 1977
 new-page: true
 subtitle: February 1977 — the line for the reform years
-face-image: img/congreso.jpg
+face-image: img/pcmconf.jpg
 tags: event
 view-if: year = 1977 and month >= 2 and month <= 4
 priority: 3
@@ -16,14 +16,15 @@ Reyes Heroles is drafting a door. The armed structures, where they exist, are hu
 - @via_politica: The insurgent political road: mass fronts, elections where they exist, open opposition — the long accumulation against the system.
 - @via_institucional: The reformist road: burrow into the system itself — alliances with the PRI aperturistas, posts accepted strategically, change negotiated from inside the beast's antechambers.
 - @via_armada: The armed road: build the rural and urban structures. The Movement goes to war, and forfeits every legal instrument while it does.
-- @via_dual: The synthesis: legal face and armed structure at once — the most ambitious and most dangerous architecture the left knows.
 
 @via_politica
+go-to: post_event
 on-arrival: via = "politica"; unity += 2
 
 The resolution passes: opposition, open and organized. The tools remain the press, the assembly, the casilla — aimed at the system, never lent to it.
 
 @via_institucional
+go-to: post_event
 choose-if: pri_reformist_rel >= 20
 unavailable-subtitle: The reformist road requires reformists who take your calls. They do not, yet.
 on-arrival: via = "institucional"; pri_reformist_rel += 8; presidente_cooptacion += 4; ax_electoral += 6; sup_students -= 4; fac_nueva_izquierda -= 4; funds += 4; unity -= 2
@@ -31,15 +32,10 @@ on-arrival: via = "institucional"; pri_reformist_rel += 8; presidente_cooptacion
 The resolution is drafted in the conditional mood and never printed in full: cadres will accept certain posts, certain tables, certain quiet collaborations with the system's serious wing — mining the state from inside its own modernization. The dividends are real: money, information, doors. So is the price, paid monthly in the university corridors, where a new word is already circulating with your name attached.
 
 @via_armada
+go-to: post_event
 choose-if: guerrilla_meter >= 8 or postura_guerrilla >= 2
 unavailable-subtitle: A war needs willing soldiers: without a hot temptation among the youth or prior channels, the resolution would empty the hall.
 on-arrival: via = "armada"; pres_guerrero += 12; pres_valle += 8; represion += 6; expediente += 8; sup_middle -= 4; moscow_relation -= 4; ax_electoral -= 8; fac_renovadores -= 5
 
 The resolution is read once, burned, and never minuted. Structures split: a legal face that knows nothing, and columns that know everything. The Sierra desk opens — and somewhere in Defensa Nacional, a colonel pins a new map to a corkboard.
 
-@via_dual
-choose-if: unity >= 55 and political_capital >= 15 and (guerrilla_meter >= 8 or postura_guerrilla >= 2)
-unavailable-subtitle: The synthesis demands everything at once: high unity, deep political capital, and an armed base to build on. The Movement lacks at least one.
-on-arrival: via = "dual"; pres_guerrero += 8; pres_valle += 5; expediente += 12; represion += 4; unity -= 5; political_capital -= 5
-
-The most dangerous resolution in the Movement's history: the party in the plaza and the column in the sierra, one strategy wearing two faces. Every clandestine manual warns against it — the legal face becomes the map to the hidden one — and every liberation war that ever won ran some version of it anyway. The compartments are drawn; the discipline this will demand has no precedent in your history. Neither would the payoff.

@@ -9,6 +9,9 @@ max-visits: 1
 on-arrival: {!
 var ola = 22 + (100 - Q.salario_real) * 0.15 + Q.cd_rel * 2 + Q.costureras * 3 + Q.sup_students * 0.06 + Q.sup_colonos * 0.08 + (Q.barrios ? 2 : 0) + (Q.huelga_general ? 2 : 0) + (Q.mayday >= 2 ? 1 : 0) + (Q.laguna ? 2 : 0) + (Q.auge_armada ? 2 : 0) + Q.frente_unidad * 0.06;
 ola += (72 - Q.legitimidad_regimen) * 0.15;
+ola += Q.leyenda * 1.5 + (Q.veteranos >= 3 ? 1 : 0);   // the war's legend votes too, where it was earned
+ola += (Q.fe_voto - 20) * 0.30;   // belief -> turnout -> the opposition wave
+ola += (Q.pps_rel - 5) * 0.12 + (Q.parm_rel - 5) * 0.12 + Q.fusion_prog * 0.15;   // satellites + fusion broaden the Frente
 if (Q.fdn >= 1) {
     Q.real_fdn = Math.round(Math.min(52, ola + Q.izq_votes_display * 0.6));
     Q.real_castillo = 0;
@@ -20,7 +23,9 @@ Q.real_pan = Q.pan_votes_display + 4;
 Q.real_pri88 = 100 - Q.real_fdn - Q.real_castillo - Q.real_pan - 4;
 var alq = 0.5 - Q.red_casillas * 0.003;
 alq -= (72 - Q.legitimidad_regimen) * 0.0025;
+alq -= (Q.fe_voto - 20) * 0.0025;   // a country that turns out is harder to defraud
 if (Q.alquimia_expuesta) { alq -= 0.05; }
+alq -= Math.min(0.06, (Q.fraude_documentado || 0) * 0.008);   // every documented theft taught the watchers
 if (alq < 0.1) { alq = 0.1; }
 Q.oficial_fdn = Math.round(Q.real_fdn * (1 - alq));
 if (Q.oficial_fdn > 31) { Q.oficial_fdn = 31; }
@@ -28,7 +33,7 @@ Q.oficial_pan = 17;
 Q.oficial_pri88 = 100 - Q.oficial_fdn - Q.oficial_pan - Q.real_castillo - 2;
 if (Q.oficial_pri88 < 50) { Q.oficial_pri88 = 50; }
 Q.resultado_88 = 0;
-if (Q.real_fdn >= 45 && Q.red_casillas >= 55 && Q.fdn >= 1 && Q.alquimia_expuesta) { Q.resultado_88 = 1; }
+if (Q.real_fdn >= 45 && Q.red_casillas >= 55 && Q.fdn >= 1 && Q.alquimia_expuesta && Q.fe_voto >= 40) { Q.resultado_88 = 1; }
 function bar(n) { var k = Math.max(1, Math.round(n/2)); var s=''; for (var i=0;i<k;i++){s+='█';} return s; }
 Q.b_r_fdn = bar(Q.real_fdn); Q.b_r_pri = bar(Q.real_pri88); Q.b_r_pan = bar(Q.real_pan);
 Q.b_o_fdn = bar(Q.oficial_fdn); Q.b_o_pri = bar(Q.oficial_pri88); Q.b_o_pan = bar(Q.oficial_pan);
@@ -68,12 +73,14 @@ PAN [+ b_o_pan +] [+ oficial_pan +]%
 - @cerilla: La cerilla. The crowd in the Zócalo is asking, in so many words, to be told the hour. Strike the match.
 
 @victoria
+go-to: post_event
 view-if: resultado_88 = 1
 on-arrival: respuesta_88 = 4; political_capital += 10
 
 What follows fills its own books: the ballots defended physically in a hundred districts, the regime's software experts contradicting each other under oath, two governors and a sector of the army privately informing Los Pinos that they will not fire on the count, and Salinas — the técnico, able as ever to read a balance sheet — declining the presidency of a burning building. It takes until December, and it holds. The general's son takes office over a fractured regime with your Movement inside the victory's architecture, holding the blueprints.
 
 @movilizar
+go-to: post_event
 face-image: img/Zocalo1988.jpeg
 view-if: resultado_88 = 0
 on-arrival: respuesta_88 = 1; political_capital += 5; sup_colonos += 3; huelgas += 5; represion += 2
@@ -81,6 +88,7 @@ on-arrival: respuesta_88 = 1; political_capital += 5; sup_colonos += 3; huelgas 
 The Zócalo becomes a weekly institution: half a million, then more, disciplined and terrible. Cárdenas — with the crowd chanting for more — chooses the legal road deliberately, aloud: *no le daré al Estado el pretexto.* Whether the refusal was wisdom or the wave's one great error will be argued at every table in Mexico for fifty years. The mobilization does not reverse the count. It makes the count unforgettable, which is a different kind of victory, payable later.
 
 @negociar_88
+go-to: post_event
 view-if: resultado_88 = 0
 choose-if: pri_reformist_rel >= 20
 unavailable-subtitle: Negotiation requires interlocutors; the PRI reformists are not taking your calls.
@@ -89,6 +97,7 @@ on-arrival: respuesta_88 = 2; political_capital += 2; funds += 4; unity -= 4; su
 The tables convene discreetly while the plazas roar: registries confirmed, senate seats seated, an electoral reform promised in writing. It is real currency and it spends — and the crowds, who were not consulted, watch the negotiators emerge with briefcases and draw the era's bitterest conclusion about the distance between the street and the table.
 
 @cerilla
+go-to: post_event
 view-if: resultado_88 = 0
 choose-if: (huelga_prep >= 50 and sup_colonos >= 25) or (plan_b = 1 and huelga_prep >= 40)
 unavailable-subtitle: Insurrection is not declaimed: it requires strike readiness (50) and organized colonias — or a Plan B drawn in advance with readiness 40. Neither exists.

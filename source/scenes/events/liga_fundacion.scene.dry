@@ -19,16 +19,19 @@ Their practice follows their theory into the cities: bank expropriations, the ar
 - @discretos: No firewall and no communiqués — but where a channel exists, warn, shelter, bury. They are wrong and they are ours.
 
 @cortafuegos
+go-to: post_event
 on-arrival: represion -= 3; sup_students -= 3; guerrilla_meter -= 3; pri_reformist_rel += 2; fac_ortodoxos += 2
 
 The polemic is total war by pamphlet, and it works as prophylaxis: when the Liga hits a bank, the judiciales still come, but they come later and leave sooner. The cost is generational: to the angriest twenty-year-olds the Party is now formally the enemy's left flank, and the Liga's recruiters quote your firewall in their pitch.
 
 @silencio
+go-to: post_event
 on-arrival: represion += 2; expediente += 2
 
 Dignified, and read by everyone exactly as they prefer: the state reads complicity, the Liga reads cowardice, the old members read prudence. Silence is the only text with a thousand authors. The raids after each expropriation are conducted with a certain extra thoroughness, as if to punish the paragraph you didn't write.
 
 @discretos
+go-to: post_event
 choose-if: postura_guerrilla >= 2 and organizers >= 3
 unavailable-subtitle: Without an established line of ambiguity and trusted cadres, this is administrative suicide.
 on-arrival: expediente += 5; guerrilla_meter += 2; sup_students += 2; represion += 2

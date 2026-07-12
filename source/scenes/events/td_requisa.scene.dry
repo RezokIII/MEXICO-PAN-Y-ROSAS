@@ -1,7 +1,7 @@
 title: La requisa
 new-page: true
 subtitle: 16 de julio de 1976
-face-image: img/mayday.jpg
+face-image: img/td_marcha.jpg
 tags: event
 view-if: year = 1976 and month >= 8 and month <= 10
 priority: 3
@@ -20,6 +20,7 @@ Then the second instrument, the quieter one: the purge lists. In the weeks that 
 - @retirada: Orderly retreat: legal defense for the purged, jobs found, archives saved, the cadre dispersed into the movement's bloodstream rather than annihilated on the wire.
 
 @huelga
+go-to: post_event
 choose-if: td_apoyo = 2 and (sup_workers >= 25 or huelga_prep >= 30)
 unavailable-subtitle: Una huelga general exige lo que no hay: peso real en las fábricas y un compromiso total previo con la Tendencia.
 on-arrival: sup_workers += 5; sup_electricians += 3; charrismo -= 4; represion += 5; expediente += 5; political_capital += 4; unity -= 2; huelgas += 15; salario_real += 1; huelga_general = 1
@@ -27,6 +28,7 @@ on-arrival: sup_workers += 5; sup_electricians += 3; charrismo -= 4; represion +
 It holds for two days — two days of stopped buses and dark workshops in a dozen cities, the first taste in eighteen years of what the class can do when the charro dam cracks. Then the weight of the state settles: requisa extended, ringleaders' lists, don Fidel's men at every gate with the federal district police behind them. The strike is lost. The demonstration is permanent: everyone in the Republic — Bucareli, the CTM, the reformers drafting next year's opening, and a hundred thousand workers who walked out — has now seen the wall crack with their own eyes. Walls that crack once are surveyed differently ever after.
 
 @retirada
+go-to: post_event
 on-arrival: sup_electricians -= 4; td_apoyo = 0; unity -= 2; sup_workers -= 1; political_capital += 1
 
 The Tendencia winds down through the autumn with the discipline it showed all along: files buried, purged men placed two hundred at a time in workshops and cooperatives, the young cadre steered into the teachers' and university unions where the next round will be fought. Galván — sixty-one, expelled, blacklisted — keeps writing until his heart quits in 1980, and his wake will fill a street. The defeat is total and unusually fertile: for the next decade, every independent union current in Mexico is run by somebody who learned the trade in the TD.

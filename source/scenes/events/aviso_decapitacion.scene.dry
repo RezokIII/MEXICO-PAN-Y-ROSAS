@@ -17,7 +17,20 @@ In this Republic the line between the political police and the traffickers was a
 **Lower the temperature — cut the expediente, ease the represión — or the leadership begins to die, one by one.** The El camino and the memorial both hang on what you do in the next year. You have been warned the only way this state ever warns anyone: quietly, and once.
 
 - @entendido: Understood. Continuar.
+- @refugio: Send the most burned names up the mountain. The sierra hides what the city cannot.
+
+@refugio
+go-to: post_event
+view-if: postura_guerrilla >= 2 or via = "armada"
+choose-if: organizers >= 2
+unavailable-subtitle: Moving the leadership without trusted cadres to run the routes is delivering them by courier.
+on-arrival: refugio_sierra = 1; refugio_time = time; expediente -= 8; advisor_action_timer = 12; unity -= 2
+
+It is done the old way: one by one, over weeks, by routes that exist in no notebook. A teacher goes to visit relatives; an ex-railwayman takes a construction job in another state; a señora who has been arrested fifty-eight times simply is not home, indefinitely. Where they actually are, fewer than five people know, and the five do not know each other.
+
+The Movement runs shallower without them — a year, maybe more, of decisions made by seconds-in-command. But the men who do not carry cameras will spend that year photographing empty doorways, and the leadership will come down the mountain alive, which is the entire point of mountains.
 
 @entendido
+go-to: post_event
 
 The circular to the cells is three words: *bajen el perfil.* Lower the profile. Whether the organization can, having climbed this high, is the question the next months will answer in the only currency that counts.

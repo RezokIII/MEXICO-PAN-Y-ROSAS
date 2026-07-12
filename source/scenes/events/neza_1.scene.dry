@@ -17,6 +17,7 @@ The colonos have begun a payment strike against the fraccionadores — tens of t
 - @apoyo_leve: Support the payment strike from outside — press, lawyers on loan, solidarity when called.
 
 @echar_raices
+go-to: post_event
 subtitle: -4 funds, 2 cuadros comprometidos
 choose-if: funds >= 4 and organizers >= 2
 unavailable-subtitle: Putting down roots in the lost city requires funds and full-time cadres.
@@ -25,6 +26,7 @@ on-arrival: funds -= 4; colonia_saga = 1; sup_colonos += 5; expediente += 3
 The office is a room with a tin roof that doubles as school, notary line, and assembly hall. Your organizers learn the colonia's real map — which wells work, which cacique sells protection, which señoras actually run each street — and the colonia learns your people stay after the marches. Roots, in Neza, are the only currency that appreciates.
 
 @apoyo_leve
+go-to: post_event
 on-arrival: sup_colonos += 2
 
 The strike wins its restructuring without you at the center: the state, terrified of half a million organized squatters, expropriates the fraccionadores itself and takes the credit. Support duly noted, distantly. The lake bed keeps growing its city, and its politics, with other gardeners.

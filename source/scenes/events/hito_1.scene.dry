@@ -3,7 +3,7 @@ new-page: true
 subtitle: First milestone
 face-image: img/camino.jpg
 tags: event
-view-if: year >= 1971 and camino1 = 0 and members >= 5 and unity >= 40
+view-if: year >= 1971 and camino1 = 0 and members >= 8 and unity >= 40
 priority: 2
 max-visits: 1
 on-arrival: {!
@@ -22,5 +22,6 @@ In the graveyard of Mexican oppositions, existence is the first victory, and the
 - @adelante: The first stone is laid. The road runs twenty years. Adelante.
 
 @adelante
+go-to: post_event
 
 On the wall of the local someone pins a hand-lettered card that will stay there, yellowing, through everything that follows: *SEGUIMOS.* We continue. It is not a slogan. It is a report.

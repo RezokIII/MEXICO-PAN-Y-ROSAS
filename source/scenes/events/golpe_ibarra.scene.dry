@@ -2,8 +2,8 @@ title: The warning to the mother
 new-page: true
 subtitle: They threatened the one asking ¿dónde están?
 face-image: img/camioneta.jpg
-tags: event
-view-if: ibarra_advisor = 1 and represion >= 85 and expediente >= 75 and time >= repadv_last + 15
+# routed via golpe_dispatch (no event tag: prevents co-queuing alternates)
+view-if: ibarra_advisor = 1 and represion >= 81 and expediente >= 70 and time >= repadv_last + 12 and refugio_sierra = 0
 priority: 2
 frequency: 60
 max-visits: 1
@@ -17,11 +17,13 @@ They do not disappear Rosario Ibarra — even this state grasps what that would 
 - @r2: Her instruction, executed: escalate the question. New case files, new embassies, louder.
 
 @r1
+go-to: post_event
 on-arrival: political_capital += 3; sup_middle += 2; represion += 1
 
 Grandmothers from the committee sleep at her house in rotation; a Nobel laureate's secretary telephones daily at 2:55, on principle; the school gate acquires a permanent circle of mothers of the disappeared, holding photographs, staring at the Galaxie until it is the one that leaves. The state discovers that the doña cannot be isolated: she has spent years building the exact instrument that now defends her — organized grief, which does not blink.
 
 @r2
+go-to: post_event
 on-arrival: unity += 3; guerrilla_meter += 2
 
 She answers threats the only way she recognizes: the following week the Comité files eleven NEW cases and she reads every name at a rally with the wreath — her wreath — on the podium beside her, relabeled: PARA LOS QUE FIRMAN LAS ÓRDENES. The state made one more mother angry. It is, as ever, the whole of what it knows how to do, and the whole of why it is losing.

@@ -2,7 +2,7 @@ title: Othón Salazar
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: othon_advisor = 1
+view-if: othon_advisor = 1 and (via = "politica" or via = "institucional") and refugio_sierra = 0
 
 = Othón Salazar
 
@@ -12,6 +12,7 @@ A schoolteacher from Alcozauca, in the Montaña of Guerrero, where the earth is 
 
 - @othon_magisterio
 - @othon_montana
+- @othon_bloque
 - @root: Return to main
 
 @othon_magisterio
@@ -32,3 +33,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 4; guerrilla_meter -= 2; expediente += 2; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1
 
 Committees for the coffee price, for the road, for the teacher the state won't send. It is slower than what Lucio's people preach two valleys over, and Othón knows better than anyone that both roads end at the same army. But his road can lose and try again. In Alcozauca, someday, there may even be something to win.
+
+@othon_bloque
+title: El bloque democrático
+subtitle: The democratic teachers, welded into a current the charro union cannot govern. The seedbed of the coming CNTE.
+card-image: img/portraits/othon.jpeg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_teachers += 3; charrismo -= 2; magisterio_presion += 1; unity += 2; political_capital += 1
+
+Othón led the first great teachers' revolt in '58 and paid for it in the usual currency, and the young delegates from Oaxaca and Chiapas treat him as what he is: the proof that it can be done, and survived. He welds the scattered democratic sections into a bloc with a memory and a method, and the thing that will one day be called the CNTE takes another step toward existing before anyone dares to name it.

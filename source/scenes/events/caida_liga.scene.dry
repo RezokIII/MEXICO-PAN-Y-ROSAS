@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1974 — the state's counterstroke
 face-image: img/camioneta.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and year = 1974 and month >= 7 and month <= 9
+view-if: via = "armada" and year = 1974 and month >= 7 and month <= 9
 priority: 3
 max-visits: 1
 on-arrival: memorial += 2; represion += 5
@@ -19,6 +19,7 @@ The decapitation is the dirty war's masterpiece: no bodies, no trials, no martyr
 - @bajar_todos: Read the writing: begin bringing people down while there are still people to bring.
 
 @reagrupar
+go-to: post_event
 choose-if: pres_valle >= 20 or pres_jalisco >= 15
 unavailable-subtitle: Rebuilding a broken command needs surviving urban structure. There is too little left.
 on-arrival: pres_valle += 3; represion += 4; expediente += 5; memorial += 1; guerrilla_meter += 2
@@ -26,15 +27,22 @@ on-arrival: pres_valle += 3; represion += 4; expediente += 5; memorial += 1; gue
 New commanders, new houses, new codes — and the Brigada learning each within the month, because a decapitated network leaks from every cut. The war continues, fiercer and shorter-lived, its cadres burning at both ends. Some victories are only the refusal to admit a defeat, and this is one; whether it is also more than that, the next sweep will decide.
 
 @dispersar_urbano
+go-to: post_event
 on-arrival: pres_valle -= 5; pres_jalisco -= 4; sup_students += 2; guerrilla_meter -= 2; inteligencia += 3
 
 The cities empty of columns; the structure dissolves into mass work, into the sierra, into ordinary jobs held by extraordinary people waiting for a better year. It is a retreat, and it saves lives, and it concedes the urban war the Liga generation swore they would win. The state declares victory in the cities. The state is, for once, telling most of the truth.
 
 @bajar_todos
+go-to: post_event
 on-arrival: {!
 Q.via = "politica";
+var _urb = Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_tijuana;
+Q.veteranos = Math.max(Q.veteranos, Math.round(_urb / 15));
+Q.members += 1 + Math.min(3, Math.floor(_urb / 20));
+Q.sup_students += Math.min(5, _urb * 0.08);
+if (Q.expediente < 35) { Q.expediente = 35; }
 Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_tijuana = 0;
-Q.represion -= 4; Q.guerrilla_meter -= 4; Q.members += 1; Q.unity -= 2;
+Q.represion -= 4; Q.guerrilla_meter -= 4; Q.unity -= 2;
 !}
 
 The order goes out while there is still someone to receive it: it is over, come down, live. Not all obey; a remnant fights on and is heard from, diminishingly, for years. But the leadership chose the survivors over the legend, and the survivors — scarred, watchful, incapable of illusion — become the political road's hardest cadres. The urban war ends here, at a loss, with its people mostly alive. In this decade that is the rarest ending there is.

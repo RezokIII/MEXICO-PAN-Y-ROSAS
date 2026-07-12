@@ -2,7 +2,7 @@ title: The mobile column
 new-page: true
 subtitle: A war that will not be found must move
 card-image: img/cards/columna_movil.jpg
-view-if: (via = "armada" or via = "dual") and time >= s_columna_movil_cd + 2
+view-if: via = "armada" and time >= s_columna_movil_cd + 2
 on-arrival: month_actions += 1; s_columna_movil_cd = time
 max-visits: 40
 is-card: true
@@ -16,6 +16,7 @@ The sierra doctrine, applied: presence is not a garrison, it is a current. When 
 - @mover_gro_oax: Shift strength: Guerrero into Oaxaca — over the ranges the army maps badly.
 - @mover_valle_jal: Shift strength: the Valle into Jalisco — cell by cell along the bus routes.
 - @mover_chih_nl: Shift strength: Chihuahua into Nuevo Leon — the northern corridor.
+- @root: The columns hold their ground this month.
 - @easy_discard
 
 @mover_gro_oax

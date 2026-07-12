@@ -1,0 +1,86 @@
+title: La cartera
+new-page: true
+subtitle: The system makes room at the table
+face-image: img/charola.jpg
+tags: event
+view-if: via = "institucional" and time >= cartera_last + 24 and pri_reformist_rel >= 25
+priority: 2
+frequency: 70
+max-visits: 4
+on-arrival: cartera_last = time
+
+= La cartera
+
+The offer arrives with the discretion of large sums: a cartera — a real one. A subsecretaría in the agrarian reform, or the directorate of a paraestatal nobody audits, for one of the Movement's serious names. The emissary is at pains to note what this is not: not a bribe, not a charola, nothing so vulgar. It is the system doing what the system does with talent it cannot shoot and has tired of watching — hiring it.
+
+And it is, everyone in the leadership understands, a genuine fork: the post carries real budget, real signatures, real capacity to move real land to real campesinos. It also carries the sexenio's leash, the informe's applause, and a photograph beside the President that no explanation will ever fully caption.
+
+- @aceptar_cartera: Take the post. Budget is power; power is the point. The photograph is the price.
+- @negociar_cartera: Neither accept nor refuse: trade the offer for placements lower down — twenty desks instead of one chair.
+- @rechazar_cartera: Refuse, publicly enough to be heard. The Movement is not staffing the state; it is replacing it.
+
+@aceptar_cartera
+go-to: post_event
+on-arrival: funds += 8; political_capital += 4; sup_peasants += 3; absorcion += 12; sup_students -= 4; fac_nueva_izquierda -= 4; unity -= 3
+
+The compañero takes office and is, precisely as feared, good at it: ejido titles move that stalled for decades, a irrigation budget lands where the maps said it never would. The campo notices. So does everyone else: the informe cites the appointment as proof of the system's breadth, the photograph runs every anniversary, and in the assemblies the young militants begin using the compañero's name in the past tense. The stomach never argues. It just keeps the guest for dinner.
+
+@negociar_cartera
+go-to: post_event
+choose-if: political_capital >= 6
+unavailable-subtitle: Counter-offers require standing the antechambers respect — more capital than you hold.
+on-arrival: political_capital -= 3; absorcion += 5; inteligencia += 4; funds += 3; pri_reformist_rel += 2
+
+The counter-offer amuses the emissary, which is the sound of it working: instead of one chair with a photograph, twenty desks without one — analysts, field inspectors, a records clerk in exactly the right basement. The system grants it, half as a courtesy, half as flypaper. Twenty of yours are inside now, useful in twenty quiet ways, and every one of them is also a hostage to comfort. The reformist road in one transaction: leverage and leash, purchased together, non-separable.
+
+@rechazar_cartera
+go-to: post_event
+on-arrival: absorcion -= 8; unity += 3; sup_students += 2; pri_reformist_rel -= 5; funds -= 2
+
+The refusal is delivered in a letter the Movement publishes before the system can pretend it was never offered — a small discourtesy that costs real relationships in the antechambers and buys something the antechambers cannot price: the base's renewed certainty about what the Movement is for. The emissary's superiors note, with professional irritation, that this left still prefers being feared to being fed. The file annotation is almost admiring: *no está en venta todavía.* Not for sale. Yet.
+
+@el_abrazo
+title: El abrazo
+new-page: true
+subtitle: The stomach finishes its work
+face-image: img/charola.jpg
+tags: event
+view-if: via = "institucional" and absorcion >= 70 and abrazo_done = 0
+priority: 4
+max-visits: 1
+on-arrival: abrazo_done = 1
+
+= El abrazo
+
+It arrives without a meeting, because it no longer needs one: the realization, assembling itself across a season of small facts, that the Movement has become *manageable* — and that the system knows it. The invitations arrive before the requests now. The posts renew themselves. The confrontations are scheduled, like maintenance. Somewhere in the last few years the antechambers stopped being enemy territory and became, in the file's own serene annotation, *interlocutores responsables.*
+
+This is the embrace. It is warm, it is generous, and it is how the system has ended every opposition it could not shoot: not with a betrayal but with a thousand reasonable accommodations, each one defensible, the sum of which is a tame left that delivers its sector on schedule — a PPS with better martyrs.
+
+There is still time to be something else. Barely, and at a price.
+
+- @romper_abrazo: Break it. Walk out of the antechambers loudly — back to the political road, the plazas, the enemy's honest hatred.
+- @aceptar_abrazo: Stay. Inside is where the budgets are; history can be moved in millimeters; someone must be at the table.
+
+@romper_abrazo
+go-to: post_event
+choose-if: unity >= 40
+unavailable-subtitle: Walking out takes a party united enough to survive the funcionarios' resignations — yours is not.
+on-arrival: {!
+Q.via = "politica";
+Q.absorcion = 25;
+Q.pri_reformist_rel -= 15;
+Q.funds -= 5;
+Q.sup_students += 4;
+Q.sup_workers += 2;
+Q.unity -= 4;
+Q.political_capital += 3;
+Q.fe_voto += 2;
+!}
+
+The rupture is performed in public, because only public things are irreversible: the posts resigned in one coordinated week, the letter read from the tribune naming exactly what was offered and what it cost, the antechambers' hospitality returned unconsumed. A third of the placed cadres refuse to come out — the stomach keeps what it has digested — and the relationships of a decade close like doors down a corridor. What walks out is smaller, poorer, and unmistakably alive. In the colonias they say it plainly: *volvieron.* They came back.
+
+@aceptar_abrazo
+go-to: post_event
+on-arrival: absorcion = 85; funds += 6; political_capital += 3; sup_students -= 6; sup_workers -= 3; fe_voto -= 3; guerrilla_meter += 3; fac_nueva_izquierda -= 6
+
+The decision is never announced because it was never exactly made: the Movement simply continues, inside, reasonable, funded, consulted — and the country files it accordingly. The young go elsewhere: to the coordinadoras, to the new little parties, some to the mountains, taking with them the future's energy and leaving the apparatus's calm. The system has added one more instrument to its orchestra. It plays, from now on, mostly on schedule.

@@ -18,6 +18,7 @@ It is the monarchy's one great annual mass, and attendance of the spirit is mand
 - @leer: The Party reads the text the way it reads everything from the regime: for the silences.
 
 @leer
+go-to: post_event
 on-arrival: political_capital += 1
 
 The analysts' circular goes out within the week: which numbers were inflated, which regions went unmentioned, which threats wore the costume of promises. In this Republic the truth is never in the speech. It is in the seating chart, the omissions, and the guest who was not invited.

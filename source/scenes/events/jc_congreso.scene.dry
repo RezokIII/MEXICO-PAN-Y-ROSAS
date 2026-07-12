@@ -15,11 +15,13 @@ The Juventud Comunista convenes its first congress since the catastrophe years, 
 - @movimiento_joven: Open it wide: rock festivals and prepa committees, cultural brigades, the CLETA theater people, room for everyone the era radicalizes.
 
 @escuela_cuadros
+go-to: post_event
 on-arrival: jc_saga = 1; members += 1; unity += 2; fac_ortodoxos += 2; sup_students -= 2
 
 The JC tightens into the best political school in the country: reading lists, section work, the discipline of minutes. Its graduates will staff the Party's next two decades. Its doors, narrower now, will be walked past by thousands the era radicalizes into other houses.
 
 @movimiento_joven
+go-to: post_event
 on-arrival: jc_saga = 2; sup_students += 5; fac_nueva_izquierda += 3; expediente += 2; unity -= 2
 
 The JC becomes a weather system: peñas and prepa strikes, the CLETA carpas, mimeographed songbooks, a thousand members who cannot recite the program and would die for the organization. The old cadres despair of the discipline. The future files in through the wide door anyway.

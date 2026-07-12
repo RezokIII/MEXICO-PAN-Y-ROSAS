@@ -19,11 +19,13 @@ They have gone to the Liga, or to what is left of the sierra's people, or to a g
 - @cerrar: Close their files, formally. The Party cannot be the antechamber of the armed groups; the survivors of the next redada will thank you.
 
 @puertas
+go-to: post_event
 on-arrival: guerrilla_meter -= 3; expediente += 2
 
 Nothing is announced. But the mother of one of them keeps getting the paper delivered, no charge, and a lawyer's card sits behind the counter of a fonda they used to eat at, in case. In two years, or five, whoever is left alive will know where the door is. It is the most Mexican of policies: the official position and the real one, working different shifts.
 
 @cerrar
+go-to: post_event
 on-arrival: guerrilla_meter -= 5; unity += 2; sup_students -= 2; fac_ortodoxos += 2
 
 The expulsions are read into the minutes; the discipline is real and the cells respect it. Among the students the word is colder: the Party closes its doors faster than the state closes its files. Both reputations are earned, and only one of them was chosen.

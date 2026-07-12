@@ -19,6 +19,7 @@ The insurgent committees are the target; the question is what survives the seaso
 - @repliegue_charrazo: Planned retreat — save the delegate web and the funds, concede the visible structures, rebuild in the dark.
 
 @resistir_charrazo
+go-to: post_event
 choose-if: huelga_prep >= 30
 unavailable-subtitle: Resistance takes the committees you did not finish building: readiness below 30 means bats win.
 on-arrival: huelga_prep -= 5; sup_workers += 3; memorial += 1; represion += 3; political_capital += 2
@@ -26,6 +27,7 @@ on-arrival: huelga_prep -= 5; sup_workers += 3; memorial += 1; represion += 3; p
 The gates hold at two plants of five; the expelled are carried on the strike funds through the worst of it; one delegate's name goes on the list. Costly — and clarifying: the committees that stood are now veterans, and the sectors watching learned that the charrazo can be survived, which don Fidel's whole method depends on nobody knowing.
 
 @repliegue_charrazo
+go-to: post_event
 on-arrival: huelga_prep -= 12; huelgas -= 4; sup_workers -= 2; unity += 1
 
 The visible structures fold in good order; the web of delegates submerges intact. It is the textbook answer and the textbook cost: months of readiness surrendered, and in the plants a bitterness with two addresses — one for the charros, one for the leadership that chose to live.

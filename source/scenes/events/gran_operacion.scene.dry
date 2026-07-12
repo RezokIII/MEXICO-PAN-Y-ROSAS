@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1988 — one operation to shape the succession
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and year = 1988 and month >= 3 and month <= 4
+view-if: via = "armada" and year = 1988 and month >= 3 and month <= 4
 priority: 3
 max-visits: 1
 on-arrival: {!
@@ -26,6 +26,7 @@ The organizers on the political side beg you to reconsider. Every rifle fired in
 - @easy_discard
 
 @abstenerse_op
+go-to: post_event
 title: No es la temporada
 on-arrival: unity += 2; ax_electoral += 2; pri_reformist_rel += 2
 
@@ -38,10 +39,9 @@ on-arrival: {! if (Q.op_ready >= 55) { Q.op_result = 2; } else if (Q.op_ready >=
 
 The plan is elegant and brief: a station taken at dawn, a text read twice — the demand for a counted, respected vote, the names of the disappeared, the promise that the sierra is watching the casillas — and everyone gone before the army's response can arrive. Elegant plans depend entirely on knowing what the army will do, which is to say on the one thing money cannot buy in a hurry: intelligence.
 
-- @op_triunfo: [? if op_result = 2 : Continue ?]
-- @op_parcial: [? if op_result = 1 : Continue ?]
-- @op_desastre: [? if op_result = 0 : Continue ?]
-
+- @op_triunfo: Continue
+- @op_parcial: Continue
+- @op_desastre: Continue
 @fuerza
 title: La ofensiva coordinada
 subtitle: Prove the state does not own its map. Needs real column presence.
@@ -51,10 +51,9 @@ on-arrival: {! if (Q.op_ready >= 65) { Q.op_result = 2; } else if (Q.op_ready >=
 
 Not one action but a dozen, timed to the same hour across the states where you have men: a pipeline, a barracks probed, a highway held for ninety minutes, a garrison pinned in its own courtyard. No single blow decisive; the message is the simultaneity itself — that on a morning of its choosing the opposition can make the map flicker. If the coordination holds. Coordination, at this scale, is another word for intelligence and nerve.
 
-- @op_triunfo: [? if op_result = 2 : Continue ?]
-- @op_parcial: [? if op_result = 1 : Continue ?]
-- @op_desastre: [? if op_result = 0 : Continue ?]
-
+- @op_triunfo: Continue
+- @op_parcial: Continue
+- @op_desastre: Continue
 @presos
 title: El asalto al penal
 subtitle: Free the prisoners. The hardest operation there is.
@@ -64,11 +63,11 @@ on-arrival: {! if (Q.op_ready >= 75) { Q.op_result = 2; } else if (Q.op_ready >=
 
 The oldest dream in the movement: the gates open, the politicals walking out into daylight, the campaign's first image not a coffin but a resurrection. It has been done, once or twice, by people who knew the guard rotations, the wall, the road out, the safe houses at the far end — and it has ended in slaughter a dozen more times for people who knew slightly less. There is no operation where the margin between the two is thinner.
 
-- @op_triunfo: [? if op_result = 2 : Continue ?]
-- @op_parcial: [? if op_result = 1 : Continue ?]
-- @op_desastre: [? if op_result = 0 : Continue ?]
-
+- @op_triunfo: Continue
+- @op_parcial: Continue
+- @op_desastre: Continue
 @op_triunfo
+view-if: op_result = 2
 title: Salió
 subtitle: It worked — and the political organizers were right about the cost.
 on-arrival: legitimidad_regimen -= 12; auge_armada = 1; sup_students += 5; sup_colonos += 3; frente_unidad += 3; memorial += 1; represion += 8; expediente += 10; ax_electoral -= 6; pri_reformist_rel -= 9
@@ -78,6 +77,7 @@ It goes the way it goes perhaps one time in five: cleanly. [? if op_type = "radi
 - @root: The die is cast.
 
 @op_parcial
+view-if: op_result = 1
 title: Salió a medias
 subtitle: Half of what you wanted, most of the cost.
 on-arrival: legitimidad_regimen -= 5; auge_armada = 1; sup_students += 2; memorial += 2; represion += 7; expediente += 10; ax_electoral -= 3; pri_reformist_rel -= 5
@@ -87,16 +87,17 @@ It half-works, which in this business is the most common and most expensive outc
 - @root: On to July, lighter and more hunted.
 
 @op_desastre
+view-if: op_result = 0
 title: El desastre
 subtitle: You were not strong enough, and the state had rehearsed this its whole life.
 on-arrival: {! Q.memorial += 5; Q.expediente += 18; Q.represion += 14; Q.guerrilla_meter -= 12; Q.pres_guerrero = Math.max(0, Q.pres_guerrero - 12); Q.pres_valle = Math.max(0, Q.pres_valle - 8); Q.legitimidad_regimen += 4; Q.auge_armada = 0; !}
 
 The intelligence was thin and the columns were not what the plan pretended, and the state — which has war-gamed exactly this morning for twenty years — closes the trap before the operation clears its first objective. [? if op_type = "presos" : The assault on the walls becomes the massacre the manuals warned of. ?][? if op_type = "fuerza" : The simultaneity collapses into a dozen isolated ambushes, each rolled up in turn. ?][? if op_type = "radio" : The station was a lure; the army was waiting inside it. ?] What follows is the older language: safe houses blown in a single night, the best cadres killed or lifted, the sierra presence gutted, and the regime handed the gift of a spring it can point to and say *this is what they are.* The middle class believes it. The wave breaks early, on the wrong rocks.
 
-- @op_sobrevive: [? if plan_b = 1 : Continue ?]
-- @op_fin: [? if plan_b = 0 : Continue ?]
-
+- @op_sobrevive: Continue
+- @op_fin: Continue
 @op_sobrevive
+view-if: plan_b = 1
 title: El Plan B
 on-arrival: unity -= 6; political_capital -= 4
 
@@ -105,6 +106,7 @@ But the Plan B drawn in colder blood holds: a fallback compartment the state did
 - @root: Survive. Reach July, barely.
 
 @op_fin
+view-if: plan_b = 0
 title: Sin red
 new-page: true
 

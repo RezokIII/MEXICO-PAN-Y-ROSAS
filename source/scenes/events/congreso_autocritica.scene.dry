@@ -22,6 +22,7 @@ Between the two positions sits everything the Party is: forty years of survival 
 - @cerrar: Close ranks around the old leadership. Discipline held under torture in '59; that is not nothing.
 
 @ruptura
+go-to: post_event
 choose-if: fac_renovadores >= 20
 unavailable-subtitle: The hard self-criticism lacks the votes: the renovadores are too weak.
 on-arrival: autocritica_done = 1; fac_renovadores += 12; fac_nueva_izquierda += 8; fac_ortodoxos -= 12; unity -= 8; sup_students += 8; political_capital += 5
@@ -31,6 +32,7 @@ The resolution reads like nothing the Party has printed in thirty years, because
 But in the back of the hall, students applaud a communist pleno — which no one present has ever seen — and Martínez Verdugo, watching the room change hands, permits himself the small economical smile of a man whose defeat has been voted down. Something has been opened that will not close again: the Party has admitted it can be wrong, which means it can also be argued with, which means it can also be joined.
 
 @equilibrio
+go-to: post_event
 on-arrival: autocritica_done = 2; unity += 5; political_capital -= 2
 
 The resolution is a masterpiece of the semicolon: errors were committed, though conditions were adverse; vigilance was warranted, though initiative was insufficient; the Party reaffirms, deepens, and moves forward. Everyone can sign it. No one will ever quote it.
@@ -38,6 +40,7 @@ The resolution is a masterpiece of the semicolon: errors were committed, though 
 The delegates go home with the family intact, which is worth something — ask the parties that split. But the JC delegates sign it the way men sign an armistice they intend to violate, and the students who were watching for a sign conclude, not unreasonably, that the Party's deepest instinct is still the management of its own funeral.
 
 @cerrar
+go-to: post_event
 choose-if: fac_ortodoxos >= 40
 unavailable-subtitle: The old guard can no longer impose closed ranks.
 on-arrival: autocritica_done = 3; fac_ortodoxos += 10; fac_nueva_izquierda -= 8; unity -= 3; sup_students -= 8; ax_sovietico += 5

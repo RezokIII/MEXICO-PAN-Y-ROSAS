@@ -21,6 +21,7 @@ The '68 prisoners will follow across the next two years, in twos and threes, man
 - @discreto: Quietly. The DFS photographs every abrazo at that gate, and gratitude is the regime's favorite currency.
 
 @recibir
+go-to: post_event
 choose-if: funds >= 4
 unavailable-subtitle: The hall, the sound system, the posters: 4 funds you do not have.
 on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; vallejo_advisor = 1; organizers += 1; sup_students += 5; sup_workers += 3; political_capital += 4; expediente += 6; presidente_cooptacion += 5
@@ -30,6 +31,7 @@ The hall is full an hour early; the aisles fill next; the street outside fills l
 It is a great day, and it is also noted. Somewhere in Bucareli a functionary adds a page to a file and a line to a budget estimate: *these people can be moved by gratitude. Worth testing.* The apertura has your measurements now.
 
 @discreto
+go-to: post_event
 on-arrival: campa_released = 1; vallejo_released = 1; campa_advisor = 1; vallejo_advisor = 1; organizers += 1; political_capital += 1
 
 Two cars, a side street, coffee in a kitchen in Colonia Guerrero with the radio on out of old habit, because a radio complicates the microphones. Campa asks for the membership figures before he asks for the news. Vallejo asks for the railway figures and corrects them from memory. Neither man asks about the men who put them inside — not from serenity, you understand after a while, but from economy: they have eleven years to spend and no intention of spending a peso of it on jailers.

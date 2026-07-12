@@ -1,0 +1,76 @@
+title: Dos años bajo tierra
+new-page: true
+subtitle: El camino de la sierra — I
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and sw_sobrevivir = 0 and armada_entered = 1 and time >= armada_start + 24
+priority: 3
+max-visits: 1
+on-arrival: sw_sobrevivir = 1; unity += 2; inteligencia += 2
+
+= Dos años bajo tierra
+
+Somebody in the column keeps a private calendar, which is against the rules, and one morning announces — against the rules — that it has been two years. Two years since the minutes stopped. Two years of the state's full attention, which is a compliment paid in blood, and the structure is still here: the routes still carry, the names still hold, the drawer in Bucareli still fattens on rumors because the facts keep getting away.
+
+Most of the organizations that took this road did not see their second birthday. The Liga's founders are dead or in Oblatos; the ACNR is a memory with a martyr. You are still an organization. In this war, endurance is not a virtue — it is the entire strategic argument, the proof the foco theorists never managed: that a structure can live down here long enough to matter.
+
+The first stone of the sierra's camino is laid. It is a headstone that reads, for once, *not yet.*
+
+- @seguir: The calendar is burned, per the rules. The war continues.
+
+@seguir
+go-to: post_event
+
+The compañero who kept the calendar is reprimanded, and that night, at the fire, someone teaches the young ones the date anyway. Some discipline exists to be kept; some exists to be broken in the right company.
+
+@hito_zona
+title: La zona
+new-page: true
+subtitle: El camino de la sierra — II
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and sw_zona = 0 and ((pres_guerrero >= 35 and guar_guerrero <= 45) or (pres_oaxaca >= 35 and guar_oaxaca <= 45) or (pres_chihuahua >= 35 and guar_chihuahua <= 45) or (pres_valle >= 35 and guar_valle <= 45))
+priority: 3
+max-visits: 1
+on-arrival: sw_zona = 1; sup_peasants += 3; political_capital += 2; guerrilla_meter += 2
+
+= La zona
+
+There is no ceremony and no proclamation — proclamations are how the Liga died — but the fact is now walkable: a stretch of country where the column moves by daylight, where the tienda extends credit against the expropriation's schedule, where disputes come to the compañeros because the municipio's judge charges and the column's does not. The army enters in battalion strength, finds nothing, and leaves by dusk, and everyone on both sides understands the arithmetic of that.
+
+The manuals have a phrase for it — zona liberada — that the commanders forbid, on the grounds that nothing is liberated while the state exists. Call it instead what the campesinos call it: *la zona donde se puede.* The zone where one can. Where one can speak, organize, bury one's dead with their names on the stones.
+
+Whatever the war becomes — pressure, insurrection, or a hard bargain at a table that does not exist yet — it now negotiates from somewhere.
+
+- @sostener_zona: Hold it. Everything else the war does now starts from here.
+
+@sostener_zona
+go-to: post_event
+
+The state's maps acquire a shaded area and a budget line. Yours acquire something rarer: an address.
+
+@hito_sintesis
+title: La síntesis
+new-page: true
+subtitle: El camino de la sierra — III
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and sw_sintesis = 0 and enlace_sintesis = 1
+priority: 3
+max-visits: 1
+on-arrival: sw_sintesis = 1; inteligencia += 3; pres_valle += 3
+
+= La síntesis
+
+Every armed movement in the Republic's history died of the same disease: the city and the sierra fighting separate wars, each ignorant of the other's hours. Genaro came down to the city and was lost; the Liga went up the mountain and starved; the state, which has always been one animal, ate them one limb at a time.
+
+This month the disease breaks. What the safe kitchen receives, the sierra reads in three days; what the sierra sees on the roads, the city knows before the convoys arrive. One nervous system, running under the Republic's skin — the thing the DFS's organizational charts insist cannot exist, because if it existed the war would stop being a hunt and become a war.
+
+The analysts in Bucareli will need a year to believe their own reports. That year belongs to you.
+
+- @una_guerra: One war now. Continuar.
+
+@una_guerra
+go-to: post_event
+
+The courier who closed the loop sleeps for eighteen hours in the safe apartment, and no one wakes her. Some feats are honored in medals; here, in sleep.

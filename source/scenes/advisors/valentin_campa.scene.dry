@@ -3,7 +3,7 @@ is-pinned-card: true
 tags: advisor
 card-image: img/portraits/campa.jpg
 new-page: true
-view-if: campa_advisor = 1
+view-if: campa_advisor = 1 and (via = "politica" or via = "institucional") and refugio_sierra = 0
 
 # Also add Campa to shuffle_leadership.scene.dry (add + remove blocks),
 # per the guide. campa_advisor is set by los_liberados.scene.dry.
@@ -18,6 +18,7 @@ He does not talk about the prison. He talks about the railway workers' pension t
 
 - @campa_rieles
 - @campa_simbolo
+- @campa_internacional
 - @root: Return to main
 
 @campa_rieles
@@ -37,3 +38,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 5; unity += 4; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 He sits at the long table, says little, and the quality of the arguments improves noticeably, because nobody wants to say something stupid in front of Campa.
+
+@campa_internacional
+title: El viejo bolchevique
+subtitle: His authority steadies the orthodox and manages the Moscow question the way only a man jailed for the cause can.
+card-image: img/portraits/campa.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; unity += 3; des_ortodoxos -= 8; moscow_relation += 3; fac_ortodoxos += 2
+
+When Campa speaks about discipline, the orthodox listen, because he paid for the right in eleven years of Lecumberri and never once asked for the receipt. The corriente that most wants Moscow respected is calmed by the one man who can criticize Moscow without being called a traitor. The family stays at one table a while longer, which in this Party is a full-time job.

@@ -1,0 +1,52 @@
+title: La mesa de los partidos
+new-page: true
+subtitle: The courtship becomes a table
+face-image: img/merger.jpg
+tags: event
+view-if: fusion_prog >= 3 and fusion_mesa = 0 and year >= 1975
+priority: 3
+max-visits: 1
+on-arrival: fusion_mesa = 1; political_capital += 2; unity += 1
+
+= La mesa de los partidos
+
+What the unification work has produced, after the months of feelers, is furniture: an actual table, in an actual borrowed union hall, at which the fragments of the Mexican left sit down on schedule and argue like people who intend to still be arguing next month. Around it: the MAP's left-nationalist economists, exiles of the university and the state apparatus both; the political heirs of the guerrilla generation, wearing the seriousness of survivors; two smaller currents whose whole treasury is a mimeograph and a mailing list; and you — the oldest house, the biggest delegation, the most dead.
+
+Nothing binds yet. The table's first product is a grammar: which words each current cannot swallow (*dictadura del proletariado* for some, *unidad nacional* for others), which symbols are negotiable and which are wounds. Its second product, slower, is the only solvent that has ever fused parties: the discovery, meeting by meeting, that the man across the table also buried friends in the seventies, also keeps his lists in his head, also wants — under the vocabulary — the same three or four enormous things.
+
+The fusion is not made at the table. But now there is a table, and everyone has learned where everyone else sits.
+
+- @sostener_mesa: Keep the table served — cadres to staff the drafting committees, patience for the long grammar.
+
+@sostener_mesa
+go-to: post_event
+on-arrival: fusion_prog += 1; frente_unidad += 1
+
+The drafting committees multiply like something biological. The Party's contribution is the one the others cannot supply: sixty years of knowing exactly how organizations die, and therefore what to write down before they can.
+
+@declaracion_conjunta
+title: La declaración conjunta
+new-page: true
+subtitle: The left signs one page together
+face-image: img/merger.jpg
+tags: event
+view-if: fusion_prog >= 8 and fusion_pact = 0 and fusion_mesa = 1
+priority: 3
+max-visits: 1
+on-arrival: fusion_pact = 1; political_capital += 3; sup_students += 2; sup_middle += 1; fac_ortodoxos -= 2
+
+= La declaración conjunta
+
+One page. It took eleven drafts, two walkouts, and a memorable three a.m. quarrel about a semicolon that was actually a quarrel about the Soviet Union — but it exists, printed today in every paper the left can reach and mentioned, which is the real victory, in two it cannot: a joint declaration of the currents of the Mexican socialist left, committing their organizations to a common program, common candidacies where the law permits, and — the sentence the drafters circled for a week — *the perspective of organic unity*.
+
+Organic unity: the fused party, named in advance. The declaration does not create it; declarations create nothing. What it creates is a debt of honor, publicly witnessed, that every signatory current now owes its own base — the young members who want the unity yesterday, and who will now measure every leadership by its progress toward the promised house.
+
+In Bucareli the analysts file the page under a heading that has been waiting in the cabinet since 1919: *unificación de la izquierda — seguimiento.* For the first time since the cabinet was installed, the folder is getting thick.
+
+- @cumplir: The debt is signed. Now it is collected: toward the congress of fusion, on the left's schedule, not the state's.
+
+@cumplir
+go-to: post_event
+on-arrival: fusion_prog += 1
+
+From this page forward the question inside every current is no longer *whether* but *on whose terms* — which is, as every married person at the table observes privately, an entirely different negotiation.

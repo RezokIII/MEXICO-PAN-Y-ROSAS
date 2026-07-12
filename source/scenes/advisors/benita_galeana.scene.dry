@@ -2,7 +2,7 @@ title: Benita Galeana
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: benita_advisor = 1
+view-if: benita_advisor = 1 and (via = "politica" or via = "institucional") and refugio_sierra = 0
 
 = Benita Galeana
 
@@ -12,6 +12,7 @@ She sold gum on the street as a girl in Guerrero, taught herself to read as a gr
 
 - @benita_mujeres
 - @benita_memoria
+- @benita_base
 - @root: Return to main
 
 @benita_mujeres
@@ -32,3 +33,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; sup_students += 2; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 She tells the students about selling gum, about the fifty-eight arrests, about hiding Cuban sailors in her kitchen, and she gets the only thing harder to get than applause: silence, the kind where nobody wants to be the first to breathe. The generation that thinks history began in 1968 discovers, for one evening, its grandmothers.
+
+@benita_base
+title: La fe de la base
+subtitle: The rank and file's faith is a resource too. Tend the people who show up when no one is watching.
+card-image: img/portraits/benita.jpeg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; unity += 3; members += 1; sup_workers += 2; des_ortodoxos -= 3; political_capital += 1
+
+Benita never learned to read until she was grown and never forgot what it cost to be spoken over, and so she does the work the intellectuals forget: she sits with the militant nobody quotes, the woman who runs the mimeograph and raises four children, the old comrade who has given forty years and one good coat. She reminds the leadership that a party is not its Central Committee but the people who keep coming back, and she keeps them coming back.

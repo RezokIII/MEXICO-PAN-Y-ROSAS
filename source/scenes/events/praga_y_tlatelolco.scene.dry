@@ -23,6 +23,7 @@ This morning a note arrived from the Soviet embassy. It is not a note of condole
 - @retirar: Quietly soften the August line. This is no moment to lose the only friends with money.
 
 @doblar
+go-to: post_event
 on-arrival: praga_line = 1; ax_sovietico -= 10; fac_renovadores += 8; fac_ortodoxos -= 5; sup_students += 5; funds -= 5
 
 The statement runs in what remains of the press: one paragraph, two cities, one sentence the typesetter centers on his own initiative — *"El socialismo no llega en tanque."* Old cadres who buried comrades in the forties grumble that the Party is auditioning for the imperialists' applause. But in the corridors of Filosofía y Letras, where your name has been a curse word since the Party hesitated in July, someone reads it aloud twice.
@@ -30,6 +31,7 @@ The statement runs in what remains of the press: one paragraph, two cities, one 
 The embassy's answer is administrative, which is how empires sulk: the subsidy will be "reviewed." Buy your own paper.
 
 @retirar
+go-to: post_event
 on-arrival: praga_line = 2; ax_sovietico += 8; fac_ortodoxos += 8; fac_renovadores -= 6; sup_students -= 6; funds += 5
 
 The August resolution is "clarified" into fog — errors of haste, the complexity of the international situation, the need for further study. The old militants nod; order is restored in the family. The subsidy arrives on schedule, and the presses run.

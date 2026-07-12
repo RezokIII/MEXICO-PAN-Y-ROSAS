@@ -1,0 +1,58 @@
+title: El hombre de la colonia
+new-page: true
+subtitle: 1973 — Cuernavaca
+face-image: img/medrano.jpg
+tags: event
+view-if: via = "armada" and year = 1973 and month >= 3 and month <= 6 and medrano_advisor = 0 and medrano_muerto = 0
+priority: 3
+max-visits: 1
+
+= El hombre de la colonia
+
+Word comes up from Morelos of something the categories resist: an invaded hillside outside Cuernavaca that has become a functioning town — the Colonia Proletaria Rubén Jaramillo, thousands of families deep, with its own assembly, its own school, its own armed watch, and at its center a Monterrey worker they call el Güero Medrano, who studied in China and came back convinced the Mexican revolution was a land survey interrupted.
+
+The army will come eventually; everyone including Medrano knows it. Meanwhile the colonia governs itself better than the municipio that claims it, and Medrano has sent, through channels of his own devising, an unsentimental proposal: his people know how to take land and hold crowds; yours know lawyers, presses, and the country beyond Morelos. The Party's committees split predictably — adventurism, says the old guard; the housing question standing up, says everyone under thirty.
+
+- @trabajar_medrano: Work with him. The land question does not wait for perfect allies.
+- @distancia_medrano: Decline, courteously. When the army comes — and it will — the Party cannot be inside the perimeter.
+
+@trabajar_medrano
+go-to: post_event
+choose-if: organizers >= 2
+unavailable-subtitle: Working with the colonia takes cadres on the ground you do not have.
+on-arrival: medrano_advisor = 1; sup_colonos += 3; expediente += 4; fac_ortodoxos -= 2
+
+Your organizers arrive with mimeograph stencils and leave with an education: the colonia's census is better than the state's, its assembly rowdier than your congresses and quicker to decide, its defense roster organized by block and blood type. Medrano receives the Party's help without gratitude and returns it without stinting, which is his version of respect. The DFS adds a line connecting two files that were already thick separately. It was always going to.
+
+@distancia_medrano
+go-to: post_event
+on-arrival: sup_colonos -= 2; fac_ortodoxos += 2
+
+The letter declining is a small masterpiece of comradely evasion, and Medrano reads it aloud to his assembly for the entertainment value. The colonia manages without you, until it doesn't; the army's eventual operation finds no Party members inside the perimeter, exactly as planned. In the colonias of the capital, where everyone has a cousin in Morelos, the story is told with a different moral than the one intended.
+
+@medrano_cae
+title: La selva se lo traga
+new-page: true
+subtitle: 1979 — Oaxaca
+face-image: img/medrano.jpg
+tags: event
+view-if: year = 1979 and month >= 3 and month <= 6 and medrano_advisor = 1 and medrano_muerto = 0
+priority: 3
+max-visits: 1
+on-arrival: medrano_advisor = 0; medrano_muerto = 1; memorial += 1; sup_colonos -= 2
+
+= La selva se lo traga
+
+The army took the Colonia Rubén Jaramillo back in the end, as everyone always knew it would — occupied it, renamed it, assigned it the forgetting that is the state's most patient weapon. Medrano refused the moral of that story. He went south with a handful of the irreducibles, into the Oaxaca and Veracruz lowlands, to organize the poorest Mexicans there are: jungle colonos, coffee pickers, people the Republic's maps mark as vegetation.
+
+Word of his death arrives the way everything arrives from down there — late, disputed, and in several versions. An ambush; a firefight; a wound that traveled faster than the man. What is agreed: the Güero is gone, in the green dark, far from the hillside city he built and lost, still holding the surveyor's chain.
+
+The colonias of the Valle hold his wake without a body. It lasts three nights, which in colonia arithmetic is a head of state.
+
+- @heredar: Inherit the method: the colonia work continues under his name, which no eviction order can serve papers on.
+
+@heredar
+go-to: post_event
+on-arrival: sup_colonos += 3; colonia_presion += 1; political_capital += 1
+
+The manuals he left — hand-drawn, mimeographed, practical as recipes — circulate through the coordinadoras with his nickname on the cover. Every invasion that follows the method is, in the only sense that matters to him now, his. The state can occupy a hillside. The knowledge of how hillsides are taken has no address to occupy.

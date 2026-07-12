@@ -1,0 +1,36 @@
+title: La Tendencia Democrática
+new-page: true
+subtitle: 1975 — Rafael Galván y los electricistas
+face-image: img/td_marcha.jpg
+tags: event
+view-if: year = 1975 and month >= 4 and month <= 6
+priority: 2
+max-visits: 1
+
+= La Tendencia Democrática
+
+Rafael Galván and the electricians have done the thing the charro system was built to make impossible: an insurgency inside an official union, democratic and national, that says out loud what everyone whispers — that the CTM is the state's, not the workers'. The Tendencia Democrática marches under its own banners, and for a season the whole labor question reopens.
+
+Don Fidel wants it crushed. Echeverría, playing his apertura to the last, hesitates. The Movement is asked, quietly, where it stands.
+
+- @declaracion_guad: All in — sign the Declaración de Guadalajara, put the Party's weight behind the electricians.
+- @apoyo_cauto: Support them, carefully, without burning the cadres you have elsewhere.
+- @margen: Stay at the margin. This is a fight inside the regime's own house.
+
+@declaracion_guad
+on-arrival: declaracion = 1; sup_electricians += 10; sup_workers += 4; charrismo -= 4; unity += 3; expediente += 6; fe_voto += 2
+go-to: post_event
+
+You commit everything to the electricians, and for a while it is glorious: the Declaración de Guadalajara reads like a program the whole independent left could sign, and the yards and plants that hear it remember, for years, that once a union tried to belong to itself. When the requisa comes — and it will — the Party will be inside the defeat, which is the only honorable place to be.
+
+@apoyo_cauto
+on-arrival: sup_electricians += 5; sup_workers += 2; charrismo -= 1; political_capital += 2
+go-to: post_event
+
+You lend the electricians the paper, the lawyers, the solidarity that costs a controlled amount, and keep the rest of the Movement clear of the coming blow. It is prudent. The electricians notice the exact temperature of your commitment, and file it, the way workers always file the difference between a comrade and a well-wisher.
+
+@margen
+on-arrival: unity += 2; fac_ortodoxos += 2; sup_electricians -= 3
+go-to: post_event
+
+You judge it a fight inside the regime's family and keep the Party's powder dry. The orthodox nod. When the Tendencia is broken, some of its best cadres come looking for a political home and remember, coldly, who was not there.

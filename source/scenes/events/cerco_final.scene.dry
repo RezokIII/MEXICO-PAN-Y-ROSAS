@@ -1,0 +1,29 @@
+title: El último invierno
+new-page: true
+subtitle: The ring the war does not come back from
+face-image: img/stareguerilla.jpg
+tags: event
+view-if: via = "armada" and cerco_final_warned = 0 and moral_columnas <= 30 and coronel_red >= 60 and (members <= 6 or represion >= 88)
+priority: 6
+max-visits: 1
+on-arrival: cerco_final_warned = 1
+
+= El último invierno
+
+The comandancia's messenger does not bring a report this time. He brings a face, and the face is enough: the particular grey of men who have started counting not the enemy but the days.
+
+The arithmetic he does not need to speak: the informer web is inside the villages now, not around them. The columns are below the strength at which a column is a column — below the number where discipline holds, where the wounded can be carried, where a young fighter can be told the truth about his odds and still believe the older one telling him. Materiel is memory. The morale that recruited itself in the good years now deserts itself in the dark, one silhouette at a time slipping off the picket line toward a home that may or may not still open its door.
+
+This is the last threshold, and unlike every other threshold in this war, it is one-way. Below it there is no dispersal that regroups, no zone that cools, no cumbre where the balance is drawn by lamplight — there is only the ring, and the ring closes, and what closes inside it does not open again. Every guerrilla in the Republic's history reached exactly this month, and every one of them believed, at exactly this month, that it was not yet this month.
+
+Come down now — through the amnesty if its door still stands, into the political dark if it does not, scattered and alive — or the next raid you do not walk out of will be the last minutes anyone spends deciding anything about the war, because after it there will be no one left to decide.
+
+You have been warned the only way the mountain ever warns anyone: once, and by someone whose hands are shaking.
+
+- @entendido_cerco: Understood. There is still time — barely. Continuar.
+
+@entendido_cerco
+go-to: post_event
+on-arrival: guerrilla_meter -= 2
+
+The messenger is fed, and sleeps four hours, and goes back up before light because down here even mercy keeps a schedule. Whether the leadership can do the one thing the whole decade was built to make impossible — stop — is the only question the winter is still asking. It will not ask it twice.

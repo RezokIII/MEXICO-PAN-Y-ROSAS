@@ -17,6 +17,7 @@ They are not yours — they are prickly about exactly that — but their best or
 - @reclutar_ceu: Recruit hard while the iron is hot. Movements cool; membership endures.
 
 @acompanar
+go-to: post_event
 choose-if: sup_students >= 20
 unavailable-subtitle: To accompany them you must be welcome; the Movement carries little weight in the faculties.
 on-arrival: sup_students += 6; political_capital += 2; fac_nueva_izquierda += 3; sup_students += 2 if jc_saga >= 1
@@ -24,6 +25,7 @@ on-arrival: sup_students += 6; political_capital += 2; fac_nueva_izquierda += 3;
 The discipline holds: your people carry chairs, run mimeographs, argue only when asked. The CEU notices — this generation grades allies on exactly this — and when the strike wins in February, the debt is banked in the only currency that matters here: trust. In two years these brigades will run a presidential campaign's street operation. Whose, is being decided now, partly by who carried chairs.
 
 @reclutar_ceu
+go-to: post_event
 on-arrival: sup_students += 2; members += 1; fac_nueva_izquierda += 1; unity -= 1
 
 The recruiters work the assemblies and the assemblies notice being worked. Membership ticks up; standing ticks down; the CEU's inner circle files the Movement under "parties" — the genre they organized precisely to avoid. Some of the recruits are gold. The discount at which they were purchased will appear on a later statement.

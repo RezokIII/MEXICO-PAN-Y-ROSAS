@@ -2,7 +2,7 @@ title: Demetrio Vallejo
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: vallejo_advisor = 1
+view-if: vallejo_advisor = 1 and (via = "politica" or via = "institucional") and refugio_sierra = 0
 
 = Demetrio Vallejo
 
@@ -12,6 +12,7 @@ Eleven years, four months, and some days, most of them in Lecumberri, several of
 
 - @vallejo_independientes
 - @vallejo_insobornable
+- @vallejo_autoridad
 - @root: Return to main
 
 @vallejo_independientes
@@ -32,3 +33,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; unity += 3; political_capital += 3; fac_ortodoxos += 2; fac_renovadores -= 1; fac_nueva_izquierda -= 1
 
 They offered him everything, at intervals, for eleven years: the plea, the pension, the seat, the silence. The offers are a matter of record; so are the refusals. When he stands next to the young cadres at a meeting, nobody needs to give the speech about the charola. He is the speech.
+
+@vallejo_autoridad
+title: La autoridad del 59
+subtitle: The name itself is a lever. Spend the legend of the great railway strike on the dissident unions.
+card-image: img/portraits/vallejo.jpeg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; political_capital += 3; sup_workers += 2; unity += 2; charrismo -= 2; pri_reformist_rel += 1
+
+He does not have to organize a room; he only has to enter it. The dissident electricians, the university workers, the bus drivers who have never met him know the story — the yards, the army, the nine years — and a movement that Vallejo blesses borrows a legitimacy the charros cannot buy at any price. The CTM ages another year every time his name is printed.

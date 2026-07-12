@@ -1,0 +1,56 @@
+title: La comandancia de la sierra
+is-pinned-card: true
+tags: advisor
+new-page: true
+card-image: img/jungleplan.jpg
+view-if: via = "armada" and armada_entered = 1
+
+= La comandancia de la sierra
+
+*Consejo de la guerra rural. Only exists while the columns do; when the war ends, so does this desk.*
+
+They sit where Lucio's people sat and Genaro's before them, and they carry the same arithmetic in their heads: how many days of beans, how many trusted mule drivers, which colonel is ambitious and which merely cruel. Nobody elected them and nobody needs to — the sierra promotes by subtraction. What they offer the leadership is the thing no manual sells: the war seen from inside the war.
+
+- @doctrina_dispersion
+- @economia_guerra
+- @escuela_monte
+- @root: Return to main
+
+@doctrina_dispersion
+title: La doctrina de dispersión
+subtitle: Rest the hottest zone: the columns scatter, the garrison chases smoke, the ground cools.
+card-image: img/jungleplan.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: {!
+Q.advisor_action_timer = 6; Q.last_advisor_action = 1;
+// find the hottest garrison and cool it; presence there thins but survives
+var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
+var hot = zonas[0];
+for (var z of zonas) { if (Q['guar_'+z] > Q['guar_'+hot]) { hot = z; } }
+Q['guar_'+hot] -= 10;
+Q['pres_'+hot] -= 2;
+Q.inteligencia += 2;
+!}
+
+The order is the oldest one the sierra knows: be water. The column that held the ridge becomes forty people with hoes and grandmothers; the army's informers report, accurately, that there is nothing to report. In a month the garrison's patrol schedule relaxes into the rhythm of men guarding nothing. The zone cools. The war, which lives in the gap between what the state can find and what exists, widens that gap by exactly one province.
+
+@economia_guerra
+title: La economía de guerra
+subtitle: The zone feeds the war: levies argued not extorted, credit honored, the column as honest customer.
+card-image: img/jungleplan.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; funds += 4; sup_peasants += 2; expediente += 2
+
+The comandancia's quiet masterpiece is a ledger: what the coffee brokers skim, published; what the column borrows, repaid at harvest with interest and a receipt. In a country where the state's tax is a bribe and the cacique's tax is a whim, an army that pays its debts is a political program no speech could match. The war chest gains; the villages gain a bank that cannot foreclose; Bucareli gains another report it files under *inexplicable.*
+
+@escuela_monte
+title: La escuela del monte
+subtitle: The mountain teaches: cadres rotated through the zone come back harder, quieter, better.
+card-image: img/jungleplan.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; inteligencia += 4; guerrilla_meter += 1; unity += 2
+
+Three months in the zone is worth three years of study circles: the city cadres come up soft-handed and come down knowing how to read a road, a silence, a stranger's boots. The comandancia runs it like the normal school half of them attended — curriculum, examinations, a graduation with no diplomas and no witnesses. What descends is the war's deepest export: people who cannot be surprised.

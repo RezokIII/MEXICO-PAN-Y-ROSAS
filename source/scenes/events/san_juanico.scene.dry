@@ -18,6 +18,7 @@ The pattern is the earthquake's, ten months early: state negligence, state monop
 - @denuncia_sj: The documentation war: the real count, the siting decisions, the maintenance records PEMEX says do not exist.
 
 @brigadas_sj
+go-to: post_event
 choose-if: organizers >= 2
 unavailable-subtitle: Brigades are made of cadres; there are not enough standing.
 on-arrival: sup_colonos += 4; political_capital += 2; members += 1; expediente += 2
@@ -25,6 +26,7 @@ on-arrival: sup_colonos += 4; political_capital += 2; members += 1; expediente +
 The survivors' committee forms in a schoolyard with your people holding the clipboards, and refuses the quick signatures en bloc. The indemnities triple; the count climbs toward honesty; and in the colonias of the north rim, the lesson files itself next to all the others: the state counts its own disasters the way it counts votes.
 
 @denuncia_sj
+go-to: post_event
 on-arrival: sup_middle += 2; political_capital += 2; expediente += 2
 
 The dossier — siting maps, the 1979 inspection nobody acted on, the hydrant lines that carried no water — runs in the weekly and is read into the tribune. Nothing is prosecuted; everything is remembered. Ten months later, when the earth itself takes up the argument, the Republic will already have the vocabulary.

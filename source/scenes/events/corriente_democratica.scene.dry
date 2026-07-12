@@ -21,6 +21,7 @@ Emissaries reach out — informally, deniably — in both directions.
 - @rechazar: These are the system's men quarreling over the system's steering wheel. The left's road does not run through Los Pinos' family disputes.
 
 @abrazar
+go-to: post_event
 choose-if: ax_nacpop >= 0
 unavailable-subtitle: Embracing cardenismo requires a nacional-popular line no pleno ever voted.
 on-arrival: cd_rel = 2; pri_reformist_rel += 4; fac_nueva_izquierda += 4; fac_ortodoxos -= 5; ax_nacpop += 4; political_capital += 3
@@ -28,11 +29,13 @@ on-arrival: cd_rel = 2; pri_reformist_rel += 4; fac_nueva_izquierda += 4; fac_or
 The dinners multiply; the trust builds the slow way, over shared readings of the same disaster. The ortodoxos warn, correctly, that cardenismo is not socialism. The reply, also correct, is that six million people may be about to go looking for a car to crash into the regime, and the Movement can be the road or the ditch. When the break comes, you will be the first call.
 
 @condiciones
+go-to: post_event
 on-arrival: cd_rel = 1; political_capital += 2; unity += 2
 
 The memo is respectful and hard: convergence yes, absorption no; the program is the bride price. Muñoz Ledo, connoisseur of negotiating positions, reads it twice and smiles. Nothing is settled and everything is possible, which is the correct posture eighteen months from a hurricane.
 
 @rechazar
+go-to: post_event
 on-arrival: cd_rel = 0; fac_ortodoxos += 4; unity += 1; sup_students -= 2
 
 The analysis is classical and clean: bourgeois faction fight, nationalist mystique, the masses' energies to be husbanded for the class's own instrument. It will read well in the theoretical review. The hurricane, when it comes, will not stop to read it.

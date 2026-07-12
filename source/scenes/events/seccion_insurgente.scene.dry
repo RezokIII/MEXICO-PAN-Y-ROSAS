@@ -17,6 +17,7 @@ Vanguardia Revolucionaria will answer — it always answers — and an open alli
 - @sombra: Keep the relationship in the shadow where it grew. Open flags on a union war invite the state to make it a party war.
 
 @alianza
+go-to: post_event
 choose-if: organizers >= 3
 unavailable-subtitle: An open alliance with a section at war requires dedicated cadres.
 on-arrival: sup_teachers += 6; charrismo -= 3; huelgas += 5; expediente += 4; represion += 2; political_capital += 3
@@ -24,6 +25,7 @@ on-arrival: sup_teachers += 6; charrismo -= 3; huelgas += 5; expediente += 4; re
 The joint declaration runs in both presses. Vanguardia's response arrives on schedule — beatings at two section meetings, a leader's house burned — and the section holds anyway, because sections that have deposed one charro have stopped believing in inevitability. The teachers' war now has a national address, and it is partly yours.
 
 @sombra
+go-to: post_event
 on-arrival: sup_teachers += 2; unity += 1
 
 The relationship stays what it was: real, deniable, productive. The section fights its war under its own flag and wins more slowly. In the Coordinadora's assemblies, where such choices are graded, the Party's caution is noted with the usual entry: *presente, pero no del todo.* The account stays open.

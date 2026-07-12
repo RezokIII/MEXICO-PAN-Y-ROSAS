@@ -4,7 +4,7 @@ subtitle: The ballot has a price, and the price is paid in purity
 card-image: img/cards/palancas.jpg
 on-arrival: month_actions += 1; el_giro_cd = time
 max-visits: 40
-view-if: (registro < 2 and via = "politica") and time >= el_giro_cd + 3
+view-if: registro < 2 and (via = "politica" or via = "institucional") and time >= el_giro_cd + 3
 is-card: true
 frequency: 65
 tags: sistema

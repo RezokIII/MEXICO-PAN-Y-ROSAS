@@ -21,11 +21,13 @@ Your networks in the state — Othón's teachers, the coffee committees — are 
 - @silencio: Instruct the networks to freeze. Survive the sweep; organize the ashes after.
 
 @denunciar
+go-to: post_event
 on-arrival: pri_reformist_rel += 3; sup_middle += 2; sup_students -= 3; guerrilla_meter += 1
 
 The statement condemns the kidnapping and itemizes, with dates, eleven disappearances from three municipios — the first time the two phenomena share a paragraph in anything printed south of the border. The government quotes the first half. The mothers of Atoyac notice the second half, and begin arriving at the Party's Guerrero locals holding photographs.
 
 @refugio
+go-to: post_event
 choose-if: sup_peasants >= 20
 unavailable-subtitle: Hiding people requires a peasant base that trusts you with its lives. You do not have it on the Costa Grande.
 on-arrival: sup_peasants += 6; represion += 4; expediente += 5; memorial += 1
@@ -33,6 +35,7 @@ on-arrival: sup_peasants += 6; represion += 4; expediente += 5; memorial += 1
 Attics, wells, a coffee warehouse with a double count, the old routes over the sierra to Michoacán walked at night. Most make it. One safe house falls — a name on the memorial, a family moved north — and still the villages keep offering their attics, because the arithmetic of the Costa Grande has resolved to this: the Party hides people, the government hides *from* people what it does with them.
 
 @silencio
+go-to: post_event
 on-arrival: sup_peasants -= 4; unity -= 2
 
 The networks freeze; the sweep passes over them like weather over stones. Organizationally impeccable. In the villages it is remembered differently — doors that did not open, in the year when doors were the whole of politics — and when the committees reconvene next spring, some chairs stay empty out of something other than fear.

@@ -1,0 +1,44 @@
+title: La compra de la región
+new-page: true
+subtitle: Pavimento, sobres, un bastión reconquistado
+face-image: img/neza.jpg
+tags: event
+view-if: ((colonia_saga >= 1 or sup_peasants >= 22 or red_casillas >= 20) and izq_votes_display >= 16 and time >= compra_last + 22) and (pri_posture = "cooptar" or pri_posture = "robar" or presidente_cooptacion >= 40)
+priority: 2
+max-visits: 6
+on-arrival: compra_last = time
+
+= La compra de la región
+
+The machine has decided one of your strongholds is worth buying back, and it floods the place with everything it withheld for a decade: paved streets overnight, a clinic with a ribbon, land titles that moved for no one and now move in an afternoon — all of it handed out by the PRI's líder, under the governor's portrait, with cameras. It is the oldest counter-insurgency in the Republic: give the poor exactly enough, exactly when they were about to take it.
+
+Whether the region holds depends entirely on how deep you put the roots.
+
+- @raices: The roots hold — they take the pavement and keep the committee.
+- @contra: Counter-organize; match the machine, block by block.
+- @perder: You built too thin here. Watch it drift back.
+
+@raices
+subtitle: Requires deep regional roots — a governed town, a saga, a real network.
+choose-if: colonia_saga >= 2 or municipio_alcozauca = 1 or municipio_juchitan = 1 or red_casillas >= 25
+unavailable-subtitle: Deep roots hold a bought region; shallow ones do not. (Needs a governed municipio, a full colonia saga, or a 25-casilla network here.)
+on-arrival: sup_colonos += 2; sup_peasants += 2; legitimidad_regimen -= 1; political_capital += 2; fe_voto += 1
+go-to: post_event
+
+The people take the pavement — of course they take the pavement; they laid the old road themselves with their hands — and then they keep the committee, because the committee was theirs before the governor remembered they existed. You built deep enough that the machine's money buys gratitude without buying loyalty, and the líder goes home having paved a road for a colonia that will vote against him on it. Roots are the only thing the charola cannot purchase.
+
+@contra
+subtitle: -6 funds, requires cadres. Match the machine where you are thinner.
+choose-if: funds >= 6 and organizers >= 3
+unavailable-subtitle: Fighting the machine's money on your own thin ground takes funds and cadres you cannot spare.
+on-arrival: funds -= 6; unity += 1; sup_colonos += 1
+go-to: post_event
+
+You throw cadres and scarce funds at holding ground you never rooted deeply enough, and it half-works: assemblies against the ribbon-cuttings, your own organizers walking the same blocks as the líder's. It costs more than it should to defend what shallow roots should have defended for free — a lesson in why the boring years of organizing were never optional.
+
+@perder
+subtitle: Thin roots. The region drifts back to the machine.
+on-arrival: sup_colonos -= 5; sup_peasants -= 4; presidente_cooptacion += 3; charrismo += 1
+go-to: post_event
+
+You never put the roots deep enough here — the support was real but recent, a poll number more than a network — and the machine simply buys it back, because that is what machines do to gains that have no infrastructure under them. The clinic opens; the líder smiles; the committee that met twice stops meeting. You keep the lesson, which is the only thing you keep: presence you cannot defend is presence you were only renting.

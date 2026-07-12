@@ -1,0 +1,38 @@
+title: Genaro Vázquez
+is-pinned-card: true
+tags: advisor
+new-page: true
+card-image: img/genaro.jpg
+view-if: genaro_advisor = 1 and via = "armada"
+
+= Genaro Vázquez Rojas
+
+*Comandante of the ACNR. Not yours — his own. A channel, while he lives, between the Party and the civic war.*
+
+He tried everything you are trying, first: the teachers' movement, the civic association, the electoral coalition that won Guerrero's cities in 1962 and was answered with massacre at the Iguala alameda. The state taught Genaro its curriculum in full before he ever climbed to the sierra — prison too, until the ACNR took him out of Iguala's jail by force, which remains the only writ of amparo Guerrero has ever seen honored promptly.
+
+He does not ask the Party's permission and does not need its line. But he remembers who taught in the normal schools with him, and a message can reach him, and sometimes — costed carefully, deniably — something can be built across the space between your road and his.
+
+- @red_civica
+- @el_canje
+- @root: Return to main
+
+@red_civica
+title: La red cívica
+subtitle: The ACNR's civic roots — the councils and normalistas of Guerrero organized alongside yours.
+card-image: img/genaro.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 3; sup_teachers += 2; expediente += 2; guerrilla_meter += 1
+
+Before the rifle there was the clipboard, and the ACNR never lost it: civic councils, normalista circles, the patient enumeration of Guerrero's grievances village by village. Your organizers work alongside his where the two networks touch, careful never to write down whose is whose — a caution the DFS's cartographers find maddening, since it is also the truth. The state calls it all *guerrilla logistics*. Most of it is literacy classes. That, Genaro would say, is the part they should fear.
+
+@el_canje
+title: El canje
+subtitle: One time only: his method, your names — captured cadres traded out of the state's hands.
+card-image: img/genaro.jpg
+choose-if: advisor_action_timer == 0 and genaro_canje == 0 and year >= 1970
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if genaro_canje = 1 : The canje was done once. The state does not intend to be embarrassed twice. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; genaro_canje = 1; organizers += 1; members += 1; represion += 4; expediente += 5; guerrilla_meter += 2; sup_students += 2
+
+It is his signature and he performs it like a thesis: a cacique lifted from his own fiesta, held courteously, and priced not in money but in people — named prisoners, flown where the state must watch them land free. Among the names on the list, quietly, two of yours: an organizer taken in the spring, a courier nobody expected to see again. The Party denounces kidnapping in a communiqué of impeccable orthodoxy, and the two who landed free are working again within the month. Guerrero understands the transaction perfectly. So does Bucareli, which is the expensive part.

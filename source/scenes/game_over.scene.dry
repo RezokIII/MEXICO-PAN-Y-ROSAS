@@ -45,7 +45,7 @@ title: The state of the Republic...
 tags: endings
 go-to: eg_menu
 
-[? if ending = "reconocimiento" : An elected president governs over a fractured regime; the Mexican transition began by being counted. ?][? if ending = "historico" : Salinas governs a country that no longer believes him; facing him, the new party — founded on your registro. ?][? if ending = "ruptura" : The state prevailed over the Eleven Days; the country that watched does not forget. The lists survived. ?][? if ending = "irrelevancia" : The system continues; the wave passed; the Movement remained whole, and on the shore. ?][? if ending = "aniquilacion" : The system outlived you. Somewhere, on some rooftop, someone still keeps a mimeograph. ?]
+[? if ending = "reconocimiento" : An elected president governs over a fractured regime; the Mexican transition began by being counted. ?][? if ending = "historico" : Salinas governs a country that no longer believes him; facing him, the new party — founded on your registro. ?][? if ending = "ruptura" : The state prevailed over the Eleven Days; the country that watched does not forget. The lists survived. ?][? if ending = "irrelevancia" : The system continues; the wave passed; the Movement remained whole, and on the shore. ?][? if ending = "exterminio" : The war was ended the way wars against the poor are ended — completely, and then denied. The runway points at the sea. The corridos keep the count. ?][? if ending = "aniquilacion" : The system outlived you. Somewhere, on some rooftop, someone still keeps a mimeograph. ?]
 
 [? if hitler_deported == 1 : We have deported Hitler back to Austria. Hopefully he will never return. ?]
 
@@ -219,7 +219,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 = Completed Achievements in this Playthrough
 
 
-[? if game_achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
+[? if game_achievement_el_exterminio : **El exterminio** — the armed road was crushed to the last camp. They killed the column; they never found where it kept the reason. ?][? if game_achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
 
 [? if game_achievement_la_semilla : **La semilla** — survive the long decade, however small. ?]
 
@@ -361,217 +361,192 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 = Completed Achievements Overall
 
 
-[? if achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
+[? if achievement_la_fe_recuperada : **La fe recuperada** — make a cynical country believe the vote can matter again. ?]
 
-[? if achievement_civil_war : **Bürgerkrieg** - enter a long civil war. ?]
+[? if achievement_el_seis_de_julio : **El seis de julio** — force a counted 1988 — the reconocimiento the regime cannot survive. ?]
 
-[? if achievement_einigkeit : **Einigkeit** - reach the end of the game without a civil war on easy. ?]
+[? if achievement_el_partido_nuevo : **El partido nuevo** — out of the stolen election, found the new party of 1989. ?]
 
-[? if achievement_einigkeit_und_recht : **Einigkeit und Recht** - reach the end of the game without a civil war on normal. ?]
+[? if achievement_la_fuerza : **La fuerza** — arrive as a left the regime can no longer round to zero. ?]
 
-[? if achievement_einigkeit_und_recht_und_freiheit : **Einigkeit und Recht und Freiheit** - reach the end of the game without a civil war on hard. ?]
+[? if achievement_la_acumulacion : **La acumulación** — reach the assessment as a real national organization. ?]
 
-[? if achievement_schwarz_rot_gold : **Schwarz-Rot-Gold** - reach the end of the game without a civil war on historical mode. ?]
+[? if achievement_la_semilla : **La semilla** — survive the long decade, however small. ?]
 
-[? if achievement_victory_for_the_republic: **Sieg für die Republik** - win the civil war. ?]
+[? if achievement_la_cerilla : **La cerilla** — answer the fraud with the general strike — the Eleven Days. ?]
 
-[? if achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - Resist the Prussian Coup and win. ?]
+[? if achievement_la_orilla : **La orilla** — arrive whole and alone at the shore of '88, and watch the wave pass. ?]
 
-[? if achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
+[? if achievement_el_exterminio : **El exterminio** — the armed road was crushed to the last camp. They killed the column; they never found where it kept the reason. ?][? if achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
 
-[? if achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the SPD and KPD. ?]
+[? if achievement_el_septiembre_mexicano : **El septiembre mexicano** — collapse the PRI by 1976 — and bring Washington's tanks. ?]
 
-[? if achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the KPD demands. ?]
+[? if achievement_la_sintesis : **La síntesis** — build the urban-rural synthesis on the armed road and bring the war to a real ending. ?]
 
-[? if achievement_volksfront: **Volksfront** - Form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if achievement_el_entrismo : **El entrismo** — take the reformist road all the way to the counted transition. ?]
 
-[? if achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the KPD, form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if achievement_los_canales : **Los canales** — keep the discreet channels to the sierra to the very end. ?]
 
-[? if achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the KPD demands. ?]
+[? if achievement_herejes_con_carnet : **Herejes con carnet** — declare full independence from Moscow. ?]
 
-[? if achievement_constitutional_coalition: **Verfassungskoalition** - form a "constitutional coalition". ?]
+[? if achievement_no_llega_en_tanque : **El socialismo no llega en tanque** — reaffirm the condemnation of Prague, whatever Moscow pays. ?]
 
-[? if achievement_weimar_coalition: **Weimarer Koalition** - form a Weimar coalition. ?]
+[? if achievement_los_cinco_hitos : **Los cinco hitos** — complete all five milestones of El camino. ?]
 
-[? if achievement_majority_party: **Mehrheitspartei** - form an SPD-only majority government. ?]
+[? if achievement_la_lampara : **La lámpara** — build a casilla network of 60 — the lamp against the alquimia. ?]
 
-[? if achievement_minderheitsregierung: **Minderheitsregierung** - form an SPD minority government. ?]
+[? if achievement_el_registro : **El registro** — win legal registration for the Party. ?]
 
-[? if achievement_volkspartei: **Volkspartei** - the SPD is a People's Party. ?]
+[? if achievement_las_curules : **Las curules** — seat fifteen deputies in the Chamber. ?]
 
-[? if achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
+[? if achievement_la_fusion : **La fusión** — forge the PSUM — the scattered left under one roof. ?]
 
-[? if achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
+[? if achievement_la_ola_con_terminos : **La ola con términos** — take the Frente to its fullest height. ?]
 
-[? if achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
+[? if achievement_un_millon_de_nombres : **Un millón de nombres** — run Campa in 1976 and make the state refuse to count. ?]
 
-[? if achievement_deport_hitler : **Der österreichische Gefreite** - deported Hitler ?]
+[? if achievement_la_huelga_general : **La huelga general** — answer the requisa with the class itself. ?]
 
-[? if achievement_wirtschaftspolitik: **Wirtschaftspolitik** - enact an economic plan. ?]
+[? if achievement_la_lista : **La lista** — keep the memorial complete — name, date, place. ?]
 
-[? if achievement_wirtschaftswunder: **Wirtschaftswunder** - After 1932, have unemployment less than in 1928, inflation below 5%, and a budget surplus. ?]
+[? if achievement_las_madres : **Las madres** — stand with the mothers of the disappeared. ?]
 
-[? if achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
+[? if achievement_superbarrio : **Superbarrio** — the masked defender of the colonias walks. ?]
 
-[? if achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to the end of the game without adopting an economic plan. ?]
+[? if achievement_la_oficina : **La oficina** — govern a colonia through the full saga. ?]
 
-[? if achievement_equality: **Gleichheit** - pass reforms for women's rights. ?]
+[? if achievement_alcozauca : **Alcozauca** — win the first red municipio of the Montaña. ?]
 
-[? if achievement_hirschfeld: **Hirschfeld** - pass reforms for homosexual rights. ?]
+[? if achievement_el_auge : **El auge** — bring the armed movement to its high tide. ?]
 
-[? if achievement_women_reichsbanner: **Mädchen in Uniform** - a woman's place is in the Reichsbanner. ?]
+[? if achievement_los_que_bajaron : **Los que bajaron por ellos** — reach Lucio's survivors before the Brigada. ?]
 
-[? if achievement_anders_als_die_andern: **Anders als die Andern** - sexual minorities will defend the Republic. ?]
+[? if achievement_los_insobornables : **Los insobornables** — refuse the sexenio's season of offers, as a Party. ?]
 
-[? if achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect an SPD president, and deport Hitler in one playthrough on at least normal difficulty. ?]
+[? if achievement_la_declaracion : **La Declaración de Guadalajara** — commit everything to the electricians. ?]
 
-[? if achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
+[? if achievement_la_tinta : **La tinta** — Rius keeps the ink flowing where the Party's paper cannot go. ?]
 
-[? if achievement_panik_im_mittelstand: **Panik im Mittelstand** - SPD new middle class support is at least 50%. ?]
+[? if achievement_la_columna : **La columna vertebral** — keep Campa at the center of the leadership. ?]
 
-[? if achievement_bauernrevolution: **Bauernrevolution** - SPD rural support is at least 50%. ?]
+[? if achievement_anatomia : **La anatomía del fraude** — document the machine until the theft is undeniable. ?]
 
-[? if achievement_katholischer_sozialismus: **Katholischer Sozialismus** - SPD Catholic support is at least 50%. ?]
+[? if achievement_la_hegemonia : **La hegemonía** — found the new party from a position of real strength. ?]
 
-[? if achievement_grosse_volkspartei: **Große Volkspartei** - All classes have at least 40% SPD support. ?]
+[? if achievement_la_comuna : **La comuna** — the Eleven Days as a workers' near-insurrection. ?]
 
-[? if achievement_klassenkampf: **Klassenkampf** - SPD worker support is at least 80%, while middle-class and rural supports are less than 20%. ?]
+[? if achievement_los_120_dias : **Los 120 días** — the workers hold the plant against the requisa. ?]
 
-[? if achievement_raterepublik: **Räterepublik** - begin the transformation to a socialist economy. ?]
+[? if achievement_el_relevo : **El relevo** — the generation of '68 hands the work to the next. ?]
 
-[? if achievement_polykrise: **Polykrise** - survive a capital strike and a fascist coup. ?]
+[? if achievement_la_huelga_que_no_se_rompe : **La huelga que no se rompe** — win three strikes outright. ?]
 
-[? if achievement_syndikalismus: **Syndikalismus** - support factory takeovers by the workers. ?]
+[? if achievement_seccion_democratica : **La CNTE** — found the national teachers' coordinator out of a strike. ?]
 
-[? if achievement_drei_pfeile: **Drei Pfeile** - defeat a coup without a civil war. ?]
+[? if achievement_la_ciudad_organizada : **La ciudad organizada** — found the CONAMUP out of a colonia in revolt. ?]
 
-[? if achievement_ausnahmezustand: **Ausnahmezustand** - use emergency powers to cancel elections. ?]
+[? if achievement_la_tierra_trabaja : **La tierra es de quien la trabaja** — wrench three land dotaciones from the state. ?]
 
-[? if achievement_eu: **Vereinigte Staaten von Europa** - form a "European Union". ?]
+[? if achievement_el_regimen_desnudo : **El régimen desnudo** — drive the regime's legitimacy into tatters. ?]
 
-[? if achievement_heidelberger_programm: **Heidelberger Programm** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
+[? if achievement_entre_las_flores : **Entre las flores** — move the guns through the ofrenda — and lose the campesinos. ?]
 
-[? if achievement_verfassungsreform: **Verfassungsreform** - pass a constitutional amendment. ?]
-
-[? if achievement_zeppelin_kapitan : **Zeppelinkapitän** - Hugo Eckener has been elected president. ?]
-
-[? if achievement_wahlrechts : **Wahlrechts für Frauen** - Marie Juchacz has been elected president. ?]
-
-[? if achievement_bundesrepublik : **Bundesrepublik** - Konrad Adenauer or Kurt Schumacher has been elected president, and constitutional reforms have reduced presidential power. ?]
-
-[? if achievement_republik_der_wissenschaft : **Republik der Wissenschaft** - Albert Einstein has been elected president. ?]
-
-[? if achievement_arbeiter_von_wien : **Arbeiter von Wien** - SDAPÖ victory in Austria. ?]
-
-[? if achievement_stolperstein: **Stolperstein** - we lost, but history might memorialize us... ?]
+[? if achievement_el_puente : **El puente** — run the urban-rural synthesis through the guerrilla contact. ?]
 
 
 = Incomplete Achievements
 
-[? if not achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
+[? if not achievement_la_fe_recuperada : **La fe recuperada** — make a cynical country believe the vote can matter again. ?]
 
-[? if not achievement_civil_war : **Bürgerkrieg** - enter a long civil war. ?]
+[? if not achievement_el_seis_de_julio : **El seis de julio** — force a counted 1988 — the reconocimiento the regime cannot survive. ?]
 
-[? if not achievement_einigkeit : **Einigkeit** - reach the end of the game without a civil war on easy. ?]
+[? if not achievement_el_partido_nuevo : **El partido nuevo** — out of the stolen election, found the new party of 1989. ?]
 
-[? if not achievement_einigkeit_und_recht : **Einigkeit und Recht** - reach the end of the game without a civil war on normal. ?]
+[? if not achievement_la_fuerza : **La fuerza** — arrive as a left the regime can no longer round to zero. ?]
 
-[? if not achievement_einigkeit_und_recht_und_freiheit : **Einigkeit und Recht und Freiheit** - reach the end of the game without a civil war on hard. ?]
+[? if not achievement_la_acumulacion : **La acumulación** — reach the assessment as a real national organization. ?]
 
-[? if not achievement_schwarz_rot_gold : **Schwarz-Rot-Gold** - reach the end of the game without a civil war on historical mode. ?]
+[? if not achievement_la_semilla : **La semilla** — survive the long decade, however small. ?]
 
-[? if not achievement_victory_for_the_republic: **Sieg für die Republik** - win the civil war. ?]
+[? if not achievement_la_cerilla : **La cerilla** — answer the fraud with the general strike — the Eleven Days. ?]
 
-[? if not achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - Resist the Prussian Coup and win. ?]
+[? if not achievement_la_orilla : **La orilla** — arrive whole and alone at the shore of '88, and watch the wave pass. ?]
 
-[? if not achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
+[? if not achievement_el_exterminio : **El exterminio** — be crushed to the last camp on the armed road. ?][? if not achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
 
-[? if not achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the SPD and KPD. ?]
+[? if not achievement_el_septiembre_mexicano : **El septiembre mexicano** — collapse the PRI by 1976 — and bring Washington's tanks. ?]
 
-[? if not achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the KPD demands. ?]
+[? if not achievement_la_sintesis : **La síntesis** — build the urban-rural synthesis on the armed road and bring the war to a real ending. ?]
 
-[? if not achievement_volksfront: **Volksfront** - Form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if not achievement_el_entrismo : **El entrismo** — take the reformist road all the way to the counted transition. ?]
 
-[? if not achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the KPD, form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if not achievement_los_canales : **Los canales** — keep the discreet channels to the sierra to the very end. ?]
 
-[? if not achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the KPD demands. ?]
+[? if not achievement_herejes_con_carnet : **Herejes con carnet** — declare full independence from Moscow. ?]
 
-[? if not achievement_constitutional_coalition: **Verfassungskoalition** - form a "constitutional coalition". ?]
+[? if not achievement_no_llega_en_tanque : **El socialismo no llega en tanque** — reaffirm the condemnation of Prague, whatever Moscow pays. ?]
 
-[? if not achievement_weimar_coalition: **Weimarer Koalition** - form a Weimar coalition. ?]
+[? if not achievement_los_cinco_hitos : **Los cinco hitos** — complete all five milestones of El camino. ?]
 
-[? if not achievement_majority_party: **Mehrheitspartei** - form an SPD-only majority government. ?]
+[? if not achievement_la_lampara : **La lámpara** — build a casilla network of 60 — the lamp against the alquimia. ?]
 
-[? if not achievement_minderheitsregierung: **Minderheitsregierung** - form an SPD minority government. ?]
+[? if not achievement_el_registro : **El registro** — win legal registration for the Party. ?]
 
-[? if not achievement_volkspartei: **Volkspartei** - the SPD is a People's Party. ?]
+[? if not achievement_las_curules : **Las curules** — seat fifteen deputies in the Chamber. ?]
 
-[? if not achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
+[? if not achievement_la_fusion : **La fusión** — forge the PSUM — the scattered left under one roof. ?]
 
-[? if not achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
+[? if not achievement_la_ola_con_terminos : **La ola con términos** — take the Frente to its fullest height. ?]
 
-[? if not achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
+[? if not achievement_un_millon_de_nombres : **Un millón de nombres** — run Campa in 1976 and make the state refuse to count. ?]
 
-[? if not achievement_deport_hitler : **Der österreichische Gefreite** - deported Hitler ?]
+[? if not achievement_la_huelga_general : **La huelga general** — answer the requisa with the class itself. ?]
 
-[? if not achievement_wirtschaftspolitik: **Wirtschaftspolitik** - enact an economic plan. ?]
+[? if not achievement_la_lista : **La lista** — keep the memorial complete — name, date, place. ?]
 
-[? if not achievement_wirtschaftswunder: **Wirtschaftswunder** - After 1932, have unemployment less than in 1928, inflation below 5%, and a budget surplus. ?]
+[? if not achievement_las_madres : **Las madres** — stand with the mothers of the disappeared. ?]
 
-[? if not achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
+[? if not achievement_superbarrio : **Superbarrio** — the masked defender of the colonias walks. ?]
 
-[? if not achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to the end of the game without adopting an economic plan. ?]
+[? if not achievement_la_oficina : **La oficina** — govern a colonia through the full saga. ?]
 
-[? if not achievement_equality: **Gleichheit** - pass reforms for women's rights. ?]
+[? if not achievement_alcozauca : **Alcozauca** — win the first red municipio of the Montaña. ?]
 
-[? if not achievement_hirschfeld: **Hirschfeld** - pass reforms for homosexual rights. ?]
+[? if not achievement_el_auge : **El auge** — bring the armed movement to its high tide. ?]
 
-[? if not achievement_women_reichsbanner: **Mädchen in Uniform** - a woman's place is in the Reichsbanner. ?]
+[? if not achievement_los_que_bajaron : **Los que bajaron por ellos** — reach Lucio's survivors before the Brigada. ?]
 
-[? if not achievement_anders_als_die_andern: **Anders als die Andern** - sexual minorities will defend the Republic. ?]
+[? if not achievement_los_insobornables : **Los insobornables** — refuse the sexenio's season of offers, as a Party. ?]
 
-[? if not achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect an SPD president, and deport Hitler in one playthrough on at least normal difficulty. ?]
+[? if not achievement_la_declaracion : **La Declaración de Guadalajara** — commit everything to the electricians. ?]
 
-[? if not achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
+[? if not achievement_la_tinta : **La tinta** — Rius keeps the ink flowing where the Party's paper cannot go. ?]
 
-[? if not achievement_panik_im_mittelstand: **Panik im Mittelstand** - SPD new middle class support is at least 50%. ?]
+[? if not achievement_la_columna : **La columna vertebral** — keep Campa at the center of the leadership. ?]
 
-[? if not achievement_bauernrevolution: **Bauernrevolution** - SPD rural support is at least 50%. ?]
+[? if not achievement_anatomia : **La anatomía del fraude** — document the machine until the theft is undeniable. ?]
 
-[? if not achievement_katholischer_sozialismus: **Katholischer Sozialismus** - SPD Catholic support is at least 50%. ?]
+[? if not achievement_la_hegemonia : **La hegemonía** — found the new party from a position of real strength. ?]
 
-[? if not achievement_grosse_volkspartei: **Große Volkspartei** - All classes have at least 40% SPD support. ?]
+[? if not achievement_la_comuna : **La comuna** — the Eleven Days as a workers' near-insurrection. ?]
 
-[? if not achievement_klassenkampf: **Klassenkampf** - SPD worker support is at least 80%, while middle-class and rural supports are less than 20%. ?]
+[? if not achievement_los_120_dias : **Los 120 días** — the workers hold the plant against the requisa. ?]
 
-[? if not achievement_raterepublik: **Räterepublik** - begin the transformation to a socialist economy. ?]
+[? if not achievement_el_relevo : **El relevo** — the generation of '68 hands the work to the next. ?]
 
-[? if not achievement_polykrise: **Polykrise** - survive a capital strike and a fascist coup. ?]
+[? if not achievement_la_huelga_que_no_se_rompe : **La huelga que no se rompe** — win three strikes outright. ?]
 
-[? if not achievement_syndikalismus: **Syndikalismus** - support factory takeovers by the workers. ?]
+[? if not achievement_seccion_democratica : **La CNTE** — found the national teachers' coordinator out of a strike. ?]
 
-[? if not achievement_drei_pfeile: **Drei Pfeile** - defeat a coup without a civil war. ?]
+[? if not achievement_la_ciudad_organizada : **La ciudad organizada** — found the CONAMUP out of a colonia in revolt. ?]
 
-[? if not achievement_ausnahmezustand: **Ausnahmezustand** - use emergency powers to cancel elections. ?]
+[? if not achievement_la_tierra_trabaja : **La tierra es de quien la trabaja** — wrench three land dotaciones from the state. ?]
 
-[? if not achievement_eu: **Vereinigte Staaten von Europa** - form a "European Union". ?]
+[? if not achievement_el_regimen_desnudo : **El régimen desnudo** — drive the regime's legitimacy into tatters. ?]
 
-[? if not achievement_heidelberger_programm: **Heidelberger Programm** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
+[? if not achievement_entre_las_flores : **Entre las flores** — move the guns through the ofrenda — and lose the campesinos. ?]
 
-[? if not achievement_verfassungsreform: **Verfassungsreform** - pass a constitutional amendment. ?]
-
-[? if not achievement_zeppelin_kapitan : **Zeppelinkapitän** - Hugo Eckener has been elected president. ?]
-
-[? if not achievement_wahlrechts : **Wahlrechts für Frauen** - Marie Juchacz has been elected president. ?]
-
-[? if not achievement_bundesrepublik : **Bundesrepublik** - Konrad Adenauer or Kurt Schumacher has been elected president, and constitutional reforms have reduced presidential power. ?]
-
-[? if not achievement_republik_der_wissenschaft : **Republik der Wissenschaft** - Albert Einstein has been elected president. ?]
-
-[? if not achievement_arbeiter_von_wien : **Arbeiter von Wien** - SDAPÖ victory in Austria. ?]
-
-[? if not achievement_stolperstein: **Stolperstein** - we lost, but history might memorialize us... ?]
-
+[? if not achievement_el_puente : **El puente** — run the urban-rural synthesis through the guerrilla contact. ?]
 
 @end_game
 game-over: true

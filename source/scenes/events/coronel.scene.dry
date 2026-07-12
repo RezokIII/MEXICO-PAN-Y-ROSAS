@@ -1,0 +1,115 @@
+title: El Coronel
+new-page: true
+subtitle: 1972 — the campaign gets a name
+face-image: img/camioneta.jpg
+tags: event
+view-if: via = "armada" and coronel_activo = 0 and year >= 1972 and armada_entered = 1
+priority: 4
+max-visits: 1
+on-arrival: coronel_activo = 1
+
+= El Coronel
+
+Until now the hunt was a weather system — impersonal, everywhere, no one's fault. This month it acquires a face and a method. A colonel of the paratroopers, transferred from the capital with a free hand and a budget that answers to no one, takes over the Guerrero campaign, and within weeks the difference is legible in the intelligence: the sweeps are patient now, the informers paid on time, the disappeared processed through an airbase with a runway that points at the sea.
+
+The fuente supplies the name and the file. You will not print either. What matters is that the war is no longer against an institution, which cannot be surprised or shamed, but against a man, who can be both — and who is, correspondingly, dangerous in ways an institution never is: he learns.
+
+His informer network in your zones will grow every month you leave it alone. Cut it, expose him, or one day put him in your sights — but understand that he is now the war, and the war has a pulse you can feel for.
+
+- @medir_coronel: Take his measure. Assign your best intelligence to reading the man — his routes, his sources, his vanity.
+- @ignorar_coronel: A colonel is a uniform; kill the man, another arrives. Fight the campaign, not the officer.
+
+@medir_coronel
+go-to: post_event
+on-arrival: inteligencia += 4; coronel_red -= 5
+
+The dossier assembles slowly: the safe houses he uses, the cantina where his paymaster drinks, the specific vanity — he gives interviews, anonymously, boasting — that will one day be the crack. Reading him costs nothing but the attention of people who have little to spare, and it buys the only thing that beats a patient hunter: a hunter who is patient back.
+
+@ignorar_coronel
+go-to: post_event
+on-arrival: moral_columnas += 4; coronel_red += 4
+
+The line is orthodox and the columns like it: personalizing the enemy is a bourgeois error, the system produces a hundred colonels, fight the system. All true, and all beside the point the next year will make, when the man nobody bothered to study has mapped your zones from the inside while you were being theoretically correct about him.
+
+@coronel_barrida
+title: La barrida
+new-page: true
+subtitle: The Colonel comes for your strongest ground
+face-image: img/camioneta.jpg
+tags: event
+view-if: via = "armada" and coronel_activo = 1 and (pri_posture = "aniquilar" or pri_posture = "contener") and coronel_red >= 30 and time >= barrida_last + 10
+priority: 3
+frequency: 70
+max-visits: 8
+on-arrival: {!
+Q.barrida_last = Q.time;
+// he strikes wherever you are strongest
+var _zs = ['guerrero','valle','chihuahua','jalisco','nl','oaxaca','tijuana'];
+var _z = _zs[0];
+for (var i=0;i<_zs.length;i++){ if (Q['pres_'+_zs[i]] > Q['pres_'+_z]) { _z = _zs[i]; } }
+Q.barrida_zone = _z;
+!}
+
+= La barrida
+
+He does not raid; he sweeps. Three thousand soldiers seal a region of your strength — [+ barrida_zone +] this time — and begin walking it end to end, village by village, with the informer map you let him build as their itinerary. The columns can feel the net drawing before the intelligence confirms it: the merchants stop extending credit, the children stop appearing on the paths, the particular silence that means the mountain has learned something it is not telling.
+
+There is no good option, only the least ruinous. What you built before this month is the only thing you have to spend on it.
+
+- @barrida_dispersar: Melt away. Break into cells too small to catch, abandon the caches, let the net close on smoke.
+- @barrida_pelear: Fight for the ground. A defended zone that runs is a zone lost; make the sweep pay for every kilometer.
+- @barrida_contragolpe: Hit him where he isn't. Answer the sweep with an operation in another zone — prove the war has initiative.
+
+@barrida_dispersar
+go-to: post_event
+on-arrival: {!
+var _z = Q.barrida_zone;
+Q['pres_'+_z] -= 3; Q.moral_columnas -= 4; Q.inteligencia += 2; Q.coronel_red += 3; Q.parque -= 1;
+if (Q.parque < 0) { Q.parque = 0; }
+!}
+
+The order is old and bitter: be smoke. The caches are buried or burned, the column becomes forty unrelated people with errands, and the Colonel's three thousand walk a region that empties ahead of them like water around a stone. It works — the net closes on nothing — and it costs what dispersal always costs: momentum, materiel, and the villages' sense that you can protect anything, including them. Survival, again, purchased with the currency of looking weak.
+
+@barrida_pelear
+go-to: post_event
+choose-if: parque >= 3 and moral_columnas >= 50
+unavailable-subtitle: Contesting a sweep takes materiel (3 parque) and columns with the morale to stand — you have one or neither.
+on-arrival: {!
+var _z = Q.barrida_zone;
+Q.parque -= 3;
+var _roll = (Q['pres_'+_z]||0) + Q.moral_columnas*0.4 + Q.inteligencia*0.3 - (Q['guar_'+_z]||0) - Q.coronel_red*0.4 + (Math.random()*50 - 25);
+if (_roll >= 12) { Q.moral_columnas += 14; Q.guerrilla_meter += 5; Q['guar_'+_z] -= 6; Q.coronel_red -= 8; Q.coronel_herido = 1; Q.memorial += 1; Q.represion += 4; }
+else if (_roll >= -8) { Q['pres_'+_z] -= 4; Q.moral_columnas -= 6; Q.memorial += 2; Q.expediente += 6; Q.represion += 5; }
+else { Q['pres_'+_z] -= 9; Q.moral_columnas -= 16; Q.memorial += 4; Q.presos += 3; Q.represion += 7; }
+Q.op_res = _roll >= 12 ? 2 : (_roll >= -8 ? 1 : 0);
+!}
+
+[? if op_res = 2 : You fight the sweep the only way a sweep can be fought — not head-on but at its seams, ambushing the columns strung out on the trails, and this time the ground answers. The Colonel pulls back to regroup with losses he will have to explain in the capital, a rare thing to make him do. The mountain saw him bleed. So did his informers, some of whom begin, quietly, to reconsider their arrangements. ?]
+
+[? if op_res = 1 : The zone is held, barely, at a price the assembly will argue about for a year: the sweep is blunted but not broken, the column intact but hollowed, the villages loyal but frightened. You made him pay. You are not sure yet whether you could afford the receipt. ?]
+
+[? if op_res = 0 : Standing to fight a force ten times your size is a decision the manuals warn against for reasons this week supplies in full. The zone is overrun, the column shattered into flight, and the names — so many names — will take three assemblies to read. The Colonel files it as a model operation, because it was. ?]
+
+- @root: Count the cost. Continue.
+
+@barrida_contragolpe
+go-to: post_event
+choose-if: parque >= 2 and inteligencia >= 30
+unavailable-subtitle: A counterstroke needs materiel and the intelligence to strike blind in another zone — 2 parque, intel 30.
+on-arrival: {!
+Q.parque -= 2;
+var _roll = Q.inteligencia*0.5 + Q.moral_columnas*0.3 + 10 - Q.coronel_red*0.3 + (Math.random()*50 - 22);
+if (_roll >= 14) { Q.guerrilla_meter += 6; Q.moral_columnas += 12; Q.legitimidad_regimen -= 3; Q.coronel_red -= 5; Q.parque += 3; }
+else if (_roll >= -6) { Q.guerrilla_meter += 2; Q.expediente += 6; Q.represion += 4; }
+else { Q.moral_columnas -= 10; Q.memorial += 2; Q.presos += 2; Q.expediente += 8; }
+Q.op_res = _roll >= 14 ? 2 : (_roll >= -6 ? 1 : 0);
+var _z = Q.barrida_zone; Q['pres_'+_z] -= 2;
+!}
+
+[? if op_res = 2 : While three thousand soldiers comb an empty mountain, the war detonates two hundred kilometers away — a barracks, a bank, a communiqué — and the message writes itself: you cannot sweep what you cannot find, and you cannot find what chooses where to appear. The Colonel's free hand is suddenly a leash; the capital wants to know why the guerrilla is on the front page while he is on a hillside. Initiative, the war's rarest possession, is briefly yours. ?]
+
+[? if op_res = 1 : The counterstroke lands softly — enough to prove the point, not enough to headline it. The swept zone still suffers; the diverted operation still costs. But the columns learn the lesson that keeps armies alive: the answer to a fist is not always the same fist, and a war with initiative is a war not yet losing. ?]
+
+[? if op_res = 0 : The gamble compounds the disaster: the diverted operation fails, and now you have bled in two zones instead of one, the sweep uninterrupted and a second column broken for nothing. Audacity without the means is just a faster way to the memorial. ?]
+
+- @root: Count the cost. Continue.

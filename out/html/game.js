@@ -463,11 +463,30 @@
   function trend(z,g){ if(prev[z]===undefined)return 'no prior data'; var d=Math.round(g-prev[z]); if(d>=5)return 'REINFORCING (+'+d+')'; if(d>=2)return 'building up (+'+d+')'; if(d<=-3)return 'drawing down ('+d+')'; return 'static'; }
   function q(v,hi,mid){ return v>=hi?'strong':(v>=mid?'moderate':'weak'); }
   function polScore(Q,z){ var a=SECT[z], t=0; for(var i=0;i<a.length;i++){ t+=Q[a[i]]||0; } return t/a.length; }
+  function mix(a,b,t){ return [Math.round(a[0]+(b[0]-a[0])*t), Math.round(a[1]+(b[1]-a[1])*t), Math.round(a[2]+(b[2]-a[2])*t)]; }
+  // map each region's sectors to electorate classes; add historical regional PAN lean
+  var CLS={sup_workers:'obreros',sup_peasants:'campesinos',sup_colonos:'colonos',sup_middle:'medias',sup_students:'estudiantes',sup_teachers:'maestros',sup_electricians:'electricistas'};
+  var PANLEAN={tijuana:8,chihuahua:10,nl:8,jalisco:6,valle:0,guerrero:-4,oaxaca:-4};
+  function partyShares(Q,z){
+    var secs=SECT[z], izq=0,pri=0,pan=0,n=0;
+    for(var i=0;i<secs.length;i++){
+      var c=CLS[secs[i]]; if(!c) continue;
+      var vi=Q[c+'_izq_normalized'], vp=Q[c+'_pri_normalized'], va=Q[c+'_pan_normalized'];
+      if(vi===undefined){ vi=Q[secs[i]]||0; vp=60; va=10; } // pre-first-tick fallback
+      izq+=vi; pri+=vp; pan+=va; n++;
+    }
+    if(!n){ return {who:'pri',top:50,izq:0,pri:50,pan:10,contested:false}; }
+    izq/=n; pri/=n; pan/=n;
+    pan+=(PANLEAN[z]||0); pri-=(PANLEAN[z]||0)*0.6;
+    var arr=[['izq',izq],['pri',pri],['pan',pan]].sort(function(a,b){return b[1]-a[1];});
+    return {who:arr[0][0], top:arr[0][1], second:arr[1][1], izq:izq, pri:pri, pan:pan,
+            contested:(arr[0][1]-arr[1][1])<7};
+  }
   window.paintSierraMap=function(){
     if(!window.dendryUI||!window.dendryUI.dendryEngine) return;
     if(window.statusTab!=='status.guerra') return;
     var Q=window.dendryUI.dendryEngine.state.qualities;
-    var atWar=(Q.via==='armada'||Q.via==='dual');
+    var atWar=(Q.via==='armada');
     var el=document.getElementById('mapa_sierra');
     if(!el){ var host=document.getElementById('qualities'); if(!host)return; el=document.createElement('div'); el.id='mapa_sierra'; el.style.position='relative'; el.style.margin='0.5em 0'; var h=host.querySelector('h1'); if(h&&h.nextSibling){host.insertBefore(el,h.nextSibling);}else{host.appendChild(el);} }
     if(!document.getElementById('z_guerrero')){ el.innerHTML=SVG; }
@@ -480,17 +499,31 @@
       if(atWar){ val=Q['pres_'+z]||0; var guar=Q['guar_'+z]||0;
         r=Math.round(200+55*Math.min(1,val/40)); gb=Math.round(200-160*Math.min(1,val/40));
         poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px'; poly.style.stroke=guar>=55?'#0f7040':'#333';
-      } else { val=polScore(Q,z);
-        r=Math.round(230+25*Math.min(1,val/60)); gb=Math.round(225-150*Math.min(1,val/60));
-        poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth='1px'; poly.style.stroke='#999';
+      } else {
+        // POLITICAL MODE: color by dominant party — red us, green PRI, blue PAN, ochre contested
+        var pp = partyShares(Q, z);
+        var col, t = Math.min(1, Math.max(0, (pp.top - 25) / 45)); // intensity by dominance
+        if (pp.contested) { col = mix([214,208,190],[164,140,66], t); }
+        else if (pp.who === 'izq') { col = mix([235,205,200],[178,34,34], t); }
+        else if (pp.who === 'pan') { col = mix([205,215,232],[27,95,168], t); }
+        else { col = mix([205,226,208],[28,122,61], t); }
+        poly.style.fill='rgb('+col[0]+','+col[1]+','+col[2]+')';
+        poly.style.strokeWidth='1px'; poly.style.stroke='#999';
       }
       poly.style.cursor='help';
       poly.onmousemove=function(ev){ if(!tip)return; var body;
         if(atWar){ var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
           if(intel>=40){ body='Columns: <b>'+Math.round(pres)+'</b> &middot; Garrison: <b>'+Math.round(guar)+'</b><br>Troop movements: '+trend(z,guar)+(guar>=55?'<br><b>Ground too hot: presence erodes.</b>':''); }
           else { body='Columns: '+(pres>=20?'strong':(pres>=5?'some':'almost none'))+' &middot; Army posture: '+q(guar,45,30)+'<br><i>estimates only (intel '+Math.round(intel)+'/40)</i>'; }
-        } else { var ps=polScore(Q,z);
-          body='Left implantation: <b>'+q(ps,35,18)+'</b><br>Built on: '+SECT[z].map(function(x){return x.replace("sup_","");}).join(", ")+'.<br><i>Organize these sectors to turn the region red.</i>';
+        } else {
+          var pp2=partyShares(Q,z);
+          var lbl = pp2.contested ? '<b style="color:#b09a5a">CONTESTED</b>'
+                  : (pp2.who==='izq' ? '<b style="color:#c0392b">THE LEFT</b>'
+                  : (pp2.who==='pan' ? '<b style="color:#5b8fc9">THE PAN</b>' : '<b style="color:#3f9e6a">THE PRI</b>'));
+          body='Leads here: '+lbl+'<br>'
+             + 'Us <b>'+Math.round(pp2.izq)+'</b> · PRI <b>'+Math.round(pp2.pri)+'</b> · PAN <b>'+Math.round(pp2.pan)+'</b><br>'
+             + 'Built on: '+SECT[z].map(function(x){return x.replace("sup_","");}).join(", ")
+             + '.<br><i>Organize these sectors to turn the region red.</i>';
         }
         tip.innerHTML='<b>'+INFO[z][0]+'</b><br><span style="opacity:.85">'+INFO[z][1]+'</span><br>'+body;
         tip.style.display='block'; var rect=el.getBoundingClientRect();
@@ -565,7 +598,10 @@
   var MAP = {
     valentin_campa:'campa.jpg', demetrio_vallejo:'vallejo.jpeg', martinez_verdugo:'verdugo.jpeg',
     othon_salazar:'othon.jpeg', danzos_palomino:'danzos.jpeg', benita_galeana:'benita.jpeg',
-    jose_revueltas:'revueltas.jpg', heberto_castillo:'heberto.jpeg', rosario_ibarra:'ibarra.jpg'
+    jose_revueltas:'revueltas.jpg', heberto_castillo:'heberto.jpeg', rosario_ibarra:'ibarra.jpg',
+    // guerrilla leaders + war desks (full paths, uploaded to img/)
+    genaro_vazquez:'img/genaro.jpg', lucio_cabanas:'img/Lucio.jpg', guero_medrano:'img/medrano.jpg',
+    la_comandancia:'img/jungleplan.jpg', responsable_urbana:'img/cards/urbana.jpg'
   };
   function inject(){
     var cards = document.querySelectorAll('a.card[card-id]');
@@ -574,7 +610,7 @@
       if (MAP[id] && !a.querySelector('img.card-img')){
         var img=document.createElement('img');
         img.className='card-img';
-        img.src='img/portraits/'+MAP[id];
+        img.src = MAP[id].indexOf('/') >= 0 ? MAP[id] : 'img/portraits/'+MAP[id];
         a.insertBefore(img, a.firstChild);
       }
     }
@@ -608,6 +644,93 @@
     if(c){ var o=new MutationObserver(function(){ setTimeout(injectFace,25); }); o.observe(c,{childList:true,subtree:false}); }
     setTimeout(injectFace,700);
   });
+})();
+
+/* ===================== PAN Y ROSAS — consequence ledger ===================== */
+// After each page, show what the last action actually moved: "expediente −8 · fondos −4".
+(function(){
+  var LABELS = {
+    funds:'fondos', members:'militantes', organizers:'cuadros', unity:'unidad',
+    political_capital:'capital político', expediente:'expediente', represion:'represión',
+    sup_workers:'obreros', sup_peasants:'campesinos', sup_students:'estudiantes',
+    sup_teachers:'maestros', sup_colonos:'colonos', sup_middle:'clases medias',
+    sup_electricians:'electricistas', charrismo:'charrismo',
+    legitimidad_regimen:'legitimidad del régimen', fe_voto:'fe en el voto',
+    red_casillas:'red de casillas', huelga_prep:'preparación de huelga',
+    inteligencia:'inteligencia', guerrilla_meter:'tentación armada',
+    pri_reformist_rel:'reformistas del PRI', moscow_relation:'Moscú',
+    pres_guerrero:'presencia Guerrero', pres_valle:'presencia Valle',
+    pres_oaxaca:'presencia Oaxaca', pres_chihuahua:'presencia Chihuahua',
+    memorial:'el memorial', fusion_prog:'la fusión', frente_unidad:'el frente',
+    fraude_documentado:'fraude documentado', escandalos:'escándalos'
+  };
+  // extra war labels
+  LABELS.parque = 'parque'; LABELS.moral_columnas = 'moral de columnas';
+  LABELS.coronel_red = 'red del Coronel'; LABELS.presos = 'presos'; LABELS.absorcion = 'digestión';
+  LABELS.pres_jalisco = 'presencia Jalisco'; LABELS.pres_nl = 'presencia Nuevo León';
+  LABELS.pres_tijuana = 'presencia Tijuana'; LABELS.veteranos = 'veteranos';
+  LABELS.salario_real = 'salario real'; LABELS.huelgas = 'huelgas'; LABELS.leyenda = 'la leyenda';
+
+  var prev = null;
+  function snap(){
+    try {
+      var q = window.dendryUI.dendryEngine.state.qualities, o = {};
+      for (var k in LABELS) { o[k] = Math.round((q[k] || 0) * 10) / 10; }
+      return o;
+    } catch (e) { return null; }
+  }
+  function fmt(n){ n = Math.round(n * 10) / 10; return (n > 0 ? '+' : '−') + Math.abs(n); }
+  // Scenes where the saldo line should NOT print (hands, plumbing, menus, pure-navigation).
+  function sceneOk(sid){
+    return sid && !/^root|^main$|^main\.|^post_event|^start|^backSpecialScene|^library|^mod_loader|^credits|^easy_discard|^return$|^game_over|^finale|^election_/.test(sid);
+  }
+  // Render the saldo of the transition INTO the currently displayed scene.
+  function render(){
+    var cur = snap();
+    if (!cur) { return; }
+    if (prev) {
+      var sid = '';
+      try { sid = window.dendryUI.dendryEngine.state.sceneId; } catch(e){}
+      var c = document.getElementById('content');
+      if (c && sceneOk(sid)) {
+        var diffs = [];
+        for (var k in LABELS) {
+          var d = cur[k] - prev[k];
+          if (Math.abs(d) >= 1) { diffs.push({k:k, d:d}); }
+        }
+        diffs.sort(function(a,b){ return Math.abs(b.d) - Math.abs(a.d); });
+        diffs = diffs.slice(0, 8);
+        // append under whatever content block is currently last, once per render
+        if (diffs.length && !c.querySelector('.pyr-ledger-fresh')) {
+          var div = document.createElement('div');
+          div.className = 'pyr-ledger pyr-ledger-fresh';
+          div.style.cssText = 'margin-top:1.1em;padding-top:0.45em;border-top:1px dotted #8a6d3b66;'
+            + 'font-size:0.82em;font-style:italic;opacity:0.78;';
+          div.textContent = '— el saldo: ' + diffs.map(function(x){ return LABELS[x.k] + ' ' + fmt(x.d); }).join(' · ');
+          c.appendChild(div);
+        }
+      }
+    }
+    prev = cur;
+  }
+  // strip the "fresh" marker so only the newest line is considered current
+  function unmark(){
+    var olds = document.querySelectorAll('.pyr-ledger-fresh');
+    for (var i=0;i<olds.length;i++){ olds[i].classList.remove('pyr-ledger-fresh'); }
+  }
+  function hook(){
+    var e = window.dendryUI && window.dendryUI.dendryEngine;
+    if (!e || !e.displaySceneContent) { setTimeout(hook, 300); return; }
+    prev = snap();
+    var origDSC = e.displaySceneContent;
+    e.displaySceneContent = function(){
+      unmark();                          // last render is no longer "fresh"
+      var r = origDSC.apply(this, arguments);
+      try { render(); } catch(x){}
+      return r;
+    };
+  }
+  window.addEventListener('load', function(){ setTimeout(hook, 700); });
 })();
 
 /* ===================== PAN Y ROSAS — music player ===================== */
@@ -712,6 +835,7 @@
     shufBtn.onclick = function(){ shuffle=!shuffle; shufBtn.classList.toggle('on',shuffle); };
     vol.oninput = function(){ audio.volume=parseFloat(vol.value); localStorage.setItem('pyr_music_vol',vol.value); };
     audio.onended = function(){ if(!loop) next(); };
+    audio.onerror = function(){ if (tracks.length > 1) next(); else { playBtn.textContent = String.fromCharCode(9654); } };
     wrap.querySelector('#pyr-file').onchange = function(e){
       Array.prototype.forEach.call(e.target.files, function(f){
         tracks.push({name:f.name.replace(/\.[^.]+$/,''), url:URL.createObjectURL(f), isLocal:true});
@@ -721,16 +845,74 @@
     };
 
     // load bundled soundtrack manifest, if present
-    fetch('music/playlist.json').then(function(r){ return r.ok?r.json():null; })
-      .then(function(data){
-        if (data && data.tracks && data.tracks.length){
-          data.tracks.forEach(function(t){
-            tracks.push({name:t.title||t.file, url:'music/'+t.file, isLocal:false});
-          });
-          renderList();
-          titleEl.textContent = tracks.length + ' canciones en la banda sonora';
-        }
-      }).catch(function(){});
+    // embedded soundtrack manifest (works offline via file:// — no fetch needed)
+    // g = pool: 'both' (anthems, every context), 'pol' (political road), 'war' (la sierra)
+    var BUNDLED = [
+      {f:"Inti Illimani - Venceremos.mp3",t:"Venceremos — Inti-Illimani",g:"both"},
+      {f:"Víctor Jara - Manifiesto.mp3",t:"Manifiesto — Victor Jara",g:"both"},
+      {f:"Pablo Milanés - Yo Pisaré las Calles Nuevamente (En Vivo).mp3",t:"Yo pisare las calles nuevamente — Pablo Milanes",g:"both"},
+      {f:"Silvio Rodríguez - La Era Está Pariendo un Corazón.mp3",t:"La era esta pariendo un corazon — Silvio Rodriguez",g:"both"},
+      {f:"LA ERA ESTÁ PARIENDO UN CORAZÓN - Silvio Rodríguez.mp3",t:"La era esta pariendo un corazon (alt) — Silvio Rodriguez",g:"both"},
+      // la sierra — the war
+      {f:"El corrido de Lucio Cabañas.mp3",t:"Corrido de Lucio Cabanas",g:"war"},
+      {f:"Mexican Zapatista Song - ¡Se Acabó!.mp3",t:"¡Se acabo! — cancion zapatista",g:"war"},
+      {f:"Mercedes Sosa - Cuando Tenga La Tierra (Audio).mp3",t:"Cuando tenga la tierra — Mercedes Sosa",g:"war"},
+      {f:"Daniel Viglietti - A Desalambrar.mp3",t:"A desalambrar — Daniel Viglietti",g:"war"},
+      {f:"Mercedes Sosa - Solo le Pido a Dios.mp3",t:"Solo le pido a Dios — Mercedes Sosa",g:"war"},
+      {f:"Kaiserreich - Anthem of The United South American States.mp3",t:"Himno — United South American States",g:"war"},
+      // the political road — canto nuevo, corridos, the crisis city
+      {f:"Judith Reyes - Tragedia de la Plaza de las Tres Culturas (Tragedy of Plaza of the Three Cultures).mp3",t:"Tlatelolco: Tragedia de la Plaza de las Tres Culturas — Judith Reyes",g:"pol"},
+      {f:"Me gustan los estudiantes.mp3",t:"Me gustan los estudiantes — Violeta Parra",g:"pol"},
+      {f:"Amparo Ochoa - La Maldición de La Malinche (feat. Los Folkloristas).mp3",t:"La Maldicion de Malinche — Amparo Ochoa",g:"pol"},
+      {f:"AMPARO OCHOA - EL BARZÓN.mp3",t:"El Barzon — Amparo Ochoa",g:"pol"},
+      {f:"Víctor Jara - Te Recuerdo Amanda (En Vivo Peña de los Parra).mp3",t:"Te recuerdo Amanda — Victor Jara",g:"pol"},
+      {f:"Mercedes Sosa - Gracias A La Vida.mp3",t:"Gracias a la vida — Mercedes Sosa",g:"pol"},
+      {f:"_ESTACIÓN DEL METRO BALDERAS_ - ROCKDRIGO GONZÁLEZ - 1984 (REMASTERIZADO).mp3",t:"Estacion del Metro Balderas — Rockdrigo Gonzalez (1984)",g:"pol"}
+    ];
+    BUNDLED.forEach(function(t){
+      tracks.push({name:t.t, url:'music/'+encodeURIComponent(t.f), isLocal:false, g:t.g});
+    });
+    if (tracks.length){ renderList(); titleEl.textContent = tracks.length + ' canciones en la banda sonora'; }
+
+    // --- context-aware pool: la sierra gets a different soundtrack than the political road,
+    //     but the anthems (Venceremos, Manifiesto…) play in both. ---
+    function atWar(){
+      try { return window.dendryUI.dendryEngine.state.qualities.via === 'armada'; } catch(e){ return false; }
+    }
+    function poolIdx(){
+      var want = atWar() ? 'war' : 'pol';
+      var out = [];
+      for (var i=0;i<tracks.length;i++){
+        var g = tracks[i].g;
+        if (!g || g === 'both' || g === want || tracks[i].isLocal) { out.push(i); }
+      }
+      return out.length ? out : tracks.map(function(_,i){ return i; });
+    }
+    function nextInPool(){
+      var pool = poolIdx();
+      // prefer a track from the current pool we're not already on
+      var choices = pool.filter(function(i){ return i !== idx; });
+      if (!choices.length) choices = pool;
+      return choices[Math.floor(Math.random()*choices.length)];
+    }
+    // override next() to respect the pool when shuffling (default behavior)
+    next = function(){
+      if (!tracks.length) return;
+      if (shuffle){ play(nextInPool()); return; }
+      play((idx+1) % tracks.length);
+    };
+    wrap.querySelector('#pyr-next').onclick = next;
+    audio.onended = function(){ if(!loop) next(); };
+
+    // Autoplay on the first user gesture (pressing Comenzar): browsers block
+    // play() before a click, so the first click anywhere starts the soundtrack.
+    function autostart(){
+      document.removeEventListener('click', autostart, true);
+      if (idx >= 0 || audio.src || !tracks.length) return;
+      shuffle = true; shufBtn.classList.add('on');
+      play(nextInPool());
+    }
+    document.addEventListener('click', autostart, true);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

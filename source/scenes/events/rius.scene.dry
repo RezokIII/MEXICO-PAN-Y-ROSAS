@@ -19,6 +19,7 @@ Rius returns to his drawing table with a cardiologist's orders and does not soft
 - @silencio_rius: Note it, learn it, say little. The lesson was addressed to everyone; no need to sign for the delivery.
 
 @tinta
+go-to: post_event
 subtitle: -2 funds
 choose-if: funds >= 2
 unavailable-subtitle: Even solidarity ink must be bought.
@@ -27,6 +28,7 @@ on-arrival: funds -= 2; sup_students += 3; sup_middle += 2; political_capital +=
 The special runs with Rius's own account drawn by his own hand — the grave rendered in his fat cheerful line, the caption doing the executioner's work in reverse. It sells everywhere the kiosks dare. The Republic learns that its government rehearses shootings of cartoonists, in the cartoonist's own style, which is the one style it cannot confiscate.
 
 @silencio_rius
+go-to: post_event
 on-arrival: unity += 1
 
 The lesson is filed where the Party files such things. Years later, at some kitchen table, someone will note the strange geometry of it: the General's one telephone call, sparing the pen that would spend two decades preparing the country that would vote for the General's son. History has a draftsman's sense of humor. Rius would draw it exactly so.

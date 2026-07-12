@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1976 — Washington does not wait for the vote
 face-image: img/septiembre_mexicano.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and year = 1976 and month = 5 and guerrilla_meter >= 45 and (huelga_general = 1 or auge_armada = 1 or legitimidad_regimen <= 42)
+view-if: via = "armada" and year = 1976 and month = 5 and guerrilla_meter >= 45 and (huelga_general = 1 or auge_armada = 1 or legitimidad_regimen <= 42)
 priority: 6
 max-visits: 1
 on-arrival: {! Q.ending = "intervencion"; this.achieve('el_septiembre_mexicano'); this.achieve('game_completed'); !}

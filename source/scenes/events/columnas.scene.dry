@@ -1,0 +1,84 @@
+title: La columna quiere sangre
+new-page: true
+subtitle: Discipline against initiative, at gunpoint
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and moral_columnas >= 60 and pres_guerrero >= 20 and time >= columna_last + 14
+priority: 2
+frequency: 60
+max-visits: 5
+on-arrival: columna_last = time
+
+= La columna quiere sangre
+
+The message comes down the trail with the particular heat of young men who have won a few and want more: the Guerrero column has a cacique in its sights — a real one, the kind who burns ejidos and buys judges — and it wants permission to execute him. The case against the man is airtight and the case for restraint is strategic, which is to say it sounds, to twenty-year-olds with rifles, like cowardice wearing a necktie.
+
+This is the war the party never had: not the enemy, but your own people, disciplined or not by a decision made far from the fire. Say yes and the column loves you and the reprisal comes; say no and you keep the strategy and lose a little of the thing that makes men climb mountains for you.
+
+- @columna_autorizar: Authorize it. The cacique has earned it and the column needs to know the leadership trusts its judgment.
+- @columna_frenar: Hold them. Explain the arithmetic — a dead cacique is a battalion in the sierra by Friday — and spend authority to enforce it.
+- @columna_negociar: Neither: turn the energy sideways. Give the column a sanctioned operation instead — a target the strategy actually wants hit.
+
+@columna_autorizar
+go-to: post_event
+on-arrival: moral_columnas += 8; sup_peasants += 3; represion += 5; expediente += 5; guar_guerrero += 6; memorial += 1
+
+The cacique's reign ends in his own doorway, and for a week the Costa Grande breathes the specific air of a debt collected. The column would follow you into the sea now. So, unfortunately, would a battalion of paratroopers: the reprisal arrives on schedule, falling as it always falls not on the gunmen but on the villages, and the leadership adds one more entry to the ledger of victories that cost more than defeats.
+
+@columna_frenar
+go-to: post_event
+choose-if: moral_columnas >= 55
+unavailable-subtitle: Restraining a column that wants blood takes standing the leadership does not currently have with the fighters.
+on-arrival: moral_columnas -= 6; unity += 3; inteligencia += 2; guar_guerrero -= 2
+
+The order is obeyed, barely, and resented, fully. The cacique lives; the sweep that his death would have triggered does not come; the zone stays quiet and workable for another season. The column files the decision under the word it uses for all such decisions — *prudencia* — and pronounces it exactly the way the '68 students once pronounced it about the party. The wheel turns. You are the cautious ones now, and the young are learning to spit the word.
+
+@columna_negociar
+go-to: post_event
+choose-if: parque >= 2
+unavailable-subtitle: Redirecting the column's energy takes materiel for a real operation — 2 parque.
+on-arrival: moral_columnas += 3; parque -= 2; guar_guerrero += 3; expediente += 3; guerrilla_meter += 2
+
+You give the column what it actually needs, which is not the cacique but the feeling of forward motion: a sanctioned target the strategy wants hit anyway — a garrison payroll, an army radio — planned properly, resourced, blessed. The cacique keeps his skin and the column keeps its edge, and both are pointed where the leadership wants them pointed. It is the hardest trick in commanding fighters: to make discipline feel like permission.
+
+@la_deriva
+title: La deriva
+new-page: true
+subtitle: A column drifts toward banditry
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and moral_columnas < 42 and parque <= 2 and time >= columna_last + 10
+priority: 3
+frequency: 55
+max-visits: 4
+on-arrival: columna_last = time
+
+= La deriva
+
+Hunger does to guerrillas what it does to everyone, only with guns in the room. A column cut off too long — low on materiel, lower on wins, out of contact with the leadership for a season — has started doing the thing every armed movement dreads and most eventually do: living off the very people it exists to defend. Not expropriation with receipts, the way Lucio taught; just taking. A store here, a truck there, and the villages beginning to lock their doors against the men who were supposed to be the answer.
+
+The war does not end when the army wins. It ends when the people stop being able to tell you apart from the bandits — and that ending has begun, in one column, this month.
+
+- @deriva_rescatar: Reach them: resupply, re-contact, remind them what they are. Spend what it takes to pull a column back from the edge.
+- @deriva_disolver: Dissolve it. Some columns cannot be saved, only ended before they discredit the whole war — bring them down or cut them loose.
+- @deriva_ignorar: Nothing to spare. Let the column fend for itself and hope the drift reverses on its own.
+
+@deriva_rescatar
+go-to: post_event
+choose-if: funds >= 5 and organizers >= 2
+unavailable-subtitle: Pulling a column back from banditry takes cash and trusted cadres — 5 funds, 2 organizers.
+on-arrival: funds -= 5; moral_columnas += 14; sup_peasants += 2; guerrilla_meter += 1; unity += 2
+
+An emissary the column respects goes up with money, medicine, and the harder cargo: the reminder, delivered at a fire, of why anyone climbed the mountain in the first place. It works, mostly, because the drift shamed them too — men become bandits by degrees and hate themselves the whole way. The column re-enters discipline thinner and quieter, and the villages, watching the doors it stops needing to be locked, extend one more season of the only thing that keeps a guerrilla alive: the benefit of the doubt.
+
+@deriva_disolver
+go-to: post_event
+on-arrival: moral_columnas += 4; pres_guerrero -= 5; members += 1; unity -= 2; guerrilla_meter -= 2
+
+The order is the hardest a leadership gives: it is over, come down or scatter, the column is dissolved before its hunger writes a chapter the enemy's press will quote for decades. Some come down; some vanish into the day labor of the defeated; a few refuse and become, exactly as feared, a small horror with a red flag that the state will point to forever. You saved the war's name by ending a piece of the war. In this decade that is sometimes the whole of command.
+
+@deriva_ignorar
+go-to: post_event
+on-arrival: moral_columnas -= 6; sup_peasants -= 5; represion += 2; memorial += 1; guerrilla_meter -= 1
+
+You have nothing to send and you send nothing, and the drift does what drift does: the column crosses the line from movement to menace, a village files a complaint the army is delighted to answer, and a firefight that should have been against soldiers happens instead over a stolen truck. The war loses a column and a region's trust in the same month, to no enemy but its own hunger. The manuals have a cold name for it — *lumpenización* — and no cure but the resupply you could not afford.

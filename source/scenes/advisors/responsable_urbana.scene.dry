@@ -1,0 +1,47 @@
+title: La responsable urbana
+is-pinned-card: true
+tags: advisor
+new-page: true
+card-image: img/cards/urbana.jpg
+view-if: via = "armada" and armada_entered = 1
+
+= La responsable urbana
+
+*Jefa de la red de ciudades. Only exists while the war does; her name, you have made a point of never learning.*
+
+She was a chemistry student once, they say, or a telephone operator, or a nun — the stories contradict each other because she plants them herself. What is verifiable: since she took the city desk, no safe house has fallen with people inside it, and the Brigada has twice raided apartments she emptied on instinct alone, hours ahead of orders she could not have read. The columns hold the mountains. She holds everything else: the routes, the papers, the doors.
+
+- @casas_seguridad
+- @imprenta_clandestina
+- @la_fuga_accion
+- @root: Return to main
+
+@casas_seguridad
+title: Las casas de seguridad
+subtitle: Rebuild the housing net: new doors, new names, the file's addresses gone stale in one season.
+card-image: img/cards/urbana.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; expediente -= 7; pres_valle += 2
+
+She does it the way she does everything: completely, and in silence. Every lease ends, every key changes, every neighbor who noticed anything finds the noticing has moved away. The DFS's city map — years of patient watching, thousands of man-hours of parked cars — becomes, in one season, a museum of former addresses. Somewhere in Bucareli a major must explain the sudden blindness to a general, and cannot.
+
+@imprenta_clandestina
+title: La imprenta clandestina
+subtitle: The war argues in print: communiqués that arrive folded inside the sports section.
+card-image: img/cards/urbana.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_students += 3; sup_workers += 1; guerrilla_meter += 1; expediente += 3
+
+The press moves every six weeks and prints on paper bought in quantities too small to flag PIPSA's ledgers. What it prints is not triumphalism — she forbids the word *victoria* — but arithmetic: what the state spends hunting the columns against what it spends on clinics, names of the disappeared set in the smallest type so the list fits. The university reads it. The factories read the wage tables on the back page. The DFS reads it most carefully of all.
+
+@la_fuga_accion
+title: La fuga
+subtitle: One name out of the state's hands: a prisoner walked out before the system closes over him.
+card-image: img/cards/urbana.jpg
+choose-if: advisor_action_timer == 0 and inteligencia >= 20 and funds >= 5
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if advisor_action_timer = 0 : A fuga runs on intelligence (20) and money (5 funds): guards have prices, floor plans have keepers. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; funds -= 5; members += 1; represion += 3; expediente += 5; guerrilla_meter += 2
+
+It is never dynamite; dynamite is for amateurs and corridos. It is a transfer order with one digit altered, a guard whose brother needed a surgery that was suddenly paid for, a laundry truck with a rebuilt floor. The compañero who was being asked questions in a building with no address wakes up in Guadalajara with new papers and an old debt. The state's fury is specific and budgeted; the network's lesson is priceless: *no one is left inside.* Nothing recruits like that sentence.

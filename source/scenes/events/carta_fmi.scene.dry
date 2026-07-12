@@ -1,0 +1,36 @@
+title: La carta del FMI
+new-page: true
+subtitle: 1983 — comienza la década perdida
+face-image: img/crisis_economica.jpg
+tags: event
+view-if: year = 1983 and month >= 3 and month <= 5
+priority: 2
+max-visits: 1
+
+= La carta del FMI
+
+De la Madrid arrives as the técnico the crisis ordered, and his first act is a letter of intent to the International Monetary Fund: austerity, devaluation, the budget balanced on the backs of the people who did not borrow the money. Real wages begin the fall that will not stop for a decade. The "lost decade" opens not with a coup but with a signature.
+
+Every subsidy cut is a neighborhood angrier than it was. The question is whether the anger becomes a movement or just a mood.
+
+- @frente_austeridad: Build the anti-austerity front — the unions, the colonias, the debtors, against the letter.
+- @moratoria: Raise the demand no minister will say: suspend the debt payment, feed the country first.
+- @documentar_costo: Document the cost — the wage, the clinic closed, the milk unpriced — for the reckoning to come.
+
+@frente_austeridad
+on-arrival: sup_workers += 4; sup_colonos += 4; huelgas += 4; expediente += 4; legitimidad_regimen -= 3; fe_voto += 1
+go-to: post_event
+
+You stitch the anger into something with a shape: the CNTE teachers, the neighborhood assemblies, the electricians who never forgot, marching under one demand against the letter. It does not stop the austerity — nothing stops the austerity — but it teaches a generation that the cuts have an author, and that the author can be named in the street.
+
+@moratoria
+on-arrival: political_capital += 3; ax_nacpop += 3; sup_middle += 2; legitimidad_regimen -= 2; pri_reformist_rel -= 1
+go-to: post_event
+
+You raise the demand the whole political class treats as unspeakable — that a country cannot be asked to starve to pay interest to banks that lent recklessly — and for saying it plainly you are called irresponsible by people whose salaries are indexed to the dollar. The debtors do not think you irresponsible. They think you are the only one doing arithmetic on their side.
+
+@documentar_costo
+on-arrival: political_capital += 2; sup_middle += 2; anatomia = 1 if red_casillas >= 20
+go-to: post_event
+
+You send the cadres to count what austerity actually costs: the real wage in tortillas, the clinic that closed, the school without chalk. It is unglamorous and it is a weapon — because in the reckoning that is coming, the regime will claim there was no other way, and you will have the ledger that says there was, and who paid for the way they chose.

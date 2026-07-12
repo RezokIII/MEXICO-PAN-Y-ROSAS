@@ -1,0 +1,86 @@
+title: La elección robada
+new-page: true
+subtitle: Gobernación rehearses on you
+face-image: img/casilla.jpg
+tags: event
+view-if: pri_posture = "robar" and registro >= 1 and izq_votes_display >= 16 and time >= robada_last + 26
+priority: 2
+frequency: 65
+max-visits: 5
+on-arrival: robada_last = time
+
+= La elección robada
+
+It is a municipal election in a state where your work had begun to bite — a mid-size town, a good planilla, polls your people trusted — and the machine performs its whole repertoire on it with the unhurried thoroughness of an orchestra rehearsing: the padrón purged of your colonias, two casillas relocated overnight to addresses that do not exist, urns pregnant by noon, and a final act the count itself, conducted behind a door with your representative outside it.
+
+This was not chance. The semáforo in Bucareli has your file on the *robar* desk now: you are big enough to steal from, and they are practicing — calibrating the alquimia against your networks specifically, learning which of your casilla people can be bought, bullied, or simply relocated. Every technique perfected here is being filed for a larger night.
+
+- @documentar_robo: Document everything: the parallel count, the moved casillas, the padrón surgery — a forensics of the machine.
+- @quemar_la_plaza: Make the town ungovernable: occupation of the alcaldía, permanent plantón, the theft made expensive.
+- @tragar_robo: Concede quietly. Save the network from exposure; let the town go.
+
+@documentar_robo
+go-to: post_event
+choose-if: red_casillas >= 10
+unavailable-subtitle: Documenting a theft requires eyes at the tables — yours were not there in numbers.
+on-arrival: fraude_documentado += 1; fe_voto += 1; political_capital += 2; expediente += 2
+
+The dossier is a small masterpiece of civic accountancy, and its immediate legal effect is precisely nothing — the electoral college certifies its own arithmetic, sincerely. Its real product ships later: your people now know the machine's current repertoire move by move, and the training the next generation of casilla watchers receives is written directly from this town's wounds. The regime rehearsed on you. You took notes.
+
+@quemar_la_plaza
+go-to: post_event
+choose-if: sup_colonos >= 12 or sup_peasants >= 15
+unavailable-subtitle: A plantón needs a base in the town; you organized the vote, not the plaza.
+on-arrival: huelgas += 2; sup_peasants += 2; represion += 3; expediente += 4; legitimidad_regimen -= 2; political_capital += 1
+
+The alcaldía acquires a tenant it did not elect: three hundred citizens in shifts, cook fires in the portales, the "elected" presidente municipal sworn in at a hotel two towns away, governing nothing. It will end, eventually, as these always end — a negotiation, a partial concession, a face-saving interinato. But the state's ledger takes the entry it hates most: a theft that had to be paid for twice, once in votes and once in weeks.
+
+@tragar_robo
+go-to: post_event
+on-arrival: fe_voto -= 2; unity -= 2; sup_middle += 1
+
+The concession speech is dignified and the arithmetic behind it sound: an exposed network is worth more than one town. But the town draws its own conclusion, the one towns always draw, and next time the padrón is purged there will be fewer volunteers to notice: the machine's oldest weapon was never the urn. It is the lesson that resistance is expensive and futile, taught one quiet concession at a time.
+
+@izquierda_oficial
+title: La izquierda de charola
+new-page: true
+subtitle: The regime builds a competitor
+face-image: img/charola.jpg
+tags: event
+view-if: pri_posture = "cooptar" and izq_votes_display >= 13 and registro >= 0 and time >= oficial_last + 30 and year >= 1974
+priority: 2
+frequency: 60
+max-visits: 3
+on-arrival: oficial_last = time; sup_students -= 2; sup_colonos -= 2
+
+= La izquierda de charola
+
+It launches with a budget no honest party has: a "new force of the socialist left," lavishly postered, granted its registro with a speed the Comisión has never once shown you, its leaders young, telegenic, and formerly yours — two of them are faces from your own congress photographs, wearing new suits and the smiles of men whose rent is no longer a variable.
+
+The design is stamped on every choice: its program is your program with the teeth pulled; its candidacies bloom precisely in your best districts; its posters answer questions no one asked about you in particular. Gobernación has concluded, the fuente confirms, that the cheapest way to contain a real left is to manufacture an affordable one — and let the two of you divide the same discontent.
+
+- @contrastar: Fight it on substance: the record, the prisoners, the strikes — make authenticity the issue in every district it contests.
+- @infiltrar_oficial: Put people inside it. A party built of the bought can be bought back — or at least read like a subscription.
+- @desdenar: Ignore it. Manufactured parties are the regime's money set on fire; save your powder for the regime.
+
+@contrastar
+go-to: post_event
+choose-if: political_capital >= 4
+unavailable-subtitle: Contrast requires a platform loud enough to draw the comparison — capital you lack this season.
+on-arrival: political_capital -= 4; sup_students += 3; sup_colonos += 2; fe_voto += 1; expediente += 2
+
+The counter-campaign never names them, which is the art of it: a poster series on the Party's dead, a pamphlet reprinting your 1968 positions beside theirs (they had none; they did not exist), Benita's generation telling plaza audiences what the word militante cost before it paid. In district after district the manufactured party discovers the one deficit money cannot cover: it has no funerals to point to. The discount left keeps its budget. You keep the base.
+
+@infiltrar_oficial
+go-to: post_event
+choose-if: organizers >= 3 and inteligencia >= 15
+unavailable-subtitle: Infiltration is skilled labor: it takes spare cadres and the craft to keep them unread.
+on-arrival: inteligencia += 4; political_capital += 1; expediente += 3; unity -= 1
+
+Three of yours join the new party with convincing resentment and rise, as talent rises in a house built of the bought, immediately. Within a year you read its candidate lists before its own executive does, know which Gobernación desk feeds it, and can nudge its district choices away from your strongholds — a competitor whose steering wheel you can, on good months, lean on. The ortodoxos are told nothing, on the principle that some meals should not be described at the table.
+
+@desdenar
+go-to: post_event
+on-arrival: unity += 1; funds += 1
+
+The analysis is orthodox and half right: manufactured parties burn regime money and collapse when the sexenio changes patrons. The half wrong arrives at the margins — a point of students here, a colonia slate there, the small steady tax that a well-funded imitation levies on the real thing. Affordable opposition is the regime's oldest crop. You have chosen to let this harvest pass.

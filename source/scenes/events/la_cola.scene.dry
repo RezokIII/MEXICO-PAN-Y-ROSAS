@@ -16,11 +16,13 @@ The same Ford Galaxie, three mornings running, half a block from the press. Two 
 - @saludar: Send them out two coffees, with sugar. Let Bucareli file that.
 
 @perderlos
+go-to: post_event
 on-arrival: expediente -= 2
 
 Three weeks of tedium: buses boarded at the last second, packages that travel in thirds, meetings that happen one metro stop from where they were called. The Galaxie idles outside an emptying building. Somewhere a report is filed with the saddest phrase in the bureaucracy: *sin novedad*.
 
 @saludar
+go-to: post_event
 on-arrival: expediente += 2; sup_students += 1; unity += 1
 
 El Gordo accepts the coffee with the dignity of a man being paid either way; el Flaco declines on principle, whatever his principles are. The story is all over the university by Friday and grows a mariachi in the retelling. The DFS does not enjoy being charming material. The file notes: *sujetos exhiben actitud provocadora*.

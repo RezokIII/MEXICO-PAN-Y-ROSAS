@@ -2,7 +2,7 @@ title: José Revueltas
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: revueltas_advisor = 1 and revueltas_dead = 0
+view-if: revueltas_advisor = 1 and (via = "politica" or via = "institucional") and revueltas_dead = 0 and refugio_sierra = 0
 
 = José Revueltas
 
@@ -12,6 +12,7 @@ The Party expelled him twice for telling it the truth, and he outlived both expu
 
 - @revueltas_palabra
 - @revueltas_conciencia
+- @revueltas_herejia
 - @root: Return to main
 
 @revueltas_palabra
@@ -32,3 +33,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; fac_nueva_izquierda += 4; unity -= 2; ax_electoral -= 2; fac_nueva_izquierda += 2; fac_ortodoxos -= 1; fac_renovadores -= 1
 
 The essay says the Party has confused surviving with living, and says it beautifully, which makes it worse. Three members resign; thirty students apply. The ortodoxos demand a reply and there is no reply, because the only honest one is the essay itself, read slowly.
+
+@revueltas_herejia
+title: La herejía necesaria
+subtitle: Let him think in public. The prestige of a socialism that answers to no embassy is worth more than any subsidy.
+card-image: img/portraits/revueltas.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; prestigio_socialismo += 4; ax_sovietico -= 3; sup_students += 2; political_capital += 2; des_ortodoxos += 3
+
+Revueltas commits, on paper, the Party's most useful heresy: that a socialism worth the name cannot take its orders from any capital, Moscow included — that the head without a party is sometimes more honest than the party without a head. The orthodox seethe. The students, who can smell an unbought idea from across a plaza, come closer. In the long battle for the word itself, this is how you keep it clean.
