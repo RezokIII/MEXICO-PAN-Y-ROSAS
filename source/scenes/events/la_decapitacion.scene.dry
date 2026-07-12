@@ -1,7 +1,7 @@
 title: One by one
 new-page: true
 subtitle: The killing of the leadership
-face-image: img/camioneta.jpg
+face-image: img/muertos.jpg
 tags: event
 view-if: represion >= 88 and expediente >= 82 and time >= decap_last + 4 and refugio_sierra = 0
 priority: 4

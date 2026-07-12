@@ -1,3 +1,20 @@
+PAN Y ROSAS — la aniquilacion (armed-path tragic ending):
+
+- New unique ending for the armed road: "El cerco se cierra" / "El exterminio" — a
+  distinct, poetic annihilation when the guerrilla is crushed (members reach 0 on the
+  armed road). Not the generic collapse: the informer web, the encirclement, the last
+  camp taken before dawn, the flights over the sea, the state's victory so total it
+  spends forty years denying there was a war. Its own achievement, finale slides
+  (What was / What was not / the 2014 book / the 2019 forum / the 2023 transcript / the
+  mural), and closing image.
+- New warning event: "El ultimo invierno" — fires when the war crosses the one-way
+  threshold (morale <=30, Coronel's network >=60, and thinning ranks), telling you the
+  ring is closing and there is still time — barely — to come down.
+- New images wired: muertos.jpg (the annihilation ending, la decapitacion),
+  stareguerilla.jpg (the warning, going underground), theend.jpg (the final screen).
+- Verified: 120-card audit clean, exterminio ending routes correctly, armed fuzz runs
+  crash-free.
+
 PAN Y ROSAS — war overhaul + ledger fix:
 
 - LA GUERRA IS A GAME NOW. New operations card (La operación): ambush, barracks raid,

@@ -746,7 +746,7 @@ if (this.ui && this.ui.show_portraits) {
 if (typeof window !== "undefined" && window.generateBar) {
 }
 !}
-go-to: la_derrota if members < 1; events_choice if has_event = 1; main.main_85 if has_event = 0 and year >= 1985 and difficulty >= 0; main.main_78 if has_event = 0 and year >= 1978 and difficulty >= 0; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
+go-to: la_aniquilacion_armada if members < 1 and via = "armada"; la_derrota if members < 1; events_choice if has_event = 1; main.main_85 if has_event = 0 and year >= 1985 and difficulty >= 0; main.main_78 if has_event = 0 and year >= 1978 and difficulty >= 0; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
 = [+ month : month +] [+ year +]
 
