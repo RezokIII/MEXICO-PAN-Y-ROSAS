@@ -848,26 +848,37 @@
     // embedded soundtrack manifest (works offline via file:// — no fetch needed)
     // g = pool: 'both' (anthems, every context), 'pol' (political road), 'war' (la sierra)
     var BUNDLED = [
+      // anthems — every context
       {f:"Inti Illimani - Venceremos.mp3",t:"Venceremos — Inti-Illimani",g:"both"},
       {f:"Víctor Jara - Manifiesto.mp3",t:"Manifiesto — Victor Jara",g:"both"},
       {f:"Pablo Milanés - Yo Pisaré las Calles Nuevamente (En Vivo).mp3",t:"Yo pisare las calles nuevamente — Pablo Milanes",g:"both"},
+      {f:"Canción al Partido Comunista - Mexican Communist Song.mp3",t:"Cancion al Partido Comunista",g:"both"},
+      {f:"Cubanito (Mexican Communist Song).mp3",t:"Cubanito — cancion comunista",g:"both"},
+      {f:"Silvio Rodríguez - Playa Girón.mp3",t:"Playa Giron — Silvio Rodriguez",g:"both"},
       {f:"Silvio Rodríguez - La Era Está Pariendo un Corazón.mp3",t:"La era esta pariendo un corazon — Silvio Rodriguez",g:"both"},
       {f:"LA ERA ESTÁ PARIENDO UN CORAZÓN - Silvio Rodríguez.mp3",t:"La era esta pariendo un corazon (alt) — Silvio Rodriguez",g:"both"},
       // la sierra — the war
-      {f:"El corrido de Lucio Cabañas.mp3",t:"Corrido de Lucio Cabanas",g:"war"},
+      {f:"Lucio cabañas - María guerra - Canción dedicada a Lucio Cabañas.mp3",t:"Maria guerra — cancion dedicada a Lucio Cabanas",g:"war"},
+      {f:"¡Obreros, a la Huelga! - Mexican Communist Song (Song of the LC23S).mp3",t:"¡Obreros, a la huelga! — cancion de la Liga 23 de Septiembre",g:"war"},
+      {f:"Asalto al cielo (Totaldeterminacion).mp3",t:"Asalto al cielo — Total Determinacion",g:"war"},
       {f:"Mexican Zapatista Song - ¡Se Acabó!.mp3",t:"¡Se acabo! — cancion zapatista",g:"war"},
       {f:"Mercedes Sosa - Cuando Tenga La Tierra (Audio).mp3",t:"Cuando tenga la tierra — Mercedes Sosa",g:"war"},
       {f:"Daniel Viglietti - A Desalambrar.mp3",t:"A desalambrar — Daniel Viglietti",g:"war"},
       {f:"Mercedes Sosa - Solo le Pido a Dios.mp3",t:"Solo le pido a Dios — Mercedes Sosa",g:"war"},
       {f:"Kaiserreich - Anthem of The United South American States.mp3",t:"Himno — United South American States",g:"war"},
-      // the political road — canto nuevo, corridos, the crisis city
+      // the political road — canto nuevo, corridos, the crisis city, rock mexicano
       {f:"Judith Reyes - Tragedia de la Plaza de las Tres Culturas (Tragedy of Plaza of the Three Cultures).mp3",t:"Tlatelolco: Tragedia de la Plaza de las Tres Culturas — Judith Reyes",g:"pol"},
+      {f:"MACONDO (ORIGINAL) OSCAR CHAVEZ.mp3",t:"Macondo — Oscar Chavez",g:"pol"},
       {f:"Me gustan los estudiantes.mp3",t:"Me gustan los estudiantes — Violeta Parra",g:"pol"},
+      {f:"Gabino Palomares - La Maldición de Malinche.mp3",t:"La Maldicion de la Malinche — Gabino Palomares",g:"pol"},
       {f:"Amparo Ochoa - La Maldición de La Malinche (feat. Los Folkloristas).mp3",t:"La Maldicion de Malinche — Amparo Ochoa",g:"pol"},
       {f:"AMPARO OCHOA - EL BARZÓN.mp3",t:"El Barzon — Amparo Ochoa",g:"pol"},
+      {f:"León Chávez Teixeiro - 15 mts. 3 8_8 16.mp3",t:"15 metros — Leon Chavez Teixeiro",g:"pol"},
       {f:"Víctor Jara - Te Recuerdo Amanda (En Vivo Peña de los Parra).mp3",t:"Te recuerdo Amanda — Victor Jara",g:"pol"},
       {f:"Mercedes Sosa - Gracias A La Vida.mp3",t:"Gracias a la vida — Mercedes Sosa",g:"pol"},
-      {f:"_ESTACIÓN DEL METRO BALDERAS_ - ROCKDRIGO GONZÁLEZ - 1984 (REMASTERIZADO).mp3",t:"Estacion del Metro Balderas — Rockdrigo Gonzalez (1984)",g:"pol"}
+      {f:"Three Souls in My Mind - ABUSO DE AUTORIDAD.mp3",t:"Abuso de autoridad — Three Souls in My Mind",g:"pol"},
+      {f:"_ESTACIÓN DEL METRO BALDERAS_ - ROCKDRIGO GONZÁLEZ - 1984 (REMASTERIZADO).mp3",t:"Estacion del Metro Balderas — Rockdrigo Gonzalez (1984)",g:"pol"},
+      {f:"Caifanes - Mátenme por que me muero.mp3",t:"Matenme porque me muero — Caifanes (1988)",g:"pol"}
     ];
     BUNDLED.forEach(function(t){
       tracks.push({name:t.t, url:'music/'+encodeURIComponent(t.f), isLocal:false, g:t.g});
