@@ -23,31 +23,31 @@ Where does the structure grow this season?
 - @easy_discard
 
 @rec_guerrero
-on-arrival: funds -= 2; pres_guerrero += 6; guar_guerrero += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_guerrero += 6; guar_guerrero += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_chihuahua
-on-arrival: funds -= 2; pres_chihuahua += 6; guar_chihuahua += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_chihuahua += 6; guar_chihuahua += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_valle
-on-arrival: funds -= 2; pres_valle += 6; guar_valle += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_valle += 6; guar_valle += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_jalisco
-on-arrival: funds -= 2; pres_jalisco += 6; guar_jalisco += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_jalisco += 6; guar_jalisco += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_nl
-on-arrival: funds -= 2; pres_nl += 6; guar_nl += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_nl += 6; guar_nl += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
 
 @rec_oaxaca
-on-arrival: funds -= 2; pres_oaxaca += 6; guar_oaxaca += 4; expediente += 2
+on-arrival: moral_columnas += 3; funds -= 2; pres_oaxaca += 6; guar_oaxaca += 4; expediente += 2
 
 The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.

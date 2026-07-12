@@ -1,0 +1,144 @@
+title: La operación
+new-page: true
+subtitle: The war is decided on the days you choose to be found
+card-image: img/cards/expropiacion.jpg
+view-if: via = "armada" and time >= s_ataque_cd + 2
+on-arrival: month_actions += 1; s_ataque_cd = time
+max-visits: 80
+is-card: true
+frequency: 100
+tags: sierra
+
+= La operación
+
+Between the months of not being found, there are the days you choose to be. An operation is the war made visible — and visibility is a loan against the garrison's patience. Pick the target, weigh the odds, and remember the sierra's only theorem: the army wins every fight it can find, so you fight only the fights you have arranged.
+
+Materiel (parque): [+ parque +]. Column morale: [+ moral_columnas +]. Your read of the ground is only as good as your intelligence.
+
+- @op_emboscada: The ambush. Hit an army convoy on a road you own — the classic, if the ground is yours.
+- @op_cuartel: The barracks raid. Guns and a headline, against a fixed position — expensive, loud, definitive either way.
+- @op_nomina: The payroll. Take the state's cash in transit — the war funds itself or it ends.
+- @op_carcel: The jailbreak. Comrades out of a provincial prison before they are moved to the capital.
+- @op_radio: Take the airwaves. Seize a radio station during a broadcast — no bullets, all argument.
+- @root: No operation this month. The best day to be found is rarely today.
+- @easy_discard
+
+@op_emboscada
+subtitle: −2 parque. Rolls presence + morale vs. the garrison where you strike.
+choose-if: parque >= 2
+unavailable-subtitle: An ambush needs materiel — at least 2 parque in the caches.
+on-arrival: {!
+Q.parque -= 2;
+// strike your strongest zone; roll its presence + intel + morale vs its garrison + the Coronel
+var _zs = ['guerrero','valle','chihuahua','jalisco','nl','oaxaca','tijuana'];
+var _z = _zs[0];
+for (var i=0;i<_zs.length;i++){ if (Q['pres_'+_zs[i]] > Q['pres_'+_z]) { _z = _zs[i]; } }
+Q.op_zone = _z;
+var _atk = (Q['pres_'+_z]||0) + Q.inteligencia*0.4 + Q.moral_columnas*0.3;
+var _def = (Q['guar_'+_z]||0) + Q.coronel_red*0.5 + 15;
+var _roll = _atk - _def + (Math.random()*50 - 20);
+Q.op_res = _roll >= 22 ? 2 : (_roll >= 0 ? 1 : 0);
+if (Q.op_res == 2) { Q['pres_'+_z] += 5; Q.moral_columnas += 10; Q.parque += 3; Q.guerrilla_meter += 3; Q.inteligencia += 3; }
+else if (Q.op_res == 1) { Q['pres_'+_z] += 2; Q.moral_columnas += 3; Q.expediente += 5; Q.represion += 3; Q['guar_'+_z] += 4; }
+else { Q['pres_'+_z] -= 6; Q.moral_columnas -= 12; Q.memorial += 2; Q.represion += 5; Q['guar_'+_z] += 6; Q.presos += 2; }
+!}
+
+[? if op_res = 2 : The convoy enters the defile on schedule, because armies keep schedules and that is their weakness. Twenty minutes later the road belongs to you and so do the rifles in the trucks — a clean victory, the kind the corridos need, the kind that brings volunteers to the camps by the next new moon. ?]
+
+[? if op_res = 1 : It works, barely, and costs more than the manual promised: the convoy is hit but reinforcements come faster than the intelligence predicted, and the column breaks contact carrying its wounded. A victory the way a bad harvest is still a harvest. The garrison, humiliated, thickens. ?]
+
+[? if op_res = 0 : It was a trap inside your trap — the convoy was bait, the ridge already ringed. The column fights out of an encirclement it should have seen, and leaves people on the mountain who will be named at the next assembly and never again after. The road did not belong to you. You only wished it did. ?]
+
+- @root: Count the cost. Continue.
+
+@op_cuartel
+subtitle: −4 parque. High risk, high materiel — a fixed target fights back.
+choose-if: parque >= 4 and moral_columnas >= 45
+unavailable-subtitle: A barracks assault needs 4 parque and columns with the morale to storm a wall.
+on-arrival: {!
+Q.parque -= 4;
+var _atk = Q.pres_guerrero*0.3 + Q.pres_valle*0.2 + Q.inteligencia*0.5 + Q.moral_columnas*0.4 + 10;
+var _def = 45 + Q.coronel_red*0.6;
+var _roll = _atk - _def + (Math.random()*60 - 28);
+Q.op_res = _roll >= 20 ? 2 : (_roll >= -4 ? 1 : 0);
+if (Q.op_res == 2) { Q.parque += 8; Q.guerrilla_meter += 6; Q.moral_columnas += 14; Q.pres_guerrero += 3; Q.represion += 5; }
+else if (Q.op_res == 1) { Q.parque += 3; Q.guerrilla_meter += 3; Q.moral_columnas += 2; Q.expediente += 8; Q.represion += 6; Q.memorial += 1; }
+else { Q.moral_columnas -= 18; Q.memorial += 3; Q.represion += 8; Q.expediente += 10; Q.presos += 3; }
+!}
+
+[? if op_res = 2 : The sentries are asleep because the intelligence said which night they would be, and the armory opens like a gift. The column walks out heavier than it came, and by morning every barracks in three states sleeps badly. This is the day the foco theorists dreamed of and mostly died wanting. ?]
+
+[? if op_res = 1 : Half the armory, twice the casualties: the raid succeeds and bleeds, the guns won balanced against the faces missing from the fire that night. The state pours concrete and men into every cuartel within reach. You have their attention now, fully, which is exactly what it costs. ?]
+
+[? if op_res = 0 : The wall was waiting. What was meant to be a raid becomes a retreat under flares, and the column that storms a prepared position without the numbers learns the arithmetic the hard way. The names are read once at the assembly. The guns stayed inside. ?]
+
+- @root: Count the cost. Continue.
+
+@op_nomina
+subtitle: −1 parque. The war's treasury: cash in transit.
+choose-if: parque >= 1
+unavailable-subtitle: Even a robbery needs a little materiel to open with.
+on-arrival: {!
+Q.parque -= 1;
+var _atk = Q.pres_valle*0.3 + Q.inteligencia*0.6 + Q.moral_columnas*0.2 + 12;
+var _def = 30 + Q.coronel_red*0.5;
+var _roll = _atk - _def + (Math.random()*55 - 22);
+Q.op_res = _roll >= 18 ? 2 : (_roll >= -2 ? 1 : 0);
+if (Q.op_res == 2) { Q.funds += 12; Q.parque += 2; Q.moral_columnas += 6; Q.expediente += 4; }
+else if (Q.op_res == 1) { Q.funds += 6; Q.expediente += 6; Q.represion += 3; }
+else { Q.funds += 1; Q.moral_columnas -= 8; Q.memorial += 1; Q.presos += 2; Q.expediente += 6; }
+!}
+
+[? if op_res = 2 : Ninety seconds, no shots, a payroll van lighter by the exact figure the war needed this quarter. The bank's insurers absorb it; the state files it; the camps eat. Expropriation is the only tax the poor ever levied upward, and today it was collected in full. ?]
+
+[? if op_res = 1 : The take is thinner than the tip promised and a guard was braver than paid to be — a wounded compañero, a description on a wire, a smaller sum counted twice in a safe house that must now move. Money, though. The war runs another season on it. ?]
+
+[? if op_res = 0 : The tip was a hook. Judiciales in the "bank" clothes, a firefight in a street full of civilians, and a retreat that leaves the cash and two of yours behind. The war paid to rob itself. Somewhere a DFS captain earns a commendation drafted in advance. ?]
+
+- @root: Count the cost. Continue.
+
+@op_carcel
+subtitle: −3 parque. Comrades out before the capital swallows them.
+choose-if: parque >= 3 and presos >= 2 and inteligencia >= 25
+unavailable-subtitle: A jailbreak needs 3 parque, real intelligence (25), and comrades actually held (presos ≥ 2).
+on-arrival: {!
+Q.parque -= 3;
+var _atk = Q.inteligencia*0.7 + Q.moral_columnas*0.3 + 8;
+var _def = 35 + Q.coronel_red*0.7;
+var _roll = _atk - _def + (Math.random()*55 - 24);
+Q.op_res = _roll >= 16 ? 2 : (_roll >= -4 ? 1 : 0);
+if (Q.op_res == 2) { Q.presos = 0; Q.organizers += 2; Q.members += 2; Q.moral_columnas += 16; Q.guerrilla_meter += 4; Q.represion += 4; }
+else if (Q.op_res == 1) { Q.presos = Q.presos > 1 ? Q.presos - 1 : 0; Q.organizers += 1; Q.moral_columnas += 6; Q.expediente += 6; Q.memorial += 1; }
+else { Q.moral_columnas -= 14; Q.memorial += 2; Q.represion += 6; Q.expediente += 8; }
+!}
+
+[? if op_res = 2 : A guard who owed money, a laundry truck, a corridor timed to the shift change: the comrades walk out into a dawn they had stopped expecting, and the war gets back the one thing it cannot expropriate — trained people who now owe it everything. No one who watches this happen ever forgets that no one is left inside. ?]
+
+[? if op_res = 1 : Some come out; some do not; the window closed a minute early. It is a partial rescue, which in this work is most of them, and the ones who made it carry the ones who didn't in the particular silence of people who counted heads at the wall. ?]
+
+[? if op_res = 0 : The plan met a warden who had read the same manuals. The break fails at the gate, the prisoners are moved to the capital the next morning precisely to prevent a second try, and the column spends lives learning that some walls are meant to be seen and left alone. ?]
+
+- @root: Count the cost. Continue.
+
+@op_radio
+subtitle: −1 parque. No bullets — the argument, broadcast.
+choose-if: parque >= 1 and inteligencia >= 15
+unavailable-subtitle: Even a bloodless seizure needs a little materiel and eyes on the building.
+on-arrival: {!
+Q.parque -= 1;
+var _atk = Q.pres_valle*0.2 + Q.inteligencia*0.5 + Q.moral_columnas*0.3 + 14;
+var _def = 25 + Q.coronel_red*0.4;
+var _roll = _atk - _def + (Math.random()*50 - 18);
+Q.op_res = _roll >= 15 ? 2 : (_roll >= 0 ? 1 : 0);
+if (Q.op_res == 2) { Q.sup_students += 4; Q.sup_workers += 2; Q.guerrilla_meter += 4; Q.legitimidad_regimen -= 3; Q.moral_columnas += 8; Q.expediente += 4; }
+else if (Q.op_res == 1) { Q.sup_students += 2; Q.guerrilla_meter += 2; Q.expediente += 5; Q.represion += 2; }
+else { Q.moral_columnas -= 8; Q.represion += 5; Q.expediente += 7; Q.presos += 1; }
+!}
+
+[? if op_res = 2 : For eleven minutes the state's own transmitter carries the communiqué into every kitchen in the valley — the names of the disappeared, read slowly, and the sentence the regime spends millions to prevent anyone hearing: *this is being done to you on purpose, and it can be resisted.* They cut the feed. They cannot cut the eleven minutes back out of the country's memory. ?]
+
+[? if op_res = 1 : The team gets three minutes before the engineer trips the master switch — enough for the demand, not the argument. It runs on the international wires anyway as a curiosity, which is halfway to a headline. The station installs an armed guard the country now knows it needed. ?]
+
+[? if op_res = 0 : The station was bait or the timing was betrayed; either way the team walks into a room of waiting men and talks its way out of only some of it. The broadcast never airs. The arrest of "communist radio pirates" does, in the regime's preferred edit. ?]
+
+- @root: Count the cost. Continue.

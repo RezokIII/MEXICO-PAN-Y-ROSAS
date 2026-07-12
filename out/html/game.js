@@ -664,7 +664,14 @@
     memorial:'el memorial', fusion_prog:'la fusión', frente_unidad:'el frente',
     fraude_documentado:'fraude documentado', escandalos:'escándalos'
   };
-  var prev = null, lastKey = '';
+  // extra war labels
+  LABELS.parque = 'parque'; LABELS.moral_columnas = 'moral de columnas';
+  LABELS.coronel_red = 'red del Coronel'; LABELS.presos = 'presos'; LABELS.absorcion = 'digestión';
+  LABELS.pres_jalisco = 'presencia Jalisco'; LABELS.pres_nl = 'presencia Nuevo León';
+  LABELS.pres_tijuana = 'presencia Tijuana'; LABELS.veteranos = 'veteranos';
+  LABELS.salario_real = 'salario real'; LABELS.huelgas = 'huelgas'; LABELS.leyenda = 'la leyenda';
+
+  var prev = null;
   function snap(){
     try {
       var q = window.dendryUI.dendryEngine.state.qualities, o = {};
@@ -673,32 +680,32 @@
     } catch (e) { return null; }
   }
   function fmt(n){ n = Math.round(n * 10) / 10; return (n > 0 ? '+' : '−') + Math.abs(n); }
-  // Scenes where the saldo line should NOT print (hands, plumbing, menus).
+  // Scenes where the saldo line should NOT print (hands, plumbing, menus, pure-navigation).
   function sceneOk(sid){
-    return sid && !/^root|^main$|^main\.|^post_event|^start|^backSpecialScene|^library|^mod_loader|^credits|^easy_discard|^return$/.test(sid);
+    return sid && !/^root|^main$|^main\.|^post_event|^start|^backSpecialScene|^library|^mod_loader|^credits|^easy_discard|^return$|^game_over|^finale|^election_/.test(sid);
   }
+  // Render the saldo of the transition INTO the currently displayed scene.
   function render(){
     var cur = snap();
-    if (!cur) return;
+    if (!cur) { return; }
     if (prev) {
-      var diffs = [];
-      for (var k in LABELS) {
-        var d = cur[k] - prev[k];
-        if (Math.abs(d) >= 1) { diffs.push({k:k, d:d}); }
-      }
-      diffs.sort(function(a,b){ return Math.abs(b.d) - Math.abs(a.d); });
-      diffs = diffs.slice(0, 8);
-      var c = document.getElementById('content');
       var sid = '';
       try { sid = window.dendryUI.dendryEngine.state.sceneId; } catch(e){}
-      if (diffs.length && c && sceneOk(sid)) {
-        var key = sid + '|' + diffs.map(function(x){ return x.k + ':' + Math.round(x.d); }).join(',');
-        if (key !== lastKey) {  // one line per distinct decision, even mid-page
-          lastKey = key;
+      var c = document.getElementById('content');
+      if (c && sceneOk(sid)) {
+        var diffs = [];
+        for (var k in LABELS) {
+          var d = cur[k] - prev[k];
+          if (Math.abs(d) >= 1) { diffs.push({k:k, d:d}); }
+        }
+        diffs.sort(function(a,b){ return Math.abs(b.d) - Math.abs(a.d); });
+        diffs = diffs.slice(0, 8);
+        // append under whatever content block is currently last, once per render
+        if (diffs.length && !c.querySelector('.pyr-ledger-fresh')) {
           var div = document.createElement('div');
-          div.className = 'pyr-ledger';
+          div.className = 'pyr-ledger pyr-ledger-fresh';
           div.style.cssText = 'margin-top:1.1em;padding-top:0.45em;border-top:1px dotted #8a6d3b66;'
-            + 'font-size:0.82em;font-style:italic;opacity:0.75;';
+            + 'font-size:0.82em;font-style:italic;opacity:0.78;';
           div.textContent = '— el saldo: ' + diffs.map(function(x){ return LABELS[x.k] + ' ' + fmt(x.d); }).join(' · ');
           c.appendChild(div);
         }
@@ -706,22 +713,24 @@
     }
     prev = cur;
   }
-  window.addEventListener('load', function(){
-    setTimeout(function(){
-      prev = snap();
-      // hook every content display: card outcomes AND event decisions, inline
-      var origDC = window.onDisplayContent;
-      window.onDisplayContent = function(){
-        if (origDC) { try { origDC(); } catch(e){} }
-        setTimeout(render, 60);
-      };
-      var origNP = window.onNewPage;
-      window.onNewPage = function(){
-        if (origNP) { origNP(); }
-        setTimeout(render, 80);
-      };
-    }, 900);
-  });
+  // strip the "fresh" marker so only the newest line is considered current
+  function unmark(){
+    var olds = document.querySelectorAll('.pyr-ledger-fresh');
+    for (var i=0;i<olds.length;i++){ olds[i].classList.remove('pyr-ledger-fresh'); }
+  }
+  function hook(){
+    var e = window.dendryUI && window.dendryUI.dendryEngine;
+    if (!e || !e.displaySceneContent) { setTimeout(hook, 300); return; }
+    prev = snap();
+    var origDSC = e.displaySceneContent;
+    e.displaySceneContent = function(){
+      unmark();                          // last render is no longer "fresh"
+      var r = origDSC.apply(this, arguments);
+      try { render(); } catch(x){}
+      return r;
+    };
+  }
+  window.addEventListener('load', function(){ setTimeout(hook, 700); });
 })();
 
 /* ===================== PAN Y ROSAS — music player ===================== */
@@ -837,29 +846,63 @@
 
     // load bundled soundtrack manifest, if present
     // embedded soundtrack manifest (works offline via file:// — no fetch needed)
+    // g = pool: 'both' (anthems, every context), 'pol' (political road), 'war' (la sierra)
     var BUNDLED = [
-      {f:"Judith Reyes - Tragedia de la Plaza de las Tres Culturas (Tragedy of Plaza of the Three Cultures).mp3",t:"Tlatelolco: Tragedia de la Plaza de las Tres Culturas — Judith Reyes"},
-      {f:"Amparo Ochoa - La Maldición de La Malinche (feat. Los Folkloristas).mp3",t:"La Maldicion de Malinche — Amparo Ochoa"},
-      {f:"Me gustan los estudiantes.mp3",t:"Me gustan los estudiantes — Violeta Parra"},
-      {f:"Daniel Viglietti - A Desalambrar.mp3",t:"A desalambrar — Daniel Viglietti"},
-      {f:"AMPARO OCHOA - EL BARZÓN.mp3",t:"El Barzon — Amparo Ochoa"},
-      {f:"Mercedes Sosa - Cuando Tenga La Tierra (Audio).mp3",t:"Cuando tenga la tierra — Mercedes Sosa"},
-      {f:"Víctor Jara - Te Recuerdo Amanda (En Vivo Peña de los Parra).mp3",t:"Te recuerdo Amanda — Victor Jara"},
-      {f:"Víctor Jara - Manifiesto.mp3",t:"Manifiesto — Victor Jara"},
-      {f:"Mercedes Sosa - Solo le Pido a Dios.mp3",t:"Solo le pido a Dios — Mercedes Sosa"},
-      {f:"Mercedes Sosa - Gracias A La Vida.mp3",t:"Gracias a la vida — Mercedes Sosa"},
-      {f:"El corrido de Lucio Cabañas.mp3",t:"Corrido de Lucio Cabanas"},
-      {f:"Inti Illimani - Venceremos.mp3",t:"Venceremos — Inti-Illimani"},
-      {f:"Silvio Rodríguez - La Era Está Pariendo un Corazón.mp3",t:"La era esta pariendo un corazon — Silvio Rodriguez"},
-      {f:"Pablo Milanés - Yo Pisaré las Calles Nuevamente (En Vivo).mp3",t:"Yo pisare las calles nuevamente — Pablo Milanes"},
-      {f:"Mexican Zapatista Song - ¡Se Acabó!.mp3",t:"¡Se acabo! — cancion zapatista"},
-      {f:"Kaiserreich - Anthem of The United South American States.mp3",t:"Himno — United South American States (Kaiserreich)"},
-      {f:"LA ERA ESTÁ PARIENDO UN CORAZÓN - Silvio Rodríguez.mp3",t:"LA ERA ESTÁ PARIENDO UN CORAZÓN - Silvio Rodríguez"}
+      {f:"Inti Illimani - Venceremos.mp3",t:"Venceremos — Inti-Illimani",g:"both"},
+      {f:"Víctor Jara - Manifiesto.mp3",t:"Manifiesto — Victor Jara",g:"both"},
+      {f:"Pablo Milanés - Yo Pisaré las Calles Nuevamente (En Vivo).mp3",t:"Yo pisare las calles nuevamente — Pablo Milanes",g:"both"},
+      {f:"Silvio Rodríguez - La Era Está Pariendo un Corazón.mp3",t:"La era esta pariendo un corazon — Silvio Rodriguez",g:"both"},
+      {f:"LA ERA ESTÁ PARIENDO UN CORAZÓN - Silvio Rodríguez.mp3",t:"La era esta pariendo un corazon (alt) — Silvio Rodriguez",g:"both"},
+      // la sierra — the war
+      {f:"El corrido de Lucio Cabañas.mp3",t:"Corrido de Lucio Cabanas",g:"war"},
+      {f:"Mexican Zapatista Song - ¡Se Acabó!.mp3",t:"¡Se acabo! — cancion zapatista",g:"war"},
+      {f:"Mercedes Sosa - Cuando Tenga La Tierra (Audio).mp3",t:"Cuando tenga la tierra — Mercedes Sosa",g:"war"},
+      {f:"Daniel Viglietti - A Desalambrar.mp3",t:"A desalambrar — Daniel Viglietti",g:"war"},
+      {f:"Mercedes Sosa - Solo le Pido a Dios.mp3",t:"Solo le pido a Dios — Mercedes Sosa",g:"war"},
+      {f:"Kaiserreich - Anthem of The United South American States.mp3",t:"Himno — United South American States",g:"war"},
+      // the political road — canto nuevo, corridos, the crisis city
+      {f:"Judith Reyes - Tragedia de la Plaza de las Tres Culturas (Tragedy of Plaza of the Three Cultures).mp3",t:"Tlatelolco: Tragedia de la Plaza de las Tres Culturas — Judith Reyes",g:"pol"},
+      {f:"Me gustan los estudiantes.mp3",t:"Me gustan los estudiantes — Violeta Parra",g:"pol"},
+      {f:"Amparo Ochoa - La Maldición de La Malinche (feat. Los Folkloristas).mp3",t:"La Maldicion de Malinche — Amparo Ochoa",g:"pol"},
+      {f:"AMPARO OCHOA - EL BARZÓN.mp3",t:"El Barzon — Amparo Ochoa",g:"pol"},
+      {f:"Víctor Jara - Te Recuerdo Amanda (En Vivo Peña de los Parra).mp3",t:"Te recuerdo Amanda — Victor Jara",g:"pol"},
+      {f:"Mercedes Sosa - Gracias A La Vida.mp3",t:"Gracias a la vida — Mercedes Sosa",g:"pol"},
+      {f:"_ESTACIÓN DEL METRO BALDERAS_ - ROCKDRIGO GONZÁLEZ - 1984 (REMASTERIZADO).mp3",t:"Estacion del Metro Balderas — Rockdrigo Gonzalez (1984)",g:"pol"}
     ];
     BUNDLED.forEach(function(t){
-      tracks.push({name:t.t, url:'music/'+encodeURIComponent(t.f), isLocal:false});
+      tracks.push({name:t.t, url:'music/'+encodeURIComponent(t.f), isLocal:false, g:t.g});
     });
     if (tracks.length){ renderList(); titleEl.textContent = tracks.length + ' canciones en la banda sonora'; }
+
+    // --- context-aware pool: la sierra gets a different soundtrack than the political road,
+    //     but the anthems (Venceremos, Manifiesto…) play in both. ---
+    function atWar(){
+      try { return window.dendryUI.dendryEngine.state.qualities.via === 'armada'; } catch(e){ return false; }
+    }
+    function poolIdx(){
+      var want = atWar() ? 'war' : 'pol';
+      var out = [];
+      for (var i=0;i<tracks.length;i++){
+        var g = tracks[i].g;
+        if (!g || g === 'both' || g === want || tracks[i].isLocal) { out.push(i); }
+      }
+      return out.length ? out : tracks.map(function(_,i){ return i; });
+    }
+    function nextInPool(){
+      var pool = poolIdx();
+      // prefer a track from the current pool we're not already on
+      var choices = pool.filter(function(i){ return i !== idx; });
+      if (!choices.length) choices = pool;
+      return choices[Math.floor(Math.random()*choices.length)];
+    }
+    // override next() to respect the pool when shuffling (default behavior)
+    next = function(){
+      if (!tracks.length) return;
+      if (shuffle){ play(nextInPool()); return; }
+      play((idx+1) % tracks.length);
+    };
+    wrap.querySelector('#pyr-next').onclick = next;
+    audio.onended = function(){ if(!loop) next(); };
 
     // Autoplay on the first user gesture (pressing Comenzar): browsers block
     // play() before a click, so the first click anywhere starts the soundtrack.
@@ -867,7 +910,7 @@
       document.removeEventListener('click', autostart, true);
       if (idx >= 0 || audio.src || !tracks.length) return;
       shuffle = true; shufBtn.classList.add('on');
-      play(Math.floor(Math.random()*tracks.length));
+      play(nextInPool());
     }
     document.addEventListener('click', autostart, true);
   }

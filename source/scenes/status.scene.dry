@@ -138,6 +138,10 @@ Duros: [+ pri_duros : fuerza +]
 
 The line in force: [? if via = "politica" : insurgent political opposition ?][? if via = "institucional" : the reformist road — inside the antechambers ?][? if via = "armada" : the armed road — the Sierra desk is open ?][? if via = "institucional" : **La digestión** — absorcion: [+ absorcion +] of 100. The reformist road runs through the antechambers, and the antechambers are a stomach: every post accepted, every favor banked, every year inside raises the count. Keep the Movement's teeth visible — strikes, scandals, victories with your name on them — or at 70 the system completes the meal and offers you the only thing it ever really sells: a place at the table, in exchange for the table's rules. ?]
 
+[? if exiliados >= 1 : The Party shelters the continent's defeated — Chileans, Argentines, the survivors of the coups — and their presence keeps a flame the decade is trying to put out: proof that socialism was tried, and murdered, not merely abandoned. ?]
+
+[? if excelsior_caido = 1 : Since the 1976 golpe against Excelsior, the Republic has no great newspaper that reads like a free country's — and a regime with no watchdog heals its own story faster than you can wound it. ?]
+
 **El semáforo de Bucareli**
 
 Gobernación's current reading of you (threat index [+ pri_threat +]): [? if pri_posture = "ignorar" : *ignorar* — you are a folder among folders. The apparatus spends its attention elsewhere, which is the most useful thing it can do with it. ?][? if pri_posture = "cooptar" : *cooptar* — the checkbook is open. Expect offers, charro pressure on your flanks, and the patient arithmetic of the charola. ?][? if pri_posture = "vigilar" : *vigilar* — the cameras are out. The file fattens monthly; the men in parked cars have a budget again. ?][? if pri_posture = "reprimir" : *reprimir* — the hard desks hold the file. Raids, beatings, the machinery warming. Lower the temperature or feed it. ?][? if pri_posture = "robar" : *robar* — you are big enough to steal from. The alquimia is being tuned against your casillas specifically. Guard the count. ?][? if pri_posture = "contener" : *contener* — the war is being managed: garrisons, checkpoints, patience. The state believes time is on its side. ?][? if pri_posture = "aniquilar" : *aniquilar* — the state has decided to end the war rather than manage it. Everything is now aimed. ?]
@@ -308,6 +312,22 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 [? if via = "armada" and inteligencia >= 40 : Jalisco presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
 
 [? if via = "armada" : Doctrine: garrisons concentrate where you act and thin where you rest. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. The army wins every battle it can find, so the war is won by not being found. ?]
+
+[? if via = "armada" : **El estado de la guerra** ?]
+
+[? if via = "armada" : Materiel (parque): [+ parque +] — spent on operations, earned by expropriations and the zone. Without it the war can only hide. ?]
+
+[? if via = "armada" : Column morale: [+ moral_columnas +]. [? if moral_columnas >= 78 : High — the camps recruit themselves; presence grows on its own. ?][? if moral_columnas >= 45 and moral_columnas < 78 : Holding. ?][? if moral_columnas < 45 : Low — desertions bleed presence monthly. Win something, or lose the columns. ?] ?]
+
+[? if via = "armada" and presos >= 1 : Comrades held: [+ presos +]. A jailbreak can bring them back — or the interrogations will empty their heads into the Colonel's file. ?]
+
+[? if via = "armada" and coronel_activo = 1 : **El Coronel.** The campaign has a name now. His informer network in your zones: [+ coronel_red +] of 100. [? if coronel_red < 30 : Thin — he is still learning the ground. ?][? if coronel_red >= 30 and coronel_red < 60 : Growing — his map of you thickens monthly. Cut it, or feed it false readings. ?][? if coronel_red >= 60 : Deep — he can sit on your roads and find your villages. This cannot continue. ?][? if coronel_expuesto = 1 : His vanity has given you a crack: expose him, or take the shot when the window opens. ?] ?]
+
+[? if via = "armada" and coronel_muerto = 1 : The Colonel is dead. The campaign that bore his name is decapitated — and the reprisal that followed is written in the memorial. ?]
+
+[? if via = "armada" and coronel_removido = 1 : The Colonel was transferred to a beach posting after the scandal broke. His successor starts from zero, and knows he is watched. ?]
+
+[? if via = "armada" and (op_cacique = 1 or op_archivo = 1 or op_magnate = 1 or op_aduana = 1) : Signature operations pulled off: [? if op_cacique = 1 : the cacique-senator · ?][? if op_archivo = 1 : the DFS archive · ?][? if op_magnate = 1 : the Monterrey magnate · ?][? if op_aduana = 1 : the border ledger ?] — each one a permanent mark on the war's ledger and the enemy's. ?]
 
 [? if via = "armada" : **El camino de la sierra** ?]
 

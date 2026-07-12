@@ -1,0 +1,179 @@
+title: El retén
+new-page: true
+subtitle: A checkpoint, a courier, a bad hour
+face-image: img/camioneta.jpg
+tags: event
+view-if: via = "armada" and coronel_red >= 40 and time >= reten_last + 8
+priority: 3
+frequency: 65
+max-visits: 6
+on-arrival: reten_last = time
+
+= El retén
+
+The informer network you let grow has a use, and this is it: the Colonel's men now know which roads to sit on. A courier of yours — carrying, this time, more than a courier should ever carry in one trip, because the war is short of couriers — comes around a curve into a checkpoint that was not there yesterday and is there today because someone was paid.
+
+There are seconds here, not minutes. What happens depends on what you built.
+
+- @reten_tragar: The courier eats the codes, talks their way through as a schoolteacher, and prays the cover holds.
+- @reten_fuerza: The escort was close — shoot through it, take the loss, keep the cargo out of the file.
+- @reten_soborno: There is cash in the vehicle. Some checkpoints have a price; find out if this is one.
+
+@reten_tragar
+go-to: post_event
+on-arrival: {!
+var _roll = Q.inteligencia*0.5 + Q.moral_columnas*0.2 - Q.coronel_red*0.4 + (Math.random()*50 - 22);
+if (_roll >= 8) { Q.inteligencia += 1; }
+else { Q.presos += 2; Q.expediente += 6; Q.coronel_red += 3; Q.moral_columnas -= 4; Q.inteligencia -= 3; }
+Q.op_res = _roll >= 8 ? 1 : 0;
+!}
+
+[? if op_res = 1 : The papers are good — the responsable urbana's people make good papers — and the soldier is bored and the schoolteacher story is dull enough to be true. The car goes through. Whatever it was carrying is still yours, and the courier does not stop shaking until the next town. ?]
+
+[? if op_res = 0 : The soldier is not bored; he is the one they placed there for exactly this. The cover cracks under an ordinary question, and the courier joins the ranks of the held with the cargo spread on the hood as evidence. The network the courier knew must now be assumed burned, which is the expensive part — not the person, the map in the person's head. ?]
+
+- @root: Continue.
+
+@reten_fuerza
+go-to: post_event
+choose-if: parque >= 1
+unavailable-subtitle: Shooting out of a checkpoint takes materiel the courier does not have.
+on-arrival: {!
+Q.parque -= 1;
+var _roll = Q.moral_columnas*0.4 + Q.inteligencia*0.2 - Q.coronel_red*0.3 + (Math.random()*50 - 20);
+if (_roll >= 10) { Q.moral_columnas += 4; Q.guerrilla_meter += 2; Q.represion += 4; Q.expediente += 4; }
+else { Q.memorial += 2; Q.represion += 5; Q.expediente += 6; Q.coronel_red += 2; Q.moral_columnas -= 3; }
+Q.op_res = _roll >= 10 ? 1 : 0;
+!}
+
+[? if op_res = 1 : It is over in fifteen seconds and the car is gone before the second checkpoint can be raised. The cargo is safe; a soldier is not; and the road is now a place where the army travels in pairs, which slows them, which is worth something. Blood, though. Always blood, on this road. ?]
+
+[? if op_res = 0 : The escort was closer and better than the intelligence said. The courier and the cargo are both lost, the firefight loud enough to bring the region's whole apparatus down for a week. Fighting out of a trap only works when the trap is shallow. This one had a floor. ?]
+
+- @root: Continue.
+
+@reten_soborno
+go-to: post_event
+choose-if: funds >= 3
+unavailable-subtitle: A bribe needs cash in hand — at least 3 funds.
+on-arrival: {!
+Q.funds -= 3;
+var _roll = 20 - Q.coronel_red*0.3 + (Math.random()*50 - 18);
+if (_roll >= 10) { Q.inteligencia += 2; }
+else { Q.funds -= 2; Q.presos += 1; Q.expediente += 5; Q.coronel_red += 2; }
+if (Q.funds < 0) { Q.funds = 0; }
+Q.op_res = _roll >= 10 ? 1 : 0;
+!}
+
+[? if op_res = 1 : Every checkpoint has a price and this soldier's is a month's wage, paid with the fatalism of a man who knows his colonel skims worse. The car goes through; a name is quietly added to your ledger of the purchasable, which in this war is a kind of asset. Corruption, the state's own solvent, dissolving briefly in your favor. ?]
+
+[? if op_res = 0 : This one is not for sale — or is, and takes the money, and arrests the courier anyway, because his colonel pays better for guerrillas than you pay for passage. The oldest lesson about bribing the enemy's men: you are bidding against the enemy, and the enemy has the treasury. ?]
+
+- @root: Continue.
+
+@quinta_columna
+title: La quinta columna
+new-page: true
+subtitle: Someone in the base village is being paid
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and coronel_red >= 45 and inteligencia >= 25 and time >= quinta_last + 12
+priority: 3
+frequency: 60
+max-visits: 4
+on-arrival: quinta_last = time
+
+= La quinta columna
+
+Your own intelligence brings it, which is the only mercy in it: someone in one of your base villages — a place that fed the column, hid its wounded, buried its dead — is carrying information to the Colonel's paymaster. The evidence is good. It is also, being about a neighbor, the kind of evidence that has torn apart every guerrilla that ever had to weigh it.
+
+This is the war the manuals do not cover: not the army, but the fracture the army buys inside the people you exist to defend. Handle it wrong in either direction — too soft and the village is an open book; too hard and you become the thing the villagers feared — and the zone is lost either way.
+
+- @quinta_voltear: Turn them. A known informer fed false information is worth more than a dead one — run them back at the Colonel.
+- @quinta_asamblea: The village's own justice. Lay the evidence before the assembly and let the people who were betrayed decide.
+- @quinta_ajusticiar: The hard way, the fast way — and the way that has ended more guerrillas than the army ever did.
+
+@quinta_voltear
+go-to: post_event
+choose-if: inteligencia >= 35
+unavailable-subtitle: Running a double agent takes intelligence craft you have not built — 35.
+on-arrival: coronel_red -= 10; inteligencia += 5; coronel_expuesto = 1; expediente += 2
+
+You do not confront them; you feed them. For months the informer carries carefully cooked intelligence to the paymaster, and the Colonel's map of your zones acquires a precise, expensive wrongness — sweeps that hit empty ground, ambushes waiting where you never were. It is the hardest discipline in the war, to know a traitor and smile, and it is worth more than any execution: the enemy's eyes, turned to show him mirrors.
+
+@quinta_asamblea
+go-to: post_event
+on-arrival: coronel_red -= 5; moral_columnas += 6; sup_peasants += 2; unity += 2
+
+The evidence goes to the assembly because the betrayal was the village's before it was yours, and the village, given the truth and the choice, does what communities do better than tribunals: it does not kill, it *un-includes* — the informer and their family isolated, watched, cut from the web of trust that made the information worth selling, until they leave of their own weight. The Colonel loses a source and the village keeps its soul, which is the only victory in this that lasts.
+
+@quinta_ajusticiar
+go-to: post_event
+on-arrival: coronel_red -= 6; moral_columnas -= 8; sup_peasants -= 4; memorial += 1; guerrilla_meter -= 2; unity -= 3
+
+It is quick and it is certain and it is the beginning of the end, though that takes years to see. The source is closed. And the village learns that the column, too, can make a person disappear for a suspicion — that the difference between you and the state has narrowed to which side you are on, which is not a difference a frightened people will die for. Every guerrilla that chose this road walked the same slope afterward, downward, wondering when exactly it had become what it fought.
+
+@coronel_golpe
+title: El Coronel, al alcance
+new-page: true
+subtitle: For once, the hunter is in the open
+face-image: img/camioneta.jpg
+tags: event
+view-if: via = "armada" and coronel_activo = 1 and coronel_expuesto = 1 and inteligencia >= 45 and time >= coronel_golpe_last + 18
+priority: 4
+frequency: 80
+max-visits: 3
+on-arrival: coronel_golpe_last = time
+
+= El Coronel, al alcance
+
+The vanity was the crack, as vanities are. The man who gives anonymous interviews boasting of his methods also keeps appointments — a mistress in Acapulco, a favorite restaurant, a Sunday drive he has taken too many times. Months of reading him have produced the thing that seemed impossible the day he arrived: a window. The hunter, briefly, in the sights.
+
+It is not a small decision. Kill a colonel and the state does not mourn a policy, it avenges a man — the reprisal will be biblical. But leave him, and the map he is building inside your zones will one day be complete, and completion means the end.
+
+- @coronel_matar: Take the shot. End the campaign by ending the campaigner, and brace for the whirlwind.
+- @coronel_exponer: Not a bullet — a scandal. Give the interviews and the flight logs to the press; kill the career, not the man.
+- @coronel_perdonar: Let it pass. A dead colonel is a martyr and a live scandal is better; the window will come again, or it won't.
+
+@coronel_matar
+go-to: post_event
+choose-if: parque >= 3 and moral_columnas >= 55
+unavailable-subtitle: An operation against a protected target needs materiel (3 parque) and columns at high morale.
+on-arrival: {!
+Q.parque -= 3;
+var _roll = Q.inteligencia*0.6 + Q.moral_columnas*0.3 + 12 + (Math.random()*50 - 22);
+if (_roll >= 30) { Q.coronel_activo = 0; Q.coronel_red = 0; Q.coronel_muerto = 1; Q.guerrilla_meter += 10; Q.moral_columnas += 20; Q.represion += 12; Q.expediente += 12; Q.memorial += 2; }
+else if (_roll >= 8) { Q.coronel_herido = 1; Q.coronel_red -= 15; Q.guerrilla_meter += 4; Q.represion += 10; Q.expediente += 10; Q.memorial += 3; }
+else { Q.moral_columnas -= 14; Q.memorial += 4; Q.presos += 3; Q.represion += 12; Q.coronel_red += 6; }
+Q.op_res = _roll >= 30 ? 2 : (_roll >= 8 ? 1 : 0);
+!}
+
+[? if op_res = 2 : The Sunday drive ends on a road the war chose. The Colonel is dead, the campaign decapitated, the informer network he built worthless without the hand that ran it — and for one week the sierra celebrates a thing it had stopped believing possible, that the hunter, too, is mortal. Then the reprisal comes, exactly as promised, and the villages pay in the coin the state always makes them pay. It was worth it. It was terrible. Both are true, and will be argued forever. ?]
+
+[? if op_res = 1 : The shot connects and does not kill — the Colonel survives, scarred and enraged, and the war has now done the one thing worse than missing: wounded a proud man who runs a dirty war and given him a personal reason. The network staggers; the reprisal is immediate; and the campaign, which was patient, becomes something else. ?]
+
+[? if op_res = 0 : The window was watched from the other side too. What was meant to be an ambush becomes a massacre of the ambushers, the Colonel untouched and now aware exactly how close you got and how you knew — which burns the sources that told you. The worst outcome: he lives, he learns, and he is angry. ?]
+
+- @root: Count the cost. Continue.
+
+@coronel_exponer
+go-to: post_event
+on-arrival: {!
+Q.coronel_red -= 12; Q.legitimidad_regimen -= 4; Q.coronel_herido = 1; Q.political_capital += 2; Q.expediente += 3;
+// exposure can end him bloodlessly if the archive is deep
+if (Q.memorial >= 6 && Math.random() > 0.4) { Q.coronel_activo = 0; Q.coronel_red = 0; Q.coronel_removido = 1; }
+!}
+
+[? if coronel_removido = 1 : The dossier is too complete to bury: the flight logs, the airbase, the interviews matched to the man by his own vanity, published where the foreign press will carry it back in. The regime does what regimes do with an embarrassment it cannot deny — it does not punish him, it *transfers* him, to an attaché post in a country with good beaches, the dirty war's version of a medal. The campaign loses its author. The next colonel starts from zero, and knows he is being watched. ?]
+
+[? if coronel_removido = 0 : The scandal runs and wounds without killing: the Colonel's name is now known abroad, his methods documented, his future ceiling lowered — but the regime protects its instruments, and he keeps the command with a grievance and a point to prove. You have made the hunter famous. Whether that slows him or feeds him, the next year decides. ?]
+
+- @root: Continue.
+
+@coronel_perdonar
+go-to: post_event
+on-arrival: moral_columnas -= 4; coronel_red += 3; inteligencia += 2
+
+The window closes unused. The argument for it is sound — a martyr is worth more to the state than a colonel, the reprisal would fall on the villages, the war is not served by revenge — and the argument will not survive contact with the next barrida, when the columns remember that the man directing it was once, for an afternoon, in the sights, and let go. Prudence has a cost that is only ever billed later, and always to someone else.
+
+- @root: Continue.

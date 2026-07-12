@@ -22,6 +22,35 @@ if (Q.month != Q.last_drift_month) {
         if (Q['guar_'+z] > 90) { Q['guar_'+z] = 90; }
     }
     if (Q.auge_armada && !Q.sw_auge) { Q.sw_auge = 1; }
+    // --- the war's own clocks ---
+    if (Q.via == 'armada') {
+        // el Coronel's informer web grows unless cut; wounded or exposed, it grows slower
+        if (Q.coronel_activo == 1) {
+            var _cg = 0.8;
+            if (Q.pri_posture == 'aniquilar') { _cg += 0.4; }
+            if (Q.coronel_herido == 1) { _cg -= 0.6; }
+            if (Q.coronel_expuesto == 1) { _cg -= 0.4; }
+            Q.coronel_red += _cg;
+            if (Q.coronel_red < 0) { Q.coronel_red = 0; }
+            if (Q.coronel_red > 100) { Q.coronel_red = 100; }
+        }
+        // morale drifts toward 55; low morale bleeds presence (desertions), high recruits
+        if (Q.moral_columnas > 55) { Q.moral_columnas -= 0.4; }
+        else if (Q.moral_columnas < 55) { Q.moral_columnas += 0.3; }
+        if (Q.moral_columnas < 35 && Q.time % 2 == 0) {
+            var _zx = ['guerrero','valle','chihuahua','jalisco','nl','oaxaca','tijuana'];
+            for (var _zq of _zx) { if (Q['pres_'+_zq] > 0) { Q['pres_'+_zq] -= 0.5; } }
+        }
+        if (Q.moral_columnas > 78 && Q.time % 3 == 0) { Q.pres_guerrero += 1; }
+        // the zone feeds the war a trickle of materiel
+        if (Q.sw_zona == 1 && Q.time % 4 == 0) { Q.parque += 1; }
+        if (Q.parque > 30) { Q.parque = 30; }
+        if (Q.parque < 0) { Q.parque = 0; }
+        if (Q.moral_columnas > 100) { Q.moral_columnas = 100; }
+        if (Q.moral_columnas < 0) { Q.moral_columnas = 0; }
+    }
+    // veterans keep the old discipline: the file grows slower wherever they run security
+    if (Q.veteranos >= 2 && Q.via != 'armada') { Q.expediente -= 0.25; }
     // the legend of the descent: a war ended on your terms keeps organizing the campo for years
     if (Q.leyenda >= 1 && Q.sup_peasants < 20 + Q.leyenda * 6) { Q.sup_peasants += 0.2; }
     if (Q.via == "armada") { Q.represion += (Q.time % 2 == 0 ? 1 : 0); Q.inteligencia -= (Q.time % 4 == 0 ? 1 : 0); }
@@ -112,7 +141,11 @@ if (Q.month != Q.last_drift_month) {
     }
     // --- the regime's grip is sticky: legitimacy self-repairs unless kept under assault ---
     // (the PRI was built to never lose; one blow is never enough)
-    if (Q.legitimidad_regimen < 66) { Q.legitimidad_regimen += 0.5; }
+    // a free press is the regime's one uncontrolled mirror; with Excelsior broken, the story self-heals faster
+    var _legrepair = 0.5 + (Q.excelsior_caido ? 0.25 : 0);
+    if (Q.legitimidad_regimen < 66) { Q.legitimidad_regimen += _legrepair; }
+    // the exiles the Party sheltered keep socialism's prestige alive as the world's turns against it
+    if (Q.exiliados >= 2 && Q.prestigio_socialismo < 55 && Q.time % 3 == 0) { Q.prestigio_socialismo += 1; }
     // --- belief that the vote can matter (turnout): the inverse of the PRI's grip on the process ---
     Q.fe_voto += (72 - Q.legitimidad_regimen) * 0.017;              // as the regime's grip weakens, cynicism lifts
     if (Q.alquimia_expuesta) { Q.fe_voto += 0.35; }                // proof the fraud can be documented

@@ -23,31 +23,31 @@ The columns eat, the presses eat, the safe houses eat. Which branch pays this se
 - @easy_discard
 
 @exp_guerrero
-on-arrival: funds += 8; guar_guerrero += 7; represion += 3; expediente += 3; memorial += 1 if guar_guerrero >= 55
+on-arrival: funds += 6; parque += 3; guar_guerrero += 7; represion += 3; expediente += 3; memorial += 1 if guar_guerrero >= 55
 
 Ninety seconds, gloves, a branch manager who will describe events to the judiciales with genuine admiration. The war chest gains what the reputation spends — and if the garrison was already thick, someone did not make it back to the safe house.
 
 @exp_chihuahua
-on-arrival: funds += 8; guar_chihuahua += 7; represion += 3; expediente += 3; memorial += 1 if guar_chihuahua >= 55
+on-arrival: funds += 6; parque += 3; guar_chihuahua += 7; represion += 3; expediente += 3; memorial += 1 if guar_chihuahua >= 55
 
 Ninety seconds, gloves, a branch manager who will describe events to the judiciales with genuine admiration. The war chest gains what the reputation spends — and if the garrison was already thick, someone did not make it back to the safe house.
 
 @exp_valle
-on-arrival: funds += 8; guar_valle += 7; represion += 3; expediente += 3; memorial += 1 if guar_valle >= 55
+on-arrival: funds += 6; parque += 3; guar_valle += 7; represion += 3; expediente += 3; memorial += 1 if guar_valle >= 55
 
 Ninety seconds, gloves, a branch manager who will describe events to the judiciales with genuine admiration. The war chest gains what the reputation spends — and if the garrison was already thick, someone did not make it back to the safe house.
 
 @exp_jalisco
-on-arrival: funds += 8; guar_jalisco += 7; represion += 3; expediente += 3; memorial += 1 if guar_jalisco >= 55
+on-arrival: funds += 6; parque += 3; guar_jalisco += 7; represion += 3; expediente += 3; memorial += 1 if guar_jalisco >= 55
 
 Ninety seconds, gloves, a branch manager who will describe events to the judiciales with genuine admiration. The war chest gains what the reputation spends — and if the garrison was already thick, someone did not make it back to the safe house.
 
 @exp_nl
-on-arrival: funds += 8; guar_nl += 7; represion += 3; expediente += 3; memorial += 1 if guar_nl >= 55
+on-arrival: funds += 6; parque += 3; guar_nl += 7; represion += 3; expediente += 3; memorial += 1 if guar_nl >= 55
 
 Ninety seconds, gloves, a branch manager who will describe events to the judiciales with genuine admiration. The war chest gains what the reputation spends — and if the garrison was already thick, someone did not make it back to the safe house.
 
 @exp_oaxaca
-on-arrival: funds += 8; guar_oaxaca += 7; represion += 3; expediente += 3; memorial += 1 if guar_oaxaca >= 55
+on-arrival: funds += 6; parque += 3; guar_oaxaca += 7; represion += 3; expediente += 3; memorial += 1 if guar_oaxaca >= 55
 
 Ninety seconds, gloves, a branch manager who will describe events to the judiciales with genuine admiration. The war chest gains what the reputation spends — and if the garrison was already thick, someone did not make it back to the safe house.

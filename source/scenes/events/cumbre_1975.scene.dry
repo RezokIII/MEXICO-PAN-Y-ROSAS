@@ -8,7 +8,9 @@ priority: 3
 max-visits: 1
 on-arrival: {!
 Q.pres_total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
-if (Q.pres_total >= 60) { Q.auge_armada = 1; Q.sup_peasants += 4; Q.political_capital += 4; Q.guar_guerrero += 8; Q.guar_valle += 8; }
+Q.pres_total += (Q.op_cacique + Q.op_archivo + Q.op_magnate + Q.op_aduana) * 4;   // signature operations count as structural leverage
+Q.guerra_fuerza = Q.pres_total + Q.moral_columnas * 0.4 + Q.parque * 1.5 - Q.coronel_red * 0.5 + (Q.coronel_muerto ? 15 : 0) + (Q.coronel_removido ? 8 : 0);
+if (Q.pres_total >= 55 && Q.moral_columnas >= 50) { Q.auge_armada = 1; Q.sup_peasants += 4; Q.political_capital += 4; Q.guar_guerrero += 8; Q.guar_valle += 8; }
 !}
 
 = The balance of 1975

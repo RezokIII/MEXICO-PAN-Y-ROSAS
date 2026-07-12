@@ -157,6 +157,13 @@ Q.pri_posture = "ignorar"; Q.pri_threat = 0;
 Q.escision_activa = 0;
 Q.lfope_dote = 0; Q.lfope_preclear = 0; Q.robada_last = -99; Q.oficial_last = -99;
 Q.maestro_hecho = 0;
+// --- the war, mechanized: materiel, morale, prisoners, the hunter ---
+Q.parque = 6; Q.moral_columnas = 60; Q.presos = 0;
+Q.coronel_activo = 0; Q.coronel_red = 0; Q.coronel_herido = 0; Q.coronel_expuesto = 0; Q.coronel_golpe_last = -99;
+Q.s_ataque_cd = -5; Q.barrida_last = -99; Q.reten_last = -99; Q.quinta_last = -99; Q.audaz_last = -99;
+Q.op_res = 0; Q.op_zone = ""; Q.barrida_zone = "";
+Q.coronel_muerto = 0; Q.coronel_removido = 0;
+Q.col_chihuahua_mood = 55; Q.col_valle_mood = 55; Q.columna_last = -99;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
 
 // ---- la economía ----

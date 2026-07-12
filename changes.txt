@@ -1,3 +1,31 @@
+PAN Y ROSAS — war overhaul + ledger fix:
+
+- LA GUERRA IS A GAME NOW. New operations card (La operación): ambush, barracks raid,
+  payroll, jailbreak, seize the airwaves — each ROLLS your presence + intelligence +
+  morale + materiel against the garrison for triumph / costly success / disaster, with
+  distinct outcomes. The sierra can finally surprise you.
+- EL CORONEL: a named hunter takes over the campaign in 1972 and escalates — his
+  informer network grows monthly unless you cut it, feed it false readings, expose him,
+  or (when his vanity opens a window) put him in your sights. The war has a face and a duel.
+- Counterpunch events driven by the PRI AI's contener/aniquilar postures: la barrida
+  (a sweep on your strongest zone — melt, fight, or counterstrike elsewhere), el reten
+  (a checkpoint takes a courier), la quinta columna (an informer in a base village —
+  turn / try / execute, with real hearts-and-minds cost).
+- New war economy: parque (materiel, spent on ops, earned by expropriations and the zone)
+  and morale (recruits when high, deserts when low). Named-column events: la columna
+  quiere sangre (discipline vs. initiative) and la deriva (a starving column drifting to
+  banditry). All feed the auge balance and the 1988 tally.
+- Flavor-to-mechanics: the special operations (cacique, archive, magnate, aduana) now
+  count as war leverage; exiliados keeps socialism's prestige alive; excelsior_caido
+  speeds the regime's legitimacy self-repair; documented fraud now measurably weakens the
+  1988 alquimia. Full war status panel on the Territorio tab.
+- LEDGER FIX: the saldo line now hooks the engine's scene renderer directly, so it fires
+  on event decisions (not just cards) — pick an option, see exactly what it moved.
+- Music: era + vida armada playlists — the war gets its own soundtrack (corrido de Lucio
+  Cabanas, Se acabo, Cuando tenga la tierra) while anthems (Venceremos, Manifiesto) play
+  in both; added Rockdrigo's Metro Balderas for the crisis years.
+- Verified: 120-card audit clean, ops dice variance confirmed, armed fuzz runs no crashes.
+
 PAN Y ROSAS — 2026-07-10 (three roads, cleanly drawn):
 
 - The DUAL ROAD IS REMOVED: the strategy congresses now offer three lines — política,

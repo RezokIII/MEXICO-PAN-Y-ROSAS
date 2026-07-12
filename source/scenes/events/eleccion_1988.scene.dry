@@ -25,6 +25,7 @@ var alq = 0.5 - Q.red_casillas * 0.003;
 alq -= (72 - Q.legitimidad_regimen) * 0.0025;
 alq -= (Q.fe_voto - 20) * 0.0025;   // a country that turns out is harder to defraud
 if (Q.alquimia_expuesta) { alq -= 0.05; }
+alq -= Math.min(0.06, (Q.fraude_documentado || 0) * 0.008);   // every documented theft taught the watchers
 if (alq < 0.1) { alq = 0.1; }
 Q.oficial_fdn = Math.round(Q.real_fdn * (1 - alq));
 if (Q.oficial_fdn > 31) { Q.oficial_fdn = 31; }
