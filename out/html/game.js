@@ -664,7 +664,7 @@
     memorial:'el memorial', fusion_prog:'la fusión', frente_unidad:'el frente',
     fraude_documentado:'fraude documentado', escandalos:'escándalos'
   };
-  var prev = null;
+  var prev = null, lastKey = '';
   function snap(){
     try {
       var q = window.dendryUI.dendryEngine.state.qualities, o = {};
@@ -673,6 +673,10 @@
     } catch (e) { return null; }
   }
   function fmt(n){ n = Math.round(n * 10) / 10; return (n > 0 ? '+' : '−') + Math.abs(n); }
+  // Scenes where the saldo line should NOT print (hands, plumbing, menus).
+  function sceneOk(sid){
+    return sid && !/^root|^main$|^main\.|^post_event|^start|^backSpecialScene|^library|^mod_loader|^credits|^easy_discard|^return$/.test(sid);
+  }
   function render(){
     var cur = snap();
     if (!cur) return;
@@ -683,17 +687,21 @@
         if (Math.abs(d) >= 1) { diffs.push({k:k, d:d}); }
       }
       diffs.sort(function(a,b){ return Math.abs(b.d) - Math.abs(a.d); });
-      diffs = diffs.slice(0, 7);
+      diffs = diffs.slice(0, 8);
       var c = document.getElementById('content');
       var sid = '';
       try { sid = window.dendryUI.dendryEngine.state.sceneId; } catch(e){}
-      if (diffs.length && c && !c.querySelector('.pyr-ledger') && !/^root|^main$|main\.|post_event/.test(sid)) {
-        var div = document.createElement('div');
-        div.className = 'pyr-ledger';
-        div.style.cssText = 'margin-top:1.2em;padding-top:0.5em;border-top:1px dotted #8a6d3b66;'
-          + 'font-size:0.82em;font-style:italic;opacity:0.75;';
-        div.textContent = '— el saldo: ' + diffs.map(function(x){ return LABELS[x.k] + ' ' + fmt(x.d); }).join(' · ');
-        c.appendChild(div);
+      if (diffs.length && c && sceneOk(sid)) {
+        var key = sid + '|' + diffs.map(function(x){ return x.k + ':' + Math.round(x.d); }).join(',');
+        if (key !== lastKey) {  // one line per distinct decision, even mid-page
+          lastKey = key;
+          var div = document.createElement('div');
+          div.className = 'pyr-ledger';
+          div.style.cssText = 'margin-top:1.1em;padding-top:0.45em;border-top:1px dotted #8a6d3b66;'
+            + 'font-size:0.82em;font-style:italic;opacity:0.75;';
+          div.textContent = '— el saldo: ' + diffs.map(function(x){ return LABELS[x.k] + ' ' + fmt(x.d); }).join(' · ');
+          c.appendChild(div);
+        }
       }
     }
     prev = cur;
@@ -701,9 +709,15 @@
   window.addEventListener('load', function(){
     setTimeout(function(){
       prev = snap();
-      var orig = window.onNewPage;
+      // hook every content display: card outcomes AND event decisions, inline
+      var origDC = window.onDisplayContent;
+      window.onDisplayContent = function(){
+        if (origDC) { try { origDC(); } catch(e){} }
+        setTimeout(render, 60);
+      };
+      var origNP = window.onNewPage;
       window.onNewPage = function(){
-        if (orig) { orig(); }
+        if (origNP) { origNP(); }
         setTimeout(render, 80);
       };
     }, 900);
