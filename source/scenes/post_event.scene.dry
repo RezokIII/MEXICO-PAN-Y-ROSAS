@@ -56,6 +56,43 @@ if (Q.month != Q.last_drift_month) {
             Q.pri_reformist_rel += 1;
         }
     }
+    // ===== PRI AI: each quarter Gobernación re-reads the file and sets a posture =====
+    // Visible in the Política tab; gates the regime's targeted moves. The temperament
+    // of the sitting president decides whether threat is answered with money or blood.
+    if (Q.time % 3 == 0 || !Q.pri_posture) {
+        var _threat = (Q.izq_votes_display || 0)
+                    + Q.red_casillas * 0.15
+                    + (Q.huelga_prep || 0) * 0.12
+                    + Q.escandalos * 1.5
+                    + (Q.izq_seats || 0) * 0.8
+                    + (Q.frente_unidad || 0) * 0.05
+                    + ((Q.via == 'armada' || Q.via == 'dual') ? 14 : 0)
+                    + Math.max(0, 72 - Q.legitimidad_regimen) * 0.2;
+        Q.pri_threat = Math.round(_threat);
+        var _style = Q.presidente_cooptacion - Q.presidente_represion;
+        if (Q.via == 'armada' || Q.via == 'dual') {
+            Q.pri_posture = (_threat >= 34) ? 'aniquilar' : 'contener';
+        } else if (_threat < 14) {
+            Q.pri_posture = 'ignorar';
+        } else if (_threat >= 34) {
+            Q.pri_posture = (_style >= -20) ? 'robar' : 'reprimir';
+        } else {
+            Q.pri_posture = (_style >= -20) ? 'cooptar' : 'vigilar';
+        }
+    }
+    // the posture leans on you monthly
+    if (Q.pri_posture == 'cooptar') { Q.charrismo += 0.4; Q.presidente_cooptacion += 0.2; }
+    else if (Q.pri_posture == 'vigilar') { Q.expediente += 0.5; }
+    else if (Q.pri_posture == 'reprimir') { Q.represion += 0.6; Q.expediente += 0.3; }
+    else if (Q.pri_posture == 'robar') { if (Q.red_casillas > 0 && Q.time % 2 == 0) { Q.red_casillas -= 1; } Q.legitimidad_regimen += 0.3; }
+    else if (Q.pri_posture == 'contener') { Q.expediente += 0.3; }
+    else if (Q.pri_posture == 'aniquilar') {
+        Q.represion += 0.8;
+        var _zs = ['guerrero','valle','chihuahua','jalisco','nl','oaxaca','tijuana'];
+        for (var _z of _zs) { if (Q['pres_'+_z] >= 10) { Q['guar_'+_z] += 1.5; } }
+    }
+    // an active escisión competes for your own base until a fusion reabsorbs it
+    if (Q.escision_activa == 1) { Q.sup_students -= 0.4; Q.sup_teachers -= 0.2; }
     // the regime's grip: the more threatening you become, the harder it hunts you (scales, so it actually bites)
     if (_iz >= 35) {
         var _crack = (_iz - 35) * 0.30;

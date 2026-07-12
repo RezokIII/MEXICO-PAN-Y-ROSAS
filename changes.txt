@@ -1,3 +1,25 @@
+PAN Y ROSAS — 2026-07-10 (the PRI learns to play):
+
+- PRI AI: every quarter Gobernación re-reads your file and sets a posture — ignorar /
+  cooptar / vigilar / reprimir / robar (political road) or contener / aniquilar (armed
+  road) — chosen from a threat index and the sitting president's temperament. The
+  posture leans on you monthly (charro pressure, file growth, casilla attrition,
+  garrison surges) and gates the regime's targeted moves. Visible in the Política tab
+  as "El semáforo de Bucareli."
+- New PRI plays: "La elección robada" (the machine rehearses the alquimia on one of
+  your towns) and "La izquierda de charola" (a regime-funded discount left planted in
+  your best districts — contrast it, infiltrate it, or ignore it).
+- LFOPPE negotiation chain: "El sondeo de Bucareli" (Reyes Heroles' emissary asks your
+  price — the prisoners or the seats) and "El pleno de la puerta" (pre-clear the
+  December decision cell by cell). Both pay dividends in the reform, the amnesty
+  breadth, and the unity cost of registering.
+- Escisiones are real now: letting a current walk founds a rival sigla that eats your
+  student/teacher base monthly until a fusion (PSUM/PMS) reabsorbs it.
+- Consequence ledger: every event/card page now ends with "— el saldo: expediente −8 ·
+  fondos −4" showing what your last action actually moved.
+- Event-queue fix (continued): golpe alternates routed through one dispatcher event.
+- Fuzz-tested: 9 full random 1968-89 runs, both roads — no crashes, no softlocks.
+
 PAN Y ROSAS — 2026-07-10 (bugfix + vida armada update):
 
 CRITICAL FIXES:

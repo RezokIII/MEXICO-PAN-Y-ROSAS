@@ -3,7 +3,7 @@ new-page: true
 subtitle: La prensa del régimen decide que usted es la noticia
 face-image: img/excelsior.jpg
 tags: event
-view-if: sup_middle >= 12 and expediente >= 30 and time >= smear_last + 22
+view-if: (sup_middle >= 12 and expediente >= 30 and time >= smear_last + 22) and (pri_posture = "vigilar" or pri_posture = "reprimir" or pri_posture = "robar")
 priority: 2
 max-visits: 6
 on-arrival: smear_last = time

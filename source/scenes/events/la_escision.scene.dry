@@ -28,6 +28,6 @@ The special pleno runs fourteen hours and ends in the Mexican resolution: nobody
 
 @dejar_ir
 go-to: post_event
-on-arrival: members -= 2; fac_ortodoxos -= 4; fac_renovadores -= 4; fac_nueva_izquierda -= 4; unity += 8; sup_students -= 2
+on-arrival: members -= 2; fac_ortodoxos -= 4; fac_renovadores -= 4; fac_nueva_izquierda -= 4; unity += 8; sup_students -= 2; escision_activa = 1
 
-The despedida is correct and the wound is real: a new sigla appears within the season, staffed by faces from your file photos, competing for your students and your paper's street corners. The house is quieter and smaller. History will decide which mattered more, and history, on splits, has never once been kind to both halves.
+The despedida is correct and the wound is real: a new sigla appears within the season, staffed by faces from your file photos, competing for your students and your paper's street corners — and it keeps competing, month after month, eating at your campus and your teachers until some future fusion gives everyone a house big enough to stop. The house is quieter and smaller. History will decide which mattered more, and history, on splits, has never once been kind to both halves.

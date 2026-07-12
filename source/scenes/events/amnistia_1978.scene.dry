@@ -6,11 +6,13 @@ tags: event
 view-if: year = 1978 and month >= 9 and month <= 11
 priority: 2
 max-visits: 1
-on-arrival: organizers += 1; political_capital += 2; represion -= 5
+on-arrival: organizers += 1; political_capital += 2; represion -= 5; organizers += 1 if lfope_dote = 1; members += 1 if lfope_dote = 1; represion -= 3 if lfope_dote = 1
 
 = La amnistía
 
 The second half of the reform arrives: an amnesty law for political prisoners and the pursued. It is drawn narrow — common-order "crimes" excluded, the disappeared unmentioned, the books of the dirty war closed rather than opened — but through its gate, over the following year, come fifteen hundred lives: the last of the '68ers, the survivors of the sierra, men and women who have been names on your list and now stand at bus stations blinking at a country that pretends to have been here waiting.
+
+[? if lfope_dote = 1 : The law is broader than its first draft — categories widened, exclusions trimmed, a schedule that empties galleries rather than cells — and only a handful of people know why the width was politically possible. A lunch, a cold coffee, a man who wrote nothing down. ?]
 
 They come down from the mountains, out of Lecumberri and the Oblatos prison, back from exile with Chilean and Cuban accents on their children. Rosario Ibarra takes the microphone at the reception in the capital and says the sentence the law was built to avoid: *amnesty for the living is not an answer for the disappeared — ¿dónde están?*
 

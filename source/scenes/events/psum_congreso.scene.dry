@@ -21,6 +21,8 @@ Heberto Castillo came to the courtship and left it: his PMT will not merge where
 
 [? if fusion_prog = 0 : It arrives, if the delegates are honest, out of season: the fusion was never courted — no joint tables, no shared drafts, no habits of trust — and the congress is being asked to marry strangers on the strength of a common enemy. It can be done. It will cost. ?]
 
+[? if escision_activa = 1 : Among the delegations, faces from your file photos: the escisión's people, returning to a house finally big enough to hold the quarrel. Fusions are how the left forgives itself. ?]
+
 - @amplia: The broad fusion: dissolve fully, concede the symbols, build PSUM as a genuinely shared house.
 - @estrecha: A narrow fusion: merge, but on the Party's terms — statutes, symbols, and apparatus weighted to the old house.
 - @negarse: No fusion. The Party keeps its name, its history, and its size.
@@ -29,13 +31,13 @@ Heberto Castillo came to the courtship and left it: his PMT will not merge where
 go-to: post_event
 choose-if: (fusion_pact = 1 and unity >= 38 and political_capital >= 10) or (unity >= 45 and political_capital >= 18)
 unavailable-subtitle: Dissolving the oldest party in Mexico requires internal authority you do not have.
-on-arrival: psum = 1; members += 3; members += 2 if fusion_pact = 1; funds += 5; fac_renovadores += 8; fac_nueva_izquierda += 6; fac_ortodoxos -= 8; unity -= 5; unity += 4 if fusion_pact = 1; ax_sovietico -= 5; moscow_relation -= 6; political_capital += 4
+on-arrival: psum = 1; members += 3; members += 2 if fusion_pact = 1; funds += 5; fac_renovadores += 8; fac_nueva_izquierda += 6; fac_ortodoxos -= 8; unity -= 5; unity += 4 if fusion_pact = 1; ax_sovietico -= 5; moscow_relation -= 6; political_capital += 4; members += 2 if escision_activa = 1; unity += 2 if escision_activa = 1; escision_activa = 0
 
 The vote carries and the hall stands for the Internationale — sung, everyone notices, in the past tense. The PCM folds its sixty-two years into the new banner; the registration transfers; the MAP's economists take seats beside veterans of Lecumberri. It is bigger inside than the old house, and colder in corners, and the ortodoxos walk its halls like widowers. On the ballot line where the hammer and sickle stood, there is now a red star that offends fewer and warms fewer. Growth has a temperature.
 
 @estrecha
 go-to: post_event
-on-arrival: psum = 1; members += 1; funds += 2; fac_ortodoxos += 2; fac_renovadores += 2; unity += 2; political_capital -= 2
+on-arrival: psum = 1; members += 1; funds += 2; fac_ortodoxos += 2; fac_renovadores += 2; unity += 2; political_capital -= 2; members += 2 if escision_activa = 1; unity += 2 if escision_activa = 1; escision_activa = 0
 
 The fusion signs, weighted: old statutes barely amended, the apparatus intact under new letterhead. The smaller partners feel it immediately — guests in a house that kept its locks — and two of the four currents drift out within the year, politely. PSUM exists, and is mostly the PCM wearing a scarf. The arithmetic of unity was satisfied; its chemistry was not.
 

@@ -3,7 +3,7 @@ new-page: true
 subtitle: Pavimento, sobres, un bastión reconquistado
 face-image: img/neza.jpg
 tags: event
-view-if: (colonia_saga >= 1 or sup_peasants >= 22 or red_casillas >= 20) and izq_votes_display >= 16 and time >= compra_last + 22
+view-if: ((colonia_saga >= 1 or sup_peasants >= 22 or red_casillas >= 20) and izq_votes_display >= 16 and time >= compra_last + 22) and (pri_posture = "cooptar" or pri_posture = "robar" or presidente_cooptacion >= 40)
 priority: 2
 max-visits: 6
 on-arrival: compra_last = time

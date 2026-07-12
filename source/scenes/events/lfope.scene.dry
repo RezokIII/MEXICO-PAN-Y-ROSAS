@@ -11,6 +11,10 @@ max-visits: 1
 
 The law is published, and it is larger than the skeptics predicted and smaller than the believers hoped, which was its design. The *Ley Federal de Organizaciones Políticas y Procesos Electorales*: parties may earn **conditional registration** by polling 1.5 percent; the Chamber grows to 400 seats, 100 of them by proportional representation — seats the opposition can actually win; registered parties receive media time and public money. Political prisoners are already being discussed under an amnesty to come.
 
+[? if lfope_dote = 2 : And buried in the plurinominal annexes, recognizable only to those who sat at a certain lunch: assignment formulas cleaner than the machine's habit — the seats will mean what they say, nearly. ?]
+
+[? if lfope_preclear = 1 : The Party, for once in its history, arrives at the door already decided: the autumn's cell-by-cell debate means December is a vote, not a battle. ?]
+
 The price is the fine print of legitimacy itself. To register is to accept the Comisión Federal Electoral — chaired by Gobernación — as your referee; to swear the constitutional order you exist to transform; to become countable by the machine that has spent fifty years miscounting you. The ortodoxos call it the state licensing its own opposition. The renovadores call it the mass line by other means. The Maoists in the colonias call it a funeral with music, and mean to skip it.
 
 Fifty years the Party has waited to be asked. The answer will define everything after.
@@ -25,7 +29,7 @@ Fifty years the Party has waited to be asked. The answer will define everything 
 go-to: post_event
 choose-if: political_capital >= 12 and via != "armada"
 unavailable-subtitle: Registration demands political capital and peace: no Comision registers a party whose other half is at war.
-on-arrival: registro = 1; funds += 8; ax_electoral += 6; fac_renovadores += 6; fac_ortodoxos -= 3; fac_nueva_izquierda -= 6; unity -= 4; sup_students -= 2; pri_reformist_rel += 4; des_renovadores -= 10; des_nueva += 12; des_ortodoxos += 6
+on-arrival: registro = 1; funds += 8; ax_electoral += 6; fac_renovadores += 6; fac_ortodoxos -= 3; fac_nueva_izquierda -= 6; unity -= 4; unity += 4 if lfope_preclear = 1; sup_students -= 2; pri_reformist_rel += 4; des_renovadores -= 10; des_nueva += 12; des_nueva -= 6 if lfope_preclear = 1; des_ortodoxos += 6; des_ortodoxos -= 4 if lfope_preclear = 1; political_capital += 3 if lfope_dote = 2; fe_voto += 2 if lfope_dote = 2
 
 The assemblies are certified, the notaries paid, the membership rolls — guarded like relics through two decades of raids — voluntarily deposited with the state that raided for them. It is the strangest act in the Party's history and the congress votes it knowing so. The Maoist cadres walk out to their colonias without theater; the JC splits a seam; a veteran of '59 signs the registration papers and then sits alone for a while.
 

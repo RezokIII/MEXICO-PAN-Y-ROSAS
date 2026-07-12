@@ -138,6 +138,10 @@ Duros: [+ pri_duros : fuerza +]
 
 The line in force: [? if via = "politica" : insurgent political opposition ?][? if via = "institucional" : the reformist road — inside the antechambers ?][? if via = "armada" : the armed road — the Sierra desk is open ?][? if via = "dual" : the synthesis — two faces, one strategy, compounding risk ?]
 
+**El semáforo de Bucareli**
+
+Gobernación's current reading of you (threat index [+ pri_threat +]): [? if pri_posture = "ignorar" : *ignorar* — you are a folder among folders. The apparatus spends its attention elsewhere, which is the most useful thing it can do with it. ?][? if pri_posture = "cooptar" : *cooptar* — the checkbook is open. Expect offers, charro pressure on your flanks, and the patient arithmetic of the charola. ?][? if pri_posture = "vigilar" : *vigilar* — the cameras are out. The file fattens monthly; the men in parked cars have a budget again. ?][? if pri_posture = "reprimir" : *reprimir* — the hard desks hold the file. Raids, beatings, the machinery warming. Lower the temperature or feed it. ?][? if pri_posture = "robar" : *robar* — you are big enough to steal from. The alquimia is being tuned against your casillas specifically. Guard the count. ?][? if pri_posture = "contener" : *contener* — the war is being managed: garrisons, checkpoints, patience. The state believes time is on its side. ?][? if pri_posture = "aniquilar" : *aniquilar* — the state has decided to end the war rather than manage it. Everything is now aimed. ?]
+
 **The electoral road**
 
 Registro: [? if registro = 0 : none. The Party does not exist before the Comisión Federal Electoral — which exists entirely too much before the Party. ?][? if registro = 1 : conditional. You exist on probation, like new employees. ?][? if registro = 2 : definitive. A legal party, with everything that opens and everything it obliges. ?]

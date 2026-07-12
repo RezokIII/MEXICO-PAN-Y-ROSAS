@@ -153,6 +153,9 @@ Q.genaro_advisor = 1; Q.genaro_canje = 0;
 Q.lucio_advisor = 1; Q.lucio_vive = 0;
 Q.medrano_advisor = 0; Q.medrano_muerto = 0;
 Q.fusion_pact = 0; Q.fusion_mesa = 0;
+Q.pri_posture = "ignorar"; Q.pri_threat = 0;
+Q.escision_activa = 0;
+Q.lfope_dote = 0; Q.lfope_preclear = 0; Q.robada_last = -99; Q.oficial_last = -99;
 
 // ---- la economía ----
 Q.crecimiento = 8;

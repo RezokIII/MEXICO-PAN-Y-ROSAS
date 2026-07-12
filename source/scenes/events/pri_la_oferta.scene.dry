@@ -3,7 +3,7 @@ new-page: true
 subtitle: Un emisario, un sobre, una curul
 face-image: img/charola.jpg
 tags: event
-view-if: izq_votes_display >= 20 and unity < 68 and time >= oferta_last + 20
+view-if: (izq_votes_display >= 20 and unity < 68 and time >= oferta_last + 20) and (pri_posture = "cooptar" or pri_posture = "robar" or presidente_cooptacion >= 40)
 priority: 3
 max-visits: 6
 on-arrival: oferta_last = time
