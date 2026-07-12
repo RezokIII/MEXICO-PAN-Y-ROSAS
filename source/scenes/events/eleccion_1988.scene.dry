@@ -3,7 +3,7 @@ new-page: true
 subtitle: 6 de julio de 1988
 face-image: img/seis_de_julio.jpg
 tags: event
-view-if: year = 1988 and month = 7
+view-if: year = 1988 and month = 7 and via != "armada"
 priority: 2
 max-visits: 1
 on-arrival: {!

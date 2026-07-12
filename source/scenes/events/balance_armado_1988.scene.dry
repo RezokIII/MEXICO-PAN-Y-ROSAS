@@ -1,0 +1,85 @@
+title: Veinte años en la sierra
+new-page: true
+subtitle: Febrero de 1988 — the war weighs itself
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and year = 1988 and month = 2 and balance_armado_visto = 0
+priority: 4
+max-visits: 1
+on-arrival: {!
+Q.balance_armado_visto = 1;
+Q.pres_total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
+Q.guerra_fuerza = Q.pres_total + Q.moral_columnas * 0.4 + Q.parque * 1.5 - Q.coronel_red * 0.5 + (Q.coronel_muerto ? 15 : 0) + (Q.coronel_removido ? 8 : 0) + Q.veteranos * 3;
+!}
+
+= Veinte años en la sierra
+
+MÉXICO, la sierra, febrero de 1988 —
+
+Down in the country the campaign fills the plazas — Cárdenas drawing crowds the press declines to count, a wave building that has nothing to do with rifles and everything to do with the same anger that once sent people up the mountain. Twenty years since Tlatelolco. Twenty years since the plaza taught a generation that the ballot was counted by the enemy and the strike broken by the army, and that the mountain, at least, would only kill you honestly.
+
+And now a wave that might, for once, be counted — and it is happening down there, in the daylight, without you.
+
+The comandancia draws the balance by lamplight, the way it has drawn every balance, and this one has a weight the others lacked: the sense of a door about to close. The war has reached the one year in twenty when the country is looking somewhere else — at a ballot — and the columns must decide what twenty years of survival was *for*.
+
+[? if guerra_fuerza >= 70 : The war stands strong: real presence, columns that recruit themselves, materiel in the caches, a state that hunts you and has not won. You could throw all of it into the spring — make the war a fact the succession cannot ignore. Or you could carry that strength down the mountain into a wave that has room for it. ?]
+
+[? if guerra_fuerza >= 35 and guerra_fuerza < 70 : The war survives — which against this state is its own verdict — but survival is the whole of the balance: zones held thin, the Coronel's map thickening, each month rented. Strong enough to matter in the spring, perhaps, if everything breaks right. Strong enough to come down with dignity, certainly, if that is the choice. ?]
+
+[? if guerra_fuerza < 35 : The balance reads like a eulogy drafted early: columns at half strength, the encirclement winning, the informer web inside the villages now. Whatever the spring is for, the war as it stands cannot force it. The honest choices left are two: come down while there is still a war to come down from, or stay, and let the mountain finish the sentence it started. ?]
+
+- @bajar_a_la_ola: Come down. Carry the war's veterans and its legend into the cardenista wave — the ballot, this once, is where the anger is going.
+- @jugar_la_primavera: Stay, and commit everything to the spring. One last operation to make the war a fact the succession cannot count around.
+- @la_sierra_no_baja: The sierra does not come down for an election. Whatever July is, the war is not a spectator to it — hold the mountain.
+
+@bajar_a_la_ola
+go-to: post_event
+on-arrival: {!
+Q.via = "politica";
+Q.represion -= 8;
+Q.guerrilla_meter -= 5;
+var _total = Q.pres_total;
+Q.veteranos = Math.max(Q.veteranos, Math.round(_total / 15));
+Q.members += 3 + Math.min(6, Math.floor(_total / 20));
+Q.organizers += 1 + (_total >= 50 ? 1 : 0);
+Q.red_casillas += Math.min(14, Math.floor(Q.pres_guerrero / 4) + Math.floor(Q.pres_oaxaca / 4));
+Q.sup_peasants += Math.min(12, 4 + _total * 0.06);
+Q.sup_students += Math.min(10, Q.memorial);
+Q.leyenda = (Q.sw_auge ? 2 : (_total >= 50 ? 1 : 0)) + 1;
+Q.fdn = 1;
+Q.cd_rel += 1;
+if (_total >= 45) { Q.sw_descenso = 1; Q.political_capital += 5; }
+if (Q.expediente < 40) { Q.expediente = 40; }
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
+!}
+
+They come down in the weeks before the wave crests, and the wave receives them the way rivers receive the streams that were always feeding them: without ceremony, as if they had never been apart. The veterans of the sierra become the cardenista campaign's spine in the south — poll-watchers who cannot be intimidated because they have already survived worse, a ground game in the Costa Grande and the Istmo that the machine's operators do not know how to frighten. The war did not win the mountain. It arrives, at the last hour, exactly where the anger finally pooled — and finds it has spent twenty years training precisely the people this night will need.
+
+@jugar_la_primavera
+go-to: post_event
+on-arrival: guerrilla_meter += 3
+
+The order goes up the trails: prepare. One operation, the largest the war can mount, timed to the season when the whole country is watching the succession — to make the sierra a fact the count cannot count around. The columns that have waited twenty years for permission receive it at last, and the safe houses fill with the particular electricity of people who have decided to stop surviving and start acting. What the spring becomes, the operation will decide.
+
+@la_sierra_no_baja
+new-page: true
+face-image: img/muertos.jpg
+on-arrival: {!
+Q.pres_total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
+Q.guerra_fuerza = Q.pres_total + Q.moral_columnas * 0.4 + Q.parque * 1.5 - Q.coronel_red * 0.5 + (Q.coronel_muerto ? 15 : 0) + (Q.coronel_removido ? 8 : 0) + Q.veteranos * 3 + (Q.auge_armada ? 20 : 0);
+if (Q.guerra_fuerza >= 55) { Q.ending = "guerra_larga"; }
+else { Q.ending = "exterminio"; }
+!}
+
+= La sierra no baja
+
+The comandancia's answer is the oldest one the mountain gives, and it is not defiance so much as a fact of physics: the sierra does not come down for an election, because the sierra was never in the election, because the whole reason the sierra exists is that the election was closed to the people who took it. Let the valley have its July. The war keeps its own calendar, which is measured not in sexenios but in the patience of the poor.
+
+[? if ending = "guerra_larga" : And the war, held at strength, does what strong wars do when the country's attention passes: it endures. July comes and goes in the distant plazas; the columns hold their zones; the corridos add a verse about the ones who did not come down. The state, busy with its stolen election, cannot spare the battalions to finish a war that refuses to end — and the war, refusing, becomes the one thing the counted and the stolen ballots both leave unfinished. Somewhere in the sierra a young fighter who was born the year of Tlatelolco cleans a rifle, and waits, and the decade turns, and the mountain keeps its appointment for another generation to arrive and understand. ?]
+
+[? if ending = "exterminio" : And the war, held past its strength out of a pride the manuals warned against, meets the end the manuals promised. With the country looking at its ballot, the state finishes, quietly and without witnesses, the work it could never do under scrutiny: the last zones swept, the last columns run to ground, the encirclement closed on a war too weak to break it and too proud to leave. There is no July for the sierra. There is only the older arithmetic, done in the dark, one camp at a time. ?]
+
+- @fin_sierra: Fin.
+
+@fin_sierra
+go-to: finale

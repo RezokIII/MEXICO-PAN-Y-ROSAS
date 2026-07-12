@@ -28,9 +28,22 @@ The organizers on the political side beg you to reconsider. Every rifle fired in
 @abstenerse_op
 go-to: post_event
 title: No es la temporada
-on-arrival: unity += 2; ax_electoral += 2; pri_reformist_rel += 2
+on-arrival: {!
+Q.via = "politica";
+Q.represion -= 6; Q.guerrilla_meter -= 4;
+Q.veteranos = Math.max(Q.veteranos, Math.round(Q.pres_total / 15));
+Q.members += 2 + Math.min(5, Math.floor(Q.pres_total / 20));
+Q.organizers += 1;
+Q.red_casillas += Math.min(12, Math.floor(Q.pres_guerrero / 5) + Math.floor(Q.pres_oaxaca / 5));
+Q.sup_peasants += Math.min(8, 3 + Q.pres_total * 0.05);
+Q.leyenda = (Q.sw_auge ? 2 : (Q.pres_total >= 50 ? 1 : 0)) + 1;
+Q.fdn = 1; Q.cd_rel += 1;
+if (Q.pres_total >= 45) { Q.sw_descenso = 1; Q.political_capital += 4; }
+if (Q.expediente < 40) { Q.expediente = 40; }
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
+!}
 
-The rifles stay buried. Some cadres take it as wisdom and some as one more betrayal filed for later, but the political organizers exhale: the spring will belong to the ballot and the plaza, not to the communiqué. Whatever 1988 becomes, the state will not be able to say you started the shooting.
+The rifles stay buried, and the decision carries the columns with it: if the war will not act this spring, then the war comes down to where the spring is acting. The veterans descend into the cardenista wave in the weeks before it crests — a ground game in the south that has already survived everything the machine can threaten. Some cadres take it as wisdom and some as one more betrayal filed for later. But the state will not be able to say you started the shooting, and the wave gains a spine that spent twenty years learning not to break.
 
 @radio
 title: La toma de la señal
@@ -72,9 +85,10 @@ title: Salió
 subtitle: It worked — and the political organizers were right about the cost.
 on-arrival: legitimidad_regimen -= 12; auge_armada = 1; sup_students += 5; sup_colonos += 3; frente_unidad += 3; memorial += 1; represion += 8; expediente += 10; ax_electoral -= 6; pri_reformist_rel -= 9
 
-It goes the way it goes perhaps one time in five: cleanly. [? if op_type = "radio" : The demand reaches the living rooms twice before the signal dies, and the phrase about the sierra watching the casillas is repeated in markets for weeks. ?][? if op_type = "fuerza" : For one morning the map flickers, and every editor in the country understands that the state's monopoly on the territory is a courtesy, not a fact. ?][? if op_type = "presos" : The politicals walk out into daylight and the photograph runs on front pages the censors cannot fully suppress; the campaign has its resurrection. ?] The regime's legitimacy takes a wound that shows. And the political road pays exactly the bill it was warned of: the middle class recoils, the reformist interlocutors stop returning calls, and the moderates in your own house look at the ballot and wonder whether the sierra has just cost them the country. The wave is bigger and angrier now. Whether it is more likely to be counted is a question July will answer.
+It goes the way it goes perhaps one time in five: cleanly. [? if op_type = "radio" : The demand reaches the living rooms twice before the signal dies, and the phrase about the sierra watching the casillas is repeated in markets for weeks. ?][? if op_type = "fuerza" : For one morning the map flickers, and every editor in the country understands that the state's monopoly on the territory is a courtesy, not a fact. ?][? if op_type = "presos" : The politicals walk out into daylight and the photograph runs on front pages the censors cannot fully suppress; the campaign has its resurrection. ?] The regime's legitimacy takes a wound that shows. And the political road pays exactly the bill it was warned of: the middle class recoils, the reformist interlocutors stop returning calls, and the moderates in your own house look at the ballot and wonder whether the sierra has just cost them the country. The wave is bigger and angrier now. Whether it is more likely to be counted is a question July will answer — but that answer belongs to the daylight, and you must decide, now, whether the war walks into the daylight to hear it.
 
-- @root: The die is cast.
+- @sumarse_ola: Come down on the strength of it. Carry the war's momentum into the wave and be there for July.
+- @seguir_guerra: The war does not disarm the year it finally landed a blow. Stay in the sierra, whatever July brings.
 
 @op_parcial
 view-if: op_result = 1
@@ -82,9 +96,10 @@ title: Salió a medias
 subtitle: Half of what you wanted, most of the cost.
 on-arrival: legitimidad_regimen -= 5; auge_armada = 1; sup_students += 2; memorial += 2; represion += 7; expediente += 10; ax_electoral -= 3; pri_reformist_rel -= 5
 
-It half-works, which in this business is the most common and most expensive outcome. [? if op_type = "radio" : The signal is cut mid-sentence; the demand half-lands, a rumor more than a broadcast. ?][? if op_type = "fuerza" : Some actions fire, others fold; the simultaneity that was the whole point frays into a scatter of incidents. ?][? if op_type = "presos" : A few come out; others do not; the daylight photograph is real but so is the shorter, worse list beside it. ?] The regime is embarrassed, not wounded, and it answers the embarrassment the way it prefers — with the Brigada, with the files, with a spring of funerals. The political road is tainted for the middle class all the same. You spent the operation and got a fraction of its promise, which is what unprepared audacity usually buys.
+It half-works, which in this business is the most common and most expensive outcome. [? if op_type = "radio" : The signal is cut mid-sentence; the demand half-lands, a rumor more than a broadcast. ?][? if op_type = "fuerza" : Some actions fire, others fold; the simultaneity that was the whole point frays into a scatter of incidents. ?][? if op_type = "presos" : A few come out; others do not; the daylight photograph is real but so is the shorter, worse list beside it. ?] The regime is embarrassed, not wounded, and it answers the embarrassment the way it prefers — with the Brigada, with the files, with a spring of funerals. The political road is tainted for the middle class all the same. You spent the operation and got a fraction of its promise, which is what unprepared audacity usually buys. What is left of the war must still decide where to spend July.
 
-- @root: On to July, lighter and more hunted.
+- @sumarse_ola: Come down anyway. Salvage the veterans into the wave before the spring's cost comes due.
+- @seguir_guerra: Stay in the sierra, lighter and more hunted, and let the mountain keep its own July.
 
 @op_desastre
 view-if: op_result = 0
@@ -101,9 +116,10 @@ view-if: plan_b = 1
 title: El Plan B
 on-arrival: unity -= 6; political_capital -= 4
 
-But the Plan B drawn in colder blood holds: a fallback compartment the state did not know to roll up, the archive moved a month ago, a second-string leadership kept deliberately clear of the operation. The Movement survives the disaster — halved, hunted, and forced to reach July on its knees, but alive. The men who insisted on the fallback are, for once, not argued with.
+But the Plan B drawn in colder blood holds: a fallback compartment the state did not know to roll up, the archive moved a month ago, a second-string leadership kept deliberately clear of the operation. The Movement survives the disaster — halved, hunted, and forced to reach the summer on its knees, but alive. The men who insisted on the fallback are, for once, not argued with. What survives must still choose its July.
 
-- @root: Survive. Reach July, barely.
+- @sumarse_ola: Take the survivors down into the wave. There is nothing left to hold the mountain with.
+- @seguir_guerra: Hold what remains of the sierra. The war has been this thin before and did not die.
 
 @op_fin
 view-if: plan_b = 0
@@ -115,5 +131,50 @@ There was no fallback. There is nothing behind the leadership that walked into t
 - @fin_op: Fin.
 
 @fin_op
-on-arrival: ending = "aniquilacion"
-go-to: la_derrota
+on-arrival: ending = "exterminio"
+go-to: la_aniquilacion_armada
+
+@sumarse_ola
+new-page: true
+face-image: img/guerrero_sierra.jpg
+go-to: post_event
+on-arrival: {!
+Q.via = "politica";
+Q.represion -= 6; Q.guerrilla_meter -= 4;
+Q.veteranos = Math.max(Q.veteranos, Math.round(Q.pres_total / 15));
+Q.members += 2 + Math.min(5, Math.floor(Q.pres_total / 20));
+Q.organizers += 1 + (Q.pres_total >= 50 ? 1 : 0);
+Q.red_casillas += Math.min(12, Math.floor(Q.pres_guerrero / 5) + Math.floor(Q.pres_oaxaca / 5));
+Q.sup_peasants += Math.min(10, 3 + Q.pres_total * 0.06);
+Q.sup_students += Math.min(8, Q.memorial);
+Q.leyenda = (Q.auge_armada ? 2 : 1) + 1;
+Q.fdn = 1; Q.cd_rel += 1;
+if (Q.pres_total >= 40) { Q.sw_descenso = 1; Q.political_capital += 4; }
+if (Q.expediente < 40) { Q.expediente = 40; }
+Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
+!}
+
+They come down on the momentum of the spring, and the wave — which has been organizing the same anger from the other direction for twenty years — receives the war's veterans as if it had been waiting for them, which in a sense it had. Whatever the operation cost, it bought this: an entrance into July made not as supplicants but as the people who, that spring, made the regime flinch. The mountain is behind them now. The count is ahead.
+
+@seguir_guerra
+new-page: true
+face-image: img/muertos.jpg
+on-arrival: {!
+Q.pres_total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
+Q.guerra_fuerza = Q.pres_total + Q.moral_columnas * 0.4 + Q.parque * 1.5 - Q.coronel_red * 0.5 + (Q.coronel_muerto ? 15 : 0) + Q.veteranos * 3 + (Q.auge_armada ? 20 : 0);
+if (Q.guerra_fuerza >= 50) { Q.ending = "guerra_larga"; }
+else { Q.ending = "exterminio"; }
+!}
+
+= El que se queda
+
+The war does not come down the year it finally acted. Let the valley have July; the sierra keeps its own calendar.
+
+[? if ending = "guerra_larga" : Held at strength through the season the country looked away, the war endures the way strong wars endure a distracted enemy: the zones hold, the corridos add their verse, and the state — its hands full of a stolen election — cannot spare the force to finish a war that will not finish itself. It becomes the unfinished business of 1988, the thing neither the counted votes nor the stolen ones resolved, waiting in the mountains for the decade to turn and a new generation to climb up and understand. ?]
+
+[? if ending = "exterminio" : Held past its strength out of the pride the manuals warned against, the war meets, while the country studies its ballot, the end the manuals promised: the last zones swept without witnesses, the columns run to ground, the encirclement closed in the dark on a war too weak to break it. There is no July for the sierra — only the older arithmetic, one camp at a time, and a silence the corridos will spend forty years refusing to accept. ?]
+
+- @fin_seguir: Fin.
+
+@fin_seguir
+go-to: finale

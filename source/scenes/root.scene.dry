@@ -165,6 +165,7 @@ Q.op_res = 0; Q.op_zone = ""; Q.barrida_zone = "";
 Q.coronel_muerto = 0; Q.coronel_removido = 0;
 Q.col_chihuahua_mood = 55; Q.col_valle_mood = 55; Q.columna_last = -99;
 Q.cerco_final_warned = 0;
+Q.balance_armado_visto = 0;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
 
 // ---- la economía ----

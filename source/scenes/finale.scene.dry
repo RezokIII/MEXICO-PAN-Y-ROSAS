@@ -3,6 +3,7 @@ new-page: true
 on-arrival: {!
 if (Q.ending == "aniquilacion") { this.achieve('el_palacio_negro'); }
 if (Q.ending == "exterminio") { this.achieve('el_exterminio'); }
+if (Q.ending == "guerra_larga") { this.achieve('la_guerra_larga'); }
 if (Q.ending == "debil") { this.achieve('la_semilla'); }
 if (Q.ending == "media") { this.achieve('la_acumulacion'); }
 if (Q.ending == "fuerte") { this.achieve('la_fuerza'); }
@@ -57,6 +58,8 @@ new-page: true
 
 = What was
 
+[? if ending = "guerra_larga" : The war did not end in 1988, and that was the whole of its statement. While the Republic spent the year on a ballot — counted or stolen, the argument still runs — the columns kept the mountains, and kept them into the next decade, and the state's inability to finish them became a fact everyone learned not to mention. It won nothing a palace could ratify. But it proved the one thing twenty years were spent to prove: that a structure could outlast the state's patience, that the poor could keep an appointment across generations, and that the sierra would still be there, armed and waiting, when the country was ready to look again. It was ready, in the end. The mountain had kept the light on. ?]
+
 [? if ending = "exterminio" : The war did not end. It was ended — physically, one camp at a time, until there were no camps. What the state annihilated was a generation: the schoolteachers who took the mountain when the plaza was closed to them, the students who followed, the campesinos who fed them and were made to pay for the meal. No congress dissolved this Movement; a runway dissolved it, over the sea, in loads. Its archive is a mother's memory and a chalkboard nobody erased. Decades later a Fiscalia will exhume a fraction of the names and call it truth, and it will be a fraction, and it will be true. ?]
 
 [? if ending = "aniquilacion" : The Mexican Communist Party ceased to exist as a national organization at some point not even its enemies could date. There was no final communique; organizations do not die of one shot but of a thousand casualties without funerals. Its archives — the ones the DFS never captured — slept in three basements in three cities, waiting for historians who would take decades to arrive. ?]
@@ -89,6 +92,8 @@ new-page: true
 [? if postura_guerrilla = 2 : The calculated ambiguity proved exactly that: calculated, by both sides. The DFS never forgave you; the guerrilla never embraced you. The wire was walked — but a wire is not a bridge. ?]
 [? if postura_guerrilla = 3 : The discreet channels saved lives no archive will ever count, and cost a mortgage of expediente paid with interest. When the history is written, that line will not appear — which was the point. ?]
 [? if postura_guerrilla = 0 : On the armed question the Movement never said anything, which was its way of saying everything. Silence was the only line executed to perfection. ?]
+
+[? if ending = "guerra_larga" : The armed road did not answer the question it was asked in 1968 — it refused to stop asking it. Whether twenty more years in the mountains was fidelity or a beautiful refusal to admit the ballot had become possible will be argued forever, and both sides of the argument will point, correctly, at the same corridos. What is not in dispute: the war outlived the men who declared it defeated, and its patience became a kind of address — a place the next uprising would know how to find. ?]
 
 [? if ending = "exterminio" : There was no armed question in the end, only an armed answer, and the state's was louder and lasted longer. Whether the mountain was a road or only a beautiful way to die will be argued at every table in Mexico for fifty years, and every argument will be conducted, on both sides, by people who were not there — because the people who were there are on the runway, over the water, in the loads. The corridos keep the count the courts refused. That is not justice. In this Republic, for this generation, it was the only thing that did not get confiscated. ?]
 
@@ -217,6 +222,8 @@ Go back to the stairwell. Look up at Rivera's wall one more time — Zapata, the
 [? if ending = "reconocimiento" or ending = "historico" or ending = "fuerte" : Once — on one counted night, in one founded party, in one arithmetic the state could not rewrite — the dream stepped down off the wall and stood in the plaza on its own feet. It did not stay long, and it did not do everything the painter promised. But a thing that was only ever paint had, for a season, a pulse. The mural is still up there. It is no longer the only place the dream lives. ?]
 
 [? if ending = "debil" or ending = "media" or ending = "ruptura" or ending = "irrelevancia" : The dream did not come down off the wall — not this decade, not on your watch. But look closely at the plaster: it is worn where a thousand hands reached up and touched it, year after year, refusing to accept that a painted promise is only paint. The mural outlasts the men who commissioned it precisely because people like you would not let it dry into decoration. The appointment is still unkept. Someone is still, always, at the door of the agrarian office. The dream continues because it was never allowed to finish being a dream. ?]
+
+[? if ending = "guerra_larga" : The dream did not come down off the wall, and it did not let the wall have the last word either. Up in the sierra a piece of it stayed exactly as Rivera painted it — a rifle, a refusal, a campesino who would not accept that the promise had dried into decoration. It is still up there, in both senses: on the plaster, and on the mountain. The appointment is unkept and the appointment is also, still, being kept — by whoever is cleaning a rifle tonight in the country the murals promised and the palaces declined to deliver. It always begins again. This time it never quite stopped. ?]
 
 [? if ending = "aniquilacion" or ending = "intervencion" or ending = "exterminio" : The dream was larger than the room they gave it, and the room won — this time. They hosed the plaza clean; they will not scrub the wall, because a mural of a revolution safely dead is the regime's favorite kind. And yet: paint outlives painters. The campesino is still bent to the corn up there, the worker still holds the future in his two hands, and somewhere a mother is telling a boy what the figures mean. It always begins again. It always begins again. But not, this time, with you. ?]
 

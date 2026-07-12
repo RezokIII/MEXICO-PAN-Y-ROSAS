@@ -1,3 +1,25 @@
+PAN Y ROSAS — armed endgame fix (1988 reckoning):
+
+- Fixed: armed players who reached 1988 were scored on the POLITICAL scorecard
+  (fin_decada) and dumped into the political election. Now the still-armed player gets
+  their own reckoning.
+- New "Veinte años en la sierra" (Feb 1988): the war weighs twenty years and chooses —
+  come down into the cardenista wave (converts to the political road with a full veteran
+  dividend), commit to a final spring offensive, or refuse the election and hold the
+  mountain.
+- La gran operacion (the spring offensive) now routes to armed endings instead of the
+  political count: come down on the momentum, or stay in the sierra. Its disaster path
+  routes to the armed annihilation (exterminio), not the generic collapse.
+- New ending "La guerra larga" — the armed road neither won nor was crushed: it endured
+  past 1988 into the next decade, the unfinished business the counted (or stolen) election
+  left behind, keeping the light on for what came after. Full finale slides (What was /
+  What was not / the mural), game-over text, and achievement.
+- The political endgame events (fin_decada, campana/eleccion/calificacion 1988,
+  epilogo 1989) now gate on via != armada, so a still-armed player never falls into a
+  ballot tally.
+- Verified: all four armed-1988 terminal paths resolve correctly (guerra_larga /
+  exterminio / come-down); 120-card audit clean; armed fuzz runs crash-free.
+
 PAN Y ROSAS — la aniquilacion (armed-path tragic ending):
 
 - New unique ending for the armed road: "El cerco se cierra" / "El exterminio" — a

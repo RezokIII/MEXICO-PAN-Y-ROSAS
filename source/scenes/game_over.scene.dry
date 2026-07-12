@@ -45,7 +45,7 @@ title: The state of the Republic...
 tags: endings
 go-to: eg_menu
 
-[? if ending = "reconocimiento" : An elected president governs over a fractured regime; the Mexican transition began by being counted. ?][? if ending = "historico" : Salinas governs a country that no longer believes him; facing him, the new party — founded on your registro. ?][? if ending = "ruptura" : The state prevailed over the Eleven Days; the country that watched does not forget. The lists survived. ?][? if ending = "irrelevancia" : The system continues; the wave passed; the Movement remained whole, and on the shore. ?][? if ending = "exterminio" : The war was ended the way wars against the poor are ended — completely, and then denied. The runway points at the sea. The corridos keep the count. ?][? if ending = "aniquilacion" : The system outlived you. Somewhere, on some rooftop, someone still keeps a mimeograph. ?]
+[? if ending = "reconocimiento" : An elected president governs over a fractured regime; the Mexican transition began by being counted. ?][? if ending = "historico" : Salinas governs a country that no longer believes him; facing him, the new party — founded on your registro. ?][? if ending = "ruptura" : The state prevailed over the Eleven Days; the country that watched does not forget. The lists survived. ?][? if ending = "irrelevancia" : The system continues; the wave passed; the Movement remained whole, and on the shore. ?][? if ending = "guerra_larga" : The war would not end. While the country counted its ballot, the sierra kept its own calendar — and kept it into the next decade, waiting. ?][? if ending = "exterminio" : The war was ended the way wars against the poor are ended — completely, and then denied. The runway points at the sea. The corridos keep the count. ?][? if ending = "aniquilacion" : The system outlived you. Somewhere, on some rooftop, someone still keeps a mimeograph. ?]
 
 [? if hitler_deported == 1 : We have deported Hitler back to Austria. Hopefully he will never return. ?]
 
@@ -219,7 +219,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 = Completed Achievements in this Playthrough
 
 
-[? if game_achievement_el_exterminio : **El exterminio** — the armed road was crushed to the last camp. They killed the column; they never found where it kept the reason. ?][? if game_achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
+[? if game_achievement_la_guerra_larga : **La guerra larga** — the armed road neither won nor was crushed: it endured past 1988, into the next decade, and kept the light on. ?][? if game_achievement_el_exterminio : **El exterminio** — the armed road was crushed to the last camp. They killed the column; they never found where it kept the reason. ?][? if game_achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
 
 [? if game_achievement_la_semilla : **La semilla** — survive the long decade, however small. ?]
 
@@ -377,7 +377,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_la_orilla : **La orilla** — arrive whole and alone at the shore of '88, and watch the wave pass. ?]
 
-[? if achievement_el_exterminio : **El exterminio** — the armed road was crushed to the last camp. They killed the column; they never found where it kept the reason. ?][? if achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
+[? if achievement_la_guerra_larga : **La guerra larga** — the armed road neither won nor was crushed: it endured past 1988, into the next decade, and kept the light on. ?][? if achievement_el_exterminio : **El exterminio** — the armed road was crushed to the last camp. They killed the column; they never found where it kept the reason. ?][? if achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
 
 [? if achievement_el_septiembre_mexicano : **El septiembre mexicano** — collapse the PRI by 1976 — and bring Washington's tanks. ?]
 
@@ -472,7 +472,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_la_orilla : **La orilla** — arrive whole and alone at the shore of '88, and watch the wave pass. ?]
 
-[? if not achievement_el_exterminio : **El exterminio** — be crushed to the last camp on the armed road. ?][? if not achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
+[? if not achievement_la_guerra_larga : **La guerra larga** — hold the armed road at strength through 1988 without being crushed. ?][? if not achievement_el_exterminio : **El exterminio** — be crushed to the last camp on the armed road. ?][? if not achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
 
 [? if not achievement_el_septiembre_mexicano : **El septiembre mexicano** — collapse the PRI by 1976 — and bring Washington's tanks. ?]
 
