@@ -3,7 +3,7 @@ is-pinned-card: true
 tags: advisor
 new-page: true
 card-image: img/medrano.jpg
-view-if: medrano_advisor = 1 and medrano_muerto = 0
+view-if: medrano_advisor = 1 and medrano_muerto = 0 and via = "armada"
 
 = Florencio "el Güero" Medrano
 
@@ -29,13 +29,13 @@ His people teach yours the craft with the pride of artisans: the land scouted by
 
 @autodefensa
 title: La autodefensa del barrio
-subtitle: [? if via = "armada" or via = "dual" : The colonia as the urban war's shore — recruits, safe houses, a population that does not see. ?][? if via = "politica" or via = "institucional" : The colonia holds its ground: pickets against the granaderos, the eviction made too expensive to order. ?]
+subtitle: [? if via = "armada" : The colonia as the urban war's shore — recruits, safe houses, a population that does not see. ?][? if via = "politica" or via = "institucional" : The colonia holds its ground: pickets against the granaderos, the eviction made too expensive to order. ?]
 card-image: img/medrano.jpg
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: {!
 Q.advisor_action_timer = 6; Q.last_advisor_action = 1;
-if (Q.via == 'armada' || Q.via == 'dual') { Q.pres_valle += 3; Q.guerrilla_meter += 2; Q.expediente += 4; }
+if (Q.via == 'armada') { Q.pres_valle += 3; Q.guerrilla_meter += 2; Q.expediente += 4; }
 else { Q.sup_colonos += 2; Q.colonia_presion += 1; Q.represion -= 1; Q.expediente += 2; }
 !}
 

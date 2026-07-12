@@ -19,7 +19,7 @@ The price is the fine print of legitimacy itself. To register is to accept the C
 
 Fifty years the Party has waited to be asked. The answer will define everything after.
 
-[? if via = "armada" or via = "dual" : Up in the zones the law is read aloud by lamplight, twice, because the first reading produces only silence. Everyone at the fire understands what the lawyers in the capital understand: this law is aimed at YOU. Registration for the legal left, seats for the patient, amnesty rumored for the repentant — the state is not opening a door, it is draining a sea, and the columns are the fish. The young ones curse it. The older ones note that a state which drains seas is a state that has stopped believing it can win with nets — and that the amnesty, when it comes, will be the war's one exit worth taking whole. ?]
+[? if via = "armada" : Up in the zones the law is read aloud by lamplight, twice, because the first reading produces only silence. Everyone at the fire understands what the lawyers in the capital understand: this law is aimed at YOU. Registration for the legal left, seats for the patient, amnesty rumored for the repentant — the state is not opening a door, it is draining a sea, and the columns are the fish. The young ones curse it. The older ones note that a state which drains seas is a state that has stopped believing it can win with nets — and that the amnesty, when it comes, will be the war's one exit worth taking whole. ?]
 
 - @registrar: Register. Take the door, the money, the hundred seats' chance — and the referee that comes with them.
 - @rechazar: Refuse. Legitimacy is not the state's to license; the street and the factory do not require a ledger entry in Bucareli.
@@ -45,7 +45,7 @@ The cost arrives on its own schedule: the PPS and the satellites scoop up the re
 
 @leer_sierra
 go-to: post_event
-view-if: via = "armada" or via = "dual"
+view-if: via = "armada"
 on-arrival: inteligencia += 2; guerrilla_meter -= 2; unity -= 2; political_capital += 2
 
 The comandancia's circular is one page and changes nothing visible: routes maintained, discipline maintained, the war as before. But the appendix orders every column to update its rosters, verify its people's legal situations, and record — for the first time since the descent to clandestinity — who has family able to receive them. No one writes the word amnesty. Everyone files the appendix where the important papers go. A war that knows how it wants to end has an enormous advantage over a state that only knows how it wants the war to pause.

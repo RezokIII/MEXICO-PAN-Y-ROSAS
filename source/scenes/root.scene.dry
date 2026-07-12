@@ -156,6 +156,8 @@ Q.fusion_pact = 0; Q.fusion_mesa = 0;
 Q.pri_posture = "ignorar"; Q.pri_threat = 0;
 Q.escision_activa = 0;
 Q.lfope_dote = 0; Q.lfope_preclear = 0; Q.robada_last = -99; Q.oficial_last = -99;
+Q.maestro_hecho = 0;
+Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
 
 // ---- la economía ----
 Q.crecimiento = 8;
@@ -192,7 +194,7 @@ Q.municipio_alcozauca = 0;
 Q.psum = 0;
 Q.alquimia_expuesta = 0;
 Q.legitimidad_regimen = 72; Q.escandalos = 0; Q.fraude_documentado = 0;
-Q.escandalo_cd = -5; Q.el_giro_cd = -5; Q.documentar_cd = -5;
+Q.escandalo_cd = -5; Q.el_giro_cd = -5; Q.documentar_cd = -5; Q.desde_adentro_cd = -5;
 Q.real_izq = 0; Q.real_pri = 0; Q.real_pan = 0;
 Q.oficial_izq = 0; Q.oficial_pri = 0; Q.oficial_pan = 0;
 

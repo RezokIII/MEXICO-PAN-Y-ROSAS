@@ -2,7 +2,7 @@ title: Sabotage
 new-page: true
 subtitle: The artillery of the poor army
 card-image: img/cards/expropiacion.jpg
-view-if: (via = "armada" or via = "dual") and time >= s_sabotaje_cd + 2
+view-if: via = "armada" and time >= s_sabotaje_cd + 2
 on-arrival: month_actions += 1; s_sabotaje_cd = time
 max-visits: 40
 is-card: true

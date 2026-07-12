@@ -3,7 +3,7 @@ new-page: true
 subtitle: The first great sweep
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and year = 1973 and month = 5
+view-if: via = "armada" and year = 1973 and month = 5
 priority: 3
 max-visits: 1
 on-arrival: {!

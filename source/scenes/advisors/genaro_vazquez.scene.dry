@@ -3,7 +3,7 @@ is-pinned-card: true
 tags: advisor
 new-page: true
 card-image: img/genaro.jpg
-view-if: genaro_advisor = 1
+view-if: genaro_advisor = 1 and via = "armada"
 
 = Genaro Vázquez Rojas
 

@@ -1,3 +1,20 @@
+PAN Y ROSAS — 2026-07-10 (three roads, cleanly drawn):
+
+- The DUAL ROAD IS REMOVED: the strategy congresses now offer three lines — política,
+  institucional, armada. All dual options, variants, drift, and text swept (48 files).
+- Guerrilla leaders (Genaro, Lucio, el Güero) are armada-only advisors now: they appear
+  when the Movement is at war and vanish from the political phase. Lucio's survival
+  dividend on the political road became a one-time event (El maestro de Atoyac).
+- Political advisors freeze during the war — none are added, none appear; the bench
+  returns when you come down.
+- THE REFORMIST ROAD IS A REAL GAME NOW: la digestión (absorcion 0-100) is its clock —
+  the antechambers digest their guests. New card "Desde adentro" (place cadres, bank
+  favors, work the archive channel), new events "La cartera" (a real post, a real
+  photograph) and "El abrazo" (at absorcion 70: break out loudly or become a PPS with
+  better martyrs). el_giro fixed: institucional can finally pursue registro.
+- Verified: 119-card audit clean; el abrazo, absorcion drift, and advisor visibility
+  all simulation-tested; full random runs on both roads without crashes.
+
 PAN Y ROSAS — 2026-07-10 (the PRI learns to play):
 
 - PRI AI: every quarter Gobernación re-reads your file and sets a posture — ignorar /

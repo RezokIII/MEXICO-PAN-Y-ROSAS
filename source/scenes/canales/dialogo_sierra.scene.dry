@@ -10,7 +10,7 @@ tags: canales
 
 = El emisario
 
-[? if via = "politica" or via = "institucional" or via = "dual" : Once or twice a year it can be done: an emisario up the mule tracks with newspapers, tobacco, and the argument — the old argument, masses against foco, patience against the beautiful gesture — conducted at a campfire with men who have buried the counterarguments. Nobody has ever won this debate. The point is to keep it open: an armed current that still argues with you is one that has not yet decided you are the enemy. ?]
+[? if via = "politica" or via = "institucional" : Once or twice a year it can be done: an emisario up the mule tracks with newspapers, tobacco, and the argument — the old argument, masses against foco, patience against the beautiful gesture — conducted at a campfire with men who have buried the counterarguments. Nobody has ever won this debate. The point is to keep it open: an armed current that still argues with you is one that has not yet decided you are the enemy. ?]
 
 [? if via = "armada" : Once or twice a year the column can afford it: an emisario DOWN the mule tracks, in a pressed shirt, carrying the war's argument to the people who file legal briefs and publish little magazines — the old argument, foco against masses, the gun against the long patience — conducted in a back kitchen with comrades who have buried different dead. Nobody has ever won this debate. The point is to keep it open: a legal left that still argues with you is one that has not yet signed the deslinde that would leave you alone in the dark. ?]
 
@@ -20,7 +20,7 @@ tags: canales
 - @easy_discard
 
 @subir
-view-if: via = "politica" or via = "institucional" or via = "dual"
+view-if: via = "politica" or via = "institucional"
 choose-if: organizers >= 2 and postura_guerrilla >= 2
 unavailable-subtitle: The emissary must exist, and the line must permit him.
 on-arrival: guerrilla_meter -= 3; sup_peasants += 2; expediente += 3; political_capital += 1

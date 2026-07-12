@@ -16,7 +16,6 @@ Reyes Heroles is drafting a door. The armed structures, where they exist, are hu
 - @via_politica: The insurgent political road: mass fronts, elections where they exist, open opposition — the long accumulation against the system.
 - @via_institucional: The reformist road: burrow into the system itself — alliances with the PRI aperturistas, posts accepted strategically, change negotiated from inside the beast's antechambers.
 - @via_armada: The armed road: build the rural and urban structures. The Movement goes to war, and forfeits every legal instrument while it does.
-- @via_dual: The synthesis: legal face and armed structure at once — the most ambitious and most dangerous architecture the left knows.
 
 @via_politica
 go-to: post_event
@@ -40,10 +39,3 @@ on-arrival: via = "armada"; pres_guerrero += 12; pres_valle += 8; represion += 6
 
 The resolution is read once, burned, and never minuted. Structures split: a legal face that knows nothing, and columns that know everything. The Sierra desk opens — and somewhere in Defensa Nacional, a colonel pins a new map to a corkboard.
 
-@via_dual
-go-to: post_event
-choose-if: unity >= 55 and political_capital >= 15 and (guerrilla_meter >= 8 or postura_guerrilla >= 2)
-unavailable-subtitle: The synthesis demands everything at once: high unity, deep political capital, and an armed base to build on. The Movement lacks at least one.
-on-arrival: via = "dual"; pres_guerrero += 8; pres_valle += 5; expediente += 12; represion += 4; unity -= 5; political_capital -= 5
-
-The most dangerous resolution in the Movement's history: the party in the plaza and the column in the sierra, one strategy wearing two faces. Every clandestine manual warns against it — the legal face becomes the map to the hidden one — and every liberation war that ever won ran some version of it anyway. The compartments are drawn; the discipline this will demand has no precedent in your history. Neither would the payoff.

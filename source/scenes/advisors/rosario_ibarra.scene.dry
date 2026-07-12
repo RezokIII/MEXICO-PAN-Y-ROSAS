@@ -2,7 +2,7 @@ title: Rosario Ibarra de Piedra
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: year >= 1977 and (via = "politica" or via = "institucional" or via = "dual")
+view-if: year >= 1977 and (via = "politica" or via = "institucional")
 
 = Rosario Ibarra de Piedra
 

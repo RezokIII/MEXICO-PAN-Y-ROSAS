@@ -21,7 +21,7 @@ In this Republic the line between the political police and the traffickers was a
 
 @refugio
 go-to: post_event
-view-if: postura_guerrilla >= 2 or via = "armada" or via = "dual"
+view-if: postura_guerrilla >= 2 or via = "armada"
 choose-if: organizers >= 2
 unavailable-subtitle: Moving the leadership without trusted cadres to run the routes is delivering them by courier.
 on-arrival: refugio_sierra = 1; refugio_time = time; expediente -= 8; advisor_action_timer = 12; unity -= 2

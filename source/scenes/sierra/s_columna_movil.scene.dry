@@ -2,7 +2,7 @@ title: The mobile column
 new-page: true
 subtitle: A war that will not be found must move
 card-image: img/cards/columna_movil.jpg
-view-if: (via = "armada" or via = "dual") and time >= s_columna_movil_cd + 2
+view-if: via = "armada" and time >= s_columna_movil_cd + 2
 on-arrival: month_actions += 1; s_columna_movil_cd = time
 max-visits: 40
 is-card: true

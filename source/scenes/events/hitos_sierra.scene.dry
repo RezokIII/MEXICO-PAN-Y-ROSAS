@@ -3,7 +3,7 @@ new-page: true
 subtitle: El camino de la sierra — I
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and sw_sobrevivir = 0 and armada_entered = 1 and time >= armada_start + 24
+view-if: via = "armada" and sw_sobrevivir = 0 and armada_entered = 1 and time >= armada_start + 24
 priority: 3
 max-visits: 1
 on-arrival: sw_sobrevivir = 1; unity += 2; inteligencia += 2
@@ -29,7 +29,7 @@ new-page: true
 subtitle: El camino de la sierra — II
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and sw_zona = 0 and ((pres_guerrero >= 35 and guar_guerrero <= 45) or (pres_oaxaca >= 35 and guar_oaxaca <= 45) or (pres_chihuahua >= 35 and guar_chihuahua <= 45) or (pres_valle >= 35 and guar_valle <= 45))
+view-if: via = "armada" and sw_zona = 0 and ((pres_guerrero >= 35 and guar_guerrero <= 45) or (pres_oaxaca >= 35 and guar_oaxaca <= 45) or (pres_chihuahua >= 35 and guar_chihuahua <= 45) or (pres_valle >= 35 and guar_valle <= 45))
 priority: 3
 max-visits: 1
 on-arrival: sw_zona = 1; sup_peasants += 3; political_capital += 2; guerrilla_meter += 2
@@ -55,7 +55,7 @@ new-page: true
 subtitle: El camino de la sierra — III
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and sw_sintesis = 0 and enlace_sintesis = 1
+view-if: via = "armada" and sw_sintesis = 0 and enlace_sintesis = 1
 priority: 3
 max-visits: 1
 on-arrival: sw_sintesis = 1; inteligencia += 3; pres_valle += 3

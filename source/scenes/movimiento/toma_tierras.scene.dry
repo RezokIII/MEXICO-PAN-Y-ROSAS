@@ -88,7 +88,6 @@ This is the hinge. What you built before this dusk is the only thing that answer
 - @tierra_solidaria: Spread it. Every disputed valley rises at once.
 - @tierra_legal: Fight it in the courts and the national press.
 - @tierra_armada: The survivors go to the sierra. Answer the guns in kind.
-- @tierra_armada2: The survivors go to the sierra. Answer the guns in kind.
 - @tierra_replegar: Pull back. Bury the dead, save the living.
 
 @tierra_solidaria
@@ -113,16 +112,6 @@ You spend the capital dragging the killing into the light the countryside is usu
 
 @tierra_armada
 view-if: via = "armada"
-title: Los que suben a la sierra
-subtitle: The dispossessed become the argument the mountain has always made.
-on-arrival: sup_peasants += 4; guerrilla_meter += 16; pres_guerrero += 8; expediente += 20; represion += 10; unity -= 4; memorial += 1
-
-The sons of the murdered committee do not go back to the furrows. They go up — to the sierra, to the comrades who have said for years that in the countryside the only title the state respects is the one held at gunpoint, and this dusk proved them right in the oldest way. The line between the land struggle and the war has just dissolved, exactly as it dissolved for a schoolteacher named Lucio Cabañas when they fired on the parents outside his school. The Partido de los Pobres was not founded by ideologues. It was founded by mornings like this one.
-
-- @root: Back to the work — and the sierra is heavier now.
-
-@tierra_armada2
-view-if: via = "dual"
 title: Los que suben a la sierra
 subtitle: The dispossessed become the argument the mountain has always made.
 on-arrival: sup_peasants += 4; guerrilla_meter += 16; pres_guerrero += 8; expediente += 20; represion += 10; unity -= 4; memorial += 1

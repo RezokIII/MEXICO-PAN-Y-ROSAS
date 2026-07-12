@@ -1,0 +1,24 @@
+title: El maestro de Atoyac
+new-page: true
+subtitle: The survivor lends his voice
+face-image: img/Lucio.jpg
+tags: event
+view-if: lucio_vive = 1 and via = "politica" and year >= 1979 and maestro_hecho = 0
+priority: 3
+max-visits: 1
+on-arrival: maestro_hecho = 1; sup_peasants += 5; sup_teachers += 2; red_casillas += 3; fe_voto += 2; leyenda += 1
+
+= El maestro de Atoyac
+
+He came down through the amnesty with the survivors of his brigades — the only comandante of his generation to descend alive, in this history and no other — and Guerrero received him the way it receives no politician: doors open, plates set, children named for him. He holds no office and wants none, joins no party and signs nothing.
+
+And then, one morning in the plaza of Atoyac, standing on a truck bed because he refused the bandstand, the schoolteacher says the sentence the whole south has been waiting to hear him decide: *the vote is a weapon now. Take it up.*
+
+He survived the state's entire repertoire; his endorsement of the ballot is the ballot's best argument between Acapulco and the Istmo. The casilla network grows that season along his old brigade routes, staffed by people who learned organization in a harder school — and in Bucareli, an analyst files the report under the annotation the apparatus reserves for its worst news: *irreversible.*
+
+- @con_el: The Movement walks the Costa Grande beside him. There is no better company in Mexico.
+
+@con_el
+go-to: post_event
+
+He still corrects people who call him comandante. Maestro, he says. It was always the more dangerous title.

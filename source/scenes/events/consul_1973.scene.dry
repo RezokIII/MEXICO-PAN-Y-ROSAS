@@ -3,7 +3,7 @@ new-page: true
 subtitle: April 1973 — Guadalajara
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and year = 1973 and month >= 4 and month <= 6
+view-if: via = "armada" and year = 1973 and month >= 4 and month <= 6
 priority: 3
 max-visits: 1
 

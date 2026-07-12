@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1973 — Cuernavaca
 face-image: img/medrano.jpg
 tags: event
-view-if: year = 1973 and month >= 3 and month <= 6 and medrano_advisor = 0 and medrano_muerto = 0
+view-if: via = "armada" and year = 1973 and month >= 3 and month <= 6 and medrano_advisor = 0 and medrano_muerto = 0
 priority: 3
 max-visits: 1
 

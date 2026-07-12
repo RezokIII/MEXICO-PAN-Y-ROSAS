@@ -136,7 +136,7 @@ Duros: [+ pri_duros : fuerza +]
 
 **The road**
 
-The line in force: [? if via = "politica" : insurgent political opposition ?][? if via = "institucional" : the reformist road — inside the antechambers ?][? if via = "armada" : the armed road — the Sierra desk is open ?][? if via = "dual" : the synthesis — two faces, one strategy, compounding risk ?]
+The line in force: [? if via = "politica" : insurgent political opposition ?][? if via = "institucional" : the reformist road — inside the antechambers ?][? if via = "armada" : the armed road — the Sierra desk is open ?][? if via = "institucional" : **La digestión** — absorcion: [+ absorcion +] of 100. The reformist road runs through the antechambers, and the antechambers are a stomach: every post accepted, every favor banked, every year inside raises the count. Keep the Movement's teeth visible — strikes, scandals, victories with your name on them — or at 70 the system completes the meal and offers you the only thing it ever really sells: a place at the table, in exchange for the table's rules. ?]
 
 **El semáforo de Bucareli**
 
@@ -297,28 +297,28 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 [? if not via : The map below reads the country by the left's regional implantation. Organize the sectors that anchor each region to turn it red. ?]
 
-[? if via = "armada" or via = "dual" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any province for the analysts' current picture. ?]
+[? if via = "armada" : The war, as your intelligence permits you to see it. Red is presence; border weight is the garrison. Hover any province for the analysts' current picture. ?]
 
-[? if via = "armada" or via = "dual" : Intelligence capacity: [+ inteligencia : fuerza +]. ?]
+[? if via = "armada" : Intelligence capacity: [+ inteligencia : fuerza +]. ?]
 
-[? if (via = "armada" or via = "dual") and inteligencia < 40 : The map is guesswork and rumor — build the eyes for real garrison numbers. ?]
+[? if via = "armada" and inteligencia < 40 : The map is guesswork and rumor — build the eyes for real garrison numbers. ?]
 
-[? if (via = "armada" or via = "dual") and inteligencia >= 40 : Sources inside the garrisons give real numbers: Guerrero presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Valle presence [+ pres_valle +], garrison [+ guar_valle +]. Chihuahua presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. ?]
+[? if via = "armada" and inteligencia >= 40 : Sources inside the garrisons give real numbers: Guerrero presence [+ pres_guerrero +], garrison [+ guar_guerrero +]. Valle presence [+ pres_valle +], garrison [+ guar_valle +]. Chihuahua presence [+ pres_chihuahua +], garrison [+ guar_chihuahua +]. ?]
 
-[? if (via = "armada" or via = "dual") and inteligencia >= 40 : Jalisco presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
+[? if via = "armada" and inteligencia >= 40 : Jalisco presence [+ pres_jalisco +], garrison [+ guar_jalisco +]. Nuevo León presence [+ pres_nl +], garrison [+ guar_nl +]. Oaxaca presence [+ pres_oaxaca +], garrison [+ guar_oaxaca +]. Tijuana presence [+ pres_tijuana +], garrison [+ guar_tijuana +]. ?]
 
-[? if via = "armada" or via = "dual" : Doctrine: garrisons concentrate where you act and thin where you rest. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. The army wins every battle it can find, so the war is won by not being found. ?]
+[? if via = "armada" : Doctrine: garrisons concentrate where you act and thin where you rest. A garrison at 55 grinds your presence down monthly; past 60, actions there cost lives. The army wins every battle it can find, so the war is won by not being found. ?]
 
-[? if via = "armada" or via = "dual" : **El camino de la sierra** ?]
+[? if via = "armada" : **El camino de la sierra** ?]
 
-[? if (via = "armada" or via = "dual") and sw_sobrevivir = 1 : I. Survive the hunt — DONE ?][? if (via = "armada" or via = "dual") and sw_sobrevivir = 0 : I. Survive the hunt: two years underground with the structure alive — pending ?]
+[? if via = "armada" and sw_sobrevivir = 1 : I. Survive the hunt — DONE ?][? if via = "armada" and sw_sobrevivir = 0 : I. Survive the hunt: two years underground with the structure alive — pending ?]
 
-[? if (via = "armada" or via = "dual") and sw_zona = 1 : II. The zone — DONE: a range the state enters only in strength ?][? if (via = "armada" or via = "dual") and sw_zona = 0 : II. The zone: presence 35 in a region while its garrison stays under 45 — pending ?]
+[? if via = "armada" and sw_zona = 1 : II. The zone — DONE: a range the state enters only in strength ?][? if via = "armada" and sw_zona = 0 : II. The zone: presence 35 in a region while its garrison stays under 45 — pending ?]
 
-[? if (via = "armada" or via = "dual") and sw_sintesis = 1 : III. The synthesis — DONE: the city and the sierra speak ?][? if (via = "armada" or via = "dual") and sw_sintesis = 0 : III. The synthesis: coordinate the urban and rural war through the enlace — pending ?]
+[? if via = "armada" and sw_sintesis = 1 : III. The synthesis — DONE: the city and the sierra speak ?][? if via = "armada" and sw_sintesis = 0 : III. The synthesis: coordinate the urban and rural war through the enlace — pending ?]
 
-[? if (via = "armada" or via = "dual") and sw_auge = 1 : IV. El auge — DONE: the war stood at a cycle's end ?][? if (via = "armada" or via = "dual") and sw_auge = 0 : IV. El auge: reach a sexenio's balance with the war standing (total presence 60) — pending ?]
+[? if via = "armada" and sw_auge = 1 : IV. El auge — DONE: the war stood at a cycle's end ?][? if via = "armada" and sw_auge = 0 : IV. El auge: reach a sexenio's balance with the war standing (total presence 60) — pending ?]
 
-[? if (via = "armada" or via = "dual") and sw_descenso = 0 : V. The descent from strength: end the war on your terms, not the state's. What comes down the mountain with you — veterans, legend, the southern networks — is the war's whole harvest. A war that ends in the dark harvests nothing. ?][? if sw_descenso = 1 : V. The descent — DONE: the war ended on the Movement's terms, and its harvest walks among you. ?]
+[? if via = "armada" and sw_descenso = 0 : V. The descent from strength: end the war on your terms, not the state's. What comes down the mountain with you — veterans, legend, the southern networks — is the war's whole harvest. A war that ends in the dark harvests nothing. ?][? if sw_descenso = 1 : V. The descent — DONE: the war ended on the Movement's terms, and its harvest walks among you. ?]
 
 [? if via = "politica" and veteranos >= 1 : The war's veterans — [+ veteranos +] cohorts of them — hold the hardest posts in the Movement now: security, the campo, the places where a person needs to have already seen the worst. ?]

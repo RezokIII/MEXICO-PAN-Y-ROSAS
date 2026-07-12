@@ -2,7 +2,7 @@ title: José Revueltas
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: revueltas_advisor = 1 and (via = "politica" or via = "institucional" or via = "dual") and revueltas_dead = 0 and refugio_sierra = 0
+view-if: revueltas_advisor = 1 and (via = "politica" or via = "institucional") and revueltas_dead = 0 and refugio_sierra = 0
 
 = José Revueltas
 

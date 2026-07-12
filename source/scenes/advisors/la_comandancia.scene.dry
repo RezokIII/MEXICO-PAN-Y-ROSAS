@@ -3,7 +3,7 @@ is-pinned-card: true
 tags: advisor
 new-page: true
 card-image: img/jungleplan.jpg
-view-if: (via = "armada" or via = "dual") and armada_entered = 1
+view-if: via = "armada" and armada_entered = 1
 
 = La comandancia de la sierra
 

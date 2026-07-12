@@ -122,7 +122,6 @@ This is the hinge. What you built before this morning is the only thing you have
 - @responder_solidaria: Spread it. Call the solidarity strikes.
 - @responder_legal: Fight it in the courts and the press.
 - @responder_armado: Answer the trucks in kind.
-- @responder_armado2: Answer the trucks in kind.
 - @responder_replegar: Pull back. Save the cadres you have left.
 
 @responder_solidaria
@@ -149,16 +148,6 @@ You spend the political capital you hoarded like a man spending savings in an em
 
 @responder_armado
 view-if: via = "armada"
-title: Responder a los camiones
-subtitle: The martyrs of the plant become an argument the sierra has been making for years.
-on-arrival: sup_workers += 5; guerrilla_meter += 12; expediente += 20; represion += 10; charrismo -= 4; unity -= 4; members += 3
-
-The self-defense brigades were always the argument the electoral road could not answer, and this morning made the argument for you. Young men from the plant who watched the trucks take their delegates go looking for the comrades who have been saying, for years, that there is another way to answer a truck. Some of them do not come back to the plant. They come back to the sierra, or to a safe house in the city, with a new understanding of what the state is and is not willing to do. The line between the strike and the war has just become very thin. It will not thicken again easily.
-
-- @root: Back to the work — armed now.
-
-@responder_armado2
-view-if: via = "dual"
 title: Responder a los camiones
 subtitle: The martyrs of the plant become an argument the sierra has been making for years.
 on-arrival: sup_workers += 5; guerrilla_meter += 12; expediente += 20; represion += 10; charrismo -= 4; unity -= 4; members += 3

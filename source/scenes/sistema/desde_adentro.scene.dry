@@ -1,0 +1,44 @@
+title: Desde adentro
+new-page: true
+subtitle: The reformist road's own craft: the system worked from inside its rooms
+card-image: img/cards/jugar_facciones.jpg
+view-if: via = "institucional" and time >= desde_adentro_cd + 3
+on-arrival: month_actions += 1; desde_adentro_cd = time
+max-visits: 40
+is-card: true
+frequency: 80
+tags: sistema
+
+= Desde adentro
+
+This is the wager of the reformist road, stated without decoration: that the beast can be changed from inside its stomach — that cadres placed in the ministries, favors banked with the aperturistas, and the slow colonization of the state's own machinery will move more history than a decade of plazas. The instruments are real. So is the stomach.
+
+- @colocar_cuadros: Place cadres — yours, inside the apparatus: a desk in Programación, two in the agrarian reform, one improbable soul in Gobernación itself.
+- @banca_favores: Bank favors — the currency of the antechambers: introductions made, problems quietly solved, debts recorded in the only ledger that never burns.
+- @canal_archivo: Work the archive channel — what your people inside can photograph is worth three networks outside.
+- @root: The rooms wait. They always wait.
+- @easy_discard
+
+@colocar_cuadros
+subtitle: Requires cadres. Raises absorción.
+choose-if: organizers >= 3
+unavailable-subtitle: Placing people inside takes people — full-time cadres you do not have to spare.
+on-arrival: political_capital += 3; funds += 3; absorcion += 3; expediente -= 2
+
+They enter on merit, which is the beautiful cover: economists who are actually economists, agronomists the ministry genuinely needs. Within a year they are writing the first drafts of documents the Movement will later pretend to have obtained with difficulty. The risk is never discovery — the system does not look for what it cannot imagine. The risk is the salaries, the offices, the gradual discovery that the antechambers are comfortable. The stomach digests by making its contents feel at home.
+
+@banca_favores
+subtitle: -2 funds. Raises absorción.
+choose-if: funds >= 2
+unavailable-subtitle: Favors are banked over lunches, and lunches are not free.
+on-arrival: funds -= 2; pri_reformist_rel += 4; political_capital += 2; absorcion += 2
+
+A governor's nephew needs a thesis advisor; a subsecretario's land dispute needs a quiet agronomist; a funcionario's conscience needs, once a year, one genuinely good deed to point at. You supply all three. Nothing is asked in return, which is how the antechambers know you understand the game: the debt is the relationship, and the relationship is the road. Don Jesús himself is said to have remarked that the left has finally produced people one can deal with. The remark is a compliment and a fitting, both.
+
+@canal_archivo
+subtitle: Requires people already placed inside.
+choose-if: political_capital >= 6
+unavailable-subtitle: The archive channel runs on placed cadres and accumulated standing — you are short of both.
+on-arrival: political_capital -= 3; inteligencia += 5; fraude_documentado += 1; expediente += 2; absorcion += 1
+
+What crosses your desk this season, photographed in ministry basements by people with legitimate badges: the real padron figures beside the published ones, a budget annex for "electoral logistics" that itemizes the alquimia like a wedding, minutes of a meeting at which a governor asked how much fraud was too much and received an actual number. The reformist road's one unanswerable argument: nobody outside the stomach ever reads the menu.

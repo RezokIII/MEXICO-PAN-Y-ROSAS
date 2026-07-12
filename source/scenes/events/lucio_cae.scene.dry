@@ -13,7 +13,7 @@ Figueroa was ransomed out in September by an army column; Lucio's luck has run t
 
 If it closes, the Party of the Poor will not survive him — organizations built on one man's moral credit rarely do. What survives will come down the mountain in twos and threes over the winter: sick, hunted, eighteen and twenty years old, carrying nothing but the sierra's verdict that the armed road, for this generation, in this state, is closed. The DFS knows they will be coming down. Everyone knows. The question is who reaches them first: the Brigada, the Liga's recruiters — or a Party that never blessed their war and must now decide what it owes their peace.
 
-[? if (via = "armada" or via = "dual") and inteligencia >= 35 : Except that this time there is an hour in which history is still wet ink: your people inside the garrisons' supply chain saw the encirclement forming two days ago, and a runner is already on the trails. Whether the warning beats the army to El Otatal is a question of hours and luck — but for once, uniquely in this war, the question exists. ?]
+[? if via = "armada" and inteligencia >= 35 : Except that this time there is an hour in which history is still wet ink: your people inside the garrisons' supply chain saw the encirclement forming two days ago, and a runner is already on the trails. Whether the warning beats the army to El Otatal is a question of hours and luck — but for once, uniquely in this war, the question exists. ?]
 
 - @salvarlo: Spend everything on the warning: every route, every source, the whole network's cover, to get one schoolteacher off El Otatal alive.
 - @recibir: Reach them first. Lawyers where there are charges, doctors where there are wounds, silence where there are neither.
@@ -21,7 +21,7 @@ If it closes, the Party of the Poor will not survive him — organizations built
 
 @salvarlo
 go-to: post_event
-view-if: (via = "armada" or via = "dual") and inteligencia >= 35
+view-if: via = "armada" and inteligencia >= 35
 on-arrival: lucio_vive = 1; memorial += 1; guerrilla_meter -= 1; represion += 4; expediente += 6; inteligencia -= 8; pres_guerrero += 3; sup_peasants += 2
 
 The runner reaches the camp at dusk with the map of the noose, and the schoolteacher — who has broken more encirclements than the army admits attempting — reads it by feel, argues it in assembly per his unbreakable custom, and moves the column at midnight through the one seam the operation left unsewn. The last brigade bleeds crossing the river; the army closes on a campsite of cold fires and photographs those instead.

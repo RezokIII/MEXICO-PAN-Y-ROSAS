@@ -87,7 +87,6 @@ This is the hinge. What you built before this morning is the only thing that ans
 - @magisterio_solidario: Spread it. Found the CNTE — a national coordinator the SNTE cannot contain.
 - @magisterio_legal: Fight the firings in the courts and the press.
 - @magisterio_armado: The normalistas take the older road.
-- @magisterio_armado2: The normalistas take the older road.
 - @magisterio_replegar: Pull back. Protect the sections you have left.
 
 @magisterio_solidario
@@ -112,16 +111,6 @@ You spend the capital fighting the cese letters one by one: labor lawyers, a ref
 
 @magisterio_armado
 view-if: via = "armada"
-title: Los normalistas
-subtitle: The rural normal schools have always been the sierra's seminary.
-on-arrival: sup_teachers += 3; guerrilla_meter += 12; pres_guerrero += 4; expediente += 18; represion += 10; unity -= 4; memorial += 1
-
-Some of the fired normalistas do not file amparos. They remember that the rural normal schools of Guerrero and Chihuahua have always been the seminary of the Mexican armed left — that Arturo Gámiz was a teacher, that Lucio Cabañas was a teacher, that the state has a long habit of turning its educators into its enemies and then acting surprised. They take the older road. The line between the classroom and the sierra, never thick in the south, dissolves again.
-
-- @root: Back to the work — and the sierra has new cadres who can read a map.
-
-@magisterio_armado2
-view-if: via = "dual"
 title: Los normalistas
 subtitle: The rural normal schools have always been the sierra's seminary.
 on-arrival: sup_teachers += 3; guerrilla_meter += 12; pres_guerrero += 4; expediente += 18; represion += 10; unity -= 4; memorial += 1

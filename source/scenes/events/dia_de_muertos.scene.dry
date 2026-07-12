@@ -21,7 +21,6 @@ The ofrenda is the one Mexican space the state cannot quite enter: sacred, publi
 - @mobilizar: Make it an accusation. Turn the vigil into a public act, the names into a charge the whole city hears.
 - @canal_muertos: Use the ofrenda network as a channel. Across the country, altars become the one drop the DFS will not search.
 - @armas_muertos: Move the matériel inside the ofrendas — through the one procession no soldier will stop.
-- @armas_muertos2: Move the matériel inside the ofrendas — through the one procession no soldier will stop.
 
 @velar
 go-to: post_event
@@ -57,11 +56,3 @@ on-arrival: pres_guerrero += 5; inteligencia += 4; guerrilla_meter += 4; sup_pea
 
 It is the perfect supply line and the last one you should ever use: the ofrendas travel to the villages and the sierras through the one week the army will not stop a procession, and among the marigolds and the copal go the things the columns need, wrapped in the cloth that covered someone's grandmother's photograph. It reaches the sierra. It always reaches the sierra. And then the campesinos who built the altar for their own dead learn what was hidden among their flowers, and something between them and the Movement breaks that no dotación will mend — because you asked the dead to carry guns, and in the villages the dead are not a figure of speech.
 
-@armas_muertos2
-go-to: post_event
-title: Entre las flores
-view-if: via = "dual"
-subtitle: The matériel moves through the procession no soldier will stop. The campesinos will learn what they carried.
-on-arrival: pres_guerrero += 5; inteligencia += 4; guerrilla_meter += 4; sup_peasants -= 9; expediente += 6; memorial += 1; ofrenda_armas = 1
-
-It is the perfect supply line and the last one you should ever use: the ofrendas travel to the villages and the sierras through the one week the army will not stop a procession, and among the marigolds and the copal go the things the columns need, wrapped in the cloth that covered someone's grandmother's photograph. It reaches the sierra. It always reaches the sierra. And then the campesinos who built the altar for their own dead learn what was hidden among their flowers, and something between them and the Movement breaks that no dotación will mend — because you asked the dead to carry guns, and in the villages the dead are not a figure of speech.

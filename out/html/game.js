@@ -486,7 +486,7 @@
     if(!window.dendryUI||!window.dendryUI.dendryEngine) return;
     if(window.statusTab!=='status.guerra') return;
     var Q=window.dendryUI.dendryEngine.state.qualities;
-    var atWar=(Q.via==='armada'||Q.via==='dual');
+    var atWar=(Q.via==='armada');
     var el=document.getElementById('mapa_sierra');
     if(!el){ var host=document.getElementById('qualities'); if(!host)return; el=document.createElement('div'); el.id='mapa_sierra'; el.style.position='relative'; el.style.margin='0.5em 0'; var h=host.querySelector('h1'); if(h&&h.nextSibling){host.insertBefore(el,h.nextSibling);}else{host.appendChild(el);} }
     if(!document.getElementById('z_guerrero')){ el.innerHTML=SVG; }

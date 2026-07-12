@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1977 — la cacería en su apogeo
 face-image: img/camioneta.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and year = 1977 and month >= 5 and month <= 7
+view-if: via = "armada" and year = 1977 and month >= 5 and month <= 7
 priority: 3
 max-visits: 1
 

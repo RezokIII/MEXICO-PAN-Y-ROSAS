@@ -11,7 +11,7 @@ tags: canales
 
 = El aviso oportuno
 
-[? if via = "politica" or via = "institucional" or via = "dual" : The network hears things — a requisition of vehicles, leave cancelled at a barracks, the fuente's envelope naming a valley. Between hearing and the convoy's arrival there is a window, measured in hours, in which a telephone call to the right tienda changes what the soldiers find. ?]
+[? if via = "politica" or via = "institucional" : The network hears things — a requisition of vehicles, leave cancelled at a barracks, the fuente's envelope naming a valley. Between hearing and the convoy's arrival there is a window, measured in hours, in which a telephone call to the right tienda changes what the soldiers find. ?]
 
 [? if via = "armada" : The city ears hear things — a requisition of vehicles, leave cancelled at a barracks, a colonel's mistress complaining that his weekend is cancelled. The warnings flow up the mountain now: between hearing and the convoy's arrival there is a window, measured in hours, in which the column that moves lives and the column that sleeps is a list of names. The question every time is whether spending the source is worth the hours it buys. ?]
 
@@ -22,7 +22,7 @@ tags: canales
 - @easy_discard
 
 @avisar
-view-if: via = "politica" or via = "institucional" or via = "dual"
+view-if: via = "politica" or via = "institucional"
 choose-if: expediente <= 75
 unavailable-subtitle: With the DFS this close, the call itself is a confession. The channel would not survive it.
 on-arrival: guerrilla_meter -= 1; sup_peasants += 3; expediente += 4; represion += 1

@@ -88,7 +88,6 @@ This is the hinge. What you built before this dawn is the only thing that answer
 - @colonia_solidaria: Spread it. Every colonia in the city rises — the CONAMUP is born.
 - @colonia_legal: Fight it with amparos, cameras, and the press.
 - @colonia_armada: The periphery has its own answer to the granaderos.
-- @colonia_armada2: The periphery has its own answer to the granaderos.
 - @colonia_replegar: Pull back. Move the families before the machines reach them.
 
 @colonia_solidaria
@@ -113,16 +112,6 @@ You spend the capital turning a routine eviction into a scandal the regency must
 
 @colonia_armada
 view-if: via = "armada"
-title: La guerrilla urbana
-subtitle: The periphery answers the trucks in the cities' own way.
-on-arrival: sup_colonos += 3; guerrilla_meter += 10; pres_valle += 4; pres_tijuana += 3; expediente += 18; represion += 10; unity -= 4; memorial += 1
-
-Some of the young men who watched the bulldozers take their families' streets do not go back to the committees. They find the comrades who have been saying that the city, too, is terrain — that Tijuana and Guadalajara and the valley of Mexico have their own war to fight, house by house. The colonia becomes a base of a different kind. The line between the urban movement and the urban guerrilla, always thin on the periphery, dissolves.
-
-- @root: Back to the work — and the city columns are heavier now.
-
-@colonia_armada2
-view-if: via = "dual"
 title: La guerrilla urbana
 subtitle: The periphery answers the trucks in the cities' own way.
 on-arrival: sup_colonos += 3; guerrilla_meter += 10; pres_valle += 4; pres_tijuana += 3; expediente += 18; represion += 10; unity -= 4; memorial += 1

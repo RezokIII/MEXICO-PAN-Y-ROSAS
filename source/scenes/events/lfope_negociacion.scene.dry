@@ -3,7 +3,7 @@ new-page: true
 subtitle: Agosto de 1977 — Reyes Heroles sends a man
 face-image: img/reyes_heroles.jpg
 tags: event
-view-if: year = 1977 and month >= 8 and month <= 9 and (via = "politica" or via = "institucional" or via = "dual")
+view-if: year = 1977 and month >= 8 and month <= 9 and (via = "politica" or via = "institucional")
 priority: 3
 max-visits: 1
 
@@ -43,7 +43,7 @@ new-page: true
 subtitle: Octubre de 1977 — the argument before the argument
 face-image: img/pcmconf.jpg
 tags: event
-view-if: year = 1977 and month >= 10 and month <= 11 and (via = "politica" or via = "institucional" or via = "dual")
+view-if: year = 1977 and month >= 10 and month <= 11 and (via = "politica" or via = "institucional")
 priority: 3
 max-visits: 1
 

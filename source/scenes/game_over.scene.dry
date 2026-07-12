@@ -381,7 +381,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_el_septiembre_mexicano : **El septiembre mexicano** — collapse the PRI by 1976 — and bring Washington's tanks. ?]
 
-[? if achievement_la_sintesis : **La síntesis** — walk the dual road to a real ending — two faces, one strategy. ?]
+[? if achievement_la_sintesis : **La síntesis** — build the urban-rural synthesis on the armed road and bring the war to a real ending. ?]
 
 [? if achievement_el_entrismo : **El entrismo** — take the reformist road all the way to the counted transition. ?]
 
@@ -476,7 +476,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_el_septiembre_mexicano : **El septiembre mexicano** — collapse the PRI by 1976 — and bring Washington's tanks. ?]
 
-[? if not achievement_la_sintesis : **La síntesis** — walk the dual road to a real ending — two faces, one strategy. ?]
+[? if not achievement_la_sintesis : **La síntesis** — build the urban-rural synthesis on the armed road and bring the war to a real ending. ?]
 
 [? if not achievement_el_entrismo : **El entrismo** — take the reformist road all the way to the counted transition. ?]
 

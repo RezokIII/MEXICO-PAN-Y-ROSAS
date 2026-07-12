@@ -3,7 +3,7 @@ new-page: true
 subtitle: The technocratic sweep
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: (via = "armada" or via = "dual") and year = 1985 and month = 3
+view-if: via = "armada" and year = 1985 and month = 3
 priority: 3
 max-visits: 1
 on-arrival: {!

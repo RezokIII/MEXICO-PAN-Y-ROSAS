@@ -18,7 +18,7 @@ They come down from the mountains, out of Lecumberri and the Oblatos prison, bac
 
 [? if postura_guerrilla = 3 : Among the returning, a particular traffic finds your locals: people who knew the channels, who were warned once by a voice they never identified, who received medicine with no return address. They ask no questions at the door either. They simply stay, and work, and are the best cadres anyone has seen in years. The road that officially did not exist is quietly paying its dividend. ?]
 
-[? if via = "armada" or via = "dual" : And the law speaks to you directly: the columns can come down. The government offers papers and silence in exchange for the war's end — the exit the sierra's dead never got. ?]
+[? if via = "armada" : And the law speaks to you directly: the columns can come down. The government offers papers and silence in exchange for the war's end — the exit the sierra's dead never got. ?]
 
 - @recibir: The Party organizes the reception: work, papers, doctors, and the discipline of not asking who did what in the years that are now legally imaginary.
 - @bajar_sierra: Bring the columns down. The war ends; the war's people come home to the political road.
@@ -29,7 +29,7 @@ on-arrival: members += 1; sup_students += 2; sup_peasants += 2
 
 @bajar_sierra
 go-to: post_event
-view-if: via = "armada" or via = "dual"
+view-if: via = "armada"
 on-arrival: {!
 Q.via = "politica";
 Q.represion -= 8;

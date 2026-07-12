@@ -11,7 +11,7 @@ tags: canales
 
 = Los capturados
 
-[? if via = "politica" or via = "institucional" or via = "dual" : When they take one alive — and lately they take some alive, the better to ask questions — there is a race: the interrogators against habeas corpus, the clandestine prison against the named one. A lawyer arriving loudly within days, with press and family and a writ, can sometimes force a prisoner onto the books. What is on the books is harder to disappear. ?]
+[? if via = "politica" or via = "institucional" : When they take one alive — and lately they take some alive, the better to ask questions — there is a race: the interrogators against habeas corpus, the clandestine prison against the named one. A lawyer arriving loudly within days, with press and family and a writ, can sometimes force a prisoner onto the books. What is on the books is harder to disappear. ?]
 
 [? if via = "armada" : When they take one of yours alive — and they prefer them alive now, the better to ask questions — the clock starts: what he knows against what he can endure, the clandestine prison against the named one. The column cannot send a lawyer. But it can make sure a mother arrives at the right agencia with the right name at the right hour, trailed by a foreign stringer, before the system decides its answer. What is on the books is harder to disappear — and every hour on the books is an hour the safe houses have to move. ?]
 
@@ -22,7 +22,7 @@ tags: canales
 - @easy_discard
 
 @abogados
-view-if: via = "politica" or via = "institucional" or via = "dual"
+view-if: via = "politica" or via = "institucional"
 subtitle: -4 funds
 choose-if: funds >= 4
 unavailable-subtitle: Habeas corpus runs on expenses paid up front.
@@ -31,7 +31,7 @@ on-arrival: funds -= 4; political_capital += 2; expediente += 3; represion -= 1
 The writ is denied, the second one admitted, the name printed in two papers and read aloud once in the Chamber. On the books, transferred to Lecumberri, alive: not a victory the corridos will sing, but his mother knows where to bring the basket on Sundays, which in this Republic is the whole of the law worth having.
 
 @distancia_legal
-view-if: via = "politica" or via = "institucional" or via = "dual"
+view-if: via = "politica" or via = "institucional"
 on-arrival: political_capital += 1; guerrilla_meter += 1
 
 The case travels to Rosario's people and the independent committees, with a donation attached and no letterhead. Defensible, deniable — and duly noted in the sierra's long memory, where the distinction between prudence and distance has never impressed anyone under fire.

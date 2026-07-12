@@ -24,7 +24,8 @@ if (Q.spicer == 1) { this.achieve('los_120_dias'); }
 if (Q.laguna == 1) { this.achieve('las_madres'); }
 if (Q.auge_armada == 1) { this.achieve('el_auge'); }
 if (Q.via == "institucional" && (Q.ending == "historico" || Q.ending == "reconocimiento")) { this.achieve('el_entrismo'); }
-if (Q.via == "dual" && Q.ending != "aniquilacion" && Q.ending != "irrelevancia") { this.achieve('la_sintesis'); }
+// dual road removed; la_sintesis achievement now earned via the war milestone
+if (Q.sw_sintesis == 1 && Q.ending != "aniquilacion" && Q.ending != "irrelevancia") { this.achieve('la_sintesis'); }
 if (Q.praga_line == 1) { this.achieve('no_llega_en_tanque'); }
 if (Q.campa76 == 1) { this.achieve('un_millon_de_nombres'); }
 if (Q.huelga_general == 1) { this.achieve('la_huelga_general'); }
