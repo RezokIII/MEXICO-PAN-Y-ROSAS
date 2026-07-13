@@ -876,12 +876,13 @@
       {f:"León Chávez Teixeiro - 15 mts. 3 8_8 16.mp3",t:"15 metros — Leon Chavez Teixeiro",g:"pol"},
       {f:"Víctor Jara - Te Recuerdo Amanda (En Vivo Peña de los Parra).mp3",t:"Te recuerdo Amanda — Victor Jara",g:"pol"},
       {f:"Mercedes Sosa - Gracias A La Vida.mp3",t:"Gracias a la vida — Mercedes Sosa",g:"pol"},
-      {f:"Three Souls in My Mind - ABUSO DE AUTORIDAD.mp3",t:"Abuso de autoridad — Three Souls in My Mind",g:"pol"},
-      {f:"_ESTACIÓN DEL METRO BALDERAS_ - ROCKDRIGO GONZÁLEZ - 1984 (REMASTERIZADO).mp3",t:"Estacion del Metro Balderas — Rockdrigo Gonzalez (1984)",g:"pol"},
-      {f:"Caifanes - Mátenme por que me muero.mp3",t:"Matenme porque me muero — Caifanes (1988)",g:"pol"}
+      // rock/rupestre — gated so the political soundtrack ages with the Republic (y = earliest year)
+      {f:"Three Souls in My Mind - ABUSO DE AUTORIDAD.mp3",t:"Abuso de autoridad — Three Souls in My Mind",g:"pol",y:1974},
+      {f:"_ESTACIÓN DEL METRO BALDERAS_ - ROCKDRIGO GONZÁLEZ - 1984 (REMASTERIZADO).mp3",t:"Estacion del Metro Balderas — Rockdrigo Gonzalez (1984)",g:"pol",y:1983},
+      {f:"Caifanes - Mátenme por que me muero.mp3",t:"Matenme porque me muero — Caifanes (1988)",g:"pol",y:1987}
     ];
     BUNDLED.forEach(function(t){
-      tracks.push({name:t.t, url:'music/'+encodeURIComponent(t.f), isLocal:false, g:t.g});
+      tracks.push({name:t.t, url:'music/'+encodeURIComponent(t.f), isLocal:false, g:t.g, y:t.y||0});
     });
     if (tracks.length){ renderList(); titleEl.textContent = tracks.length + ' canciones en la banda sonora'; }
 
@@ -890,12 +891,19 @@
     function atWar(){
       try { return window.dendryUI.dendryEngine.state.qualities.via === 'armada'; } catch(e){ return false; }
     }
+    function curYear(){
+      try { return window.dendryUI.dendryEngine.state.qualities.year || 1968; } catch(e){ return 1968; }
+    }
     function poolIdx(){
       var want = atWar() ? 'war' : 'pol';
+      var yr = curYear();
       var out = [];
       for (var i=0;i<tracks.length;i++){
-        var g = tracks[i].g;
-        if (!g || g === 'both' || g === want || tracks[i].isLocal) { out.push(i); }
+        var t = tracks[i];
+        if (t.isLocal) { out.push(i); continue; }
+        if (t.g && t.g !== 'both' && t.g !== want) { continue; }   // wrong road
+        if (t.y && t.y > yr) { continue; }                          // not yet its era
+        out.push(i);
       }
       return out.length ? out : tracks.map(function(_,i){ return i; });
     }
