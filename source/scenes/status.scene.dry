@@ -124,12 +124,6 @@ Duros: [+ pri_duros : fuerza +]
 [? if destape_phase = 3 : The dedazo has fallen. The country just does not know it yet. ?]
 [? if destape_phase = 4 : The destape. The cargada begins: everyone always supported him. ?]
 
-= The Senate
-
-[? if year <= 1987 : 64 of 64 for the PRI. Nothing to see here. Yet. ?]
-[? if year >= 1988 and fdn >= 1 : 60 for the PRI — and 4 for the Frente: the DF and Michoacán elected the first opposition senators in the chamber's history. The room is no longer unanimous, and rooms never go back. ?]
-[? if year >= 1988 and fdn = 0 : 64 of 64 for the PRI, still — the wave broke on another shore, and the Senate never felt the spray. ?]
-
 @politics
 
 = Politics
