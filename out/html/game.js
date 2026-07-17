@@ -929,7 +929,10 @@
       document.removeEventListener('click', autostart, true);
       if (idx >= 0 || audio.src || !tracks.length) return;
       shuffle = true; shufBtn.classList.add('on');
-      play(nextInPool());
+      // open on Tlatelolco — the most fitting first note; then shuffle from there
+      var first = -1;
+      for (var i=0;i<tracks.length;i++){ if (/Tlatelolco/i.test(tracks[i].name)) { first = i; break; } }
+      play(first >= 0 ? first : nextInPool());
     }
     document.addEventListener('click', autostart, true);
   }
