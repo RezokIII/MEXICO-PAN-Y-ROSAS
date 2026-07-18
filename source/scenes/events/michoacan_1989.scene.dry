@@ -1,0 +1,43 @@
+title: Michoacán, otra vez
+new-page: true
+subtitle: 1989 — the fraud that would not wait for a decent interval
+face-image: img/portraits/cardenas.jpg
+tags: event
+view-if: year = 1989 and month >= 2 and month <= 4 and fdn >= 1 and via != "armada" and michoacan_visto = 0
+priority: 4
+max-visits: 1
+on-arrival: michoacan_visto = 1
+
+= Michoacán, otra vez
+
+The wave of '88 did not recede so much as change address. In May the cardenistas do the thing the old Party spent two decades unable to do — they found a party, the PRD, out of the FDN's rubble and the socialist left's registro and the general's surname — and the ink is barely dry when Michoacán, Cárdenas's own ground, holds a governor's race, and the regime, which just survived stealing a presidency, discovers it has learned nothing and forgotten nothing.
+
+It steals this one too. Cristóbal Arias, the cardenista, wins the state his movement was born in — and the Comisión, with the serene contempt of a machine that has decided the '88 scare taught it only to be less embarrassed next time, hands the sash to the PRI's man. The difference from July of last year is instructive: last year the fraud was a national trauma; this year it is a Tuesday.
+
+But Michoacán does not accept it as a Tuesday. Within days the cardenistas occupy some fifty town halls across the state — not marching on the capital but sitting down in the municipal palaces the fraud tried to take, governing them in fact while the state governs them in law. It is the era's new grammar, learned in a single year: the vote is stolen at the center; the answer is built in the municipios, one occupied ayuntamiento at a time.
+
+Your Movement — inside the new party now, or allied to it, or watching from the independence you kept — is asked where it stands on the tactic that will define the whole next decade of the Mexican left.
+
+- @tomar_ayuntamientos: Back the takeovers. The municipio is the one office the fraud cannot fully steal if the people simply refuse to leave it. Put your networks behind the occupations.
+- @via_legal_michoacan: The legal and negotiated road: challenges, the courts, the slow accumulation of documented theft toward a reform that must eventually come. Resist the pull of the barricade.
+- @registrar_michoacan: Neither lead nor follow — document. Add Michoacán to the ledger of proven fraud that is becoming, case by case, the jurisprudence of the transition.
+
+@tomar_ayuntamientos
+go-to: post_event
+choose-if: red_casillas >= 20 or colonia_saga >= 2
+unavailable-subtitle: Backing fifty occupied town halls takes a base on the ground that you did not build in time.
+on-arrival: fraude_documentado += 1; fe_voto += 2; legitimidad_regimen -= 3; sup_peasants += 2; sup_colonos += 2; represion += 3; expediente += 3
+
+Your people join the ones already sitting in the municipal palaces, and the occupations hold longer for it: cook fires in the courtyards, the parallel administration keeping the water running and the registry open, the granaderos massing and then, calculating the photograph, not quite charging. Some town halls are cleared; some are negotiated; a few are simply held until the state tires of the arithmetic of eviction. Nobody wins Michoacán back. But the tactic is proven, and it travels — for the next ten years, every stolen municipio in the Republic will have a precedent, and the precedent will have your fingerprints on it.
+
+@via_legal_michoacan
+go-to: post_event
+on-arrival: fraude_documentado += 1; pri_reformist_rel += 2; political_capital += 2; unity += 1
+
+The party's lawyers do what the party's lawyers do: file, document, exhaust the remedies the state provides precisely because it knows they lead nowhere, and build the record. It wins nothing in Michoacán and it is not meant to — it is meant to make the next electoral reform, and the one after that, unavoidable, by proving in triplicate that the current arrangement cannot be defended by anyone who has to sign their name. The militants who are sitting in the town halls find the legalism bloodless. The lawyers, who have read how transitions actually end, keep filing.
+
+@registrar_michoacan
+go-to: post_event
+on-arrival: fraude_documentado += 2; fe_voto += 1; alquimia_expuesta = 1
+
+You spend the season on the record rather than the barricade: every altered acta, every relocated casilla, every impossible tally photographed and notarized and filed where fire is not jurisdiction. It changes nothing this year. But the archive of Mexican electoral fraud is being built, case by patient case, out of exactly these seasons — and when the reforms finally come in the 1990s, drafted by men who can no longer pretend, it will be because someone, in years like this one, refused to let the theft go unrecorded. The counting, as ever, is the whole of the war worth having.

@@ -200,6 +200,7 @@ Q.reforma = 0;
 Q.tribuna = 0;
 Q.izq_seats = 0;
 Q.izq_senadores = 0; Q.cardenas_senador = 0; Q.cardenas_terremoto = 0;
+Q.michoacan_visto = 0;
 Q.municipio_alcozauca = 0;
 Q.psum = 0;
 Q.alquimia_expuesta = 0;
