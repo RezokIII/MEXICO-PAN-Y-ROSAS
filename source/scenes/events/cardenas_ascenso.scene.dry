@@ -99,3 +99,94 @@ go-to: post_event
 on-arrival: funds += 2; unity -= 2; fe_voto -= 1
 
 The archive is tripled and buried; the couriers stand down; the plazas fill and empty without your maximum effort. It is defensible — the Chamber's script was indeed already written — and the defense will be made, at length, in meetings for years. What is not recoverable is the moment: there are seasons when a movement banks its strength, and seasons when strength unspent simply expires. Which this was, the veterans will argue past midnight for a decade.
+
+@cardenas_senador_1976
+title: El senador de Michoacán
+new-page: true
+subtitle: 1976 — a name in the upper house
+face-image: img/portraits/cardenas.jpg
+tags: event
+view-if: year = 1976 and month >= 2 and month <= 5 and cardenas_senador = 0
+priority: 2
+frequency: 55
+max-visits: 1
+on-arrival: cardenas_senador = 1
+
+= El senador de Michoacán
+
+The Senate seats its new members this year, sixty-four of sixty-four for the party as always, and the arithmetic is beneath notice — except for one name your Michoacán people underline and pass around: Cuauhtémoc Cárdenas Solórzano, senator, forty-two, the general's son, who will hold the seat for approximately as long as it takes the President to find a better use for him.
+
+He does not last the term. Within the year he is pulled into the cabinet as subsecretario of forestry — the system moving its promising men the way a chess player moves a piece it intends to need later, off the board's edge and into reserve. It is the most ordinary of PRI careers, and your analysts file it as such, with one dissenting footnote from an old agrarista who rode with the father: *watch the son. The father also spent years being useful to men who underestimated him.*
+
+- @archivar_senador: A line in the file. The surname is not yet a politics — but it is not nothing, and the countryside remembers whose son he is.
+
+@archivar_senador
+go-to: post_event
+on-arrival: political_capital += 1
+
+Nothing is done and nothing needs to be. The page is opened; it will thicken on its own schedule, which is not yours. But when the break finally comes, a decade from now, you will not be starting the file from scratch — and in politics, as in intelligence, the difference between surprise and preparation is exactly one old man's footnote written early.
+
+@cardenas_terremoto_1985
+title: El gobernador que llega
+new-page: true
+subtitle: Septiembre de 1985 — mientras la capital se derrumba
+face-image: img/portraits/cardenas.jpg
+tags: event
+view-if: year = 1985 and month >= 9 and month <= 12 and cardenas_terremoto = 0 and cd_rel >= 1
+priority: 3
+max-visits: 1
+on-arrival: cardenas_terremoto = 1; cd_rel += 1; sup_middle += 1
+
+= El gobernador que llega
+
+The earthquake exposes the federal government the way the earthquake exposes everything — as a hollow façade held up by paint. De la Madrid vanishes for days; the army guards ruins instead of digging them; the state that spends a fortune insisting it is competent stands frozen while the city digs its own dead out with its own hands.
+
+And into that vacuum, from Michoacán, comes a column of trucks nobody in the capital authorized: rescue teams, water, machinery, doctors — sent by the state's own governor, Cuauhtémoc Cárdenas, who did not ask Los Pinos whether he might help the capital because he already knew the answer and helped anyway. It is a small thing and an enormous one: a PRI governor behaving, in the one week the whole country was watching, as though government were for the governed.
+
+The contrast writes itself, and the middle class — which had never once considered that the general's son might be more than a surname — considers it now. Your Michoacán cadres, who coordinated with his people in the rubble, come away with something no memo could give: the measure of the man, taken under a collapsed building at four in the morning, which is where all real measures are taken.
+
+- @tender_puente: Deepen it. The rubble made allies of your people and his; build on the trust that only a disaster confers.
+- @observar_gobernador: Note it, and wait. The break is coming; do not spend the relationship before it matters.
+
+@tender_puente
+go-to: post_event
+choose-if: sup_colonos >= 10 or costureras >= 1
+unavailable-subtitle: Building on the earthquake's trust needs your own people already in the rubble — the colonias, the costureras.
+on-arrival: cd_rel += 1; sup_colonos += 2; political_capital += 2
+
+The coordination outlasts the emergency, which is how you know it was real: the brigades your Movement fielded and the aid his government sent keep finding reasons to work the same colonias through the winter, and the habit of trust, once formed under a fallen roof, does not easily un-form. When the Corriente breaks two years from now, the bridge between the general's son and the organized left will not need building. It will only need crossing.
+
+@observar_gobernador
+go-to: post_event
+on-arrival: political_capital += 1
+
+You keep the distance a governing PRI-ista still requires, and the reasoning is sound: he is theirs until he is not, and premature embrace has ended more alliances than betrayal ever did. The file gains a page and the relationship gains a season of patience. When the break comes, you will be neither surprised nor compromised — the analyst's two favorite words.
+
+@las_senadurias
+title: Las senadurías
+new-page: true
+subtitle: 1988 — the room stops being unanimous
+face-image: img/portraits/cardenas.jpg
+tags: event
+view-if: year = 1988 and month >= 9 and month <= 12 and fdn >= 1 and via != "armada"
+priority: 3
+max-visits: 1
+on-arrival: {!
+Q.izq_senadores = 2 + (Q.resultado_88 == 1 ? 2 : 0) + (Q.red_casillas >= 40 ? 1 : 0);
+Q.legitimidad_regimen -= 3;
+Q.fe_voto += 2;
+!}
+
+= Las senadurías
+
+Whatever else the arithmetic of July was made to say, one number the machine could not fully swallow: the Federal District and Michoacán — the capital and the general's own ground — sent opposition senators to a chamber that had been unanimous for the party since 1929. Sixty years of a room where every hand went up together, ended by a count the regime spent everything to reverse and could not, quite, in the two places the wave ran deepest.
+
+**[+ izq_senadores +] senators of the Frente** take the oath in a chamber visibly unsure how to seat them — there is no protocol for an opposition that exists. Muñoz Ledo among them, and the room learns the specific discomfort of a body that must now, occasionally, be argued with. It is not power. The PRI keeps its overwhelming majority, keeps the presidency it stole, keeps the machine. But the Senate — the last unanimous room in the Republic — has been made to hold a voice it did not authorize, and rooms, as the saying in your circles now goes, never go back.
+
+- @tomar_protesta: Take the oath, and the tribune with it. Every session from here is one the regime cannot conduct in private.
+
+@tomar_protesta
+go-to: post_event
+on-arrival: political_capital += 3; fe_voto += 1
+
+The senators of the Frente are seated, sworn, and immediately inconvenient, which is the whole of the assignment. From the upper house's floor the fraud of July is entered into the record it was designed to escape; the disappeared of two decades are named where the Diario cannot decline to print them; and the country, watching a chamber it always knew was theatre discover it can be interrupted, learns the era's quiet lesson twice in one year: the machine can steal a count, but it can no longer steal the silence it used to count on.

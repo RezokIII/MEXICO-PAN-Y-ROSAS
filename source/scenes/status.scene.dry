@@ -74,6 +74,7 @@ Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence 
 [? if alquimia_expuesta = 1 : La alquimia quedó documentada — the fraud is provable now. ?]
 [? if registro >= 1 : Registro conquistado — the Party exists before the law at last. ?]
 [? if izq_seats >= 1 : Curules en la Cámara: [+ izq_seats +] — a microphone the regime cannot switch off. ?]
+[? if izq_senadores >= 1 : Senadurías conquistadas: [+ izq_senadores +] — the first opposition senators in the chamber’s history. The room that was unanimous for sixty years no longer is. ?]
 [? if municipio_alcozauca = 1 : Alcozauca gobernada — the first red municipio of the Montaña. ?]
 [? if municipio_juchitan = 1 : Juchitán gobernada — la COCEI holds the isthmus. ?]
 [? if fdn >= 1 : El Frente fue forjado — the convergence of 1988, with you inside it. ?]

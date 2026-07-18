@@ -6,7 +6,7 @@ view-if: year = 1988 and month >= 2 and month <= 4 and via != "armada"
 priority: 3
 max-visits: 1
 on-arrival: {!
-Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital + Math.round(Q.unity / 2) - Q.memorial + Q.registro * 10 + Q.izq_seats + Q.municipio_alcozauca * 8 + Q.psum * 8 + Q.pms * 8 + Q.red_casillas / 4 + Q.cd_rel * 6 + Q.municipio_juchitan * 6 + Q.costureras * 4 + Q.veteranos * 4 + Q.leyenda * 6 + (Q.coronel_muerto ? 8 : 0) + (Q.coronel_removido ? 4 : 0) + (Q.op_cacique + Q.op_archivo + Q.op_magnate + Q.op_aduana) * 3 + Q.exiliados * 2;
+Q.fuerza_final = Q.members * 3 + Q.izq_votes_display * 4 + Q.political_capital + Math.round(Q.unity / 2) - Q.memorial + Q.registro * 10 + Q.izq_seats + Q.izq_senadores * 3 + Q.municipio_alcozauca * 8 + Q.psum * 8 + Q.pms * 8 + Q.red_casillas / 4 + Q.cd_rel * 6 + Q.municipio_juchitan * 6 + Q.costureras * 4 + Q.veteranos * 4 + Q.leyenda * 6 + (Q.coronel_muerto ? 8 : 0) + (Q.coronel_removido ? 4 : 0) + (Q.op_cacique + Q.op_archivo + Q.op_magnate + Q.op_aduana) * 3 + Q.exiliados * 2;
 if (Q.fuerza_final >= 95) { Q.ending = "fuerte"; }
 else if (Q.fuerza_final >= 60) { Q.ending = "media"; }
 else { Q.ending = "debil"; }
