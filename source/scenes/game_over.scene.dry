@@ -239,7 +239,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_la_declaracion : **La Declaración de Guadalajara** — commit everything to the electricians. ?]
 
-[? if game_achievement_la_lista : **La lista** — keep the memorial complete: name, date, place. ?]
+[? if game_achievement_pan_y_rosas : **Pan y rosas** — the women's movement organized alongside the party, not beneath it. The revolution finally had more than one subject. ?][? if game_achievement_la_lista : **La lista** — keep the memorial complete: name, date, place. ?]
 
 [? if game_achievement_herejes_con_carnet : **Herejes con carnet** — declared independence from Moscow. ?]
 
@@ -362,6 +362,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 
 [? if achievement_la_fe_recuperada : **La fe recuperada** — make a cynical country believe the vote can matter again. ?]
+[? if achievement_pan_y_rosas : **Pan y rosas** — the women's movement organized alongside the party, not beneath it. ?]
 
 [? if achievement_el_seis_de_julio : **El seis de julio** — force a counted 1988 — the reconocimiento the regime cannot survive. ?]
 
@@ -457,6 +458,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 = Incomplete Achievements
 
 [? if not achievement_la_fe_recuperada : **La fe recuperada** — make a cynical country believe the vote can matter again. ?]
+[? if not achievement_pan_y_rosas : **Pan y rosas** — organize the women's movement alongside the party as an equal (feminismo 60). ?]
 
 [? if not achievement_el_seis_de_julio : **El seis de julio** — force a counted 1988 — the reconocimiento the regime cannot survive. ?]
 

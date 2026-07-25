@@ -15,6 +15,7 @@ Background for the struggle: the system you face, the tradition you inherit, the
 - @glosario: Glossary of the Republic
 - @mecanica: The organizer manual — how the world moves
 - @sexenio_manual: The sexenio playbook — what to do, six years at a time
+- @contrahistoria: La contrahistoria — where your Mexico left the record
 - @memorial: El memorial
 - @backSpecialScene: Exit library.
 
@@ -115,6 +116,35 @@ Mexican politics breathes in six-year cycles, and so should your strategy. The r
 **Year 6 — the test.** Elections where you have registro: the count is fought at the casillas your network covers, and answered afterward from the tribune or the street. Then the toma de posesion — and February question again.
 
 **Across all cycles:** el camino five milestones are the win condition road: survive, break the cerco, take the door, pour the foundations, forge the convergence. Check the status bar. If the current milestone is not moving, your strategy is decoration.
+
+@contrahistoria
+go-to: menu
+
+= La contrahistoria
+
+*This is a game of history and counter-history. Here is where your Mexico has, so far, refused the record — measured against what actually happened. Where a line is absent, history stands unbent.*
+
+[? if lucio_vive = 1 : **Lucio Cabañas.** Real history: killed by the army at El Otatal, December 2, 1974. In your Mexico: alive — a warning beat the encirclement, and the schoolteacher of Atoyac came down whole. ?]
+
+[? if medrano_advisor = 1 or (medrano_muerto = 1 and colonia_saga >= 1) : **El Güero Medrano.** Real history: the Colonia Rubén Jaramillo crushed in 1973, its founder dead in the Oaxaca jungle by 1979, largely forgotten. In your Mexico: his method entered the Party's bloodstream, and the colonias remember the name. ?]
+
+[? if campa_advisor = 1 or campa_released = 1 : **Los ferrocarrileros.** Real history: Vallejo and Campa served eleven years under Article 145, released only in 1970. In your Mexico: the railwaymen's cause was carried differently — the old cadres returned to the work sooner than the record allows. ?]
+
+[? if td_apoyo >= 1 or spicer = 1 : **La Tendencia Democrática.** Real history: Rafael Galván's electricians' insurgency was broken by the requisa of 1976 and faded. In your Mexico: the current outlived its obituary — the most serious challenge to charro labor in a generation did not die on schedule. ?]
+
+[? if municipio_juchitan = 1 : **Juchitán.** Real history: the COCEI's city government was dissolved by decree and army in 1983. In your Mexico: the Zapotec left held the Isthmus — the ayuntamiento popular that the desaparición de poderes could not disappear. ?]
+
+[? if municipio_alcozauca = 1 : **Alcozauca.** The first red municipio of the Guerrero Montaña — held, in your Mexico, and held longer than the caciques budgeted for. ?]
+
+[? if praga_line = 1 : **La herejía.** Real history: the PCM condemned the invasion of Czechoslovakia in 1968 — nearly alone in the Americas. In your Mexico you kept the heresy lit: independence from Moscow declared and defended, a communist party with a party card and a conscience. ?]
+
+[? if feminismo >= 60 : **Pan y rosas.** Real history: the Mexican left spent the era addressing "the woman comrade" in the singular, and the feminist movement grew up mostly outside the parties. In your Mexico the women's movement organized alongside the Party as an equal — the revolution, at last, with more than one subject. ?]
+
+[? if registro >= 1 : **El registro.** In your Mexico the Party won legal registration and stood on a ballot — the hammer and sickle counted, conditionally, where for decades it was only ever miscounted. ?]
+
+[? if izq_senadores >= 1 : **El Senado.** Real history: the upper house was unanimous for the party from 1929 until the FDN broke it in 1988. In your Mexico [+ izq_senadores +] senators of the opposition took the oath in a chamber with no protocol for their existence. ?]
+
+[? if lucio_vive = 0 and medrano_muerto = 0 and td_apoyo = 0 and spicer = 0 and municipio_juchitan = 0 and municipio_alcozauca = 0 and praga_line = 0 and feminismo < 60 and registro = 0 : So far, your Mexico has followed the record — the dead stayed dead, the doors stayed shut, the towns stayed lost. The counter-history is still all ahead of you. There is a great deal of decade left in which to bend it. ?]
 
 @memorial
 go-to: menu

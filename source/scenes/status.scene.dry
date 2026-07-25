@@ -77,6 +77,7 @@ Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence 
 [? if izq_senadores >= 1 : Senadurías conquistadas: [+ izq_senadores +] — the first opposition senators in the chamber’s history. The room that was unanimous for sixty years no longer is. ?]
 [? if municipio_alcozauca = 1 : Alcozauca gobernada — the first red municipio of the Montaña. ?]
 [? if municipio_juchitan = 1 : Juchitán gobernada — la COCEI holds the isthmus. ?]
+[? if feminismo >= 60 : El movimiento de mujeres, del brazo — feminismo [+ feminismo +]/100: the autonomous feminist current organizes alongside the party, not beneath it, and the campus and the colonias answer for it. ?][? if feminismo >= 25 and feminismo < 60 : Con las feministas, a tientas — feminismo [+ feminismo +]/100: the women’s movement and the party circle each other, useful and wary. ?]
 [? if fdn >= 1 : El Frente fue forjado — the convergence of 1988, with you inside it. ?]
 
 [? if paros_ganados = 0 and secciones_ganadas = 0 and colonias_fundadas = 0 and dotaciones = 0 and escandalos = 0 and izq_seats = 0 and registro = 0 : Nothing decisive won yet — only built. The ledger fills the first time the state is made to give something back. ?]

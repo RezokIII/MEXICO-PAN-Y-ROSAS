@@ -6,7 +6,18 @@ tags: event
 view-if: via = "armada" and armada_entered = 0
 priority: 5
 max-visits: 1
-on-arrival: armada_entered = 1; armada_start = time
+on-arrival: {!
+Q.armada_entered = 1;
+Q.armada_start = Q.time;
+// Difficulty-scaled war chest: the columns do not start from nothing. Easy gives the
+// war a fighting first sexenio; hard makes the mountain lean from the first month.
+var _kit = (Q.difficulty < 0) ? 3 : (Q.difficulty >= 1 ? 0 : 1);   // easy +3 / normal +1 / hard +0
+Q.parque += 6 + _kit;
+Q.moral_columnas = Math.max(Q.moral_columnas, 62 + (Q.difficulty < 0 ? 8 : (Q.difficulty >= 1 ? -6 : 0)));
+Q.inteligencia += 6 + (Q.difficulty < 0 ? 4 : 0);
+// a fresh column that already survived the descent starts with a little presence to hold
+if (Q.pres_guerrero < 12) { Q.pres_guerrero = 12; }
+!}
 
 = Below ground
 

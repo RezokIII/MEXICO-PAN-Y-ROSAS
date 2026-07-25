@@ -201,6 +201,8 @@ Q.tribuna = 0;
 Q.izq_seats = 0;
 Q.izq_senadores = 0; Q.cardenas_senador = 0; Q.cardenas_terremoto = 0;
 Q.michoacan_visto = 0;
+Q.feminismo = 0; Q.mujeres_organizadas = 0; Q.maternidad_voluntaria = 0; Q.fnalidm = 0;
+Q.cuenta_moscu = 0;
 Q.municipio_alcozauca = 0;
 Q.psum = 0;
 Q.alquimia_expuesta = 0;

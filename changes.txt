@@ -1,3 +1,26 @@
+PAN Y ROSAS — content pass (women, counter-history, internationalism, tuning):
+
+- THE WOMEN'S MOVEMENT, as its own arc: "feminismo" (0-100) tracked and displayed.
+  Three beats — La doble militancia (mid-70s: embrace the feminist current or subordinate
+  it), Maternidad voluntaria (the abortion-decriminalization demand the party cannot
+  straddle), El Frente de mujeres (the FNALIDM, 1979: ally as equals or absorb). An
+  embraced movement is a permanent multiplier on turnout, campus and the colonias, swells
+  the 1988 wave, and ties into the costureras. New achievement: Pan y rosas.
+- LA CONTRAHISTORIA: a new Library page listing where your run left the historical record
+  — Lucio alive, Medrano's method inherited, the Tendencia survived, Juchitan/Alcozauca
+  held, the Prague heresy kept, the women's movement embraced, the Senate broken. The
+  alt-history you authored, made legible.
+- INTERNATIONALISM: El Salvador (1981, the Franco-Mexican declaration and FMLN solidarity)
+  and La cuenta de Moscu (the subsidy vs. the heresy — keep the independence and lose the
+  money, soften the line and keep it, or build real self-financing).
+- ARMED DIFFICULTY TUNING: going underground now grants a difficulty-scaled war chest
+  (parque, morale floor, intelligence, a foothold of presence) so the first sexenio is
+  survivable with good play — easy gives the war a fighting start, hard keeps it lean.
+- Achievements audit: all endings/milestones register and display (el_exterminio,
+  la_guerra_larga, pan_y_rosas added to every section).
+- Removed the static Senate display; updated the primer for all three roads and systems.
+- Verified: 120-card audit clean, full-run fuzz crash-free on both roads.
+
 PAN Y ROSAS — armed endgame fix (1988 reckoning):
 
 - Fixed: armed players who reached 1988 were scored on the POLITICAL scorecard

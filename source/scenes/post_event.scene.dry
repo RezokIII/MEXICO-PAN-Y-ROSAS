@@ -129,6 +129,14 @@ if (Q.month != Q.last_drift_month) {
         var _zs = ['guerrero','valle','chihuahua','jalisco','nl','oaxaca','tijuana'];
         for (var _z of _zs) { if (Q['pres_'+_z] >= 10) { Q['guar_'+_z] += 1.5; } }
     }
+    // the women's movement, once embraced, is a permanent multiplier: turnout, campus, the colonias
+    if (Q.feminismo >= 40) {
+        if (Q.time % 3 == 0) { Q.fe_voto += 0.15; }
+        if (Q.time % 4 == 0 && Q.sup_students < 55) { Q.sup_students += 0.5; }
+        if (Q.costureras && Q.time % 4 == 0 && Q.sup_workers < 45) { Q.sup_workers += 0.4; }
+    }
+    if (Q.feminismo > 100) { Q.feminismo = 100; }
+    if (Q.feminismo < 0) { Q.feminismo = 0; }
     // an active escisión competes for your own base until a fusion reabsorbs it
     if (Q.escision_activa == 1) { Q.sup_students -= 0.4; Q.sup_teachers -= 0.2; }
     // the regime's grip: the more threatening you become, the harder it hunts you (scales, so it actually bites)
