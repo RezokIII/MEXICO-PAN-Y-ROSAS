@@ -13,7 +13,6 @@ La izquierda mexicana, 1968-1988. Un mod de Social Democracy: An Alternate Histo
 @start_menu_2
 
 - @start: Start game
-- @election_simulation: Election simulation
 - @credits: Credits
 - @game_over.achievements
 
@@ -167,6 +166,7 @@ Q.col_chihuahua_mood = 55; Q.col_valle_mood = 55; Q.columna_last = -99;
 Q.cerco_final_warned = 0;
 Q.balance_armado_visto = 0;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
+Q.curul_seen = 0; Q.gestoria_last = -99; Q.comida_last = -99; Q.comision_last = -99; Q.respons_last = -99; Q.voto_inst_last = -99; Q.vendieron_last = -99;
 
 // ---- la economía ----
 Q.crecimiento = 8;
@@ -804,10 +804,94 @@ This is a game of history and counter-history. You will lead the Mexican left fr
 
 The dead in this game were real. They are treated accordingly.
 
-- @1928_easy: Comenzar — vientos favorables (fácil)
-- @1928_main: Comenzar (dificultad normal)
-- @1928_hard: Comenzar — años de plomo (difícil)
-- @1928_historical: Comenzar (modo histórico)
+Choose where to begin. **1968 — El origen** is the full twenty-year campaign, from the smoke of Tlatelolco. The two later starts drop you into an established Party at a president's inauguration, mid-difficulty, with the years before already survived — a shorter game, and the faster road to test.
+
+- @1928_easy: 1968 · fácil — vientos favorables
+- @1928_main: 1968 · normal
+- @1928_hard: 1968 · difícil — años de plomo
+- @1928_historical: 1968 · histórico (sin guardar)
+- @preset_1976: 1976 — La apertura (~12 años, la reforma se acerca)
+- @preset_1982: 1982 — La crisis (~6 años, la década perdida)
+
+@preset_1976
+new-page: true
+on-arrival: {!
+// ---- PRESET: enter play in early 1977, López Portillo just sworn in ----
+Q.difficulty = 0;
+Q.year = 1977; Q.month = 1; Q.time = 99;
+// the regime, as set by the 1976 toma de posesión
+Q.presidente = "Lopez Portillo"; Q.gobernacion = "Reyes Heroles"; Q.sexenio_year = 1;
+Q.presidente_cooptacion = 45; Q.presidente_represion = 50;
+Q.pri_aperturistas += 15; Q.pri_tecnicos += 5; Q.destape_phase = 0;
+// a Party that survived eight years of the dirty war and Echeverría's apertura
+Q.members = 14; Q.funds = 26; Q.organizers = 5; Q.unity = 55; Q.political_capital = 14;
+Q.sup_workers = 14; Q.sup_students = 40; Q.sup_peasants = 18; Q.sup_colonos = 14;
+Q.sup_teachers = 16; Q.sup_middle = 8; Q.sup_electricians = 20;
+Q.expediente = 45; Q.represion = 55; Q.charrismo = 82; Q.registro = 0;
+Q.fac_ortodoxos = 48; Q.fac_renovadores = 32; Q.fac_nueva_izquierda = 22;
+Q.pri_reformist_rel = 22; Q.legitimidad_regimen = 66; Q.memorial = 4;
+Q.next_election_year = 1979; Q.next_election_month = 7;
+// the ferrocarrileros are out; the engineer of '68 builds next door; the novelist lives
+Q.campa_released = 1; Q.vallejo_released = 1; Q.campa_advisor = 1; Q.vallejo_advisor = 1;
+Q.heberto_advisor = 1; Q.revueltas_advisor = 1;
+!}
+go-to: preset_1976_intro
+
+@preset_1976_intro
+face-image: img/reyes_heroles.jpg
+new-page: true
+
+= 1977 — La apertura
+
+Eight years have passed since the plaza was hosed clean. The Party survived them the way it survives everything — compartmentalized, watched, broke, and stubbornly alive. The rail cadres are out of Lecumberri at last. Echeverría's *apertura democrática* bought some air; his dirty war spent the rest. The dead have a page of their own now, and it is not short.
+
+Now López Portillo takes the sash, and his Secretario de Gobernación is Jesús Reyes Heroles — a historian who has been saying, to anyone who will listen, that an opposition inside the law is cheaper than an opposition outside it. There is a reform coming. It has your name in its margins, unwritten. The February congress will decide what road the Party walks toward it.
+
+- @comenzar_preset: Comenzar. Enero de 1977.
+
+@preset_1982
+new-page: true
+on-arrival: {!
+// ---- PRESET: enter play in early 1983, De la Madrid just sworn in, the crisis open ----
+Q.difficulty = 0;
+Q.year = 1983; Q.month = 1; Q.time = 171;
+// the regime, as set by the 1982 toma de posesión
+Q.presidente = "De la Madrid"; Q.gobernacion = "Bartlett"; Q.sexenio_year = 1;
+Q.presidente_cooptacion = 30; Q.presidente_represion = 45;
+Q.pri_tecnicos += 10; Q.pri_politicos -= 5; Q.destape_phase = 0;
+Q.capital_extranjero = (Q.capital_extranjero || 0) + 6; Q.clima_neoliberal = (Q.clima_neoliberal || 0) + 14;
+// fourteen years in: the reform happened, the Party has legal standing and has fused
+Q.members = 22; Q.funds = 26; Q.organizers = 7; Q.unity = 52; Q.political_capital = 18;
+Q.sup_workers = 18; Q.sup_students = 38; Q.sup_peasants = 22; Q.sup_colonos = 20;
+Q.sup_teachers = 20; Q.sup_middle = 12; Q.sup_electricians = 22;
+Q.expediente = 48; Q.represion = 60; Q.charrismo = 78;
+Q.registro = 1; Q.psum = 1; Q.fusion_prog = 3; Q.izq_seats = 12;
+Q.fac_ortodoxos = 42; Q.fac_renovadores = 34; Q.fac_nueva_izquierda = 26;
+Q.pri_reformist_rel = 20; Q.legitimidad_regimen = 56; Q.fe_voto = 30;
+Q.salario_real = 82; Q.memorial = 6;
+Q.next_election_year = 1985; Q.next_election_month = 7;
+Q.campa_released = 1; Q.vallejo_released = 1; Q.campa_advisor = 1;
+Q.heberto_advisor = 1; Q.revueltas_advisor = 1; Q.ibarra_advisor = 1;
+!}
+go-to: preset_1982_intro
+
+@preset_1982_intro
+face-image: img/crisis_economica.jpg
+new-page: true
+
+= 1983 — La crisis
+
+Fourteen years, and the Party is no longer what came down the fire escape in '68. It won its registration; it stood on a ballot; the hammer and sickle was counted, conditionally, where for decades it was only ever miscounted. In 1981 the scattered left finally fused — the PSUM, one organization at last. You hold seats. You have a tribune.
+
+And the floor has fallen out of the country. In August of '82 López Portillo nationalized the banks and confessed the treasury was empty; the peso collapsed; the debt came due all at once. De la Madrid arrives as the *técnico* the creditors ordered, his first act a letter to the IMF, his program the balancing of a budget on the backs of people who borrowed nothing. Real wages begin a fall that will not stop for a decade. The lost decade opens — not with a coup, but with a signature. Crisis organizes, for whoever is present. You intend to be present.
+
+- @comenzar_preset: Comenzar. Enero de 1983.
+
+@comenzar_preset
+new-page: true
+go-to: main if year < 1978; main.main_78 if year < 1985; main.main_85
+
+El escritorio está puesto. La ciudad, afuera, sigue oliendo a lo de siempre: lluvia, tinta, y algo quemándose a lo lejos.
 
 @1928_easy
 on-arrival: difficulty = -1; funds = 30; organizers = 4; unity = 65; represion = 60; expediente = 30

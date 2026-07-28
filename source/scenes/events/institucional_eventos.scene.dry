@@ -84,3 +84,288 @@ go-to: post_event
 on-arrival: absorcion = 85; funds += 6; political_capital += 3; sup_students -= 6; sup_workers -= 3; fe_voto -= 3; guerrilla_meter += 3; fac_nueva_izquierda -= 6
 
 The decision is never announced because it was never exactly made: the Movement simply continues, inside, reasonable, funded, consulted — and the country files it accordingly. The young go elsewhere: to the coordinadoras, to the new little parties, some to the mountains, taking with them the future's energy and leaving the apparatus's calm. The system has added one more instrument to its orchestra. It plays, from now on, mostly on schedule.
+
+@la_primera_curul
+title: La primera curul
+new-page: true
+subtitle: The tribune the regime cannot switch off
+face-image: img/congreso.jpg
+tags: event
+view-if: via = "institucional" and izq_seats >= 1 and curul_seen = 0
+priority: 4
+max-visits: 1
+on-arrival: curul_seen = 1
+
+= La primera curul
+
+The credential is a laminated absurdity — *Diputado Federal* over a name that spent thirty years in the government's other files — and walking onto the floor of the Chamber with it is the strangest sensation in the Party's history: the enemy's own house, entered through the front door, by invitation, on the record. The curules smell of furniture polish and impunity. The PRI benches regard you the way a body regards a splinter: without alarm, with intent to expel by natural process.
+
+And there it is, the thing the whole reformist wager was placed on: the tribune. A microphone the regime cannot switch off, in a chamber the press must report, minutes that enter the Republic's permanent record. Fifty years of the Party's dead have no monument. You have, now, four minutes of recognized time and a stenographer obliged to write down whatever you say. The maiden speech is being drafted six ways in six caucus rooms.
+
+- @curul_incendiaria: Read the names. Spend the maiden speech on the disappeared, into the record, at full volume — let them expel you shouting.
+- @curul_quirurgica: Be surgical. A precise, unanswerable indictment on one concrete outrage — win the argument, not the ejection.
+- @curul_programa: Lay out the program. Use the platform to speak past the chamber to the country — what the left is *for*, not only against.
+
+@curul_incendiaria
+go-to: post_event
+on-arrival: sup_students += 4; memorial += 1; legitimidad_regimen -= 3; expediente += 3; pri_reformist_rel -= 4; absorcion -= 4; unity += 2
+
+You read the list. Not all of it — they cut the microphone at minute three — but enough of it entered the Diario de los Debates that the names are now, permanently, a state document: the Republic's own printing office has published its dead over the Party's signature. The PRI benches call you to order; the gavel falls; the galleries do not stay silent. It changes no vote and cannot be unprinted, and of those two facts the second is the one the base carries home. The reformist road just proved it still has teeth — the antechambers noticed the tooth marks.
+
+@curul_quirurgica
+go-to: post_event
+on-arrival: political_capital += 4; sup_middle += 3; legitimidad_regimen -= 2; fe_voto += 2; pri_reformist_rel += 1
+
+You pick one outrage — a specific fraud, a specific torture, a specific budget line that fed a specific general — and you build it like a lawyer, dates and documents, no adjective the record can dismiss as rhetoric. The PRI has no answer because there is no answer, only a change of subject, and the change of subject is itself reported. It is the reformist road at its best: not the plaza's roar but the scalpel's precision, the argument won so cleanly that even the middle class that fears the left finds itself, uncomfortably, nodding.
+
+@curul_programa
+go-to: post_event
+on-arrival: sup_students += 2; sup_middle += 2; ax_electoral += 3; fe_voto += 3; pri_reformist_rel += 2; absorcion += 2
+
+You decline both the martyr's roar and the prosecutor's knife and do the rarer thing: you describe the country the left would build, concretely, as if it were possible — because from a recognized tribune, for the first time, saying so is not a fantasy but a legislative position. It reaches past the benches to the living rooms; some who had written the left off as pure grievance hear, unexpectedly, a governing imagination. It also, faintly, warms you toward the chamber's own logic — the seduction of speaking as if you already half-belonged.
+
+@la_comision
+title: La comisión
+new-page: true
+subtitle: The tedious work where the real power hides
+face-image: img/pleno.jpg
+tags: event
+view-if: via = "institucional" and izq_seats >= 1 and year >= 1980 and time >= comision_last + 20
+priority: 2
+frequency: 55
+max-visits: 3
+on-arrival: comision_last = time
+
+= La comisión
+
+The glamour of the tribune is one percent of the job; the other ninety-nine is the committees, where the Republic is actually written, in rooms with no press and worse coffee. A seat has opened on one that matters — Presupuesto, or Reforma Agraria, or Gobernación itself — and it is offered to your caucus, because the reform's arithmetic needs the opposition to be *seen* doing the boring work that legitimizes the whole apparatus.
+
+It is a genuine dilemma dressed as a scheduling question. The committee is real leverage — amendments, the budget line moved a millimeter, the inspector's report that cannot be buried once it is minuted. It is also a time sink that domesticates: a deputy deep in subsection drafting is a deputy who has not been to a plaza in a year, and the base can tell.
+
+- @comision_trabajar: Do the work. Put your most serious cadre on it and move the country in millimeters no one applauds.
+- @comision_teatro: Take the seat but keep the theater — use committee documents as ammunition for public fights, not quiet fixes.
+- @comision_rechazar: Decline it. The caucus is small; its people belong in the streets, not drowning in subsections.
+
+@comision_trabajar
+go-to: post_event
+choose-if: organizers >= 3
+unavailable-subtitle: Serious committee work needs a serious cadre to spare — you have none idle.
+on-arrival: political_capital += 5; funds += 3; sup_peasants += 2; absorcion += 6; sup_students -= 2
+
+Your deputy becomes, within a year, the most competent person in the room, which in a committee is a form of power the PRI did not intend to hand over: the amendments that survive are increasingly yours, the buried report is un-buried, a budget line for rural schools exists that would not otherwise. It is real, it is unglamorous, and it is digestive — the compañero now speaks fluent subsection and dreams in fiscal years, and the antechambers count another guest settling in for the long meal.
+
+@comision_teatro
+go-to: post_event
+on-arrival: sup_students += 2; legitimidad_regimen -= 2; pri_reformist_rel -= 2; expediente += 2; fe_voto += 1
+
+You take the seat and refuse its etiquette: every document the committee generates that embarrasses the regime finds its way, at exactly the wrong moment for Bucareli, into the hands of the press and the plaza. It makes you a bad committee member and a good opposition — the PRI learns not to minute anything sensitive while you are in the room, which is its own small victory. You have kept the teeth visible; you have also spent the goodwill that would have let you actually move the budget line. The road forces the choice; you chose the street.
+
+@comision_rechazar
+go-to: post_event
+on-arrival: absorcion -= 5; sup_students += 2; unity += 1; pri_reformist_rel -= 3; political_capital -= 2
+
+You decline, on the theory the founders would recognize: that a revolutionary party's cadres belong where the people are, not entombed in the fiscal subsections of a state you mean to replace. It keeps the caucus lean and pointed outward, unabsorbed, plainly still an opposition. It also leaves the committee to the PRI and the PAN, who write the budget without you and are, quietly, relieved. Purity has a price and it is paid in millimeters not moved.
+
+@oposicion_responsable
+title: Oposición responsable
+new-page: true
+subtitle: The praise that poisons
+face-image: img/excelsior.jpg
+tags: event
+view-if: via = "institucional" and pri_reformist_rel >= 32 and absorcion >= 20 and time >= respons_last + 22
+priority: 2
+frequency: 55
+max-visits: 3
+on-arrival: respons_last = time
+
+= Oposición responsable
+
+The editorial appears in one of the serious papers, and it is worse than any attack: it is praise. The Party's parliamentary conduct, the columnist writes, exemplifies *una oposición responsable y madura* — constructive, institutional, a credit to the democratic opening. It is meant kindly. It is quoted approvingly in the President's circle. And it lands in the assemblies like a diagnosis, because the base has spent fifty years learning exactly what the regime means when it calls a leftist *responsible*: it means housebroken.
+
+The leadership feels the trap close from both sides. Reject the praise and you look ungrateful, unserious, incapable of taking yes for an answer. Accept it and you ratify the frame — that the good left is the quiet one, that maturity means the muzzle. The compliment is a leash offered as a bouquet.
+
+- @responsable_rechazar: Repudiate it, sharply — from the tribune, reject the regime's certificate of good conduct. You are not responsible to it.
+- @responsable_ignorar: Ignore it. A press compliment is not a policy; refuse to let a columnist set the Party's self-image.
+- @responsable_aceptar: Wear it. Respectability is an asset with the middle class the left has never held; bank the legitimacy.
+
+@responsable_rechazar
+go-to: post_event
+on-arrival: sup_students += 3; sup_workers += 2; absorcion -= 8; pri_reformist_rel -= 5; legitimidad_regimen -= 1; unity += 2
+
+You use your own recognized tribune to reject the recognition: the Party is not responsible *to* the regime, you say, but to the people the regime disappears, and if maturity means silence then the Party is proudly, permanently adolescent. It is good theater and truer than theater, and it snaps the leash before it tightens — the base exhales, the columnist writes a wounded follow-up, and the antechambers file you back under *difícil.* You gave up the compliment to keep the constituency. On this road, that is the trade that keeps you yourself.
+
+@responsable_ignorar
+go-to: post_event
+on-arrival: absorcion += 2; unity += 1; political_capital += 1
+
+The leadership decides a newspaper adjective is beneath a response and moves on, which is defensible and also, quietly, a small surrender: the frame goes unchallenged, the word *responsable* attaches itself another degree, and the drift resumes at its patient rate. Not every hook must be taken; but the ones left in the water are still, slowly, reeling.
+
+@responsable_aceptar
+go-to: post_event
+on-arrival: sup_middle += 4; funds += 2; absorcion += 8; pri_reformist_rel += 4; sup_students -= 3; fe_voto -= 1
+
+You decide respectability is a resource the left has never been able to afford and cannot start refusing now: the middle class that has always feared you is, for the first time, reading that you are safe, and safe is what lets a frightened notary vote left. The support arrives, measurable, from a quarter the Party never reached. So does the cost, unmeasured until later: each degree of respectable is a degree of digested, and the young who wanted a party the regime *hated* read the editorial too, and draw their own conclusion about where the fight went.
+
+@la_gestoria
+title: La gestoría
+new-page: true
+subtitle: Co-opted by usefulness
+face-image: img/colonia.jpg
+tags: event
+view-if: via = "institucional" and izq_seats >= 1 and (sup_colonos >= 12 or sup_peasants >= 15) and time >= gestoria_last + 24
+priority: 2
+frequency: 50
+max-visits: 3
+on-arrival: gestoria_last = time
+
+= La gestoría
+
+It begins as a compliment and becomes a swamp. Because you now hold seats, the people start bringing you their problems the way they have always brought them to the PRI: not the revolution, but the water main, the missing pension, the son picked up by the judiciales, the clinic that needs a doctor. Your deputies' offices fill with the Republic's daily wounds, and every one of them is real, and every one of them can, with a phone call to the right desk, sometimes actually be fixed.
+
+This is *gestoría* — the errand-running that is the true currency of Mexican politics, the way the PRI has bought loyalty one solved problem at a time for fifty years. Do it well and you become beloved, indispensable, re-elected. Do it well and you become, in function, exactly what you set out to destroy: a more honest window at the same office of favors.
+
+- @gestoria_abrazar: Solve the problems. A left that fixes the water main earns a loyalty the manifesto never will.
+- @gestoria_organizar: Turn petitioners into organizers — don't fix the water main, help the colonia force the city to fix it, together.
+- @gestoria_rechazar: Refuse the role. You are legislators, not the PRI's honest competitors in the favor trade.
+
+@gestoria_abrazar
+go-to: post_event
+on-arrival: sup_colonos += 4; sup_peasants += 3; funds -= 1; absorcion += 7; fe_voto += 2; fac_nueva_izquierda -= 2
+
+The offices become clinics of the possible: pensions unstuck, sons retrieved, a water main that actually arrives with your name spoken over it in the colonia for a generation. The loyalty is real and it is deep and it re-elects you, and it is built on precisely the foundation the PRI built its own on — the grateful dependent, the fixed problem, the patron with a kinder face. You are winning the people. You are winning them the regime's way, and the regime, watching, is not displeased to see the left learn its trade.
+
+@gestoria_organizar
+go-to: post_event
+choose-if: organizers >= 2
+unavailable-subtitle: Turning petitioners into an organized bloc takes cadres to do the teaching — you are short.
+on-arrival: sup_colonos += 3; sup_peasants += 2; absorcion -= 4; political_capital += 2; huelgas += 1; unity += 1
+
+You refuse to be the window and build the crowd instead: the woman who came for a favor leaves in a comité, the water main won not by your phone call but by two hundred neighbors at the delegación who now know they can do it again without you. It is slower, it wins fewer individual cases, and it makes something the favor trade never does — colonos who are no longer petitioners but a bloc, harder to co-opt because they no longer need a patron. The reformist road, briefly, remembering it was supposed to be a *left.*
+
+@gestoria_rechazar
+go-to: post_event
+on-arrival: sup_colonos -= 3; absorcion -= 3; unity += 1; pri_reformist_rel -= 1
+
+The caucus draws a line: we legislate, we do not run errands, we are not auditioning to be a cleaner PRI. It is ideologically tidy and politically expensive — the people who came for help go where help is given, which is back to the ruling party's window, and they remember who turned them away. Purity again, and again its price: the colonia concludes the left is for speeches and the PRI is for water, and acts on the conclusion at the only poll that counts.
+
+@la_comida
+title: La comida
+new-page: true
+subtitle: Managed over a long lunch
+face-image: img/fuente_bucareli.jpg
+tags: event
+view-if: via = "institucional" and pri_reformist_rel >= 35 and time >= comida_last + 26 and year >= 1979
+priority: 2
+frequency: 45
+max-visits: 3
+on-arrival: comida_last = time
+
+= La comida
+
+The invitation is handwritten, which is the tell: a Secretario de Estado would like the pleasure of the parliamentary leader's company, informally, no agenda, no press, at a restaurant discreet enough to have no sign. This is not negotiation. This is *cultivo* — cultivation, the regime's most refined instrument, the long lunch across which a generation of oppositionists have been, over excellent wine and genuine charm, quietly converted from enemies into interlocutors who can be called at home.
+
+The Secretario is, infuriatingly, good company: well-read, self-deprecating about the regime's sins, apparently sympathetic, careful to concede your best points. By dessert you will either have a private channel to power worth more than ten speeches — or the first thread of a web it takes years to notice you are inside.
+
+- @comida_usar: Take the channel and use it coldly — extract what access gives, concede nothing, keep the receipts.
+- @comida_publicar: Neutralize the cultivation by publicizing it — report the lunch and its overtures to your own caucus, on the record.
+- @comida_declinar: Decline the intimacy. Meet only formally, in rooms with minutes; refuse to be someone the Secretario can call at home.
+
+@comida_usar
+go-to: post_event
+choose-if: unity >= 45
+unavailable-subtitle: Playing the access game without being swallowed by it needs a caucus disciplined enough to trust — yours is fractious.
+on-arrival: inteligencia += 4; political_capital += 4; funds += 2; absorcion += 6; pri_reformist_rel += 3
+
+You take the channel and resolve to be the one doing the using: the private line delivers real intelligence on the regime's fractures and the occasional genuine concession pried loose off the record, and you give up nothing the base could not read in the paper. It works, mostly, and it is exactly how everyone who was ever cultivated described the early months — the mutual respect, the useful exchanges, the certainty of being the cook and not the meal. The web is patient. You are, for now, ahead of it.
+
+@comida_publicar
+go-to: post_event
+on-arrival: absorcion -= 6; sup_students += 2; unity += 2; pri_reformist_rel -= 4; legitimidad_regimen -= 1
+
+You break the spell the only way it can be broken — by refusing the privacy that is the whole mechanism: the lunch and its soft overtures are reported to your own caucus and, in outline, beyond it, so that the cultivation becomes a public fact instead of a private thread. The Secretario is embarrassed and the channel closes and the antechambers mark you as someone who cannot be dined, which is the point. Access was the bait; transparency was the hook you declined to swallow.
+
+@comida_declinar
+go-to: post_event
+on-arrival: absorcion -= 4; pri_reformist_rel -= 3; unity += 1; political_capital -= 1
+
+You send regrets and a counter-proposal: any matter the Secretario wishes to raise can be raised in a meeting with minutes and a witness. It is a small rudeness with a large meaning — you will not be a man the regime can call at home — and it costs you the channel and the concessions the channel might have carried. The founders would approve; the pragmatists in the caucus wonder aloud how many campesinos went unhelped to protect the purity of your dinner reservations.
+
+@el_voto_dificil
+title: El voto difícil
+new-page: true
+subtitle: The bill that buys something and costs everything
+face-image: img/pcmconf.jpg
+tags: event
+view-if: via = "institucional" and izq_seats >= 2 and time >= voto_inst_last + 20 and year >= 1980
+priority: 3
+frequency: 55
+max-visits: 4
+on-arrival: voto_inst_last = time
+
+= El voto difícil
+
+The bill is a poisoned gift and it was aimed at you specifically. It contains something the Party genuinely wants — a real amnesty clause, a labor protection, a budget line for the campo — bolted onto something it cannot stomach, a devaluation-enabling fine print or a security provision with teeth. The PRI has the votes to pass it without you. What it wants is your vote *on* it, because your yes launders the ugly half and your no forfeits the good half. The whip counts have already begun; the reformist caucus is split down the middle in the corridor.
+
+- @voto_a_favor: Vote yes. Take the concrete good — the amnesty, the protection — and wear the compromise it came wrapped in.
+- @voto_en_contra: Vote no. Refuse to launder the ugly half, and lose the good half with it, cleanly.
+- @voto_abstencion: Abstain as a bloc, loudly — a public refusal to play the yes/no game the bill was built to trap you in.
+
+@voto_a_favor
+go-to: post_event
+on-arrival: funds += 3; sup_workers += 2; sup_peasants += 2; absorcion += 7; fe_voto -= 2; sup_students -= 3; pri_reformist_rel += 4
+
+The amnesty clause becomes law and men come home because of it; that is real and no sneer erases it. So does the fine print you voted for, and the PRI's press is delighted to report that the left endorsed the government's package — your yes, clipped from its context, running under a photograph of a handshake. You bought something concrete and paid in the coin the road always demands: a little more of the distance between you and the street, a little more of the base's suspicion that inside is where principles go to be traded by the clause.
+
+@voto_en_contra
+go-to: post_event
+on-arrival: sup_students += 3; unity += 2; absorcion -= 6; sup_workers -= 1; pri_reformist_rel -= 4
+
+You vote no and keep your hands clean and the amnesty dies with the fine print, which means specific men do not come home who might have — a purity with a name and a face in a cell. The base cheers the principle; the families of the un-amnestied do not. It is the hardest arithmetic on the reformist road, the one they do not warn you about: that inside the machine, sometimes the clean vote is the one that leaves someone in prison. You chose not to be the regime's launderer. Someone else paid for the choice.
+
+@voto_abstencion
+go-to: post_event
+on-arrival: legitimidad_regimen -= 2; sup_students += 1; political_capital += 2; pri_reformist_rel -= 1; unity -= 1
+
+The caucus abstains as one and reads a statement into the record explaining exactly why — that the bill was engineered to make principle impossible and the Party refuses to certify the engineering. It is the sophisticated move and it satisfies no one fully: the good half still dies, the ugly half still passes, and the country's headline is the ambiguous *la izquierda se abstiene,* which the regime spins and the base finds hard to celebrate. You refused the frame and kept a shred of both principle and the concession's memory. On this road, some days, refusing the question is the most honest answer available.
+
+@nos_vendieron
+title: "Nos vendieron"
+new-page: true
+subtitle: The street accuses the caucus
+face-image: img/congreso_autocritica.jpg
+tags: event
+view-if: via = "institucional" and absorcion >= 40 and time >= vendieron_last + 20
+priority: 3
+frequency: 60
+max-visits: 3
+on-arrival: vendieron_last = time
+
+= "Nos vendieron"
+
+It surfaces at a coordinadora assembly and travels fast because it has been waiting to be said: that the parliamentary group has gone native, that the deputies eat better than the base, that the Party that was built in the plazas now lives in the antechambers and votes like it. *Nos vendieron* — they sold us. The word is unfair and it is not wrong, and the leadership can feel the difference between the two shrinking. The street current and the parliamentary current are, for the first time, addressing each other as adversaries.
+
+This is the reformist road's civil war, the one every entrist party eventually fights: the people who won the seats versus the people who did the organizing that made the seats winnable, each certain the other has forgotten the point.
+
+- @vendieron_autocritica: Call it — a public autocrítica, the caucus submits to the base, discipline reasserted from below.
+- @vendieron_defender: Defend the deputies — the seats are real power honestly won, and the street's purism would throw it away.
+- @vendieron_puente: Build the bridge — bind the caucus to the movement by rule: mandated plaza time, seats accountable to assemblies.
+
+@vendieron_autocritica
+go-to: post_event
+on-arrival: absorcion -= 12; unity += 3; sup_students += 3; pri_reformist_rel -= 4; political_capital -= 3
+
+The deputies stand before the assembly and take it — the criticism, the accounting, the reminder of what they were sent inside to do — and something old and healthy in the Party's culture reasserts itself: the cadre is accountable to the base, even the cadre with a laminated credential. It costs the caucus standing in the antechambers, where public self-flagellation reads as weakness, and it costs some proud deputies their pride. It buys back the thing absorption was quietly stealing: the base's belief that the seats are still theirs.
+
+@vendieron_defender
+go-to: post_event
+on-arrival: absorcion += 6; pri_reformist_rel += 2; funds += 1; sup_students -= 4; unity -= 4; guerrilla_meter += 2
+
+The leadership sides with its deputies: the seats are real, the power is real, the amendments and the tribune and the committee reports are worth more than the plaza's applause, and the street's purism is a luxury of people who never had to count votes. It is a defensible argument and it widens the crack into a canyon — the coordinadoras conclude the Party has chosen its functionaries over its founders, some of the youngest and angriest stop coming to anything with the Party's name on it, and absorption, defended, deepens. You kept the caucus and strained the movement that feeds it.
+
+@vendieron_puente
+go-to: post_event
+choose-if: unity >= 42
+unavailable-subtitle: Binding two currents by rule takes a party unified enough to accept the rule — yours is too frayed.
+on-arrival: absorcion -= 8; unity += 4; frente_unidad += 2; sup_students += 2; political_capital += 2
+
+You refuse the false choice and legislate the relationship instead: deputies mandated to spend real time in the colonias and the picket lines, caucus positions accountable to the assemblies, the seats formally tethered to the movement that won them. It is bureaucratic and it is exactly right — it makes absorption structurally harder by keeping the antechamber and the plaza in the same body, arguing, on purpose, forever. The street keeps its deputies on a leash it controls; the deputies keep their power; the Party keeps, for now, the hardest thing on this road to keep — itself.

@@ -31,15 +31,12 @@ max-cards: 3
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
-
 - @movimiento
 - @sistema
 - @canales
 - @sierra
 - @fdn
 - #advisor
-- @shuffle_leadership_pinned
 
 @main_78
 title: Next month
@@ -75,15 +72,12 @@ max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
-
 - @movimiento
 - @sistema
 - @canales
 - @sierra
 - @fdn
 - #advisor
-- @shuffle_leadership_pinned
 
 
 @main_85
@@ -120,15 +114,12 @@ max-cards: 5
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
-
 - @movimiento
 - @sistema
 - @canales
 - @sierra
 - @fdn
 - #advisor
-- @shuffle_leadership_pinned
 
 
 @main_easy
@@ -164,15 +155,12 @@ max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
-
 - @movimiento
 - @sistema
 - @canales
 - @sierra
 - @fdn
 - #advisor
-- @shuffle_leadership_pinned
 
 
 @sierra
@@ -219,18 +207,3 @@ is-deck: true
 
 - #movimiento
 
-@party
-title: Party Affairs
-card-image: img/Vorwaerts_nr_1.png
-view-if: (via = "politica" or via = "institucional")
-is-deck: true
-
-- #party_affairs
-
-@govt
-title: Government Affairs
-view-if: (via = "politica" or via = "institucional") and time >= 6
-card-image: img/reichstag_2.jpg
-is-deck: true
-
-- #govt_affairs
