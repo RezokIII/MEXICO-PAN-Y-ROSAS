@@ -52,6 +52,58 @@ if (Q.fe_voto >= 55) { this.achieve('la_fe_recuperada'); }
 if (Q.feminismo >= 60) { this.achieve('pan_y_rosas'); }
 this.achieve('game_completed');
 !}
+go-to: hero_reconocimiento if ending = "reconocimiento"; hero_ruptura if ending = "ruptura"; hero_historico if ending = "historico"; hero_guerra_larga if ending = "guerra_larga"; slide_logros
+
+@hero_reconocimiento
+new-page: true
+face-image: img/reconocimiento.jpg
+
+= El seis de julio
+
+The night the arithmetic could not be rewritten. Somewhere a woman is watching the columns add up in pencil, and for once the sum at the bottom is the sum the country actually wrote.
+
+- @to_logros_a: Continuar.
+
+@to_logros_a
+go-to: slide_logros
+
+@hero_ruptura
+new-page: true
+face-image: img/ruptura.jpg
+
+= Los once días
+
+The state reached, at the end, for its oldest language, and the plaza answered in a newer one. Whatever the histories decide to call it, the people who were there will only ever call it the most expensive sanity of their lives.
+
+- @to_logros_b: Continuar.
+
+@to_logros_b
+go-to: slide_logros
+
+@hero_historico
+new-page: true
+face-image: img/cardenas_rally.jpg
+
+= Del fraude, una casa
+
+They stole the presidency and could not keep what the theft created. From the robbery a party was built, and a people that never again went quietly. Which was worth more, no one who was there can quite say.
+
+- @to_logros_c: Continuar.
+
+@to_logros_c
+go-to: slide_logros
+
+@hero_guerra_larga
+new-page: true
+face-image: img/sierra_larga.jpg
+
+= La guerra larga
+
+Neither won nor crushed. Up in the sierra a piece of the promise stayed exactly as it was painted — a rifle, a refusal, a mountain the palaces never learned the name of. It always begins again. This time it never quite stopped.
+
+- @to_logros_d: Continuar.
+
+@to_logros_d
 go-to: slide_logros
 
 @slide_logros
