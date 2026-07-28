@@ -817,19 +817,24 @@ Choose where to begin. **1968 — El origen** is the full twenty-year campaign, 
 new-page: true
 on-arrival: {!
 // ---- PRESET: enter play in early 1977, López Portillo just sworn in ----
+// Seeded as a Party that has played the first road well: survived the cerco (camino I),
+// now at the wall of the reform, resources and territory to match eight good years.
 Q.difficulty = 0;
 Q.year = 1977; Q.month = 1; Q.time = 99;
 // the regime, as set by the 1976 toma de posesión
 Q.presidente = "Lopez Portillo"; Q.gobernacion = "Reyes Heroles"; Q.sexenio_year = 1;
 Q.presidente_cooptacion = 45; Q.presidente_represion = 50;
 Q.pri_aperturistas += 15; Q.pri_tecnicos += 5; Q.destape_phase = 0;
-// a Party that survived eight years of the dirty war and Echeverría's apertura
-Q.members = 14; Q.funds = 26; Q.organizers = 5; Q.unity = 55; Q.political_capital = 14;
-Q.sup_workers = 14; Q.sup_students = 40; Q.sup_peasants = 18; Q.sup_colonos = 14;
-Q.sup_teachers = 16; Q.sup_middle = 8; Q.sup_electricians = 20;
-Q.expediente = 45; Q.represion = 55; Q.charrismo = 82; Q.registro = 0;
-Q.fac_ortodoxos = 48; Q.fac_renovadores = 32; Q.fac_nueva_izquierda = 22;
-Q.pri_reformist_rel = 22; Q.legitimidad_regimen = 66; Q.memorial = 4;
+// El Camino: milestone I (survive) already earned; II (25k / break the cerco) is the live goal
+Q.camino1 = 1;
+// a Party that survived eight years of the dirty war and Echeverría's apertura, and grew
+Q.members = 21; Q.funds = 32; Q.organizers = 6; Q.unity = 58; Q.political_capital = 16;
+Q.sup_workers = 16; Q.sup_students = 44; Q.sup_peasants = 22; Q.sup_colonos = 17;
+Q.sup_teachers = 19; Q.sup_middle = 9; Q.sup_electricians = 24;
+Q.expediente = 44; Q.represion = 55; Q.charrismo = 80; Q.registro = 0;
+Q.fac_ortodoxos = 46; Q.fac_renovadores = 33; Q.fac_nueva_izquierda = 24;
+Q.pri_reformist_rel = 24; Q.legitimidad_regimen = 62; Q.memorial = 4;
+Q.huelgas = 6; Q.fe_voto = 20;
 Q.next_election_year = 1979; Q.next_election_month = 7;
 // the ferrocarrileros are out; the engineer of '68 builds next door; the novelist lives
 Q.campa_released = 1; Q.vallejo_released = 1; Q.campa_advisor = 1; Q.vallejo_advisor = 1;
@@ -853,6 +858,8 @@ Now López Portillo takes the sash, and his Secretario de Gobernación is Jesús
 new-page: true
 on-arrival: {!
 // ---- PRESET: enter play in early 1983, De la Madrid just sworn in, the crisis open ----
+// Seeded as a Party that has won the first three milestones: survived, broke the cerco,
+// took the door (registro + seats). El Camino, resources, seats and territory all aligned.
 Q.difficulty = 0;
 Q.year = 1983; Q.month = 1; Q.time = 171;
 // the regime, as set by the 1982 toma de posesión
@@ -860,15 +867,19 @@ Q.presidente = "De la Madrid"; Q.gobernacion = "Bartlett"; Q.sexenio_year = 1;
 Q.presidente_cooptacion = 30; Q.presidente_represion = 45;
 Q.pri_tecnicos += 10; Q.pri_politicos -= 5; Q.destape_phase = 0;
 Q.capital_extranjero = (Q.capital_extranjero || 0) + 6; Q.clima_neoliberal = (Q.clima_neoliberal || 0) + 14;
+// El Camino: I survive, II break the cerco, III the door — all DONE; IV foundations is the live goal
+Q.camino1 = 1; Q.camino2 = 1; Q.camino3 = 1;
 // fourteen years in: the reform happened, the Party has legal standing and has fused
-Q.members = 22; Q.funds = 26; Q.organizers = 7; Q.unity = 52; Q.political_capital = 18;
-Q.sup_workers = 18; Q.sup_students = 38; Q.sup_peasants = 22; Q.sup_colonos = 20;
-Q.sup_teachers = 20; Q.sup_middle = 12; Q.sup_electricians = 22;
-Q.expediente = 48; Q.represion = 60; Q.charrismo = 78;
-Q.registro = 1; Q.psum = 1; Q.fusion_prog = 3; Q.izq_seats = 12;
-Q.fac_ortodoxos = 42; Q.fac_renovadores = 34; Q.fac_nueva_izquierda = 26;
-Q.pri_reformist_rel = 20; Q.legitimidad_regimen = 56; Q.fe_voto = 30;
-Q.salario_real = 82; Q.memorial = 6;
+Q.members = 30; Q.funds = 34; Q.organizers = 8; Q.unity = 56; Q.political_capital = 20;
+Q.sup_workers = 22; Q.sup_students = 42; Q.sup_peasants = 26; Q.sup_colonos = 24;
+Q.sup_teachers = 24; Q.sup_middle = 14; Q.sup_electricians = 26;
+Q.expediente = 46; Q.represion = 58; Q.charrismo = 74;
+Q.registro = 1; Q.psum = 1; Q.fusion_prog = 3; Q.izq_seats = 14;
+// foundations already begun: a red municipio and a growing casilla network (goal: 30 + a governed town)
+Q.municipio_alcozauca = 1; Q.red_casillas = 24; Q.fraude_documentado = 2;
+Q.fac_ortodoxos = 40; Q.fac_renovadores = 35; Q.fac_nueva_izquierda = 27;
+Q.pri_reformist_rel = 20; Q.legitimidad_regimen = 54; Q.fe_voto = 34; Q.huelgas = 10;
+Q.salario_real = 82; Q.memorial = 7;
 Q.next_election_year = 1985; Q.next_election_month = 7;
 Q.campa_released = 1; Q.vallejo_released = 1; Q.campa_advisor = 1;
 Q.heberto_advisor = 1; Q.revueltas_advisor = 1; Q.ibarra_advisor = 1;
@@ -889,7 +900,8 @@ And the floor has fallen out of the country. In August of '82 López Portillo na
 
 @comenzar_preset
 new-page: true
-go-to: main if year < 1978; main.main_78 if year < 1985; main.main_85
+on-arrival: month_actions = 0; pending_events = 0
+go-to: post_event
 
 El escritorio está puesto. La ciudad, afuera, sigue oliendo a lo de siempre: lluvia, tinta, y algo quemándose a lo lejos.
 

@@ -13,6 +13,12 @@ if (Q.month != Q.last_drift_month) {
     if (Q.time % 4 == 0 && Q.expediente < 100) { Q.expediente += 1; }
     if (Q.month == 12 && Q.sexenio_year < 6) { Q.sexenio_year += 1; }
     if (Q.postura_guerrilla == 3 && Q.time % 3 == 0) { Q.expediente += 1; Q.represion += 1; }
+    // A cohesive leadership convenes its advisors sooner — but every extra meeting leaves a trace.
+    // Unity buys advisor cadence; the price is paid in the expediente (more coordination = more surveillance).
+    if (Q.unity >= 60 && Q.advisor_action_timer > 0) {
+        Q.advisor_action_timer -= 1;
+        if (Q.time % 2 == 0) { Q.expediente += 1; }
+    }
     var zonas = ['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
     for (var z of zonas) {
         if (Q['guar_'+z] > 22) { Q['guar_'+z] -= 1; }
