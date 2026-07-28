@@ -670,6 +670,25 @@
   LABELS.pres_jalisco = 'presencia Jalisco'; LABELS.pres_nl = 'presencia Nuevo León';
   LABELS.pres_tijuana = 'presencia Tijuana'; LABELS.veteranos = 'veteranos';
   LABELS.salario_real = 'salario real'; LABELS.huelgas = 'huelgas'; LABELS.leyenda = 'la leyenda';
+  // internal currents — their strength AND their discontent are real consequences of decisions
+  LABELS.fac_ortodoxos = 'los ortodoxos'; LABELS.fac_renovadores = 'los renovadores';
+  LABELS.fac_nueva_izquierda = 'la nueva izquierda';
+  LABELS.des_ortodoxos = 'malestar ortodoxo'; LABELS.des_renovadores = 'malestar renovador';
+  LABELS.des_nueva = 'malestar de la nueva izq.';
+  // ideological line — every axis move is a price paid
+  LABELS.ax_electoral = 'línea electoral'; LABELS.ax_nacpop = 'línea nacional-popular';
+  LABELS.ax_sovietico = 'línea soviética';
+  // movements, prestige, finances, posture
+  LABELS.feminismo = 'feminismo'; LABELS.prestigio_socialismo = 'prestigio socialista';
+  LABELS.postura_guerrilla = 'postura ante la guerrilla'; LABELS.dues = 'cuotas';
+  LABELS.colonia_presion = 'presión de colonias'; LABELS.registro = 'el registro';
+  LABELS.izq_senadores = 'senadores'; LABELS.mujeres_organizadas = 'mujeres organizadas';
+  // armed road — sanctuary and enemy garrisons move with operations
+  LABELS.refugio_sierra = 'refugio en la sierra';
+  LABELS.guar_guerrero = 'guarnición Guerrero'; LABELS.guar_valle = 'guarnición Valle';
+  LABELS.guar_chihuahua = 'guarnición Chihuahua'; LABELS.guar_oaxaca = 'guarnición Oaxaca';
+  LABELS.guar_jalisco = 'guarnición Jalisco'; LABELS.guar_nl = 'guarnición Nuevo León';
+  LABELS.guar_tijuana = 'guarnición Tijuana';
 
   var prev = null;
   function snap(){
@@ -699,7 +718,7 @@
           if (Math.abs(d) >= 1) { diffs.push({k:k, d:d}); }
         }
         diffs.sort(function(a,b){ return Math.abs(b.d) - Math.abs(a.d); });
-        diffs = diffs.slice(0, 8);
+        diffs = diffs.slice(0, 10);
         // append under whatever content block is currently last, once per render
         if (diffs.length && !c.querySelector('.pyr-ledger-fresh')) {
           var div = document.createElement('div');
