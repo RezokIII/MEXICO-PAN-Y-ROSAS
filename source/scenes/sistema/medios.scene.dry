@@ -7,6 +7,7 @@ on-arrival: month_actions += 1; medios_cd = time
 max-visits: 40
 is-card: true
 frequency: 65
+frequency-var: {! var e = Q.next_election_year - Q.year; return (e >= 0 && e <= 1) ? 120 : 55; !}
 tags: sistema
 
 = The airtime

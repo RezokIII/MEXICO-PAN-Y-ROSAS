@@ -7,6 +7,7 @@ max-visits: 40
 view-if: registro < 2 and (via = "politica" or via = "institucional") and time >= el_giro_cd + 3
 is-card: true
 frequency: 65
+frequency-var: {! return (Q.registro < 1 && Q.year >= 1977 && Q.year <= 1982) ? 130 : (Q.registro < 2 ? 55 : 15); !}
 tags: sistema
 
 = El giro

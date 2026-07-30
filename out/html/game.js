@@ -13,7 +13,17 @@
     ui = dendryUI;
     game = ui.game;
 
-    // Add your custom code here.
+    // Upstream dendry bug: option frequency-var is evaluated via this.runExpression
+    // (missing underscore); the real method is _runExpression. Alias it so era-weighted
+    // card draw (frequency-var) works instead of crashing the deck.
+    try {
+      var _eng = ui && ui.dendryEngine;
+      if (_eng) {
+        var _p = Object.getPrototypeOf(_eng) || _eng;
+        if (!_p.runExpression && _p._runExpression) { _p.runExpression = _p._runExpression; }
+        if (!_eng.runExpression && _eng._runExpression) { _eng.runExpression = _eng._runExpression; }
+      }
+    } catch (e) {}
   };
 
   var TITLE = "Social Democracy: An Alternate History" + '_' + "Autumn Chen";

@@ -1,0 +1,37 @@
+title: Los representantes de casilla
+card-image: img/cards/casilla.jpg
+subtitle: Unos ojos honrados en cada urna
+new-page: true
+is-card: true
+tags: sistema
+view-if: registro >= 1 and time >= casilla_build_cd + 2
+frequency: 75
+frequency-var: {! return (Q.year >= 1979) ? 135 : 55; !}
+max-visits: 40
+on-arrival: month_actions += 1
+
+= Los representantes de casilla
+
+The registro bought you a line on the ballot; it did not buy you honest arithmetic. That is built by hand, precinct by precinct, in the least glamorous work the Party does: finding the schoolteacher, the housewife, the retired railwayman who will sit at a casilla from dawn until the count is signed — refuse the torta and the twenty pesos, and put their name to a tally the machine cannot quietly improve. A representante on every table is worth more than a manifesto. It is the difference between a fraud that happens and a fraud that gets *caught.*
+
+The list of the willing grows one conversation at a time, and it grows fastest where the Movement is already rooted: where the colonias are organized and the campesinos are with you, the recruiters find takers; where the Party is thin, the tables stay uncovered and the urns travel unwatched.
+
+- @reclutar_casilla: Recruit and train them, colonia by colonia — the slow skeleton the whole electoral road stands on.
+- @root: Not this month.
+- @easy_discard
+
+@reclutar_casilla
+go-to: post_event
+choose-if: organizers >= 2
+unavailable-subtitle: Building a poll-watcher network takes cadres to do the training — you have none to spare this month.
+on-arrival: {!
+Q.casilla_build_cd = Q.time;
+Q.funds -= 2;
+var gain = 4 + Math.floor((Q.sup_colonos + Q.sup_peasants + Q.sup_students) / 30);
+Q.red_casillas += gain;
+Q.fe_voto += 1;
+Q.expediente += 1;
+Q.political_capital += 1;
+!}
+
+Another few hundred tables covered, in a ledger kept in three copies and no filing cabinet. It is invisible work, it photographs badly, and it is precisely how an election stops being a coronation. On the night it matters, the distance between what happened and what the state announces will be exactly as wide as this list is long.

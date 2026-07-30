@@ -7,6 +7,7 @@ max-visits: 40
 view-if: (registro >= 1) and time >= documentar_cd + 3
 is-card: true
 frequency: 70
+frequency-var: {! var e = Q.next_election_year - Q.year; return (e >= 0 && e <= 1) ? 135 : 65; !}
 tags: sistema
 
 = Documentar la alquimia
