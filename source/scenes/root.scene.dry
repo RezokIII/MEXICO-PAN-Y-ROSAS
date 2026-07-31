@@ -834,6 +834,47 @@ Choose where to begin. **1968 — El origen** is the full twenty-year campaign, 
 - @1928_historical: 1968 · histórico (sin guardar)
 - @preset_1976: 1976 — La apertura (~12 años, la reforma se acerca)
 - @preset_1982: 1982 — La crisis (~6 años, la década perdida)
+- @preset_1971_armada: ⚙ 1971 — Tomar el fusil (skip ahead: the armed road after Tlatelolco)
+
+@preset_1971_armada
+new-page: true
+on-arrival: {!
+// ---- SHORTCUT: skip the 1968-71 build and take up the gun. ----
+// IMPORTANT: @start has already run, initializing the whole advisor roster and every faction/base
+// quality correctly. This block only applies the DELTAS of three years + entering the armed road,
+// and deliberately does NOT touch members, support, factions, or any advisor flag — so the roster
+// and the internal politics stay exactly as the normal game would have them. The guerrilla advisors
+// (Genaro, Lucio, Medrano) still unlock through their own events, in play, as they should.
+Q.difficulty = 0;
+// advance the clock to mid-1971, past the February strategy congress (so it does not re-ask the road)
+Q.year = 1971; Q.month = 6; Q.time = 33;
+// the regime advances to Echeverría, year two of the sexenio, the dirty war warming
+Q.presidente = "Echeverria"; Q.gobernacion = "Moya"; Q.sexenio_year = 2;
+Q.presidente_cooptacion = 55; Q.presidente_represion = 62; Q.pri_aperturistas += 10; Q.destape_phase = 0;
+Q.represion = 68; Q.legitimidad_regimen = 68;
+// take up the gun: below ground, the Sierra desk open. camino I (survive to '71) is earned by arriving here.
+Q.via = "armada"; Q.armada_entered = 1; Q.armada_start = 20; Q.guerrilla_meter = 30; Q.postura_guerrilla = 3;
+Q.camino1 = 1;
+// seed a young war to actually fight — presence in the south, a little materiel, some eyes.
+// The internal-war clocks (disciplina, paranoia, línea) keep their root defaults: 65 / 8 / 0.
+Q.parque = 9; Q.moral_columnas = 64; Q.inteligencia = 16;
+Q.pres_guerrero = 22; Q.pres_valle = 12; Q.pres_oaxaca = 8; Q.pres_chihuahua = 6;
+!}
+go-to: preset_1971_intro
+
+@preset_1971_intro
+face-image: img/stareguerilla.jpg
+new-page: true
+
+= 1971 — Tomar el fusil
+
+*(A shortcut start: it skips the 1968–71 build and drops you straight onto the armed road in the second year of Echeverría — the dirty war warming, the columns young, the enemy not yet wearing a colonel's face. Your advisors and the Party's internal politics are exactly as the normal game would have set them; only the clock and the war have moved.)*
+
+The resolution was burned instead of filed, and the Movement became something that survives its meetings instead of holding them. Genaro Vázquez still moves in the mountains of Guerrero; Lucio Cabañas has taken the Costa Grande; Madera is six years dead and unforgotten. You have columns in the south, a little materiel, and the whole tragic decade ahead — the encirclements, the Colonel who has not yet been assigned to you, the debate between the rifle and the people, and the one door back that is called amnesty and does not open until 1978.
+
+Read the war on the Territorio tab. Move before the garrisons do. And watch **La guerra por dentro** — the war destroys movements from the inside as surely as from without.
+
+- @comenzar_preset: Comenzar. Junio de 1971.
 
 @preset_1976
 new-page: true
