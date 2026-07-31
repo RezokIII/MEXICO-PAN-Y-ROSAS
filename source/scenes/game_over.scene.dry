@@ -13,202 +13,18 @@ this.achieve('game_completed');
 
 = End
 
-
 @eg_menu
 
 - #endings
 - @end_game: End game.
 
-
-@hitler_wins
-view-if: (chancellor == "Hitler" or president == "Hitler") and (total_defeat==1 or civil_war_seen == 0)
-title: Adolf Hitler is in undisputed control over Germany.
+@el_estado_final
+view-if: ending
+title: El estado de la República…
 tags: endings
 go-to: eg_menu
 
-Adolf Hitler is in undisputed control over Germany. The SPD, along with all of the democratic forces, have failed.
-
-[? if civil_war_seen == 1 : At the very least, we fought back. Perhaps our resistance will be celebrated in an impossible-to-forsee future. ?]
-
-@war_against_hitler
-view-if: (chancellor == "Hitler" or president == "Hitler") and (long_war == 1)
-title: Adolf Hitler is in power, but we are fighting to stop him.
-tags: endings
-go-to: eg_menu
-
-Adolf Hitler has taken power in Germany. However, we have rallied the democratic forces of the country against him, and are fighting back. The outcome of this war is uncertain.
-
-
-@no_hitler
-view-if: chancellor != "Hitler" and president != "Hitler" and president != "Göring" and chancellor_party != "NSDAP"
-title: The state of the Republic...
-tags: endings
-go-to: eg_menu
-
-[? if ending = "reconocimiento" : An elected president governs over a fractured regime; the Mexican transition began by being counted. ?][? if ending = "historico" : Salinas governs a country that no longer believes him; facing him, the new party — founded on your registro. ?][? if ending = "ruptura" : The state prevailed over the Eleven Days; the country that watched does not forget. The lists survived. ?][? if ending = "irrelevancia" : The system continues; the wave passed; the Movement remained whole, and on the shore. ?][? if ending = "guerra_larga" : The war would not end. While the country counted its ballot, the sierra kept its own calendar — and kept it into the next decade, waiting. ?][? if ending = "exterminio" : The war was ended the way wars against the poor are ended — completely, and then denied. The runway points at the sea. The corridos keep the count. ?][? if ending = "aniquilacion" : The system outlived you. Somewhere, on some rooftop, someone still keeps a mimeograph. ?]
-
-[? if hitler_deported == 1 : We have deported Hitler back to Austria. Hopefully he will never return. ?]
-
-@nsdap_win
-view-if: chancellor == "Goebbels" or president == "Göring"
-title: Despite the deportation of Hitler, the Nazis have still taken power...
-tags: endings
-go-to: eg_menu
-
-Despite the deportation of Hitler, the NSDAP has somehow still wormed its way into power. [? if long_war == 1 : We are fighting them for control of Germany. ?]
-
-
-@civil_war_won
-title: We have won the civil war.
-view-if: republic_victory == 1
-tags: endings
-go-to: eg_menu
-
-We have won the civil war against the reactionary forces. Germany will be changed forever, but it is too early to know how.
-
-@civil_war_lost
-title: We lost the civil war.
-view-if: total_defeat == 1
-tags: endings
-go-to: eg_menu
-
-We have lost the civil war. At least it was a quick coup, and ended before Germany could be plunged into total war.
-
-@long_war
-title: Germany is gripped by civil war.
-view-if: long_war == 1
-tags: endings
-go-to: eg_menu
-
-Germany is currently in the grip of a civil war, a brutal affair that has no obvious end. Thousands of lives have already been extinguished, and it is likely that the war will not stop until Germany's cities are reduced to ruins. 
-
-[? if is_favorable == 0 : The current conditions are not favorable for us. ?][? if west_relation >= 2: Our cause is popular in the West, but their sclerotic governments are reluctant to send us aid. ?][? if soviet_aid >= 1 : The Soviet Union has aided the Communists, but not the socialists and democrats, in an attempt to shape Germany's future government. ?][? if east_aid >= 1 : Poland and Czechoslovakia have sent some assistance against the fascists. ?]
-
-
-@braun_victorious
-title: Otto Braun victorious
-view-if: president == "Braun"
-tags: endings
-go-to: eg_menu
-
-Otto Braun has been elected as President of Germany. He had never desired to be the most powerful man in Germany, but now he is.
-
-@president_schumacher
-title: Kurt Schumacher victorious
-view-if: president == "Schumacher"
-tags: endings
-go-to: eg_menu
-
-Kurt Schumacher has been elected as President of Germany. As a young and ambitious SPD member, he will be shaping Germany for years to come.
-
-@president_juchacz
-title: Marie Juchacz is President
-view-if: president == "Juchacz"
-tags: endings
-go-to: eg_menu
-
-Marie Juchacz has been elected as President of Germany. She is the first woman to be elected as the head of state of any republic, and will contribute to shaping Germany for years to come.
-
-@president_einstein
-title: Albert Einstein is President
-view-if: president == "Einstein"
-tags: endings
-go-to: eg_menu
-
-Albert Einstein, possibly the most famous scientist in the world, has been elected as President of Germany. As a German Jew and a pacifist, he is the repudiation of everything the Nazis stood for, and a symbol of a new German Republic that has moved beyond its checkered past.
-
-
-
-@spd_victorious
-title: SPD still in government
-view-if: spd_in_government == 1 and chancellor_party == "SPD" and total_defeat == 0 and long_war == 0
-tags: endings
-go-to: eg_menu
-
-The SPD is still in government, under Chancellor [+ chancellor +]. Given the circumstances, this is a substantial accomplishment.
-
-@communist_victory
-title: Communist victory
-view-if: chancellor_party == "KPD" or president == "Thälmann" and total_defeat == 0 and long_war == 0
-tags: endings
-go-to: eg_menu
-
-The KPD has won power in Germany, with our assistance. They will try to remake Germany in the Soviet image. How much they succeed is yet to be determined.
-
-@works_program
-title: Works program enacted!
-view-if: works_program > 0
-tags: endings
-go-to: eg_menu
-
-Our government has enacted a public works program!
-
-@unemployment_reduced
-title: Unemployment has been reduced from its peak.
-view-if: unemployed <= 20 and unemployed >= 10 and year >= 1930
-tags: endings
-go-to: eg_menu
-
-While still uncomfortably high, unemployment levels are nowhere near their peak. This is a success of our economic policy.
-
-@unemployment_reduced_2
-title: The economy at the close...
-view-if: unemployed < 10 and year >= 1930
-tags: endings
-go-to: eg_menu
-
-Unemployment levels have fallen substantially! This is a success of our economic policy.
-
-
-
-@unemployment_high
-title: Unemployment is still too high.
-view-if: unemployed >= 20 and (chancellor != "Hitler" and president != "Hitler") and (total_defeat == 0) and long_war == 0
-tags: endings
-go-to: eg_menu
-
-Unemployment is still at dangerously high levels. Even though Hitler is not in power, the situation is ripe for instability and extremism.
-
-
-@emergency_government
-title: SPD ruling in an emergency government.
-view-if: in_emergency_government == 1
-tags: endings
-go-to: eg_menu
-
-The SPD is ruling as part of an emergency minority government, led by President [+ president +] and Chancellor [+ chancellor +]. This is a temporary and unstable arrangement, leaving the door open to further authoritarianism.
-
-@peoples_party_achieved
-title: The SPD is a "People's Party".
-view-if: peoples_party == 1
-tags: endings
-go-to: eg_menu
-
-The SPD has been declared a "People's Party", representing all of the people, not just the working class. This policy has many supporters and detractors, and what will become of the party is still unclear.
-
-@nationalization_achieved
-title: Socialization of the economy has commenced.
-view-if: nationalization_progress >= 2
-tags: endings
-go-to: eg_menu
-
-As part of our socialist economic plan, we have nationalized a substantial portion of the economy, beginning the transition to actual socialism.
-
-@works_councils
-title: Works councils have more power.
-view-if: works_councils >= 3
-tags: endings
-go-to: eg_menu
-
-Works councils now have substantially greater influence, giving workers democratic control over their economic lives.
-
-@european_union
-title: There is now a European Union!
-view-if: eu = 1
-tags: endings
-go-to: eg_menu
-
-We have helped to form a European Union to bring peace and prosperity to the continent. Time will tell how effective it will be.
+[? if ending = "reconocimiento" : An elected result the regime could not steal; the Mexican transition began by being counted. ?][? if ending = "historico" : Salinas governs a country that no longer believes him; facing him, the new party — founded on your registro. ?][? if ending = "ruptura" : The state prevailed over the Eleven Days; the country that watched does not forget. The lists survived. ?][? if ending = "irrelevancia" : The system continues; the wave passed; the Movement remained whole, and on the shore. ?][? if ending = "fuerte" : A mass left, too large for the regime to round to zero. It did not win the night, but it made the next one thinkable. ?][? if ending = "media" : A real national organization, and the possibility of power held in reserve. ?][? if ending = "debil" : Survived, small and battered, the list intact. The seed keeps in the cold. ?][? if ending = "guerra_larga" : The war would not end. While the country counted its ballot, the sierra kept its own calendar — and kept it into the next decade, waiting. ?][? if ending = "exterminio" : The war was ended the way wars against the poor are ended — completely, and then denied. The runway points at the sea. The corridos keep the count. ?][? if ending = "aniquilacion" : The system outlived you. Somewhere, on some rooftop, someone still keeps a mimeograph. ?][? if ending = "intervencion" : The older catastrophe: the regime fell, and something worse came through the door it left open. ?]
 
 @achievements
 title: Achievements
@@ -217,7 +33,6 @@ tags: endings
 go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 = Completed Achievements in this Playthrough
-
 
 [? if game_achievement_la_guerra_larga : **La guerra larga** — the armed road neither won nor was crushed: it endured past 1988, into the next decade, and kept the light on. ?][? if game_achievement_el_exterminio : **El exterminio** — the armed road was crushed to the last camp. They killed the column; they never found where it kept the reason. ?][? if game_achievement_el_palacio_negro : **El Palacio Negro** — the Movement was annihilated. The list survives you. ?]
 
@@ -303,63 +118,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_la_sintesis : **La síntesis** — two faces, one strategy, and you survived your own architecture. ?]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-= Completed Achievements Overall
-
+= El palmarés — everything won, across every run
 
 [? if achievement_la_fe_recuperada : **La fe recuperada** — make a cynical country believe the vote can matter again. ?]
 [? if achievement_pan_y_rosas : **Pan y rosas** — the women's movement organized alongside the party, not beneath it. ?]
@@ -454,8 +213,9 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_el_puente : **El puente** — run the urban-rural synthesis through the guerrilla contact. ?]
 
+= Los caminos no andados — roads not yet walked
 
-= Incomplete Achievements
+*Every line below is a history your Mexico has not yet authored, across every run you have played. The next Movement inherits this list the way it inherits the dead: as an invitation. Some of these require the reformist road, some the armed, some a Mexico where Lucio lives or the women's movement is embraced or the vote is finally counted. Pick one you have not touched, and go bend it.*
 
 [? if not achievement_la_fe_recuperada : **La fe recuperada** — make a cynical country believe the vote can matter again. ?]
 [? if not achievement_pan_y_rosas : **Pan y rosas** — organize the women's movement alongside the party as an equal (feminismo 60). ?]
