@@ -553,6 +553,49 @@
       };
       poly.onmouseleave=function(){ if(tip)tip.style.display='none'; };
     })(zonas[i]); }
+    // --- column dots + encirclement pressure + apoyo-popular bar (war mode) ---
+    (function(){
+      var svg = el.querySelector('svg'); if(!svg) return;
+      var NS='http://www.w3.org/2000/svg';
+      var g=document.getElementById('col_dots');
+      if(!g){ g=document.createElementNS(NS,'g'); g.id='col_dots'; svg.appendChild(g); }
+      g.innerHTML='';
+      var _ab=document.getElementById('apoyo_bar');
+      if(!atWar){ if(_ab) _ab.style.display='none'; return; }
+      if(_ab) _ab.style.display='';
+      var CENT={guerrero:[160,182],valle:[188,150],oaxaca:[250,178],chihuahua:[112,65],jalisco:[123,128],nl:[200,82],tijuana:[50,85]};
+      var LAB={guerrero:(Q.lucio_advisor?'Lucio':(Q.genaro_advisor?'Genaro':'')), valle:'urbana'};
+      function pcol(p){ return p>=80?'#b3261e':(p>=65?'#e07b2a':(p>=40?'#d8b53f':'#3f9e6a')); }
+      for(var z in CENT){ var pres=Q['pres_'+z]||0; if(pres<6) continue;
+        var c=CENT[z], pr=Q['presion_'+z]||0, rad=3+Math.min(6,pres/8);
+        if(pr>=80){ var ring=document.createElementNS(NS,'circle');
+          ring.setAttribute('cx',c[0]); ring.setAttribute('cy',c[1]); ring.setAttribute('r',rad+4);
+          ring.setAttribute('fill','none'); ring.setAttribute('stroke','#b3261e'); ring.setAttribute('stroke-width','1.5');
+          ring.innerHTML='<animate attributeName="r" values="'+(rad+3)+';'+(rad+9)+';'+(rad+3)+'" dur="1.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.95;0.15;0.95" dur="1.3s" repeatCount="indefinite"/>';
+          g.appendChild(ring);
+        }
+        var dot=document.createElementNS(NS,'circle');
+        dot.setAttribute('cx',c[0]); dot.setAttribute('cy',c[1]); dot.setAttribute('r',rad);
+        dot.setAttribute('fill',pcol(pr)); dot.setAttribute('stroke','#fff'); dot.setAttribute('stroke-width','1.2');
+        var tt='Column in '+z+' — presence '+Math.round(pres)+', pressure '+Math.round(pr)+(pr>=80?' (ENCIRCLED)':'');
+        dot.innerHTML='<title>'+tt+'</title>';
+        g.appendChild(dot);
+        if(LAB[z]){ var t=document.createElementNS(NS,'text'); t.setAttribute('x',c[0]+rad+2); t.setAttribute('y',c[1]+2.5); t.setAttribute('font-size','7'); t.setAttribute('fill','#1a1a1a'); t.setAttribute('font-weight','bold'); t.textContent=LAB[z]; g.appendChild(t); }
+      }
+      // apoyo-popular bar (the sea) beneath the map
+      var ap=Math.round(Q.apoyo_popular||0);
+      var bar=document.getElementById('apoyo_bar');
+      if(!bar){ bar=document.createElement('div'); bar.id='apoyo_bar'; bar.style.cssText='margin:4px 2px 2px;font:11px Georgia,serif;color:#3a2e22'; el.appendChild(bar); }
+      var acol = ap>=55?'#2e7d4f':(ap>=30?'#c99a2e':'#b3261e');
+      bar.innerHTML='<div style="display:flex;align-items:center;gap:6px">'
+        +'<span style="white-space:nowrap">El pueblo — <b>apoyo popular</b></span>'
+        +'<span style="flex:1;height:9px;background:#d9cdb8;border:1px solid #a88;border-radius:2px;overflow:hidden;position:relative">'
+        +'<span style="position:absolute;left:0;top:0;bottom:0;width:'+ap+'%;background:'+acol+'"></span>'
+        +'<span style="position:absolute;left:30%;top:0;bottom:0;border-left:1px dashed #7668"></span>'
+        +'<span style="position:absolute;left:55%;top:0;bottom:0;border-left:1px dashed #7668"></span>'
+        +'</span><span style="white-space:nowrap"><b>'+ap+'</b>/100</span></div>'
+        +'<div style="opacity:.7;font-size:10px;margin-top:1px">'+(ap>=55?'the sea is with you — columns hidden, the Colonel blind':(ap>=30?'shallow water — sympathy, not yet shelter':'the sea is drying — the people inform, the ring closes'))+'</div>';
+    })();
     if(atWar && prev._time!==Q.time){ for(var j=0;j<zonas.length;j++){ var zz=zonas[j]; if(prev._time!==undefined&&prev['_p_'+zz]!==undefined)prev[zz]=prev['_p_'+zz]; prev['_p_'+zz]=Q['guar_'+zz]; } prev._time=Q.time; }
   };
   var obs=new MutationObserver(function(){ setTimeout(window.paintSierraMap,60); });
