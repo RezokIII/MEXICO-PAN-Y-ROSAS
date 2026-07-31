@@ -3,7 +3,7 @@ new-page: true
 subtitle: The argument, made without firing
 card-image: img/cards/recluta.jpg
 view-if: via = "armada" and time >= s_propaganda_cd + 2
-on-arrival: {! Q.month_actions += 1; Q.s_propaganda_cd = Q.time; Q.prop_v = Math.floor(Math.random()*3); !}
+on-arrival: {! Q.month_actions += 1; Q.s_propaganda_cd = Q.time; Q.prop_v = Math.floor(Math.random()*3); Q.apoyo_popular = Math.min(100, (Q.apoyo_popular||0) + 2); !}
 max-visits: 60
 is-card: true
 frequency: 80

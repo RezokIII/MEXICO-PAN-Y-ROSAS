@@ -164,6 +164,11 @@ Q.coronel_activo = 0; Q.coronel_red = 0; Q.coronel_herido = 0; Q.coronel_expuest
 Q.disciplina = 65; Q.paranoia = 8; Q.linea_guerra = 0; Q.ajusticiamientos = 0; Q.escisiones_armadas = 0;
 Q.ajust_last = -99; Q.debate_guerra_last = -99; Q.escision_arm_last = -99; Q.madrina_activa = 0; Q.madrina_last = -99;
 Q.compas_armadas = 0; Q.compa_caida = 0; Q.zona_gobernada = 0; Q.zona_last = -99; Q.internac_armada = 0; Q.jcr = 0; Q.cuba_last = -99;
+// Che's fish-in-water: apoyo_popular is the sea the columns swim in. High = hidden, warned, fed;
+// low = the people inform, the columns are found and encircled. It gates the whole war.
+Q.apoyo_popular = 38; Q.cerco_col_last = -99; Q.che_advisor = 0; Q.che_last = -99; Q.che_vivo = 1; Q.columna_perdida = 0;
+// per-region column pressure (0-100), computed each month for the map dots and the encirclement check
+Q.presion_guerrero = 0; Q.presion_valle = 0; Q.presion_oaxaca = 0; Q.presion_chihuahua = 0; Q.presion_jalisco = 0;
 Q.s_ataque_cd = -5; Q.barrida_last = -99; Q.reten_last = -99; Q.quinta_last = -99; Q.audaz_last = -99;
 Q.op_res = 0; Q.op_zone = ""; Q.barrida_zone = "";
 Q.coronel_muerto = 0; Q.coronel_removido = 0;

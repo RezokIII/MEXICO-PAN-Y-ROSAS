@@ -1,0 +1,42 @@
+title: El que camina las veredas
+new-page: true
+subtitle: A doctor comes to the mountains with the wrong priorities, which are the right ones
+face-image: img/stareguerilla.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and che_advisor = 0 and year >= 1972 and (pres_guerrero >= 12 or pres_oaxaca >= 12)
+priority: 3
+frequency: 55
+max-visits: 1
+
+= El que camina las veredas
+
+He arrives from another front — another country, some say; the columns are vague about it on purpose — and he is not what a reinforcement is supposed to be. A doctor. Older than the fighters, slower on the marches, and possessed of a single irritating conviction he states to anyone who will hold still: that the movement is losing the war it thinks it is winning, because it counts operations and forgets the only ledger that decides a guerrilla's life, which is whether the people are the sea or the net.
+
+He does not want a column to command. He wants to walk the veredas the militaristas fly over — to treat the sick, move the land, teach the letters — and he says, in the tone of a man who has watched this exact mistake bury better movements than yours, that if you keep drying the sea to make a splash, the state will not have to defeat you. The people will simply stop hiding you, and one morning the ring will already be closed.
+
+The militaristas want him assigned a rifle or a road out. The question is whether the leadership hears an old man's lecture or the only strategy that has ever actually worked.
+
+- @che_acoger: Give him the veredas. Let him build the sea — apoyo popular is the war, and he is the one who knows how to raise it.
+- @che_rifle: Welcome him but put him where the war is — a doctrine that does not fight is a sermon; he can preach after the operation.
+- @che_rechazar: The movement does not need a foreign lecture on its own mountains. Thank him, and send him on.
+
+@che_acoger
+on-arrival: che_advisor = 1; apoyo_popular += 5; linea_guerra -= 3; sup_peasants += 2; disciplina += 2
+
+You give him the veredas, and the militaristas grumble that you have hired a schoolteacher for a war. Within a season the grumbling changes register: the villages that were watchful are now sheltering, the intelligence that was thin is now thick because the people volunteer it, the columns that were hunted are now warned. He was right, in the maddening way of people who are right about the thing everyone else was too busy to measure. From here the war has a second front, the one that decides the first: the slow, unglamorous, decisive work of becoming the sea. Read **apoyo popular** on the Territorio tab. It is now the number that matters most.
+
+- @post_event: Continuar.
+
+@che_rifle
+on-arrival: che_advisor = 1; apoyo_popular += 2; linea_guerra += 2; parque += 1
+
+You split the difference: he stays, he is useful, but he is a fighter first and a doctor when there is time, and there is never time. He accepts this the way he accepts most things, with a patience that is its own reproach, and he does what good he can between operations. It is better than losing him and worse than using him — the sea rises a little, when it could have risen a lot, because you asked the one man who understood the water to spend most of his hours making splashes.
+
+- @post_event: Continuar.
+
+@che_rechazar
+on-arrival: linea_guerra += 3; guerrilla_meter += 1
+
+You send him on with thanks and a guide, and the militaristas are satisfied, and the war continues to be measured in operations, which is the measurement the state prefers you use. He goes to another front, or another country, or a grave — the columns stay vague — and leaves behind the sentence they will remember on the night the ring closes, when someone asks how the army knew exactly where to close it, and no one wants to say the answer, which is that the sea was never built, because the man who came to build it was asked to leave.
+
+- @post_event: Continuar.

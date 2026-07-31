@@ -1,0 +1,76 @@
+title: El cerco
+new-page: true
+subtitle: A column surrounded — and whether the people close the ring or open it
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and (presion_guerrero >= 80 or presion_valle >= 80 or presion_oaxaca >= 80 or presion_chihuahua >= 80 or presion_jalisco >= 80) and time >= cerco_col_last + 8
+priority: 5
+frequency: 90
+max-visits: 8
+on-arrival: {!
+Q.cerco_col_last = Q.time;
+// find the encircled region (the one with the most pressure)
+var _zs = [['guerrero',Q.presion_guerrero,'la Costa Grande'],['valle',Q.presion_valle,'the capital belt'],['oaxaca',Q.presion_oaxaca,'the Isthmus'],['chihuahua',Q.presion_chihuahua,'the northern sierra'],['jalisco',Q.presion_jalisco,'Jalisco']];
+var _b = _zs[0]; for (var _i=0;_i<_zs.length;_i++){ if ((_zs[_i][1]||0) > (_b[1]||0)) _b=_zs[_i]; }
+Q.cerco_zona = _b[0]; Q.cerco_nombre = _b[2]; Q.cerco_presion = Math.round(_b[1]||0);
+!}
+
+= El cerco
+
+It is the situation the whole doctrine exists to prevent, and it has arrived anyway: a column in [+ cerco_nombre +] is surrounded. The army has closed a ring — battalions on the roads, the helicopter working the ridgelines, the garrison reinforced past anything the column can fight through — and it closed it because it knew exactly where to close it. [? if apoyo_popular < 30 : Someone told them. In a country where the people were with you, this ring could not have formed; the villages would have moved the column out three nights ago. The villages did not. That is the whole report. ?][? if apoyo_popular >= 30 and apoyo_popular < 55 : The people did not betray the column, but they did not save it either — the support was too thin to move it out in time, and the ring found the gap the thinness left. ?][? if apoyo_popular >= 55 : The people did what they could — a warning came, late but real, and the column is not quite where the army thinks it is. The sea is with you; the question is whether it is enough. ?]
+
+The column commander is on the radio, and the leadership has minutes, not hours.
+
+- @cerco_romper: Break out — hit the weakest point of the ring at night and run. It costs materiel and it costs people, and how many come through depends on whether the country hides them on the far side.
+- @cerco_dispersar: Disperse — the column dissolves into ones and twos, buries the weapons, melts into the population. You lose the unit as a fighting force; you may save the fighters.
+- @cerco_resistir: Stand and fight. If they are going to die, let it be a battle the corridos remember and not a hunt in the brush. The legend outlives the column.
+
+@cerco_romper
+go-to: post_event
+choose-if: parque >= 3
+unavailable-subtitle: A breakout needs materiel to buy the night — at least 3 parque. Without it, the ring is a wall.
+on-arrival: {!
+Q.parque -= 3;
+// the far side of the ring: high support = the people hide them; low support = they run into more army
+if (Q.apoyo_popular >= 50) {
+  Q['pres_'+Q.cerco_zona] = Math.max(4, (Q['pres_'+Q.cerco_zona]||0) - 8);
+  Q.moral_columnas += 3; Q.memorial += 1; Q.leyenda += 1;
+  Q.cerco_result = 1;   // escaped
+} else {
+  Q['pres_'+Q.cerco_zona] = Math.max(0, (Q['pres_'+Q.cerco_zona]||0) - 20);
+  Q.moral_columnas -= 8; Q.memorial += 2; Q.presos += 1; Q.paranoia += 6;
+  Q.cerco_result = 0;   // shattered
+}
+Q['guar_'+Q.cerco_zona] = Math.min(90, (Q['guar_'+Q.cerco_zona]||0) + 4);
+!}
+
+[? if cerco_result = 1 : They go through the ring in the dark at the point the army trusted the terrain to hold, and the terrain — which is to say the people who know it — holds the door open just long enough. The column comes out the far side thinned but alive, carrying its wounded and its dead, into villages that feed it and do not report it. This is what apoyo buys, in the only currency the war finally counts: a way out that exists because the country wanted one to. The Colonel writes *escaped* and does not write *how*, because the how would require him to admit the thing his whole campaign denies — that the sea is not his. ?][? if cerco_result = 0 : They hit the ring where they hoped it was thin and it was not thin anywhere, because the country that would have thinned it was not with them. What comes out the far side is a fraction, hunted across ground where every farmhouse is a phone call to the garrison. The column as a fighting force is finished in [+ cerco_nombre +]; what is left scatters, and the memorial takes the names, and the survivors carry the lesson the doctrine tried to teach before the graves did: the guerrilla that loses the people has already lost the war, and only finds out on a night like this one. ?]
+
+- @post_event: Continuar.
+
+@cerco_dispersar
+go-to: post_event
+on-arrival: {!
+Q['pres_'+Q.cerco_zona] = Math.max(2, (Q['pres_'+Q.cerco_zona]||0) - 12);
+Q.moral_columnas -= 4;
+// dispersal saves lives but scatters the structure; support determines how many can hide
+if (Q.apoyo_popular >= 45) { Q.moral_columnas += 2; } else { Q.memorial += 1; Q.presos += 1; }
+Q.inteligencia -= 2; Q.paranoia += 3;
+!}
+
+The order to disperse is the hardest a commander gives, because it dissolves the thing everyone bled to build: the column stops being a column. Weapons go into the ground wrapped in oilcloth, the fighters become farmhands and bus passengers and nephews visiting from the city, the unit evaporating precisely as the ring closes on the space where it used to be. [? if apoyo_popular >= 45 : The population absorbs them the way water absorbs a stone — a ripple, then nothing — and most of them live to reassemble in a season, in a place the army has stopped watching. ?][? if apoyo_popular < 45 : But dispersal only works if there is a population to disperse into, and the thin support means too many have nowhere to become invisible; the ones without a village to vanish into are picked up at the checkpoints, one by one, over the following weeks. ?] The structure survives as potential rather than force. Sometimes that is the most a bad night allows.
+
+- @post_event: Continuar.
+
+@cerco_resistir
+go-to: post_event
+on-arrival: {!
+Q['pres_'+Q.cerco_zona] = Math.max(0, (Q['pres_'+Q.cerco_zona]||0) - 22);
+Q.memorial += 3; Q.leyenda += 2; Q.moral_columnas -= 6; Q.guerrilla_meter += 3;
+Q['guar_'+Q.cerco_zona] = Math.min(90, (Q['guar_'+Q.cerco_zona]||0) + 6);
+Q.legend_cerco = 1;
+!}
+
+They fight. Knowing how it ends, having counted the ring and the ammunition and the distance to any help that is not coming, they fight — because a column hunted down in the brush is a statistic and a column that dies in a battle is a corrido, and the corrido recruits where the corpse cannot. It lasts most of a day. The army takes the position and finds, as it always finds, fewer bodies than it expected and no documents at all. Within a month the song exists, in the version where they broke out and in the version where they did not, both true in the way the sierra needs them to be. The column is gone from [+ cerco_nombre +]. The name is not gone from anywhere. That was the trade, and they made it with their eyes open, which is the only thing that separates a last stand from a slaughter.
+
+- @post_event: Continuar.

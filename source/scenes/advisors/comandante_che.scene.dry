@@ -1,0 +1,46 @@
+title: El comandante
+is-pinned-card: true
+tags: advisor
+new-page: true
+view-if: che_advisor = 1 and che_vivo = 1 and via = "armada" and refugio_sierra = 0
+
+= El comandante
+
+*The doctrine made flesh: he builds the sea the columns swim in. Every action of his raises apoyo popular — the one thing that decides whether the war can be won.*
+
+A doctor before he was anything else — like the Argentine whose name the soldiers spit and the campesinos whisper — he came to the mountains with a rifle he rarely fires and a conviction he never stops firing: that the guerrilla is a fish and the people are the water, and a fish that fouls its own water is not brave, it is dead and slow to hear the news. He walks the villages the militaristas fly over. He treats the sick the state forgot, teaches the letters the state withheld, and moves the land the state promised — and he insists, against every impatient commander, that this *is* the war, the only part of it that cannot be undone by a bad night in a ravine.
+
+- @che_agraria
+- @che_medica
+- @che_educacion
+- @root: Return to main
+
+@che_agraria
+title: La reforma agraria en armas
+subtitle: Move the land now, in the zone, as a working fact — the deepest root there is.
+card-image: img/cards/expropiacion.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; apoyo_popular += 8; sup_peasants += 4; pres_guerrero += 2; represion += 2; linea_guerra -= 2
+
+Not the promise of land after victory — the land, now, walked out by the families who bled on it as peons, the cacique's fences down on ground the column holds. It is the single most powerful thing the war can do, because it converts a peasant who *sympathizes* into a peasant who has something concrete and irreversible to defend, and a peasant with something to defend hides you, feeds you, and lies to the lieutenant with a clear conscience. The state understands the danger and answers it, always, in force. Let it. The root is already down.
+
+@che_medica
+title: La brigada médica
+subtitle: Treat the sick, deliver the babies, bury the dead with respect — the war the state cannot match.
+card-image: img/adelitas.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; apoyo_popular += 6; moral_columnas += 2; disciplina += 2; sup_peasants += 2
+
+The comandante sets up the clinic the government never built, in the village the government never visited except to count votes it stole. Vaccinations, the difficult births, the machete wounds that used to end in gangrene — and around the medicine, without a word of doctrine required, the argument makes itself: *these are the people who come when you are dying, and those are the people who come when you are voting.* A movement that heals the body it claims to be fighting for earns a loyalty no communiqué can buy and no reprisal can fully burn.
+
+@che_educacion
+title: La educación política
+subtitle: Teach the letters and the reasons together — a people that reads its own condition.
+card-image: img/cards/circulos_estudio.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; apoyo_popular += 5; prestigio_socialismo += 2; disciplina += 3; sup_students += 2
+
+The literacy class that is also a consciousness: the campesino learning to read using the words *land*, *wage*, *dignity*, discovering in the same hour both that he can decode a sentence and that his poverty is a decision someone made, not a weather he must endure. It is the slowest of all the work and the deepest — a village that can read its own condition cannot be un-taught it, and cannot, afterward, be governed quite the way it was before. The comandante calls it the only conquest that holds: the mind that has understood does not surrender the ground it stands on.

@@ -69,6 +69,32 @@ if (Q.month != Q.last_drift_month) {
         if (Q.ajusticiamientos >= 2 && Q.time % 3 == 0) { Q.disciplina -= 0.5; Q.moral_columnas -= 0.5; }
         if (Q.paranoia > 100) { Q.paranoia = 100; } if (Q.paranoia < 0) { Q.paranoia = 0; }
         if (Q.disciplina > 100) { Q.disciplina = 100; } if (Q.disciplina < 0) { Q.disciplina = 0; }
+        // --- Che's water: apoyo_popular, the sea the columns swim in ---
+        var _rooted = (Q.pres_guerrero > 15 ? 1 : 0) + (Q.pres_oaxaca > 15 ? 1 : 0) + (Q.pres_valle > 15 ? 1 : 0);
+        if (Q.linea_guerra <= -8) { Q.apoyo_popular += 0.5; }           // the mass line builds the sea
+        if (Q.zona_gobernada == 1) { Q.apoyo_popular += 0.4; }          // governing the zone justly
+        if (_rooted >= 1 && Q.moral_columnas > 50) { Q.apoyo_popular += 0.3; }
+        if (Q.linea_guerra >= 12) { Q.apoyo_popular -= 0.5; }           // militarism dries the sea
+        if (Q.ajusticiamientos >= 1) { Q.apoyo_popular -= 0.2 * Math.min(3, Q.ajusticiamientos); }
+        var _repr = 0; var _rzs = ['guerrero','oaxaca','valle','chihuahua','jalisco'];
+        for (var _ri = 0; _ri < _rzs.length; _ri++) { if (Q['guar_'+_rzs[_ri]] >= 60) { _repr++; } }  // reprisals in the villages
+        if (_repr >= 1) { Q.apoyo_popular -= 0.3 * _repr; }
+        if (Q.apoyo_popular > 100) { Q.apoyo_popular = 100; } if (Q.apoyo_popular < 0) { Q.apoyo_popular = 0; }
+        // the sea decides whether the state finds you: the people warn you, or the people inform.
+        if (Q.coronel_activo) {
+            if (Q.apoyo_popular >= 55) { Q.coronel_red -= 0.4; }        // warned; the informer network decays
+            else if (Q.apoyo_popular < 30) { Q.coronel_red += 0.4; }    // informed; the Colonel's map fills itself
+            if (Q.coronel_red < 0) { Q.coronel_red = 0; } if (Q.coronel_red > 100) { Q.coronel_red = 100; }
+        }
+        // per-region column pressure (for the map dots + the encirclement check)
+        var _apf = (100 - Q.apoyo_popular) / 100;   // 0 with full support .. 1 with none
+        var _pzs = ['guerrero','valle','oaxaca','chihuahua','jalisco'];
+        for (var _pi = 0; _pi < _pzs.length; _pi++) {
+            var _z = _pzs[_pi];
+            var _pr = (Q['pres_'+_z] > 0) ? Math.round(((Q['guar_'+_z]||0)*0.55 + (Q.coronel_red||0)*0.35) * (0.55 + 0.85*_apf)) : 0;
+            if (_pr > 100) { _pr = 100; } if (_pr < 0) { _pr = 0; }
+            Q['presion_'+_z] = _pr;
+        }
     }
     // veterans keep the old discipline: the file grows slower wherever they run security
     if (Q.veteranos >= 2 && Q.via != 'armada') { Q.expediente -= 0.25; }

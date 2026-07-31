@@ -380,6 +380,10 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 [? if via = "armada" : **El estado de la guerra** ?]
 
+[? if via = "armada" : **El pueblo — el agua.** Apoyo popular: [+ apoyo_popular +]/100. [? if apoyo_popular >= 55 : The sea is with you: the people warn you, hide you, feed you. The Colonel's network decays; the columns are hard to find. This is how the war is won — or survived. ?][? if apoyo_popular >= 30 and apoyo_popular < 55 : Shallow water: sympathy without shelter. The people do not betray you, but they cannot yet save a surrounded column. Build it — the mass line, the land, the médicos, the propaganda. ?][? if apoyo_popular < 30 : **The sea is drying.** Without the people you are a fish in a net: the Colonel's map fills itself from informers, the columns are found, and one morning the ring is already closed. Militarism, reprisals and ajusticiamientos empty the water — stop, and rebuild it, or the war is already lost and only the date is pending. ?] ?]
+
+[? if via = "armada" and (presion_guerrero >= 55 or presion_valle >= 55 or presion_oaxaca >= 55 or presion_chihuahua >= 55 or presion_jalisco >= 55) : Column pressure (the ring tightening): [? if presion_guerrero >= 55 : Guerrero [+ presion_guerrero +] · ?][? if presion_valle >= 55 : Valle [+ presion_valle +] · ?][? if presion_oaxaca >= 55 : Oaxaca [+ presion_oaxaca +] · ?][? if presion_chihuahua >= 55 : Chihuahua [+ presion_chihuahua +] · ?][? if presion_jalisco >= 55 : Jalisco [+ presion_jalisco +] ?] — at 80 the ring closes and a column is encircled. Lift the garrison (move the column) or raise apoyo, fast. ?]
+
 [? if via = "armada" : Materiel (parque): [+ parque +] — spent on operations, earned by expropriations and the zone. Without it the war can only hide. ?]
 
 [? if via = "armada" : Column morale: [+ moral_columnas +]. [? if moral_columnas >= 78 : High — the camps recruit themselves; presence grows on its own. ?][? if moral_columnas >= 45 and moral_columnas < 78 : Holding. ?][? if moral_columnas < 45 : Low — desertions bleed presence monthly. Win something, or lose the columns. ?] ?]
