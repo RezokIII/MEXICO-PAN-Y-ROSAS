@@ -11,6 +11,28 @@ Q.inflacion_display = Q.inflacion.toFixed(1);
 Q.mando = 'estado';
 if (Q.gran_capital > Q.burguesia_estado && Q.gran_capital >= Q.capital_extranjero) { Q.mando = 'capital'; }
 if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_capital) { Q.mando = 'extranjero'; }
+// --- forward-looking readouts: milestone gradients, pressure proximities, the clock ---
+Q.municipios_rojos = (Q.municipio_alcozauca || 0) + (Q.municipio_juchitan || 0);
+Q.des_max = Math.max(Q.des_ortodoxos || 0, Q.des_renovadores || 0, Q.des_nueva || 0);
+Q.seats_faltan = Math.max(0, 10 - (Q.izq_seats || 0));
+Q.miembros_faltan = Math.max(0, 25 - (Q.members || 0));
+Q.casillas_faltan = Math.max(0, 30 - (Q.red_casillas || 0));
+var _me = (Q.next_election_year || 0) - (Q.year || 0);
+Q.meses_eleccion = _me * 12 + (7 - (Q.month || 1));
+if (Q.meses_eleccion < 0) { Q.meses_eleccion = 0; }
+if (Q.meses_eleccion > 96) { Q.meses_eleccion = 0; }
+// the counter-history, counted live: how many times has your Mexico refused the record?
+Q.contrahistoria_n =
+    (Q.lucio_vive == 1 ? 1 : 0)
+  + ((Q.medrano_advisor == 1 || (Q.medrano_muerto == 1 && (Q.colonia_saga || 0) >= 1)) ? 1 : 0)
+  + ((Q.campa_advisor == 1 || Q.campa_released == 1) ? 1 : 0)
+  + (((Q.td_apoyo || 0) >= 1 || Q.spicer == 1) ? 1 : 0)
+  + (Q.municipio_juchitan == 1 ? 1 : 0)
+  + (Q.municipio_alcozauca == 1 ? 1 : 0)
+  + (Q.praga_line == 1 ? 1 : 0)
+  + ((Q.feminismo || 0) >= 60 ? 1 : 0)
+  + ((Q.registro || 0) >= 1 ? 1 : 0)
+  + ((Q.izq_senadores || 0) >= 1 ? 1 : 0);
 !}
 
 = The Movement
@@ -19,6 +41,7 @@ if (Q.capital_extranjero > Q.burguesia_estado && Q.capital_extranjero > Q.gran_c
 
 = El pulso
 
+[? if year <= 1969 and members < 8 : **First moves.** Click **El Movimiento** deck to draw a card, then click the card to play it — sector cards (Trabajo obrero, Colonias, Prensa…) raise the support that becomes your vote. Rotate an advisor when its action is ready. Read **El camino** below for the goal, and **Lo que viene** for the dangers. The saldo line after each action tells you what it cost. Nothing grows if no cards are played. ?]
 [? if funds <= 6 : The treasury runs on coins. Some doors will stay shut until the caja is fed. ?]
 [? if des_ortodoxos >= 45 or des_renovadores >= 45 or des_nueva >= 45 : A corriente is turning restless. Tend to the internal work, or the house will bleed. ?]
 [? if expediente >= 60 : The file thickens. When it is this heavy, the four-a.m. knock is a matter of time — quiet the profile or invest in security. ?]
@@ -50,15 +73,36 @@ Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence 
 
 = El camino
 
-[? if camino1 = 1 : I. Survive — DONE ?][? if camino1 = 0 : I. Survive: still exist in 1971 (8,000 members, the family at one table) — pending ?]
+[? if camino1 = 1 : I. Survive — DONE ?][? if camino1 = 0 : I. Survive: exist in 1971 with the structure alive. You have [+ members +],000 members (need 8) and unity [+ unity +] (need 40). ?]
 
-[? if camino2 = 1 : II. Break the cerco — DONE ?][? if camino2 = 0 and camino1 = 1 : II. Break the cerco: 25,000 members — pending ?]
+[? if camino2 = 1 : II. Break the cerco — DONE ?][? if camino2 = 0 and camino1 = 1 : II. Break the cerco: 25,000 members. You have [+ members +],000 — [+ miembros_faltan +],000 to go. ?]
 
-[? if camino3 = 1 : III. The door — DONE ?][? if camino3 = 0 and camino2 = 1 : III. The door: registro plus ten seats — pending ?]
+[? if camino3 = 1 : III. The door — DONE ?][? if camino3 = 0 and camino2 = 1 : III. The door: registro plus ten seats. Registro [+ registro +] (need 1); seats [+ izq_seats +] of 10 — [+ seats_faltan +] to go. ?]
 
-[? if camino4 = 1 : IV. The foundations — DONE ?][? if camino4 = 0 and camino3 = 1 : IV. The foundations: a 30-casilla network and a governed municipio — pending ?]
+[? if camino4 = 1 : IV. The foundations — DONE ?][? if camino4 = 0 and camino3 = 1 : IV. The foundations: a 30-casilla network and a red municipio. Network [+ red_casillas +] of 30 — [+ casillas_faltan +] to go; red municipios held: [+ municipios_rojos +] (need 1). The casilla card in El laberinto is the engine; win Alcozauca or hold Juchitán for the town. ?]
 
-[? if camino5 = 1 : V. The convergence — DONE. July decides. ?][? if camino5 = 0 and camino4 = 1 : V. The convergence: the united front, with you as a founding wall — pending ?]
+[? if camino5 = 1 : V. The convergence — DONE. July decides. ?][? if camino5 = 0 and camino4 = 1 : V. The convergence: the Frente forged, the fusion complete, the Corriente courted — with you as a founding wall. 1988 is the reckoning. ?]
+
+= Lo que viene
+
+*The board reads forward, not only back. What the next season is likely to bring — and what you still have time to prevent.*
+
+[? if expediente >= 72 : **The file can take the leadership now.** At [+ expediente +], with repression high, the four-a.m. knock reaches the top table, not just the flanks. Quiet the profile or buy security — this season, not next. ?]
+[? if expediente >= 60 and expediente < 72 : **The file has crossed the danger line.** At [+ expediente +] (the line is 60), when repression runs hot the state begins taking people, an advisor at a time. Lower the profile or protect the exposed. ?]
+[? if expediente < 60 and expediente >= 45 : The file stands at [+ expediente +]; the danger line is 60. Room to act, but the raids come when it fattens. ?]
+
+[? if des_max >= 65 : **A corriente has reached the fronda line** ([+ des_max +]/65). A split can be forced against you now — settle the internal account before someone else settles it for you. The corrientes card in El Movimiento is the instrument. ?]
+[? if des_max >= 50 and des_max < 65 : The most restless corriente sits at [+ des_max +] of the 65 that triggers a fronda, and it drains unity every month it stays there. Rotate an advisor or honor its demand. ?]
+
+[? if registro >= 1 and meses_eleccion >= 1 and meses_eleccion <= 15 : **An election is roughly [+ meses_eleccion +] months out.** It will be won or stolen at the casillas you cover — [+ red_casillas +] tables now — and answered afterward from the tribune or the street. You cannot build the network on the night; build it now. ?]
+
+[? if destape_phase >= 1 and destape_phase <= 3 : **Succession season is open.** The next reign is being chosen behind the curtain. Position toward the likely tapado and harvest the nervous losers — the pasarela rewards those who read it early. ?]
+
+[? if via = "armada" and moral_columnas < 45 : **The columns are near breaking** (morale [+ moral_columnas +]). Win something this season or desertions bleed your presence away. The amnesty door is still open — and it does not open every year. ?]
+[? if via = "armada" and coronel_red >= 60 : **The Colonel can find you** (his network [+ coronel_red +]/100). Cut it, feed it lies, or take him off the board — or plan the descent while the terms are still yours. ?]
+[? if via = "armada" and parque <= 4 : **The war is nearly out of materiel** (parque [+ parque +]). Without it the columns can only hide. Expropriate — or come down with the harvest while you can. ?]
+
+[? if expediente < 60 and des_max < 50 and via != "armada" and (registro = 0 or meses_eleccion = 0 or meses_eleccion > 15) and (destape_phase = 0 or destape_phase = 4) : No storm on the near horizon. This is build weather — organize where the crisis bites, and position before the next reckoning names itself. ?]
 
 = El haber del Movimiento
 
@@ -81,6 +125,15 @@ Line on the armed question: [? if postura_guerrilla = 0 : undefined — silence 
 [? if fdn >= 1 : El Frente fue forjado — the convergence of 1988, with you inside it. ?]
 
 [? if paros_ganados = 0 and secciones_ganadas = 0 and colonias_fundadas = 0 and dotaciones = 0 and escandalos = 0 and izq_seats = 0 and registro = 0 : Nothing decisive won yet — only built. The ledger fills the first time the state is made to give something back. ?]
+
+= Tu contrahistoria
+
+*This is a game of history and counter-history. The map and the ledger say who is winning. This says something the regime cares about more: how much of the record your Mexico has refused. It is the truest scoreboard here — the one the finale reads.*
+
+[? if contrahistoria_n = 0 : So far your Mexico has followed the record — the dead stayed dead, the doors stayed shut, the towns stayed lost. The counter-history is still all ahead of you, and there is a great deal of decade left in which to bend it. ?]
+[? if contrahistoria_n >= 1 : Divergences from the history that actually happened — [+ contrahistoria_n +] so far: [? if lucio_vive = 1 : Lucio Cabañas lives. ?][? if praga_line = 1 : The Prague heresy is kept — a communist party with a conscience. ?][? if feminismo >= 60 : The women's movement organizes as an equal, not beneath you. ?][? if registro >= 1 : The hammer and sickle is counted where it was only ever miscounted. ?][? if municipio_alcozauca = 1 : Alcozauca is held. ?][? if municipio_juchitan = 1 : Juchitán is held. ?][? if izq_senadores >= 1 : Opposition senators took the oath in a chamber with no protocol for them. ?] The full account waits in the Library. ?]
+
+The list, meanwhile, is kept. Names added to the memorial on your watch: [+ memorial +]. The regime's deepest wager is that everyone forgets. This is how the wager is lost.
 
 = Internal corrientes
 
@@ -151,6 +204,12 @@ The Movement's line: [? if ax_electoral >= 15 : firmly electoral ?][? if ax_elec
 Ideological definition: [? if ax_nacpop >= 10 : nacional-popular — the Mexican Revolution as native tongue ?][? if ax_nacpop >= -9 and ax_nacpop <= 9 : between the patria and the manifesto ?][? if ax_nacpop <= -10 : classical Marxist-Leninist ?]
 
 The Soviet question: [? if ax_sovietico >= 10 : aligned with Moscow ?][? if ax_sovietico >= -9 and ax_sovietico <= 9 : an uneasy balance ?][? if ax_sovietico <= -10 : declared independence — heretics with party cards ?]
+
+**El precio de la línea** — *no line is free; each charges in a coin you are already spending.*
+
+[? if ax_electoral >= 15 : The electoral line opens the seats and closes the streets: the tribune grows, the plaza's patience for you shrinks. ?][? if ax_electoral <= -15 : The insurrectionary line keeps the streets and forfeits the door: the base burns bright, the ballot box stays a rumor. ?]
+[? if ax_sovietico >= 10 : Moscow's alignment pays in gold and costs you the students and the wary middle class, who read the subsidy in your silences. ?][? if ax_sovietico <= -10 : Independence from Moscow buys your own name back — and costs the January envelope. A party financed by its members answers to them; first, it must survive them. ?]
+[? if prestigio_socialismo < 40 : And under it all, the word *socialism* is losing the young ([+ prestigio_socialismo +]/100). The battle of ideas is a front too, and it is being lost quietly while the others are fought loudly. ?]
 
 **The climate of ideas**
 
