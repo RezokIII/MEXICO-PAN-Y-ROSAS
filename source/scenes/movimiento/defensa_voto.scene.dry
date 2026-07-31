@@ -7,6 +7,7 @@ on-arrival: month_actions += 1; defensa_voto_cd = time
 max-visits: 25
 is-card: true
 frequency: 80
+frequency-var: {! var e = (Q.next_election_year || 0) - (Q.year || 0); return (e >= 0 && e <= 1) ? 130 : 55; !}
 tags: movimiento
 
 = Defensa del voto

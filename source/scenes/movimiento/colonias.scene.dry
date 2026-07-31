@@ -7,6 +7,7 @@ max-visits: 60
 view-if: time >= colonias_cd + 2
 is-card: true
 frequency: 85
+frequency-var: {! return (Q.salario_real < 92 || Q.desempleo >= 9) ? 120 : 75; !}
 tags: movimiento
 
 = Trabajo en colonias

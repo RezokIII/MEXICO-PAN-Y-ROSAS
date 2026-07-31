@@ -8,6 +8,7 @@ on-arrival: month_actions += 1; seguridad_cd = time
 max-visits: 60
 is-card: true
 frequency: 60
+frequency-var: {! return (Q.expediente >= 55 || Q.represion >= 75) ? 135 : 45; !}
 tags: movimiento
 
 = Seguridad
