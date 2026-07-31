@@ -1,0 +1,46 @@
+title: El enlace con las comunidades
+is-pinned-card: true
+tags: advisor
+new-page: true
+view-if: ceb_aliado = 1 and (via = "politica" or via = "institucional") and refugio_sierra = 0
+
+= El enlace con las comunidades
+
+*Corriente: la nueva izquierda. Cada acción suya fortalece a los renovadores — y roza a los ortodoxos, que aún no perdonan la sotana.*
+
+A former seminarian who kept the option for the poor and lost the rest, he is the seam between two organizations that were never supposed to touch: the Party and the base communities. He speaks Marx to the cadres and the Beatitudes to the catechists and believes, without embarrassment, that they are footnotes to each other. Where he works, the parish hall and the cell become the same room, and the campesino brings both his rosary and his grievance, and no one asks him to choose.
+
+- @ceb_organizar
+- @ceb_sur
+- @ceb_escudo
+- @root: Return to main
+
+@ceb_organizar
+title: Las comunidades de base
+subtitle: Organize the CEBs — the Gospel of the poor and the program of the left, in the same assembly.
+card-image: img/cards/colonia.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; sup_peasants += 5; sup_colonos += 3; expediente += 2; fac_nueva_izquierda += 2; des_ortodoxos += 2
+
+The catechists teach reading with the words *land*, *wage*, *dignity*, and the reading class becomes an assembly becomes a committee, in the seamless way the base communities have made their own. The state is slow to raid a Bible study and slower to shoot a nun, and in that hesitation the organizing that the granaderos would break in a plaza takes root in a parish. It is the Party's oldest work done in a borrowed language, and the language, it turns out, reaches houses the manifesto never entered.
+
+@ceb_sur
+title: La misión del sur
+subtitle: Send cadres south to the indigenous sierra, where the Church is already ahead of you.
+card-image: img/guerrero_sierra.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; mision_sur = 1; sup_peasants += 4; political_capital += 1; expediente += 2; fac_nueva_izquierda += 1
+
+In the Chiapas highlands, Samuel Ruiz's catechists have spent a decade learning Tzeltal and teaching the communities to see themselves as subjects of their own history, and your cadres arrive to find the ground already broken — the assemblies functioning, the indigenous deacons trained, a slow patient dignity organizing itself under the coffee. The Party's contribution is small and its education is enormous: the south is not a periphery to be reached but a movement to be joined, and the people there are laying, plank by plank, a floor the whole country will one day stand on. Something is being built down there that outruns the decade. You have, at least, put your hand to it.
+
+@ceb_escudo
+title: El escudo moral
+subtitle: Deploy the Church's moral authority against the repression — a bishop the state cannot easily club.
+card-image: img/pcmconf.jpg
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1; legitimidad_regimen -= 3; represion -= 2; sup_middle += 2; political_capital += 2; des_ortodoxos += 1
+
+The bishop of Cuernavaca blesses the strike from the altar; the diocese opens its doors to the hunted; a pastoral letter names the disappeared by name in a country where the newspapers will not. The regime, which has spent decades perfecting the art of clubbing communists in silence, discovers the specific difficulty of clubbing a Christian in public — the middle class that shrugged at a dead militant does not shrug at a persecuted nun. The moral cover is real and it is not free: the orthodox mutter that the Party is now taking sanctuary behind an institution it swore to bury. But fewer people go to the cells this season, and some of them are yours.

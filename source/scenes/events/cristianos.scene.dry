@@ -1,0 +1,40 @@
+title: Los cristianos también
+new-page: true
+subtitle: 1972 — the Church discovers the poor it always mentioned
+face-image: img/pcm.jpg
+tags: event
+view-if: (via = "politica" or via = "institucional") and year >= 1972 and year <= 1979 and cristianos_visto = 0 and (sup_peasants >= 14 or sup_colonos >= 12)
+priority: 3
+frequency: 55
+max-visits: 1
+on-arrival: cristianos_visto = 1
+
+= Los cristianos también
+
+Something has come loose in the Church, and it is coming loose exactly where you work. Since the bishops met at Medellín in '68 and dared to write the phrase *the preferential option for the poor*, a current of priests and nuns has stopped waiting for heaven: they read the Gospel as a document about *this* hunger, *this* landlord, *this* wage, and they organize accordingly. In Cuernavaca there is a bishop they call *el obispo rojo*, Sergio Méndez Arceo, who blesses strikes. In the sierra of Chiapas a young bishop named Samuel Ruiz has begun to learn Tzeltal. And in a thousand parishes the *comunidades eclesiales de base* — the base communities — are teaching campesinos to read using the vocabulary of their own exploitation.
+
+They arrive at your door with clean hands and an unfamiliar language, and they are organizing your people better than you are in half the villages of the south. The orthodox in your own house recoil on reflex: religion is the opiate, the priest is the cacique's chaplain, this is a Trojan horse in a cassock. The renovadores see something else — the largest reservoir of untapped organizing energy in the Republic, and a moral authority the state cannot easily club.
+
+- @aliar_cristianos: Ally with the base communities. The Gospel of the poor and the program of the left are, in the villages that matter, saying the same sentence.
+- @cauteloso_cristianos: Work with them carefully, at arm's length — useful allies, but keep the Party's materialism uncompromised and the priests out of its councils.
+- @rechazar_cristianos: Decline. A Marxist party does not organize behind a cross; the orthodox are right that the cassock and the hammer do not mix.
+
+@aliar_cristianos
+go-to: post_event
+choose-if: fac_ortodoxos <= 55 or fac_nueva_izquierda >= 22
+unavailable-subtitle: The orthodox old guard would treat an open alliance with the Church as heresy; the house is not ready to bless a bishop.
+on-arrival: ceb_aliado = 1; sup_peasants += 4; sup_colonos += 3; fac_ortodoxos -= 3; fac_nueva_izquierda += 3; des_ortodoxos += 4; political_capital += 2
+
+The alliance is never signed because neither side signs things, but it is real: the catechist and the cadre work the same assembly, the parish hall becomes a meeting hall the granaderos are slower to raid, and the campesino who would never trust a communist trusts the priest who vouches for one. The orthodox grumble that Marx is being baptized behind their backs, and they are not entirely wrong — but the villages the base communities open were villages the Party had never reached, and a movement that can hold both the manifesto and the Magnificat is larger than the sum of its suspicions. The DFS opens a new kind of file, and does not quite know what to call it.
+
+@cauteloso_cristianos
+go-to: post_event
+on-arrival: ceb_aliado = 1; sup_peasants += 2; sup_colonos += 1; unity += 1; des_ortodoxos += 1
+
+You take the hand offered, but only to the wrist: the base communities are welcomed as fellow-travelers, their assemblies coordinated with, their moral cover accepted — and their priests kept firmly outside the Party's own deliberations, where the materialism stays undiluted. It works, after a fashion; it also tells the most committed of the Christian left that the Party wants their villages more than their comradeship, and some of them file that away. Half an alliance is still more south than you held yesterday.
+
+@rechazar_cristianos
+go-to: post_event
+on-arrival: fac_ortodoxos += 2; des_nueva += 3; sup_peasants -= 1
+
+The orthodox line holds: no crosses in the assembly, no cassocks in the leadership, the Party's materialism kept clean of incense. It is coherent and it is a mistake the decade will bill you for — the base communities go on organizing the south without you, become in some regions the only left there is, and when the Party finally needs the villages they opened, it will find the doors are the Church's to unlock, not yours. The nueva izquierda watches the refusal and wonders, not for the first time, whether the orthodox would rather be pure than be many.

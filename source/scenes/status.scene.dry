@@ -32,7 +32,8 @@ Q.contrahistoria_n =
   + (Q.praga_line == 1 ? 1 : 0)
   + ((Q.feminismo || 0) >= 60 ? 1 : 0)
   + ((Q.registro || 0) >= 1 ? 1 : 0)
-  + ((Q.izq_senadores || 0) >= 1 ? 1 : 0);
+  + ((Q.izq_senadores || 0) >= 1 ? 1 : 0)
+  + (Q.ceb_aliado == 1 ? 1 : 0);
 !}
 
 = The Movement

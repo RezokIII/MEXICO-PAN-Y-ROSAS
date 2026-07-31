@@ -3,7 +3,7 @@ new-page: true
 subtitle: Columns are built one trusted name at a time
 card-image: img/cards/recluta.jpg
 view-if: via = "armada" and time >= s_reclutar_cd + 2
-on-arrival: month_actions += 1; s_reclutar_cd = time
+on-arrival: {! Q.month_actions += 1; Q.s_reclutar_cd = Q.time; Q.rec_v = Math.floor(Math.random()*3); !}
 max-visits: 60
 is-card: true
 frequency: 90
@@ -11,7 +11,7 @@ tags: sierra
 
 = Recruitment
 
-Where does the structure grow this season?
+[? if rec_v = 0 : Where does the structure grow this season? Every name is a door and a risk; a column is only as safe as its most frightened member. ?][? if rec_v = 1 : The word has gone out through the channels that have no names. Who answers, and where? A recruit brought in wrong is a funeral waiting for a date. ?][? if rec_v = 2 : The compañeros vouch, the safe house fills, the roster grows a line. Which zone takes the new hands this month? ?]
 
 - @rec_guerrero: Guerrero — the Costa Grande.
 - @rec_chihuahua: Chihuahua — the northern sierra.
@@ -25,29 +25,29 @@ Where does the structure grow this season?
 @rec_guerrero
 on-arrival: moral_columnas += 3; funds -= 2; pres_guerrero += 6; guar_guerrero += 4; expediente += 2
 
-The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
+This is Lucio's country whether he lives or not — the Costa Grande, the coffee slopes above Atoyac, the villages where a schoolteacher's word still moves more than a governor's. They come in with the mountains already in them: campesinos who buried the massacred, teachers the caciques ran out of the classroom. The Costa Grande recruits itself. So, within the month, do the army's patrols along the Acapulco road.
 
 @rec_chihuahua
 on-arrival: moral_columnas += 3; funds -= 2; pres_chihuahua += 6; guar_chihuahua += 4; expediente += 2
 
-The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
+The high northern sierra remembers Madera — the assault on the barracks in '65, the schoolteachers dead in the snow, the first guerrilla of the era. The new hands are ranch labor and mining-town sons, hard people from a hard country who take to the discipline of the cold because they were born to it. The garrison at the district seat thickens; up here the army moves slow, but it moves.
 
 @rec_valle
 on-arrival: moral_columnas += 3; funds -= 2; pres_valle += 6; guar_valle += 4; expediente += 2
 
-The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
+The capital belt grows the urban structure — the safe apartments, the couriers who ride the Metro with their faces arranged, the students who crossed from the assemblies into the commandos, the purged electricians who know the city's wiring in both senses. It is the richest recruiting ground and the deadliest: the Brigada Blanca works these colonias house by house, and a name taken here is a name the DFS wants most.
 
 @rec_jalisco
 on-arrival: moral_columnas += 3; funds -= 2; pres_jalisco += 6; guar_jalisco += 4; expediente += 2
 
-The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
+Guadalajara's underground runs at a temperature all its own — the FER and its rivals, the student left that turned tapatío Catholicism inside out, a city where the war between the commandos and the *madrina* police is fought block by block behind the most conservative façade in the Republic. The new hands arrive already hunted, already fast. So do the funerals; Guadalajara consumes cadres at a rate the ledger notes.
 
 @rec_nl
 on-arrival: moral_columnas += 3; funds -= 2; pres_nl += 6; guar_nl += 4; expediente += 2
 
-The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
+Monterrey is the paradox that keeps the theory honest: red cells in the citadel of Mexican capital, recruited off the shop floors of the Grupo's own factories and out of the Tec's lecture halls, under the noses of the men who own the country's steel. The industrial working class here is the real thing, concentrated and disciplined. So is the private security the Monterrey Group fields — the white guards up north wear better suits.
 
 @rec_oaxaca
 on-arrival: moral_columnas += 3; funds -= 2; pres_oaxaca += 6; guar_oaxaca += 4; expediente += 2
 
-The column grows by handfuls: a catechist here, a purged electrician there, two students who stopped waiting. The zone commander logs new garrison patrols within the month — growth is always noticed by both armies.
+The Isthmus recruits in Zapotec. Down in Juchitán and the Zapotec towns the line between the armed structure and the COCEI's assemblies blurs the way the parish blurs into the cell elsewhere — a people organizing on every register at once, in a language the interrogators do not speak. The new hands bring a whole community with them, which is strength; the army knows exactly which towns to watch, which is not.

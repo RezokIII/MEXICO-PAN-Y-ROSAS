@@ -138,6 +138,8 @@ go-to: menu
 
 [? if praga_line = 1 : **La herejía.** Real history: the PCM condemned the invasion of Czechoslovakia in 1968 — nearly alone in the Americas. In your Mexico you kept the heresy lit: independence from Moscow declared and defended, a communist party with a party card and a conscience. ?]
 
+[? if ceb_aliado = 1 : **La opción por los pobres.** Real history: the Mexican left and the base-community Christians of Medellín organized the same poor in parallel, mostly in mutual suspicion, and liberation theology built the south — Chiapas above all — largely without the parties. In your Mexico the Marxist and the catechist worked the same assembly[? if mision_sur = 1 : , and your cadres put their hand to what was rising in the Chiapas sierra a decade before the country learned its name ?]: the hammer and the Magnificat, for once, footnotes to each other. ?]
+
 [? if feminismo >= 60 : **Pan y rosas.** Real history: the Mexican left spent the era addressing "the woman comrade" in the singular, and the feminist movement grew up mostly outside the parties. In your Mexico the women's movement organized alongside the Party as an equal — the revolution, at last, with more than one subject. ?]
 
 [? if registro >= 1 : **El registro.** In your Mexico the Party won legal registration and stood on a ballot — the hammer and sickle counted, conditionally, where for decades it was only ever miscounted. ?]
