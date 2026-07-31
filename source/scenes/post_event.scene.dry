@@ -54,6 +54,21 @@ if (Q.month != Q.last_drift_month) {
         if (Q.parque < 0) { Q.parque = 0; }
         if (Q.moral_columnas > 100) { Q.moral_columnas = 100; }
         if (Q.moral_columnas < 0) { Q.moral_columnas = 0; }
+        // --- the war's inner life drifts too: discipline, paranoia, the line ---
+        // Paranoia feeds on the Colonel's reach and the comrades in his cells.
+        Q.paranoia += (Q.coronel_red >= 45 ? 0.5 : 0) + (Q.presos >= 2 ? 0.4 : 0) + (Q.moral_columnas < 40 ? 0.3 : 0);
+        if (Q.coronel_red < 30 && Q.presos == 0 && Q.paranoia > 0) { Q.paranoia -= 0.3; }
+        // The line shapes everything: militarism (fast, spectacular, isolating) erodes the base and
+        // the columns' cohesion; the mass line (slow, rooted) sustains both but wins nothing quickly.
+        if (Q.linea_guerra >= 15) { Q.disciplina -= 0.3; if (Q.time % 3 == 0) { Q.sup_peasants -= 0.5; } }
+        else if (Q.linea_guerra <= -15) { Q.disciplina += 0.25; }
+        // A column with low morale and high fear turns on itself.
+        if (Q.moral_columnas < 40) { Q.disciplina -= 0.3; }
+        if (Q.paranoia >= 55) { Q.disciplina -= 0.3; }
+        // Every ajusticiamiento bought silence and spent trust; the debt comes due.
+        if (Q.ajusticiamientos >= 2 && Q.time % 3 == 0) { Q.disciplina -= 0.5; Q.moral_columnas -= 0.5; }
+        if (Q.paranoia > 100) { Q.paranoia = 100; } if (Q.paranoia < 0) { Q.paranoia = 0; }
+        if (Q.disciplina > 100) { Q.disciplina = 100; } if (Q.disciplina < 0) { Q.disciplina = 0; }
     }
     // veterans keep the old discipline: the file grows slower wherever they run security
     if (Q.veteranos >= 2 && Q.via != 'armada') { Q.expediente -= 0.25; }

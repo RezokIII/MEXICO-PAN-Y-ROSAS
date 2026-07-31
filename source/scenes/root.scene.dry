@@ -160,6 +160,10 @@ Q.maestro_hecho = 0;
 // --- the war, mechanized: materiel, morale, prisoners, the hunter ---
 Q.parque = 6; Q.moral_columnas = 60; Q.presos = 0;
 Q.coronel_activo = 0; Q.coronel_red = 0; Q.coronel_herido = 0; Q.coronel_expuesto = 0; Q.coronel_golpe_last = -99;
+// --- the war's inner life: discipline, paranoia, the line, and its self-inflicted wounds ---
+Q.disciplina = 65; Q.paranoia = 8; Q.linea_guerra = 0; Q.ajusticiamientos = 0; Q.escisiones_armadas = 0;
+Q.ajust_last = -99; Q.debate_guerra_last = -99; Q.escision_arm_last = -99; Q.madrina_activa = 0; Q.madrina_last = -99;
+Q.compas_armadas = 0; Q.compa_caida = 0; Q.zona_gobernada = 0; Q.zona_last = -99; Q.internac_armada = 0; Q.jcr = 0; Q.cuba_last = -99;
 Q.s_ataque_cd = -5; Q.barrida_last = -99; Q.reten_last = -99; Q.quinta_last = -99; Q.audaz_last = -99;
 Q.op_res = 0; Q.op_zone = ""; Q.barrida_zone = "";
 Q.coronel_muerto = 0; Q.coronel_removido = 0;

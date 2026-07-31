@@ -1,0 +1,84 @@
+title: Las compañeras
+new-page: true
+subtitle: The half of the war the corridos forget to name
+face-image: img/adelitas.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and compas_armadas = 0 and year >= 1972
+priority: 3
+frequency: 55
+max-visits: 1
+on-arrival: compas_armadas = 1
+
+= Las compañeras
+
+They have been here the whole time, and the movement has managed, with the tenacity it usually reserves for the enemy, not to see them: the women who carry the messages precisely because the checkpoints wave them through, who keep the safe houses that are the only reason the column has anywhere to be safe, who nurse the wounded and bury the dead and, increasingly, who ask why the rifle is always handed to a man. Some are already fighters. One of them, in the Guerrero columns, is quietly the best tactician the movement has, and everyone knows it, and no one has given her a command.
+
+The question surfaces the way it always does — as a demand that sounds like an accusation because it is one: *is this a revolution for the compañeras, or a revolution the compañeras are asked to serve and then wait for?* The columns are watching how the leadership answers. So, in a different way, is history.
+
+- @compas_mando: Give them command. The best cadre leads, and if that offends the men who assumed the sierra was theirs, the offense is overdue.
+- @compas_doble: Value the work, defer the question — the war is not the moment to fight two fronts; the compañeras' liberation waits for the people's.
+- @compas_ignorar: Let it lie. The column has enough arguments; this one can keep.
+
+@compas_mando
+go-to: post_event
+choose-if: disciplina >= 40
+unavailable-subtitle: Overturning the sierra's oldest assumption takes a discipline the columns do not have; the men would read a woman's command as one more thing falling apart.
+on-arrival: compas_armadas = 2; moral_columnas += 4; disciplina += 3; pres_guerrero += 2; sup_students += 2; feminismo += 6; leyenda += 1
+
+The comandanta takes her column, and the sierra does not end. What ends is a fiction — that the woman who could out-plan every man in the camp should keep making the coffee while they lost the arguments she would have won. Her operations are cleaner because she was never allowed the luxury of improvising; her column is tighter because it was assembled by someone who had to earn every scrap of the authority the men were handed. The corridos, catching up late, will give her a verse. The movement gave her, at last, the thing it owed her: the command she had already been exercising without the title.
+
+@compas_doble
+go-to: post_event
+on-arrival: compas_armadas = 1; moral_columnas += 1; feminismo += 1; sup_students -= 1
+
+The formula is old and the compañeras have heard it in every language the left speaks: first the revolution, then your revolution; carry the water now, and liberation will be distributed afterward, in an order to be determined by the people currently holding the rifles. They keep the safe houses. They keep the messages moving. They keep, also, a private ledger of the promise deferred, and when this war ends — however it ends — some of them will take what the sierra taught them into a different fight, the one the left kept telling them to postpone, and win it without the men who asked them to wait.
+
+@compas_ignorar
+go-to: post_event
+on-arrival: feminismo -= 2; disciplina -= 1
+
+The leadership has wars enough and files the question under *not now*, which the compañeras correctly translate as *not from you*. The work continues because they continue it; the resentment continues because it is earned. Nothing visibly changes, which is the problem — a movement that cannot see half of itself is a movement navigating with half a map, and the blindness it practices at home is the blindness that will one day walk an informer past a checkpoint no one thought to have a woman watch.
+
+@la_companera_caida
+title: La compañera caída
+new-page: true
+subtitle: What the dirty war did to the women it took
+face-image: img/muertos.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and compas_armadas >= 1 and compa_caida = 0 and represion >= 70 and time >= 40
+priority: 4
+frequency: 60
+max-visits: 1
+on-arrival: compa_caida = 1; memorial += 1
+
+= La compañera caída
+
+The news comes the way the worst news comes, in fragments that take weeks to become a fact: one of the compañeras is taken. Not killed — *taken*, which in this war is the word for a door that opens onto something the language does not have a clean way to hold. She was pregnant; the camp knew before the enemy did. What happens to women in the clandestine cells of this state is a thing the survivors will spend the rest of their lives being unable to fully say, and the specific arithmetic of her case — the interrogation aimed at the body that carried the next generation, the child that is born in captivity and does not come back with the mother who does not come back at all — is the war's most private and most unforgivable page.
+
+The column has to be told, and told in a way that neither breaks it nor lies to it. And a decision has to be made about a name, and a fact, and what the movement owes to both.
+
+- @caida_denunciar: Break the silence — get her name, her condition, and what was done to her out to the exile press, the Church, anyone. Make the private crime a public one.
+- @caida_rescate: Everything into finding her — the networks, the parque, the risk, on the chance she is alive and reachable.
+- @caida_memoria: Neither can reach her now. Enter her fully in the memorial — name, date, the child's name if it can be learned — and make the movement carry her, so the state's forgetting does not win twice.
+
+@caida_denunciar
+go-to: post_event
+choose-if: exiliados >= 1 or sup_students >= 20
+unavailable-subtitle: Making the private crime public needs a channel to the outside — an exile press, a sympathetic Church, a campus that will carry it. You lack the reach right now.
+on-arrival: legitimidad_regimen -= 3; sup_students += 3; sup_middle += 2; feminismo += 4; represion += 2; leyenda += 1
+
+Her name and what was done to her cross the border in a pastoral letter and a mimeographed bulletin and, eventually, a line in a foreign paper the regime cannot suppress abroad. It changes nothing for her and everything for the argument: the state that insists it merely fights subversives is caught, in her case, doing the thing it most needs the world not to know it does. The middle class that shrugged at a dead guerrillero does not shrug at this. The mothers who will one day fill a plaza demanding their disappeared have, in her name, one more reason to come.
+
+@caida_rescate
+go-to: post_event
+choose-if: parque >= 4 and inteligencia >= 25
+unavailable-subtitle: A rescue from a clandestine cell needs materiel and precise intelligence you do not have — and a blind attempt only adds names.
+on-arrival: parque -= 4; inteligencia -= 6; presos += 1; represion += 3; moral_columnas += 2; expediente += 4
+
+You spend the war's scarce blood — the parque, the intelligence, the irreplaceable people — on the chance. Most such attempts fail, and this account will not tell you in advance whether yours is most. But the column needed to know the movement does not write off its own the moment they are behind the wire, and the attempt, win or lose, is the proof: they will risk for you what you are being asked to risk for them. Sometimes it brings someone home. Sometimes it only brings home the certainty of where she was, which the heart, against all sense, still counts as something.
+
+@caida_memoria
+go-to: post_event
+on-arrival: memorial += 1; feminismo += 3; moral_columnas -= 2; leyenda += 1
+
+You do the thing that is not a tactic and cannot be one: you make sure she is *kept.* Her full name, the date she was taken, the place, the child's name when the networks finally learn it — entered in the memorial in the careful hand reserved for the pages that matter most, read aloud once to the assembled column so that no one can later pretend she was a rumor. The state's deepest wager is that women like her vanish twice, once into the cell and once into the silence afterward. The movement cannot reach the cell. It can refuse, absolutely, the silence. Some of what a revolution is for cannot be measured in territory. This is that part.

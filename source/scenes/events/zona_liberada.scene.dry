@@ -1,0 +1,72 @@
+title: La zona
+new-page: true
+subtitle: You hold ground now — which means you must govern it
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and sw_zona = 1 and zona_gobernada = 0
+priority: 4
+max-visits: 1
+on-arrival: zona_gobernada = 1
+
+= La zona
+
+It happened without a ceremony, the way real things do: a stretch of the sierra where the army now comes only in strength and leaves as fast as it can, where the schoolteacher answers to an assembly and not a supervisor, where the cacique's writ stops at a line on no official map. You have a *zone* — not a country, not even a county, but ground the state does not freely enter — and holding it turns out to be a different and heavier thing than taking it. A guerrilla that only fights answers to no one. A guerrilla that governs answers to everyone in the valley, every day, in the currency of whether the water works and the harvest is fair and the man who did the killing is punished.
+
+This is the revolution's oldest test, failed by most who reached it: can the people who are good at taking power be trusted with the small, dull, unglamorous holding of it? The first question the valley brings you is the one it has waited generations to ask: *the land — whose is it now?*
+
+- @zona_tierra: The land to those who work it. Redistribute the cacique's holdings through the assembly, in the open — the one act that makes the zone irreversible in the people's hearts.
+- @zona_prudente: Hold the land question for after the war. Alienate no one you might still need; administer the zone lightly, and do not create martyrs among the propertied.
+
+@zona_tierra
+go-to: post_event
+on-arrival: sup_peasants += 6; pres_guerrero += 3; moral_columnas += 5; disciplina += 3; parque += 2; represion += 3; legitimidad_regimen -= 2; leyenda += 2
+
+The assembly does it itself, which is the whole point — the guerrilla provides the safety and the people provide the justice, the cacique's fences down and the plots walked out by the families who bled on them as peons, the deeds burned in a fire everyone is invited to warm their hands at. It is the deepest thing the war can do: not to promise the land after victory but to *deliver it now*, in the zone, as a working fact, so that every campesino in the valley has a personal, tangible, irreversible reason to keep the soldiers out. The state understands the danger precisely and answers it in force. Let it. You have handed the people something the reprisals cannot take back, because it is already inside them.
+
+@zona_prudente
+go-to: post_event
+on-arrival: pres_guerrero += 1; disciplina += 1; sup_peasants += 1; parque += 1
+
+You govern the zone with a light hand and an eye on the propertied you have not yet made enemies of, and it is defensible — a guerrilla does not need to fight the landlord and the army in the same season. It is also the choice that tells the valley the revolution in the sierra is, so far, mostly an armed patience: the soldiers are kept out, but the cacique's map is only suspended, not torn up, and the campesino who risked everything to shelter you notices that his risk has bought him safety but not yet land. You have a zone. You have not yet given the people a reason it is *theirs.*
+
+@justicia_zona
+title: La justicia de la zona
+new-page: true
+subtitle: The people want a tribunal. What kind of movement holds one?
+face-image: img/guardias_blancas.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and zona_gobernada = 1 and time >= zona_last + 14
+priority: 3
+frequency: 55
+max-visits: 3
+on-arrival: zona_last = time
+
+= La justicia de la zona
+
+The zone brings you the case it was always going to bring you: a man the valley has feared for twenty years — a cacique's pistolero, a rapist with a badge, the one who gave the order the last time the army came through — caught, finally, on ground where his protectors cannot reach. The people do not want him handed to a state that would free him by Friday. They want *justice*, and they want it from you, and the word means, in the mouths of people who have never once received it, something with a rope in it.
+
+Here is the revolution's mirror. A movement that refuses is a movement that tells the valley its suffering is still not actionable. A movement that grants it, badly, becomes the thing it fought — a power that kills on the say-so of a crowd. The tribunal you hold, or refuse to hold, is the clearest statement the war will ever make about what it intends to replace the cacique *with*.
+
+- @justicia_tribunal: A real tribunal — public, with a defense, witnesses, a sentence the assembly can live with. Justice as a system, not a settling of scores. Slower, harder, and the only kind worth the name.
+- @justicia_pueblo: Give the valley its verdict. The people know what he did; the revolution honors their judgment and does not second-guess a generation of fear.
+- @justicia_expulsar: Neither try nor execute — expel him, banish him from the zone under threat. Keep the movement's hands clean, and let the valley wonder if that is mercy or cowardice.
+
+@justicia_tribunal
+go-to: post_event
+choose-if: disciplina >= 45
+unavailable-subtitle: A real tribunal takes a disciplined movement the assembly respects; without it, any trial you hold is a lynching with minutes.
+on-arrival: sup_peasants += 3; legitimidad_regimen -= 2; disciplina += 4; leyenda += 2; political_capital += 2
+
+You hold the hardest kind of court: the accused given a defense, the witnesses heard in order, the crime established rather than assumed, the sentence — real, and heavy, because the crimes are real and heavy — arrived at by a process the valley can see is a process. It is slower than a rope and it is the whole argument of the war made visible: that what the sierra offers is not a better set of masters but a different *kind* of power, one that binds itself to rules even when it does not have to. The valley gets its justice and, more than that, gets its first living glimpse of the thing being fought for. Word of it travels further than any communiqué.
+
+@justicia_pueblo
+go-to: post_event
+on-arrival: sup_peasants += 4; represion += 2; disciplina -= 3; paranoia += 3; legitimidad_regimen -= 1; leyenda += 1
+
+You give the valley its verdict, and the valley is not wrong about what he did, and the relief in the assembly is a real and terrible thing to witness — a generation exhaling. It is also the door you did not want opened: a power that kills on the certainty of the crowd, however earned that certainty, has told the crowd that certainty is enough. The next case will be less clear and the crowd no less certain, and the discipline that lets a movement stop short of becoming a mob has been spent, once, on a man who deserved it — which is exactly how it is always first spent. You did justice. You also showed the war a shortcut it will ask to take again.
+
+@justicia_expulsar
+go-to: post_event
+on-arrival: disciplina += 1; sup_peasants -= 2; unity += 1
+
+You split the difference and satisfy no one: the man is run out of the zone under threat, alive, which keeps the movement's hands clean and leaves the valley holding the specific bitterness of watching its tormentor walk away on his own feet one more time. It is the choice of a movement that has thought hard about not becoming a killer and not yet hard enough about what it owes the people it governs. He will surface somewhere the state still rules, and he will remember the way out, and the valley will remember that when it finally caught him, the revolution flinched.
