@@ -1,0 +1,54 @@
+title: La bajada
+new-page: true
+subtitle: There is a way down that is not a rout
+face-image: img/stareguerilla.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and members >= 1 and (moral_columnas < 42 or parque <= 3 or coronel_red >= 62) and year >= 1972 and time >= bajar_last + 9
+priority: 4
+frequency: 85
+max-visits: 6
+on-arrival: bajar_last = time
+
+= La bajada
+
+The commanders gather in the dark the way they gather for a funeral, because in a sense it is one. The arithmetic on the ground floor of the war is no longer in dispute: the columns are thinning, the materiel is short, the Colonel's map of you thickens faster than you can burn it. Nobody in this room is a coward and nobody says the word *surrender*, but everyone has arrived, by their own road, at the same sentence — *this cannot be won the way it is being fought.*
+
+And there is a way down that is not annihilation. It has different names in different years — the amnesty when Reyes Heroles opens it, a quiet dissolution back into the legal Movement when he does not, the columns walking out of the sierra in ones and twos to become organizers, teachers, the hard cadres of a political work that needs people who have already seen the worst. What comes down the mountain is not nothing. It is the war's whole harvest: the veterans, the legend, the southern networks, the map of who can be trusted with a life. A war that ends in the dark harvests none of it. A war that chooses its own ending keeps it all.
+
+The alternative is to stay, and most who stay are, in the end, written into the memorial.
+
+- @deponer_bajada: Come down — end the war on the Movement's terms, and carry its harvest to the political road.
+- @seguir_bajada: Not yet. The mountain keeps its own, and the war is not over while a column still moves.
+
+@deponer_bajada
+go-to: post_event
+on-arrival: {!
+Q.via = "politica";
+Q.descenso_hecho = 1;
+Q.armada_entered = 0;
+// the harvest: what the war made, walking down into the legal work
+Q.veteranos = (Q.veteranos || 0) + 1;
+var _harvest = Math.floor(((Q.pres_guerrero || 0) + (Q.pres_valle || 0) + (Q.pres_oaxaca || 0)) / 12);
+Q.sup_peasants = (Q.sup_peasants || 0) + 3 + _harvest;
+Q.sup_students = (Q.sup_students || 0) + 2;
+Q.organizers = (Q.organizers || 0) + 1;
+Q.unity = (Q.unity || 0) + 3;
+// the milestone V of the sierra, earned by choosing the ending, if the war ever stood
+if ((Q.pres_guerrero || 0) + (Q.pres_valle || 0) >= 30) { Q.sw_descenso = 1; Q.leyenda = (Q.leyenda || 0) + 1; }
+// stand the war down: clear the danger clocks so the descent is not instantly re-punished
+Q.moral_columnas = 60;
+Q.coronel_red = Math.max(0, (Q.coronel_red || 0) - 30);
+Q.represion = Math.max(40, (Q.represion || 0) - 10);
+Q.postura_guerrilla = 2;
+// but the stomach keeps what it digested: not everyone comes down
+Q.members = Math.max(2, (Q.members || 0) - 1);
+Q.expediente = Math.max(0, (Q.expediente || 0) - 6);
+!}
+
+They come down in ones and twos over a season, along roads chosen for having no memory, and the legal Movement absorbs them the way a body absorbs a long-held breath. Some do not come — the irreducibles who cannot imagine a life without the rifle, and the dead, who are past choosing — and their absence is its own wound. But the war did not end in a clearing at gunpoint. It ended in a decision, which is the only ending that leaves anything behind. The veterans take the hardest posts; the campo remembers who stood with it; the legend enters the songs, where no garrison can occupy it. You return to the political road smaller, older, and carrying something the road never had before: people who have already been to the end of the country and walked back.
+
+@seguir_bajada
+go-to: post_event
+on-arrival: moral_columnas += 3; unity += 1
+
+The meeting ends without a decision, which is itself a decision. The columns hold; the mountain keeps its own; the war goes on being fought the way it is being fought. Perhaps the next operation turns it. Perhaps the Colonel's map completes itself first. Everyone walks back into the dark they came from, and the arithmetic waits, patient, for the next time the commanders gather.
