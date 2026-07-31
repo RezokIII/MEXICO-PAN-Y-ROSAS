@@ -379,6 +379,18 @@
   d('trm','GAME: general-strike infrastructure - committees, funds, the delegate web. Built for years, spent in one telephone call. The state charrazo erodes it.',['General strike readiness']);
   d('trm','GAME: what your sources see of the war - below 40, the Sierra map is fog and guesses; above, real garrison numbers.',['Intelligence capacity']);
   d('evt','September 19, 1985, 7:19 a.m. The earthquake \u2014 and the week the city governed itself.',['diecinueve de septiembre']);
+  // --- QA pass: mechanics and figures that were being used without a hover definition ---
+  d('trm','GAME: the reformist road\u2019s clock (0-100). Every post, favor and year inside the state\u2019s antechambers raises it; strikes, scandals and named victories lower it. At 70 the system completes the meal \u2014 la digesti\u00f3n \u2014 and offers you a chair for your teeth.',['absorci\u00f3n','absorcion','la digesti\u00f3n','la digestion','digesti\u00f3n']);
+  d('trm','GAME: an internal split forced by a corriente whose discontent passes 65. The corrientes card in El Movimiento is the instrument for heading it off.',['fronda']);
+  d('trm','GAME: the public disavowal of the armed struggle. Buys distance from the guerrilla\u2019s war (and the state\u2019s pretext) at a price in prestige with the radical young.',['deslinde']);
+  d('per','Sergio M\u00e9ndez Arceo, the \u201cred bishop\u201d of Cuernavaca: blessed strikes from the altar, sheltered the hunted, read the Gospel as a document about this hunger and this landlord.',['M\u00e9ndez Arceo','Mendez Arceo']);
+  d('per','Samuel Ruiz, bishop of San Crist\u00f3bal from 1959: learned Tzeltal, trained indigenous deacons, and built in the Chiapas highlands the slow floor a whole future would stand on.',['Samuel Ruiz']);
+  d('evt','The 1968 conference of Latin American bishops that declared \u201cthe preferential option for the poor\u201d \u2014 the doctrinal spark of liberation theology.',['Medell\u00edn','Medellin']);
+  d('org','Comunidades eclesiales de base: the base communities \u2014 parish cells that taught campesinos to read using the vocabulary of their own exploitation, and organized accordingly. Liberation theology as method.',['comunidades eclesiales de base','comunidades de base','base communities','CEB','CEBs']);
+  d('per','El G\u00fcero Medrano, Monterrey worker who studied in China and built the Colonia Rub\u00e9n Jaramillo outside Cuernavaca \u2014 a self-governing invaded town \u2014 before dying organizing the Oaxaca jungle.',['G\u00fcero Medrano','Medrano','el G\u00fcero Medrano']);
+  d('org','Zapotec city on the Isthmus of Tehuantepec; the COCEI\u2019s ayuntamiento popular, one of the few municipal governments the left held and the desaparici\u00f3n de poderes could not disappear.',['Juchit\u00e1n','Juchitan']);
+  d('org','The first red municipio of the Guerrero Monta\u00f1a, held by the left \u2014 a milestone-IV foundation the caciques budgeted to erase and could not.',['Alcozauca']);
+  d('trm','GAME: the poll-watcher network \u2014 representatives at the tables who catch the fraud the count depends on hiding. Built card by card; the difference between a stolen election and a documented one.',['representantes de casilla','poll-watcher','poll watchers']);
 
   var keys = Object.keys(G).sort(function(a, b) { return b.length - a.length; });
   var esc = keys.map(function(k) { return k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
