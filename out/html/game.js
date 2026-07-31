@@ -762,6 +762,45 @@
   window.addEventListener('load', function(){ setTimeout(hook, 700); });
 })();
 
+/* ===================== PAN Y ROSAS — legacy / new-game+ ===================== */
+// Movements inherit their dead. The previous playthrough's ending and memorial are
+// stored, and root @start reads window.pyrLegacy to seed a codicil into the new run.
+(function(){
+  try { window.pyrLegacy = JSON.parse(localStorage.getItem('pyr_legacy') || 'null'); }
+  catch(e){ window.pyrLegacy = null; }
+  var saved = false;
+  function saveLegacy(){
+    if (saved) return;
+    var Q; try { Q = window.dendryUI.dendryEngine.state.qualities; } catch(e){ return; }
+    if (!Q) return;
+    var rec = {
+      ending: Q.ending || 'none',
+      memorial: Q.memorial || 0,
+      via: Q.via || 'politica',
+      year: Q.year || 0,
+      lucio: Q.lucio_vive ? 1 : 0,
+      praga: Q.praga_line ? 1 : 0,
+      feminismo: (Q.feminismo || 0) >= 60 ? 1 : 0,
+      registro: (Q.registro || 0) >= 1 ? 1 : 0,
+      ceb: Q.ceb_aliado ? 1 : 0,
+      ts: Date.now()
+    };
+    try { localStorage.setItem('pyr_legacy', JSON.stringify(rec)); saved = true; } catch(e){}
+  }
+  function watch(){
+    var e = window.dendryUI && window.dendryUI.dendryEngine;
+    if (!e || !e.displaySceneContent) { setTimeout(watch, 400); return; }
+    var orig = e.displaySceneContent;
+    e.displaySceneContent = function(){
+      var r = orig.apply(this, arguments);
+      var s = ''; try { s = e.state.sceneId || ''; } catch(x){}
+      if (s && (s.indexOf('finale') === 0 || s.indexOf('game_over') === 0)) { try { saveLegacy(); } catch(x){} }
+      return r;
+    };
+  }
+  window.addEventListener('load', function(){ setTimeout(watch, 750); });
+})();
+
 /* ===================== PAN Y ROSAS — music player ===================== */
 (function(){
   if (window.__pyrMusicInit) return; window.__pyrMusicInit = true;

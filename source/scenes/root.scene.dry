@@ -789,6 +789,23 @@ Q.medias_pri = 60; Q.medias_pan = 25; Q.medias_izq = 1; Q.medias_pps = 2; Q.medi
 Q.estudiantes_pri = 35; Q.estudiantes_pan = 15; Q.estudiantes_izq = 36; Q.estudiantes_pps = 8; Q.estudiantes_parm = 2; Q.estudiantes_otros = 15;
 Q.maestros_pri = 70; Q.maestros_pan = 5; Q.maestros_izq = 6; Q.maestros_pps = 12; Q.maestros_parm = 2; Q.maestros_otros = 8;
 Q.electricistas_pri = 70; Q.electricistas_pan = 5; Q.electricistas_izq = 7; Q.electricistas_pps = 8; Q.electricistas_parm = 3; Q.electricistas_otros = 8;
+
+// --- legacy / new-game+: a second Movement inherits the first one's dead and its record ---
+Q.legado_previo = 0;
+if (typeof window !== 'undefined' && window.pyrLegacy) {
+    var L = window.pyrLegacy;
+    Q.legado_previo = 1;
+    Q.legado_ending = L.ending || 'none';
+    Q.legado_via = L.via || 'politica';
+    Q.legado_memorial = L.memorial || 0;
+    Q.legado_lucio = L.lucio || 0;
+    Q.legado_praga = L.praga || 0;
+    Q.legado_feminismo = L.feminismo || 0;
+    Q.legado_registro = L.registro || 0;
+    Q.legado_ceb = L.ceb || 0;
+    // the list is copied in three hands and never starts empty for those who inherit it
+    Q.memorial = (Q.memorial || 0) + 1;
+}
 !}
 set-bg: img/fondo_escritorio.jpg
 new-page: true
@@ -1100,6 +1117,8 @@ face-image: img/pcm.jpg
 new-page: true
 
 = Lo que queda
+
+[? if legado_previo = 1 : *You have led this Movement before, in another telling. That one ended[? if legado_ending = "reconocimiento" : in a counted election the state could not steal — the true victory ?][? if legado_ending = "historico" : with a party founded from a stolen election ?][? if legado_ending = "ruptura" : in the eleven days, the state's oldest language answered in the streets ?][? if legado_ending = "guerra_larga" : with a war that neither won nor was crushed, still burning in the sierra ?][? if legado_ending = "exterminio" : in the green dark, a guerrilla brutally crushed ?][? if legado_ending = "aniquilacion" : with the Movement dissolved ?][? if legado_ending = "fuerte" or legado_ending = "media" or legado_ending = "debil" : with a left that survived, and fell short of the night ?][? if legado_ending = "irrelevancia" : on the shore, while the wave passed ?]. Its dead are on your list before you write a name of your own[? if legado_lucio = 1 : ; that Movement kept Lucio alive ?][? if legado_praga = 1 : ; it kept the Prague heresy lit ?][? if legado_registro = 1 : ; it got the hammer and sickle counted ?]. The record remembers. Bend it further this time.* ?]
 
 You are what remains of the Mexican Communist Party: some five thousand militants, a newspaper that prints when it can, no electoral registration, and a martyrology longer than the membership list. The rail cadres have been in prison since '59. The offices were raided in September; the government's press has assigned you a starring role in a movement you did not lead and could barely follow.
 
