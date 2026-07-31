@@ -33,7 +33,6 @@ The comandancia draws the balance by lamplight, the way it has drawn every balan
 - @la_sierra_no_baja: The sierra does not come down for an election. Whatever July is, the war is not a spectator to it — hold the mountain.
 
 @bajar_a_la_ola
-go-to: post_event
 on-arrival: {!
 Q.via = "politica";
 Q.represion -= 8;
@@ -55,11 +54,14 @@ Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0;
 
 They come down in the weeks before the wave crests, and the wave receives them the way rivers receive the streams that were always feeding them: without ceremony, as if they had never been apart. The veterans of the sierra become the cardenista campaign's spine in the south — poll-watchers who cannot be intimidated because they have already survived worse, a ground game in the Costa Grande and the Istmo that the machine's operators do not know how to frighten. The war did not win the mountain. It arrives, at the last hour, exactly where the anger finally pooled — and finds it has spent twenty years training precisely the people this night will need.
 
+- @post_event: Continuar.
+
 @jugar_la_primavera
-go-to: post_event
 on-arrival: guerrilla_meter += 3
 
 The order goes up the trails: prepare. One operation, the largest the war can mount, timed to the season when the whole country is watching the succession — to make the sierra a fact the count cannot count around. The columns that have waited twenty years for permission receive it at last, and the safe houses fill with the particular electricity of people who have decided to stop surviving and start acting. What the spring becomes, the operation will decide.
+
+- @post_event: Continuar.
 
 @la_sierra_no_baja
 new-page: true

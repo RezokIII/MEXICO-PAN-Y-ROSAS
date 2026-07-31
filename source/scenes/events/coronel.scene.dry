@@ -20,16 +20,18 @@ His informer network in your zones will grow every month you leave it alone. Cut
 - @ignorar_coronel: A colonel is a uniform; kill the man, another arrives. Fight the campaign, not the officer.
 
 @medir_coronel
-go-to: post_event
 on-arrival: inteligencia += 4; coronel_red -= 5
 
 The dossier assembles slowly: the safe houses he uses, the cantina where his paymaster drinks, the specific vanity — he gives interviews, anonymously, boasting — that will one day be the crack. Reading him costs nothing but the attention of people who have little to spare, and it buys the only thing that beats a patient hunter: a hunter who is patient back.
 
+- @post_event: Continuar.
+
 @ignorar_coronel
-go-to: post_event
 on-arrival: moral_columnas += 4; coronel_red += 4
 
 The line is orthodox and the columns like it: personalizing the enemy is a bourgeois error, the system produces a hundred colonels, fight the system. All true, and all beside the point the next year will make, when the man nobody bothered to study has mapped your zones from the inside while you were being theoretically correct about him.
+
+- @post_event: Continuar.
 
 @coronel_barrida
 title: La barrida
@@ -61,7 +63,6 @@ There is no good option, only the least ruinous. What you built before this mont
 - @barrida_contragolpe: Hit him where he isn't. Answer the sweep with an operation in another zone — prove the war has initiative.
 
 @barrida_dispersar
-go-to: post_event
 on-arrival: {!
 var _z = Q.barrida_zone;
 Q['pres_'+_z] -= 3; Q.moral_columnas -= 4; Q.inteligencia += 2; Q.coronel_red += 3; Q.parque -= 1;
@@ -69,6 +70,8 @@ if (Q.parque < 0) { Q.parque = 0; }
 !}
 
 The order is old and bitter: be smoke. The caches are buried or burned, the column becomes forty unrelated people with errands, and the Colonel's three thousand walk a region that empties ahead of them like water around a stone. It works — the net closes on nothing — and it costs what dispersal always costs: momentum, materiel, and the villages' sense that you can protect anything, including them. Survival, again, purchased with the currency of looking weak.
+
+- @post_event: Continuar.
 
 @barrida_pelear
 go-to: post_event

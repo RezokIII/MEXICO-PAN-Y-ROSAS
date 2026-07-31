@@ -16,10 +16,11 @@ The office's ledger of small victories is now the neighborhood's political memor
 - @profundizar: Deepen it: train the committee leaders as organizers in their own right. The colonia should run its own politics — with your school behind it.
 
 @profundizar
-go-to: post_event
 subtitle: -3 funds
 choose-if: funds >= 3
 unavailable-subtitle: The colonia cadre school costs money too.
 on-arrival: funds -= 3; colonia_saga = 2; sup_colonos += 5; members += 1; political_capital += 2
 
 Twelve señoras and eight young men through the school of cuadros — bookkeeping, assembly law, how to speak to a functionary without blinking. Within a year, half the east side's committees are chaired by graduates. The Party did not capture the movement. It did something the DFS's categories cannot file: it became part of how the movement thinks.
+
+- @post_event: Continuar.

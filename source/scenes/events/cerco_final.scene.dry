@@ -23,7 +23,8 @@ You have been warned the only way the mountain ever warns anyone: once, and by s
 - @entendido_cerco: Understood. There is still time — barely. Continuar.
 
 @entendido_cerco
-go-to: post_event
 on-arrival: guerrilla_meter -= 2
 
 The messenger is fed, and sleeps four hours, and goes back up before light because down here even mercy keeps a schedule. Whether the leadership can do the one thing the whole decade was built to make impossible — stop — is the only question the winter is still asking. It will not ask it twice.
+
+- @post_event: Continuar.

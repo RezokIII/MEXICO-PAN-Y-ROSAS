@@ -17,18 +17,20 @@ The army will come eventually; everyone including Medrano knows it. Meanwhile th
 - @distancia_medrano: Decline, courteously. When the army comes — and it will — the Party cannot be inside the perimeter.
 
 @trabajar_medrano
-go-to: post_event
 choose-if: organizers >= 2
 unavailable-subtitle: Working with the colonia takes cadres on the ground you do not have.
 on-arrival: medrano_advisor = 1; sup_colonos += 3; expediente += 4; fac_ortodoxos -= 2
 
 Your organizers arrive with mimeograph stencils and leave with an education: the colonia's census is better than the state's, its assembly rowdier than your congresses and quicker to decide, its defense roster organized by block and blood type. Medrano receives the Party's help without gratitude and returns it without stinting, which is his version of respect. The DFS adds a line connecting two files that were already thick separately. It was always going to.
 
+- @post_event: Continuar.
+
 @distancia_medrano
-go-to: post_event
 on-arrival: sup_colonos -= 2; fac_ortodoxos += 2
 
 The letter declining is a small masterpiece of comradely evasion, and Medrano reads it aloud to his assembly for the entertainment value. The colonia manages without you, until it doesn't; the army's eventual operation finds no Party members inside the perimeter, exactly as planned. In the colonias of the capital, where everyone has a cousin in Morelos, the story is told with a different moral than the one intended.
+
+- @post_event: Continuar.
 
 @medrano_cae
 title: La selva se lo traga
@@ -52,7 +54,8 @@ The colonias of the Valle hold his wake without a body. It lasts three nights, w
 - @heredar: Inherit the method: the colonia work continues under his name, which no eviction order can serve papers on.
 
 @heredar
-go-to: post_event
 on-arrival: sup_colonos += 3; colonia_presion += 1; political_capital += 1
 
 The manuals he left — hand-drawn, mimeographed, practical as recipes — circulate through the coordinadoras with his nickname on the cover. Every invasion that follows the method is, in the only sense that matters to him now, his. The state can occupy a hillside. The knowledge of how hillsides are taken has no address to occupy.
+
+- @post_event: Continuar.

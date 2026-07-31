@@ -17,18 +17,21 @@ The Brigada Blanca is at its technical peak: an inter-agency hunting party of DF
 
 @dispersar
 on-arrival: inteligencia += 4; expediente -= 3; guerrilla_meter -= 3; pres_valle -= 2
-go-to: post_event
 
 You break the columns down to compartments of three who do not know the fourth, move the archive again, and let the Brigada's men exhaust themselves raiding rooms that emptied a week ago. It is survival, not victory, and survival costs momentum — the war goes quiet, and quiet, in the countryside and the city both, is a thing the state administers. But your people are alive to be quiet.
 
+- @post_event: Continuar.
+
 @amnistia_puerta
 on-arrival: postura_guerrilla = 1; guerrilla_meter -= 8; expediente -= 6; represion -= 4; political_capital += 3; unity -= 2
-go-to: post_event
 
 You begin the deslinde and move toward the surface, and the amnesty is exactly as humiliating as designed — a photograph, a renunciation, a file that never truly closes. Some of your people will not walk through it and never forgive those who did. But the ones who surface are alive and legal-in-waiting, and in this Republic that is the difference between a future and a corrido.
 
+- @post_event: Continuar.
+
 @operacion_desafio
 on-arrival: guerrilla_meter += 6; expediente += 12; represion += 8; memorial += 2; auge_armada = 1 if inteligencia >= 40
-go-to: post_event
 
 You answer the hunt with one operation loud enough to say the columns are not finished — and whether it is a triumph or a massacre depends entirely on the intelligence you spent years building or neglecting. Either way the Brigada redoubles, the funerals follow, and the young who watch decide, some of them, that a movement that still strikes back is worth dying beside. The war does not end. It insists.
+
+- @post_event: Continuar.

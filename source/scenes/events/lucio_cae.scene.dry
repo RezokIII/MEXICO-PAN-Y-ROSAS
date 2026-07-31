@@ -20,7 +20,6 @@ If it closes, the Party of the Poor will not survive him — organizations built
 - @distancia: The Party cannot become the guerrilla's convalescent home; the ones the DFS follows down will lead them through your doors.
 
 @salvarlo
-go-to: post_event
 view-if: via = "armada" and inteligencia >= 35
 on-arrival: lucio_vive = 1; memorial += 1; guerrilla_meter -= 1; represion += 4; expediente += 6; inteligencia -= 8; pres_guerrero += 3; sup_peasants += 2
 
@@ -28,16 +27,20 @@ The runner reaches the camp at dusk with the map of the noose, and the schooltea
 
 The cost is enormous and itemized: two sources burned, a route abandoned forever, the Brigada suddenly, furiously aware of how deeply it is seen. And against it, a single entry that no ledger can weigh: on the third of December, 1974, in this history and no other, Lucio Cabañas is alive. The corrido writers, cheated of an ending, will have to learn to write beginnings.
 
+- @post_event: Continuar.
+
 @recibir
-go-to: post_event
 on-arrival: memorial += 2; guerrilla_meter -= 3; represion -= 2; lucio_advisor = 0; members += 1; sup_peasants += 3; expediente += 6; political_capital += 2; bajaron = 1
 choose-if: sup_peasants >= 20 or postura_guerrilla >= 2
 unavailable-subtitle: Without a Guerrero base or prior channels, there is no way to reach them before the Brigada does.
 
 On the second of December the noose closes: Lucio dies with his last brigade around him, and the army photographs the body with the care of men preparing a receipt. For the ones coming down, it is done the slow way: a priest who owes Othón a favor, a clinic in Chilpancingo, bus tickets bought in threes. Not all of them want saving and not all of them are saved, but by spring there are young men repairing mimeographs who last year were cleaning rifles, and in the Montaña the Party's name is spoken with a new modifier: *los que bajaron por ellos*. The ones who went for them.
 
+- @post_event: Continuar.
+
 @distancia
-go-to: post_event
 on-arrival: memorial += 2; guerrilla_meter -= 1; represion -= 2; sup_peasants -= 2; lucio_advisor = 0
 
 On the second of December the noose closes, and the schoolteacher of Atoyac enters the corridos. The reasoning for distance is sound and the sound of it carries. Some of the descended are taken at the bus stations; some reach the Liga, which welcomes anything that still angers; a few simply vanish into day labor and silence, carrying their verdict with them. The Party's doors stayed clean. In Guerrero, clean doors have a particular reputation.
+
+- @post_event: Continuar.

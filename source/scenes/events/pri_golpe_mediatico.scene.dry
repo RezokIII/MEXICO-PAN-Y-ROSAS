@@ -21,22 +21,25 @@ subtitle: -3 political capital. Requires a press of your own that cannot be sile
 choose-if: rius_tinta = 1 or political_capital >= 10
 unavailable-subtitle: Answering a national smear needs a voice of your own — Rius's ink, or the capital to buy the pages. You have neither.
 on-arrival: political_capital -= 3; sup_middle += 2; legitimidad_regimen -= 1; prestigio_socialismo += 1
-go-to: post_event
 
 You answer where they cannot follow: the cartoon that makes the accusation ridiculous, the column that walks a doctor's wife through exactly who profits from her fear, the mimeograph that reaches the market before the newspaper reaches the doorstep. The smear does not vanish, but it acquires a reply, and a middle class that has heard both sides is a middle class the regime has already half-lost.
+
+- @post_event: Continuar.
 
 @aliados_prensa
 subtitle: Requires a reformist relationship to place the rebuttal.
 choose-if: pri_reformist_rel >= 15
 unavailable-subtitle: To turn a smear into a debate you need an editor inside the tent who will run your side. You have no such friend.
 on-arrival: pri_reformist_rel -= 2; sup_middle += 1; political_capital += 1
-go-to: post_event
 
 A reformist editor — the kind the apertura produced and never quite reabsorbed — runs your rebuttal beside the accusation, and the smear becomes, overnight, a controversy: two sides, a debate, a thing reasonable people disagree about. That is a defeat for a regime whose whole method is to make disagreement unthinkable. The favor costs you a chip of the relationship, called in.
+
+- @post_event: Continuar.
 
 @encajar
 subtitle: No voice to answer with. The smear lands on the audience it was built for.
 on-arrival: sup_middle -= 5; expediente += 2; fe_voto -= 1
-go-to: post_event
 
 You have no press of your own and no friend in theirs, so the smear runs unanswered for the weeks that matter, and it does exactly what it was designed to do: the middle class you had begun to reach reads that you are foreign, violent, dangerous, and — hearing nothing to the contrary — believes enough of it to step back. Reach without a voice to defend it is reach the regime can erase between editions. Build the press, or keep taking the blow.
+
+- @post_event: Continuar.

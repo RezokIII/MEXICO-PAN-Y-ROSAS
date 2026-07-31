@@ -19,9 +19,10 @@ The first stone of the sierra's camino is laid. It is a headstone that reads, fo
 - @seguir: The calendar is burned, per the rules. The war continues.
 
 @seguir
-go-to: post_event
 
 The compañero who kept the calendar is reprimanded, and that night, at the fire, someone teaches the young ones the date anyway. Some discipline exists to be kept; some exists to be broken in the right company.
+
+- @post_event: Continuar.
 
 @hito_zona
 title: La zona
@@ -45,9 +46,10 @@ Whatever the war becomes — pressure, insurrection, or a hard bargain at a tabl
 - @sostener_zona: Hold it. Everything else the war does now starts from here.
 
 @sostener_zona
-go-to: post_event
 
 The state's maps acquire a shaded area and a budget line. Yours acquire something rarer: an address.
+
+- @post_event: Continuar.
 
 @hito_sintesis
 title: La síntesis
@@ -71,6 +73,7 @@ The analysts in Bucareli will need a year to believe their own reports. That yea
 - @una_guerra: One war now. Continuar.
 
 @una_guerra
-go-to: post_event
 
 The courier who closed the loop sleeps for eighteen hours in the safe apartment, and no one wakes her. Some feats are honored in medals; here, in sleep.
+
+- @post_event: Continuar.

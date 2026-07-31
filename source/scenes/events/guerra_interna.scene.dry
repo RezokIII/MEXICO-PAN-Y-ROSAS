@@ -20,24 +20,27 @@ Both sides can point to graves that prove them right. The decision is not academ
 - @linea_equilibrio: Hold the synthesis — neither the *foco* nor the pamphlet, and spend authority keeping both currents in one army.
 
 @linea_militarista
-go-to: post_event
 on-arrival: linea_guerra += 12; parque += 2; pres_guerrero += 2; pres_valle += 2; sup_peasants -= 2; disciplina -= 3; moral_columnas += 4
 
 The columns are unleashed and the war gets loud: barracks probed, convoys hit, the communiqués arriving faster than the state can bury them, and for a season the young flock to a movement that is visibly *doing something*. It also cuts the war loose from its slow roots — the villages that fed it become audiences instead of participants, the army follows the noise straight to the noise-makers, and somewhere a mass-line cadre packs a bag, having lost the argument and, he suspects, the war. Speed has a bill. It is always paid later, and always by more people than signed for it.
 
+- @post_event: Continuar.
+
 @linea_masas
-go-to: post_event
 on-arrival: linea_guerra -= 12; disciplina += 4; sup_peasants += 3; sup_colonos += 2; parque -= 1; moral_columnas -= 2
 
 The order goes out that no one wants to give in a war: *slow down.* Fewer operations, more schools; fewer ambushes, more assemblies; the column dissolving back into the villages it came from until the line between the guerrilla and the people is a thing the army cannot find because it does not exist. It is correct and it is agonizing — the militants who joined to fight spend the season teaching arithmetic, some of them leave for groups that will let them shoot, and the war grows so slowly it looks, to the impatient, like surrender. It is not. It is the only version of this that has ever survived a decade.
 
+- @post_event: Continuar.
+
 @linea_equilibrio
-go-to: post_event
 choose-if: disciplina >= 45
 unavailable-subtitle: Holding both currents in one army takes a discipline the columns no longer have — the argument will be settled by other means.
 on-arrival: unity += 2; disciplina += 2; political_capital -= 2
 
 You refuse the choice the continent could not refuse, and spend real authority doing it: the militaristas get their operations and the mass-line cadres get their villages, and the leadership stands in the middle absorbing the friction that would otherwise become a split. It holds, this season, because you made it hold — and holding it is a cost, paid in the capital it takes to tell two convinced factions that they are both half right. Do it too many times and the center itself becomes a faction, and the loneliest one.
+
+- @post_event: Continuar.
 
 @el_ajusticiamiento
 title: El ajusticiamiento
@@ -62,24 +65,27 @@ This is how the Liga ate itself. This is how every hunted movement learns that t
 - @ajust_proteger: Refuse. The Movement does not shoot its own on suspicion; if it becomes that, it has already lost the thing it was for. Vouch for him, and carry the risk if you are wrong.
 
 @ajust_ejecutar
-go-to: post_event
 on-arrival: ajusticiamientos += 1; paranoia -= 18; coronel_red -= 6; disciplina -= 6; moral_columnas -= 5; memorial += 1; sup_students -= 2; leyenda -= 1
 
 It is done at dawn, away from the camp, by people who will not sleep well again. And the terrible thing — the thing that guarantees it will happen again — is that it *works*, in the only sense the fear can measure: the whispers stop, the paranoia drops, and for a while the losses ease enough to call it proof. Whether he was guilty no one will ever know, which is the point and the poison. The column obeyed and the column is smaller in a way that does not show on any roster: something went out of it at that dawn that no recruitment drive brings back. The name goes on your memorial too. You will not write down why.
 
+- @post_event: Continuar.
+
 @ajust_investigar
-go-to: post_event
 choose-if: inteligencia >= 20
 unavailable-subtitle: A real investigation needs eyes and craft you do not have; without them, holding him only means the doubt festers under guard.
 on-arrival: paranoia -= 8; inteligencia -= 4; disciplina += 2; expediente += 2
 
 You do the hard, slow, unglamorous thing: hold him, and actually look — retrace the operations, test what he knew against what leaked, find the clerk or the courier or the coincidence that the fear had assigned to him. It costs you the intelligence effort you needed elsewhere and it costs you the days a real informer would have used, and at the end you have something the shortcut never gives: a decision made on evidence instead of terror. Sometimes it clears him. Sometimes it hangs him with his own logistics. Either way the column watched the leadership refuse to guess with a life, and that is worth more than the doubt it cost.
 
+- @post_event: Continuar.
+
 @ajust_proteger
-go-to: post_event
 on-arrival: paranoia += 4; disciplina += 3; unity += 2; leyenda += 1
 
 You stand between the column and the compañero and say the sentence the armed struggle almost never manages: *we do not shoot our own on suspicion.* It is the principled choice and it is not the safe one — the doubt does not vanish, it just goes underground with the man it named, and if he was the ear, the Colonel's map keeps filling and the next losses are on your account. But the column saw the leadership refuse to become the enemy's instrument, and something holds in the movement's soul that the shooting would have broken. You have chosen to risk being betrayed over being certain to betray. History, on this one, tends to be kind to the choice and cruel to some of the people who made it.
+
+- @post_event: Continuar.
 
 @la_escision_armada
 title: La escisión
@@ -102,21 +108,24 @@ The argument the leadership has been holding shut blows open, and this being an 
 - @escision_purgar: Treat the split as treason. Move against the leavers before they consolidate — the darkest road, and the one that ends with guerrillas killing guerrillas.
 
 @escision_dejar
-go-to: post_event
 on-arrival: escisiones_armadas += 1; pres_valle -= 4; pres_jalisco -= 3; members -= 1; disciplina += 6; moral_columnas -= 3
 
 You do the mature, mournful thing: a clean divorce. The safe houses divided without gunfire, a gentleman's agreement not to poach or betray, two movements where there was one — smaller, both of them, and each now carrying the specific loneliness of having been right at the cost of being fewer. Your columns are more coherent for having shed the disagreement, and weaker for having shed the people. Somewhere the other guerrilla issues its founding communiqué, and the DFS files it with satisfaction: they did not have to do this one themselves.
 
+- @post_event: Continuar.
+
 @escision_retener
-go-to: post_event
 choose-if: political_capital >= 5
 unavailable-subtitle: Holding a splitting army together takes authority to spend, and the treasury of trust is empty.
 on-arrival: political_capital -= 5; linea_guerra += 4; disciplina += 3; unity -= 2; moral_columnas += 2
 
 You bend the line toward the leavers and pay for unity in the coin of coherence: a congress convened at gunpoint's remove, concessions that move the whole movement's strategy toward the faction that threatened to leave, the center giving ground to hold the edges. It works — one army walks out the door it nearly split through — and it is not free: the tail has learned it can move the dog by threatening to leave, and it will remember. You kept the numbers. You spent some of the thing that made them worth keeping.
 
+- @post_event: Continuar.
+
 @escision_purgar
-go-to: post_event
 on-arrival: escisiones_armadas += 1; ajusticiamientos += 1; paranoia += 12; disciplina -= 8; moral_columnas -= 10; memorial += 2; sup_students -= 4; leyenda -= 2
 
 You call the split what the hardest voices insist it is — desertion, treason, an objective service to the enemy — and you move on the leavers before they can consolidate. It is the road with no bottom. Guerrillas hunting guerrillas, the two structures bleeding each other in the same sierra while the army watches from the ridgeline and takes notes, safe houses given up out of spite, the movement's own dead now including the ones it killed itself. Whatever the state does after this, it will not need to do much. You have shown it the shortest way to end a guerrilla, which is to convince it to end itself.
+
+- @post_event: Continuar.

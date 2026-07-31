@@ -17,18 +17,21 @@ In his last Informe, a weeping López Portillo does the unthinkable: he national
 
 @apoyar_nacional
 on-arrival: ax_nacpop += 5; sup_middle += 3; sup_workers += 2; political_capital += 2; pri_reformist_rel += 2; fac_ortodoxos -= 2
-go-to: post_event
 
 You stand with the measure, and for a season the Movement and the cardenista nationalists breathe the same air — a rehearsal, though no one names it, for 1988. The orthodox mutter that state capitalism is not socialism, which is true and beside the point: six years from now, a great many of these nationalists will be looking for a car to crash into the regime, and today you rode beside them.
 
+- @post_event: Continuar.
+
 @critica_izquierda
 on-arrival: prestigio_socialismo += 3; sup_students += 2; ax_nacpop -= 3; sup_middle -= 2
-go-to: post_event
 
 You say the unpopular, precise thing: that nationalizing the banks after they have looted is not expropriating the rich but socializing their losses, and that the applauding crowd is cheering its own future austerity. It is correct. It is lonely. The students who can follow the argument come closer; the nationalists you will need in 1988 remember you as the ones who could not simply be glad.
 
+- @post_event: Continuar.
+
 @usar_crisis
 on-arrival: political_capital += 3; sup_colonos += 2; legitimidad_regimen -= 3; unity += 1
-go-to: post_event
 
 While the country argues theology, you organize: the crisis has cracked the regime's confidence, the debt has made the future negotiable, and a cracked, frightened state is the best recruiting sergeant the left ever had. You let the bankers and the president fight over the wreckage and quietly gather what falls off the table.
+
+- @post_event: Continuar.

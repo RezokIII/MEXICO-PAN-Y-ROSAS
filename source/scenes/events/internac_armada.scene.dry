@@ -20,22 +20,25 @@ The price is not money. It is entanglement, and exposure, and the long shadow of
 - @isla_rechazar: Decline. The Mexican revolution will be made by Mexicans with Mexican hands, or it is not worth making; no patrons, no islands, no leashes.
 
 @isla_enviar
-go-to: post_event
 on-arrival: internac_armada = 2; inteligencia += 6; parque += 3; disciplina += 5; moral_columnas += 3; expediente += 4; ax_sovietico += 3; sup_middle -= 2
 
 They come back in ones and twos over a year and the difference is immediate and undeniable: the wounded who used to die now sometimes live, the operations that used to be improvised are now planned, the column that used to be a brave crowd is now something closer to an army. It is the biggest single upgrade the war will ever receive. It also arrives with the shadow attached — the file with *Cuba* on it, the middle class that will believe every word the regime now says about foreign hands, the faint permanent question of whose war this is becoming. You decided the skills were worth the shadow. On the day a trained medic keeps a compañero alive, you will not doubt it. On the day the regime's propaganda lands because it is, this once, half true, you will.
 
+- @post_event: Continuar.
+
 @isla_selectivo
-go-to: post_event
 on-arrival: internac_armada = 2; inteligencia += 3; disciplina += 2; moral_columnas += 2; expediente += 2
 
 You take the scalpel, not the whole hand: two medics, a demolitions cadre, the skills that keep your people breathing, and nothing that requires the movement to sign anything. It is the prudent version and it delivers a prudent fraction of the benefit — fewer wounded lost, a few operations that finally work — while keeping the *Cuba* file thin enough to deny. The purists are half-satisfied and the maximalists grumble that you flew all that way for a first-aid course. But the compañeros who would have died and now do not are not an abstraction, and they were the whole reason you went.
 
+- @post_event: Continuar.
+
 @isla_rechazar
-go-to: post_event
 on-arrival: ax_sovietico -= 3; disciplina -= 1; prestigio_socialismo += 2; leyenda += 1
 
 You keep the war Mexican down to its wounds: no island, no patron, no file with a foreign stamp, the skills learned the hard way in the sierra at the price the sierra charges, which is paid in the people who die of the things a trained medic would have saved. It is a real principle and it has real graves. The movement that results is unmistakably its own — no one will ever credibly call it Havana's franchise — and it is measurably weaker for the refusal, slower to learn the things that keep guerrillas alive. Independence, here as everywhere in this game, is not free. It is only the one price you can be certain no one else is setting.
+
+- @post_event: Continuar.
 
 @la_jcr
 title: La coordinadora continental
@@ -60,21 +63,24 @@ It is seductive and it is dangerous in exactly the same proportion. Coordination
 - @jcr_nacional: Keep the war strictly national. Grieve the continent's dead, house its refugees, and refuse to make Guerrero a front in a hemispheric war it cannot win.
 
 @jcr_sumarse
-go-to: post_event
 choose-if: disciplina >= 45
 unavailable-subtitle: Joining a continental command takes a movement disciplined enough to survive the doctrines and dangers it imports — yours is too loose to absorb them safely.
 on-arrival: jcr = 2; parque += 3; inteligencia += 4; linea_guerra += 5; expediente += 5; represion += 3; prestigio_socialismo += 3; leyenda += 1
 
 You sign into the continental war, and it delivers what it promised in both directions: arms move through channels that did not exist before, the intelligence on the shared enemy sharpens, your isolated sierra becomes a node in something vast enough to feel, for the first time, like history instead of a last stand. And it delivers the shadow too — the imported urban doctrines that fit Montevideo better than the Montaña, the regime's propaganda handed a gift it could not have manufactured, and the cold attention of Condor, which files your movement alongside the ones already being disappeared across three borders. You are part of the hemisphere's revolution now. You are also, now, part of what it is losing, in most of the places it is being fought.
 
+- @post_event: Continuar.
+
 @jcr_solidaridad
-go-to: post_event
 on-arrival: inteligencia += 3; sup_students += 2; prestigio_socialismo += 2; exiliados += 1; expediente += 2
 
 You take the comrades and leave the command: the exiles sheltered, their hard-won knowledge absorbed, the safe houses of two continents quietly linked by trust rather than by a signed structure the enemy can map. It is the choice that keeps the solidarity real and the exposure limited — no formal tentacle for the regime to point at, no line item in Condor's ledger with your name beside it, but also no shared arsenal, no hemispheric weight behind your sierra. You have the friendship and not the front. In a war being lost across a continent, keeping your own war legible and your own the only one you are fighting may be the difference between a defeat and a catastrophe.
 
+- @post_event: Continuar.
+
 @jcr_nacional
-go-to: post_event
 on-arrival: ax_sovietico -= 2; exiliados += 1; disciplina += 1; prestigio_socialismo += 1
 
 You house the refugees and honor their dead and refuse, absolutely, to make the Montaña a front in a war designed on other continents for other terrain. It is the sober call — Guerrero cannot win Montevideo's war and would only import its defeats — and it costs you the arms and the intelligence and the vast electric feeling of being part of the hemisphere's uprising. The exiles understand and do not fully forgive; internationalism, to people whose countries were taken, is not an optional entanglement but the only hope they have left, and a movement that keeps its war national is, to them, a movement keeping its lifeboat to itself. You have chosen the war you can actually fight. History will record that it was, at least, coherent.
+
+- @post_event: Continuar.

@@ -26,7 +26,6 @@ The organizers on the political side beg you to reconsider. Every rifle fired in
 - @easy_discard
 
 @abstenerse_op
-go-to: post_event
 title: No es la temporada
 on-arrival: {!
 Q.via = "politica";
@@ -44,6 +43,8 @@ Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0;
 !}
 
 The rifles stay buried, and the decision carries the columns with it: if the war will not act this spring, then the war comes down to where the spring is acting. The veterans descend into the cardenista wave in the weeks before it crests — a ground game in the south that has already survived everything the machine can threaten. Some cadres take it as wisdom and some as one more betrayal filed for later. But the state will not be able to say you started the shooting, and the wave gains a spine that spent twenty years learning not to break.
+
+- @post_event: Continuar.
 
 @radio
 title: La toma de la señal
@@ -137,7 +138,6 @@ go-to: la_aniquilacion_armada
 @sumarse_ola
 new-page: true
 face-image: img/guerrero_sierra.jpg
-go-to: post_event
 on-arrival: {!
 Q.via = "politica";
 Q.represion -= 6; Q.guerrilla_meter -= 4;
@@ -155,6 +155,8 @@ Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0;
 !}
 
 They come down on the momentum of the spring, and the wave — which has been organizing the same anger from the other direction for twenty years — receives the war's veterans as if it had been waiting for them, which in a sense it had. Whatever the operation cost, it bought this: an entrance into July made not as supplicants but as the people who, that spring, made the regime flinch. The mountain is behind them now. The count is ahead.
+
+- @post_event: Continuar.
 
 @seguir_guerra
 new-page: true

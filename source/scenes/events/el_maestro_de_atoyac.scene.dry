@@ -19,6 +19,7 @@ He survived the state's entire repertoire; his endorsement of the ballot is the 
 - @con_el: The Movement walks the Costa Grande beside him. There is no better company in Mexico.
 
 @con_el
-go-to: post_event
 
 He still corrects people who call him comandante. Maestro, he says. It was always the more dangerous title.
+
+- @post_event: Continuar.

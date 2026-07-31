@@ -20,22 +20,25 @@ What is the priority, the emissary asks, stirring a coffee he will not drink. Th
 - @pedir_nada: Nothing. The Party does not negotiate the terms of its own domestication over lunch.
 
 @pedir_amnistia
-go-to: post_event
 on-arrival: lfope_dote = 1; political_capital += 2; pri_reformist_rel += 3; fac_ortodoxos += 1
 
 The emissary writes nothing down, which is how you know it registered. When the amnesty law reaches the Chamber next year it will be broader than the first draft — the categories widened, the exclusions trimmed, a schedule that empties galleries rather than cells — and no document will ever connect it to a lunch. The prisoners will not know whom to thank. That, too, was part of the price, and the cheapest part.
 
+- @post_event: Continuar.
+
 @pedir_curules
-go-to: post_event
 on-arrival: lfope_dote = 2; political_capital += 2; pri_reformist_rel += 3; fac_renovadores += 2
 
 You talk arithmetic for an hour — district magnitudes, assignment formulas, the exact mischief available in a *cociente rectificado* — and the emissary, an engineer of such mischief, visibly enjoys himself. The plurinominal rules that emerge in the final text are cleaner than anyone expected: not clean, cleaner. In the Chamber of 1979 that difference will be measured in seats, and the seats in speeches the Republic cannot unhear.
 
+- @post_event: Continuar.
+
 @pedir_nada
-go-to: post_event
 on-arrival: fac_ortodoxos += 3; unity += 2; pri_reformist_rel -= 3
 
 You let the coffee go cold on both sides of the table. The position is coherent and the base will love it: the reform is the state's need, not the left's gift, and its terms can be read when published like anyone else's. The emissary accepts this with professional grace. What is lost is invisible and real: the reform will be drafted entirely by men who now know you will not help them argue its width to the hard desks down the hall.
+
+- @post_event: Continuar.
 
 @lfope_pleno_previo
 title: El pleno de la puerta
@@ -55,15 +58,17 @@ The reform will be law by December and the Party must walk into that month with 
 - @dejar_diciembre: Let December decide itself. Forcing the debate early spends authority the leadership may want for the vote itself.
 
 @preparar_pleno
-go-to: post_event
 choose-if: political_capital >= 5
 unavailable-subtitle: Pre-clearing a decision this size takes authority the leadership does not currently hold.
 on-arrival: political_capital -= 5; lfope_preclear = 1; unity += 3; des_ortodoxos -= 4; des_nueva -= 4
 
 It is the least glamorous work in politics and the most decisive: the position papers circulated to every cell, the objections collected and answered in writing, the ortodoxos given their full hour in every local and their dissent minuted with respect. By late November the Party knows its own mind — knows it cell by cell, with numbers. Whatever December brings, it will not bring a stampede: the house has already argued itself to a decision, which is the only kind that holds.
 
+- @post_event: Continuar.
+
 @dejar_diciembre
-go-to: post_event
 on-arrival: political_capital += 1
 
 The leadership husbands its authority for the vote itself. Defensible — Decembers have been survived before — but the cells spend the autumn arguing without materials, the corridors fill with versions, and the decision, when it comes, will land on a party that has been quarreling instead of deliberating. The difference will be paid in unity, whichever way the vote goes.
+
+- @post_event: Continuar.

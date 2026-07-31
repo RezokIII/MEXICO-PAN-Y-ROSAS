@@ -21,6 +21,7 @@ The transition is now official in both directions: the underground movement is a
 - @luz: In the light, then. Work.
 
 @luz
-go-to: post_event
 
 The first assembly in the legal office spends its opening minutes in an unaccustomed difficulty: nobody remembers how to run a meeting no one has to forget attending.
+
+- @post_event: Continuar.

@@ -94,24 +94,27 @@ This is the war the manuals do not cover: not the army, but the fracture the arm
 - @quinta_ajusticiar: The hard way, the fast way — and the way that has ended more guerrillas than the army ever did.
 
 @quinta_voltear
-go-to: post_event
 choose-if: inteligencia >= 35
 unavailable-subtitle: Running a double agent takes intelligence craft you have not built — 35.
 on-arrival: coronel_red -= 10; inteligencia += 5; coronel_expuesto = 1; expediente += 2
 
 You do not confront them; you feed them. For months the informer carries carefully cooked intelligence to the paymaster, and the Colonel's map of your zones acquires a precise, expensive wrongness — sweeps that hit empty ground, ambushes waiting where you never were. It is the hardest discipline in the war, to know a traitor and smile, and it is worth more than any execution: the enemy's eyes, turned to show him mirrors.
 
+- @post_event: Continuar.
+
 @quinta_asamblea
-go-to: post_event
 on-arrival: coronel_red -= 5; moral_columnas += 6; sup_peasants += 2; unity += 2
 
 The evidence goes to the assembly because the betrayal was the village's before it was yours, and the village, given the truth and the choice, does what communities do better than tribunals: it does not kill, it *un-includes* — the informer and their family isolated, watched, cut from the web of trust that made the information worth selling, until they leave of their own weight. The Colonel loses a source and the village keeps its soul, which is the only victory in this that lasts.
 
+- @post_event: Continuar.
+
 @quinta_ajusticiar
-go-to: post_event
 on-arrival: coronel_red -= 6; moral_columnas -= 8; sup_peasants -= 4; memorial += 1; guerrilla_meter -= 2; unity -= 3
 
 It is quick and it is certain and it is the beginning of the end, though that takes years to see. The source is closed. And the village learns that the column, too, can make a person disappear for a suspicion — that the difference between you and the state has narrowed to which side you are on, which is not a difference a frightened people will die for. Every guerrilla that chose this road walked the same slope afterward, downward, wondering when exactly it had become what it fought.
+
+- @post_event: Continuar.
 
 @coronel_golpe
 title: El Coronel, al alcance

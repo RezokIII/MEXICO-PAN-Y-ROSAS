@@ -21,7 +21,6 @@ The list of the willing grows one conversation at a time, and it grows fastest w
 - @easy_discard
 
 @reclutar_casilla
-go-to: post_event
 choose-if: organizers >= 2
 unavailable-subtitle: Building a poll-watcher network takes cadres to do the training — you have none to spare this month.
 on-arrival: {!
@@ -35,3 +34,5 @@ Q.political_capital += 1;
 !}
 
 Another few hundred tables covered, in a ledger kept in three copies and no filing cabinet. It is invisible work, it photographs badly, and it is precisely how an election stops being a coronation. On the night it matters, the distance between what happened and what the state announces will be exactly as wide as this list is long.
+
+- @post_event: Continuar.

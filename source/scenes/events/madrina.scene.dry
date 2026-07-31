@@ -20,21 +20,24 @@ They call the hooded ones *madrinas.* This is the war's final cruelty and its mo
 - @madrina_eliminar: He is a weapon aimed at all of you now, whatever he was. Order it, and carry forever the knowledge of what the enemy made you do to your own.
 
 @madrina_cortar
-go-to: post_event
 on-arrival: madrina_activa = 0; coronel_red -= 20; inteligencia -= 4; pres_valle -= 3; pres_guerrero -= 3; parque -= 2; disciplina += 2; paranoia += 6
 
 You burn it all down before he can finish naming it: the houses emptied overnight, the routes abandoned, the compañeros whose faces he saw sent far away or underground, the whole patient architecture he helped build dismantled because he helped build it. It works — the Colonel's sudden clairvoyance goes blind again, the losses stop — and it costs you months of war in a week, the network rebuilt from a crouch, the parque spent on nothing but disappearing. The column trades everything he knew for the one thing he cannot give back: the enemy's eyes, closed. It is the right call and it feels like amputating a limb to escape a trap the limb walked you into.
 
+- @post_event: Continuar.
+
 @madrina_recuperar
-go-to: post_event
 choose-if: inteligencia >= 25
 unavailable-subtitle: Reaching a man inside the enemy's grip takes intelligence and access you do not have — the attempt would only get the messenger killed.
 on-arrival: inteligencia -= 6; presos += 1; moral_columnas += 3; paranoia -= 4; leyenda += 1
 
 You refuse, for one attempt, to write him off as the thing they made him: a message threaded in through a cousin, a sister, a priest — *we know what they did, we do not blame you, here is a door.* Most of the time it fails, because a man with a family in the Colonel's hands is a man on the shortest leash there is, and the attempt costs you a compañero sent into terrible danger to carry it. But now and then the door is walked through: the madrina vanishes from the trucks, turns up months later in another country or another grave, and the column learns the thing that keeps a movement human in an inhuman war — that its own can be reached even inside the machine, that the enemy's victory over a person is not always final. You cannot afford to believe that about everyone. You needed to prove it about someone.
 
+- @post_event: Continuar.
+
 @madrina_eliminar
-go-to: post_event
 on-arrival: madrina_activa = 0; coronel_red -= 14; ajusticiamientos += 1; memorial += 1; disciplina -= 5; moral_columnas -= 6; paranoia += 4; leyenda -= 1
 
 It is done, and it closes the wound the only way a wound like this closes, which is to leave a scar shaped exactly like the thing that made it. The pointing finger stops; the losses ease; and the column carries out of that day a knowledge no manual prepared them for — that the enemy's masterpiece is not killing your people but making you kill them for him, turning your own security into his executioner, so that when the war is over the survivors will not be able to say cleanly who did what to whom. His name goes on the memorial. It goes on the same list as the enemy's other victims, because that is what he was, and the column that carried out the sentence knows it, and will know it at three in the morning for the rest of their lives.
+
+- @post_event: Continuar.

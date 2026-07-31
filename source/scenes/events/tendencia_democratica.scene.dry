@@ -19,18 +19,21 @@ Don Fidel wants it crushed. Echeverría, playing his apertura to the last, hesit
 
 @declaracion_guad
 on-arrival: declaracion = 1; sup_electricians += 10; sup_workers += 4; charrismo -= 4; unity += 3; expediente += 6; fe_voto += 2
-go-to: post_event
 
 You commit everything to the electricians, and for a while it is glorious: the Declaración de Guadalajara reads like a program the whole independent left could sign, and the yards and plants that hear it remember, for years, that once a union tried to belong to itself. When the requisa comes — and it will — the Party will be inside the defeat, which is the only honorable place to be.
 
+- @post_event: Continuar.
+
 @apoyo_cauto
 on-arrival: sup_electricians += 5; sup_workers += 2; charrismo -= 1; political_capital += 2
-go-to: post_event
 
 You lend the electricians the paper, the lawyers, the solidarity that costs a controlled amount, and keep the rest of the Movement clear of the coming blow. It is prudent. The electricians notice the exact temperature of your commitment, and file it, the way workers always file the difference between a comrade and a well-wisher.
 
+- @post_event: Continuar.
+
 @margen
 on-arrival: unity += 2; fac_ortodoxos += 2; sup_electricians -= 3
-go-to: post_event
 
 You judge it a fight inside the regime's family and keep the Party's powder dry. The orthodox nod. When the Tendencia is broken, some of its best cadres come looking for a political home and remember, coldly, who was not there.
+
+- @post_event: Continuar.

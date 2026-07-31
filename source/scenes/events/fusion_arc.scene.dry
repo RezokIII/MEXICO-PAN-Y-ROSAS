@@ -19,10 +19,11 @@ The fusion is not made at the table. But now there is a table, and everyone has 
 - @sostener_mesa: Keep the table served — cadres to staff the drafting committees, patience for the long grammar.
 
 @sostener_mesa
-go-to: post_event
 on-arrival: fusion_prog += 1; frente_unidad += 1
 
 The drafting committees multiply like something biological. The Party's contribution is the one the others cannot supply: sixty years of knowing exactly how organizations die, and therefore what to write down before they can.
+
+- @post_event: Continuar.
 
 @declaracion_conjunta
 title: La declaración conjunta
@@ -46,7 +47,8 @@ In Bucareli the analysts file the page under a heading that has been waiting in 
 - @cumplir: The debt is signed. Now it is collected: toward the congress of fusion, on the left's schedule, not the state's.
 
 @cumplir
-go-to: post_event
 on-arrival: fusion_prog += 1
 
 From this page forward the question inside every current is no longer *whether* but *on whose terms* — which is, as every married person at the table observes privately, an entirely different negotiation.
+
+- @post_event: Continuar.

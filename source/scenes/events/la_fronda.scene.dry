@@ -25,7 +25,6 @@ This is the hour SD veterans of every country know: concede something real, buy 
 - @portazo: Hold firm and hold the door. Those who stay, stay convinced; those who go, go.
 
 @conceder
-go-to: post_event
 on-arrival: {!
 if (Q.fronda_fac == 1) { Q.des_ortodoxos -= 30; Q.ax_sovietico += 6; Q.ax_nacpop -= 4; Q.fac_ortodoxos += 3; }
 if (Q.fronda_fac == 2) { Q.des_renovadores -= 30; Q.ax_electoral += 6; Q.ax_sovietico -= 4; Q.fac_renovadores += 3; }
@@ -35,8 +34,9 @@ Q.unity += 4;
 
 The concessions are real and the fronda knows the difference: the document is withdrawn, the delegation sits down, and the line — bent — holds the house together. Every other corriente recalculates what a well-organized grievance is worth. They are not wrong to.
 
+- @post_event: Continuar.
+
 @recursos
-go-to: post_event
 choose-if: funds >= 6 and political_capital >= 6
 unavailable-subtitle: Peace is bought with a full treasury and spendable authority. You lack one.
 on-arrival: {!
@@ -48,8 +48,9 @@ if (Q.fronda_fac == 3) { Q.des_nueva -= 25; }
 
 Posts, budgets, two candidacies and a magazine: the fronda is paid in the coin parties actually mint. The line survives untouched; the treasury does not. Bought peace holds exactly as long as the receipts stay honored — a fact everyone at the table files for later.
 
+- @post_event: Continuar.
+
 @portazo
-go-to: post_event
 on-arrival: {!
 Q.members -= 2; Q.unity += 5; Q.political_capital += 2;
 if (Q.fronda_fac == 1) { Q.des_ortodoxos = 20; Q.fac_ortodoxos -= 8; }
@@ -58,3 +59,5 @@ if (Q.fronda_fac == 3) { Q.des_nueva = 20; Q.fac_nueva_izquierda -= 8; }
 !}
 
 The door is held open with full honors, and used. A new sigla will appear within the season, staffed from your file photographs, righteous and small. The house that remains is quieter, more governable, and lighter by real weight — the portazo price, known since the left invented doors.
+
+- @post_event: Continuar.

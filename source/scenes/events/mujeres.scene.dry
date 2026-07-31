@@ -20,24 +20,27 @@ The demand is not a program yet. It is a room, a bulletin, a place in the assemb
 - @militancia_ignorar: Let it sort itself out. The leadership has a reform to negotiate; the compañeras' meetings are not, this year, the priority.
 
 @militancia_abrazar
-go-to: post_event
 choose-if: fac_nueva_izquierda >= 18 or ax_electoral >= 5
 unavailable-subtitle: Embracing the feminists over the orthodox old guard takes a renovating current the Party does not yet have.
 on-arrival: feminismo += 25; sup_students += 4; sup_middle += 3; fac_nueva_izquierda += 4; fac_ortodoxos -= 4; des_ortodoxos += 5
 
 The bulletin gets Party paper and a Party masthead, which is the whole of recognition. The compañeras organize the campus and the colonias with an energy the old cadres, watching, admit they had forgotten was possible — the personal turned political, the kitchen turned into a cell, the specific grievances of half the membership finally on an agenda instead of a waiting list. The orthodox grumble that feminism is a bourgeois import and the class struggle is being diluted. The compañeras reply, accurately, that they have heard that sentence at every assembly for forty years, always from men, always about someone. The house is louder now. It is also, for the first time, addressing the majority of the people it claims to speak for.
 
+- @post_event: Continuar.
+
 @militancia_subordinar
-go-to: post_event
 on-arrival: feminismo += 8; fac_ortodoxos += 3; unity += 1; sup_students -= 2; des_nueva += 4
 
 The formula is old and lawyered: the Party salutes the compañeras' initiative, affirms that women's liberation is inseparable from the liberation of the working class, and schedules the women's question for the appropriate future moment, which everyone in the room recognizes as the Mexican for *never.* The energy does not vanish; it disperses — some of it into the autonomous feminist groups that want nothing to do with a party that made them wait, some of it simply out the door. The Party keeps its discipline and loses, quietly, the decade's most dynamic new current to its own inability to imagine the revolution had more than one subject.
 
+- @post_event: Continuar.
+
 @militancia_ignorar
-go-to: post_event
 on-arrival: feminismo += 3; political_capital += 1
 
 The leadership has a reform to negotiate and a registro to chase, and the compañeras' meetings are filed under *later.* They do not wait for later. Over the next years the autonomous feminist movement grows up entirely outside the Party — its own coalitions, its own campaigns, its own analysis — and when it is a force the Party needs, the Party will discover it has no standing to ask, having declined the introduction when it was offered cheap.
+
+- @post_event: Continuar.
 
 @maternidad_voluntaria_ev
 title: Maternidad voluntaria
@@ -61,24 +64,27 @@ The calculation is brutal and clarifying. Backing it costs you the Catholic camp
 - @rechazar_maternidad: Decline. The class base is Catholic and rural; this is a fight for another decade, fought by other people.
 
 @respaldar_maternidad
-go-to: post_event
 choose-if: feminismo >= 20
 unavailable-subtitle: Backing an unbackable demand requires a women's movement already inside the house, vouching for the risk.
 on-arrival: feminismo += 20; sup_students += 4; sup_middle += 3; sup_peasants -= 3; legitimidad_regimen -= 2; expediente += 2; fac_ortodoxos -= 2
 
 The Party does the thing almost no one in Mexican public life will do in 1979: it says the word, in its program and, if it holds a tribune, on the floor of the Chamber, where a deputy of yours reads the case for voluntary motherhood into a record the bishops cannot expunge. The cost is immediate and real — the rural Catholic base recoils, the regime's press discovers a new adjective for you, the ortodoxos mutter about priorities. And the gain is the kind that compounds: the feminist movement, which trusts no party, learns it can trust this one on the demand that mattered most, and a generation of organized women decide the Left has, at last, a house with their name on a room. Decades early, the Party is on the right side of the argument the country will eventually have.
 
+- @post_event: Continuar.
+
 @apoyo_tibio
-go-to: post_event
 on-arrival: feminismo += 6; sup_middle += 1; unity += 1; des_nueva += 3
 
 The position is a masterpiece of not quite: the Party affirms "the right of women to decide over their own bodies" in a resolution carefully unaccompanied by any bill, any vote, any risk. It satisfies the memo and no one else. The feminists read it exactly right — as the sound a party makes when it wants the credit without the cost — and bank it as one more reason to build their movement at arm's length. The campesino, who was never going to read the resolution, is unmoved. You have spent the issue and bought nothing with it, which is the specific talent of the careful position.
 
+- @post_event: Continuar.
+
 @rechazar_maternidad
-go-to: post_event
 on-arrival: feminismo -= 4; sup_peasants += 2; fac_ortodoxos += 2; des_nueva += 4
 
 The decision is made on the arithmetic of the base, and the arithmetic is not wrong: the rural Catholic vote is real and the feminist vote is small and the Party has a reform to protect. It is also the decision that tells the movement's women, permanently, that the Left will spend them the moment they cost anything — and they remember, the way the excluded always remember, and build accordingly. The abortion fight will be won in Mexico eventually, by a movement that learned in exactly these years to expect nothing from the parties, including yours.
+
+- @post_event: Continuar.
 
 @el_fnalidm
 title: El Frente de mujeres
@@ -99,15 +105,17 @@ The scattered groups converge, the way the Left's best energies always eventuall
 - @cortejar_fnalidm: Court it for the electoral machine — welcome the alliance, quietly hope to absorb its energy into the Party's own campaigns.
 
 @aliar_fnalidm
-go-to: post_event
 choose-if: feminismo >= 40
 unavailable-subtitle: An alliance between equals requires the Party to have actually earned the movement's trust — feminismo it has not yet built.
 on-arrival: feminismo += 15; frente_unidad += 3; sup_middle += 3; sup_students += 3; fe_voto += 2; political_capital += 2
 
 The alliance is signed as what it is — a meeting of two forces, not the annexation of one by the other — and it holds because the Party, for once, resists the reflex to swallow what it joins. The Frente's campaigns and the Party's move in tandem: the colonias organized around water and childcare in the same breath, the union women and the feminist students discovering they were always the same fight seen from two windows. When 1988 comes, the women's movement is inside the convergence as a founder, and the wave is larger and more durable for carrying, at last, the half of the country the Left spent its history addressing in the singular.
 
+- @post_event: Continuar.
+
 @cortejar_fnalidm
-go-to: post_event
 on-arrival: feminismo += 4; frente_unidad += 1; sup_middle += 1; des_nueva += 3
 
 You welcome the Frente warmly and set about, with the old instinct, folding its energy into the Party's own machine — its activists deployed to your campaigns, its demands translated into your language, its autonomy gently discouraged. The feminists, who have watched every party on the Left try exactly this, decline to be absorbed with a courtesy that is its own verdict. The alliance is real but shallow, useful for a season and mistrusted for a decade, and the lesson the movement takes is the one it keeps relearning: that even the best of the parties would rather have women as a resource than as a partner.
+
+- @post_event: Continuar.

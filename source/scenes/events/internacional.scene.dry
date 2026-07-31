@@ -18,24 +18,27 @@ And Mexico does the thing that makes Mexico impossible to file: in August, Lópe
 - @internacionalismo_prudente: Salute the FMLN and keep the powder dry; the Party has a country of its own to change and a reform to protect.
 
 @solidaridad_sv
-go-to: post_event
 on-arrival: sup_students += 3; sup_middle += 2; political_capital += 2; moscow_relation += 2; prestigio_socialismo += 3; expediente += 2
 
 The committees fill with a generation that came up too late for '68 and too cautious for the sierra, and finds, in the Salvadoran cause, the internationalism that lets them be radicals without being martyrs. Safe houses that shelter no Mexican guerrilla shelter Salvadoran ones openly; the campus rediscovers a militancy the crisis had dulled; and the Party, doing abroad the solidarity work the state permits precisely because it is abroad, keeps a generation organized that might otherwise have drifted. The prestige of the cause rubs off. So, the DFS notes, does the practice.
 
+- @post_event: Continuar.
+
 @denunciar_hipocresia
-go-to: post_event
 choose-if: political_capital >= 4
 unavailable-subtitle: Turning the regime's own foreign policy against it requires a platform loud enough to be heard over its applause.
 on-arrival: legitimidad_regimen -= 3; political_capital += 3; sup_students += 2; pri_reformist_rel -= 2; expediente += 3
 
 You make the argument no one in the official chorus wants made: that a government which recognizes the Salvadoran guerrilla as a political force while disappearing its own is not principled but merely far-sighted, buying regional prestige with other people's revolutions while burying its own in Guerrero. The point lands where it hurts — in the gap between the regime's international face and its domestic hands — and the foreign press, already in town for the Salvadoran story, files the comparison. Bucareli, which enjoys being admired abroad, discovers the specific irritation of being explained.
 
+- @post_event: Continuar.
+
 @internacionalismo_prudente
-go-to: post_event
 on-arrival: unity += 2; prestigio_socialismo += 1; des_nueva += 3
 
 The Party sends its salute and its analysis and keeps its cadres home, and the reasoning is sound: internationalism is cheap and the Mexican revolution is the only one you can actually make. It is also the choice that tells the youngest militants — the ones electrified by Managua and now by San Salvador — that the Party prefers its radicalism theoretical, and some of them take the lesson to the solidarity committees the Party declined to lead, and organize there instead, learning that the international cause asked less permission than the domestic one.
+
+- @post_event: Continuar.
 
 @la_cuenta_de_moscu
 title: La cuenta de Moscú
@@ -60,21 +63,24 @@ The Party has built its whole distinct identity on the heresy: the communist par
 - @buscar_otras_fuentes: Refuse the choice — build the self-financing the independence line always implied you would need: dues, the fusion's resources, the movement's own caja.
 
 @mantener_herejia
-go-to: post_event
 on-arrival: ax_sovietico -= 4; moscow_relation -= 15; funds -= 4; prestigio_socialismo += 4; fac_ortodoxos -= 3; unity += 2
 
 The January envelope stops coming, and the treasury feels it immediately — a press that runs less, an organizer who goes unpaid, a caja that was never fat and is now honest. But the identity holds, and the identity turns out to be worth something the money never was: the Party is the one on the Mexican left that no one can accuse of taking Moscow's orders, and in the years when the Soviet star is fading that independence ages into an asset. The ortodoxos who loved the subsidy grieve; the renovadores who hated the leash exhale. You have bought your own name back at retail.
 
+- @post_event: Continuar.
+
 @moderar_criticas
-go-to: post_event
 on-arrival: ax_sovietico += 3; moscow_relation += 6; funds += 5; prestigio_socialismo -= 4; fac_nueva_izquierda -= 3; des_nueva += 4; unity -= 2
 
 The criticism goes quieter — not recanted, just *managed*, the sharp editorials spiked, the awkward solidarities muted — and the January envelope keeps its weight. The presses run; the organizers eat; the caja survives another year. And something intangible thins: the heresy that made the Party interesting becomes, by degrees, the caution that makes it ordinary, and the young who joined for the conscience notice the volume dropping. Moscow's money was always cheap. Its price was only ever charged later, in the currency the Party could least spare.
 
+- @post_event: Continuar.
+
 @buscar_otras_fuentes
-go-to: post_event
 choose-if: members >= 15 or fusion_prog >= 1
 unavailable-subtitle: Self-financing needs a base big enough to fund itself — dues from members you have not yet organized.
 on-arrival: moscow_relation -= 8; prestigio_socialismo += 3; dues += 1; unity += 2; fac_renovadores += 2
 
 You take the hard road the independence line always implied and rarely walked: a real dues system, the fusion's pooled resources, the movement's own caja fed by the sectors it organizes. It is slower than an envelope and it does not fully replace it — the first lean years are lean — but it changes the Party's relationship to its own principles from rented to owned. A party financed by its members answers to its members, which is either the oldest cliché in the movement or the whole point of it, depending on whether anyone actually does it. You have decided to actually do it.
+
+- @post_event: Continuar.

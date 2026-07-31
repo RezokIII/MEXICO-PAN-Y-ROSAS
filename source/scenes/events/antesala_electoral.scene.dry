@@ -31,7 +31,6 @@ How do you spend the last month before the count?
 - @antesala_conservar: Conserve. Bank the resources; the count is a formality this cycle, and next cycle is the one that counts.
 
 @antesala_base
-go-to: post_event
 title: Afianzar la base
 subtitle: -3 funds. Solid where you are strong.
 choose-if: funds >= 3
@@ -39,6 +38,8 @@ unavailable-subtitle: Even shoring up costs. The treasury is empty.
 on-arrival: funds -= 3; red_casillas += 3; unity += 3; political_capital += 2
 
 You spend the month where the Movement is already real: the strongholds deepened, the casilla people drilled one more time, the committees that will actually hold on election day steadied. It is unglamorous and it is correct. You arrive at the count without illusions about your reach and without weakness where you chose to stand.
+
+- @post_event: Continuar.
 
 @antesala_apostar
 title: Apostar en grande
@@ -68,12 +69,13 @@ They take the campaign apart in a single week, quietly, the way they always pref
 go-to: la_derrota
 
 @antesala_conservar
-go-to: post_event
 title: Conservar para después
 subtitle: Bank the resources for the cycle that matters.
 on-arrival: funds += 2; political_capital += 3; unity -= 2
 
 You decline the gamble and the exhaustion both, and pocket the month: the treasury a little heavier, the powder dry, the cadres rested for a fight further down the calendar. Some in the assembly call it wisdom and some call it cowardice, and both will cite this month as evidence when they argue, years from now, about whether the Movement was ever serious about power or only about surviving until power became someone else's problem.
+
+- @post_event: Continuar.
 
 @antesala_sigue
 view-if: antesala_peligro = 0

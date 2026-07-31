@@ -21,7 +21,6 @@ Some will go home and become the sensible men their fathers wanted. A few take t
 - @filtrar: Recruit carefully, one by one. Half these assemblies have a DFS informer taking minutes, and Campos Lemus proved it.
 
 @reclutar
-go-to: post_event
 choose-if: sup_students >= 35
 unavailable-subtitle: The comités will not walk through a door they do not respect. (Requires student support.)
 on-arrival: cnh_recruited = 1; members += 4; sup_students += 10; fac_nueva_izquierda += 10; expediente += 10; unity -= 4
@@ -30,10 +29,13 @@ They come in with their own songs, their own martyrs, and their own perfect cont
 
 But the Party is alive in a way it has not been since the forties: presses running, dues arriving in coins, a youth section that needs restraining rather than reviving. Somewhere in Bucareli, a filing cabinet gets a new drawer, and a clerk types your organization's name at the top of a fresh index.
 
+- @post_event: Continuar.
+
 @filtrar
-go-to: post_event
 on-arrival: cnh_recruited = 2; members += 1; sup_students -= 3; guerrilla_meter += 5; expediente += 3
 
 Careful, correct, cold. Each candidate vouched for by two members, each biography checked against the arrest lists, the Campos Lemus lesson applied with surgical rigor. The informers find the door shut; so does almost everyone else.
 
 The ones you turn away do not stop being angry; they take the anger elsewhere. A boy from the Poli — nineteen, a good speaker, a brother beaten half to death on the second of October — shakes your organizer's hand politely, thanks the Party for its time, and goes to look for people less careful. Years from now, someone will read his name in a newspaper and remember this afternoon.
+
+- @post_event: Continuar.

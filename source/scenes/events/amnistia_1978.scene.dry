@@ -28,7 +28,6 @@ go-to: post_event
 on-arrival: members += 1; sup_students += 2; sup_peasants += 2
 
 @bajar_sierra
-go-to: post_event
 view-if: via = "armada"
 on-arrival: {!
 Q.via = "politica";
@@ -61,3 +60,5 @@ They come down in groups small enough to be deniable and large enough to be coun
 [? if sw_descenso = 0 : It ends quietly, at less than strength — survivors rather than victors, and both words true. What descends still matters: cadres no course could produce, a campo that remembers medicine with no return address, and the discipline of people who have already been hunted. But the war's full harvest — the zone, the auge, the descent that negotiates — stays on the mountain, unharvested. The next generation will argue about what it would have taken. ?]
 
 Committees for employment, a clinic that keeps no records, evening schools where a man can finish the studies the DFS interrupted. Some of the returned want politics; more want quiet; all of them are watched, and know it, and teach the young ones how to be watched gracefully — the era's most transferable skill.
+
+- @post_event: Continuar.

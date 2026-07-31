@@ -19,18 +19,20 @@ Your Michoacán committees report the inauguration's oddities: campesino delegat
 - @tantear: Send a quiet feeler through the agrarista old guard — men who rode with the father and know how to visit a son.
 
 @observar
-go-to: post_event
 on-arrival: political_capital += 1
 
 The file opens with a single page. It will thicken on its own schedule, not yours — but when the system finally forces the son to choose between the surname and the party, you will at least not be surprised. Most of the Republic will be.
 
+- @post_event: Continuar.
+
 @tantear
-go-to: post_event
 choose-if: sup_peasants >= 12 or ax_nacpop >= 5
 unavailable-subtitle: You have no agrarista old guard to send — the campo barely knows you, and the national-popular register is not one your party speaks.
 on-arrival: cd_rel += 1; ax_nacpop += 2; expediente += 2; fac_ortodoxos -= 2
 
 An old man who received his ejido's papers from the father's own hand in 1936 travels to Morelia with a letter that says almost nothing and means a great deal. He is received — that is the entire event, and in the grammar of the system it is a paragraph. The governor asks after the harvest, after the prisoners of the old strikes, after nothing political whatsoever; and at the door, in parting, says only: *hay tiempo.* There is time. The ortodoxos, hearing of it, want it minuted that socialists do not court PRI governors. It is so minuted. The letter is not withdrawn.
+
+- @post_event: Continuar.
 
 @cardenas_gobernador
 title: El gobernador que recibe
@@ -53,10 +55,11 @@ Your Michoacán cadres, who organized the delegation, take note of both facts: t
 - @archivar: File it. The son is building something with the surname; when it needs allies, it will know where organized campesinos are found.
 
 @archivar
-go-to: post_event
 on-arrival: cd_rel += 1; sup_peasants += 2; political_capital += 1
 
 In the file that will matter in 1987, another page: *recibe; resuelve; recuerda.* He receives; he resolves; he remembers. The Corriente, when it forms, will not form in a vacuum — and the flood, when it comes, will already know its own tributaries.
+
+- @post_event: Continuar.
 
 @agosto_1988
 title: La guerra de las actas
@@ -79,26 +82,29 @@ The FDN's strategy runs through the plazas — half a million in the Zócalo, di
 - @guardar_polvora: Keep the powder dry: preserve the archive, protect the people, spend nothing on a fight the Chamber has already scripted.
 
 @publicar_paralelo
-go-to: post_event
 choose-if: red_casillas >= 30 and funds >= 4
 unavailable-subtitle: A parallel count worth printing requires a network that actually counted (30 casillas) and paper money.
 on-arrival: funds -= 4; alquimia_expuesta = 1; fe_voto += 4; legitimidad_regimen -= 4; political_capital += 3; expediente += 3
 
 The book has no adjectives — that is its violence. Columns of numbers, photographed actas, the arithmetic performed in public at a table outside the Palacio de Minería by accountants who volunteer in relays. The regime's spokesmen call it partial, which is true: it covers only where witnesses stood. That sentence, examined, concedes everything. The book sells out four printings, and in the vocabulary of the Republic the phrase *se cayó el sistema* completes its migration from excuse to verdict.
 
+- @post_event: Continuar.
+
 @cerco_testigos
-go-to: post_event
 choose-if: red_casillas >= 20
 unavailable-subtitle: The cordon is built from your casilla people — and you did not field enough of them.
 on-arrival: red_casillas += 6; fe_voto += 2; unity += 2; expediente += 2
 
 Through August the network does the unglamorous thing one more time: finds every citizen who signed a table's acta, sits in their kitchen, asks them to affirm before a notary what they counted. Thousands say yes — schoolteachers, shopkeepers, a police sergeant's wife — because the asking is done by neighbors, not parties. The packets can burn now; the count has been moved somewhere fire does not reach: onto the Republic's kitchen tables, into its stubborn civic memory. The next reform will be drafted by men who know exactly how many notarized signatures are waiting to be subpoenaed.
 
+- @post_event: Continuar.
+
 @guardar_polvora
-go-to: post_event
 on-arrival: funds += 2; unity -= 2; fe_voto -= 1
 
 The archive is tripled and buried; the couriers stand down; the plazas fill and empty without your maximum effort. It is defensible — the Chamber's script was indeed already written — and the defense will be made, at length, in meetings for years. What is not recoverable is the moment: there are seasons when a movement banks its strength, and seasons when strength unspent simply expires. Which this was, the veterans will argue past midnight for a decade.
+
+- @post_event: Continuar.
 
 @cardenas_senador_1976
 title: El senador de Michoacán
@@ -121,10 +127,11 @@ He does not last the term. Within the year he is pulled into the cabinet as subs
 - @archivar_senador: A line in the file. The surname is not yet a politics — but it is not nothing, and the countryside remembers whose son he is.
 
 @archivar_senador
-go-to: post_event
 on-arrival: political_capital += 1
 
 Nothing is done and nothing needs to be. The page is opened; it will thicken on its own schedule, which is not yours. But when the break finally comes, a decade from now, you will not be starting the file from scratch — and in politics, as in intelligence, the difference between surprise and preparation is exactly one old man's footnote written early.
+
+- @post_event: Continuar.
 
 @cardenas_terremoto_1985
 title: El gobernador que llega
@@ -149,18 +156,20 @@ The contrast writes itself, and the middle class — which had never once consid
 - @observar_gobernador: Note it, and wait. The break is coming; do not spend the relationship before it matters.
 
 @tender_puente
-go-to: post_event
 choose-if: sup_colonos >= 10 or costureras >= 1
 unavailable-subtitle: Building on the earthquake's trust needs your own people already in the rubble — the colonias, the costureras.
 on-arrival: cd_rel += 1; sup_colonos += 2; political_capital += 2
 
 The coordination outlasts the emergency, which is how you know it was real: the brigades your Movement fielded and the aid his government sent keep finding reasons to work the same colonias through the winter, and the habit of trust, once formed under a fallen roof, does not easily un-form. When the Corriente breaks two years from now, the bridge between the general's son and the organized left will not need building. It will only need crossing.
 
+- @post_event: Continuar.
+
 @observar_gobernador
-go-to: post_event
 on-arrival: political_capital += 1
 
 You keep the distance a governing PRI-ista still requires, and the reasoning is sound: he is theirs until he is not, and premature embrace has ended more alliances than betrayal ever did. The file gains a page and the relationship gains a season of patience. When the break comes, you will be neither surprised nor compromised — the analyst's two favorite words.
+
+- @post_event: Continuar.
 
 @las_senadurias
 title: Las senadurías
@@ -186,7 +195,8 @@ Whatever else the arithmetic of July was made to say, one number the machine cou
 - @tomar_protesta: Take the oath, and the tribune with it. Every session from here is one the regime cannot conduct in private.
 
 @tomar_protesta
-go-to: post_event
 on-arrival: political_capital += 3; fe_voto += 1
 
 The senators of the Frente are seated, sworn, and immediately inconvenient, which is the whole of the assignment. From the upper house's floor the fraud of July is entered into the record it was designed to escape; the disappeared of two decades are named where the Diario cannot decline to print them; and the country, watching a chamber it always knew was theatre discover it can be interrupted, learns the era's quiet lesson twice in one year: the machine can steal a count, but it can no longer steal the silence it used to count on.
+
+- @post_event: Continuar.

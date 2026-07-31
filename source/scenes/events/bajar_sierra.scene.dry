@@ -21,7 +21,6 @@ The alternative is to stay, and most who stay are, in the end, written into the 
 - @seguir_bajada: Not yet. The mountain keeps its own, and the war is not over while a column still moves.
 
 @deponer_bajada
-go-to: post_event
 on-arrival: {!
 Q.via = "politica";
 Q.descenso_hecho = 1;
@@ -47,8 +46,11 @@ Q.expediente = Math.max(0, (Q.expediente || 0) - 6);
 
 They come down in ones and twos over a season, along roads chosen for having no memory, and the legal Movement absorbs them the way a body absorbs a long-held breath. Some do not come — the irreducibles who cannot imagine a life without the rifle, and the dead, who are past choosing — and their absence is its own wound. But the war did not end in a clearing at gunpoint. It ended in a decision, which is the only ending that leaves anything behind. The veterans take the hardest posts; the campo remembers who stood with it; the legend enters the songs, where no garrison can occupy it. You return to the political road smaller, older, and carrying something the road never had before: people who have already been to the end of the country and walked back.
 
+- @post_event: Continuar.
+
 @seguir_bajada
-go-to: post_event
 on-arrival: moral_columnas += 3; unity += 1
 
 The meeting ends without a decision, which is itself a decision. The columns hold; the mountain keeps its own; the war goes on being fought the way it is being fought. Perhaps the next operation turns it. Perhaps the Colonel's map completes itself first. Everyone walks back into the dark they came from, and the arithmetic waits, patient, for the next time the commanders gather.
+
+- @post_event: Continuar.

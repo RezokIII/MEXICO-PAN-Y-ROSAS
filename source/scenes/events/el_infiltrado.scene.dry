@@ -20,23 +20,26 @@ The old counterintelligence instinct wakes like a scar in cold weather. He has b
 - @tribunal: The old way: confront him before the cell, judgment in the open, the Movement's justice visible to its own.
 
 @depurar_red
-go-to: post_event
 choose-if: organizers >= 3
 unavailable-subtitle: Rebuilding routes in silence takes cadres you do not have.
 on-arrival: expediente -= 6; unity -= 2; inteligencia += 2
 
 He is invited to a meeting that does not exist, in a city where no one knows him, and by the time he reports the failure to his handlers, every address in his memory is a former address. No violence — the veterans are specific about this, having seen where it leads — only a man returned to his owners worthless, which among professionals is the harsher sentence.
 
+- @post_event: Continuar.
+
 @doble
-go-to: post_event
 choose-if: inteligencia >= 25
 unavailable-subtitle: Running a double requires eyes good enough to check his every word. Yours are not, yet.
 on-arrival: inteligencia += 6; expediente += 4; unity -= 3
 
 For a year the northern veteran carries carefully cooked meals to Bucareli, and Bucareli's picture of the Movement acquires a persistent, useful wrongness: raids on vacated houses, files on invented committees. The cost is borne at home — the handful who must know carry the knowledge like a stone, and trust inside the veteran cadre, the war's best inheritance, develops its first hairline crack.
 
+- @post_event: Continuar.
+
 @tribunal
-go-to: post_event
 on-arrival: unity += 3; sup_students -= 2; represion += 2; guerrilla_meter += 1
 
 He stands before the people he informed on, and the Movement discovers what it believes about justice when the courtroom is a basement. Nothing is done to him that the corridos would need to soften — expulsion, the name published, the long walk out — but the openness itself is the sentence, and the discipline it teaches inside is paid for outside: the DFS now knows precisely how its man was caught, and adjusts.
+
+- @post_event: Continuar.

@@ -23,22 +23,25 @@ subtitle: Requires a united front to hold every leader in line.
 choose-if: unity >= 55
 unavailable-subtitle: A front this loose cannot guarantee every leader refuses — expose the offer and someone accepts it live. (Requires unity 55.)
 on-arrival: unity += 3; legitimidad_regimen -= 2; sup_students += 3; pri_reformist_rel -= 2; fe_voto += 1
-go-to: post_event
 
 You publish it — the seat, the sum, the signature — and the offer meant to buy your leaders becomes, instead, the receipt that proves the regime buys leaders. The front holds because it was built to hold; not one of your people is standing in the photograph accepting a check. The reformists are furious to be named. The country files another small proof that everything here has a price and the left, this once, was not for sale.
+
+- @post_event: Continuar.
 
 @rechazar_discreto
 subtitle: -4 political capital. Refuse without burning the bridge.
 choose-if: political_capital >= 8
 unavailable-subtitle: Refusing gracefully — keeping the door open while closing it — takes political capital you do not have.
 on-arrival: political_capital -= 4; unity += 1; pri_reformist_rel += 1
-go-to: post_event
 
 You send the emissary away with his envelope and his dignity both intact, which is its own kind of skill: the men who make these offers remember who refused them cruelly and who refused them well, and one of them, a sexenio from now, will take your call because of this afternoon. The base never hears about it, which is the point.
+
+- @post_event: Continuar.
 
 @ceden
 subtitle: The front was too loose to hold. The machine takes what it reached for.
 on-arrival: members -= 1; organizers -= 1; unity -= 4; presidente_cooptacion += 4; charrismo += 2; sup_students -= 2
-go-to: post_event
 
 You cannot hold what you have not bound tightly enough, and the machine knows it — that is why it made the offer now. A rising cadre takes the seat; a treasurer takes the directorship; each explains it to himself as entrism, as working from within, as feeding a family. The base watches its leaders absorbed one envelope at a time and learns the lesson the regime most wants taught: that everyone, eventually, has a number. Build the front tighter, or keep paying this bill.
+
+- @post_event: Continuar.
