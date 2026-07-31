@@ -3,7 +3,7 @@ new-page: true
 subtitle: A war is fought on what you can see
 card-image: img/cards/recluta.jpg
 view-if: via = "armada" and time >= s_inteligencia_cd + 2
-on-arrival: month_actions += 1; s_inteligencia_cd = time
+on-arrival: {! Q.month_actions += 1; Q.s_inteligencia_cd = Q.time; Q.intel_v = Math.floor(Math.random()*3); !}
 max-visits: 60
 is-card: true
 frequency: 80
@@ -11,7 +11,7 @@ tags: sierra
 
 = The eyes
 
-Sympathetic conscripts, a telegraph clerk, the laundry contractor of a barracks: the real map of the war is drawn from such sources — and without them, the Sierra tab shows you fog and guesses.
+[? if intel_v = 0 : Sympathetic conscripts, a telegraph clerk, the laundry contractor of a barracks: the real map of the war is drawn from such sources — and without them, the Sierra tab shows you fog and guesses. ?][? if intel_v = 1 : A war is fought on what you can see. Right now you see less than the enemy does — his network of informers is older than yours and better paid. Even the balance, or keep flying blind. ?][? if intel_v = 2 : The comandante who inflates his patrol reports, the sergeant with the gambling debt, the cook who hears everything: intelligence is grown from human weakness, patiently, and it is the difference between a war and a séance. ?]
 
 - @redes: Build the intelligence networks.
 - @silencio_total: Radio silence — a season of lying low. The garrisons relax; the columns rest.

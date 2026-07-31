@@ -3,7 +3,7 @@ new-page: true
 subtitle: The argument, made without firing
 card-image: img/cards/recluta.jpg
 view-if: via = "armada" and time >= s_propaganda_cd + 2
-on-arrival: month_actions += 1; s_propaganda_cd = time
+on-arrival: {! Q.month_actions += 1; Q.s_propaganda_cd = Q.time; Q.prop_v = Math.floor(Math.random()*3); !}
 max-visits: 60
 is-card: true
 frequency: 80
@@ -11,7 +11,7 @@ tags: sierra
 
 = Armed propaganda
 
-Where does the message land this season?
+[? if prop_v = 0 : Where does the message land this season? Armed propaganda is the war's argument made without firing — the communiqué that reaches a plaza the granaderos cleared an hour before. ?][? if prop_v = 1 : The war has things to say that the newspapers will not print. Where is it said this month, and in whose handwriting? ?][? if prop_v = 2 : A banner, a leaflet, a wall repainted before dawn — the cheapest operation in the manual, and the one the state hates most, because it argues. Where? ?]
 
 - @prop_guerrero: Guerrero — the Costa Grande.
 - @prop_chihuahua: Chihuahua — the northern sierra.
@@ -25,29 +25,29 @@ Where does the message land this season?
 @prop_guerrero
 on-arrival: pres_guerrero += 3; guar_guerrero += 2; sup_students += 1; guerrilla_meter -= 1; expediente += 2
 
-Leaflets in the market, a banner off a bridge at dawn, the communique read aloud by people who cannot risk keeping a copy. Armed propaganda: the argument of the war, made without firing.
+On the Costa Grande the argument travels as a corrido — the schoolteacher's communiqué set to a tune the band already knows, the names of the Atoyac dead worked into a verse no censor can un-sing. By the time the soldiers understand the song being played at the fiesta, half the coast is humming it.
 
 @prop_chihuahua
 on-arrival: pres_chihuahua += 3; guar_chihuahua += 2; sup_students += 1; guerrilla_meter -= 1; expediente += 2
 
-Leaflets in the market, a banner off a bridge at dawn, the communique read aloud by people who cannot risk keeping a copy. Armed propaganda: the argument of the war, made without firing.
+In the northern towns the leaflet is plain as the country — no flourishes, the demand stated the way a rancher states a price — and it lands each September near the anniversary of Madera, where the first guerrilla of the era died and the memory refuses to. The mining camps pass it hand to hand at shift change.
 
 @prop_valle
 on-arrival: pres_valle += 3; guar_valle += 2; sup_students += 1; guerrilla_meter -= 1; expediente += 2
 
-Leaflets in the market, a banner off a bridge at dawn, the communique read aloud by people who cannot risk keeping a copy. Armed propaganda: the argument of the war, made without firing.
+In the capital the slogan goes up on the periférico overpasses at 3 a.m. and is painted over by noon — but between those hours a hundred thousand commuters read it, and the student presses reproduce it before the paint dries. The war's loudest microphone is a wall the whole city has to drive past.
 
 @prop_jalisco
 on-arrival: pres_jalisco += 3; guar_jalisco += 2; sup_students += 1; guerrilla_meter -= 1; expediente += 2
 
-Leaflets in the market, a banner off a bridge at dawn, the communique read aloud by people who cannot risk keeping a copy. Armed propaganda: the argument of the war, made without firing.
+Guadalajara's clandestine presses have never quite stopped since the Liga years; the tapatío underground prints cleaner than the university does, and the walls of the industrial east go up overnight in a script the police recognize with a sinking familiarity. The most conservative city in the Republic argues with itself after dark.
 
 @prop_nl
 on-arrival: pres_nl += 3; guar_nl += 2; sup_students += 1; guerrilla_meter -= 1; expediente += 2
 
-Leaflets in the market, a banner off a bridge at dawn, the communique read aloud by people who cannot risk keeping a copy. Armed propaganda: the argument of the war, made without firing.
+In Monterrey the leaflet appears where it is most improbable — at the factory gates of the Grupo's own plants, in the lockers of the citadel of Mexican capital, the red word passing under the noses of the men who own the country's steel. It is propaganda as lèse-majesté, and the private security reads it before the workers finish their shift.
 
 @prop_oaxaca
 on-arrival: pres_oaxaca += 3; guar_oaxaca += 2; sup_students += 1; guerrilla_meter -= 1; expediente += 2
 
-Leaflets in the market, a banner off a bridge at dawn, the communique read aloud by people who cannot risk keeping a copy. Armed propaganda: the argument of the war, made without firing.
+On the Isthmus the communiqué is read aloud in Zapotec in the market of Juchitán, where the COCEI assembly and the armed structure blur into one long conversation the interrogators cannot follow. The argument does not need paper here; it needs only a language the state never bothered to learn.

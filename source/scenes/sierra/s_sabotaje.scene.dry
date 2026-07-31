@@ -3,7 +3,7 @@ new-page: true
 subtitle: The artillery of the poor army
 card-image: img/cards/expropiacion.jpg
 view-if: via = "armada" and time >= s_sabotaje_cd + 2
-on-arrival: month_actions += 1; s_sabotaje_cd = time
+on-arrival: {! Q.month_actions += 1; Q.s_sabotaje_cd = Q.time; Q.sab_v = Math.floor(Math.random()*3); !}
 max-visits: 40
 is-card: true
 frequency: 60
@@ -11,7 +11,7 @@ tags: sierra
 
 = Sabotage
 
-What does the state lose this season?
+[? if sab_v = 0 : What does the state lose this season? Sabotage is the artillery of the poor army — loud, cheap, and always answered by a sweep through whoever lives nearby. Choose the target and count the cost. ?][? if sab_v = 1 : Every act of sabotage is two acts: the thing broken, and the reprisal that follows it into the villages. Where is it worth both? ?][? if sab_v = 2 : The charges are set or they stay buried. Where does the war make itself expensive this month — and who pays the second bill? ?]
 
 - @sab_guerrero: Guerrero — the Costa Grande.
 - @sab_chihuahua: Chihuahua — the northern sierra.
@@ -25,29 +25,29 @@ What does the state lose this season?
 @sab_guerrero
 on-arrival: parque -= 1; pres_guerrero += 2; guar_guerrero += 9; represion += 4; political_capital += 1; memorial += 1 if guar_guerrero >= 60
 
-A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+The coast road cut where it hugs the cliff, a coffee-buyer's convoy relieved of the season's cash before it reaches the cacique's bank. On the Costa Grande sabotage is almost a folk art — but the army answers it the way it always answers Guerrero, by driving through the villages, and the corridos gain another verse and the memorial another candidate.
 
 @sab_chihuahua
 on-arrival: parque -= 1; pres_chihuahua += 2; guar_chihuahua += 9; represion += 4; political_capital += 1; memorial += 1 if guar_chihuahua >= 60
 
-A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+A mine's rail spur twisted, a high-desert transmission tower folded into the scrub, the isolated things a hard empty country offers up. The distances protect the doers and abandon the bystanders: the reprisal falls on whatever ranch or camp is nearest, and up here nearest can be very far from guilty.
 
 @sab_valle
 on-arrival: parque -= 1; pres_valle += 2; guar_valle += 9; represion += 4; political_capital += 1; memorial += 1 if guar_valle >= 60
 
-A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+In the capital sabotage is maximum volume and maximum answer: a substation on the periférico, a ministry's motor pool, the kind of noise a whole city cannot pretend it did not hear. The Brigada Blanca treats an explosion in the Valle as a personal insult, and the colonias that shelter the network pay for the echo.
 
 @sab_jalisco
 on-arrival: parque -= 1; pres_jalisco += 2; guar_jalisco += 9; represion += 4; political_capital += 1; memorial += 1 if guar_jalisco >= 60
 
-A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+The industrial corridor running to the Pacific offers a hundred soft targets — a rail junction, a fuel depot, a switching yard — and Guadalajara's cadres hit them with the old Liga precision. The city's police, who remember the seventies too well, answer with a ferocity that fills fresh pages in files they thought were closed.
 
 @sab_nl
 on-arrival: parque -= 1; pres_nl += 2; guar_nl += 9; represion += 4; political_capital += 1; memorial += 1 if guar_nl >= 60
 
-A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+In Monterrey sabotage is aimed at the Grupo itself — a supply line to the steelworks, a private rail spur, the infrastructure of the men who consider the state their concession. It is the one place the war can bill capital directly, and capital answers with its own guards and its own morgue, off the government's books entirely.
 
 @sab_oaxaca
 on-arrival: parque -= 1; pres_oaxaca += 2; guar_oaxaca += 9; represion += 4; political_capital += 1; memorial += 1 if guar_oaxaca >= 60
 
-A transmission tower kneels; a police motor pool burns, economically. Sabotage is the artillery of the poor army — loud, cheap, and always answered by sweeps through whoever lives nearby.
+On the Isthmus the target is the pipeline and the Salina Cruz works — the arteries of the national patrimony, spectacular when they burn. The Zapotec towns close around the doers and the army knows it, and answers the whole Isthmus for what a handful did: the assembly counts its dead in a language the report will misspell.
