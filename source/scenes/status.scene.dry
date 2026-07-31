@@ -21,6 +21,13 @@ var _me = (Q.next_election_year || 0) - (Q.year || 0);
 Q.meses_eleccion = _me * 12 + (7 - (Q.month || 1));
 if (Q.meses_eleccion < 0) { Q.meses_eleccion = 0; }
 if (Q.meses_eleccion > 96) { Q.meses_eleccion = 0; }
+// --- sierra camino progress: make the war's milestones concrete ---
+Q.pres_total = Math.round((Q.pres_guerrero||0)+(Q.pres_valle||0)+(Q.pres_chihuahua||0)+(Q.pres_jalisco||0)+(Q.pres_nl||0)+(Q.pres_oaxaca||0)+(Q.pres_tijuana||0));
+Q.meses_bajo_tierra = Math.max(0, (Q.time||0) - (Q.armada_start||0));
+// find the region closest to becoming a "zone" (presence high, garrison low)
+var _zn=[['Guerrero',Q.pres_guerrero,Q.guar_guerrero],['Oaxaca',Q.pres_oaxaca,Q.guar_oaxaca],['Chihuahua',Q.pres_chihuahua,Q.guar_chihuahua],['el Valle',Q.pres_valle,Q.guar_valle]];
+var _best=_zn[0]; for (var _i=0;_i<_zn.length;_i++){ if ((_zn[_i][1]||0) > (_best[1]||0)) _best=_zn[_i]; }
+Q.zona_region = _best[0]; Q.zona_pres = Math.round(_best[1]||0); Q.zona_guar = Math.round(_best[2]||0);
 // the counter-history, counted live: how many times has your Mexico refused the record?
 Q.contrahistoria_n =
     (Q.lucio_vive == 1 ? 1 : 0)
@@ -401,14 +408,14 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 [? if via = "armada" : **El camino de la sierra** ?]
 
-[? if via = "armada" and sw_sobrevivir = 1 : I. Survive the hunt — DONE ?][? if via = "armada" and sw_sobrevivir = 0 : I. Survive the hunt: two years underground with the structure alive — pending ?]
+[? if via = "armada" and sw_sobrevivir = 1 : I. Survive the hunt — DONE ?][? if via = "armada" and sw_sobrevivir = 0 : I. **Survive** — stay underground two years with the structure intact. You are [+ meses_bajo_tierra +] of 24 months in (members must stay above zero). *How: don't get wiped. Keep morale up, cut the Colonel's network, and read Lo que viene for the danger line.* ?]
 
-[? if via = "armada" and sw_zona = 1 : II. The zone — DONE: a range the state enters only in strength ?][? if via = "armada" and sw_zona = 0 : II. The zone: presence 35 in a region while its garrison stays under 45 — pending ?]
+[? if via = "armada" and sw_zona = 1 : II. The zone — DONE: a range the state enters only in strength ?][? if via = "armada" and sw_zona = 0 : II. **The zone** — get one region to presence 35 while its garrison stays under 45. Your strongest is [+ zona_region +]: presence [+ zona_pres +] of 35, garrison [+ zona_guar +] (must be under 45). *How: Recruitment and Armed propaganda in that region BUILD presence; Sabotage there SPIKES the garrison — don't. If the garrison climbs past 45, move the column out (the mobile column) and let it cool.* ?]
 
-[? if via = "armada" and sw_sintesis = 1 : III. The synthesis — DONE: the city and the sierra speak ?][? if via = "armada" and sw_sintesis = 0 : III. The synthesis: coordinate the urban and rural war through the enlace — pending ?]
+[? if via = "armada" and sw_sintesis = 1 : III. The synthesis — DONE: the city and the sierra speak ?][? if via = "armada" and sw_sintesis = 0 : III. **The synthesis** — link the urban war to the rural. *How: build the urban structure (Urban operations in the Valle) alongside your sierra presence, and keep the urban networks alive. When the city and the sierra are both real, the enlace — the urban contact — connects them and this milestone fires.* ?]
 
-[? if via = "armada" and sw_auge = 1 : IV. El auge — DONE: the war stood at a cycle's end ?][? if via = "armada" and sw_auge = 0 : IV. El auge: reach a sexenio's balance with the war standing (total presence 60) — pending ?]
+[? if via = "armada" and sw_auge = 1 : IV. El auge — DONE: the war stood at a cycle's end ?][? if via = "armada" and sw_auge = 0 : IV. **El auge** — the war standing tall at a sexenio's balance: total presence 60 across all regions. You have [+ pres_total +] of 60. *How: build presence everywhere and survive to the next sexenio reckoning (1975 / 1981 / 1987) with the war still standing.* ?]
 
-[? if via = "armada" and sw_descenso = 0 : V. The descent from strength: end the war on your terms, not the state's. What comes down the mountain with you — veterans, legend, the southern networks — is the war's whole harvest. A war that ends in the dark harvests nothing. ?][? if sw_descenso = 1 : V. The descent — DONE: the war ended on the Movement's terms, and its harvest walks among you. ?]
+[? if via = "armada" and sw_descenso = 0 : V. **The descent** — this is how the armed road *wins*: end the war on your OWN terms, not the state's. *How: when the war stands (or when it starts to fail), take **La bajada** and come down — the veterans, the legend and the southern networks walk down with you into the political road. Waiting for annihilation harvests nothing; choosing the ending keeps everything.* ?][? if sw_descenso = 1 : V. The descent — DONE: the war ended on the Movement's terms, and its harvest walks among you. ?]
 
 [? if via = "politica" and veteranos >= 1 : The war's veterans — [+ veteranos +] cohorts of them — hold the hardest posts in the Movement now: security, the campo, the places where a person needs to have already seen the worst. ?]
