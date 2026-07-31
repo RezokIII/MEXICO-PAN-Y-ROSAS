@@ -1,4 +1,5 @@
 title: Plan B
+card-image: img/cardenas_campana.jpg
 new-page: true
 subtitle: If they steal it — what then?
 view-if: frente_unidad >= 20

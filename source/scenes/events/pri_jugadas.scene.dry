@@ -1,7 +1,7 @@
 title: La elección robada
 new-page: true
 subtitle: Gobernación rehearses on you
-face-image: img/casilla.jpg
+face-image: img/cards/casilla.jpg
 tags: event
 view-if: pri_posture = "robar" and registro >= 1 and izq_votes_display >= 16 and time >= robada_last + 26
 priority: 2

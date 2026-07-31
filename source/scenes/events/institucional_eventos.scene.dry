@@ -128,7 +128,7 @@ You decline both the martyr's roar and the prosecutor's knife and do the rarer t
 title: La comisión
 new-page: true
 subtitle: The tedious work where the real power hides
-face-image: img/pleno.jpg
+face-image: img/cards/pleno.jpg
 tags: event
 view-if: via = "institucional" and izq_seats >= 1 and year >= 1980 and time >= comision_last + 20
 priority: 2
@@ -210,7 +210,7 @@ You decide respectability is a resource the left has never been able to afford a
 title: La gestoría
 new-page: true
 subtitle: Co-opted by usefulness
-face-image: img/colonia.jpg
+face-image: img/cards/colonia.jpg
 tags: event
 view-if: via = "institucional" and izq_seats >= 1 and (sup_colonos >= 12 or sup_peasants >= 15) and time >= gestoria_last + 24
 priority: 2
@@ -252,7 +252,7 @@ The caucus draws a line: we legislate, we do not run errands, we are not auditio
 title: La comida
 new-page: true
 subtitle: Managed over a long lunch
-face-image: img/fuente_bucareli.jpg
+face-image: img/cards/fuente_bucareli.jpg
 tags: event
 view-if: via = "institucional" and pri_reformist_rel >= 35 and time >= comida_last + 26 and year >= 1979
 priority: 2
@@ -332,7 +332,7 @@ The caucus abstains as one and reads a statement into the record explaining exac
 title: "Nos vendieron"
 new-page: true
 subtitle: The street accuses the caucus
-face-image: img/congreso_autocritica.jpg
+face-image: img/pcmconf.jpg
 tags: event
 view-if: via = "institucional" and absorcion >= 40 and time >= vendieron_last + 20
 priority: 3

@@ -1,4 +1,5 @@
 title: The ground campaign
+card-image: img/cards/casilla.jpg
 new-page: true
 subtitle: The wave needs a skeleton
 on-arrival: month_actions += 1
