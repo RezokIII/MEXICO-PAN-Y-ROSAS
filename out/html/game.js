@@ -626,6 +626,56 @@
   window.addEventListener('load',function(){ var qd=document.getElementById('qualities'); if(qd)obs.observe(qd,{childList:true,subtree:true}); setTimeout(window.paintSierraMap,500); });
 })();
 
+// ===== Left-panel declutter: fold long goal-trackers / narrative sections behind their headings =====
+// The values stay visible; the verbose blocks (El camino, El camino de la sierra, and the
+// retrospective sections) collapse to a clickable ▸ heading. State is remembered per section.
+(function(){
+  var NS = 'pyr_fold_';
+  // sections that can be folded (matched by normalized heading-text prefix)
+  var TARGETS = ['el camino de la sierra','el camino','lo que viene','el haber del movimiento','tu contrahistoria','la sucesión'];
+  // sections collapsed by DEFAULT (the goal trackers + the retrospective/flavour blocks).
+  // 'lo que viene' stays open by default — it's the actionable danger readout.
+  var DEFAULT_FOLD = {'el camino de la sierra':1,'el camino':1,'el haber del movimiento':1,'tu contrahistoria':1,'la sucesión':1};
+  // any element whose text starts with one of these marks a section boundary (ends a fold span)
+  var BOUNDARIES = TARGETS.concat(['el pulso','the movement','internal corrientes','el sistema','pri factions',
+    'el coronel','el estado de la guerra','el pueblo','el adversario','la guerra por dentro','la sombra del norte',
+    'provinces liberated','asesoría eeuu','el territorio','politics','defense','polls','economy','the movement']);
+  function norm(s){ return (s||'').toLowerCase().replace(/[▸▾]/g,'').replace(/[*_:.]/g,' ').replace(/[—–]/g,' ').replace(/\s+/g,' ').trim(); }
+  function matchKey(txt, list){ var t=norm(txt); var best=null; for(var i=0;i<list.length;i++){ if(t.indexOf(list[i])===0 && (!best||list[i].length>best.length)) best=list[i]; } return best; }
+  function isHeadingEl(el){
+    if(!el||el.nodeType!==1) return false;
+    if(el.tagName==='H1') return true;
+    if(el.tagName==='P'||el.tagName==='DIV'){ var t=norm(el.textContent); if(t.length>0 && t.length<64 && matchKey(el.textContent,BOUNDARIES)) return true; }
+    return false;
+  }
+  function getState(k){ try{ var v=localStorage.getItem(NS+k); if(v!==null) return v==='1'; }catch(e){} return !!DEFAULT_FOLD[k]; }
+  function setState(k,c){ try{ localStorage.setItem(NS+k, c?'1':'0'); }catch(e){} }
+  function run(id){
+    var panel=document.getElementById(id); if(!panel) return;
+    var kids=[]; for(var n=panel.firstChild;n;n=n.nextSibling){ if(n.nodeType===1) kids.push(n); }
+    for(var i=0;i<kids.length;i++){
+      var el=kids[i];
+      if(el.getAttribute && el.getAttribute('data-pyrfold')) continue;
+      if(!(el.tagName==='H1' || isHeadingEl(el))) continue;
+      var key=matchKey(el.textContent, TARGETS);
+      if(!key) continue;
+      el.setAttribute('data-pyrfold', key);
+      var span=[]; for(var j=i+1;j<kids.length;j++){ if(isHeadingEl(kids[j])) break; span.push(kids[j]); }
+      if(!span.length) continue;
+      var arrow=document.createElement('span'); arrow.style.cssText='opacity:0.55;font-size:0.85em'; el.insertBefore(arrow, el.firstChild);
+      el.style.cursor='pointer'; el.style.userSelect='none'; el.title='Clic para ver / ocultar';
+      (function(span,arrow,key){
+        function apply(c){ for(var s=0;s<span.length;s++){ span[s].style.display=c?'none':''; } arrow.textContent=c?'▸ ':'▾ '; }
+        apply(getState(key));
+        (arrow.parentNode).addEventListener('click', function(){ var c=!getState(key); setState(key,c); apply(c); });
+      })(span,arrow,key);
+    }
+  }
+  function all(){ try{ run('qualities'); run('qualities2'); }catch(e){} }
+  var mo=new MutationObserver(function(){ setTimeout(all,60); });
+  window.addEventListener('load', function(){ ['qualities','qualities2'].forEach(function(id){ var q=document.getElementById(id); if(q) mo.observe(q,{childList:true,subtree:true}); }); setTimeout(all,750); });
+})();
+
 
 // ===== La Izquierda: right sidebar (militant column) =====
 (function(){
