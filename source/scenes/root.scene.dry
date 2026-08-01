@@ -182,6 +182,15 @@ Q.liberar_last = -99; Q.defect_last = -99; Q.intervencion_visto = 0; Q.liberacio
 Q.s_ataque_cd = -5; Q.barrida_last = -99; Q.reten_last = -99; Q.quinta_last = -99; Q.audaz_last = -99;
 Q.op_res = 0; Q.op_zone = ""; Q.barrida_zone = "";
 Q.coronel_muerto = 0; Q.coronel_removido = 0;
+// --- THE STATE AS AN ADVERSARY: a legible AI that reads your strongest vector and answers it,
+// and gets sharper as U.S. counterinsurgency advisors arrive. estado_doctrina is the intensity tier
+// (tolerancia -> vigilancia -> represion -> contrainsurgencia); estado_agenda is what it is countering
+// (electoral / sindical / rural / internacional); estado_smart flips when the advisors professionalize it.
+// Blunt repression radicalizes (feeds your water); advised, surgical repression drains it.
+Q.us_asesoria = 0; Q.estado_intel = 12; Q.estado_smart = 0;
+Q.estado_doctrina = "tolerancia"; Q.estado_agenda = "vigila"; Q.estado_threat = 0;
+Q.asesores_visto = 0; Q.anunciado_rep = 0; Q.anunciado_contra = 0;
+Q.reconcentracion_last = -99; Q.reconcentracion_activa = 0; Q.escuela_americas = 0;
 Q.col_chihuahua_mood = 55; Q.col_valle_mood = 55; Q.columna_last = -99;
 Q.cerco_final_warned = 0;
 Q.balance_armado_visto = 0;

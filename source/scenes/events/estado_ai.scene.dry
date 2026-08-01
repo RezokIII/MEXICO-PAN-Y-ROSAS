@@ -1,0 +1,130 @@
+title: El adversario aprende
+tags: event
+
+# ==========================================================================
+# THE STATE AS A THINKING ADVERSARY.
+# The doctrine engine lives in post_event; these events give it a voice, so
+# the player can read what the state is doing and why ("brutal, and it makes
+# sense"), and feel the moment U.S. advisors turn a blunt war into a surgical one.
+# ==========================================================================
+
+@los_asesores
+title: Los asesores
+new-page: true
+subtitle: A man from the north, with a different idea about villages
+face-image: img/chile_1973.jpg
+tags: event
+view-if: asesores_visto = 0 and us_asesoria >= 38 and (via = "armada" or postura_guerrilla >= 2)
+priority: 8
+max-visits: 1
+on-arrival: asesores_visto = 1; escuela_americas = 1; estado_intel = estado_intel + 8; us_asesoria = us_asesoria + 6
+
+= Los asesores
+
+The general who runs the campaign against you has spent three years doing what generals do to a rural insurgency: burning the villages that feed it. It has not worked, and this month he is told, by a soft-spoken man who flew in from the north and carries no rank anyone will name, exactly why it has not worked. *You are making them,* the man explains, without heat. *Every village you burn sends its sons to the sierra. You are the guerrilla's best recruiter. Stop burning villages. Start counting them.*
+
+The man is one of a handful now attached to the campaign — from the embassy, from a school in the Panama Canal Zone where Latin American officers learn a science with a syllabus: how to separate a fish from its water without draining the whole sea and drowning yourself in the process. Intelligence fusion. Population control. Civic action in one hand, the selective knife in the other. It is the doctrine that beat the Huk, that is being refined in the deltas of a country on the far side of the Pacific, and it is now, quietly, being taught to the men who hunt you.
+
+The war does not get louder from here. It gets *smarter* — and smart is the thing your kind of war has always feared more than cruelty. Cruelty made martyrs. This will not.
+
+- @post_event: Continuar.
+
+@giro_represion
+title: Se acaban las contemplaciones
+new-page: true
+subtitle: The file becomes a warrant
+face-image: img/charola.jpg
+tags: event
+view-if: estado_doctrina = "represion" and anunciado_rep = 0 and (via = "armada" or postura_guerrilla >= 2)
+priority: 6
+max-visits: 1
+on-arrival: anunciado_rep = 1
+
+= Se acaban las contemplaciones
+
+Somewhere in Bucareli a man closes a folder with your movement's name on the tab and makes a decision that is, from where he sits, entirely rational. The watching is over. You have grown past the size a file can manage; you are now a problem the file exists to *end.* The order that goes out is not written down, which is the point — it converts surveillance into raids, expedientes into disappearances, the patient tail into the safe house at four in the morning.
+
+There is nothing mysterious in it. The state read the same numbers you did, reached the same conclusion about your trajectory, and chose the instrument its history has always kept closest to hand. It will be blunt, because blunt is cheap and, for now, unadvised — and blunt repression, as every organizer since the plaza knows, has a way of handing the angriest villages straight to whoever the state is trying to crush. The regime is about to make you some martyrs. Spend them well; they are the only gift it means to withhold.
+
+- @post_event: Continuar.
+
+@giro_contra
+title: El giro
+new-page: true
+subtitle: The war stops getting crueler and starts getting smarter
+face-image: img/camioneta.jpg
+tags: event
+view-if: estado_doctrina = "contrainsurgencia" and anunciado_contra = 0 and (via = "armada" or postura_guerrilla >= 3)
+priority: 7
+max-visits: 1
+on-arrival: anunciado_contra = 1
+
+= El giro
+
+You notice it first as an *absence.* The reprisals thin out. The sweeps that used to flatten a village on suspicion become surgical — a single house, the right house, at the right hour, on information that is suddenly, frighteningly good. The army that spent years making your recruiters for you has, under its new tutors, simply stopped. In its place: a clinic in the cabecera that was never there before, a road crew, a captain who calls the elders by name and asks, patiently, what the village needs — while three streets away a list gets shorter one name at a time.
+
+This is the doctrine the advisors brought, and it is aimed with precision at the one thing that keeps your columns alive: the water. Not your fighters — the sea they swim in. Win the village's stomach, buy its silence, fence off the ones you cannot buy, and the guerrilla starves in a country that no longer hides it. The cruelty that fed you is being replaced by an intelligence that will try to drown you. From here the war is not about surviving their brutality. It is a race for the loyalty of the people, and the state has just entered it seriously for the first time.
+
+- @post_event: Continuar.
+
+@la_reconcentracion
+title: La reconcentración
+new-page: true
+subtitle: They are emptying the villages that feed you
+face-image: img/guardias_blancas.jpg
+tags: event
+view-if: via = "armada" and estado_doctrina = "contrainsurgencia" and estado_agenda = "rural" and apoyo_popular >= 25 and time >= reconcentracion_last + 8
+priority: 5
+frequency: 70
+max-visits: 3
+on-arrival: reconcentracion_last = time; reconcentracion_activa = 1
+
+= La reconcentración
+
+The trucks come at dawn to a village that has fed your columns for two years, and by dusk the village is gone — not burned, *moved*, its people trucked to a fenced settlement by the highway where the army can count them, feed them, and watch who they talk to. They call it a model village. Your grandmother would have called it a concentration camp with a clinic. It is the sharpest instrument the advisors brought: you cannot fight it, because it kills no one; you cannot ignore it, because every village they empty is a well they have poured concrete down. The sea you swim in is being ladled out from under you, one hamlet at a time, and the columns in that zone can already feel the ground going dry.
+
+- @seguir_al_pueblo: Follow the people into the wire. Send cadre into the camps to organize under the army's nose — keep the water, at the price of swimming where the informers can see you.
+- @golpear_programa: Hit the program. Ambush the convoys, make the resettlement cost blood and headlines — defend the water by force, and accept the escalation that brings.
+- @dispersar: Pull the columns out. Cede the emptied zone, save the fighters, and go find new water in ground the doctrine has not reached yet.
+
+@seguir_al_pueblo
+go-to: post_event
+on-arrival: {!
+Q.apoyo_popular += 4;
+Q.estado_intel += 5;
+if (Q.coronel_activo) { Q.coronel_red += 6; if (Q.coronel_red > 100) { Q.coronel_red = 100; } }
+Q.presos += 1;
+Q.moral_columnas += 2;
+!}
+
+You send your best organizers through the gate with the deportees, and inside the wire the movement does what it has always done best: it turns the enemy's own instrument into a schoolroom. The camp has a captive population, a grievance renewed every morning at the checkpoint, and now it has your people in it, patient and unhurried. The water does not drain; it goes underground, inside the fence, where the state so helpfully concentrated it. But you are organizing in a pen the army built specifically to watch, and the informers are already among you — a cadre lost this month, the Colonel's map filling with faces it could never place in the open sierra. You kept the sea. You are swimming in the aquarium.
+
+- @post_event: Continuar.
+
+@golpear_programa
+go-to: post_event
+on-arrival: {!
+Q.reconcentracion_activa = 0;
+Q.apoyo_popular += 6;
+Q.parque = Q.parque - 3; if (Q.parque < 0) { Q.parque = 0; }
+Q.moral_columnas += 3;
+Q.intervencion_riesgo += 5; if (Q.intervencion_riesgo > 100) { Q.intervencion_riesgo = 100; }
+Q.us_asesoria += 3; if (Q.us_asesoria > 100) { Q.us_asesoria = 100; }
+!}
+
+You put the columns across the resettlement road, and for a few weeks the program stops — the convoys burn, the contractors will not drive, the model village stands half-built and photographed, and the people it was meant to empty are back in their houses with a story about the night the guerrilla defended them. The water floods back. It is the right answer and the expensive one: you have spent scarce parque, and you have handed the advisors exactly the image they wanted for the desk in the north — armed communists attacking a *humanitarian resettlement* — and the flow of matériel and attention that image unlocks does not run backward. You won the village. You moved Washington's clock.
+
+- @post_event: Continuar.
+
+@dispersar
+go-to: post_event
+on-arrival: {!
+Q.apoyo_popular = Q.apoyo_popular - 11; if (Q.apoyo_popular < 0) { Q.apoyo_popular = 0; }
+Q.moral_columnas -= 2;
+Q.disciplina += 1;
+Q.inteligencia += 2;
+!}
+
+You read the doctrine correctly — this is the trap, the ground chosen by the enemy, the fight the advisors want you to take — and you refuse it. The columns fade out of the emptied zone before the encirclement it was designed to bait can close, and go looking for water in country the model villages have not reached. It is the disciplined choice and it tastes like defeat, because it is a kind of defeat: a zone that fed you for two years is conceded, the sea there ladled dry, the people who sheltered you left inside the wire wondering where you went. You saved the fighters. That is what a general does. Che would have understood it, and grieved it, and written it down as the price of not being where the enemy has built his whole plan around your being.
+
+- @post_event: Continuar.

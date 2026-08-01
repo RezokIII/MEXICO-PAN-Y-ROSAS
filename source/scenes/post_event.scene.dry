@@ -165,6 +165,10 @@ if (Q.month != Q.last_drift_month) {
     // Visible in the Política tab; gates the regime's targeted moves. The temperament
     // of the sitting president decides whether threat is answered with money or blood.
     if (Q.time % 3 == 0 || !Q.pri_posture) {
+        // the war's intensity is a threat in its own right: territory it holds, the army peeling away,
+        // and a countryside that shelters it. A serious insurgency forces the state off 'contener'.
+        var _presT = ((Q.pres_guerrero||0)+(Q.pres_oaxaca||0)+(Q.pres_valle||0)+(Q.pres_chihuahua||0)+(Q.pres_jalisco||0)+(Q.pres_nl||0)+(Q.pres_tijuana||0)) * 0.12;
+        var _warT = (Q.provincias_liberadas||0)*7 + (Q.defecciones||0)*4 + (((Q.apoyo_popular||0) >= 55) ? 6 : 0) + (((Q.coronel_red||0) >= 55) ? 3 : 0);
         var _threat = (Q.izq_votes_display || 0)
                     + Q.red_casillas * 0.15
                     + (Q.huelga_prep || 0) * 0.12
@@ -172,6 +176,7 @@ if (Q.month != Q.last_drift_month) {
                     + (Q.izq_seats || 0) * 0.8
                     + (Q.frente_unidad || 0) * 0.05
                     + ((Q.via == 'armada') ? 14 : 0)
+                    + _presT + _warT
                     + Math.max(0, 72 - Q.legitimidad_regimen) * 0.2;
         Q.pri_threat = Math.round(_threat);
         var _style = Q.presidente_cooptacion - Q.presidente_represion;
@@ -196,6 +201,76 @@ if (Q.month != Q.last_drift_month) {
         var _zs = ['guerrero','valle','chihuahua','jalisco','nl','oaxaca','tijuana'];
         for (var _z of _zs) { if (Q['pres_'+_z] >= 10) { Q['guar_'+_z] += 1.5; } }
     }
+    // ===== THE STATE ADVERSARY: a doctrine that reads you, and sharpens with U.S. advisors =====
+    // (a) U.S. advisory involvement rises as you escalate visibly; quiet consolidation lets it lapse.
+    var _pull = (Q.intervencion_riesgo||0)*0.05 + (Q.provincias_liberadas||0)*1.1
+              + ((Q.via=='armada')?0.22:0) + ((Q.pri_posture=='aniquilar')?0.3:0)
+              + ((Q.defecciones>=1)?0.4:0) + ((Q.coronel_activo&&Q.coronel_red>=55)?0.25:0);
+    if (_pull > 0.45) { Q.us_asesoria += (_pull > 2.5 ? 2.5 : _pull); }
+    else if ((Q.us_asesoria||0) > 0) { Q.us_asesoria -= 0.3; }
+    if (Q.us_asesoria < 0) { Q.us_asesoria = 0; } if (Q.us_asesoria > 100) { Q.us_asesoria = 100; }
+    Q.estado_smart = (Q.us_asesoria >= 40) ? 1 : 0;
+    // (b) the state's own intelligence capacity — the mirror of the player's inteligencia.
+    var _si = (Q.expediente||0)*0.22 + ((Q.coronel_activo)?14:0) + (Q.us_asesoria||0)*0.5
+            - Math.max(0,((Q.apoyo_popular||0)-40))*0.3;
+    if (_si < 0) { _si = 0; } if (_si > 100) { _si = 100; }
+    Q.estado_intel = Math.round(_si);
+    // (c) which of your vectors is sharpest — the state attacks that one.
+    var _t_elec = (Q.izq_votes_display||0) + (Q.izq_seats||0)*0.8 + (Q.red_casillas||0)*0.12 + (Q.frente_unidad||0)*0.04;
+    var _t_sind = (Q.huelgas||0)*0.7 + (Q.huelga_prep||0)*0.5 + (Q.paros_ganados||0)*2 + Math.max(0,(Q.sup_workers||0)-30)*0.15;
+    var _t_rural = (Q.provincias_liberadas||0)*10 + ((Q.via=='armada')?8:0);
+    var _rz2 = ['guerrero','oaxaca','valle','chihuahua','jalisco'];
+    for (var _rq=0;_rq<_rz2.length;_rq++){ _t_rural += (Q['pres_'+_rz2[_rq]]||0)*0.35; }
+    _t_rural += Math.max(0,(Q.apoyo_popular||0)-40)*0.12;
+    var _t_intl = (Q.internac_armada||0)*4 + (Q.jcr||0)*3 + (Q.escandalos||0)*1.2 + (Q.solidaridad_intl||0);
+    var _amax = _t_elec, _ag = 'electoral';
+    if (_t_sind > _amax) { _amax = _t_sind; _ag = 'sindical'; }
+    if (_t_rural > _amax) { _amax = _t_rural; _ag = 'rural'; }
+    if (_t_intl > _amax) { _amax = _t_intl; _ag = 'internacional'; }
+    Q.estado_agenda = _ag; Q.estado_threat = Math.round(_amax);
+    // (d) the doctrine tier (display + gating), derived from the posture and the advisors.
+    var _armed = (Q.via=='armada') || ((Q.postura_guerrilla||0)>=3) || ((Q.provincias_liberadas||0)>=1);
+    if (Q.pri_posture=='ignorar') { Q.estado_doctrina='tolerancia'; }
+    else if (Q.pri_posture=='cooptar'||Q.pri_posture=='vigilar'||Q.pri_posture=='contener') { Q.estado_doctrina='vigilancia'; }
+    else if (_armed && (Q.pri_posture=='aniquilar') && (Q.estado_smart==1 || (Q.provincias_liberadas||0)>=2)) { Q.estado_doctrina='contrainsurgencia'; }
+    else { Q.estado_doctrina='represion'; }
+    // (e) the heart of it: BLUNT repression radicalizes the villages and FILLS your water (martyrs);
+    //     ADVISED counterinsurgency is surgical — intelligence-led, and it DRAINS the water instead.
+    if (Q.estado_doctrina=='represion') {
+        Q.represion += 0.4; Q.expediente += 0.3;
+        if (Q.via=='armada') {
+            if (Q.estado_smart==0) { Q.apoyo_popular += 0.35; Q.moral_columnas += 0.1; }
+            else { Q.apoyo_popular -= 0.1; }
+        }
+    } else if (Q.estado_doctrina=='contrainsurgencia') {
+        if (Q.coronel_activo) { Q.coronel_red += Q.estado_intel/100 * 0.9; if (Q.coronel_red>100) { Q.coronel_red=100; } }
+        Q.apoyo_popular -= 0.35;
+        if (Q.reconcentracion_activa==1) { Q.apoyo_popular -= 0.3; }
+        Q.expediente += 0.4;
+    } else if (Q.estado_doctrina=='vigilancia') {
+        Q.expediente += 0.4;
+        if (Q.estado_smart==1) { Q.expediente += 0.3; }
+    }
+    // (f) the agenda decides WHERE the weight falls this month.
+    if (Q.estado_agenda=='electoral' && Q.estado_doctrina!='tolerancia') {
+        if ((Q.red_casillas||0) > 0 && Q.time % 2 == 0) { Q.red_casillas -= (Q.estado_smart?1.5:1); }
+        Q.charrismo += 0.2;
+        if (Q.estado_doctrina=='represion' || Q.estado_doctrina=='contrainsurgencia') { if (Q.time%4==0) { Q.fraude_documentado += 1; } Q.legitimidad_regimen += 0.15; }
+    } else if (Q.estado_agenda=='sindical' && Q.estado_doctrina!='tolerancia') {
+        Q.charrismo += 0.5;
+        if ((Q.huelgas||0) > 0 && Q.time % 3 == 0) { Q.huelgas -= 1; }
+        if (Q.estado_smart==1) { Q.sup_workers -= 0.2; }
+    } else if (Q.estado_agenda=='rural' && (Q.estado_doctrina=='represion'||Q.estado_doctrina=='contrainsurgencia')) {
+        var _top=''; var _tv=-1; var _rz3=['guerrero','oaxaca','valle','chihuahua','jalisco','nl','tijuana'];
+        for (var _tq=0;_tq<_rz3.length;_tq++){ var _zz=_rz3[_tq]; if ((Q['pres_'+_zz]||0) > _tv) { _tv=Q['pres_'+_zz]||0; _top=_zz; } }
+        if (_top && _tv >= 8) {
+            Q['guar_'+_top] += (Q.estado_smart?2.2:1.4);
+            if (Q.estado_smart==0) { for (var _bq=0;_bq<_rz3.length;_bq++){ if ((Q['pres_'+_rz3[_bq]]||0)>=10) { Q['guar_'+_rz3[_bq]] += 0.5; } } }
+        }
+    } else if (Q.estado_agenda=='internacional' && Q.estado_doctrina!='tolerancia') {
+        Q.legitimidad_regimen += 0.2;
+    }
+    if (Q.apoyo_popular>100) { Q.apoyo_popular=100; } if (Q.apoyo_popular<0) { Q.apoyo_popular=0; }
     // the women's movement, once embraced, is a permanent multiplier: turnout, campus, the colonias
     if (Q.feminismo >= 40) {
         if (Q.time % 3 == 0) { Q.fe_voto += 0.15; }
