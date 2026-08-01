@@ -519,8 +519,13 @@
       var intel=Q['inteligencia']||0;
       var val, r,gb;
       if(atWar){ val=Q['pres_'+z]||0; var guar=Q['guar_'+z]||0;
-        r=Math.round(200+55*Math.min(1,val/40)); gb=Math.round(200-160*Math.min(1,val/40));
-        poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px'; poly.style.stroke=guar>=55?'#0f7040':'#333';
+        if(Q['liberado_'+z]===1||Q['liberado_'+z]===true){
+          // LIBERATED: the ground has changed hands — solid revolutionary red, gold border
+          poly.style.fill='#8b1a12'; poly.style.strokeWidth='3px'; poly.style.stroke='#d4af37';
+        } else {
+          r=Math.round(200+55*Math.min(1,val/40)); gb=Math.round(200-160*Math.min(1,val/40));
+          poly.style.fill='rgb('+r+','+gb+','+gb+')'; poly.style.strokeWidth=(1+Math.min(5,guar/18))+'px'; poly.style.stroke=guar>=55?'#0f7040':'#333';
+        }
       } else {
         // POLITICAL MODE: color by dominant party — red us, green PRI, blue PAN, ochre contested
         var pp = partyShares(Q, z);
@@ -535,8 +540,9 @@
       poly.style.cursor='help';
       poly.onmousemove=function(ev){ if(!tip)return; var body;
         if(atWar){ var pres=Q['pres_'+z]||0, guar=Q['guar_'+z]||0;
-          if(intel>=40){ body='Columns: <b>'+Math.round(pres)+'</b> &middot; Garrison: <b>'+Math.round(guar)+'</b><br>Troop movements: '+trend(z,guar)+(guar>=55?'<br><b>Ground too hot: presence erodes.</b>':''); }
-          else { body='Columns: '+(pres>=20?'strong':(pres>=5?'some':'almost none'))+' &middot; Army posture: '+q(guar,45,30)+'<br><i>estimates only (intel '+Math.round(intel)+'/40)</i>'; }
+          var libnote=(Q['liberado_'+z]===1||Q['liberado_'+z]===true)?'<b style="color:#d4af37">★ PROVINCE LIBERATED</b><br>':'';
+          if(intel>=40){ body=libnote+'Columns: <b>'+Math.round(pres)+'</b> &middot; Garrison: <b>'+Math.round(guar)+'</b><br>Troop movements: '+trend(z,guar)+(guar>=55?'<br><b>Ground too hot: presence erodes.</b>':''); }
+          else { body=libnote+'Columns: '+(pres>=20?'strong':(pres>=5?'some':'almost none'))+' &middot; Army posture: '+q(guar,45,30)+'<br><i>estimates only (intel '+Math.round(intel)+'/40)</i>'; }
         } else {
           var pp2=partyShares(Q,z);
           var lbl = pp2.contested ? '<b style="color:#b09a5a">CONTESTED</b>'
@@ -564,24 +570,40 @@
       if(!atWar){ if(_ab) _ab.style.display='none'; return; }
       if(_ab) _ab.style.display='';
       var CENT={guerrero:[160,182],valle:[188,150],oaxaca:[250,178],chihuahua:[112,65],jalisco:[123,128],nl:[200,82],tijuana:[50,85]};
-      var LAB={guerrero:(Q.lucio_advisor?'Lucio':(Q.genaro_advisor?'Genaro':'')), valle:'urbana'};
       function pcol(p){ return p>=80?'#b3261e':(p>=65?'#e07b2a':(p>=40?'#d8b53f':'#3f9e6a')); }
-      for(var z in CENT){ var pres=Q['pres_'+z]||0; if(pres<6) continue;
-        var c=CENT[z], pr=Q['presion_'+z]||0, rad=3+Math.min(6,pres/8);
-        if(pr>=80){ var ring=document.createElementNS(NS,'circle');
-          ring.setAttribute('cx',c[0]); ring.setAttribute('cy',c[1]); ring.setAttribute('r',rad+4);
+      // one dot PER COLUMN (up to 5), placed at its region; offset when several share a region.
+      var zc={};
+      for(var ci=1; ci<=5; ci++){
+        var z=Q['col'+ci+'_zona']; if(!z||!CENT[z]) continue;
+        var base=CENT[z]; var k=(zc[z]||0); zc[z]=k+1;
+        var cx=base[0]+((k%2)?7:0)-(k>=2?3:0), cy=base[1]+(k>=1?(k%2? -6:6):0);
+        var pr=Q['presion_'+z]||0, rad=4;
+        var nm=Q['col'+ci+'_nombre']||('Columna '+ci);
+        var lib=(Q['liberado_'+z]===1);
+        if(pr>=80){
+          var ring=document.createElementNS(NS,'circle');
+          ring.setAttribute('cx',cx); ring.setAttribute('cy',cy); ring.setAttribute('r',rad+4);
           ring.setAttribute('fill','none'); ring.setAttribute('stroke','#b3261e'); ring.setAttribute('stroke-width','1.5');
-          ring.innerHTML='<animate attributeName="r" values="'+(rad+3)+';'+(rad+9)+';'+(rad+3)+'" dur="1.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.95;0.15;0.95" dur="1.3s" repeatCount="indefinite"/>';
+          ring.innerHTML='<animate attributeName="r" values="'+(rad+3)+';'+(rad+9)+';'+(rad+3)+'" dur="1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.15;1" dur="1.1s" repeatCount="indefinite"/>';
           g.appendChild(ring);
+          // active-battle icon: pulsing red crossed swords above the encircled column
+          var bx=cx, by=cy-rad-5;
+          var xicon=document.createElementNS(NS,'path');
+          xicon.setAttribute('d','M'+(bx-3)+','+(by-3)+' L'+(bx+3)+','+(by+3)+' M'+(bx+3)+','+(by-3)+' L'+(bx-3)+','+(by+3));
+          xicon.setAttribute('stroke','#b3261e'); xicon.setAttribute('stroke-width','1.7'); xicon.setAttribute('fill','none'); xicon.setAttribute('stroke-linecap','round');
+          xicon.innerHTML='<animate attributeName="opacity" values="1;0.25;1" dur="0.7s" repeatCount="indefinite"/>';
+          g.appendChild(xicon);
         }
         var dot=document.createElementNS(NS,'circle');
-        dot.setAttribute('cx',c[0]); dot.setAttribute('cy',c[1]); dot.setAttribute('r',rad);
-        dot.setAttribute('fill',pcol(pr)); dot.setAttribute('stroke','#fff'); dot.setAttribute('stroke-width','1.2');
-        var tt='Column in '+z+' — presence '+Math.round(pres)+', pressure '+Math.round(pr)+(pr>=80?' (ENCIRCLED)':'');
-        dot.innerHTML='<title>'+tt+'</title>';
+        dot.setAttribute('cx',cx); dot.setAttribute('cy',cy); dot.setAttribute('r',rad);
+        dot.setAttribute('fill', lib?'#7a1620':pcol(pr)); dot.setAttribute('stroke', lib?'#ffd54a':'#fff'); dot.setAttribute('stroke-width', lib?'1.8':'1.2');
+        dot.innerHTML='<title>'+nm+' — pressure '+Math.round(pr)+(pr>=80?' — UNDER ATTACK':'')+'</title>';
         g.appendChild(dot);
-        if(LAB[z]){ var t=document.createElementNS(NS,'text'); t.setAttribute('x',c[0]+rad+2); t.setAttribute('y',c[1]+2.5); t.setAttribute('font-size','7'); t.setAttribute('fill','#1a1a1a'); t.setAttribute('font-weight','bold'); t.textContent=LAB[z]; g.appendChild(t); }
+        var t=document.createElementNS(NS,'text'); t.setAttribute('x',cx+rad+2); t.setAttribute('y',cy+2.5); t.setAttribute('font-size','6'); t.setAttribute('fill','#1a1a1a'); t.setAttribute('font-weight','bold');
+        t.textContent=nm.replace('Col. ','').replace('Comando ','').replace('Columna ','').slice(0,11); g.appendChild(t);
       }
+      // liberated provinces: a gold star at the region centre
+      for(var lz in CENT){ if(Q['liberado_'+lz]===1){ var lc=CENT[lz]; var star=document.createElementNS(NS,'text'); star.setAttribute('x',lc[0]); star.setAttribute('y',lc[1]-9); star.setAttribute('text-anchor','middle'); star.setAttribute('font-size','11'); star.setAttribute('fill','#e8b923'); star.textContent='★'; g.appendChild(star); } }
       // apoyo-popular bar (the sea) beneath the map
       var ap=Math.round(Q.apoyo_popular||0);
       var bar=document.getElementById('apoyo_bar');
