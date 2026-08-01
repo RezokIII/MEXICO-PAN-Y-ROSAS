@@ -9,10 +9,17 @@ frequency: 90
 max-visits: 8
 on-arrival: {!
 Q.cerco_col_last = Q.time;
-// find the encircled region (the one with the most pressure)
-var _zs = [['guerrero',Q.presion_guerrero,'la Costa Grande'],['valle',Q.presion_valle,'the capital belt'],['oaxaca',Q.presion_oaxaca,'the Isthmus'],['chihuahua',Q.presion_chihuahua,'the northern sierra'],['jalisco',Q.presion_jalisco,'Jalisco']];
-var _b = _zs[0]; for (var _i=0;_i<_zs.length;_i++){ if ((_zs[_i][1]||0) > (_b[1]||0)) _b=_zs[_i]; }
-Q.cerco_zona = _b[0]; Q.cerco_nombre = _b[2]; Q.cerco_presion = Math.round(_b[1]||0);
+// find the encircled region: the most-pressured region THAT HAS A COLUMN in it
+var _nm = {guerrero:'la Costa Grande', valle:'the capital belt', oaxaca:'the Isthmus', chihuahua:'the northern sierra', jalisco:'Jalisco'};
+var _bz = '', _bp = -1;
+for (var _c = 1; _c <= 5; _c++) {
+    var _z = Q['col'+_c+'_zona']; if (!_z) continue;
+    var _p = Q['presion_'+_z] || 0;
+    if (_p >= 78 && _p > _bp) { _bp = _p; _bz = _z; }
+}
+// fallback: if somehow no column sits in a hot region, take the hottest region outright
+if (!_bz) { var _zs=['guerrero','valle','oaxaca','chihuahua','jalisco']; for (var _i=0;_i<_zs.length;_i++){ if ((Q['presion_'+_zs[_i]]||0) > _bp){ _bp=Q['presion_'+_zs[_i]]||0; _bz=_zs[_i]; } } }
+Q.cerco_zona = _bz; Q.cerco_nombre = _nm[_bz] || _bz; Q.cerco_presion = Math.round(_bp);
 !}
 
 = El cerco
@@ -40,6 +47,8 @@ if (Q.apoyo_popular >= 50) {
   Q['pres_'+Q.cerco_zona] = Math.max(0, (Q['pres_'+Q.cerco_zona]||0) - 20);
   Q.moral_columnas -= 8; Q.memorial += 2; Q.presos += 1; Q.paranoia += 6;
   Q.cerco_result = 0;   // shattered
+  // the column token is destroyed — remove the dot from the map
+  for (var _k = 1; _k <= 5; _k++) { if (Q['col'+_k+'_zona'] === Q.cerco_zona) { Q['col'+_k+'_nombre_muerta'] = Q['col'+_k+'_nombre']; Q['col'+_k+'_zona'] = ''; Q['col'+_k+'_nombre'] = ''; Q.columnas_perdidas = (Q.columnas_perdidas||0) + 1; break; } }
 }
 Q['guar_'+Q.cerco_zona] = Math.min(90, (Q['guar_'+Q.cerco_zona]||0) + 4);
 !}
@@ -69,6 +78,8 @@ Q['pres_'+Q.cerco_zona] = Math.max(0, (Q['pres_'+Q.cerco_zona]||0) - 22);
 Q.memorial += 3; Q.leyenda += 2; Q.moral_columnas -= 6; Q.guerrilla_meter += 3;
 Q['guar_'+Q.cerco_zona] = Math.min(90, (Q['guar_'+Q.cerco_zona]||0) + 6);
 Q.legend_cerco = 1;
+// the column dies where it stood — its dot leaves the map, its name enters the songs
+for (var _k = 1; _k <= 5; _k++) { if (Q['col'+_k+'_zona'] === Q.cerco_zona) { Q['col'+_k+'_zona'] = ''; Q['col'+_k+'_nombre'] = ''; Q.columnas_perdidas = (Q.columnas_perdidas||0) + 1; break; } }
 !}
 
 They fight. Knowing how it ends, having counted the ring and the ammunition and the distance to any help that is not coming, they fight — because a column hunted down in the brush is a statistic and a column that dies in a battle is a corrido, and the corrido recruits where the corpse cannot. It lasts most of a day. The army takes the position and finds, as it always finds, fewer bodies than it expected and no documents at all. Within a month the song exists, in the version where they broke out and in the version where they did not, both true in the way the sierra needs them to be. The column is gone from [+ cerco_nombre +]. The name is not gone from anywhere. That was the trade, and they made it with their eyes open, which is the only thing that separates a last stand from a slaughter.

@@ -4,6 +4,9 @@ on-arrival: {!
 if (Q.ending == "aniquilacion") { this.achieve('el_palacio_negro'); }
 if (Q.ending == "exterminio") { this.achieve('el_exterminio'); }
 if (Q.ending == "guerra_larga") { this.achieve('la_guerra_larga'); }
+if (Q.ending == "liberacion") { this.achieve('la_liberacion'); }
+if (Q.ending == "intervencion") { this.achieve('la_intervencion_yanqui'); }
+if (Q.provincias_liberadas >= 1) { this.achieve('provincia_libre'); }
 if (Q.ending == "debil") { this.achieve('la_semilla'); }
 if (Q.ending == "media") { this.achieve('la_acumulacion'); }
 if (Q.ending == "fuerte") { this.achieve('la_fuerza'); }
@@ -52,7 +55,33 @@ if (Q.fe_voto >= 55) { this.achieve('la_fe_recuperada'); }
 if (Q.feminismo >= 60) { this.achieve('pan_y_rosas'); }
 this.achieve('game_completed');
 !}
-go-to: hero_reconocimiento if ending = "reconocimiento"; hero_ruptura if ending = "ruptura"; hero_historico if ending = "historico"; hero_guerra_larga if ending = "guerra_larga"; slide_logros
+go-to: hero_liberacion if ending = "liberacion"; hero_intervencion if ending = "intervencion"; hero_reconocimiento if ending = "reconocimiento"; hero_ruptura if ending = "ruptura"; hero_historico if ending = "historico"; hero_guerra_larga if ending = "guerra_larga"; slide_logros
+
+@hero_liberacion
+new-page: true
+face-image: img/zocalo_88.jpg
+
+= La bandera sobre la plaza
+
+The columns came down in formation, into plazas that were theirs. A generation paid for it, and the list is long, and the mural is not paint anymore. What you build now — and what it costs to keep — is the next war. This game was only about how you got here, which almost no one, in the real history, ever did.
+
+- @to_logros_lib: Continuar.
+
+@to_logros_lib
+go-to: slide_logros
+
+@hero_intervencion
+new-page: true
+face-image: img/chile_1973.jpg
+
+= La sombra del norte
+
+You escalated faster than a small country on the American border is allowed to. The red flags went up too many, too fast, too visibly — and the photograph reached the desk where photographs become policy. The revolution that was winning its own war lost a different one, to an enemy whose budget has no bottom.
+
+- @to_logros_int: Continuar.
+
+@to_logros_int
+go-to: slide_logros
 
 @hero_reconocimiento
 new-page: true
@@ -258,6 +287,14 @@ new-page: true
 
 [? if ending = "ruptura" : —(silence) ...Just write down this much: do not let anyone tell you it was madness. It was the most expensive sanity of my life. And write down the names — that is what we always kept the list for. ?]
 
+[? if ending = "liberacion" : —They say you were there when the flag went up. ?]
+
+[? if ending = "liberacion" : —I was there for all of it, mijo — which is why I do not sing about the flag. I count. Every province we freed cost us a village we could not save while we freed it. We won. Do not ever let anyone tell you winning is the same as not paying. The list is longer than the songs. Read the list first, then sing. ?]
+
+[? if ending = "intervencion" : —Why did the Americans come, bisabuela? ?]
+
+[? if ending = "intervencion" : —Because we forgot the one rule of living next to a giant: never let it see you win too fast. We raised too many flags, and one of them ended up on a desk in Washington, and the giant did what giants do when they are frightened by something small. I do not blame the young for the speed. I blame myself for not teaching them the patience in time. Write that down too. ?]
+
 [? if ending = "irrelevancia" : —Why did your people not join the wave in 88? ?]
 
 [? if ending = "irrelevancia" : —We had reasons, mijo. Very good ones. So good I still recite them alone in the kitchen, to see if they can convince the walls. ?]
@@ -277,6 +314,8 @@ Go back to the stairwell. Look up at Rivera's wall one more time — Zapata, the
 [? if ending = "debil" or ending = "media" or ending = "ruptura" or ending = "irrelevancia" : The dream did not come down off the wall — not this decade, not on your watch. But look closely at the plaster: it is worn where a thousand hands reached up and touched it, year after year, refusing to accept that a painted promise is only paint. The mural outlasts the men who commissioned it precisely because people like you would not let it dry into decoration. The appointment is still unkept. Someone is still, always, at the door of the agrarian office. The dream continues because it was never allowed to finish being a dream. ?]
 
 [? if ending = "guerra_larga" : The dream did not come down off the wall, and it did not let the wall have the last word either. Up in the sierra a piece of it stayed exactly as Rivera painted it — a rifle, a refusal, a campesino who would not accept that the promise had dried into decoration. It is still up there, in both senses: on the plaster, and on the mountain. The appointment is unkept and the appointment is also, still, being kept — by whoever is cleaning a rifle tonight in the country the murals promised and the palaces declined to deliver. It always begins again. This time it never quite stopped. ?]
+
+[? if ending = "liberacion" : It came down off the wall. All of it — Zapata, the white horse, the word *Tierra* — down off the plaster and into the plazas, standing on its own feet, breathing, a policy instead of a promise. It is the only ending in which the dream fully descends, and it is the one the painter himself would have stood before in silence, because he knew what it cost the last time a general tried it and he knew this time it was paid from below, in the only currency the dream was ever really painted in. Ask the question the mural was always asking — *did any of it come down?* — and for once the answer is yes, the whole of it. Then turn and read the memorial that made the yes possible, and understand that the wall was never the expensive part. The wall was only ever paint. The people were the mural. And the people are what it cost. ?]
 
 [? if ending = "aniquilacion" or ending = "intervencion" or ending = "exterminio" : The dream was larger than the room they gave it, and the room won — this time. They hosed the plaza clean; they will not scrub the wall, because a mural of a revolution safely dead is the regime's favorite kind. And yet: paint outlives painters. The campesino is still bent to the corn up there, the worker still holds the future in his two hands, and somewhere a mother is telling a boy what the figures mean. It always begins again. It always begins again. But not, this time, with you. ?]
 

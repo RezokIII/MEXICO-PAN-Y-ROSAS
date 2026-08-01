@@ -1,0 +1,134 @@
+title: La provincia se declara
+new-page: true
+subtitle: When the sea is deep enough, the ground itself changes hands
+face-image: img/guerrero_sierra.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and apoyo_popular >= 65 and time >= liberar_last + 6 and ((pres_guerrero >= 35 and guar_guerrero <= 44 and liberado_guerrero = 0) or (pres_oaxaca >= 35 and guar_oaxaca <= 44 and liberado_oaxaca = 0) or (pres_valle >= 40 and guar_valle <= 44 and liberado_valle = 0) or (pres_chihuahua >= 35 and guar_chihuahua <= 44 and liberado_chihuahua = 0) or (pres_jalisco >= 35 and guar_jalisco <= 44 and liberado_jalisco = 0))
+priority: 5
+frequency: 90
+max-visits: 5
+on-arrival: {!
+Q.liberar_last = Q.time;
+var _c=[['guerrero','la Costa Grande',35],['oaxaca','the Isthmus',35],['valle','the Valle',40],['chihuahua','the northern sierra',35],['jalisco','Jalisco',35]];
+Q.lib_zona=''; Q.lib_nombre='';
+for(var _i=0;_i<_c.length;_i++){ var _z=_c[_i][0]; if((Q['pres_'+_z]||0)>=_c[_i][2] && (Q['guar_'+_z]||0)<=44 && Q['liberado_'+_z]!=1){ Q.lib_zona=_z; Q.lib_nombre=_c[_i][1]; break; } }
+!}
+
+= La provincia se declara
+
+It has been building under the noise of the war, and now it is simply *true*: in [+ lib_nombre +] the state has stopped functioning. Not been defeated in a battle — *evaporated*, the way a regime evaporates when the people it claimed to govern have quietly transferred their obedience elsewhere. The garrison holds its walls and nothing beyond them; the tax collector does not come; the judge the assembly appointed is the judge people actually use. The column here is no longer a band hiding in the hills. It is, in the only sense that finally matters, the government.
+
+You can make it official — declare the province liberated, a red flag over the plaza, the map redrawn in front of the country and the world. It is the thing the whole war was for. It is also the thing that turns a manageable insurgency into an existential threat, and existential threats to a government on the U.S. border have, historically, a way of summoning the Marines. Every province you take makes liberation nearer and Washington's patience shorter.
+
+- @declarar_provincia: Declare it. Raise the flag, redraw the map. Let the country see that a piece of it is already free — and let the risk fall where it falls.
+- @consolidar_provincia: Hold the substance, skip the ceremony. Govern the province in fact without declaring it in name — deny the regime and Washington the headline, and keep escalating quietly.
+
+@declarar_provincia
+go-to: post_event
+on-arrival: {!
+if (Q.lib_zona) { Q['liberado_'+Q.lib_zona] = 1; Q['guar_'+Q.lib_zona] = Math.max(10, (Q['guar_'+Q.lib_zona]||0) - 15); Q['pres_'+Q.lib_zona] = (Q['pres_'+Q.lib_zona]||0) + 6; }
+Q.provincias_liberadas = (Q.liberado_guerrero||0)+(Q.liberado_valle||0)+(Q.liberado_oaxaca||0)+(Q.liberado_chihuahua||0)+(Q.liberado_jalisco||0);
+Q.legitimidad_regimen -= 6; Q.moral_columnas += 8; Q.apoyo_popular += 3; Q.leyenda += 3; Q.intervencion_riesgo += 14; Q.guerrilla_meter += 4;
+!}
+
+The flag goes up over the plaza — an actual flag, over an actual plaza, in a country where for fifty years the only permitted flag was the one the party had folded into its own — and the photograph crosses every border by nightfall. A province of Mexico has declared itself free, and the sentence, once printed, cannot be unprinted. Inside the liberated ground the revolution stops being a promise and becomes a municipal budget, a redistributed field, a school that opens. Outside it, two clocks start: the regime's, counting the battalions it will need, and a colder one, in an office in Washington, where a man is being shown the same photograph and asked what the United States intends to do about a red flag on its southern flank.
+
+- @post_event: Continuar.
+
+@consolidar_provincia
+go-to: post_event
+on-arrival: {!
+if (Q.lib_zona) { Q['pres_'+Q.lib_zona] = (Q['pres_'+Q.lib_zona]||0) + 4; }
+Q.apoyo_popular += 2; Q.disciplina += 2; Q.moral_columnas += 2; Q.legitimidad_regimen -= 2; Q.intervencion_riesgo = Math.max(0, (Q.intervencion_riesgo||0) - 4);
+!}
+
+You take the province and refuse the flag, and it is the harder, wiser, less satisfying choice: the state is denied the ground without being handed the headline that would justify the escalation. The revolution governs [+ lib_nombre +] in fact — the fields moved, the judge appointed, the garrison irrelevant — and lets the maps stay officially unchanged, so that Washington's man, shown no photograph, has nothing to bring to the meeting where the Marines are discussed. It is slower. It is quieter. It is how a small country wins next to a large one: by never quite giving the large one the excuse it is waiting for.
+
+- @post_event: Continuar.
+
+@la_desercion
+title: La deserción
+new-page: true
+subtitle: The army the regime counted on begins to count differently
+face-image: img/smilesoldier.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and provincias_liberadas >= 1 and legitimidad_regimen <= 40 and defecciones < 3 and time >= defect_last + 10
+priority: 3
+frequency: 60
+max-visits: 3
+on-arrival: defect_last = time
+
+= La deserción
+
+The first sign is a patrol that does not fire. The second is a supply sergeant who lets a shipment go the wrong way and reports it stolen. The third is a lieutenant — a conscript's son, sick of burning villages that look like the one he came from — who crosses the lines one night with his squad, their rifles, and a map of the garrison's blind spots. The army the regime built to be a wall is discovering that a wall is only as loyal as its poorest bricks, and the poorest bricks have families in the provinces you are liberating.
+
+This is the thing every winning insurgency reaches and most never survive the temptation of: the enemy's own soldiers, offering to change sides. They bring capacity you cannot train — real military skill, real weapons, real intelligence on the garrison. They also bring the oldest fear in every guerrilla's chest: that some of them are exactly what they appear to be, and some of them are the Colonel's newest idea.
+
+- @acoger_desertores: Welcome them. An army that defects is a war half-won; take the skill, the rifles, the crack in the wall, and screen them as you can.
+- @cauteloso_desertores: Take a few, carefully — the ones the base can vouch for by blood — and turn the rest back. Skill is not worth the ranks the Colonel could walk in behind it.
+
+@acoger_desertores
+go-to: post_event
+on-arrival: defecciones += 1; parque += 4; inteligencia += 5; moral_columnas += 5; legitimidad_regimen -= 4; guar_guerrero -= 6; guar_oaxaca -= 4; paranoia += 5; intervencion_riesgo += 4
+
+You open the lines, and the wall cracks a little wider: the defectors bring the drilled competence the sierra spends years teaching, the weapons the movement spends blood to buy, and the specific, morale-shattering fact of soldiers of the Mexican army standing under a red flag. Every garrison in the country now wonders about the loyalty of the man beside it. You have also, knowingly, opened the one door the Colonel has been trying to pick for a decade — some of these men are his — and the paranoia in the ranks ticks up to match the capacity. It is worth it. Winning wars are won partly by the enemy's soldiers deciding to lose them.
+
+- @post_event: Continuar.
+
+@cauteloso_desertores
+go-to: post_event
+on-arrival: defecciones += 1; parque += 1; inteligencia += 2; moral_columnas += 2; disciplina += 2; legitimidad_regimen -= 2
+
+You take only the ones the villages can vouch for by blood — a cousin, a compadre, a face the base has known since childhood — and turn the rest back with a message that the door is real but narrow. It costs you the mass of the defection, the wall-cracking spectacle, the sudden influx of skill. It also costs the Colonel his easiest infiltration route, and keeps the movement's greatest strength — that everyone in it can be vouched for — intact at the exact moment success is straining it hardest. Slower again. Safer again. The two words the winning guerrilla lives or dies by.
+
+- @post_event: Continuar.
+
+@la_intervencion
+title: La intervención
+new-page: true
+subtitle: Washington's clock reaches zero
+face-image: img/chile_1973.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and intervencion_riesgo >= 96 and intervencion_visto = 0
+priority: 10
+max-visits: 1
+on-arrival: intervencion_visto = 1; ending = "intervencion"
+go-to: finale
+
+= La intervención
+
+It does not arrive as an invasion, because it never does. It arrives as a phone call, a shipment, a green light: the counterinsurgency advisors already in-country given a wider brief, the matériel that was a trickle become a flood, the Mexican generals who were wavering shown a photograph of a helicopter and a briefcase and told that the full weight of the United States now stands behind the option of finishing this. Washington will not send the Marines if it does not have to. It has just decided it does not have to — because it has just given the regime everything the regime needs to do the sending itself, on a scale the war cannot survive.
+
+You escalated faster than a small country on the American border is allowed to escalate. The red flags went up too many, too fast, too visibly, and the photograph reached the desk where photographs like it become policy. The revolution that was winning its own war is about to lose a different one, against an enemy whose budget has no bottom — and the corridos of the next decade will argue, forever, about whether it could have been done more quietly, more slowly, one province at a time, in a way the giant to the north never quite got to see.
+
+- @intervencion_fin: —
+
+@intervencion_fin
+go-to: finale
+
+The last liberated plaza holds its flag into the smoke. The reinforced columns of a reinforced army close on the zones one by one, and this time there is no gap to slip through, because the gap was funded shut in a language the sierra does not speak.
+
+@la_liberacion
+title: La liberación
+new-page: true
+subtitle: The eternal party is not eternal
+face-image: img/zocalo_88.jpg
+tags: event
+view-if: via = "armada" and armada_entered = 1 and provincias_liberadas >= 4 and legitimidad_regimen <= 20 and intervencion_riesgo < 92 and liberacion_visto = 0
+priority: 10
+max-visits: 1
+on-arrival: liberacion_visto = 1; ending = "liberacion"
+go-to: finale
+
+= La liberación
+
+It ends the way the fifty years of it always secretly promised it might and never once did: the regime, having lost the provinces one patient quiet province at a time, having watched its own army begin to change sides, having been denied by your slowness the one spectacle that would have brought the giant north in — the regime simply stops being able to govern. The last sexenio's president flies out on the plane the last dictators always keep fueled. The columns come down from the sierras not in ones and twos under amnesty but in formation, into plazas that are theirs. The mother in Michoacán sees her boy walk out of the ejido with his back straight, and the cacique cannot touch him, because there is no longer a state behind the cacique.
+
+You did the thing the manuals said could not be done on Mexican ground: you built the sea patiently enough that it drowned the state, and you kept the war quiet enough that the empire next door never found the excuse to save it. It cost a generation. The memorial is long. But the mural has come down off the wall at last, and it is standing in the plaza on its own feet, and it is not paint anymore.
+
+- @liberacion_fin: —
+
+@liberacion_fin
+go-to: finale
+
+*Tierra y Libertad.* The words the muralist painted, that a million people died to underline, are — for the first time since a general with a good heart and worse timing tried it from above — the actual policy of an actual government, made from below, at the price below always pays. What you build now, and what it costs to keep, is the next war, and it is not this game's to tell. This game was about how you got here. Almost nobody, in the real history, did.

@@ -70,8 +70,10 @@ if (Q.month != Q.last_drift_month) {
         if (Q.paranoia > 100) { Q.paranoia = 100; } if (Q.paranoia < 0) { Q.paranoia = 0; }
         if (Q.disciplina > 100) { Q.disciplina = 100; } if (Q.disciplina < 0) { Q.disciplina = 0; }
         // --- Che's water: apoyo_popular, the sea the columns swim in ---
+        // Baseline entropy: fear, time, the state's patient presence. The water drains unless you work it.
+        Q.apoyo_popular -= 0.45;
         var _rooted = (Q.pres_guerrero > 15 ? 1 : 0) + (Q.pres_oaxaca > 15 ? 1 : 0) + (Q.pres_valle > 15 ? 1 : 0);
-        if (Q.linea_guerra <= -8) { Q.apoyo_popular += 0.5; }           // the mass line builds the sea
+        if (Q.linea_guerra <= -8) { Q.apoyo_popular += 0.4; }           // the mass line builds the sea
         if (Q.zona_gobernada == 1) { Q.apoyo_popular += 0.4; }          // governing the zone justly
         if (_rooted >= 1 && Q.moral_columnas > 50) { Q.apoyo_popular += 0.3; }
         if (Q.linea_guerra >= 12) { Q.apoyo_popular -= 0.5; }           // militarism dries the sea
@@ -95,6 +97,24 @@ if (Q.month != Q.last_drift_month) {
             if (_pr > 100) { _pr = 100; } if (_pr < 0) { _pr = 0; }
             Q['presion_'+_z] = _pr;
         }
+        // recount living columns (the movable tokens on the map)
+        Q.n_columnas = (Q.col1_zona?1:0)+(Q.col2_zona?1:0)+(Q.col3_zona?1:0)+(Q.col4_zona?1:0)+(Q.col5_zona?1:0);
+        // a column posted in a region slowly builds that region's presence; a lone column in hostile ground bleeds
+        for (var _ci = 1; _ci <= 5; _ci++) {
+            var _cz = Q['col'+_ci+'_zona']; if (!_cz) continue;
+            if ((Q['presion_'+_cz]||0) < 55 && Q.time % 2 == 0) { Q['pres_'+_cz] = (Q['pres_'+_cz]||0) + 1; }
+        }
+        // --- the endgame of a winning war: liberated provinces, and Washington's clock ---
+        Q.provincias_liberadas = (Q.liberado_guerrero||0)+(Q.liberado_valle||0)+(Q.liberado_oaxaca||0)+(Q.liberado_chihuahua||0)+(Q.liberado_jalisco||0);
+        if (Q.provincias_liberadas >= 1) {
+            Q.legitimidad_regimen -= 0.4 * Q.provincias_liberadas;   // a province lost is a crack in the eternal party
+            if (Q.time % 3 == 0) { Q.parque += 1; Q.apoyo_popular += 1; }  // a liberated province feeds the war
+        }
+        // US intervention risk: escalate too fast — many provinces, collapsing legitimacy, an existential threat next door.
+        var _esc = Q.provincias_liberadas * 8 + (Q.legitimidad_regimen < 35 ? (35 - Q.legitimidad_regimen) * 0.25 : 0) + (Q.jcr >= 2 ? 5 : 0);
+        if (_esc > 18) { Q.intervencion_riesgo += (Q.provincias_liberadas >= 3 ? 1.6 : 0.6); }
+        else if (Q.intervencion_riesgo > 0) { Q.intervencion_riesgo -= 0.35; }   // patient consolidation cools Washington
+        if (Q.intervencion_riesgo > 100) { Q.intervencion_riesgo = 100; } if (Q.intervencion_riesgo < 0) { Q.intervencion_riesgo = 0; }
     }
     // veterans keep the old discipline: the file grows slower wherever they run security
     if (Q.veteranos >= 2 && Q.via != 'armada') { Q.expediente -= 0.25; }

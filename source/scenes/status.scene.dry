@@ -384,6 +384,12 @@ Foreign capital: [+ capital_extranjero : fuerza +][? if mando = "extranjero" : �
 
 [? if via = "armada" and (presion_guerrero >= 55 or presion_valle >= 55 or presion_oaxaca >= 55 or presion_chihuahua >= 55 or presion_jalisco >= 55) : Column pressure (the ring tightening): [? if presion_guerrero >= 55 : Guerrero [+ presion_guerrero +] · ?][? if presion_valle >= 55 : Valle [+ presion_valle +] · ?][? if presion_oaxaca >= 55 : Oaxaca [+ presion_oaxaca +] · ?][? if presion_chihuahua >= 55 : Chihuahua [+ presion_chihuahua +] · ?][? if presion_jalisco >= 55 : Jalisco [+ presion_jalisco +] ?] — at 80 the ring closes and a column is encircled. Lift the garrison (move the column) or raise apoyo, fast. ?]
 
+[? if via = "armada" : Columns in the field: [+ n_columnas +] of 5 (form them in El campo; move them with the comandancia's emergency shift; lose them to the ring). [? if columnas_perdidas >= 1 : Columns lost: [+ columnas_perdidas +] — each one a name on the list and a hole in the map. ?] ?]
+
+[? if via = "armada" and provincias_liberadas >= 1 : **Provinces liberated: [+ provincias_liberadas +].** The ground the state no longer holds — starred on the map. Reach 4, with the regime's legitimacy in tatters, and Mexico falls from below. ?]
+
+[? if via = "armada" and intervencion_riesgo >= 25 : **La sombra del norte** — U.S. intervention risk: [+ intervencion_riesgo +]/100. [? if intervencion_riesgo >= 70 : Washington's clock is near zero. Escalate any faster and the giant funds the ending. CONSOLIDATE — hold provinces without declaring them, and let the risk cool. ?][? if intervencion_riesgo >= 25 and intervencion_riesgo < 70 : Rising. Every province declared, every point of legitimacy you shatter, ticks it up. Win quietly, one province at a time, or invite the Marines. ?] ?]
+
 [? if via = "armada" : Materiel (parque): [+ parque +] — spent on operations, earned by expropriations and the zone. Without it the war can only hide. ?]
 
 [? if via = "armada" : Column morale: [+ moral_columnas +]. [? if moral_columnas >= 78 : High — the camps recruit themselves; presence grows on its own. ?][? if moral_columnas >= 45 and moral_columnas < 78 : Holding. ?][? if moral_columnas < 45 : Low — desertions bleed presence monthly. Win something, or lose the columns. ?] ?]

@@ -1,0 +1,71 @@
+title: La base de apoyo
+new-page: true
+subtitle: Winning the water, one village at a time — slow, and never finished
+card-image: img/cards/colonia.jpg
+view-if: via = "armada" and time >= campo_cd + 2
+on-arrival: month_actions += 1; campo_cd = time
+max-visits: 60
+is-card: true
+frequency: 80
+tags: campo
+
+= La base de apoyo
+
+The water is not won in a season and it is never won for good. It is the patient, unglamorous, endless work Che put above every operation: the assembly attended, the dispute mediated, the harvest defended, the promise kept — a hundred small proofs that the guerrilla is *of* the village and not merely armed near it. It moves slowly because trust moves slowly, and it drains the moment the army burns a granary and the column is not there to answer. Choose where to sink the season's work.
+
+- @apoyo_sur: The south — Guerrero and Oaxaca, where the water is deepest and the reprisals worst.
+- @apoyo_asambleas: The assemblies — build the political base everywhere at once, thinner but broader.
+- @apoyo_defender: Defend a village the army has marked — protect the people who shelter you, and prove the promise.
+- @root: The columns rest this month; the water stands where it stands.
+- @easy_discard
+
+@apoyo_sur
+on-arrival: apoyo_popular += 4; sup_peasants += 3; pres_guerrero += 1; pres_oaxaca += 1; expediente += 1
+
+The organizers walk the veredas of the south for a month and come back with the only currency that decides this war: a little more of the country that will lie to a lieutenant to protect a compañero. Four points of the sea, bought with a month of boots. It is never enough and it is the only thing that is ever enough.
+
+- @post_event: Continuar.
+
+@apoyo_asambleas
+on-arrival: apoyo_popular += 3; sup_peasants += 2; disciplina += 1; linea_guerra -= 1
+
+The assemblies spread the base wide and shallow — a committee here, a literacy circle there, the movement present in a dozen valleys instead of rooted in three. It raises the sea a little everywhere, which is the mass line's slow wager: that breadth outlasts depth when the army comes, because there is no single village whose fall drains the whole thing.
+
+- @post_event: Continuar.
+
+@apoyo_defender
+choose-if: parque >= 2
+unavailable-subtitle: Standing between a village and the army takes materiel — at least 2 parque — and the will to spend it on people, not operations.
+on-arrival: apoyo_popular += 6; sup_peasants += 4; parque -= 2; represion += 3; moral_columnas += 3; memorial += 1
+
+You do the thing that separates a people's army from an armed band: you stand between the village and the punishment it is about to receive for sheltering you. It costs materiel and it costs a firefight and sometimes it costs a name, but the village watches the column bleed for it, and that is worth more than any communiqué. The deepest water in the war is drawn from a well like this one. So is the deepest debt: they know, now, that you will come. You cannot afford to be wrong about that twice.
+
+- @post_event: Continuar.
+
+@la_cosecha
+title: La cosecha
+new-page: true
+subtitle: The countryside supplies the war it shelters
+card-image: img/cards/expropiacion.jpg
+view-if: via = "armada" and time >= campo_col_cd + 2 and apoyo_popular >= 25
+on-arrival: month_actions += 1; campo_col_cd = time
+max-visits: 60
+is-card: true
+frequency: 55
+tags: campo
+
+= La cosecha
+
+Where the water is deep, the countryside feeds the war without being robbed to do it — the coffee harvest tithed by choice, the cattle "lost" on paper, the trucks that break down conveniently on the road the column needs. This is the difference between a guerrilla and a bandit gang: the bandit takes, and the people inform; the rooted column is *given*, and the people cover for it. But it only works where you have earned it. A movement with thin support that tries to live off the land is just a slower kind of predator.
+
+- @cosecha_recoger: Take the harvest's gift — materiel and supply, offered because it is not extorted.
+- @root: Leave it. The base is thin here; taking would cost more trust than the parque is worth.
+
+@cosecha_recoger
+choose-if: apoyo_popular >= 35
+unavailable-subtitle: The countryside gives freely only to a movement it trusts — apoyo below 35 means anything you take, you take.
+on-arrival: parque += 4; apoyo_popular += 1; sup_peasants += 1
+
+The supply moves the way it only moves for a movement the country has adopted: quietly, reliably, and with a deniability the whole valley maintains on its own initiative. Four measures of materiel, and the base is not diminished by the giving — it is confirmed. You are being kept. That is a status no operation can win and no amount of parque can buy.
+
+- @post_event: Continuar.

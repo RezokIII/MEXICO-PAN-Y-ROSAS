@@ -169,6 +169,16 @@ Q.compas_armadas = 0; Q.compa_caida = 0; Q.zona_gobernada = 0; Q.zona_last = -99
 Q.apoyo_popular = 38; Q.cerco_col_last = -99; Q.che_advisor = 0; Q.che_last = -99; Q.che_vivo = 1; Q.columna_perdida = 0;
 // per-region column pressure (0-100), computed each month for the map dots and the encirclement check
 Q.presion_guerrero = 0; Q.presion_valle = 0; Q.presion_oaxaca = 0; Q.presion_chihuahua = 0; Q.presion_jalisco = 0;
+// discrete columns: up to 5 movable tokens, each posted to a region. The map shows one dot per column;
+// moving relocates the dot, death removes it. n_columnas is recomputed each month.
+Q.col1_zona = ""; Q.col2_zona = ""; Q.col3_zona = ""; Q.col4_zona = ""; Q.col5_zona = "";
+Q.col1_nombre = ""; Q.col2_nombre = ""; Q.col3_nombre = ""; Q.col4_nombre = ""; Q.col5_nombre = "";
+Q.n_columnas = 0; Q.columnas_formadas = 0; Q.columnas_perdidas = 0; Q.shift_last = -99; Q.campo_col_cd = -99; Q.campo_cd = -99;
+Q.MAX_COLUMNAS = 5;
+// the endgame of a winning war: liberate whole provinces, the army fractures, and Washington watches the clock
+Q.liberado_guerrero = 0; Q.liberado_valle = 0; Q.liberado_oaxaca = 0; Q.liberado_chihuahua = 0; Q.liberado_jalisco = 0;
+Q.provincias_liberadas = 0; Q.intervencion_riesgo = 0; Q.defecciones = 0;
+Q.liberar_last = -99; Q.defect_last = -99; Q.intervencion_visto = 0; Q.liberacion_visto = 0;
 Q.s_ataque_cd = -5; Q.barrida_last = -99; Q.reten_last = -99; Q.quinta_last = -99; Q.audaz_last = -99;
 Q.op_res = 0; Q.op_zone = ""; Q.barrida_zone = "";
 Q.coronel_muerto = 0; Q.coronel_removido = 0;
@@ -864,6 +874,11 @@ Q.camino1 = 1;
 // The internal-war clocks (disciplina, paranoia, línea) keep their root defaults: 65 / 8 / 0.
 Q.parque = 9; Q.moral_columnas = 64; Q.inteligencia = 16;
 Q.pres_guerrero = 22; Q.pres_valle = 12; Q.pres_oaxaca = 8; Q.pres_chihuahua = 6;
+// three columns on the board to start the guerrilla game
+Q.col1_zona = "guerrero"; Q.col1_nombre = "Col. Lucio Cabañas";
+Q.col2_zona = "valle"; Q.col2_nombre = "Comando urbano del Valle";
+Q.col3_zona = "oaxaca"; Q.col3_nombre = "Col. del Istmo";
+Q.columnas_formadas = 1; Q.n_columnas = 3;
 !}
 go-to: preset_1971_intro
 

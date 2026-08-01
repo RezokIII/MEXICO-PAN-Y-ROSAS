@@ -17,6 +17,10 @@ Q.moral_columnas = Math.max(Q.moral_columnas, 62 + (Q.difficulty < 0 ? 8 : (Q.di
 Q.inteligencia += 6 + (Q.difficulty < 0 ? 4 : 0);
 // a fresh column that already survived the descent starts with a little presence to hold
 if (Q.pres_guerrero < 12) { Q.pres_guerrero = 12; }
+// seed the first columns onto the map — the movable, mortal tokens the whole war now turns on
+Q.col1_zona = "guerrero"; Q.col1_nombre = (Q.lucio_advisor ? "Col. Lucio Cabañas" : "Col. de la Costa Grande");
+Q.col2_zona = "valle"; Q.col2_nombre = "Comando urbano del Valle";
+Q.columnas_formadas = 1; Q.n_columnas = 2;
 !}
 
 = Below ground

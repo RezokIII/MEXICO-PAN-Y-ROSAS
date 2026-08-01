@@ -14,7 +14,39 @@ They sit where Lucio's people sat and Genaro's before them, and they carry the s
 - @doctrina_dispersion
 - @economia_guerra
 - @escuela_monte
+- @shift_columna
 - @root: Return to main
+
+@shift_columna
+title: Desplazamiento de emergencia
+subtitle: Pull the most-pressured column off the map and set it down on cold ground.
+card-image: img/cards/columna_movil.jpg
+choose-if: advisor_action_timer == 0 and n_columnas >= 1
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if n_columnas < 1 : No column in the field to move. ?]
+on-arrival: {!
+Q.advisor_action_timer = 6; Q.last_advisor_action = 1;
+// find the most-pressured column
+var bs = 0, bp = -1;
+for (var i = 1; i <= 5; i++) { var z = Q['col'+i+'_zona']; if (z && (Q['presion_'+z]||0) > bp) { bp = Q['presion_'+z]||0; bs = i; } }
+if (bs) {
+    var oz = Q['col'+bs+'_zona'];
+    // pick the coldest war-zone to move to
+    var zs = ['guerrero','oaxaca','valle','chihuahua','jalisco']; var dz = zs[0], dp = 999;
+    for (var j = 0; j < zs.length; j++) { if (zs[j] !== oz && (Q['presion_'+zs[j]]||0) < dp) { dp = Q['presion_'+zs[j]]||0; dz = zs[j]; } }
+    Q['col'+bs+'_zona'] = dz;
+    var sh = Math.min(10, Q['pres_'+oz]||0);
+    Q['pres_'+oz] = Math.max(0, (Q['pres_'+oz]||0) - sh);
+    Q['pres_'+dz] = (Q['pres_'+dz]||0) + Math.round(sh * 0.7);
+    Q['presion_'+dz] = Math.max(0, (Q['presion_'+dz]||0) - 30);   // arrives cold — the ring has to be rebuilt
+    Q['guar_'+dz] = (Q['guar_'+dz]||0) + 3;                        // but the army follows
+    Q.shift_from = oz; Q.shift_to = dz; Q.shift_last = Q.time;
+}
+Q.parque -= 2; Q.moral_columnas += 2; Q.inteligencia -= 1;
+!}
+
+The order goes out in the grammar the sierra uses for its most dangerous moves — a place-name, a date, a route memorized and never written — and the column under the tightest ring simply is not there when the ring closes. It comes down one valley and up another, across country the army maps badly, and sets down on ground where the garrison is thin and the informers are few. It arrives cold: fewer, tired, carrying its wounded, but *alive*, and off the square where it was about to die. The dot moves on the map. The Colonel's careful month of work now points at an empty ridge. This is the whole art of the war — to be, always, one valley over from where the general is certain you are.
+
+- @post_event: Continuar.
 
 @doctrina_dispersion
 title: La doctrina de dispersión

@@ -1,0 +1,69 @@
+title: Levantar una columna
+new-page: true
+subtitle: Build a new column from the base — the map holds five at most
+card-image: img/cards/recluta.jpg
+view-if: via = "armada" and n_columnas < 5 and time >= campo_col_cd + 3
+on-arrival: month_actions += 1; campo_col_cd = time
+max-visits: 40
+is-card: true
+frequency: 65
+tags: campo
+
+= Levantar una columna
+
+A column is not recruited so much as *grown*: a base of support thick enough to feed and hide a standing armed unit, a commander the villages already trust, weapons enough to arm the willing. You have [+ n_columnas +] of the five columns the movement can sustain at once — more than that and the command structure frays, the supply lines cross, the Colonel gets too many trails to follow. Where does the new one rise?
+
+*(A column only takes root where the water is deep. Raising one where apoyo is thin gives the army a gift.)*
+
+- @lev_guerrero: Guerrero — the Costa Grande.
+- @lev_oaxaca: Oaxaca — the Isthmus.
+- @lev_valle: the Valle — an urban comando.
+- @lev_chihuahua: Chihuahua — the northern sierra.
+- @lev_jalisco: Jalisco — the west.
+- @root: Not yet. A column raised before its base is a funeral with a flag.
+- @easy_discard
+
+@lev_guerrero
+choose-if: parque >= 2
+unavailable-subtitle: Arming a new column takes materiel — at least 2 parque.
+on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break;} } if(s){ Q['col'+s+'_zona']="guerrero"; Q['col'+s+'_nombre']="Col. de la Costa Grande"; Q.pres_guerrero=(Q.pres_guerrero||0)+8; Q.columnas_formadas=1; } Q.parque-=2; Q.moral_columnas+=2; Q.expediente+=2; !}
+
+A new column takes the field on the Costa Grande, where the mountains and the memory of Lucio do half the recruiting. It will grow or it will draw the army's eye — usually both. The dot is on the map now, and the map, from here, is the war.
+
+- @post_event: Continuar.
+
+@lev_oaxaca
+choose-if: parque >= 2
+unavailable-subtitle: Arming a new column takes materiel — at least 2 parque.
+on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break;} } if(s){ Q['col'+s+'_zona']="oaxaca"; Q['col'+s+'_nombre']="Col. del Istmo"; Q.pres_oaxaca=(Q.pres_oaxaca||0)+8; Q.columnas_formadas=1; } Q.parque-=2; Q.moral_columnas+=2; Q.expediente+=2; !}
+
+On the Isthmus the column rises in Zapotec, half of it already organized by the assemblies before you arrived. It is the best water in the Republic and the army knows exactly which towns to punish for it. The dot is on the map.
+
+- @post_event: Continuar.
+
+@lev_valle
+choose-if: parque >= 2
+unavailable-subtitle: Arming a new column takes materiel — at least 2 parque.
+on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break;} } if(s){ Q['col'+s+'_zona']="valle"; Q['col'+s+'_nombre']="Comando urbano del Valle"; Q.pres_valle=(Q.pres_valle||0)+8; Q.columnas_formadas=1; } Q.parque-=2; Q.moral_columnas+=2; Q.expediente+=3; !}
+
+An urban comando forms in the capital's deepest waters and thickest garrison — the richest recruiting ground and the deadliest, the Brigada Blanca already working the colonias it will hide in. The dot is on the map, blinking in the most dangerous square on it.
+
+- @post_event: Continuar.
+
+@lev_chihuahua
+choose-if: parque >= 2
+unavailable-subtitle: Arming a new column takes materiel — at least 2 parque.
+on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break;} } if(s){ Q['col'+s+'_zona']="chihuahua"; Q['col'+s+'_nombre']="Col. del norte"; Q.pres_chihuahua=(Q.pres_chihuahua||0)+8; Q.columnas_formadas=1; } Q.parque-=2; Q.moral_columnas+=2; Q.expediente+=2; !}
+
+The high northern sierra remembers Madera, and a column rises among the ranch hands and mining sons who take to the cold discipline because they were born to it. Thin water, hard country, long distances. The dot is on the map.
+
+- @post_event: Continuar.
+
+@lev_jalisco
+choose-if: parque >= 2
+unavailable-subtitle: Arming a new column takes materiel — at least 2 parque.
+on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break;} } if(s){ Q['col'+s+'_zona']="jalisco"; Q['col'+s+'_nombre']="Col. de occidente"; Q.pres_jalisco=(Q.pres_jalisco||0)+8; Q.columnas_formadas=1; } Q.parque-=2; Q.moral_columnas+=2; Q.expediente+=3; !}
+
+A column forms in the old Liga country around Guadalajara, on craft the DFS thought it had buried and police who remember it too well. Fast recruits, fast funerals. The dot is on the map.
+
+- @post_event: Continuar.
