@@ -604,6 +604,8 @@
       }
       // liberated provinces: a gold star at the region centre
       for(var lz in CENT){ if(Q['liberado_'+lz]===1){ var lc=CENT[lz]; var star=document.createElementNS(NS,'text'); star.setAttribute('x',lc[0]); star.setAttribute('y',lc[1]-9); star.setAttribute('text-anchor','middle'); star.setAttribute('font-size','11'); star.setAttribute('fill','#e8b923'); star.textContent='★'; g.appendChild(star); } }
+      // U.S. advisory presence: a cold steel badge once the apparatus has been professionalized (the war got smarter)
+      if(Q.estado_smart===1||((Q.us_asesoria||0)>=40)){ var adv=document.createElementNS(NS,'text'); adv.setAttribute('x',4); adv.setAttribute('y',11); adv.setAttribute('font-size','7'); adv.setAttribute('fill','#33556f'); adv.setAttribute('font-weight','bold'); adv.textContent='⬥ asesoría EEUU '+Math.round(Q.us_asesoria||0); adv.innerHTML='<title>U.S. counterinsurgency advisors are present: intelligence-led, surgical repression that drains your popular support instead of feeding it.</title>'+adv.textContent; g.appendChild(adv); }
       // apoyo-popular bar (the sea) beneath the map
       var ap=Math.round(Q.apoyo_popular||0);
       var bar=document.getElementById('apoyo_bar');
