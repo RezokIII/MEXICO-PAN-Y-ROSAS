@@ -1,5 +1,11 @@
 title: El adversario aprende
-tags: event
+# NOTE: this top-level scene is only a container/namespace for the sub-events below.
+# It must NOT carry `tags: event` — with no view-if and no max-visits it would be an
+# always-eligible, never-exhausted empty card, which the #event deck draws forever.
+# The real events (@los_asesores, @giro_represion, @giro_contra, @la_reconcentracion)
+# each carry their own `tags: event`, view-if guard and max-visits.
+max-visits: 1
+view-if: 0
 
 # ==========================================================================
 # THE STATE AS A THINKING ADVERSARY.
