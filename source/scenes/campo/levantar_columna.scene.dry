@@ -30,7 +30,7 @@ on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break
 
 A new column takes the field on the Costa Grande, where the mountains and the memory of Lucio do half the recruiting. It will grow or it will draw the army's eye — usually both. The dot is on the map now, and the map, from here, is the war.
 
-- @post_event: Continuar.
+- @root: Continuar.
 
 @lev_oaxaca
 choose-if: parque >= 2
@@ -39,7 +39,7 @@ on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break
 
 On the Isthmus the column rises in Zapotec, half of it already organized by the assemblies before you arrived. It is the best water in the Republic and the army knows exactly which towns to punish for it. The dot is on the map.
 
-- @post_event: Continuar.
+- @root: Continuar.
 
 @lev_valle
 choose-if: parque >= 2
@@ -48,7 +48,7 @@ on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break
 
 An urban comando forms in the capital's deepest waters and thickest garrison — the richest recruiting ground and the deadliest, the Brigada Blanca already working the colonias it will hide in. The dot is on the map, blinking in the most dangerous square on it.
 
-- @post_event: Continuar.
+- @root: Continuar.
 
 @lev_chihuahua
 choose-if: parque >= 2
@@ -57,7 +57,7 @@ on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break
 
 The high northern sierra remembers Madera, and a column rises among the ranch hands and mining sons who take to the cold discipline because they were born to it. Thin water, hard country, long distances. The dot is on the map.
 
-- @post_event: Continuar.
+- @root: Continuar.
 
 @lev_jalisco
 choose-if: parque >= 2
@@ -66,4 +66,4 @@ on-arrival: {! var s=0; for(var i=1;i<=5;i++){ if(!Q['col'+i+'_zona']){s=i;break
 
 A column forms in the old Liga country around Guadalajara, on craft the DFS thought it had buried and police who remember it too well. Fast recruits, fast funerals. The dot is on the map.
 
-- @post_event: Continuar.
+- @root: Continuar.

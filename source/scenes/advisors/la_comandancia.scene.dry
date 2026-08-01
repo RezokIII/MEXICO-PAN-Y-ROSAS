@@ -46,7 +46,7 @@ Q.parque -= 2; Q.moral_columnas += 2; Q.inteligencia -= 1;
 
 The order goes out in the grammar the sierra uses for its most dangerous moves — a place-name, a date, a route memorized and never written — and the column under the tightest ring simply is not there when the ring closes. It comes down one valley and up another, across country the army maps badly, and sets down on ground where the garrison is thin and the informers are few. It arrives cold: fewer, tired, carrying its wounded, but *alive*, and off the square where it was about to die. The dot moves on the map. The Colonel's careful month of work now points at an empty ridge. This is the whole art of the war — to be, always, one valley over from where the general is certain you are.
 
-- @post_event: Continuar.
+- @root: Continuar.
 
 @doctrina_dispersion
 title: La doctrina de dispersión

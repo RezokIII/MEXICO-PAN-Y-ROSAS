@@ -24,14 +24,14 @@ on-arrival: apoyo_popular += 4; sup_peasants += 3; pres_guerrero += 1; pres_oaxa
 
 The organizers walk the veredas of the south for a month and come back with the only currency that decides this war: a little more of the country that will lie to a lieutenant to protect a compañero. Four points of the sea, bought with a month of boots. It is never enough and it is the only thing that is ever enough.
 
-- @post_event: Continuar.
+- @root: Continuar.
 
 @apoyo_asambleas
 on-arrival: apoyo_popular += 3; sup_peasants += 2; disciplina += 1; linea_guerra -= 1
 
 The assemblies spread the base wide and shallow — a committee here, a literacy circle there, the movement present in a dozen valleys instead of rooted in three. It raises the sea a little everywhere, which is the mass line's slow wager: that breadth outlasts depth when the army comes, because there is no single village whose fall drains the whole thing.
 
-- @post_event: Continuar.
+- @root: Continuar.
 
 @apoyo_defender
 choose-if: parque >= 2
@@ -40,7 +40,7 @@ on-arrival: apoyo_popular += 6; sup_peasants += 4; parque -= 2; represion += 3; 
 
 You do the thing that separates a people's army from an armed band: you stand between the village and the punishment it is about to receive for sheltering you. It costs materiel and it costs a firefight and sometimes it costs a name, but the village watches the column bleed for it, and that is worth more than any communiqué. The deepest water in the war is drawn from a well like this one. So is the deepest debt: they know, now, that you will come. You cannot afford to be wrong about that twice.
 
-- @post_event: Continuar.
+- @root: Continuar.
 
 @la_cosecha
 title: La cosecha
@@ -68,4 +68,4 @@ on-arrival: parque += 4; apoyo_popular += 1; sup_peasants += 1
 
 The supply moves the way it only moves for a movement the country has adopted: quietly, reliably, and with a deniability the whole valley maintains on its own initiative. Four measures of materiel, and the base is not diminished by the giving — it is confirmed. You are being kept. That is a status no operation can win and no amount of parque can buy.
 
-- @post_event: Continuar.
+- @root: Continuar.
