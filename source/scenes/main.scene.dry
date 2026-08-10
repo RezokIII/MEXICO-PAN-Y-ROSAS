@@ -35,6 +35,7 @@ max-cards: 3
 - @sistema
 - @canales
 - @laguerra
+- @lared
 - @sierra
 - @campo
 - @fdn
@@ -78,6 +79,7 @@ max-cards: 4
 - @sistema
 - @canales
 - @laguerra
+- @lared
 - @sierra
 - @campo
 - @fdn
@@ -122,6 +124,7 @@ max-cards: 5
 - @sistema
 - @canales
 - @laguerra
+- @lared
 - @sierra
 - @campo
 - @fdn
@@ -165,6 +168,7 @@ max-cards: 4
 - @sistema
 - @canales
 - @laguerra
+- @lared
 - @sierra
 - @campo
 - @fdn
@@ -175,7 +179,7 @@ max-cards: 4
 card-image: img/cards/columna_movil.jpg
 title: La sierra
 subtitle: The war, where it exists
-view-if: via = "armada" and banda != "sierra"
+view-if: via = "armada" and banda = ""
 is-deck: true
 
 - #sierra
@@ -184,7 +188,7 @@ is-deck: true
 card-image: img/cards/colonia.jpg
 title: El campo
 subtitle: The countryside — the water, the columns, the land
-view-if: via = "armada" and banda != "sierra"
+view-if: via = "armada" and banda = ""
 is-deck: true
 
 - #campo
@@ -197,6 +201,15 @@ view-if: banda = "sierra"
 is-deck: true
 
 - #laguerra
+
+@lared
+card-image: img/cards/casilla.jpg
+title: La red
+subtitle: The urban war — the cells, where they act
+view-if: banda = "ciudad"
+is-deck: true
+
+- #lared
 
 @sistema
 title: El laberinto

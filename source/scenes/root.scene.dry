@@ -898,6 +898,7 @@ Choose where to begin. **1968 — El origen** is the full twenty-year campaign, 
 - @preset_1982: 1982 — La crisis (~6 años, la década perdida)
 - @preset_1971_armada: ⚙ 1971 — Tomar el fusil (skip ahead: the armed road after Tlatelolco)
 - @preset_foco_sierra: ★ 1971 — La Sierra: el foco (NEW — one band, the Guerrero war)
+- @preset_ciudad: ★ 1973 — La Ciudad: la Liga (NEW — the urban war in Guadalajara)
 
 @preset_foco_sierra
 new-page: true
@@ -918,6 +919,23 @@ Q.apoyo_popular = 34; Q.f_cerco = 12; Q.f_desgaste = 0;
 Q.inteligencia = 14; Q.coronel_activo = 0;
 !}
 go-to: foco.forjar
+
+@preset_ciudad
+new-page: true
+on-arrival: {!
+// ---- THE URBAN WAR: the Liga Comunista 23 de Septiembre, Guadalajara, 1973. ----
+Q.difficulty = 0;
+Q.year = 1973; Q.month = 9; Q.time = 57;
+Q.presidente = "Echeverria"; Q.gobernacion = "Moya"; Q.sexenio_year = 4;
+Q.presidente_cooptacion = 50; Q.presidente_represion = 66; Q.represion = 72; Q.legitimidad_regimen = 64;
+Q.via = "armada"; Q.armada_entered = 1; Q.postura_guerrilla = 3; Q.camino1 = 1;
+Q.banda = "ciudad"; Q.u_phase = "forjar";
+Q.u_celulas = 3; Q.u_calor = 18; Q.u_seguridad = 55; Q.u_poder = 0; Q.u_sector = "centro";
+Q.apoyo_popular = 30; Q.funds = 8; Q.parque = 10; Q.inteligencia = 14;
+// the Brigada Blanca is already forming under the DFS this year
+Q.estado_intel = 20;
+!}
+go-to: ciudad.forjar
 
 @preset_1971_armada
 new-page: true

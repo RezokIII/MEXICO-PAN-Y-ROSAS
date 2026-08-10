@@ -1,0 +1,144 @@
+title: La ciudad
+max-visits: 1
+view-if: 0
+# Container/namespace only — NOT tagged event. The urban track (banda="ciudad"): the Liga
+# Comunista 23 de Septiembre in Guadalajara, on Guillén's doctrine. A decentralized network of
+# cells (u_celulas). You act loud (expropiaciones, propaganda armada) and survive the Brigada
+# Blanca (u_calor + the cascade) by decentralization, toward ingobernabilidad (u_poder).
+# apoyo_popular is the urban sympathy. u_seguridad is compartmentalization.
+
+# =====================================================================
+# PHASE 0 — LA RED. How you build the network. Guillén: the city is the terrain; decentralize.
+# =====================================================================
+@forjar
+title: Tejer la red
+new-page: true
+face-image: img/ceu.jpg
+subtitle: "Concrete forests are safer than forests of trees" — Abraham Guillén
+on-arrival: u_phase = "forjar"
+
+= Tejer la red
+
+Guillén said it against Che himself: in a country that is already more city than country, the sierra is a detour and the *metropolis* is the terrain. Concrete forests are safer than forests of trees; the city has more people to hide in, more banks to fund the war, more targets that matter. But the city is also the state's ground — its files, its informers, its Brigada Blanca forming this very year under the DFS — and the only thing that lets a network survive there is the thing Guillén hammered on and the foco never learned: *decentralization.* No single head to cut off. No column to encircle. Cells that do not know each other. How you weave the first threads decides whether the net catches the state or the state catches you.
+
+- @forjar_estudiantes: **Desde la universidad.** Build from the student movement — the FER, the prepas, the radicalized campuses where the Liga was actually born. *(fast growth, deep sympathy; the campuses are watched)*
+- @forjar_obreros: **Desde la fábrica.** Root the network in the industrial belt — slower, harder to grow, far harder to kill. *(rooted, resilient cells; less spectacular)*
+- @forjar_clandestino: **La compartimentación.** Build small and dark from the start — Guillén's rule, cells sealed from each other, growth traded for security. *(fewer cells, high compartmentalization)*
+
+@forjar_estudiantes
+on-arrival: {! Q.u_entreno="estudiantes"; Q.u_forjado=1; Q.u_phase="red"; Q.u_celulas+=2; Q.apoyo_popular+=8; Q.u_calor+=8; Q.sup_students=(Q.sup_students||0)+6; !}
+
+You build where the Liga really began — the University of Guadalajara, the FER, the prepas full of students who have read Guillén and Marighella and decided that the time for marching is over. The network grows fast; a campus radicalizes in weeks, not years, and the sympathy runs deep among the young. It also grows *visible* — the DFS has an informer in every faculty, and a movement built from students is a movement whose faces are already in a file somewhere. Fast, and warm, and watched.
+
+- @root: A la calle. Continuar.
+
+@forjar_obreros
+on-arrival: {! Q.u_entreno="obreros"; Q.u_forjado=1; Q.u_phase="red"; Q.u_celulas+=1; Q.u_seguridad+=8; Q.sup_workers=(Q.sup_workers||0)+5; Q.apoyo_popular+=4; !}
+
+You do the harder, slower thing and root the network in the working class — the industrial colonias, the factory gates, the men and women who cannot afford romanticism and will not join for a season. It grows at a crawl. It is also nearly impossible to kill: a cell embedded in a working-class barrio that has known its members since childhood does not fall to an informer the way a campus does, because there are no strangers to inform. Fewer, slower, and rooted in ground the Brigada Blanca cannot simply walk into.
+
+- @root: A la calle. Continuar.
+
+@forjar_clandestino
+on-arrival: {! Q.u_entreno="clandestino"; Q.u_forjado=1; Q.u_phase="red"; Q.u_seguridad+=16; Q.inteligencia+=4; Q.apoyo_popular-=2; !}
+
+You follow Guillén to the letter: no mass base to be rounded up, no campus cells that all know each other, just a handful of sealed compartments that could each be destroyed without touching the next. It is the most survivable way to begin and the loneliest — you trade the warmth and the numbers of a movement for the cold arithmetic of survival, betting that a network the state cannot map is worth more than one it cannot ignore. Small. Dark. Very hard to kill.
+
+- @root: A la calle. Continuar.
+
+# =====================================================================
+# PHASE 1 — LA RED EN ACCIÓN. The "La red" card each month: grow, expropriate, propagandize, or lie low.
+# =====================================================================
+@red
+title: La red
+card-image: img/cards/casilla.jpg
+subtitle: Guadalajara — the cells, the money, the heat
+view-if: banda = "ciudad" and u_forjado = 1 and u_phase = "red"
+is-card: true
+frequency: 100
+max-visits: 300
+tags: lared
+on-arrival: month_actions += 1
+
+= La red en acción
+
+The network: **[+ u_celulas +]** cells · seguridad **[+ u_seguridad +]**/100 · simpatía (el agua) **[+ apoyo_popular +]**/100 · fondos **[+ funds +]** · parque **[+ parque +]**. The Brigada Blanca's heat on you: **[+ u_calor +]**/100. Poder popular: **[+ u_poder +]**/100. [? if u_calor >= 70 : *The white brigade is close — a raid is coming. Lie low, or accept the risk.* ?][? if u_celulas <= 1 : *The network is nearly gone.* ?]
+
+- @r_celula: **Tejer una célula.** Recruit and seal a new cell into the network. *(+cells; a little heat)*
+- @r_expro: **Expropiación.** A bank or a payroll — self-finance the war the way Guillén said the city lets you. *(+fondos, +parque; +heat)*
+- @r_propaganda: **Propaganda armada.** Seize a radio station, take a colonia for an hour, read the communiqué — make the movement visible. *(+simpatía, +poder; +heat)*
+- @r_bajar: **Bajar la actividad.** Go quiet — safehouses, compartments, no operations while the heat cools. *(−heat, +seguridad; no gains this month)*
+
+@r_celula
+on-arrival: {! Q.u_celulas+=1; Q.u_calor+=4; if(Q.u_entreno==="clandestino"){Q.u_seguridad+=2;} Q.apoyo_popular+=2; !}
+
+You weave another cell into the net — new people, sealed off from the ones who recruited them, taught the discipline of knowing only what they must. The network grows a little wider and a little harder to unravel, because every cell that does not know its neighbors is a thread the Brigada Blanca can pull without the whole thing coming apart. A movement is being built in the concrete forest, quietly, one sealed room at a time.
+
+- @root: Continuar.
+
+@r_expro
+choose-if: u_celulas >= 2
+unavailable-subtitle: An expropriation takes at least two cells working in concert.
+on-arrival: {! var _r=(Q.u_celulas*8)+(Q.u_seguridad*0.3)-30+(Math.random()*35-12); if(_r>=0){Q.funds=(Q.funds||0)+16;Q.parque=(Q.parque||0)+8;Q.u_poder+=2;}else{Q.funds=(Q.funds||0)+6;Q.u_celulas-=1;Q.u_calor+=10;Q.memorial=(Q.memorial||0)+1;} Q.u_calor+=14; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+2; !}
+
+You do what Guillén said the city offers and the sierra never will: you take your war chest from the enemy's own banks. [? if u_seguridad >= 50 : It goes clean — the cell is in and out in ninety seconds, the money funds a year of clandestine life, the guns for it bought with the bourgeoisie's own deposits. ?][? if u_seguridad < 50 : It goes loud — a getaway that nearly wasn't, a cell burned in the doing, a face on a security photograph. You got the money. It cost you.  ?] Every peso raises the war chest and the heat in the same motion: a bank robbery is a flare that says *we are here,* and the Brigada Blanca reads flares.
+
+- @root: Continuar.
+
+@r_propaganda
+on-arrival: {! Q.apoyo_popular+=8; Q.u_poder+=6; Q.u_calor+=12; if(Q.u_calor>100){Q.u_calor=100;} Q.legitimidad_regimen-=2; Q.estado_intel=(Q.estado_intel||0)+2; Q.u_pando=(Q.u_pando||0)+1; !}
+
+You do the thing the Tupamaros made famous: you make the movement *visible* on your own terms. A radio station seized for ten minutes and a communiqué read into a hundred thousand kitchens; or a colonia taken for an hour — the Pando model — occupied, addressed, given food and manifestos, and abandoned before the army can arrive. The city learns that there is a power in it that the state cannot see and cannot stop, and the poder popular — the sense that another authority exists — climbs. So does the heat: nothing focuses the Brigada Blanca like being publicly humiliated.
+
+- @root: Continuar.
+
+@r_bajar
+on-arrival: {! Q.u_calor-=22; if(Q.u_calor<0){Q.u_calor=0;} Q.u_seguridad+=6; if(Q.u_seguridad>100){Q.u_seguridad=100;} !}
+
+You call everything off. The cells go dark — no operations, no meetings that can be traced, the safehouses rotated, the compartments re-sealed, the network doing the patient, invisible, unglamorous work of simply *surviving* while the white brigade's heat cools for lack of anything to chase. It is the discipline that separates a network that lasts from a foco that flares and dies: knowing when the loudest and bravest thing to do is nothing at all. The heat drops. The war waits.
+
+- @root: Continuar.
+
+# =====================================================================
+# LA REDADA — the Brigada Blanca raid. Fires when the heat is high. A cell falls; it can cascade.
+# =====================================================================
+@redada
+title: La redada
+new-page: true
+face-image: img/charola.jpg
+subtitle: The Brigada Blanca hits a safehouse — and pulls the thread
+tags: event
+view-if: banda = "ciudad" and u_phase = "red" and u_calor >= 70 and time >= u_redada_last + 2
+priority: 9
+frequency: 100
+max-visits: 30
+on-arrival: u_redada_last = time
+
+= La redada
+
+It comes the way it always came for the Liga: at four in the morning, at a safehouse, with the Brigada Blanca — the DFS's white brigade, off the books and above the law — coming through the door before anyone reaches a weapon. A cell is taken. And now the whole network holds its breath, because everything depends on the one thing you built or failed to build: compartmentalization. If the cells were sealed, the damage stops at one door. If they were not — if the taken comrades know names, addresses, the next safehouse — then the raid does not end here. It *cascades*, one interrogation at a time, exactly the way the real Liga was rolled up, cell pulling cell until there is nothing left to pull.
+
+- @rd_aguantar: **Aguantar.** Trust the compartments and the comrades' silence — the cell is lost, but the seals hold and the network survives. *(needs security; the cascade stops at one door)*
+- @rd_disolver: **Disolver y dispersar.** Assume the worst — scatter the network, abandon the safehouses, go completely dark before the thread unravels. *(lose cells + poder, but kill the cascade and cut the heat)*
+- @rd_responder: **Responder.** Hit back — rescue the comrades or make the brigade pay, loudly, so the price of a raid goes up. *(high risk; +poder or a bloodbath)*
+
+@rd_aguantar
+on-arrival: {! Q.u_celulas-=1; var _casc=(Q.u_seguridad < 45 + (Math.random()*30)); if(_casc){Q.u_celulas-=2;Q.u_calor+=6;Q.memorial=(Q.memorial||0)+2;Q.u_cascada=(Q.u_cascada||0)+1;}else{Q.u_seguridad+=2;} Q.u_calor-=6; if(Q.u_calor<0){Q.u_calor=0;} if(Q.u_celulas<0){Q.u_celulas=0;} if(Q.u_celulas<=0){Q.u_fin=1;Q.members=0;} !}
+
+You do the hardest thing, which is nothing: you trust the seals and the silence of the taken. [? if u_seguridad >= 55 : The compartments hold. The interrogations yield names that lead to doors already abandoned, cells that were never told what they were not told. The Brigada Blanca has a cell and a dead end, and the network — bloodied by one door — survives, which in this war is the only victory there is. ?][? if u_seguridad < 55 : They were not sealed tightly enough. A name leads to an address leads to a name, and for three days you listen to the network come apart over the police radio, cell by cell, the cascade you built too loose to stop. This is how the Liga died. ?]
+
+- @root: Continuar.
+
+@rd_disolver
+on-arrival: {! Q.u_celulas-=2; if(Q.u_celulas<0){Q.u_celulas=0;} Q.u_poder-=6; if(Q.u_poder<0){Q.u_poder=0;} Q.u_calor=20; Q.u_seguridad+=10; if(Q.u_seguridad>100){Q.u_seguridad=100;} if(Q.u_celulas<=0){Q.u_fin=1;Q.members=0;} !}
+
+You assume the worst and act before the thread can pull: the order goes out to scatter, abandon every safehouse the taken cell could name, break contact, go completely to ground. It costs you — cells dissolved, the poder popular you were building set back, months of work walked away from. But the cascade dies for lack of anything left in place to catch, and the network survives in pieces that can be rewoven later. Guillén's cold wisdom: a movement that can vanish cannot be destroyed, only inconvenienced.
+
+- @root: Continuar.
+
+@rd_responder
+on-arrival: {! var _r=(Q.u_celulas*7)+(Q.parque*0.4)-32+(Math.random()*36-14); if(_r>=0){Q.u_poder+=8;Q.legitimidad_regimen-=4;Q.u_celulas-=1;Q.apoyo_popular+=4;Q.leyenda=(Q.leyenda||0)+2;}else{Q.u_celulas-=3;Q.memorial=(Q.memorial||0)+3;Q.u_calor+=10;} Q.parque=(Q.parque||0)-6; if(Q.parque<0){Q.parque=0;} Q.u_calor+=8; if(Q.u_calor>100){Q.u_calor=100;} if(Q.u_celulas<0){Q.u_celulas=0;} if(Q.u_celulas<=0){Q.u_fin=1;Q.members=0;} !}
+
+You refuse to only bleed. [? if u_celulas >= 3 : A commando hits the brigade where it did not expect to be hit — a rescue, or a reprisal that puts a price on the raid — and the city sees that the white brigade is not untouchable after all. The poder popular climbs; the state's aura of impunity cracks a little. It cost a cell and a great deal of nerve. ?][? if u_celulas < 3 : You did not have the strength for it, and it shows — the response is caught half-formed, comrades lost for a gesture, the brigade's price paid in your own blood instead of theirs. Courage is not a substitute for a network. ?] Either way the heat climbs, because nothing draws the state like being fought.
+
+- @root: Continuar.

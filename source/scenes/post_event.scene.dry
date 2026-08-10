@@ -139,6 +139,20 @@ if (Q.month != Q.last_drift_month) {
         // the death of the foco: no fighters left → the armed road is over (reuse the annihilation route)
         if (Q.f_hombres <= 0) { Q.f_hombres = 0; Q.f_fin_foco = 1; Q.members = 0; }
     }
+    // --- THE URBAN NETWORK: monthly life (banda="ciudad"). Heat cools if you go quiet; a loud,
+    //     high-profile movement stays hot; the Brigada Blanca's intelligence climbs; a network
+    //     rolled up to nothing is the end of the war. ---
+    if (Q.banda === "ciudad" && Q.u_forjado === 1) {
+        Q.u_calor -= 4;
+        Q.u_calor += (Q.u_poder||0)*0.06 + (Q.estado_intel||0)*0.03;
+        if (Q.apoyo_popular >= 55) { Q.u_calor -= 2; }
+        if (Q.u_calor >= 60) { Q.estado_intel = (Q.estado_intel||0) + 1; Q.u_seguridad -= 1; }
+        if (Q.u_calor < 0) { Q.u_calor = 0; } if (Q.u_calor > 100) { Q.u_calor = 100; }
+        if (Q.u_seguridad < 0) { Q.u_seguridad = 0; } if (Q.u_seguridad > 100) { Q.u_seguridad = 100; }
+        if (Q.u_poder > 100) { Q.u_poder = 100; } if (Q.u_poder < 0) { Q.u_poder = 0; }
+        if (Q.u_celulas < 0) { Q.u_celulas = 0; }
+        if (Q.u_celulas <= 0) { Q.u_fin = 1; Q.members = 0; }
+    }
     // veterans keep the old discipline: the file grows slower wherever they run security
     if (Q.veteranos >= 2 && Q.via != 'armada') { Q.expediente -= 0.25; }
     // the legend of the descent: a war ended on your terms keeps organizing the campo for years
