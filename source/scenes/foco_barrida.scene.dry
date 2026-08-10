@@ -1,0 +1,169 @@
+title: La barrida
+max-visits: 1
+view-if: 0
+# A MULTI-STAGE EVENT. Three linked decisions inside one crisis, and the conclusion is computed
+# from ALL of them plus the state of the water. Stage 1: the warning (does it even reach you?).
+# Stage 2: the plan. Stage 3: the village's choice — which is decided by how you have treated it.
+# Carried between stages by bar_aviso (quality of the warning) and bar_plan (what you chose).
+
+# =====================================================================
+# STAGE 1 — EL AVISO
+# =====================================================================
+@la_barrida
+title: La barrida
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: A battalion is moving into the sierra — and everything now depends on what you already are
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and time >= barrida_last + 6
+priority: 9
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.barrida_last=Q.time; Q.barrida_stage=1; Q.bar_plan="";
+// THE WARNING IS THE FIRST CONSEQUENCE: the water decides whether you find out in time.
+var _a=(Q.apoyo_popular||0) - (Q.brutalidad||0)*3;
+Q.bar_aviso = (_a>=55) ? 2 : ((_a>=32) ? 1 : 0);
+!}
+
+= La barrida
+
+[? if bar_aviso = 2 : A boy runs eleven kilometres uphill in the dark and arrives unable to speak, and when he can he gives you everything: three hundred men, trucks at the Atoyac bridge, the hour they mean to enter the valley, and which two families have already been asked where the compañeros sleep. The sierra has kept faith. You have a night and a half. ?][? if bar_aviso = 1 : Word comes late and thin — a woman at the market mentioned trucks, a muleteer saw fuel drums going up the road. Something is coming and you do not know how much or exactly when. It is enough to move on, and not enough to plan around. ?][? if bar_aviso = 0 : Nobody comes. You learn it from your own sentries at first light: engines on the low road, and a spotter plane that has already turned over the camp twice. The villages knew for two days. Nobody walked up the hill to tell you, and that fact is a colder piece of information than anything about the battalion. ?]
+
+The formation is in the valley. What the column does in the next thirty-six hours decides the season — and, more than you would like, so does everything you have done in this district for the last two years.
+
+- @bar_emboscar: **Emboscarlos en el paso.** Take the defile above the road and hit the column as it climbs. *(needs parque and men; the biggest prize and the biggest risk)*
+- @bar_evacuar: **Evacuar el pueblo.** Forget the battalion — get the village into the high ground before the troops reach the houses. *(protects the base; you take no shot at them)*
+- @bar_dispersar: **Dispersarse.** Break into small groups and vanish; regather in a week at the camp. *(safest for the column; the village faces it alone)*
+
+@bar_emboscar
+new-page: true
+choose-if: f_parque >= 10 and f_hombres >= 14
+unavailable-subtitle: An ambush on a battalion needs at least 14 fighters and 10 parque. You do not have them; choose another way.
+on-arrival: {! Q.bar_plan="emboscar"; Q.barrida_stage=2; Q.f_parque-=10; !}
+
+= El paso
+
+You choose the ground: a cut where the road narrows between a rock face and a drop, twenty minutes' climb above the last houses. The column moves into position in the dark and lies in the wet all night listening for engines.
+
+Everything from here depends on two things you cannot change tonight: whether the army knows you are there, and whether the people in the valley below spend the next hours helping you or protecting themselves. Both were decided months ago.
+
+- @bar_e_paciencia: Hold fire until the whole column is inside the cut. *(the disciplined killing; needs a steady band)*
+- @bar_e_rapido: Hit the lead vehicles the moment they enter and break contact fast. *(smaller result, far safer)*
+
+@bar_e_paciencia
+go-to: foco_barrida.resolucion
+on-arrival: {! Q.bar_plan="emboscar_full"; !}
+
+@bar_e_rapido
+go-to: foco_barrida.resolucion
+on-arrival: {! Q.bar_plan="emboscar_fast"; !}
+
+@bar_evacuar
+new-page: true
+on-arrival: {! Q.bar_plan="evacuar"; Q.barrida_stage=2; !}
+
+= El pueblo entero, cuesta arriba
+
+You put the column to work as porters and stretcher-bearers instead of soldiers: two hundred people, the animals, the seed maize, the old woman who will not leave without her santo, moving up a goat path in the dark toward a cave system the army does not have on any map.
+
+It is slow and loud and it means the battalion will walk into an empty village, which will tell them exactly what the valley thinks of them — and of you.
+
+- @bar_v_todo: Take everything — the grain stores too, so the troops find nothing to eat or burn. *(slower; the village keeps its winter)*
+- @bar_v_gente: People only, and fast. Grain can be regrown; families cannot. *(quicker and safer; the winter is lost)*
+
+@bar_v_todo
+go-to: foco_barrida.resolucion
+on-arrival: {! Q.bar_plan="evacuar_todo"; !}
+
+@bar_v_gente
+go-to: foco_barrida.resolucion
+on-arrival: {! Q.bar_plan="evacuar_gente"; !}
+
+@bar_dispersar
+new-page: true
+on-arrival: {! Q.bar_plan="dispersar"; Q.barrida_stage=2; !}
+
+= Dispersarse
+
+The order goes out in four words and the column ceases to exist for a week: pairs and threes into ravines and caves and the houses of people who have agreed to this in advance, weapons buried, no movement by daylight, regather at the camp on the eighth day.
+
+It is the correct military answer to a battalion and it means the valley meets the army without you.
+
+- @bar_d_limpio: Leave nothing behind — no caches, no tracks, nothing that can be found and blamed on a family. *(slower, safer for the villages)*
+- @bar_d_rapido: Go now and go fast. The column's survival is the only thing that matters this week. *(fastest; what is left behind is left behind)*
+
+@bar_d_limpio
+go-to: foco_barrida.resolucion
+on-arrival: {! Q.bar_plan="dispersar_limpio"; !}
+
+@bar_d_rapido
+go-to: foco_barrida.resolucion
+on-arrival: {! Q.bar_plan="dispersar_rapido"; !}
+
+# =====================================================================
+# STAGE 3 — THE CONCLUSION. Computed from the warning, the plan, and the water.
+# This is where the village decides what it is to you.
+# =====================================================================
+@resolucion
+new-page: true
+face-image: img/countrysideravine.jpg
+on-arrival: {!
+Q.barrida_stage=3;
+var _agua=(Q.apoyo_popular||0), _br=(Q.brutalidad||0), _av=(Q.bar_aviso||0), _p=Q.bar_plan||"";
+// THE VILLAGE'S CHOICE: guide the army to you, stay silent, or actively mislead them.
+// This is the whole fish-and-water thesis resolved in one roll you cannot influence tonight.
+var _lealtad = _agua - _br*4 + _av*8 + ((Q.zona_gobernada===1)?8:0) + ((Q.f_medico===1)?5:0);
+if (_p.indexOf("evacuar")===0) { _lealtad += 18; }        // you came for them, not for the ambush
+if (_p==="evacuar_todo") { _lealtad += 6; }
+if (_p==="dispersar_rapido") { _lealtad -= 10; }          // you left them, and left traces
+if (_p==="dispersar_limpio") { _lealtad -= 2; }
+Q.bar_lealtad = _lealtad;
+Q.bar_res = "";
+if (_p.indexOf("emboscar")===0) {
+    var _fuerza=(Q.f_hombres||0)*1.15+(Q.f_moral||0)*0.45+(Q.disciplina||65)*0.25+(_av*10)-(Q.ej1_f||40)-42;
+    if (_p==="emboscar_full") { _fuerza += 14; } else { _fuerza -= 6; }
+    if (_lealtad < 25) { _fuerza -= 35; }                  // they told the army where you were lying
+    _fuerza += Math.random()*34-14;
+    if (_fuerza >= 18) { Q.bar_res="triunfo"; }
+    else if (_fuerza >= -6) { Q.bar_res="parcial"; }
+    else { Q.bar_res="desastre"; }
+} else if (_p.indexOf("evacuar")===0) {
+    Q.bar_res = (_lealtad >= 35) ? "evac_ok" : "evac_mal";
+} else {
+    Q.bar_res = (_lealtad >= 30) ? "disp_ok" : "disp_mal";
+}
+// ---- consequences ----
+if (Q.bar_res==="triunfo") {
+    Q.f_desgaste+=26; Q.f_parque+=22; Q.f_hombres-=3; Q.f_bajas+=3; Q.f_moral+=18; Q.leyenda=(Q.leyenda||0)+6;
+    Q.legitimidad_regimen-=6; Q.ej1_nodo="acapulco"; Q.ej1_f=Math.round((Q.ej1_f||40)*0.5); Q.f_cerco-=18;
+    var _h1=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(10,_h1*0.5);
+} else if (Q.bar_res==="parcial") {
+    Q.f_desgaste+=10; Q.f_parque+=6; Q.f_hombres-=5; Q.f_bajas+=5; Q.memorial=(Q.memorial||0)+2; Q.f_moral+=2; Q.f_cerco+=6;
+} else if (Q.bar_res==="desastre") {
+    Q.f_hombres-=12; Q.f_bajas+=12; Q.memorial=(Q.memorial||0)+6; Q.f_moral-=20; Q.f_cerco+=28; Q.f_parque-=6;
+    Q.apoyo_popular-=8; Q.estado_intel=(Q.estado_intel||0)+8;
+} else if (Q.bar_res==="evac_ok") {
+    var _h2=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(16,_h2*0.75);
+    Q.f_moral+=8; Q.leyenda=(Q.leyenda||0)+3; Q.f_cerco-=10; Q.f_comida-=8; Q.zona_gobernada=1;
+    if (Q.bar_plan==="evacuar_gente") { Q.f_comida-=10; }
+} else if (Q.bar_res==="evac_mal") {
+    Q.apoyo_popular-=6; Q.f_hombres-=3; Q.f_bajas+=3; Q.memorial=(Q.memorial||0)+3; Q.f_cerco+=10; Q.f_moral-=6;
+} else if (Q.bar_res==="disp_ok") {
+    Q.f_cerco-=24; Q.f_moral-=4; Q.apoyo_popular-=4; Q.f_comida-=5;
+} else {
+    Q.f_cerco-=12; Q.apoyo_popular-=14; Q.memorial=(Q.memorial||0)+4; Q.f_moral-=10;
+    Q.estado_intel=(Q.estado_intel||0)+10; Q.brutalidad=(Q.brutalidad||0)+0;
+}
+if (Q.f_cerco<0){Q.f_cerco=0;} if (Q.f_cerco>100){Q.f_cerco=100;}
+if (Q.f_parque<0){Q.f_parque=0;} if (Q.f_comida<0){Q.f_comida=0;}
+if (Q.f_hombres<0){Q.f_hombres=0;} if (Q.apoyo_popular<0){Q.apoyo_popular=0;}
+if (Q.f_moral<0){Q.f_moral=0;} if (Q.f_moral>100){Q.f_moral=100;}
+if (Q.f_hombres<=0){Q.f_fin_foco=1; Q.members=0;}
+Q.barrida_stage=0;
+!}
+
+= El octavo día
+
+[? if bar_res = "triunfo" : They come up the road in the grey with the confidence of three hundred men against an enemy they believe is running, and the cut takes them whole. It lasts nine minutes. The lead trucks burn across the road and trap the rest inside the killing ground, and when it is over the sierra has more rifles than it has hands to hold them and the 27th Battalion is walking back to Acapulco carrying its own wounded. *This is what deep water buys:* the boy who ran eleven kilometres, the families who said nothing for two days, the muleteer who told the captain the wrong trail. You did not win that ambush this week. You won it over two years, in a hundred small decisions about how to treat people who had no reason to trust armed men. ?][? if bar_res = "parcial" : It works, partly. The lead vehicles burn and the ambush takes its toll, but the battalion's tail deploys faster than it should have and the column breaks contact under mortar fire, carrying its wounded up the ravine. You hurt them. They will be back inside the month with the same men and better maps, and five of yours are on the memorial. ?][? if bar_res = "desastre" : They came up the road knowing exactly where you were lying. Somebody in the valley did the arithmetic and decided that a battalion which finds the guerrilla is a battalion that leaves the village standing — and you cannot even say they were wrong. The cut you chose became a cut you were trapped in. What crawls out of that ravine is a third smaller than what went in, and the water in this district is poisoned for a year. *The ambush was lost months ago, in the way you dealt with the people who live under it.* ?][? if bar_res = "evac_ok" : The battalion walks into a village with cooking fires still warm and not one living soul in it, and finds nothing to interrogate, nothing to burn that matters, and no one to make an example of. Two hundred people spend four days in a cave system watching soldiers move through their houses below, and come back down to a village that is still standing. Nobody in that valley will ever have to be persuaded about the guerrilla again. You took no shot at the army. You did something the army cannot answer. ?][? if bar_res = "evac_mal" : You got most of them out and it was not enough — the column moved too slowly, or the trust was too thin to move fast on your word, and the troops caught the tail of the evacuation on the open slope. Afterwards the valley is intact and diminished, and the argument in the assemblies is no longer about whether to support the guerrilla but about whether the guerrilla's warnings can be relied on. ?][? if bar_res = "disp_ok" : The column ceases to exist for eight days and the battalion sweeps a sierra with nothing in it, which is the oldest guerrilla answer and still the best. You regather at the camp with everyone alive. The valley met the army without you and paid what valleys pay, and when you come back down there is a politeness in the greeting that was not there before — the specific politeness of people who have understood the terms of the arrangement. ?][? if bar_res = "disp_mal" : The column scatters and survives and the valley does not. What the battalion finds — the caches you did not lift, the tracks, the house with the medicine — is enough to make an example, and the example takes four days. When the column regathers on the eighth day the district has changed. Some of the families that fed you are gone. The ones that remain feed you out of fear now, which will keep you alive for a while and will not keep you alive forever. ?]
+
+- @root: Continuar.

@@ -217,6 +217,12 @@ Q.gn_elquemado = 20; Q.gn_elporvenir = 10; Q.gn_riochiquito = 8; Q.gn_elotatal =
 Q.sn_atoyac = 1; Q.sn_coyuca = 0; Q.sn_acapulco = 0; Q.sn_sanvicente = 0;
 Q.sn_elquemado = 0; Q.sn_elporvenir = 0; Q.sn_riochiquito = 0; Q.sn_elotatal = 0;
 Q.move_contact = 0; Q.move_cold = 0;
+// THE ARMY AS LITERAL UNITS ON THE MAP: named formations that occupy villages and MARCH toward
+// the column. They are not an abstract garrison number — you can see them coming and go around them.
+Q.ej1_nodo = "acapulco"; Q.ej1_f = 46; Q.ej1_n = "27º Batallón";
+Q.ej2_nodo = "atoyac";   Q.ej2_f = 38; Q.ej2_n = "Policía Judicial";
+Q.ej3_nodo = "";         Q.ej3_f = 0;  Q.ej3_n = "Paracaidistas";
+Q.ej_contacto = 0; Q.barrida_stage = 0; Q.bar_aviso = 0; Q.bar_plan = ""; Q.bar_res = ""; Q.bar_lealtad = 0; Q.barrida_last = -99;
 // EL CAMPAMENTO BASE: a real home in the deep sierra — stores, a hospital, a school. It heals and
 // supplies the column while it holds, and it is the one fixed thing the army can find and destroy.
 // LA BRUTALIDAD: what the movement did to people. Executions, purges, hunted deserters, reprisals

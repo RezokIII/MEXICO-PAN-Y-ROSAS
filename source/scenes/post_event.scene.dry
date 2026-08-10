@@ -209,6 +209,46 @@ if (Q.month != Q.last_drift_month) {
             else { Q['gn_'+_bn] = _cur - Math.min(4, _cur - _tgt); }
             if (Q['gn_'+_bn] > 100) { Q['gn_'+_bn] = 100; } if (Q['gn_'+_bn] < 0) { Q['gn_'+_bn] = 0; }
         }
+        // ===== THE UNITS MARCH =====
+        // Each formation steps one village closer to the column every month (a coin-flip when the
+        // water is deep and it has to grope for you). Reaching your node is contact.
+        var _ADJ = {atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']};
+        function _stepToward(from, to) {                       // BFS one hop along the trails
+            if (!from || !to || from === to) { return from; }
+            var _q = [[from]], _seen = {}; _seen[from] = 1;
+            while (_q.length) {
+                var _path = _q.shift(), _last = _path[_path.length-1];
+                var _nb = _ADJ[_last] || [];
+                for (var _i = 0; _i < _nb.length; _i++) {
+                    var _n2 = _nb[_i];
+                    if (_seen[_n2]) { continue; }
+                    _seen[_n2] = 1;
+                    var _np = _path.concat([_n2]);
+                    if (_n2 === to) { return _np[1]; }
+                    _q.push(_np);
+                }
+            }
+            return from;
+        }
+        // the paratroopers deploy once the war is serious
+        if (!Q.ej3_nodo && ((Q.f_desgaste||0) >= 18 || (Q.estado_intel||0) >= 45)) { Q.ej3_nodo = "acapulco"; Q.ej3_f = 42; }
+        var _units = ['ej1','ej2','ej3'];
+        Q.ej_contacto = 0;
+        for (var _ui = 0; _ui < _units.length; _ui++) {
+            var _u = _units[_ui]; var _at = Q[_u+'_nodo'];
+            if (!_at) { continue; }
+            Q[_u+'_f'] = Math.round(40 * (Q.ejercito_fuerza/100)) + (_ui===2 ? 8 : 0);
+            // deep water blinds them: they only close half the time
+            var _blind = ((Q.apoyo_popular||0) >= 55) ? 0.45 : (((Q.apoyo_popular||0) >= 35) ? 0.72 : 0.95);
+            if (Math.random() < _blind) { Q[_u+'_nodo'] = _stepToward(_at, Q.col_nodo); }
+            if (Q[_u+'_nodo'] === Q.col_nodo) {
+                Q.ej_contacto = 1;
+                Q.f_cerco += 14;                                  // a formation standing on you
+                Q['gn_'+Q.col_nodo] = (Q['gn_'+Q.col_nodo]||0) + 18;
+            } else if ((_ADJ[Q.col_nodo]||[]).indexOf(Q[_u+'_nodo']) >= 0) {
+                Q.f_cerco += 5;                                   // one village away
+            }
+        }
         // a heavy garrison on your own ground tightens the ring by itself
         var _here = Q['gn_'+Q.col_nodo] || 0;
         if (_here >= 55) { Q.f_cerco += 4; } else if (_here >= 35) { Q.f_cerco += 2; }

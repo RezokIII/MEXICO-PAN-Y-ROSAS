@@ -507,6 +507,7 @@
   // ===== THE GUERRERO FOCO MAP: one band moving the coast->deep-sierra axis, the ring around it =====
   window.paintFocoMap=function(el,Q){
     var _sig=[Q.col_nodo,Q.f_cerco,Q.f_hombres,Q.f_comida,Q.f_parque,Q.f_moral,Q.apoyo_popular,Q.f_desgaste,Q.f_capital,Q.f_liberado_gro,Q.acc_pts,Q.acc_max,Q.apoyo_techo,Q.f_campamento,Q.camp_nodo,Q.camp_nivel,
+      Q.ej1_nodo,Q.ej2_nodo,Q.ej3_nodo,Q.ej1_f,Q.ej2_f,Q.ej3_f,
       Q.gn_atoyac,Q.gn_coyuca,Q.gn_acapulco,Q.gn_sanvicente,Q.gn_elquemado,Q.gn_elporvenir,Q.gn_riochiquito,Q.gn_elotatal,
       Q.sn_atoyac,Q.sn_coyuca,Q.sn_acapulco,Q.sn_sanvicente,Q.sn_elquemado,Q.sn_elporvenir,Q.sn_riochiquito,Q.sn_elotatal].join(',');
     if(el._focosig===_sig) return; el._focosig=_sig;
@@ -561,6 +562,22 @@
       +'<rect x="'+(CAP.x-4)+'" y="'+(CAP.y-4)+'" width="8" height="8" transform="rotate(45 '+CAP.x+' '+CAP.y+')" fill="'+(lib?RED:'#3d4f5c')+'" stroke="'+(lib?GOLD:INK)+'" stroke-width="1.1"/></g>';
     if(lib){ s+='<text x="'+CAP.x+'" y="'+(CAP.y-8)+'" text-anchor="middle" font-size="9" fill="'+GOLD+'">★</text>'; }
     s+='<text x="'+(CAP.x+7)+'" y="'+(CAP.y+2.4)+'" font-size="6.4" fill="'+(lib?RED:'#3d4f5c')+'" font-weight="bold" letter-spacing="0.4" style="pointer-events:none">'+CAP.n+'</text>';
+    // THE ARMY, LITERALLY ON THE MAP: each formation as a block at its village
+    var UN=[{k:'ej1'},{k:'ej2'},{k:'ej3'}]; var _occ={};
+    for(var ui=0; ui<UN.length; ui++){
+      var uk=UN[ui].k, un=Q[uk+'_nodo']; if(!un||!N[un]) continue;
+      var up=N[un]; _occ[un]=(_occ[un]||0)+1; var off=(_occ[un]-1)*7;
+      var ux=up.x-11-off, uy=up.y+7;
+      var nm=Q[uk+'_n']||'Unidad del ejército', fz=Math.round(Q[uk+'_f']||0);
+      s2=''; // (kept for clarity)
+      var tip=nm+' — fuerza '+fz+(un===cur?' — SOBRE LA COLUMNA':'');
+      s+='<g data-tip="'+tip+'">'
+        +'<rect x="'+ux+'" y="'+uy+'" width="9" height="6" fill="#33475c" stroke="#1b2733" stroke-width="0.7"/>'
+        +'<line x1="'+(ux+2)+'" y1="'+uy+'" x2="'+(ux+2)+'" y2="'+(uy-3.5)+'" stroke="#1b2733" stroke-width="0.8"/>'
+        +'<line x1="'+(ux+6.5)+'" y1="'+uy+'" x2="'+(ux+6.5)+'" y2="'+(uy-3.5)+'" stroke="#1b2733" stroke-width="0.8"/>'
+        +'</g>';
+      if(un===cur){ s+='<circle cx="'+up.x+'" cy="'+up.y+'" r="9.5" fill="none" stroke="#b3261e" stroke-width="1.4" opacity="0.85"><animate attributeName="opacity" values="0.85;0.25;0.85" dur="1.1s" repeatCount="indefinite"/></circle>'; }
+    }
     // el cerco
     var cn=N[cur]||N.atoyac;
     if(cerco>=25){ var rr=21-(cerco/100)*9, op=Math.min(0.8,cerco/125);
