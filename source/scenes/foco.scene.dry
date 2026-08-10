@@ -160,9 +160,11 @@ face-image: img/workingwithelpueblo.jpg
 
 **El agua (apoyo popular): [+ apoyo_popular +]/100** — the sea the column swims in. [? if apoyo_popular >= 55 : *Deep: the villages warn you before the army arrives, the ring loosens, and an encirclement can be slipped on trust alone.* ?][? if apoyo_popular >= 30 and apoyo_popular < 55 : *Shallow: sympathy, but not yet shelter. Below 55 the people cannot save a surrounded column.* ?][? if apoyo_popular < 30 : ***Drying up.** The people inform. The Colonel's map fills itself and one morning the ring is already closed.* ?]
 
-Comida **[+ f_comida +]** · hombres **[+ f_hombres +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+**El techo: [+ apoyo_techo +]/100** — as far as this sierra will ever go with you. Mexico is a liberal democracy *on paper*, and that is the regime's sharpest weapon: the PRI gave the land, it runs the ejido and the CNC and the credit, it holds elections, and it speaks in the Revolution's own voice. Most campesinos are not waiting for you. Past the techo, support drains back to the Party no matter how many assemblies you hold.
 
-*The water is also the recruits, the harvest, and the warning that saves you. It drains every month on its own — militarism and reprisals drain it faster.*
+*The ceiling RISES when the regime discredits itself — its dead on the memorial, its lost legitimacy — and when you visibly govern better than it does (the zone, the médico, the school). It FALLS when the state buys the countryside back with reparto and credit, when the advisors' civic action starts, and when your own ajusticiamientos frighten people.*
+
+Comida **[+ f_comida +]** · hombres **[+ f_hombres +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**.
 
 - @m_base: **Trabajar la base.** Work the water here — assemblies, the mass line, the clinic. *(1 pt)*
 - @p_asamblea: **La asamblea.** Let the village govern in the open — the people's justice, the common field. *(1 pt; +apoyo, +the movement's legitimacy)*
