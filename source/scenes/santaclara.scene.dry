@@ -1,0 +1,158 @@
+title: Santa Clara
+max-visits: 1
+view-if: 0
+# Container/namespace only — NOT tagged event. The rural climax: ONE decisive battle for the
+# provincial capital (Chilpancingo) that, won, cracks the authority of the state and opens a
+# negotiation. Modeled on the real Battle of Santa Clara. Gated on a worn army + a real force + deep water.
+
+# =====================================================================
+# EL MOMENTO — the one chance. Offered when the army is worn, the column real, the water deep.
+# =====================================================================
+@el_momento
+title: El momento
+new-page: true
+face-image: img/guerrero_sierra.jpg
+subtitle: The army is broken enough that a capital is within reach — but reaching for it means ceasing to be a guerrilla
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_capital = 0 and f_desgaste >= 50 and f_hombres >= 26 and apoyo_popular >= 55 and time >= f_sc_offer_last + 3
+priority: 8
+frequency: 100
+max-visits: 8
+on-arrival: f_sc_offer_last = time
+
+= El momento
+
+Something has shifted, and every veteran in the column can feel it. The garrisons no longer patrol at night. The reinforcements come slower each time, and angrier, and greener. The desgaste of three years of ambushes and empty encirclements has hollowed the army in Guerrero from the inside — it still has the tanks and the helicopters, but it has stopped believing it can win, and an army that has stopped believing is an army that can be *broken.* For the first time, the thing Che dreamed and only Fidel achieved is on the table: not another ambush, but a **capital.** Chilpancingo — the seat of the state's authority in Guerrero — held by a garrison you could now, if you concentrated everything, actually take.
+
+And there is the word that should frighten you: *concentrate.* Everything that has kept you alive — dispersal, movement, the refusal to ever be a fixed target — you would have to set aside for one throw of the dice. This is the decision Che got wrong in Bolivia and right, once, at Santa Clara. Take the capital and the whole country sees that the state does not control its own territory. Fail, concentrated, and the foco dies in a single afternoon.
+
+- @concentrar: **Concentrar para el asalto.** Gather the scattered column into a striking force and go for Chilpancingo. The one throw. *(→ the battle)*
+- @seguir_foco: **Seguir siendo guerrilla.** Not yet. Stay dispersed, keep bleeding them, let the army rot another season before you risk everything. *(decline; wear them down further; the moment will come again)*
+
+@concentrar
+go-to: santaclara.santa_clara
+on-arrival: f_asalto_listo = 1
+
+@seguir_foco
+on-arrival: {! Q.f_desgaste += 4; Q.f_moral += 3; !}
+
+You let it pass. A guerrilla's discipline is mostly the discipline of *not* fighting the battle the enemy — or your own hunger for a decision — wants you to fight before its time. The column melts back into the sierra, and for another season you are what you have always been: everywhere and nowhere, wearing the garrisons down one road, one payroll, one sleepless night at a time. The moment will come again, riper. Or it will not, and you will have been right to wait.
+
+- @root: Continuar.
+
+# =====================================================================
+# LA BATALLA — Chilpancingo. Pick the plan. Win decisively, win at a cost, or lose the foco.
+# =====================================================================
+@santa_clara
+title: El asalto a Chilpancingo
+new-page: true
+face-image: img/guerrero_sierra.jpg
+subtitle: One battle, for the capital and the authority of the state
+
+= El asalto a Chilpancingo
+
+You bring them down out of the sierra in the dark — every column, every comando, the reservists from the villages who said they would come when it was time and, this once, came. By dawn the capital is ringed by people the state swore did not exist. Inside: a garrison, a governor's palace, a radio station, and the reinforcement column already grinding up the highway from Acapulco to save them. How you take a city decides whether you take it at all.
+
+- @sc_tren: **La columna de refuerzo primero.** Do what Che did at Santa Clara — take the relief column on the road before it arrives, strip its weapons, and leave the garrison isolated and hopeless. *(rewards materiel, intelligence, and a worn enemy — the clever throw)*
+- @sc_directo: **Asalto directo.** Storm the garrison at once, before the reinforcements come, and win it with speed and numbers. *(rewards fighters and morale — the frontal throw)*
+- @sc_pueblo: **Que se levante la ciudad.** Call the general strike, the barrios, the students — take the capital with the people and not only the column. *(rewards deep popular support — the insurrection throw)*
+
+@sc_tren
+go-to: santaclara.sc_resolve
+on-arrival: {! var _r = (Q.f_parque*0.4)+(Q.inteligencia*0.6)+(Q.f_desgaste*0.4)+(Q.f_moral*0.2)-58+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "tren"; !}
+
+You put the best of the column across the Acapulco road at a cut where trucks must crawl, and you spend everything you saved for this. The relief column noses into the ambush at first light —
+
+@sc_directo
+go-to: santaclara.sc_resolve
+on-arrival: {! var _r = (Q.f_hombres*1.25)+(Q.f_moral*0.45)+(Q.apoyo_popular*0.15)-62+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "directo"; !}
+
+No cleverness, no waiting — you throw the whole force at the garrison in the grey before dawn, betting that speed and numbers and three years of rage will carry the walls before the highway delivers help —
+
+@sc_pueblo
+go-to: santaclara.sc_resolve
+on-arrival: {! var _r = (Q.apoyo_popular*0.75)+(Q.f_hombres*0.5)+(Q.f_desgaste*0.3)-70+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "pueblo"; !}
+
+You do not take the city so much as *ask* it to rise, and it does — the market closes, the buses stop, the students pour out, the barrios put their bodies in the streets between your fighters and the tanks —
+
+@sc_resolve
+new-page: true
+on-arrival: {!
+if (Q.f_sc_result === "win") { Q.f_capital=1; Q.f_liberado_gro=1; Q.legitimidad_regimen-=26; Q.leyenda=(Q.leyenda||0)+9; Q.apoyo_popular+=8; Q.f_moral+=15; Q.intervencion_riesgo+=10; Q.f_desgaste=100; }
+else if (Q.f_sc_result === "costly") { Q.f_capital=1; Q.f_liberado_gro=1; Q.legitimidad_regimen-=18; Q.f_hombres-=9; Q.f_bajas+=9; Q.memorial=(Q.memorial||0)+5; Q.f_moral+=5; Q.apoyo_popular+=4; Q.intervencion_riesgo+=8; }
+else { Q.f_hombres-=16; Q.f_moral-=24; Q.f_bajas+=16; Q.memorial=(Q.memorial||0)+8; Q.f_asalto_listo=0; Q.f_desgaste-=22; Q.f_cerco=70; }
+if (Q.f_hombres<0){Q.f_hombres=0;} if (Q.f_moral<0){Q.f_moral=0;} if (Q.f_moral>100){Q.f_moral=100;} if (Q.apoyo_popular>100){Q.apoyo_popular=100;}
+if (Q.f_hombres<=0){ Q.f_fin_foco=1; Q.members=0; }
+!}
+
+[? if f_sc_result = "win" : It works — cleanly, wholly, the way it almost never does. [? if f_sc_plan = "tren" : The relief column dies on the road and its rifles change hands by noon; the garrison, watching its salvation captured through binoculars, loses the will before it loses the walls. ?][? if f_sc_plan = "directo" : The walls give to the first rush, and the garrison that has not slept properly in a year folds faster than anyone dared hope. ?][? if f_sc_plan = "pueblo" : The tanks will not fire into a city of their own, the conscripts will not shoot the students, and the garrison surrenders to a crowd it cannot tell from the enemy. ?] By nightfall there is a red flag over the governor's palace in Chilpancingo, and by morning the photograph is in every capital on earth. A state that cannot hold its own provincial seat is a state whose authority is, suddenly, a question — and questions like that, once asked out loud, are not easily un-asked. ?][? if f_sc_result = "costly" : You take it — the flag goes up over the palace — but the bill is brutal: the reinforcements arrived before you were done and the plaza was paid for in the best of the column, names for the memorial that is already too long. Chilpancingo is yours, and the state's authority is cracked for the whole country to see. But you hold it with a bled hand, and everyone at the table that comes next will know it. ?][? if f_sc_result = "loss" : It was the trap, and you walked the column into it concentrated. The reinforcements came faster than the intelligence promised; the garrison held; the open ground around a city is not the sierra and offered nowhere to hide. You break off with the force gutted, leaving too many in the streets of a capital you did not take. This is the afternoon Bolivia was — the guerrilla who forgot he was a guerrilla. What is left crawls back to the mountains to find out whether it can become a foco again, or only a memory. ?]
+
+- @sc_after: —
+
+@sc_after
+go-to: santaclara.la_negociacion if f_capital = 1
+new-page: true
+
+[? if f_capital = 0 : The sierra takes you back the way it takes back everything — without comment. The war is not over; you are only, once again, small. ?]
+
+- @root: Continuar.
+
+# =====================================================================
+# LA NEGOCIACIÓN — the prize of a win. The state, its authority in question, comes to the table.
+# =====================================================================
+@la_negociacion
+title: La negociación
+new-page: true
+face-image: img/congreso.jpg
+subtitle: A cracked authority sends an emissary — and now the hard part begins
+
+= La negociación
+
+You did the thing the manuals said could not be done on this ground, and the state has done the thing states do when their authority is publicly broken: it has sent someone to talk. A man with soft hands and a portfolio arrives under a flag of truce in the plaza you took, and he does not threaten, because threats are for governments that still believe they are winning. He *offers.* Amnesty. The Party's registration. Land reform in Guerrero, real this time, with the cameras watching. A place at a table that has never had a chair for people like you.
+
+It is the most dangerous moment of the whole war — more dangerous than the cerco, than the assault — because it is the moment the revolution decides what it actually wanted. The gun won you a hearing. What you do with the hearing is the only question that was ever really being asked.
+
+- @neg_apertura: **Tomar la apertura.** Trade the gun for the opening: amnesty, registration, the reforms — and carry the victory and its legend down into the political road, where a movement that took a capital cannot be rounded to zero. *(end the foco victorious; the political side becomes far stronger)*
+- @neg_doble: **Reforma con fusil.** Take the reforms and keep the guns — trust nothing, disarm nothing, hold the ground you won as insurance against the accord being broken the way accords always are. *(partial political gain; you stay armed, and the state may betray)*
+- @neg_seguir: **No parar.** Refuse. The state is on its knees — press the advantage, take more of Guerrero, let the example spread before the giant to the north can decide what to do about it. *(keep fighting; U.S. intervention risk climbs)*
+
+@neg_apertura
+new-page: true
+on-arrival: {!
+Q.f_negociado=1; Q.f_phase="despues"; Q.via="politica"; Q.postura_guerrilla=0;
+Q.veteranos=(Q.veteranos||0)+3; Q.leyenda=(Q.leyenda||0)+8; Q.registro=(Q.registro<1?1:Q.registro);
+Q.legitimidad_regimen-=6; Q.pri_reformist_rel=(Q.pri_reformist_rel||0)+18; Q.fe_voto=(Q.fe_voto||0)+18;
+Q.sup_peasants=(Q.sup_peasants||0)+10; Q.apoyo_sierra_gob=1; Q.unity=(Q.unity||0)+8;
+!}
+
+You come down out of the mountains with your rifles slung and your backs straight, and it is not a surrender — a surrender is what happens to the defeated, and you took a capital. It is a *transaction*, made from the one position of strength the Mexican left has never once held: the state needed the war to end more than you did. The amnesty is signed. The Party is registered. The land in Guerrero moves, and the campesinos who fed you for three years watch their sons walk out of the ejido with the caciques unable to touch them, because there is a movement behind the boy now, and the movement has proven it will fight.
+
+The foco is over. What walks down from the sierra into the political road is not a defeated band accepting mercy but a victorious one collecting a debt — veterans who have seen the worst, a legend that organizes the south for a generation, and the one thing two decades of legal struggle never bought: the country's knowledge that this movement, cornered, does not break. Everything you build from here, you build stronger.
+
+- @root: Bajar a la política. Continuar.
+
+@neg_doble
+new-page: true
+on-arrival: {!
+Q.f_negociado=2; Q.leyenda=(Q.leyenda||0)+5; Q.registro=(Q.registro<1?1:Q.registro);
+Q.pri_reformist_rel=(Q.pri_reformist_rel||0)+8; Q.fe_voto=(Q.fe_voto||0)+8; Q.sup_peasants=(Q.sup_peasants||0)+5;
+Q.intervencion_riesgo+=6; Q.legitimidad_regimen-=3; Q.f_moral+=6; Q.f_desgaste=100;
+Q.f_traicion_riesgo=1;
+!}
+subtitle: The oldest gamble in the Mexican countryside
+
+You take what is offered and keep what won it. The reforms go on paper, the Party is registered, the cameras roll in Guerrero — and the guns stay oiled in the sierra, because you have read the history of this country and you know what a Mexican accord is worth to the government the morning after the cameras leave. It is the harder, wiser, lonelier road: you are betting you can hold the political gains *and* the military insurance long enough that the state cannot simply wait you out and then break its word over your grave. Sometimes it works. Zapata took a safe-conduct to a hacienda called Chinameca, once, and history remembers how that ended. You will not make his mistake. You tell yourself that.
+
+- @root: Continuar.
+
+@neg_seguir
+new-page: true
+on-arrival: {!
+Q.f_negociado=3; Q.f_moral+=8; Q.leyenda=(Q.leyenda||0)+4; Q.intervencion_riesgo+=22; Q.legitimidad_regimen-=6;
+Q.f_desgaste=100; Q.f_cerco=25;
+!}
+subtitle: The state is on its knees — and so, now, is the clock in Washington
+
+You send the man with the soft hands back the way he came. There is no negotiating with a state you can *beat*, and Chilpancingo proved you can beat it — so you press. More of Guerrero, then Oaxaca, then the word carried on the corridos to every sierra in the south: *it can be done.* It is the boldest road and the one with the shortest fuse, because a red flag over a Mexican state capital is not a headline the giant to the north reads calmly. Somewhere in an office in Washington, a man is being shown the same photograph that thrilled you, and he is not asking whether to act. He is asking how much.
+
+- @root: Continuar.

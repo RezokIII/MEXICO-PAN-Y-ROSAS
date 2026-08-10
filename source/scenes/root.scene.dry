@@ -214,6 +214,8 @@ Q.f_desgaste = 0; Q.f_zona = 0; Q.f_liberado_gro = 0; Q.f_capital = 0;
 // clocks + counters
 Q.f_marcha_last = -99; Q.f_forjado = 0; Q.f_entreno = ""; Q.f_bajas = 0; Q.f_reclutas = 0;
 Q.f_santaclara_visto = 0; Q.f_fin_foco = 0;
+Q.f_bayo = 0; Q.f_asalto_listo = 0; Q.f_negociado = 0; Q.f_sc_result = ""; Q.f_sc_plan = ""; Q.f_sc_offer_last = -99;
+Q.f_traicion_riesgo = 0; Q.apoyo_sierra_gob = 0;
 Q.cerco_final_warned = 0;
 Q.balance_armado_visto = 0;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
