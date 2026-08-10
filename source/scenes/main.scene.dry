@@ -35,6 +35,10 @@ max-cards: 3
 - @sistema
 - @canales
 - @laguerra
+- @dmovimiento
+- @dcombate
+- @dpueblo
+- @dpolitica
 - @lared
 - @laestructura
 - @sierra
@@ -80,6 +84,10 @@ max-cards: 4
 - @sistema
 - @canales
 - @laguerra
+- @dmovimiento
+- @dcombate
+- @dpueblo
+- @dpolitica
 - @lared
 - @laestructura
 - @sierra
@@ -126,6 +134,10 @@ max-cards: 5
 - @sistema
 - @canales
 - @laguerra
+- @dmovimiento
+- @dcombate
+- @dpueblo
+- @dpolitica
 - @lared
 - @laestructura
 - @sierra
@@ -171,6 +183,10 @@ max-cards: 4
 - @sistema
 - @canales
 - @laguerra
+- @dmovimiento
+- @dcombate
+- @dpueblo
+- @dpolitica
 - @lared
 - @laestructura
 - @sierra
@@ -205,6 +221,42 @@ view-if: banda = "sierra"
 is-deck: true
 
 - #laguerra
+
+@dmovimiento
+card-image: img/countryside2.jpg
+title: Movimiento
+subtitle: Mover la columna, reconocer, flanquear
+view-if: banda = "sierra"
+is-deck: true
+
+- #fmovimiento
+
+@dcombate
+card-image: img/guerilla assualt.jpg
+title: Combate
+subtitle: Emboscar — desgastar al ejército
+view-if: banda = "sierra"
+is-deck: true
+
+- #fcombate
+
+@dpueblo
+card-image: img/elpueblo.jpg
+title: El pueblo
+subtitle: Ganar el agua en que nada la columna
+view-if: banda = "sierra"
+is-deck: true
+
+- #fpueblo
+
+@dpolitica
+card-image: img/pcm.jpg
+title: Política
+subtitle: El PCM, la prensa, la solidaridad internacional
+view-if: banda = "sierra"
+is-deck: true
+
+- #fpolitica
 
 @lared
 card-image: img/liga.jpg

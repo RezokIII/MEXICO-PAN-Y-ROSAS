@@ -85,15 +85,18 @@ The column holds **[? if col_nodo = "atoyac" : Atoyac de Álvarez — the gatewa
 
 Column: **[+ f_hombres +]** fighters · comida **[+ f_comida +]** · parque **[+ f_parque +]** · moral **[+ f_moral +]** · el agua **[+ apoyo_popular +]**. Ring: **[+ f_cerco +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if f_cerco >= 70 : *The ring is closing — move or break it.* ?][? if f_comida < 25 : *The men are hungry.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
 
-Your orders, comandante — the command opens into three:
+*Las órdenes salen por los mazos: **Movimiento**, **Combate**, **El pueblo** y **Política**. Cada acción cuesta puntos; cuando se acaben, termina el mes.*
 
-- @cat_movimiento: **Movimiento.** Mover la columna por la sierra, reconocer el terreno, flanquear las guarniciones.
-- @cat_combate: **Combate.** Emboscar y golpear — desgastar al ejército que te caza.
-- @cat_pueblo: **El pueblo.** Trabajar la base, ganar el agua de la que depende toda la guerra.
 - @fin_mes: **Terminar el mes.** Pasar al siguiente; los puntos de acción se reponen.
 
 @cat_movimiento
 new-page: true
+is-card: true
+frequency: 100
+max-visits: 400
+view-if: banda = "sierra" and f_forjado = 1 and f_phase = "marcha"
+tags: fmovimiento
+card-image: img/countryside2.jpg
 title: Movimiento
 subtitle: Mover la columna, reconocer, flanquear
 
@@ -116,6 +119,12 @@ Ring **[+ f_cerco +]**/100 · comida **[+ f_comida +]** · **Puntos de acción: 
 
 @cat_combate
 new-page: true
+is-card: true
+frequency: 100
+max-visits: 400
+view-if: banda = "sierra" and f_forjado = 1 and f_phase = "marcha"
+tags: fcombate
+card-image: img/guerilla assualt.jpg
 title: Combate
 subtitle: Desgastar al ejército que te caza
 face-image: img/anti-guerillas.jpg
@@ -131,6 +140,12 @@ face-image: img/anti-guerillas.jpg
 
 @cat_pueblo
 new-page: true
+is-card: true
+frequency: 100
+max-visits: 400
+view-if: banda = "sierra" and f_forjado = 1 and f_phase = "marcha"
+tags: fpueblo
+card-image: img/elpueblo.jpg
 title: El pueblo y las comunicaciones
 subtitle: Ganar el agua — y hablarle al mundo por fuera del cerco
 face-image: img/workingwithelpueblo.jpg
@@ -141,9 +156,7 @@ El agua (apoyo popular): **[+ apoyo_popular +]**/100 · comida **[+ f_comida +]*
 
 - @m_base: **Trabajar la base.** Work the water here — assemblies, the mass line, the clinic. *(1 pt)*
 - @p_asamblea: **La asamblea.** Let the village govern in the open — the people's justice, the common field. *(1 pt; +apoyo, +the movement's legitimacy)*
-- @p_radio: **Radio guerrillera.** Broadcast from the sierra — a clandestine transmitter the whole state can hear. *(1 pt; +apoyo +legend, −regime legitimacy; the army triangulates the signal)*
-- @p_enlace: **Enlace exterior.** A channel to Cuba and the international solidarity networks. *(2 pts; +parque +intel; +the file on you)*
-- @p_comunicado: **Comunicado a la prensa.** Get the movement's word into a national daily. *(1 pt; pressures the regime; +heat)*
+- @pue_escuela: **La escuela y la clínica.** Literacy circles and the médico's rounds — govern, don't just fight. *(1 pt; +apoyo, +the zone governed)*
 - @marcha: Volver al mando.
 
 
@@ -297,6 +310,54 @@ choose-if: acc_pts >= 1
 on-arrival: {! Q.acc_pts-=1; Q.legitimidad_regimen-=4; Q.apoyo_popular+=2; Q.expediente=(Q.expediente||0)+3; Q.leyenda=(Q.leyenda||0)+1; !}
 
 You get the movement's word past the censor and into a national daily — a manifesto, a denunciation of a massacre the government swears never happened, the names of the disappeared printed where the whole country reads them. It costs the regime something it guards more jealously than any garrison: the story. A state that cannot control the narrative of its own dirty war is a state already losing it, and every column that ever fought learned that the communiqué can wound where the rifle cannot reach.
+
+- @marcha: Continuar.
+
+@cat_politica
+new-page: true
+is-card: true
+frequency: 100
+max-visits: 400
+view-if: banda = "sierra" and f_forjado = 1 and f_phase = "marcha"
+tags: fpolitica
+card-image: img/pcm.jpg
+title: Política
+subtitle: Hablarle al mundo por fuera del cerco — el Partido, la prensa, la solidaridad
+
+= Política y comunicaciones
+
+El agua **[+ apoyo_popular +]**/100 · leyenda **[+ leyenda +]** · legitimidad del régimen **[+ legitimidad_regimen +]** · parque **[+ f_parque +]**. **Puntos: [+ acc_pts +]/[+ acc_max +]**. A guerrilla sealed inside its own encirclement dies there. The war is also fought in the party's plenums, the newspapers, and the embassies.
+
+- @p_radio: **Radio guerrillera.** Broadcast from the sierra — a clandestine transmitter the whole state can hear. *(1 pt; +apoyo +leyenda, −legitimidad; the army triangulates the signal)*
+- @p_comunicado: **Comunicado a la prensa.** Get the movement's word past the censor into a national daily. *(1 pt; −legitimidad; +expediente)*
+- @pol_pcm: **Hablar con el PCM.** Open a channel to the Party — legality, cadre, and the argument over the gun. *(1 pt; +political cover, +unity; the orthodox will demand a price)*
+- @p_enlace: **Enlace exterior.** A channel to Cuba and the international solidarity networks. *(2 pts; +parque +inteligencia; +the file on you)*
+- @pol_intl: **Solidaridad internacional.** Denounce the dirty war abroad — exiles, journalists, the tricontinental networks. *(1 pt; −legitimidad abroad, protects prisoners; +expediente)*
+- @marcha: Volver al mando.
+
+@pol_pcm
+face-image: img/pcmconf.jpg
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.unity=(Q.unity||0)+4; Q.political_capital=(Q.political_capital||0)+3; Q.pcm_canal=1; Q.apoyo_popular+=2; Q.expediente=(Q.expediente||0)+2; !}
+
+You send someone down to the Party — the PCM, legal-ish, cautious, sitting on the one thing the sierra does not have: a national political apparatus and a name the whole left recognizes. The conversation is old and unfinished: they think the gun is adventurism that will bring the state down on everyone; you think their patience is a chair in an antechamber. But the channel matters. It means the movement is not a bandit gang in the papers, it means cadre and lawyers and printing, and it means that when the moment comes to convert the war into politics, there is somebody to convert it *with*. They will want their price — a say over the line. Everyone always does.
+
+- @marcha: Continuar.
+
+@pol_intl
+face-image: img/solidarity.jpg
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.legitimidad_regimen-=4; Q.internac_armada=(Q.internac_armada||0)+1; Q.expediente=(Q.expediente||0)+3; Q.leyenda=(Q.leyenda||0)+2; if(Q.presos>0){Q.presos-=1;} !}
+
+You get the war out of the country: the testimonies smuggled to exiles and foreign journalists, the disappeared named at conferences the Mexican government pays good money to be respectable at, the solidarity committees in Paris and Havana and Berkeley reading the list aloud. Mexico's rulers can survive almost anything except being *seen* — the regime that sells itself abroad as the gentle revolutionary republic cannot afford photographs of its own airbase. It buys the prisoners a little safety, because a named man is harder to disappear, and it costs you another page in a file that is already long.
+
+- @marcha: Continuar.
+
+@pue_escuela
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=6; Q.sup_peasants=(Q.sup_peasants||0)+2; Q.zona_gobernada=1; Q.f_moral+=2; !}
+
+Literacy circles under a tree, the médico's rounds through the hamlets, a school where the state built none in fifty years. This is the part of the war that has nothing to do with rifles and decides it anyway: the sierra learns that where the guerrilla governs, a child can read and a fever can be treated — that the movement is not merely against something but *for* a way of living. Che called it the guerrilla's obligation; Lucio simply called it being a teacher, which is what he was before any of this.
 
 - @marcha: Continuar.
 

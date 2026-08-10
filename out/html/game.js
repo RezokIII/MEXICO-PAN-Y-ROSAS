@@ -528,16 +528,16 @@
     for(var k in N){ var nd=N[k]; var g=Q['gn_'+k]||0; var seen=(Q['sn_'+k]===1||Q['sn_'+k]===true); var here=(k===cur); var fill, ti;
       if(seen){ var r=Math.round(150+105*Math.min(1,g/70)); var gb=Math.round(150-120*Math.min(1,g/70)); fill='rgb('+r+','+gb+','+gb+')'; ti=nd.n+' — ejército '+Math.round(g); }
       else { fill='#c9c2b0'; ti=nd.n+' — sin explorar (Reconocer para ver el ejército)'; }
-      s+='<circle cx="'+nd.x+'" cy="'+nd.y+'" r="'+(here?5:3.6)+'" fill="'+fill+'" stroke="'+(here?'#111':'#5b4a2a')+'" stroke-width="'+(here?1.6:0.8)+'" style="cursor:help"><title>'+ti+(here?' — LA COLUMNA AQUÍ':'')+'</title></circle>';
+      s+='<circle cx="'+nd.x+'" cy="'+nd.y+'" r="'+(here?5:3.6)+'" fill="'+fill+'" stroke="'+(here?'#111':'#5b4a2a')+'" stroke-width="'+(here?1.6:0.8)+'" style="cursor:help" data-tip="'+ti+(here?' — LA COLUMNA AQUÍ':'')+'"></circle>';
       if(!seen){ s+='<text x="'+nd.x+'" y="'+(nd.y+2.1)+'" text-anchor="middle" font-size="5.5" fill="#6b5b3a" style="pointer-events:none">?</text>'; }
       s+='<text x="'+(nd.x+6)+'" y="'+(nd.y+2.1)+'" font-size="5.8" fill="#3a2e1c" '+(here?'font-weight="bold"':'')+' style="pointer-events:none">'+nd.n+'</text>';
     }
-    s+='<rect x="'+(CAP.x-3.5)+'" y="'+(CAP.y-3.5)+'" width="7" height="7" transform="rotate(45 '+CAP.x+' '+CAP.y+')" fill="'+(lib?'#b3261e':'#33556f')+'" stroke="'+(lib?'#e8b923':'#22303c')+'" stroke-width="1.3" style="cursor:help"><title>Chilpancingo — la capital. El asalto (Santa Clara) la toma para quebrar la autoridad del Estado.'+(lib?' — LIBERADA':'')+'</title></rect>';
+    s+='<rect x="'+(CAP.x-3.5)+'" y="'+(CAP.y-3.5)+'" width="7" height="7" transform="rotate(45 '+CAP.x+' '+CAP.y+')" fill="'+(lib?'#b3261e':'#33556f')+'" stroke="'+(lib?'#e8b923':'#22303c')+'" stroke-width="1.3" style="cursor:help" data-tip="Chilpancingo — la capital. El asalto (Santa Clara) la toma para quebrar la autoridad del Estado.'+(lib?' — LIBERADA':'')+'"></rect>';
     if(lib){ s+='<text x="'+CAP.x+'" y="'+(CAP.y-6)+'" text-anchor="middle" font-size="9" fill="#e8b923">★</text>'; }
     s+='<text x="'+(CAP.x+6)+'" y="'+(CAP.y+2)+'" font-size="5.8" fill="'+(lib?'#b3261e':'#22303c')+'" font-weight="bold">'+CAP.n+'</text>';
     var cn=N[cur]||N.atoyac;
-    if(cerco>=25){ var rr=22-(cerco/100)*10; var op=Math.min(0.85,cerco/115); s+='<circle cx="'+cn.x+'" cy="'+cn.y+'" r="'+rr.toFixed(1)+'" fill="none" stroke="#b3261e" stroke-width="'+(1+cerco/70).toFixed(1)+'" stroke-dasharray="4 3" opacity="'+op.toFixed(2)+'" style="cursor:help"><title>El cerco: '+Math.round(cerco)+'/100 — a 80 se cierra</title>'; if(cerco>=70){ s+='<animate attributeName="r" values="'+rr.toFixed(1)+';'+(rr-2.5).toFixed(1)+';'+rr.toFixed(1)+'" dur="1.4s" repeatCount="indefinite"/>'; } s+='</circle>'; }
-    s+='<circle cx="'+cn.x+'" cy="'+cn.y+'" r="2.3" fill="#111" style="cursor:help"><title>La columna — '+(Q.f_hombres||0)+' hombres · comida '+Math.round(Q.f_comida||0)+' · parque '+Math.round(Q.f_parque||0)+' · moral '+Math.round(Q.f_moral||0)+' · agua '+Math.round(apoyo)+' · cerco '+Math.round(cerco)+'</title></circle>';
+    if(cerco>=25){ var rr=22-(cerco/100)*10; var op=Math.min(0.85,cerco/115); s+='<circle cx="'+cn.x+'" cy="'+cn.y+'" r="'+rr.toFixed(1)+'" fill="none" stroke="#b3261e" stroke-width="'+(1+cerco/70).toFixed(1)+'" stroke-dasharray="4 3" opacity="'+op.toFixed(2)+'" style="cursor:help" data-tip="El cerco: '+Math.round(cerco)+'/100 — a 80 se cierra">'; if(cerco>=70){ s+='<animate attributeName="r" values="'+rr.toFixed(1)+';'+(rr-2.5).toFixed(1)+';'+rr.toFixed(1)+'" dur="1.4s" repeatCount="indefinite"/>'; } s+='</circle>'; }
+    s+='<circle cx="'+cn.x+'" cy="'+cn.y+'" r="2.3" fill="#111" style="cursor:help" data-tip="La columna — '+(Q.f_hombres||0)+' hombres · comida '+Math.round(Q.f_comida||0)+' · parque '+Math.round(Q.f_parque||0)+' · moral '+Math.round(Q.f_moral||0)+' · agua '+Math.round(apoyo)+' · cerco '+Math.round(cerco)+'"></circle>';
     s+='<text x="'+cn.x+'" y="'+(cn.y-7)+'" text-anchor="middle" font-size="5.5" fill="#111" font-weight="bold" style="pointer-events:none">la columna</text>';
     s+='</svg>';
     function bar(lbl,val,max,col){ var p=Math.max(0,Math.min(100,(val/max)*100)); return '<div style="display:flex;align-items:center;gap:5px;margin:1px 0;font:10px Georgia,serif;color:#3a2e22"><span style="width:82px;text-align:right">'+lbl+'</span><span style="flex:1;height:7px;background:#d9cdb8;border:1px solid #a88;border-radius:2px;overflow:hidden;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:'+p+'%;background:'+col+'"></span></span><span style="width:24px;text-align:right"><b>'+Math.round(val)+'</b></span></div>'; }
@@ -549,6 +549,20 @@
       + bar('el cerco',cerco,100,'#b3261e') + bar('desgaste del ejército',Q.f_desgaste||0,100,'#8a6d3b')
       +'</div>';
     el.innerHTML = s + bars;
+  
+    // real hover tooltips (native <title> is unreliable inside a re-rendered SVG)
+    var tip=document.getElementById('pyr_maptip');
+    if(!tip){ tip=document.createElement('div'); tip.id='pyr_maptip';
+      tip.style.cssText='display:none;position:fixed;background:#2a2118;color:#f3ecd8;border:1px solid #8a6d3b;padding:6px 9px;font:12px Georgia,serif;max-width:250px;pointer-events:none;z-index:9999;border-radius:3px;box-shadow:0 2px 8px #0006';
+      document.body.appendChild(tip); }
+    var tgts=el.querySelectorAll('[data-tip]');
+    for(var ti=0;ti<tgts.length;ti++){ (function(node){
+      node.style.cursor='help';
+      node.addEventListener('mouseenter',function(ev){ tip.innerHTML=node.getAttribute('data-tip'); tip.style.display='block'; tip.style.left=(ev.clientX+14)+'px'; tip.style.top=(ev.clientY+14)+'px'; });
+      node.addEventListener('mousemove',function(ev){ tip.style.left=(ev.clientX+14)+'px'; tip.style.top=(ev.clientY+14)+'px'; });
+      node.addEventListener('mouseleave',function(){ tip.style.display='none'; });
+    })(tgts[ti]); }
+  
   };
 
   // ===== THE GUADALAJARA MAP: the Liga's decentralized cell network + the Brigada Blanca's heat =====
@@ -567,14 +581,14 @@
     for(var gx=20;gx<300;gx+=26){ s+='<line x1="'+gx+'" y1="8" x2="'+gx+'" y2="202" stroke="#d7d1c4" stroke-width="0.7"/>'; }
     for(var gy=18;gy<210;gy+=24){ s+='<line x1="6" y1="'+gy+'" x2="294" y2="'+gy+'" stroke="#d7d1c4" stroke-width="0.7"/>'; }
     for(var i=0;i<order.length;i++){ var sc=SEC[order[i]];
-      s+='<circle cx="'+sc.x+'" cy="'+sc.y+'" r="'+sc.r+'" fill="#f3efe6" fill-opacity="0.55" stroke="#b7ad94" stroke-width="1" style="cursor:help"><title>'+sc.n+' — sector de Guadalajara</title></circle>';
+      s+='<circle cx="'+sc.x+'" cy="'+sc.y+'" r="'+sc.r+'" fill="#f3efe6" fill-opacity="0.55" stroke="#b7ad94" stroke-width="1" style="cursor:help" data-tip="'+sc.n+' — sector de Guadalajara"></circle>';
       s+='<text x="'+sc.x+'" y="'+(sc.y-sc.r+8)+'" text-anchor="middle" font-size="6.5" fill="#5a4a2c" font-weight="bold" style="pointer-events:none">'+sc.n+'</text>';
     }
     for(var c=0;c<Math.min(cel,14);c++){ var sc2=SEC[order[c%order.length]]; var ang=c*2.399; var rad=6+((c/order.length|0)*6); var cx=sc2.x+Math.cos(ang)*rad, cy=sc2.y+Math.sin(ang)*rad;
-      s+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.1" fill="#b3261e" stroke="#6a0f0a" stroke-width="0.5" style="cursor:help"><title>una célula de la red</title></circle>'; }
+      s+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.1" fill="#b3261e" stroke="#6a0f0a" stroke-width="0.5" style="cursor:help" data-tip="una célula de la red"></circle>'; }
     var patrols=Math.round(calor/16);
     for(var p=0;p<patrols;p++){ var px=30+((p*63)%240), py=26+((p*47)%160);
-      s+='<rect x="'+(px-2.4)+'" y="'+(py-2.4)+'" width="4.8" height="4.8" transform="rotate(45 '+px+' '+py+')" fill="#33556f" stroke="#1c2b38" stroke-width="0.6" style="cursor:help"><title>Brigada Blanca — la redada crece con el calor ('+Math.round(calor)+'/100)</title></rect>'; }
+      s+='<rect x="'+(px-2.4)+'" y="'+(py-2.4)+'" width="4.8" height="4.8" transform="rotate(45 '+px+' '+py+')" fill="#33556f" stroke="#1c2b38" stroke-width="0.6" style="cursor:help" data-tip="Brigada Blanca — la redada crece con el calor ('+Math.round(calor)+'/100)"></rect>'; }
     s+='</svg>';
     function bar(lbl,val,max,col){ var pr=Math.max(0,Math.min(100,(val/max)*100)); return '<div style="display:flex;align-items:center;gap:5px;margin:1px 0;font:10px Georgia,serif;color:#3a2e22"><span style="width:100px;text-align:right">'+lbl+'</span><span style="flex:1;height:7px;background:#d9cdb8;border:1px solid #a88;border-radius:2px;overflow:hidden;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:'+pr+'%;background:'+col+'"></span></span><span style="width:24px;text-align:right"><b>'+Math.round(val)+'</b></span></div>'; }
     var bars='<div style="margin:4px 2px 0">'
@@ -585,6 +599,20 @@
       + bar('poder popular', poder, 100, '#7a4fa0')
       + '</div>';
     el.innerHTML = s + bars;
+  
+    // real hover tooltips (native <title> is unreliable inside a re-rendered SVG)
+    var tip=document.getElementById('pyr_maptip');
+    if(!tip){ tip=document.createElement('div'); tip.id='pyr_maptip';
+      tip.style.cssText='display:none;position:fixed;background:#2a2118;color:#f3ecd8;border:1px solid #8a6d3b;padding:6px 9px;font:12px Georgia,serif;max-width:250px;pointer-events:none;z-index:9999;border-radius:3px;box-shadow:0 2px 8px #0006';
+      document.body.appendChild(tip); }
+    var tgts=el.querySelectorAll('[data-tip]');
+    for(var ti=0;ti<tgts.length;ti++){ (function(node){
+      node.style.cursor='help';
+      node.addEventListener('mouseenter',function(ev){ tip.innerHTML=node.getAttribute('data-tip'); tip.style.display='block'; tip.style.left=(ev.clientX+14)+'px'; tip.style.top=(ev.clientY+14)+'px'; });
+      node.addEventListener('mousemove',function(ev){ tip.style.left=(ev.clientX+14)+'px'; tip.style.top=(ev.clientY+14)+'px'; });
+      node.addEventListener('mouseleave',function(){ tip.style.display='none'; });
+    })(tgts[ti]); }
+  
   };
 
   window.paintSierraMap=function(){
