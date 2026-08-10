@@ -2,7 +2,7 @@ title: El comandante
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: che_advisor = 1 and che_vivo = 1 and via = "armada" and refugio_sierra = 0
+view-if: banda = "" and che_advisor = 1 and che_vivo = 1 and via = "armada" and refugio_sierra = 0
 
 = El comandante
 

@@ -3,7 +3,7 @@ is-pinned-card: true
 tags: advisor
 new-page: true
 card-image: img/guerrero_sierra.jpg
-view-if: enlace_advisor = 1 and year >= 1971
+view-if: banda = "" and enlace_advisor = 1 and year >= 1971
 
 = El enlace con la montaña
 

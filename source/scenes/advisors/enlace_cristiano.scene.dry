@@ -2,7 +2,7 @@ title: El enlace con las comunidades
 is-pinned-card: true
 tags: advisor
 new-page: true
-view-if: ceb_aliado = 1 and (via = "politica" or via = "institucional") and refugio_sierra = 0
+view-if: banda = "" and ceb_aliado = 1 and (via = "politica" or via = "institucional") and refugio_sierra = 0
 
 = El enlace con las comunidades
 

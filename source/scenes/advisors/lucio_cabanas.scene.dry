@@ -3,7 +3,7 @@ is-pinned-card: true
 tags: advisor
 new-page: true
 card-image: img/Lucio.jpg
-view-if: lucio_advisor = 1 and via = "armada"
+view-if: banda = "" and lucio_advisor = 1 and via = "armada"
 
 = Lucio Cabañas
 

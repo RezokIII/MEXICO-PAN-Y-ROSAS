@@ -110,6 +110,8 @@ Ring **[+ f_cerco +]**/100 · comida **[+ f_comida +]** · **Puntos de acción: 
 - @go_riochiquito: → **Río Chiquito**[? if sn_riochiquito = 1 : (ejército [+ gn_riochiquito +]) ?].
 - @go_elotatal: → **El Otatal**[? if sn_elotatal = 1 : (ejército [+ gn_elotatal +]) ?].
 - @m_reconocer: **Reconocer.** Scout the neighbouring villages — reveal the army units, and let the guides find the coldest way through. *(1 pt)*
+- @m_forzada: **Marcha forzada.** A night march to the coldest ground within reach — break contact hard. *(2 pts; big ring drop; costs comida + moral)*
+- @m_acampar: **Acampar.** Make a real camp — rest, forage, mend. *(1 pt; +moral +comida; a static camp can be found)*
 - @marcha: Volver al mando.
 
 @cat_combate
@@ -123,12 +125,14 @@ face-image: img/anti-guerillas.jpg
 [+ f_hombres +] fighters · parque **[+ f_parque +]** · moral **[+ f_moral +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**. Desgaste del ejército: **[+ f_desgaste +]**/100 — the war is won by wearing it down, but every blow tightens the ring.
 
 - @m_emboscar: **Emboscar.** Hit an army patrol on ground you chose. *(2 pts)*
+- @c_sabotaje: **Sabotaje.** Blow a bridge, a rail, a power line — cheap damage that wears the army and the state. *(1 pt; +desgaste; +heat)*
+- @c_convoy: **Golpe a un convoy.** Hit an army supply convoy for its rations and ammunition. *(2 pts; +parque +comida if it works; risky, +ring)*
 - @marcha: Volver al mando.
 
 @cat_pueblo
 new-page: true
-title: El pueblo
-subtitle: Ganar el agua en que nada la columna
+title: El pueblo y las comunicaciones
+subtitle: Ganar el agua — y hablarle al mundo por fuera del cerco
 face-image: img/workingwithelpueblo.jpg
 
 = El pueblo
@@ -136,6 +140,10 @@ face-image: img/workingwithelpueblo.jpg
 El agua (apoyo popular): **[+ apoyo_popular +]**/100 · comida **[+ f_comida +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**. The people are the sea the column swims in — win them, or be found.
 
 - @m_base: **Trabajar la base.** Work the water here — assemblies, the mass line, the clinic. *(1 pt)*
+- @p_asamblea: **La asamblea.** Let the village govern in the open — the people's justice, the common field. *(1 pt; +apoyo, +the movement's legitimacy)*
+- @p_radio: **Radio guerrillera.** Broadcast from the sierra — a clandestine transmitter the whole state can hear. *(1 pt; +apoyo +legend, −regime legitimacy; the army triangulates the signal)*
+- @p_enlace: **Enlace exterior.** A channel to Cuba and the international solidarity networks. *(2 pts; +parque +intel; +the file on you)*
+- @p_comunicado: **Comunicado a la prensa.** Get the movement's word into a national daily. *(1 pt; pressures the regime; +heat)*
 - @marcha: Volver al mando.
 
 
@@ -224,6 +232,73 @@ You choose the ground — a defile, a bridge, a bend where trucks must slow — 
 new-page: true
 on-arrival: month_actions = 1
 go-to: root
+
+@m_forzada
+choose-if: acc_pts >= 2
+unavailable-subtitle: A forced march costs 2 action points.
+on-arrival: {! Q.acc_pts-=2; var _adj={atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']}; var _ns=_adj[Q.col_nodo]||[]; var _cold='',_cv=999; for(var _i=0;_i<_ns.length;_i++){ var _g=Q['gn_'+_ns[_i]]||0; if(_g<_cv){_cv=_g;_cold=_ns[_i];} } if(_cold){Q.col_nodo=_cold;Q['sn_'+_cold]=1;} Q.f_cerco-=30; if(Q.f_cerco<0){Q.f_cerco=0;} Q.f_comida-=10; if(Q.f_comida<0){Q.f_comida=0;} Q.f_moral-=4; !}
+
+You move all night, hard, over ground the army cannot follow in the dark, and by dawn the column is on the coldest ridge within reach and the ring is a memory behind you. It costs the men their legs and a chunk of the rations, and morale always dips on a march that feels like flight — but breaking contact clean is worth more than any of it. The oldest guerrilla trick: be somewhere else by morning.
+
+- @marcha: Continuar.
+
+@m_acampar
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.f_moral+=8; Q.f_comida+=8; Q.f_hombres+=1; Q.f_cerco+=8; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+You make a real camp for once — hammocks strung, a proper fire, the wounded tended, the hunters out, a night's true sleep. The column comes back to itself: morale rises, the pot fills, a straggler or two rejoins. But a camp is a fixed place, and fixed places get found; every day you stay, the odds the army stumbles onto you climb. Rest is a weapon and a risk, like everything else up here.
+
+- @marcha: Continuar.
+
+@c_sabotaje
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.f_desgaste+=6; Q.legitimidad_regimen-=1; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} Q.leyenda=(Q.leyenda||0)+1; Q.represion+=1; !}
+
+A charge on a bridge pylon, a rail line cut, a power tower dropped across a road — cheap, deniable, and out of all proportion to its cost in the disruption it causes. It ties down troops on guard duty, embarrasses the state's promise of order, and wears the army's patience without risking the column in a firefight. Death by a thousand cuts is the foco's real arithmetic.
+
+- @marcha: Continuar.
+
+@c_convoy
+choose-if: acc_pts >= 2
+unavailable-subtitle: Hitting a convoy costs 2 action points.
+on-arrival: {! Q.acc_pts-=2; var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.3)+(Q.apoyo_popular*0.2)-45+(Math.random()*35-14); if(_r>=0){Q.f_parque+=12;Q.f_comida+=16;Q.f_desgaste+=6;Q.f_moral+=4;}else{Q.f_hombres-=3;Q.f_moral-=6;Q.f_bajas+=3;Q.memorial=(Q.memorial||0)+1;Q.f_comida+=6;} Q.f_cerco+=14; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+You take the column's supper from the army's own trucks. [? if f_moral >= 50 : It goes clean — the convoy is stripped of its rations and ammunition, and the sierra eats the enemy's food that night, which does something to a hungry band that no speech can. ?][? if f_moral < 50 : It goes badly — the escort was heavier than the intelligence promised, and you pull off the road with some of it and fewer of your own. ?] The army knows exactly where its supplies went, and comes looking.
+
+- @marcha: Continuar.
+
+@p_asamblea
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=6; Q.sup_peasants=(Q.sup_peasants||0)+3; Q.zona_gobernada=1; Q.legitimidad_regimen-=1; !}
+
+You call the whole village together and let it govern itself in the open — disputes heard, the common field decided, the cacique's abuses named and answered by the people rather than the gun. It is the mass line made concrete, and it wins the deepest kind of water: not fear, not even gratitude, but the sense that where the guerrilla is, the people rule themselves. That is a thing no army can bomb and no cacique can buy back.
+
+- @marcha: Continuar.
+
+@p_radio
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=5; Q.leyenda=(Q.leyenda||0)+3; Q.legitimidad_regimen-=3; Q.expediente=(Q.expediente||0)+4; Q.estado_intel=(Q.estado_intel||0)+2; Q.f_cerco+=4; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+For an hour the sierra has a voice: a clandestine transmitter, a communiqué read into a hundred thousand kitchens across the state, the government's official silence broken by the one thing it cannot jam fast enough. It is armed propaganda at its purest — proof, in every home with a radio, that the guerrilla exists, that it speaks, that the state does not control even the air. It also gives the army a signal to triangulate, and the file a new page. Worth it, for a voice.
+
+- @marcha: Continuar.
+
+@p_enlace
+choose-if: acc_pts >= 2
+unavailable-subtitle: Opening an external channel costs 2 action points.
+on-arrival: {! Q.acc_pts-=2; Q.f_parque+=10; Q.inteligencia+=5; Q.internac_armada=(Q.internac_armada||0)+1; Q.expediente=(Q.expediente||0)+6; Q.apoyo_popular+=2; !}
+
+You open the channel the sierra can never open for itself — a line to Havana, to the solidarity networks that move weapons, papers, medicine and word across borders the state thinks it controls. It brings the column things the mountain does not grow: real matériel, real intelligence, the knowledge that the war has friends. It also runs a thread from your camp to a safehouse to a foreign embassy, and threads like that are exactly what the DFS spends its life pulling. The synthesis Che preached — and the exposure he paid for.
+
+- @marcha: Continuar.
+
+@p_comunicado
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.legitimidad_regimen-=4; Q.apoyo_popular+=2; Q.expediente=(Q.expediente||0)+3; Q.leyenda=(Q.leyenda||0)+1; !}
+
+You get the movement's word past the censor and into a national daily — a manifesto, a denunciation of a massacre the government swears never happened, the names of the disappeared printed where the whole country reads them. It costs the regime something it guards more jealously than any garrison: the story. A state that cannot control the narrative of its own dirty war is a state already losing it, and every column that ever fought learned that the communiqué can wound where the rifle cannot reach.
+
+- @marcha: Continuar.
 
 # =====================================================================
 # EL CERCO — the encirclement. Fires as an event when the ring closes. Escape, or bleed.

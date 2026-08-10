@@ -3,7 +3,7 @@ is-pinned-card: true
 tags: advisor
 new-page: true
 card-image: img/medrano.jpg
-view-if: medrano_advisor = 1 and medrano_muerto = 0 and via = "armada"
+view-if: banda = "" and medrano_advisor = 1 and medrano_muerto = 0 and via = "armada"
 
 = Florencio "el Güero" Medrano
 
