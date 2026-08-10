@@ -219,6 +219,17 @@ Q.f_traicion_riesgo = 0; Q.apoyo_sierra_gob = 0;
 Q.f_ev_last = -99; Q.f_figueroa = 0; Q.f_enlace_foco = 0; Q.f_reprisal_last = -99;
 Q.f_medico = 0; Q.f_socialismo = 0; Q.f_purga_last = -99; Q.f_hambre_last = -99; Q.f_deserta_last = -99;
 Q.f_despues_visto = 0; Q.f_gobierno_last = -99;
+// ============================================================================
+// THE URBAN TRACK (banda = "ciudad"): the Liga Comunista 23 de Septiembre in Guadalajara,
+// on Abraham Guillén's doctrine — "concrete forests are safer than forests of trees." NOT one
+// column but a decentralized network of cells. You act loud (expropriations, armed propaganda)
+// and survive the Brigada Blanca's hunt (heat + the cascade) by decentralization, toward
+// ingobernabilidad. apoyo_popular is the urban sympathy (the water, city version).
+// ============================================================================
+Q.u_celulas = 3; Q.u_calor = 18; Q.u_seguridad = 55; Q.u_poder = 0;
+Q.u_sector = "centro"; Q.u_forjado = 0; Q.u_phase = ""; Q.u_entreno = "";
+Q.u_red_last = -99; Q.u_redada_last = -99; Q.u_ev_last = -99;
+Q.u_expropiaciones = 0; Q.u_carcel = 0; Q.u_pando = 0; Q.u_fin = 0; Q.u_cascada = 0;
 Q.cerco_final_warned = 0;
 Q.balance_armado_visto = 0;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;

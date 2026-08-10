@@ -530,23 +530,30 @@
     s+='<path d="'+d+'" fill="none" stroke="#8a7a58" stroke-width="1.6" stroke-dasharray="3 2"/>';
     // road to the capital
     s+='<path d="M'+NODES[1].x+' '+NODES[1].y+' L'+CAP.x+' '+CAP.y+'" fill="none" stroke="#9aa0a8" stroke-width="1.2" stroke-dasharray="1 2"/>';
-    // nodes
+    // nodes (with hover tooltips via <title>)
+    var descs=['La costa — Coyuca y el borde de Acapulco: mucha gente, y aún más guarnición.',
+      'Atoyac de Álvarez — el pueblo-puerta donde la sierra toca la carretera y al ejército.',
+      'San Vicente de Benítez — la sierra baja, tierra de café.',
+      'El Quemado — la sierra; el pueblo que el ejército castigará por ocultarte.',
+      'Río Chiquito — la sierra profunda, el corazón de la zona.',
+      'El Otatal — la finca más honda, donde se acaban los mapas.'];
     for(var j=0;j<NODES.length;j++){ var nd=NODES[j]; var here=(j===prof);
-      s+='<circle cx="'+nd.x+'" cy="'+nd.y+'" r="'+(here?4.2:3)+'" fill="'+(here?dotcol:'#cfc3a4')+'" stroke="#5b4a2a" stroke-width="'+(here?1.4:0.8)+'"/>';
+      var ti=descs[j]+(here?' — LA COLUMNA AQUÍ.':'');
+      s+='<circle cx="'+nd.x+'" cy="'+nd.y+'" r="'+(here?4.2:3)+'" fill="'+(here?dotcol:'#cfc3a4')+'" stroke="#5b4a2a" stroke-width="'+(here?1.4:0.8)+'" style="cursor:help"><title>'+ti+'</title></circle>';
       s+='<text x="'+(nd.x+6)+'" y="'+(nd.y+2.5)+'" font-size="6.5" fill="#3a2e1c" '+(here?'font-weight="bold"':'')+'>'+nd.n+'</text>';
     }
     // the capital (the Santa Clara prize)
-    s+='<rect x="'+(CAP.x-3.5)+'" y="'+(CAP.y-3.5)+'" width="7" height="7" transform="rotate(45 '+CAP.x+' '+CAP.y+')" fill="'+(lib?'#b3261e':'#33556f')+'" stroke="'+(lib?'#e8b923':'#22303c')+'" stroke-width="1.3"/>';
+    s+='<rect x="'+(CAP.x-3.5)+'" y="'+(CAP.y-3.5)+'" width="7" height="7" transform="rotate(45 '+CAP.x+' '+CAP.y+')" fill="'+(lib?'#b3261e':'#33556f')+'" stroke="'+(lib?'#e8b923':'#22303c')+'" stroke-width="1.3" style="cursor:help"><title>Chilpancingo — la capital del estado. Tómala en el asalto (Santa Clara) para quebrar la autoridad del Estado.'+(lib?' — LIBERADA.':'')+'</title></rect>';
     if(lib){ s+='<text x="'+CAP.x+'" y="'+(CAP.y-6)+'" text-anchor="middle" font-size="10" fill="#e8b923">★</text>'; }
     s+='<text x="'+(CAP.x+6)+'" y="'+(CAP.y+2.5)+'" font-size="6.5" fill="'+(lib?'#b3261e':'#22303c')+'" font-weight="bold">'+CAP.n+(lib?' — LIBERADA':'')+'</text>';
     // the ring around the column: tighter + redder as f_cerco climbs
     if(cerco>=25){ var rr=24-(cerco/100)*11; var op=Math.min(0.9,cerco/110);
-      s+='<circle cx="'+cur.x+'" cy="'+cur.y+'" r="'+rr.toFixed(1)+'" fill="none" stroke="#b3261e" stroke-width="'+(1+cerco/60).toFixed(1)+'" stroke-dasharray="4 3" opacity="'+op.toFixed(2)+'">';
+      s+='<circle cx="'+cur.x+'" cy="'+cur.y+'" r="'+rr.toFixed(1)+'" fill="none" stroke="#b3261e" stroke-width="'+(1+cerco/60).toFixed(1)+'" stroke-dasharray="4 3" opacity="'+op.toFixed(2)+'" style="cursor:help"><title>El cerco: '+Math.round(cerco)+'/100 — a 80 se cierra el anillo y hay que romperlo.</title>';
       if(cerco>=70){ s+='<animate attributeName="r" values="'+rr.toFixed(1)+';'+(rr-3).toFixed(1)+';'+rr.toFixed(1)+'" dur="1.4s" repeatCount="indefinite"/>'; }
       s+='</circle>';
     }
     // the column marker
-    s+='<circle cx="'+cur.x+'" cy="'+cur.y+'" r="2" fill="#111"/>';
+    s+='<circle cx="'+cur.x+'" cy="'+cur.y+'" r="2.4" fill="#111" style="cursor:help"><title>La columna — '+(Q.f_hombres||0)+' hombres · comida '+Math.round(Q.f_comida||0)+' · parque '+Math.round(Q.f_parque||0)+' · moral '+Math.round(Q.f_moral||0)+' · el agua '+Math.round(apoyo)+' · el cerco '+Math.round(cerco)+'/100.</title></circle>';
     s+='<text x="'+cur.x+'" y="'+(cur.y-7)+'" text-anchor="middle" font-size="6" fill="#111" font-weight="bold">la columna</text>';
     s+='</svg>';
     // meter bars beneath the map
