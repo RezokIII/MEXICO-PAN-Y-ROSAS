@@ -61,13 +61,14 @@ tags: lared
 
 = La red en acción
 
-The network: **[+ u_celulas +]** cells · seguridad **[+ u_seguridad +]**/100 · simpatía (el agua) **[+ apoyo_popular +]**/100 · fondos **[+ funds +]** · parque **[+ parque +]**. The Brigada Blanca's heat: **[+ u_calor +]**/100. Poder popular: **[+ u_poder +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if u_calor >= 70 : *The white brigade is close — a raid is coming. Lie low, or accept the risk.* ?][? if u_celulas <= 1 : *The network is nearly gone.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
+The network: **[+ u_celulas +]** cells · seguridad **[+ u_seguridad : entero +]**/100 · simpatía (el agua) **[+ apoyo_popular : entero +]**/100 · fondos **[+ funds : entero +]** · parque **[+ parque : entero +]**. The Brigada Blanca's heat: **[+ u_calor : entero +]**/100. Poder popular: **[+ u_poder : entero +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if u_calor >= 70 : *The white brigade is close — a raid is coming. Lie low, or accept the risk.* ?][? if u_celulas <= 1 : *The network is nearly gone.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
 
 Las órdenes de la dirección — el mando se abre en tres:
 
 - @cat_accion: **Acción armada.** Expropiaciones, armerías, la acción directa que financia y arma la red.
 - @cat_propaganda: **Propaganda y comunicaciones.** Radio, colonias tomadas, comunicados — hacer visible al movimiento.
 - @cat_red: **La red y la seguridad.** Tejer células, compartimentar, casas de seguridad, bajar el calor.
+- @return: **Volver.** Guardar la carta y elegir otra cosa este mes.
 - @fin_mes: **Terminar el mes.** Pasar al siguiente; los puntos se reponen.
 
 @cat_accion
@@ -78,7 +79,7 @@ face-image: img/bankrobbery.jpg
 
 = Acción armada
 
-Células **[+ u_celulas +]** · fondos **[+ funds +]** · parque **[+ parque +]** · seguridad **[+ u_seguridad +]** · calor **[+ u_calor +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. Guillén: the city has the banks, the payrolls, the armouries — a network that cannot pay itself cannot last a month.
+Células **[+ u_celulas +]** · fondos **[+ funds : entero +]** · parque **[+ parque : entero +]** · seguridad **[+ u_seguridad : entero +]** · calor **[+ u_calor : entero +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. Guillén: the city has the banks, the payrolls, the armouries — a network that cannot pay itself cannot last a month.
 
 - @r_expro: **Expropiación.** A bank or payroll — take the war chest from the enemy's own vaults. *(2 pts; +fondos, +parque, +heat)*
 - @a_armeria: **Asalto a una armería.** Guns, not money — arm the cells directly. *(2 pts; +parque; heavy heat)*
@@ -93,7 +94,7 @@ face-image: img/radio_ayuntamiento.jpg
 
 = Propaganda y comunicaciones
 
-Simpatía (el agua) **[+ apoyo_popular +]**/100 · poder popular **[+ u_poder +]**/100 · calor **[+ u_calor +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. The Tupamaro insight: an action nobody hears about is only a robbery. The communiqué *is* the weapon.
+Simpatía (el agua) **[+ apoyo_popular : entero +]**/100 · poder popular **[+ u_poder : entero +]**/100 · calor **[+ u_calor : entero +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. The Tupamaro insight: an action nobody hears about is only a robbery. The communiqué *is* the weapon.
 
 - @r_propaganda: **Propaganda armada.** Seize a radio station and read the communiqué into a hundred thousand kitchens. *(2 pts; +simpatía, +poder, +heat)*
 - @p_colonia: **Toma de una colonia.** The Pando model — occupy a barrio for an hour, address it, hand out food and manifestos, withdraw before the army arrives. *(2 pts; big +poder +simpatía; big heat)*
@@ -109,7 +110,7 @@ face-image: img/safehouse.jpg
 
 = La red y la seguridad
 
-Células **[+ u_celulas +]** · seguridad **[+ u_seguridad +]**/100 · calor **[+ u_calor +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. [? if u_calor >= 70 : *The white brigade is close — go quiet.* ?] Guillén's rule: no single head to cut off. What the state cannot map, it cannot roll up.
+Células **[+ u_celulas +]** · seguridad **[+ u_seguridad : entero +]**/100 · calor **[+ u_calor : entero +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. [? if u_calor >= 70 : *The white brigade is close — go quiet.* ?] Guillén's rule: no single head to cut off. What the state cannot map, it cannot roll up.
 
 - @r_celula: **Tejer una célula.** Recruit and seal a new cell into the net. *(1 pt; +células, a little heat)*
 - @s_compartimentar: **Compartimentar.** Re-seal the compartments — nobody knows more than they must. *(1 pt; +seguridad; the cascade stops at one door)*

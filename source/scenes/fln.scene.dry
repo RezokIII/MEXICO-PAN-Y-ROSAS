@@ -60,7 +60,7 @@ tags: laestructura
 
 = Construir en silencio
 
-The organization: estructura **[+ fln_estructura +]**/100 · núcleo rural (Chiapas) **[+ fln_rural +]** · red urbana **[+ fln_urbano +]** · disciplina **[+ disciplina +]** · base (apoyo) **[+ apoyo_popular +]**. **Exposición al Estado: [+ fln_expuesto +]/100** — *the enemy of the long war.* **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if fln_expuesto >= 60 : *Exposure is dangerous — a raid is near. Go silent.* ?][? if fln_expuesto >= 80 : **The state is closing in.** ?]
+The organization: estructura **[+ fln_estructura : entero +]**/100 · núcleo rural (Chiapas) **[+ fln_rural : entero +]** · red urbana **[+ fln_urbano : entero +]** · disciplina **[+ disciplina : entero +]** · base (apoyo) **[+ apoyo_popular : entero +]**. **Exposición al Estado: [+ fln_expuesto : entero +]/100** — *the enemy of the long war.* **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if fln_expuesto >= 60 : *Exposure is dangerous — a raid is near. Go silent.* ?][? if fln_expuesto >= 80 : **The state is closing in.** ?]
 
 - @fln_cuadro: **Construir cuadro.** Recruit and train disciplined, full-time revolutionaries. *(1 pt; +estructura, tiny exposure)*
 - @fln_selva: **Profundizar el núcleo.** Deepen the roots in the Lacandón communities. *(1 pt; +rural, +base; invisible)*
@@ -68,6 +68,7 @@ The organization: estructura **[+ fln_estructura +]**/100 · núcleo rural (Chia
 - @fln_formacion: **Formación política.** The FLN's famous doctrine and security discipline. *(1 pt; +disciplina, −exposure)*
 - @fln_actuar: **Actuar.** A rare operation — an expropriation or a self-defence. *(2 pts; +funds; +exposure — the risk of being seen)*
 - @fln_silencio: **Guardar silencio.** Go dormant this month; lower the profile, let the heat pass. *(1 pt; −exposure)*
+- @return: **Volver.** Guardar la carta y elegir otra cosa este mes.
 - @fln_finmes: **Terminar el mes.** Pass to the next; the points refill.
 
 @fln_cuadro

@@ -83,7 +83,7 @@ tags: laguerra
 
 The column holds **[? if col_nodo = "atoyac" : Atoyac de Álvarez — the gateway town where the sierra meets the road ?][? if col_nodo = "coyuca" : Coyuca de Benítez — the coast, thick with people and garrison ?][? if col_nodo = "acapulco" : the edge of Acapulco — the port, the deepest garrison in the state ?][? if col_nodo = "sanvicente" : San Vicente de Benítez — the lower sierra, coffee country ?][? if col_nodo = "elquemado" : El Quemado — sierra proper, the village the army will punish for you ?][? if col_nodo = "elporvenir" : El Porvenir — a high side-trail few soldiers know ?][? if col_nodo = "riochiquito" : Río Chiquito — the deep sierra, the heart of the zone ?][? if col_nodo = "elotatal" : El Otatal — the deepest finca, where the maps run out ?]**.
 
-Column: **[+ f_hombres +]** fighters · comida **[+ f_comida +]** · parque **[+ f_parque +]** · moral **[+ f_moral +]** · el agua **[+ apoyo_popular +]**. Ring: **[+ f_cerco +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if f_cerco >= 70 : *The ring is closing — move or break it.* ?][? if f_comida < 25 : *The men are hungry.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
+Column: **[+ f_hombres : entero +]** fighters · comida **[+ f_comida : entero +]** · parque **[+ f_parque : entero +]** · moral **[+ f_moral : entero +]** · el agua **[+ apoyo_popular : entero +]**. Ring: **[+ f_cerco : entero +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if f_cerco >= 70 : *The ring is closing — move or break it.* ?][? if f_comida < 25 : *The men are hungry.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
 
 *Las órdenes salen por los mazos: **Movimiento**, **Combate**, **El pueblo** y **Política**. Cada acción cuesta puntos; cuando se acaben, termina el mes.*
 
@@ -102,7 +102,7 @@ subtitle: Mover la columna, reconocer, flanquear
 
 = Movimiento
 
-**El cerco: [+ f_cerco +]/100** — the ring the army is closing around you. [? if f_cerco >= 70 : *It is nearly shut: move, or it closes on you.* ?][? if f_cerco < 30 : *Loose — you are not where they are looking.* ?] Comida **[+ f_comida +]** (each move eats 4). **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+**El cerco: [+ f_cerco : entero +]/100** — the ring the army is closing around you. [? if f_cerco >= 70 : *It is nearly shut: move, or it closes on you.* ?][? if f_cerco < 30 : *Loose — you are not where they are looking.* ?] Comida **[+ f_comida : entero +]** (each move eats 4). **Puntos: [+ acc_pts +]/[+ acc_max +]**.
 
 [? if f_campamento = 1 : **El campamento base** está en [? if camp_nodo = "atoyac" : Atoyac ?][? if camp_nodo = "coyuca" : Coyuca ?][? if camp_nodo = "sanvicente" : San Vicente ?][? if camp_nodo = "elquemado" : El Quemado ?][? if camp_nodo = "elporvenir" : El Porvenir ?][? if camp_nodo = "riochiquito" : Río Chiquito ?][? if camp_nodo = "elotatal" : El Otatal ?] (nivel [+ camp_nivel +]/3) — comida, hospital y cache. *Volver* para comer, curar y rearmar. ?][? if f_campamento = 0 : *Sin campamento base: la columna carga todo lo que tiene y los heridos van con ella.* ?]
 
@@ -122,6 +122,7 @@ subtitle: Mover la columna, reconocer, flanquear
 - @m_campamento: **Establecer el campamento base.**[? if f_campamento = 1 : *(already built)* ?] A permanent camp in the deep sierra — stores, a hospital, a school. *(2 pts; needs deep ground and real water)*
 - @m_mejorar: **Mejorar el campamento.** Deepen the base — more stores, a better hospital, a school for the villages. *(1 pt; needs the camp)*
 - @m_volver_campo: **Volver al campamento.** March home to the base — eat, heal, rearm. *(1 pt)*
+- @return: **Volver.** Guardar la carta y elegir otra cosa este mes.
 - @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 @cat_combate
@@ -138,15 +139,16 @@ face-image: img/anti-guerillas.jpg
 
 = Combate
 
-**Desgaste del ejército: [+ f_desgaste +]/100** — the only road to victory. [? if f_desgaste >= 50 : *The army is hollow: at 50+, with a real column and deep water, **El momento** opens — the chance to take Chilpancingo.* ?][? if f_desgaste < 50 : *Wear it down. At 50 the chance to take a capital becomes possible.* ?]
+**Desgaste del ejército: [+ f_desgaste : entero +]/100** — the only road to victory. [? if f_desgaste >= 50 : *The army is hollow: at 50+, with a real column and deep water, **El momento** opens — the chance to take Chilpancingo.* ?][? if f_desgaste < 50 : *Wear it down. At 50 the chance to take a capital becomes possible.* ?]
 
-[+ f_hombres +] fighters · parque **[+ f_parque +]** (an ambush costs 12) · moral **[+ f_moral +]** · cerco **[+ f_cerco +]**. **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+[+ f_hombres : entero +] fighters · parque **[+ f_parque : entero +]** (an ambush costs 12) · moral **[+ f_moral : entero +]** · cerco **[+ f_cerco : entero +]**. **Puntos: [+ acc_pts +]/[+ acc_max +]**.
 
 *Every blow wears the army AND tightens the ring. Morale decides whether an ambush is a corrido or a funeral; the garrison where you strike gets thinner.*
 
 - @m_emboscar: **Emboscar.** Hit an army patrol on ground you chose. *(2 pts)*
 - @c_sabotaje: **Sabotaje.** Blow a bridge, a rail, a power line — cheap damage that wears the army and the state. *(1 pt; +desgaste; +heat)*
 - @c_convoy: **Golpe a un convoy.** Hit an army supply convoy for its rations and ammunition. *(2 pts; +parque +comida if it works; risky, +ring)*
+- @return: **Volver.** Guardar la carta y elegir otra cosa este mes.
 - @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 @cat_pueblo
@@ -163,17 +165,18 @@ face-image: img/workingwithelpueblo.jpg
 
 = El pueblo
 
-**El agua (apoyo popular): [+ apoyo_popular +]/100** — the sea the column swims in. [? if apoyo_popular >= 55 : *Deep: the villages warn you before the army arrives, the ring loosens, and an encirclement can be slipped on trust alone.* ?][? if apoyo_popular >= 30 and apoyo_popular < 55 : *Shallow: sympathy, but not yet shelter. Below 55 the people cannot save a surrounded column.* ?][? if apoyo_popular < 30 : ***Drying up.** The people inform. The Colonel's map fills itself and one morning the ring is already closed.* ?]
+**El agua (apoyo popular): [+ apoyo_popular : entero +]/100** — the sea the column swims in. [? if apoyo_popular >= 55 : *Deep: the villages warn you before the army arrives, the ring loosens, and an encirclement can be slipped on trust alone.* ?][? if apoyo_popular >= 30 and apoyo_popular < 55 : *Shallow: sympathy, but not yet shelter. Below 55 the people cannot save a surrounded column.* ?][? if apoyo_popular < 30 : ***Drying up.** The people inform. The Colonel's map fills itself and one morning the ring is already closed.* ?]
 
 **El techo: [+ apoyo_techo +]/100** — as far as this sierra will ever go with you. Mexico is a liberal democracy *on paper*, and that is the regime's sharpest weapon: the PRI gave the land, it runs the ejido and the CNC and the credit, it holds elections, and it speaks in the Revolution's own voice. Most campesinos are not waiting for you. Past the techo, support drains back to the Party no matter how many assemblies you hold.
 
 *The ceiling RISES when the regime discredits itself — its dead on the memorial, its lost legitimacy — and when you visibly govern better than it does (the zone, the médico, the school). It FALLS when the state buys the countryside back with reparto and credit, when the advisors' civic action starts, and when your own ajusticiamientos frighten people.*
 
-Comida **[+ f_comida +]** · hombres **[+ f_hombres +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+Comida **[+ f_comida : entero +]** · hombres **[+ f_hombres : entero +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**.
 
 - @m_base: **Trabajar la base.** Work the water here — assemblies, the mass line, the clinic. *(1 pt)*
 - @p_asamblea: **La asamblea.** Let the village govern in the open — the people's justice, the common field. *(1 pt; +apoyo, +the movement's legitimacy)*
 - @pue_escuela: **La escuela y la clínica.** Literacy circles and the médico's rounds — govern, don't just fight. *(1 pt; +apoyo, +the zone governed)*
+- @return: **Volver.** Guardar la carta y elegir otra cosa este mes.
 - @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 
@@ -359,11 +362,11 @@ subtitle: Hablarle al mundo por fuera del cerco — el Partido, la prensa, la so
 
 = Política y comunicaciones
 
-**El Partido (PCM): [+ pol_pcm +]/100** — political cover, cadre and lawyers, and the only people who can turn a won war into power. [? if pol_pcm >= 55 : *They vouch for you: the file grows slower and a settlement is possible.* ?][? if pol_pcm < 20 : *They will not touch you. Win or lose, you will do it alone.* ?]
+**El Partido (PCM): [+ pol_pcm : entero +]/100** — political cover, cadre and lawyers, and the only people who can turn a won war into power. [? if pol_pcm >= 55 : *They vouch for you: the file grows slower and a settlement is possible.* ?][? if pol_pcm < 20 : *They will not touch you. Win or lose, you will do it alone.* ?]
 
-**Testigos internacionales: [+ pol_intl +]/100** — the world watching. [? if pol_intl >= 45 : *A watched state cannot massacre freely: repression is restrained and Washington hesitates.* ?][? if pol_intl < 20 : *Nobody outside is looking. What happens in the sierra stays buried there.* ?]
+**Testigos internacionales: [+ pol_intl : entero +]/100** — the world watching. [? if pol_intl >= 45 : *A watched state cannot massacre freely: repression is restrained and Washington hesitates.* ?][? if pol_intl < 20 : *Nobody outside is looking. What happens in the sierra stays buried there.* ?]
 
-Legitimidad del régimen **[+ legitimidad_regimen +]** · leyenda **[+ leyenda +]** · expediente **[+ expediente +]**. **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+Legitimidad del régimen **[+ legitimidad_regimen : entero +]** · leyenda **[+ leyenda : entero +]** · expediente **[+ expediente : entero +]**. **Puntos: [+ acc_pts +]/[+ acc_max +]**.
 
 *A guerrilla sealed inside its own encirclement dies there — militarily or politically. These two numbers decide whether a victory can be cashed, and whether a defeat is survivable.*
 
@@ -372,6 +375,7 @@ Legitimidad del régimen **[+ legitimidad_regimen +]** · leyenda **[+ leyenda +
 - @pol_pcm: **Hablar con el PCM.** Open a channel to the Party — legality, cadre, and the argument over the gun. *(1 pt; +political cover, +unity; the orthodox will demand a price)*
 - @p_enlace: **Enlace exterior.** A channel to Cuba and the international solidarity networks. *(2 pts; +parque +inteligencia; +the file on you)*
 - @pol_intl: **Solidaridad internacional.** Denounce the dirty war abroad — exiles, journalists, the tricontinental networks. *(1 pt; −legitimidad abroad, protects prisoners; +expediente)*
+- @return: **Volver.** Guardar la carta y elegir otra cosa este mes.
 - @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 @pol_pcm
