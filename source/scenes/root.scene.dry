@@ -199,13 +199,24 @@ Q.col_chihuahua_mood = 55; Q.col_valle_mood = 55; Q.columna_last = -99;
 // that drain every month, slipping the army's ring, wearing it down, toward a Santa Clara-style assault.
 // ============================================================================
 Q.banda = ""; Q.f_phase = "";
+// ARMED-ROAD ACTION POINTS: each month the band gets acc_max points. Small actions cost 1,
+// big actions (ambush, expropriation, armed propaganda) cost 2 — so a month is "one big thing
+// OR a couple of small ones." Spend them, then end the month. Reset each month in post_event.
+Q.acc_pts = 2; Q.acc_max = 2;
 // the four sustain meters (0-100). Let any hit zero and the column bleeds men to desertion and dies.
 Q.f_comida = 55; Q.f_parque = 45; Q.f_hombres = 30; Q.f_moral = 60;
 // apoyo_popular (already in the engine, with drift + AI hooks) IS the water — shared, not duplicated.
 // the column's position on the Guerrero node graph, and per-node support (0-100).
+// THE GUERRERO NODE GRAPH: the column moves between villages with MULTIPLE routes, so you can
+// scout and flank around army units. col_nodo = where the column is. gn_X = army presence (a unit)
+// at node X (the higher, the more soldiers there — moving in is dangerous). sn_X = whether you have
+// scouted X recently (else its garrison is a guess). The army concentrates near you and decays far.
 Q.col_nodo = "atoyac";
-Q.ap_atoyac = 40; Q.ap_elparaiso = 25; Q.ap_elquemado = 20; Q.ap_riochiquito = 30;
-Q.ap_elotatal = 15; Q.ap_coyuca = 25; Q.ap_acapulco = 10; Q.ap_chilpancingo = 5;
+Q.gn_atoyac = 40; Q.gn_coyuca = 45; Q.gn_acapulco = 70; Q.gn_sanvicente = 25;
+Q.gn_elquemado = 20; Q.gn_elporvenir = 10; Q.gn_riochiquito = 8; Q.gn_elotatal = 5;
+Q.sn_atoyac = 1; Q.sn_coyuca = 0; Q.sn_acapulco = 0; Q.sn_sanvicente = 0;
+Q.sn_elquemado = 0; Q.sn_elporvenir = 0; Q.sn_riochiquito = 0; Q.sn_elotatal = 0;
+Q.move_contact = 0; Q.move_cold = 0;
 // the ring: how tightly the army has concentrated on the column's current ground (0-100).
 // rises as you linger or act loudly; falls when you move to cold ground or the water hides you.
 Q.f_cerco = 15; Q.f_cerco_last = -99;
@@ -912,7 +923,7 @@ Q.presidente_cooptacion = 55; Q.presidente_represion = 62; Q.represion = 68; Q.l
 Q.via = "armada"; Q.armada_entered = 1; Q.postura_guerrilla = 3; Q.camino1 = 1;
 // pick the band and open the rural war
 Q.banda = "sierra"; Q.f_phase = "forjar";
-Q.col_prof = 1; Q.col_nodo = "atoyac";
+Q.col_nodo = "atoyac";
 // starting condition of a young foco in the sierra de Atoyac
 Q.f_comida = 55; Q.f_parque = 40; Q.f_hombres = 22; Q.f_moral = 62;
 Q.apoyo_popular = 34; Q.f_cerco = 12; Q.f_desgaste = 0;

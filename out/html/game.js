@@ -506,72 +506,43 @@
   }
   // ===== THE GUERRERO FOCO MAP: one band moving the coast->deep-sierra axis, the ring around it =====
   window.paintFocoMap=function(el,Q){
-    var NODES=[
-      {n:'La costa',x:236,y:180}, {n:'Atoyac',x:199,y:150}, {n:'San Vicente',x:163,y:121},
-      {n:'El Quemado',x:128,y:94}, {n:'Río Chiquito',x:94,y:69}, {n:'El Otatal',x:62,y:47}
-    ];
-    var CAP={n:'Chilpancingo',x:252,y:100};
-    var prof=Math.max(0,Math.min(5,Math.round(Q.col_prof||0)));
-    var cerco=Math.max(0,Math.min(100,Q.f_cerco||0));
-    var apoyo=Math.max(0,Math.min(100,Q.apoyo_popular||0));
-    var moral=Q.f_moral||0;
-    var cur=NODES[prof];
+    var N={
+      atoyac:{x:188,y:150,n:'Atoyac'}, coyuca:{x:232,y:178,n:'Coyuca'}, acapulco:{x:264,y:192,n:'Acapulco'},
+      sanvicente:{x:150,y:120,n:'San Vicente'}, elquemado:{x:118,y:96,n:'El Quemado'}, elporvenir:{x:172,y:82,n:'El Porvenir'},
+      riochiquito:{x:96,y:66,n:'Río Chiquito'}, elotatal:{x:60,y:46,n:'El Otatal'}
+    };
+    var CAP={x:248,y:106,n:'Chilpancingo'};
+    var E=[['atoyac','coyuca'],['atoyac','sanvicente'],['atoyac','elquemado'],['coyuca','acapulco'],['coyuca','sanvicente'],['sanvicente','elquemado'],['sanvicente','elporvenir'],['elquemado','riochiquito'],['elporvenir','riochiquito'],['riochiquito','elotatal'],['atoyac','__cap']];
+    var cur=Q.col_nodo||'atoyac'; var apoyo=Math.max(0,Math.min(100,Q.apoyo_popular||0)); var cerco=Math.max(0,Math.min(100,Q.f_cerco||0));
     var lib=(Q.f_capital===1||Q.f_liberado_gro===1);
-    var dotcol = moral>=66?'#2e7d4f':(moral>=40?'#d8b53f':'#b3261e');
-    // background wash: the deeper the water, the greener the sierra
-    var s='<svg viewBox="0 0 300 210" style="width:100%;height:auto;display:block;font-family:Georgia,serif">';
-    s+='<rect x="0" y="0" width="300" height="210" fill="'+(apoyo>=55?'#e6eede':(apoyo>=30?'#efe9dc':'#f1e4dd'))+'"/>';
-    // a few sierra ridgelines up top-left, coast strip bottom
-    s+='<path d="M0 60 L40 34 L78 58 L120 30 L160 60 L120 74 L60 78 Z" fill="#cdbfa0" opacity="0.5"/>';
-    s+='<rect x="0" y="192" width="300" height="18" fill="#bcd0d8" opacity="0.6"/>';
-    s+='<text x="6" y="204" font-size="7" fill="#5b7580">el mar</text>';
-    // the trail through the nodes
-    var d='M'; for(var i=0;i<NODES.length;i++){ d+=(i?' L':'')+NODES[i].x+' '+NODES[i].y; }
-    s+='<path d="'+d+'" fill="none" stroke="#8a7a58" stroke-width="1.6" stroke-dasharray="3 2"/>';
-    // road to the capital
-    s+='<path d="M'+NODES[1].x+' '+NODES[1].y+' L'+CAP.x+' '+CAP.y+'" fill="none" stroke="#9aa0a8" stroke-width="1.2" stroke-dasharray="1 2"/>';
-    // nodes (with hover tooltips via <title>)
-    var descs=['La costa — Coyuca y el borde de Acapulco: mucha gente, y aún más guarnición.',
-      'Atoyac de Álvarez — el pueblo-puerta donde la sierra toca la carretera y al ejército.',
-      'San Vicente de Benítez — la sierra baja, tierra de café.',
-      'El Quemado — la sierra; el pueblo que el ejército castigará por ocultarte.',
-      'Río Chiquito — la sierra profunda, el corazón de la zona.',
-      'El Otatal — la finca más honda, donde se acaban los mapas.'];
-    for(var j=0;j<NODES.length;j++){ var nd=NODES[j]; var here=(j===prof);
-      var ti=descs[j]+(here?' — LA COLUMNA AQUÍ.':'');
-      s+='<circle cx="'+nd.x+'" cy="'+nd.y+'" r="'+(here?4.2:3)+'" fill="'+(here?dotcol:'#cfc3a4')+'" stroke="#5b4a2a" stroke-width="'+(here?1.4:0.8)+'" style="cursor:help"><title>'+ti+'</title></circle>';
-      s+='<text x="'+(nd.x+6)+'" y="'+(nd.y+2.5)+'" font-size="6.5" fill="#3a2e1c" '+(here?'font-weight="bold"':'')+'>'+nd.n+'</text>';
+    var s='<svg viewBox="0 0 300 214" style="width:100%;height:auto;display:block;font-family:Georgia,serif">';
+    s+='<rect x="0" y="0" width="300" height="214" fill="'+(apoyo>=55?'#e6eede':(apoyo>=30?'#efe9dc':'#f1e4dd'))+'"/>';
+    s+='<path d="M0 52 L44 28 L86 52 L128 24 L172 52 L128 66 L64 70 Z" fill="#cdbfa0" opacity="0.45"/>';
+    s+='<rect x="0" y="198" width="300" height="16" fill="#bcd0d8" opacity="0.6"/><text x="5" y="209" font-size="6.5" fill="#5b7580">el mar</text>';
+    for(var i=0;i<E.length;i++){ var a=N[E[i][0]]; var b=(E[i][1]==='__cap')?CAP:N[E[i][1]]; if(!a||!b)continue; s+='<line x1="'+a.x+'" y1="'+a.y+'" x2="'+b.x+'" y2="'+b.y+'" stroke="'+(E[i][1]==='__cap'?'#9aa0a8':'#8a7a58')+'" stroke-width="'+(E[i][1]==='__cap'?1:1.4)+'" stroke-dasharray="'+(E[i][1]==='__cap'?'1 2':'3 2')+'"/>'; }
+    for(var k in N){ var nd=N[k]; var g=Q['gn_'+k]||0; var seen=(Q['sn_'+k]===1||Q['sn_'+k]===true); var here=(k===cur); var fill, ti;
+      if(seen){ var r=Math.round(150+105*Math.min(1,g/70)); var gb=Math.round(150-120*Math.min(1,g/70)); fill='rgb('+r+','+gb+','+gb+')'; ti=nd.n+' — ejército '+Math.round(g); }
+      else { fill='#c9c2b0'; ti=nd.n+' — sin explorar (Reconocer para ver el ejército)'; }
+      s+='<circle cx="'+nd.x+'" cy="'+nd.y+'" r="'+(here?5:3.6)+'" fill="'+fill+'" stroke="'+(here?'#111':'#5b4a2a')+'" stroke-width="'+(here?1.6:0.8)+'" style="cursor:help"><title>'+ti+(here?' — LA COLUMNA AQUÍ':'')+'</title></circle>';
+      if(!seen){ s+='<text x="'+nd.x+'" y="'+(nd.y+2.1)+'" text-anchor="middle" font-size="5.5" fill="#6b5b3a" style="pointer-events:none">?</text>'; }
+      s+='<text x="'+(nd.x+6)+'" y="'+(nd.y+2.1)+'" font-size="5.8" fill="#3a2e1c" '+(here?'font-weight="bold"':'')+' style="pointer-events:none">'+nd.n+'</text>';
     }
-    // the capital (the Santa Clara prize)
-    s+='<rect x="'+(CAP.x-3.5)+'" y="'+(CAP.y-3.5)+'" width="7" height="7" transform="rotate(45 '+CAP.x+' '+CAP.y+')" fill="'+(lib?'#b3261e':'#33556f')+'" stroke="'+(lib?'#e8b923':'#22303c')+'" stroke-width="1.3" style="cursor:help"><title>Chilpancingo — la capital del estado. Tómala en el asalto (Santa Clara) para quebrar la autoridad del Estado.'+(lib?' — LIBERADA.':'')+'</title></rect>';
-    if(lib){ s+='<text x="'+CAP.x+'" y="'+(CAP.y-6)+'" text-anchor="middle" font-size="10" fill="#e8b923">★</text>'; }
-    s+='<text x="'+(CAP.x+6)+'" y="'+(CAP.y+2.5)+'" font-size="6.5" fill="'+(lib?'#b3261e':'#22303c')+'" font-weight="bold">'+CAP.n+(lib?' — LIBERADA':'')+'</text>';
-    // the ring around the column: tighter + redder as f_cerco climbs
-    if(cerco>=25){ var rr=24-(cerco/100)*11; var op=Math.min(0.9,cerco/110);
-      s+='<circle cx="'+cur.x+'" cy="'+cur.y+'" r="'+rr.toFixed(1)+'" fill="none" stroke="#b3261e" stroke-width="'+(1+cerco/60).toFixed(1)+'" stroke-dasharray="4 3" opacity="'+op.toFixed(2)+'" style="cursor:help"><title>El cerco: '+Math.round(cerco)+'/100 — a 80 se cierra el anillo y hay que romperlo.</title>';
-      if(cerco>=70){ s+='<animate attributeName="r" values="'+rr.toFixed(1)+';'+(rr-3).toFixed(1)+';'+rr.toFixed(1)+'" dur="1.4s" repeatCount="indefinite"/>'; }
-      s+='</circle>';
-    }
-    // the column marker
-    s+='<circle cx="'+cur.x+'" cy="'+cur.y+'" r="2.4" fill="#111" style="cursor:help"><title>La columna — '+(Q.f_hombres||0)+' hombres · comida '+Math.round(Q.f_comida||0)+' · parque '+Math.round(Q.f_parque||0)+' · moral '+Math.round(Q.f_moral||0)+' · el agua '+Math.round(apoyo)+' · el cerco '+Math.round(cerco)+'/100.</title></circle>';
-    s+='<text x="'+cur.x+'" y="'+(cur.y-7)+'" text-anchor="middle" font-size="6" fill="#111" font-weight="bold">la columna</text>';
+    s+='<rect x="'+(CAP.x-3.5)+'" y="'+(CAP.y-3.5)+'" width="7" height="7" transform="rotate(45 '+CAP.x+' '+CAP.y+')" fill="'+(lib?'#b3261e':'#33556f')+'" stroke="'+(lib?'#e8b923':'#22303c')+'" stroke-width="1.3" style="cursor:help"><title>Chilpancingo — la capital. El asalto (Santa Clara) la toma para quebrar la autoridad del Estado.'+(lib?' — LIBERADA':'')+'</title></rect>';
+    if(lib){ s+='<text x="'+CAP.x+'" y="'+(CAP.y-6)+'" text-anchor="middle" font-size="9" fill="#e8b923">★</text>'; }
+    s+='<text x="'+(CAP.x+6)+'" y="'+(CAP.y+2)+'" font-size="5.8" fill="'+(lib?'#b3261e':'#22303c')+'" font-weight="bold">'+CAP.n+'</text>';
+    var cn=N[cur]||N.atoyac;
+    if(cerco>=25){ var rr=22-(cerco/100)*10; var op=Math.min(0.85,cerco/115); s+='<circle cx="'+cn.x+'" cy="'+cn.y+'" r="'+rr.toFixed(1)+'" fill="none" stroke="#b3261e" stroke-width="'+(1+cerco/70).toFixed(1)+'" stroke-dasharray="4 3" opacity="'+op.toFixed(2)+'" style="cursor:help"><title>El cerco: '+Math.round(cerco)+'/100 — a 80 se cierra</title>'; if(cerco>=70){ s+='<animate attributeName="r" values="'+rr.toFixed(1)+';'+(rr-2.5).toFixed(1)+';'+rr.toFixed(1)+'" dur="1.4s" repeatCount="indefinite"/>'; } s+='</circle>'; }
+    s+='<circle cx="'+cn.x+'" cy="'+cn.y+'" r="2.3" fill="#111" style="cursor:help"><title>La columna — '+(Q.f_hombres||0)+' hombres · comida '+Math.round(Q.f_comida||0)+' · parque '+Math.round(Q.f_parque||0)+' · moral '+Math.round(Q.f_moral||0)+' · agua '+Math.round(apoyo)+' · cerco '+Math.round(cerco)+'</title></circle>';
+    s+='<text x="'+cn.x+'" y="'+(cn.y-7)+'" text-anchor="middle" font-size="5.5" fill="#111" font-weight="bold" style="pointer-events:none">la columna</text>';
     s+='</svg>';
-    // meter bars beneath the map
-    function bar(lbl,val,max,col){ var p=Math.max(0,Math.min(100,(val/max)*100));
-      return '<div style="display:flex;align-items:center;gap:5px;margin:1px 0;font:10px Georgia,serif;color:#3a2e22">'
-        +'<span style="width:74px;text-align:right">'+lbl+'</span>'
-        +'<span style="flex:1;height:7px;background:#d9cdb8;border:1px solid #a88;border-radius:2px;overflow:hidden;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:'+p+'%;background:'+col+'"></span></span>'
-        +'<span style="width:26px;text-align:right"><b>'+Math.round(val)+'</b></span></div>';
-    }
+    function bar(lbl,val,max,col){ var p=Math.max(0,Math.min(100,(val/max)*100)); return '<div style="display:flex;align-items:center;gap:5px;margin:1px 0;font:10px Georgia,serif;color:#3a2e22"><span style="width:82px;text-align:right">'+lbl+'</span><span style="flex:1;height:7px;background:#d9cdb8;border:1px solid #a88;border-radius:2px;overflow:hidden;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:'+p+'%;background:'+col+'"></span></span><span style="width:24px;text-align:right"><b>'+Math.round(val)+'</b></span></div>'; }
     var bars='<div style="margin:4px 2px 0">'
-      + bar('comida', Q.f_comida||0, 100, '#2e7d4f')
-      + bar('parque', Q.f_parque||0, 100, '#c9772e')
-      + bar('hombres', Q.f_hombres||0, 60, '#3b6ea5')
-      + bar('moral', Q.f_moral||0, 100, '#7a4fa0')
-      + bar('el agua (apoyo)', apoyo, 100, apoyo>=55?'#2e7d4f':(apoyo>=30?'#c99a2e':'#b3261e'))
-      + bar('el cerco', cerco, 100, '#b3261e')
-      + bar('desgaste del ejército', Q.f_desgaste||0, 100, '#8a6d3b')
-      + '</div>';
+      +'<div style="font:11px Georgia,serif;color:#3a2e22;margin-bottom:2px"><b>Puntos de acción: '+(Q.acc_pts||0)+'/'+(Q.acc_max||2)+'</b> — Reconocer revela el ejército; flanquea las guarniciones.</div>'
+      + bar('comida',Q.f_comida||0,100,'#2e7d4f') + bar('parque',Q.f_parque||0,100,'#c9772e')
+      + bar('hombres',Q.f_hombres||0,60,'#3b6ea5') + bar('moral',Q.f_moral||0,100,'#7a4fa0')
+      + bar('el agua (apoyo)',apoyo,100,apoyo>=55?'#2e7d4f':(apoyo>=30?'#c99a2e':'#b3261e'))
+      + bar('el cerco',cerco,100,'#b3261e') + bar('desgaste del ejército',Q.f_desgaste||0,100,'#8a6d3b')
+      +'</div>';
     el.innerHTML = s + bars;
   };
 

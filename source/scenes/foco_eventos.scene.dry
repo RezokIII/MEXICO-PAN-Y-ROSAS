@@ -141,7 +141,7 @@ You make the garrison pay for it where everyone can see — a column of theirs b
 - @root: Continuar.
 
 @repr_alejar
-on-arrival: {! Q.apoyo_popular-=4; Q.f_cerco-=14; if(Q.f_cerco<0){Q.f_cerco=0;} Q.f_moral-=4; if(Q.col_prof<5){Q.col_prof+=1;} !}
+on-arrival: {! Q.apoyo_popular-=4; Q.f_cerco-=14; if(Q.f_cerco<0){Q.f_cerco=0;} Q.f_moral-=4; !}
 
 You do the thing that costs you and saves them: you leave. You are the weather the soldiers followed here, and when you go the storm goes with you — the sweeps ease, the airbase trucks turn around, the village is left standing, emptied but alive. It costs you the ground and a piece of the column's heart, because leaving people who fed you feels exactly like the abandonment it partly is. But a guerrilla who gets villages destroyed to feel loyal is worth less than one who takes his war somewhere the poor will not pay for it.
 

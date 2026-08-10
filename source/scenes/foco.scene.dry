@@ -69,54 +69,119 @@ No school, no sponsor, no papers to be counted. You train yourselves in the moun
 @marcha
 title: La columna
 card-image: img/cards/columna_movil.jpg
-subtitle: The war, where your feet are
+subtitle: Move, scout, and slip the army across the Guerrero sierra
 view-if: banda = "sierra" and f_forjado = 1 and f_phase = "marcha"
 is-card: true
 frequency: 100
-max-visits: 300
+max-visits: 400
 tags: laguerra
-on-arrival: month_actions += 1
 
 = La columna en marcha
 
-You are at [? if col_prof <= 0 : **la costa** — Coyuca and the edge of Acapulco, thick with people and thicker with garrison ?][? if col_prof = 1 : **Atoyac de Álvarez** — the gateway town, where the sierra meets the road and the army ?][? if col_prof = 2 : **San Vicente de Benítez** — the lower sierra, coffee country ?][? if col_prof = 3 : **El Quemado** — sierra proper; the village the army will one day punish for you ?][? if col_prof = 4 : **Río Chiquito** — the deep sierra, the heart of the zone ?][? if col_prof >= 5 : **El Otatal** — the deepest finca, where the maps run out ?].
+The column holds **[? if col_nodo = "atoyac" : Atoyac de Álvarez — the gateway town where the sierra meets the road ?][? if col_nodo = "coyuca" : Coyuca de Benítez — the coast, thick with people and garrison ?][? if col_nodo = "acapulco" : the edge of Acapulco — the port, the deepest garrison in the state ?][? if col_nodo = "sanvicente" : San Vicente de Benítez — the lower sierra, coffee country ?][? if col_nodo = "elquemado" : El Quemado — sierra proper, the village the army will punish for you ?][? if col_nodo = "elporvenir" : El Porvenir — a high side-trail few soldiers know ?][? if col_nodo = "riochiquito" : Río Chiquito — the deep sierra, the heart of the zone ?][? if col_nodo = "elotatal" : El Otatal — the deepest finca, where the maps run out ?]**.
 
-The column: **[+ f_hombres +]** fighters · comida **[+ f_comida +]**/100 · parque **[+ f_parque +]**/100 · moral **[+ f_moral +]**/100 · el agua (apoyo) **[+ apoyo_popular +]**/100. The ring around you: **[+ f_cerco +]**/100. [? if f_cerco >= 70 : *The ring is closing — move, or fight it.* ?][? if f_comida < 25 : *The men are hungry.* ?][? if f_parque < 20 : *Almost out of parque.* ?]
+Column: **[+ f_hombres +]** fighters · comida **[+ f_comida +]** · parque **[+ f_parque +]** · moral **[+ f_moral +]** · el agua **[+ apoyo_popular +]**. Ring: **[+ f_cerco +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if f_cerco >= 70 : *The ring is closing — move or break it.* ?][? if f_comida < 25 : *The men are hungry.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
 
-- @m_subir: **Adentrarse en la sierra.** Climb toward colder, higher ground — harder for the army to follow, thinner for food and people. *(ring falls; comida drains; water thins)*
-- @m_bajar: **Bajar hacia los pueblos.** Drop toward the villages and the road — people, food, and targets, but the garrison is thick and the ring tightens. *(supply + water access; ring rises)*
-- @m_base: **Trabajar la base.** Stay and work the water here — assemblies, disputes, the mass line. *(apoyo rises; a little food; the army may find you sitting still)*
-- @m_emboscar: **Emboscar.** Hit an army patrol on ground you chose. *(wears the army down; wins parque + legend; the ring tightens hard)*
+*Move to a neighbouring village (1 pt). Its army number shows once you scout it; move into a garrisoned village and you risk contact — so scout, and flank the cold way around.*
 
-@m_subir
-on-arrival: {! if(Q.col_prof<5){Q.col_prof+=1;} Q.f_cerco=Q.f_cerco-18; if(Q.f_cerco<0){Q.f_cerco=0;} Q.f_comida-=6; Q.apoyo_popular-=3; Q.f_moral-=1; !}
+- @go_atoyac: → **Atoyac**[? if sn_atoyac = 1 : (ejército [+ gn_atoyac +]) ?].
+- @go_coyuca: → **Coyuca**[? if sn_coyuca = 1 : (ejército [+ gn_coyuca +]) ?].
+- @go_acapulco: → **Acapulco**[? if sn_acapulco = 1 : (ejército [+ gn_acapulco +]) ?].
+- @go_sanvicente: → **San Vicente**[? if sn_sanvicente = 1 : (ejército [+ gn_sanvicente +]) ?].
+- @go_elquemado: → **El Quemado**[? if sn_elquemado = 1 : (ejército [+ gn_elquemado +]) ?].
+- @go_elporvenir: → **El Porvenir**[? if sn_elporvenir = 1 : (ejército [+ gn_elporvenir +]) ?].
+- @go_riochiquito: → **Río Chiquito**[? if sn_riochiquito = 1 : (ejército [+ gn_riochiquito +]) ?].
+- @go_elotatal: → **El Otatal**[? if sn_elotatal = 1 : (ejército [+ gn_elotatal +]) ?].
+- @m_reconocer: **Reconocer.** Scout the neighbouring villages — reveal the army units, and let the guides find the coldest way through. *(1 pt)*
+- @m_base: **Trabajar la base.** Work the water here — assemblies, the mass line. *(1 pt)*
+- @m_emboscar: **Emboscar.** Hit an army patrol on ground you chose. *(2 pts)*
+- @fin_mes: **Terminar el mes.** Pass to the next month; the points refill.
 
-You climb. The trails narrow, the air thins, the army's trucks fall away behind you and its helicopters lose you under the canopy. The ring loosens. So does the land's willingness to feed you — up here there are fewer villages, fewer granaries, less of the sea you swim in. Distance bought safety, as it always does, at the price of the thing that keeps a foco alive.
+@go_atoyac
+view-if: col_nodo = "coyuca" or col_nodo = "sanvicente" or col_nodo = "elquemado"
+choose-if: acc_pts >= 1
+go-to: foco.go_resolve
+on-arrival: acc_pts -= 1; col_nodo = "atoyac"; sn_atoyac = 1
 
-- @root: Continuar.
+@go_coyuca
+view-if: col_nodo = "atoyac" or col_nodo = "acapulco" or col_nodo = "sanvicente"
+choose-if: acc_pts >= 1
+go-to: foco.go_resolve
+on-arrival: acc_pts -= 1; col_nodo = "coyuca"; sn_coyuca = 1
 
-@m_bajar
-on-arrival: {! if(Q.col_prof>0){Q.col_prof-=1;} Q.f_cerco=Q.f_cerco+14; if(Q.f_cerco>100){Q.f_cerco=100;} Q.f_comida+=10; Q.apoyo_popular+=4; Q.f_parque+=2; !}
+@go_acapulco
+view-if: col_nodo = "coyuca"
+choose-if: acc_pts >= 1
+go-to: foco.go_resolve
+on-arrival: acc_pts -= 1; col_nodo = "acapulco"; sn_acapulco = 1
 
-You come down to where the people are — and where the army is. The villages feed you, warn you, thicken the water; the column eats and the base deepens. But a garrison notices a column the moment it touches the road, and the ring tightens around the lower ground the way it never does up high. This is the guerrilla's permanent bind: you cannot live without the people, and the people are where the enemy waits.
+@go_sanvicente
+view-if: col_nodo = "atoyac" or col_nodo = "coyuca" or col_nodo = "elquemado" or col_nodo = "elporvenir"
+choose-if: acc_pts >= 1
+go-to: foco.go_resolve
+on-arrival: acc_pts -= 1; col_nodo = "sanvicente"; sn_sanvicente = 1
 
-- @root: Continuar.
+@go_elquemado
+view-if: col_nodo = "atoyac" or col_nodo = "sanvicente" or col_nodo = "riochiquito"
+choose-if: acc_pts >= 1
+go-to: foco.go_resolve
+on-arrival: acc_pts -= 1; col_nodo = "elquemado"; sn_elquemado = 1
+
+@go_elporvenir
+view-if: col_nodo = "sanvicente" or col_nodo = "riochiquito"
+choose-if: acc_pts >= 1
+go-to: foco.go_resolve
+on-arrival: acc_pts -= 1; col_nodo = "elporvenir"; sn_elporvenir = 1
+
+@go_riochiquito
+view-if: col_nodo = "elquemado" or col_nodo = "elporvenir" or col_nodo = "elotatal"
+choose-if: acc_pts >= 1
+go-to: foco.go_resolve
+on-arrival: acc_pts -= 1; col_nodo = "riochiquito"; sn_riochiquito = 1
+
+@go_elotatal
+view-if: col_nodo = "riochiquito"
+choose-if: acc_pts >= 1
+go-to: foco.go_resolve
+on-arrival: acc_pts -= 1; col_nodo = "elotatal"; sn_elotatal = 1
+
+@go_resolve
+new-page: true
+on-arrival: {! var g=Q['gn_'+Q.col_nodo]||0; Q.move_contact=(g>=45?1:0); Q.move_cold=(g<25?1:0); if(g>=45){Q.f_cerco+=16;Q.f_hombres-=1;Q.f_moral-=2;Q.f_bajas+=1;}else if(g>=25){Q.f_cerco+=6;}else{Q.f_cerco-=8;} if(Q.f_cerco<0){Q.f_cerco=0;} if(Q.f_cerco>100){Q.f_cerco=100;} Q.f_comida-=4; if(Q.f_comida<0){Q.f_comida=0;} !}
+
+The column crosses to [? if col_nodo = "atoyac" : Atoyac ?][? if col_nodo = "coyuca" : Coyuca ?][? if col_nodo = "acapulco" : the edge of Acapulco ?][? if col_nodo = "sanvicente" : San Vicente ?][? if col_nodo = "elquemado" : El Quemado ?][? if col_nodo = "elporvenir" : El Porvenir ?][? if col_nodo = "riochiquito" : Río Chiquito ?][? if col_nodo = "elotatal" : El Otatal ?].[? if move_contact = 1 :  There are soldiers here — you walk into a garrison, trade fire, and pay for the crossing in blood and a tighter ring. Scout next time. ?][? if move_cold = 1 :  Cold ground, no army in it — the ring loosens as the column melts into country the soldiers are not watching. ?]
+
+- @marcha: Continuar.
+
+@m_reconocer
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; var adj={atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']}; var ns=adj[Q.col_nodo]||[]; Q['sn_'+Q.col_nodo]=1; for(var i=0;i<ns.length;i++){ Q['sn_'+ns[i]]=1; } if(Q.apoyo_popular>=45){ var hot='',hv=-1; for(var j=0;j<ns.length;j++){ if((Q['gn_'+ns[j]]||0)>hv){hv=Q['gn_'+ns[j]]||0;hot=ns[j];} } if(hot&&hv>=25){ Q['gn_'+hot]=hv-12; } } Q.inteligencia+=1; !}
+
+The scouts go out, and the guides — the ones born in these draws — go with them. By nightfall you know it: which villages the army sits in, which trails it watches, and which cold way around the garrisons only people who grew up here would know. [? if apoyo_popular >= 45 : The guides find a vereda past the worst of it — a way to flank the heaviest unit that the army does not know exists. ?][? if apoyo_popular < 45 : The picture is clearer now, though without deeper trust in these villages the guides will only show you so much. ?] Knowing where the enemy is *not* is worth more than knowing where it is.
+
+- @marcha: Continuar.
 
 @m_base
-on-arrival: {! Q.apoyo_popular+=7; Q.f_comida+=4; Q.f_hombres+=1; Q.sup_peasants+=2; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=7; Q.f_comida+=4; Q.f_hombres+=1; Q.sup_peasants+=2; Q.f_cerco+=5; if(Q.f_cerco>100){Q.f_cerco=100;} !}
 
-You put the rifles down and do the unglamorous work that is the whole war: the assembly held, the dispute settled, the cacique's abuse marked and answered, the clinic and the literacy circle. The water rises — a little more of the sierra that will hide you, feed you, and lie for you. But a column that sits still is a column that can be found, and somewhere a lieutenant is noting that you have not moved.
+You put the rifles down and do the unglamorous work that is the whole war: the assembly held, the dispute settled, the cacique's abuse marked and answered, the clinic and the literacy circle. The water rises here — a little more of the sierra that will hide you, feed you, and lie for you. But a column that sits still can be found, and somewhere a lieutenant notes that you have not moved.
 
-- @root: Continuar.
+- @marcha: Continuar.
 
 @m_emboscar
-choose-if: f_parque >= 12
-unavailable-subtitle: An ambush needs parque — at least 12.
-on-arrival: {! Q.f_parque-=12; var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.3)+(Q.apoyo_popular*0.3)-(Q.f_cerco*0.3)+(Math.random()*40-15); if(_r>=25){Q.f_desgaste+=10;Q.f_parque+=8;Q.f_moral+=8;Q.leyenda=(Q.leyenda||0)+2;Q.legitimidad_regimen-=2;}else if(_r>=5){Q.f_desgaste+=5;Q.f_moral+=2;Q.f_hombres-=1;}else{Q.f_hombres-=3;Q.f_moral-=8;Q.f_bajas+=3;Q.memorial=(Q.memorial||0)+1;} Q.f_cerco+=20; if(Q.f_cerco>100){Q.f_cerco=100;} Q.represion+=2; !}
+choose-if: acc_pts >= 2 and f_parque >= 12
+unavailable-subtitle: An ambush costs 2 action points and at least 12 parque.
+on-arrival: {! Q.acc_pts-=2; Q.f_parque-=12; var g=Q['gn_'+Q.col_nodo]||0; var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.3)+(Q.apoyo_popular*0.3)-(g*0.3)-(Q.f_cerco*0.2)+(Math.random()*40-15); if(_r>=25){Q.f_desgaste+=10;Q.f_parque+=8;Q.f_moral+=8;Q.leyenda=(Q.leyenda||0)+2;Q.legitimidad_regimen-=2;if(g>0){Q['gn_'+Q.col_nodo]=g-8;}}else if(_r>=5){Q.f_desgaste+=5;Q.f_moral+=2;Q.f_hombres-=1;}else{Q.f_hombres-=3;Q.f_moral-=8;Q.f_bajas+=3;Q.memorial=(Q.memorial||0)+1;} Q.f_cerco+=18; if(Q.f_cerco>100){Q.f_cerco=100;} Q.represion+=2; !}
 
-You choose the ground — a defile, a bridge, a bend where trucks must slow — and you spend the parque you cannot easily replace. [? if f_moral >= 66 : It goes the way the corridos need it to: the patrol is broken, its rifles are yours, and by the next new moon the camps recruit themselves. ?][? if f_moral < 66 and f_moral >= 40 : It works, barely, and costs more than the manual promised — a man down, the column melting back into the trees carrying its wounded. ?][? if f_moral < 40 : It was a trap inside your trap. The column fights out of a ring it should have seen and leaves people on the mountain who will be named at the next assembly and never again after. ?] Either way the army now knows exactly where you are, and the ring slams tight.
+You choose the ground — a defile, a bridge, a bend where trucks must slow — and spend the parque you cannot easily replace. [? if f_moral >= 66 : It goes the way the corridos need it: the patrol is broken, its rifles yours, and the garrison here is a little thinner for it. ?][? if f_moral < 66 and f_moral >= 40 : It works, barely, and costs more than the manual promised — a man down, the column melting back into the trees carrying its wounded. ?][? if f_moral < 40 : It was a trap inside your trap; the column fights out of a ring it should have seen, and leaves people on the mountain. ?] Either way the army now knows where you are, and the ring slams tighter.
 
-- @root: Continuar.
+- @marcha: Continuar.
+
+@fin_mes
+new-page: true
+on-arrival: month_actions = 1
+go-to: root
 
 # =====================================================================
 # EL CERCO — the encirclement. Fires as an event when the ring closes. Escape, or bleed.
@@ -151,7 +216,7 @@ on-arrival: {! if(Q.apoyo_popular>=50){Q.f_cerco=15;Q.f_moral+=6;Q.apoyo_popular
 @cerco_montana
 choose-if: f_comida >= 15
 unavailable-subtitle: An uphill break needs food in the men — at least 15 comida.
-on-arrival: {! Q.col_prof=5; Q.f_cerco=20; Q.f_comida-=15; Q.f_parque-=6; Q.f_moral-=3; Q.f_hombres-=1; !}
+on-arrival: {! Q.col_nodo="elotatal"; Q.f_cerco=20; Q.f_comida-=15; Q.f_parque-=6; Q.f_moral-=3; Q.f_hombres-=1; !}
 
 You dump the caches you cannot carry, take the highest, cruelest ground, and outclimb the ring where no truck and few soldiers will follow. It works because exhaustion is cheaper than capture — you buy your lives with the loads you leave behind and the men's legs. The circle closes on abandoned kit and cold ashes. You are deep in the sierra now, safe and stripped, and the rebuilding starts again from less.
 
