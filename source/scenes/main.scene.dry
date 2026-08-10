@@ -34,9 +34,9 @@ max-cards: 3
 - @movimiento
 - @sistema
 - @canales
-- #laguerra
-- #lared
-- #laestructura
+- @laguerra
+- @lared
+- @laestructura
 - @sierra
 - @campo
 - @fdn
@@ -79,9 +79,9 @@ max-cards: 4
 - @movimiento
 - @sistema
 - @canales
-- #laguerra
-- #lared
-- #laestructura
+- @laguerra
+- @lared
+- @laestructura
 - @sierra
 - @campo
 - @fdn
@@ -125,9 +125,9 @@ max-cards: 5
 - @movimiento
 - @sistema
 - @canales
-- #laguerra
-- #lared
-- #laestructura
+- @laguerra
+- @lared
+- @laestructura
 - @sierra
 - @campo
 - @fdn
@@ -170,9 +170,9 @@ max-cards: 4
 - @movimiento
 - @sistema
 - @canales
-- #laguerra
-- #lared
-- #laestructura
+- @laguerra
+- @lared
+- @laestructura
 - @sierra
 - @campo
 - @fdn
@@ -198,7 +198,7 @@ is-deck: true
 - #campo
 
 @laguerra
-card-image: img/cards/columna_movil.jpg
+card-image: img/guerillas2.jpg
 title: La columna
 subtitle: The foco — your band, where its feet are
 view-if: banda = "sierra"
@@ -216,7 +216,7 @@ is-deck: true
 - #lared
 
 @laestructura
-card-image: img/cards/fuente_bucareli.jpg
+card-image: img/jungleplan.jpg
 title: La estructura
 subtitle: The FLN — building the long war in silence
 view-if: banda = "fln"
@@ -236,8 +236,8 @@ is-deck: true
 @canales
 card-image: img/cards/deck_canales.jpeg
 title: Los canales
-subtitle: CoordinaciÃ³n discreta
-view-if: via = "armada" or postura_guerrilla >= 2
+subtitle: Coordinación discreta
+view-if: banda = "" and (via = "armada" or postura_guerrilla >= 2)
 is-deck: true
 
 - #canales
