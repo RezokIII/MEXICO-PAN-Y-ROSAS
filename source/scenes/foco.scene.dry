@@ -85,7 +85,21 @@ The column holds **[? if col_nodo = "atoyac" : Atoyac de Álvarez — the gatewa
 
 Column: **[+ f_hombres +]** fighters · comida **[+ f_comida +]** · parque **[+ f_parque +]** · moral **[+ f_moral +]** · el agua **[+ apoyo_popular +]**. Ring: **[+ f_cerco +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if f_cerco >= 70 : *The ring is closing — move or break it.* ?][? if f_comida < 25 : *The men are hungry.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
 
-*Move to a neighbouring village (1 pt). Its army number shows once you scout it; move into a garrisoned village and you risk contact — so scout, and flank the cold way around.*
+Your orders, comandante — the command opens into three:
+
+- @cat_movimiento: **Movimiento.** Mover la columna por la sierra, reconocer el terreno, flanquear las guarniciones.
+- @cat_combate: **Combate.** Emboscar y golpear — desgastar al ejército que te caza.
+- @cat_pueblo: **El pueblo.** Trabajar la base, ganar el agua de la que depende toda la guerra.
+- @fin_mes: **Terminar el mes.** Pasar al siguiente; los puntos de acción se reponen.
+
+@cat_movimiento
+new-page: true
+title: Movimiento
+subtitle: Mover la columna, reconocer, flanquear
+
+= Movimiento
+
+Ring **[+ f_cerco +]**/100 · comida **[+ f_comida +]** · **Puntos de acción: [+ acc_pts +]/[+ acc_max +]**. Move to a neighbouring village (1 pt) — its army number shows once you **Reconocer** it, so scout first and flank the cold way around a garrison.
 
 - @go_atoyac: → **Atoyac**[? if sn_atoyac = 1 : (ejército [+ gn_atoyac +]) ?].
 - @go_coyuca: → **Coyuca**[? if sn_coyuca = 1 : (ejército [+ gn_coyuca +]) ?].
@@ -96,9 +110,34 @@ Column: **[+ f_hombres +]** fighters · comida **[+ f_comida +]** · parque **[+
 - @go_riochiquito: → **Río Chiquito**[? if sn_riochiquito = 1 : (ejército [+ gn_riochiquito +]) ?].
 - @go_elotatal: → **El Otatal**[? if sn_elotatal = 1 : (ejército [+ gn_elotatal +]) ?].
 - @m_reconocer: **Reconocer.** Scout the neighbouring villages — reveal the army units, and let the guides find the coldest way through. *(1 pt)*
-- @m_base: **Trabajar la base.** Work the water here — assemblies, the mass line. *(1 pt)*
+- @marcha: Volver al mando.
+
+@cat_combate
+new-page: true
+title: Combate
+subtitle: Desgastar al ejército que te caza
+face-image: img/anti-guerillas.jpg
+
+= Combate
+
+[+ f_hombres +] fighters · parque **[+ f_parque +]** · moral **[+ f_moral +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**. Desgaste del ejército: **[+ f_desgaste +]**/100 — the war is won by wearing it down, but every blow tightens the ring.
+
 - @m_emboscar: **Emboscar.** Hit an army patrol on ground you chose. *(2 pts)*
-- @fin_mes: **Terminar el mes.** Pass to the next month; the points refill.
+- @marcha: Volver al mando.
+
+@cat_pueblo
+new-page: true
+title: El pueblo
+subtitle: Ganar el agua en que nada la columna
+face-image: img/workingwithelpueblo.jpg
+
+= El pueblo
+
+El agua (apoyo popular): **[+ apoyo_popular +]**/100 · comida **[+ f_comida +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**. The people are the sea the column swims in — win them, or be found.
+
+- @m_base: **Trabajar la base.** Work the water here — assemblies, the mass line, the clinic. *(1 pt)*
+- @marcha: Volver al mando.
+
 
 @go_atoyac
 view-if: col_nodo = "coyuca" or col_nodo = "sanvicente" or col_nodo = "elquemado"
