@@ -13,7 +13,7 @@ view-if: 0
 @forjar
 title: Tejer la red
 new-page: true
-face-image: img/ceu.jpg
+face-image: img/guillen.jpg
 subtitle: "Concrete forests are safer than forests of trees" — Abraham Guillén
 on-arrival: u_phase = "forjar"
 
@@ -51,7 +51,7 @@ You follow Guillén to the letter: no mass base to be rounded up, no campus cell
 # =====================================================================
 @red
 title: La red
-card-image: img/liga.jpg
+card-image: img/la liga.webp
 subtitle: Guadalajara — the cells, the money, the heat
 view-if: banda = "ciudad" and u_forjado = 1 and u_phase = "red"
 is-card: true
@@ -63,11 +63,59 @@ tags: lared
 
 The network: **[+ u_celulas +]** cells · seguridad **[+ u_seguridad +]**/100 · simpatía (el agua) **[+ apoyo_popular +]**/100 · fondos **[+ funds +]** · parque **[+ parque +]**. The Brigada Blanca's heat: **[+ u_calor +]**/100. Poder popular: **[+ u_poder +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if u_calor >= 70 : *The white brigade is close — a raid is coming. Lie low, or accept the risk.* ?][? if u_celulas <= 1 : *The network is nearly gone.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
 
-- @r_celula: **Tejer una célula.** Recruit and seal a new cell. *(1 pt; +cells, a little heat)*
-- @r_expro: **Expropiación.** A bank or payroll — self-finance the war the way Guillén said the city lets you. *(2 pts; +fondos, +parque, +heat)*
-- @r_propaganda: **Propaganda armada.** Seize a radio, take a colonia (the Pando model), read the communiqué. *(2 pts; +simpatía, +poder, +heat)*
-- @r_bajar: **Bajar la actividad.** Go quiet while the heat cools. *(1 pt; −heat, +seguridad)*
-- @fin_mes: **Terminar el mes.** Pass to the next month; the points refill.
+Las órdenes de la dirección — el mando se abre en tres:
+
+- @cat_accion: **Acción armada.** Expropiaciones, armerías, la acción directa que financia y arma la red.
+- @cat_propaganda: **Propaganda y comunicaciones.** Radio, colonias tomadas, comunicados — hacer visible al movimiento.
+- @cat_red: **La red y la seguridad.** Tejer células, compartimentar, casas de seguridad, bajar el calor.
+- @fin_mes: **Terminar el mes.** Pasar al siguiente; los puntos se reponen.
+
+@cat_accion
+new-page: true
+title: Acción armada
+subtitle: Autofinanciamiento — la ciudad paga la guerra
+face-image: img/bankrobbery.jpg
+
+= Acción armada
+
+Células **[+ u_celulas +]** · fondos **[+ funds +]** · parque **[+ parque +]** · seguridad **[+ u_seguridad +]** · calor **[+ u_calor +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. Guillén: the city has the banks, the payrolls, the armouries — a network that cannot pay itself cannot last a month.
+
+- @r_expro: **Expropiación.** A bank or payroll — take the war chest from the enemy's own vaults. *(2 pts; +fondos, +parque, +heat)*
+- @a_armeria: **Asalto a una armería.** Guns, not money — arm the cells directly. *(2 pts; +parque; heavy heat)*
+- @a_ajuste: **Ajuste de cuentas.** Strike a torturer or a strike-breaking boss the barrios already hate. *(2 pts; +poder popular; hard heat, and a line crossed)*
+- @red: Volver al mando.
+
+@cat_propaganda
+new-page: true
+title: Propaganda y comunicaciones
+subtitle: Hacer visible al movimiento — y hablarle a la ciudad
+face-image: img/radio_ayuntamiento.jpg
+
+= Propaganda y comunicaciones
+
+Simpatía (el agua) **[+ apoyo_popular +]**/100 · poder popular **[+ u_poder +]**/100 · calor **[+ u_calor +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. The Tupamaro insight: an action nobody hears about is only a robbery. The communiqué *is* the weapon.
+
+- @r_propaganda: **Propaganda armada.** Seize a radio station and read the communiqué into a hundred thousand kitchens. *(2 pts; +simpatía, +poder, +heat)*
+- @p_colonia: **Toma de una colonia.** The Pando model — occupy a barrio for an hour, address it, hand out food and manifestos, withdraw before the army arrives. *(2 pts; big +poder +simpatía; big heat)*
+- @p_prensa: **Comunicado a la prensa.** Get the movement's word past the censor into a national daily. *(1 pt; −legitimidad del régimen; +heat)*
+- @p_pinta: **Pintas y volantes.** The unglamorous work — walls, leaflets, the night shift. *(1 pt; small +simpatía; almost no heat)*
+- @red: Volver al mando.
+
+@cat_red
+new-page: true
+title: La red y la seguridad
+subtitle: Compartimentar — la única armadura del guerrillero urbano
+face-image: img/safehouse.jpg
+
+= La red y la seguridad
+
+Células **[+ u_celulas +]** · seguridad **[+ u_seguridad +]**/100 · calor **[+ u_calor +]**/100. **Puntos: [+ acc_pts +]/[+ acc_max +]**. [? if u_calor >= 70 : *The white brigade is close — go quiet.* ?] Guillén's rule: no single head to cut off. What the state cannot map, it cannot roll up.
+
+- @r_celula: **Tejer una célula.** Recruit and seal a new cell into the net. *(1 pt; +células, a little heat)*
+- @s_compartimentar: **Compartimentar.** Re-seal the compartments — nobody knows more than they must. *(1 pt; +seguridad; the cascade stops at one door)*
+- @s_casa: **Casa de seguridad.** Open a new safehouse and rotate the burned ones. *(1 pt; +seguridad, −heat; costs fondos)*
+- @r_bajar: **Bajar la actividad.** Go dormant while the heat cools. *(1 pt; −heat, +seguridad)*
+- @red: Volver al mando.
 
 @r_celula
 choose-if: acc_pts >= 1
@@ -78,6 +126,7 @@ You weave another cell into the net — new people, sealed off from the ones who
 - @red: Continuar.
 
 @r_expro
+face-image: img/bankrobbery.jpg
 choose-if: acc_pts >= 2 and u_celulas >= 2
 unavailable-subtitle: An expropriation costs 2 action points and at least two cells working in concert.
 on-arrival: {! Q.acc_pts-=2; var _r=(Q.u_celulas*8)+(Q.u_seguridad*0.3)-30+(Math.random()*35-12); if(_r>=0){Q.funds=(Q.funds||0)+16;Q.parque=(Q.parque||0)+8;Q.u_poder+=2;}else{Q.funds=(Q.funds||0)+6;Q.u_celulas-=1;Q.u_calor+=10;Q.memorial=(Q.memorial||0)+1;} Q.u_calor+=14; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+2; !}
@@ -97,6 +146,7 @@ You do the thing the Tupamaros made famous: you make the movement *visible* on y
 - @red: Continuar.
 
 @r_bajar
+face-image: img/safehouse.jpg
 choose-if: acc_pts >= 1
 on-arrival: {! Q.acc_pts-=1; Q.u_calor-=22; if(Q.u_calor<0){Q.u_calor=0;} Q.u_seguridad+=6; if(Q.u_seguridad>100){Q.u_seguridad=100;} !}
 
@@ -109,13 +159,76 @@ new-page: true
 on-arrival: month_actions = 1
 go-to: root
 
+@a_armeria
+face-image: img/bankrobbery.jpg
+choose-if: acc_pts >= 2 and u_celulas >= 2
+unavailable-subtitle: An armoury raid costs 2 action points and at least two cells.
+on-arrival: {! Q.acc_pts-=2; var _r=(Q.u_celulas*7)+(Q.u_seguridad*0.3)-34+(Math.random()*34-12); if(_r>=0){Q.parque=(Q.parque||0)+18;Q.u_poder+=2;}else{Q.parque=(Q.parque||0)+5;Q.u_celulas-=1;Q.memorial=(Q.memorial||0)+1;} Q.u_calor+=18; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+3; !}
+
+You go for the guns themselves — a police armoury, a factory's security lockup, a rural guard post on the edge of the city. [? if u_seguridad >= 50 : It is over in three minutes and the cells come out carrying more firepower than a year of expropriations could buy. ?][? if u_seguridad < 50 : It turns into a firefight in a corridor, and you come out with crates and one fewer compañero. ?] Weapons are worth more than money to a network that already has money, and nothing enrages a state like being disarmed by the people it disarmed.
+
+- @red: Continuar.
+
+@a_ajuste
+choose-if: acc_pts >= 2
+unavailable-subtitle: An ajusticiamiento costs 2 action points.
+on-arrival: {! Q.acc_pts-=2; Q.u_poder+=7; Q.apoyo_popular+=3; Q.legitimidad_regimen-=3; Q.u_calor+=22; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+4; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; !}
+
+You strike a man the barrios already curse by name — a torturer from the DFS, a boss who has strikers shot, a judge who signs whatever the palace sends him. In the colonias it lands like justice arriving for the first time in living memory, and the poder popular jumps: there is a power in this city that answers for the poor. It also crosses the line the state has been waiting for you to cross, and now the hunt is personal, and total. Every movement that did this learned that the applause fades faster than the manhunt.
+
+- @red: Continuar.
+
+@p_colonia
+face-image: img/guadalajara1970s.jpg
+choose-if: acc_pts >= 2 and u_celulas >= 3
+unavailable-subtitle: Taking a colonia costs 2 action points and at least three cells.
+on-arrival: {! Q.acc_pts-=2; Q.apoyo_popular+=12; Q.u_poder+=10; Q.u_calor+=18; if(Q.u_calor>100){Q.u_calor=100;} Q.legitimidad_regimen-=4; Q.u_pando=(Q.u_pando||0)+1; Q.funds=(Q.funds||0)-4; if(Q.funds<0){Q.funds=0;} !}
+
+You do the thing the Tupamaros did at Pando and everyone remembered: for one hour, a whole barrio belongs to the movement. The cells take the streets, the phone line, the market; the militants speak from a truck bed; expropriated food goes out door to door with the manifesto; and then, before the army's trucks can reach the edge of the colonia, you are gone. It is not a battle — it is a *demonstration*, and what it demonstrates is that the state's monopoly on the city is a polite fiction. The barrio remembers it for a generation.
+
+- @red: Continuar.
+
+@p_prensa
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.legitimidad_regimen-=5; Q.apoyo_popular+=3; Q.u_calor+=6; if(Q.u_calor>100){Q.u_calor=100;} Q.escandalos=(Q.escandalos||0)+1; !}
+
+You get the word past the censor: a manifesto printed, a disappearance documented, the names of the tortured set in type where the whole country reads them over breakfast. It costs the regime the one thing it guards more jealously than any garrison — the story it tells about itself. A dirty war depends on nobody being able to prove it is happening.
+
+- @red: Continuar.
+
+@p_pinta
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=4; Q.u_poder+=2; Q.u_calor+=2; if(Q.u_calor>100){Q.u_calor=100;} !}
+
+The night shift: paint on walls, leaflets under doors, the movement's initials on every third corner by morning. It is the least glamorous work in the repertoire and the most patient — the slow accumulation of a presence, so that when the big actions come the city already knows the name behind them. Cheap, quiet, and it builds the water an inch at a time.
+
+- @red: Continuar.
+
+@s_compartimentar
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.u_seguridad+=12; if(Q.u_seguridad>100){Q.u_seguridad=100;} Q.u_calor-=4; if(Q.u_calor<0){Q.u_calor=0;} !}
+
+You spend the month doing what Guillén said matters more than any operation: re-sealing the compartments. Contacts rebuilt through cut-outs, meeting protocols changed, the roster of who-knows-what pruned until no captured comrade could bring down more than his own cell. It is invisible, tedious, and it is the single reason some networks survived the Brigada Blanca and others became a list of names read out in a police station.
+
+- @red: Continuar.
+
+@s_casa
+face-image: img/safehouse.jpg
+choose-if: acc_pts >= 1 and funds >= 6
+unavailable-subtitle: A new safehouse costs 1 action point and 6 fondos.
+on-arrival: {! Q.acc_pts-=1; Q.funds=(Q.funds||0)-6; Q.u_seguridad+=8; if(Q.u_seguridad>100){Q.u_seguridad=100;} Q.u_calor-=8; if(Q.u_calor<0){Q.u_calor=0;} !}
+
+A rented room under a false name in a colonia where nobody asks; the burned houses abandoned, the compromised ones emptied before the knock comes. A network lives or dies on the addresses the state does not have, and rotating them is the rent you pay for staying alive in a city that is entirely the enemy's ground.
+
+- @red: Continuar.
+
 # =====================================================================
 # LA REDADA — the Brigada Blanca raid. Fires when the heat is high. A cell falls; it can cascade.
 # =====================================================================
 @redada
 title: La redada
 new-page: true
-face-image: img/guardias_blancas.jpg
+face-image: img/nightraid.webp
 subtitle: The Brigada Blanca hits a safehouse — and pulls the thread
 tags: event
 view-if: banda = "ciudad" and u_phase = "red" and u_calor >= 70 and time >= u_redada_last + 2
