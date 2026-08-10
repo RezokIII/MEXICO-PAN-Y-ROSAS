@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1975 — Rafael Galván y los electricistas
 face-image: img/td_marcha.jpg
 tags: event
-view-if: year = 1975 and month >= 4 and month <= 6
+view-if: banda = "" and year = 1975 and month >= 4 and month <= 6
 priority: 2
 max-visits: 1
 

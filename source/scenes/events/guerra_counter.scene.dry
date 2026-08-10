@@ -3,7 +3,7 @@ new-page: true
 subtitle: A checkpoint, a courier, a bad hour
 face-image: img/camioneta.jpg
 tags: event
-view-if: via = "armada" and coronel_red >= 40 and time >= reten_last + 8
+view-if: banda = "" and via = "armada" and coronel_red >= 40 and time >= reten_last + 8
 priority: 3
 frequency: 65
 max-visits: 6
@@ -77,7 +77,7 @@ new-page: true
 subtitle: Someone in the base village is being paid
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: via = "armada" and coronel_red >= 45 and inteligencia >= 25 and time >= quinta_last + 12
+view-if: banda = "" and via = "armada" and coronel_red >= 45 and inteligencia >= 25 and time >= quinta_last + 12
 priority: 3
 frequency: 60
 max-visits: 4
@@ -122,7 +122,7 @@ new-page: true
 subtitle: For once, the hunter is in the open
 face-image: img/camioneta.jpg
 tags: event
-view-if: via = "armada" and coronel_activo = 1 and coronel_expuesto = 1 and inteligencia >= 45 and time >= coronel_golpe_last + 18
+view-if: banda = "" and via = "armada" and coronel_activo = 1 and coronel_expuesto = 1 and inteligencia >= 45 and time >= coronel_golpe_last + 18
 priority: 4
 frequency: 80
 max-visits: 3

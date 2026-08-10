@@ -3,7 +3,7 @@ new-page: true
 subtitle: November 2 — Día de muertos
 face-image: img/muertos.jpg
 tags: event
-view-if: month = 11 and muertos_year < year
+view-if: banda = "" and month = 11 and muertos_year < year
 priority: 1
 frequency: 30
 on-arrival: muertos_year = year
@@ -52,7 +52,7 @@ It works exactly because it is sacred: a message folded into the base of an ofre
 
 @armas_muertos
 title: Entre las flores
-view-if: via = "armada"
+view-if: banda = "" and via = "armada"
 subtitle: The matériel moves through the procession no soldier will stop. The campesinos will learn what they carried.
 on-arrival: pres_guerrero += 5; inteligencia += 4; guerrilla_meter += 4; sup_peasants -= 9; expediente += 6; memorial += 1; ofrenda_armas = 1
 

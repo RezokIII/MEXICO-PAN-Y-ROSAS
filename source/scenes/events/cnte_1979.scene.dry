@@ -3,7 +3,7 @@ new-page: true
 subtitle: Diciembre de 1979 — Tuxtla Gutiérrez
 face-image: img/maestros.jpg
 tags: event
-view-if: year = 1979 and month = 12
+view-if: banda = "" and year = 1979 and month = 12
 priority: 2
 max-visits: 1
 

@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1989 — the fraud that would not wait for a decent interval
 face-image: img/portraits/cardenas.jpg
 tags: event
-view-if: year = 1989 and month >= 2 and month <= 4 and fdn >= 1 and via != "armada" and michoacan_visto = 0
+view-if: banda = "" and year = 1989 and month >= 2 and month <= 4 and fdn >= 1 and via != "armada" and michoacan_visto = 0
 priority: 4
 max-visits: 1
 on-arrival: michoacan_visto = 1

@@ -3,7 +3,7 @@ new-page: true
 subtitle: The courtship becomes a table
 face-image: img/merger.jpg
 tags: event
-view-if: fusion_prog >= 3 and fusion_mesa = 0 and year >= 1975
+view-if: banda = "" and fusion_prog >= 3 and fusion_mesa = 0 and year >= 1975
 priority: 3
 max-visits: 1
 on-arrival: fusion_mesa = 1; political_capital += 2; unity += 1
@@ -31,7 +31,7 @@ new-page: true
 subtitle: The left signs one page together
 face-image: img/merger.jpg
 tags: event
-view-if: fusion_prog >= 8 and fusion_pact = 0 and fusion_mesa = 1
+view-if: banda = "" and fusion_prog >= 8 and fusion_pact = 0 and fusion_mesa = 1
 priority: 3
 max-visits: 1
 on-arrival: fusion_pact = 1; political_capital += 3; sup_students += 2; sup_middle += 1; fac_ortodoxos -= 2

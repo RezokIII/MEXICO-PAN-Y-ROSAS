@@ -3,7 +3,7 @@ new-page: true
 subtitle: The enemy wears a face you trained
 face-image: img/camioneta.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and coronel_red >= 45 and presos >= 1 and madrina_activa = 0 and time >= madrina_last + 10
+view-if: banda = "" and via = "armada" and armada_entered = 1 and coronel_red >= 45 and presos >= 1 and madrina_activa = 0 and time >= madrina_last + 10
 priority: 4
 frequency: 70
 max-visits: 2

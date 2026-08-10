@@ -3,7 +3,7 @@ new-page: true
 subtitle: The Party legally exists
 face-image: img/pcm.jpg
 tags: event
-view-if: registro >= 1 and legalizacion_done = 0
+view-if: banda = "" and registro >= 1 and legalizacion_done = 0
 priority: 3
 max-visits: 1
 on-arrival: legalizacion_done = 1; sup_middle += 2; funds += 3

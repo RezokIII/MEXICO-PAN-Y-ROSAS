@@ -3,7 +3,7 @@ new-page: true
 subtitle: —
 face-image: img/camioneta.jpg
 tags: event
-view-if: represion >= 75 and time >= desap_last + 9
+view-if: banda = "" and represion >= 75 and time >= desap_last + 9
 priority: 2
 frequency: 50
 max-visits: 4

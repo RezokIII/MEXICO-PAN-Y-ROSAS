@@ -3,7 +3,7 @@ new-page: true
 subtitle: Noviembre de 1981
 face-image: img/merger.jpg
 tags: event
-view-if: year = 1981 and month = 11
+view-if: banda = "" and year = 1981 and month = 11
 priority: 3
 max-visits: 1
 

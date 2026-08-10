@@ -3,7 +3,7 @@ new-page: true
 subtitle: A doctor comes to the mountains with the wrong priorities, which are the right ones
 face-image: img/stareguerilla.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and che_advisor = 0 and year >= 1972 and (pres_guerrero >= 12 or pres_oaxaca >= 12)
+view-if: banda = "" and via = "armada" and armada_entered = 1 and che_advisor = 0 and year >= 1972 and (pres_guerrero >= 12 or pres_oaxaca >= 12)
 priority: 3
 frequency: 55
 max-visits: 1

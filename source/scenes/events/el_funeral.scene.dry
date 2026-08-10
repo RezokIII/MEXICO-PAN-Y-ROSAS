@@ -3,7 +3,7 @@ new-page: true
 subtitle: Civil cemetery
 face-image: img/camioneta.jpg
 tags: event
-view-if: represion >= 70 and time >= funeral_last + 8
+view-if: banda = "" and represion >= 70 and time >= funeral_last + 8
 priority: 1
 frequency: 40
 max-visits: 2

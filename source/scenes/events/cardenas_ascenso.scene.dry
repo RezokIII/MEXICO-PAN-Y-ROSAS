@@ -3,7 +3,7 @@ new-page: true
 subtitle: Septiembre de 1980 — Michoacán
 face-image: img/portraits/cardenas.jpg
 tags: event
-view-if: year = 1980 and month >= 9 and month <= 11
+view-if: banda = "" and year = 1980 and month >= 9 and month <= 11
 priority: 3
 max-visits: 1
 
@@ -40,7 +40,7 @@ new-page: true
 subtitle: 1984 — Morelia
 face-image: img/portraits/cardenas.jpg
 tags: event
-view-if: year = 1984 and month >= 3 and month <= 7 and (sup_peasants >= 15 or municipio_alcozauca = 1)
+view-if: banda = "" and year = 1984 and month >= 3 and month <= 7 and (sup_peasants >= 15 or municipio_alcozauca = 1)
 priority: 3
 max-visits: 1
 
@@ -67,7 +67,7 @@ new-page: true
 subtitle: Agosto de 1988
 face-image: img/seis_de_julio.jpg
 tags: event
-view-if: year = 1988 and month = 8 and resultado_88 = 0
+view-if: banda = "" and year = 1988 and month = 8 and resultado_88 = 0
 priority: 3
 max-visits: 1
 
@@ -112,7 +112,7 @@ new-page: true
 subtitle: 1976 — a name in the upper house
 face-image: img/portraits/cardenas.jpg
 tags: event
-view-if: year = 1976 and month >= 2 and month <= 5 and cardenas_senador = 0
+view-if: banda = "" and year = 1976 and month >= 2 and month <= 5 and cardenas_senador = 0
 priority: 2
 frequency: 55
 max-visits: 1
@@ -139,7 +139,7 @@ new-page: true
 subtitle: Septiembre de 1985 — mientras la capital se derrumba
 face-image: img/portraits/cardenas.jpg
 tags: event
-view-if: year = 1985 and month >= 9 and month <= 12 and cardenas_terremoto = 0 and cd_rel >= 1
+view-if: banda = "" and year = 1985 and month >= 9 and month <= 12 and cardenas_terremoto = 0 and cd_rel >= 1
 priority: 3
 max-visits: 1
 on-arrival: cardenas_terremoto = 1; cd_rel += 1; sup_middle += 1
@@ -177,7 +177,7 @@ new-page: true
 subtitle: 1988 — the room stops being unanimous
 face-image: img/portraits/cardenas.jpg
 tags: event
-view-if: year = 1988 and month >= 9 and month <= 12 and fdn >= 1 and via != "armada"
+view-if: banda = "" and year = 1988 and month >= 9 and month <= 12 and fdn >= 1 and via != "armada"
 priority: 3
 max-visits: 1
 on-arrival: {!

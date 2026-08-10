@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1 de julio de 1979 — la primera boleta
 face-image: img/urna.jpg
 tags: event
-view-if: year = 1979 and month = 7 and registro >= 1
+view-if: banda = "" and year = 1979 and month = 7 and registro >= 1
 priority: 3
 max-visits: 1
 on-arrival: {!

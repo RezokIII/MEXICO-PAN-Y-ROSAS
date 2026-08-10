@@ -4,7 +4,7 @@ tags: event
 priority: 2
 frequency: 60
 max-visits: 30
-view-if: represion >= 74 and expediente >= 60 and time >= repadv_last + 12 and refugio_sierra = 0 and (othon_advisor = 1 or danzos_advisor = 1 or campa_advisor = 1 or vallejo_advisor = 1 or verdugo_advisor = 1 or benita_advisor = 1 or heberto_advisor = 1 or ibarra_advisor = 1 or revueltas_advisor = 1)
+view-if: banda = "" and represion >= 74 and expediente >= 60 and time >= repadv_last + 12 and refugio_sierra = 0 and (othon_advisor = 1 or danzos_advisor = 1 or campa_advisor = 1 or vallejo_advisor = 1 or verdugo_advisor = 1 or benita_advisor = 1 or heberto_advisor = 1 or ibarra_advisor = 1 or revueltas_advisor = 1)
 on-arrival: {!
 // The state strikes ONE leader per season, chosen from whoever is exposed enough.
 // (Previously each golpe event queued separately and resolving one voided the rest.)

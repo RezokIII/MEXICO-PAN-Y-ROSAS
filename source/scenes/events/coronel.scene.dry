@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1972 — the campaign gets a name
 face-image: img/camioneta.jpg
 tags: event
-view-if: via = "armada" and coronel_activo = 0 and year >= 1972 and armada_entered = 1
+view-if: banda = "" and via = "armada" and coronel_activo = 0 and year >= 1972 and armada_entered = 1
 priority: 4
 max-visits: 1
 on-arrival: coronel_activo = 1
@@ -39,7 +39,7 @@ new-page: true
 subtitle: The Colonel comes for your strongest ground
 face-image: img/camioneta.jpg
 tags: event
-view-if: via = "armada" and coronel_activo = 1 and (pri_posture = "aniquilar" or pri_posture = "contener") and coronel_red >= 30 and time >= barrida_last + 10
+view-if: banda = "" and via = "armada" and coronel_activo = 1 and (pri_posture = "aniquilar" or pri_posture = "contener") and coronel_red >= 30 and time >= barrida_last + 10
 priority: 3
 frequency: 70
 max-visits: 8

@@ -3,7 +3,7 @@ new-page: true
 subtitle: There is a way down that is not a rout
 face-image: img/stareguerilla.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and members >= 1 and (moral_columnas < 42 or parque <= 3 or coronel_red >= 62) and year >= 1972 and time >= bajar_last + 9
+view-if: banda = "" and via = "armada" and armada_entered = 1 and members >= 1 and (moral_columnas < 42 or parque <= 3 or coronel_red >= 62) and year >= 1972 and time >= bajar_last + 9
 priority: 4
 frequency: 85
 max-visits: 6

@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1 de septiembre de 1982
 face-image: img/presidencia.jpg
 tags: event
-view-if: year = 1982 and month >= 9 and month <= 11
+view-if: banda = "" and year = 1982 and month >= 9 and month <= 11
 priority: 3
 max-visits: 1
 

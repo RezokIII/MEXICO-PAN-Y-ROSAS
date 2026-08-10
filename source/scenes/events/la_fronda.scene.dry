@@ -3,7 +3,7 @@ new-page: true
 subtitle: A corriente reaches the door
 face-image: img/fronda.jpg
 tags: event
-view-if: (des_ortodoxos >= 65 or des_renovadores >= 65 or des_nueva >= 65) and time >= fronda_last + 12
+view-if: banda = "" and (des_ortodoxos >= 65 or des_renovadores >= 65 or des_nueva >= 65) and time >= fronda_last + 12
 priority: 2
 frequency: 80
 max-visits: 6

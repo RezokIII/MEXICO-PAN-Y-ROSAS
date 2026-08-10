@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1975 — the compañeras stop asking permission
 face-image: img/1968students.jpg
 tags: event
-view-if: (via = "politica" or via = "institucional") and year >= 1975 and year <= 1977 and mujeres_organizadas = 0
+view-if: banda = "" and (via = "politica" or via = "institucional") and year >= 1975 and year <= 1977 and mujeres_organizadas = 0
 priority: 3
 frequency: 55
 max-visits: 1
@@ -48,7 +48,7 @@ new-page: true
 subtitle: 1976-79 — the demand the Party cannot straddle
 face-image: img/1968students.jpg
 tags: event
-view-if: (via = "politica" or via = "institucional") and mujeres_organizadas = 1 and maternidad_voluntaria = 0 and year >= 1976 and year <= 1980
+view-if: banda = "" and (via = "politica" or via = "institucional") and mujeres_organizadas = 1 and maternidad_voluntaria = 0 and year >= 1976 and year <= 1980
 priority: 3
 max-visits: 1
 on-arrival: maternidad_voluntaria = 1
@@ -92,7 +92,7 @@ new-page: true
 subtitle: 1979 — the women's front asks where you stand
 face-image: img/1968students.jpg
 tags: event
-view-if: (via = "politica" or via = "institucional") and feminismo >= 30 and fnalidm = 0 and year >= 1979 and year <= 1982
+view-if: banda = "" and (via = "politica" or via = "institucional") and feminismo >= 30 and fnalidm = 0 and year >= 1979 and year <= 1982
 priority: 3
 max-visits: 1
 on-arrival: fnalidm = 1

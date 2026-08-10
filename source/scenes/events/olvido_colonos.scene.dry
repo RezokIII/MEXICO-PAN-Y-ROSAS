@@ -3,7 +3,7 @@ new-page: true
 subtitle: The colonias you left alone were reclaimed by the machine
 face-image: img/neza.jpg
 tags: event
-view-if: time >= colonos_last + 20 and sup_colonos >= 20
+view-if: banda = "" and time >= colonos_last + 20 and sup_colonos >= 20
 priority: 1
 on-arrival: colonos_last = time; sup_colonos -= 5; charrismo += 3; unity -= 1
 

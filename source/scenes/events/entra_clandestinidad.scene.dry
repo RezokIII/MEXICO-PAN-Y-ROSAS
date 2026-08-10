@@ -3,7 +3,7 @@ new-page: true
 subtitle: The Movement changes its nature
 face-image: img/stareguerilla.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 0
+view-if: banda = "" and via = "armada" and armada_entered = 0
 priority: 5
 max-visits: 1
 on-arrival: {!

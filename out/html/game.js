@@ -506,6 +506,11 @@
   }
   // ===== THE GUERRERO FOCO MAP: one band moving the coast->deep-sierra axis, the ring around it =====
   window.paintFocoMap=function(el,Q){
+    // dirty-check: only rebuild the SVG when the data changes, so the DOM stays stable and hover tooltips work
+    var _sig=[Q.col_nodo,Q.f_cerco,Q.f_hombres,Q.f_comida,Q.f_parque,Q.f_moral,Q.apoyo_popular,Q.f_desgaste,Q.f_capital,Q.f_liberado_gro,Q.acc_pts,
+      Q.gn_atoyac,Q.gn_coyuca,Q.gn_acapulco,Q.gn_sanvicente,Q.gn_elquemado,Q.gn_elporvenir,Q.gn_riochiquito,Q.gn_elotatal,
+      Q.sn_atoyac,Q.sn_coyuca,Q.sn_acapulco,Q.sn_sanvicente,Q.sn_elquemado,Q.sn_elporvenir,Q.sn_riochiquito,Q.sn_elotatal].join(',');
+    if(el._focosig===_sig) return; el._focosig=_sig;
     var N={
       atoyac:{x:188,y:150,n:'Atoyac'}, coyuca:{x:232,y:178,n:'Coyuca'}, acapulco:{x:264,y:192,n:'Acapulco'},
       sanvicente:{x:150,y:120,n:'San Vicente'}, elquemado:{x:118,y:96,n:'El Quemado'}, elporvenir:{x:172,y:82,n:'El Porvenir'},
@@ -548,6 +553,8 @@
 
   // ===== THE GUADALAJARA MAP: the Liga's decentralized cell network + the Brigada Blanca's heat =====
   window.paintCiudadMap=function(el,Q){
+    var _csig=[Q.u_celulas,Q.u_calor,Q.u_seguridad,Q.apoyo_popular,Q.u_poder,Q.acc_pts].join(',');
+    if(el._ciudadsig===_csig) return; el._ciudadsig=_csig;
     var SEC={
       centro:{x:150,y:104,r:24,n:'Centro'}, universidad:{x:88,y:66,r:21,n:'Universidad'}, oblatos:{x:214,y:68,r:21,n:'Oblatos'},
       reforma:{x:214,y:150,r:21,n:'Reforma'}, libertad:{x:86,y:150,r:21,n:'Libertad'}, zapopan:{x:40,y:104,r:17,n:'Zapopan'}

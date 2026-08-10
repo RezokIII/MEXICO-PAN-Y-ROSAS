@@ -3,7 +3,7 @@ new-page: true
 subtitle: The leadership comes down
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: refugio_sierra = 1 and (represion <= 68 or time >= refugio_time + 30)
+view-if: banda = "" and refugio_sierra = 1 and (represion <= 68 or time >= refugio_time + 30)
 priority: 3
 max-visits: 1
 on-arrival: refugio_sierra = 0; advisor_action_timer = 0; unity += 4; sup_peasants += 2; expediente += 3

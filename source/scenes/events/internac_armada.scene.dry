@@ -3,7 +3,7 @@ new-page: true
 subtitle: The offer that every guerrilla on the continent received
 face-image: img/sadinos.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and internac_armada = 0 and year >= 1972 and year <= 1980
+view-if: banda = "" and via = "armada" and armada_entered = 1 and internac_armada = 0 and year >= 1972 and year <= 1980
 priority: 3
 frequency: 50
 max-visits: 1
@@ -46,7 +46,7 @@ new-page: true
 subtitle: The Southern Cone's guerrillas, hunted onto the same map as you
 face-image: img/chile_1973.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and internac_armada >= 1 and jcr = 0 and year >= 1974 and year <= 1981
+view-if: banda = "" and via = "armada" and armada_entered = 1 and internac_armada >= 1 and jcr = 0 and year >= 1974 and year <= 1981
 priority: 2
 frequency: 45
 max-visits: 1

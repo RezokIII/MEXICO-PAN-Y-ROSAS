@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1979 — administrar la abundancia
 face-image: img/reyes_heroles.jpg
 tags: event
-view-if: year = 1979 and month >= 4 and month <= 6
+view-if: banda = "" and year = 1979 and month >= 4 and month <= 6
 priority: 2
 max-visits: 1
 

@@ -3,7 +3,7 @@ new-page: true
 subtitle: The half of the war the corridos forget to name
 face-image: img/adelitas.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and compas_armadas = 0 and year >= 1972
+view-if: banda = "" and via = "armada" and armada_entered = 1 and compas_armadas = 0 and year >= 1972
 priority: 3
 frequency: 55
 max-visits: 1
@@ -48,7 +48,7 @@ new-page: true
 subtitle: What the dirty war did to the women it took
 face-image: img/muertos.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and compas_armadas >= 1 and compa_caida = 0 and represion >= 70 and time >= 40
+view-if: banda = "" and via = "armada" and armada_entered = 1 and compas_armadas >= 1 and compa_caida = 0 and represion >= 70 and time >= 40
 priority: 4
 frequency: 60
 max-visits: 1

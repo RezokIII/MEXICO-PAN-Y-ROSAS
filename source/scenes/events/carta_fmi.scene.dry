@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1983 — comienza la década perdida
 face-image: img/crisis_economica.jpg
 tags: event
-view-if: year = 1983 and month >= 3 and month <= 5
+view-if: banda = "" and year = 1983 and month >= 3 and month <= 5
 priority: 2
 max-visits: 1
 

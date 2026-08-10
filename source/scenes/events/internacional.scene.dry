@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1981 — the other war, and Mexico's strange role in it
 face-image: img/sandinistas.jpg
 tags: event
-view-if: (via = "politica" or via = "institucional") and year = 1981 and month >= 1 and month <= 5
+view-if: banda = "" and (via = "politica" or via = "institucional") and year = 1981 and month >= 1 and month <= 5
 priority: 2
 max-visits: 1
 
@@ -46,7 +46,7 @@ new-page: true
 subtitle: The subsidy and the heresy do not mix
 face-image: img/pcm.jpg
 tags: event
-view-if: (via = "politica" or via = "institucional") and year >= 1974 and year <= 1982 and ax_sovietico <= -8 and moscow_relation >= 25 and cuenta_moscu = 0
+view-if: banda = "" and (via = "politica" or via = "institucional") and year >= 1974 and year <= 1982 and ax_sovietico <= -8 and moscow_relation >= 25 and cuenta_moscu = 0
 priority: 2
 frequency: 50
 max-visits: 1

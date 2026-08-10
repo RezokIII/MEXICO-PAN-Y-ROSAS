@@ -3,7 +3,7 @@ new-page: true
 subtitle: Febrero de 1972
 face-image: img/genaro.jpg
 tags: event
-view-if: year = 1972 and month >= 2 and month <= 4
+view-if: banda = "" and year = 1972 and month >= 2 and month <= 4
 priority: 2
 max-visits: 1
 on-arrival: memorial += 1; genaro_advisor = 0

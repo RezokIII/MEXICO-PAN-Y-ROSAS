@@ -2,7 +2,7 @@ title: The general's son is running
 new-page: true
 subtitle: On the horizon
 tags: event
-view-if: year = 1987 and month = 11
+view-if: banda = "" and year = 1987 and month = 11
 priority: 4
 max-visits: 1
 

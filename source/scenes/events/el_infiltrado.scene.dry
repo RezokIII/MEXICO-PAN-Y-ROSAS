@@ -3,7 +3,7 @@ new-page: true
 subtitle: The war's other inheritance
 face-image: img/camioneta.jpg
 tags: event
-view-if: veteranos >= 2 and infiltrado_done = 0 and via = "politica" and time >= armada_start + 60
+view-if: banda = "" and veteranos >= 2 and infiltrado_done = 0 and via = "politica" and time >= armada_start + 60
 priority: 2
 frequency: 60
 max-visits: 1

@@ -3,7 +3,7 @@ new-page: true
 subtitle: The system makes an offer
 face-image: img/charola.jpg
 tags: event
-view-if: presidente_cooptacion >= 40 and time >= charola_last + 14 and members >= 6
+view-if: banda = "" and presidente_cooptacion >= 40 and time >= charola_last + 14 and members >= 6
 priority: 1
 frequency: 45
 max-visits: 6

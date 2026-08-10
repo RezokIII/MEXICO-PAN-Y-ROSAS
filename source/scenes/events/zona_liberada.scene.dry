@@ -3,7 +3,7 @@ new-page: true
 subtitle: You hold ground now — which means you must govern it
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and sw_zona = 1 and zona_gobernada = 0
+view-if: banda = "" and via = "armada" and armada_entered = 1 and sw_zona = 1 and zona_gobernada = 0
 priority: 4
 max-visits: 1
 on-arrival: zona_gobernada = 1
@@ -37,7 +37,7 @@ new-page: true
 subtitle: The people want a tribunal. What kind of movement holds one?
 face-image: img/guardias_blancas.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and zona_gobernada = 1 and time >= zona_last + 14
+view-if: banda = "" and via = "armada" and armada_entered = 1 and zona_gobernada = 1 and time >= zona_last + 14
 priority: 3
 frequency: 55
 max-visits: 3

@@ -3,7 +3,7 @@ new-page: true
 subtitle: Febrero de 1988 — the war weighs itself
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: via = "armada" and year = 1988 and month = 2 and balance_armado_visto = 0
+view-if: banda = "" and via = "armada" and year = 1988 and month = 2 and balance_armado_visto = 0
 priority: 4
 max-visits: 1
 on-arrival: {!

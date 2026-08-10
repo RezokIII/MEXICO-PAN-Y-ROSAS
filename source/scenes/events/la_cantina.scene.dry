@@ -2,7 +2,7 @@ title: La discusión
 new-page: true
 subtitle: A cantina near the Monumento
 tags: event
-view-if: year >= 1969 and time >= cantina_last + 11
+view-if: banda = "" and year >= 1969 and time >= cantina_last + 11
 priority: 1
 frequency: 35
 on-arrival: cantina_last = time

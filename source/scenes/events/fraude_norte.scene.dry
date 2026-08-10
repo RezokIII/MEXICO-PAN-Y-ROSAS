@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1983 — al PAN le roban el norte
 face-image: img/urna.jpg
 tags: event
-view-if: year = 1983 and month >= 7 and month <= 9 and registro >= 1
+view-if: banda = "" and year = 1983 and month >= 7 and month <= 9 and registro >= 1
 priority: 2
 max-visits: 1
 

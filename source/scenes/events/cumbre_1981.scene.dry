@@ -3,7 +3,7 @@ new-page: true
 subtitle: The commanders take stock of the reform years
 face-image: img/jungleplan.jpg
 tags: event
-view-if: via = "armada" and year = 1981 and month = 5
+view-if: banda = "" and via = "armada" and year = 1981 and month = 5
 priority: 3
 max-visits: 1
 on-arrival: {!
@@ -27,7 +27,7 @@ The commanders' balance, drawn at the cycle's end, by lamplight, in a hand that 
 - @continuar: The balance is filed where such things are filed. The war continues.
 
 @plegar
-view-if: pres_total < 25
+view-if: banda = "" and pres_total < 25
 on-arrival: {!
 Q.via = "politica";
 var _total = Q.pres_guerrero + Q.pres_chihuahua + Q.pres_valle + Q.pres_jalisco + Q.pres_nl + Q.pres_oaxaca + Q.pres_tijuana;
@@ -48,7 +48,7 @@ The order goes up the trails: it is over. Some come down to papers and quiet liv
 - @post_event: Continuar.
 
 @persistir
-view-if: pres_total < 25
+view-if: banda = "" and pres_total < 25
 on-arrival: memorial += 2; guerrilla_meter += 2
 
 The structure persists, thinner. The lamp is turned down. In Bucareli, an analyst annotates the file with the phrase the whole apparatus has learned to distrust: *reducción a niveles manejables.* Manageable levels. They wrote that about Guerrero once, twice, three times, and the sierra keeps disagreeing at intervals.
@@ -56,7 +56,7 @@ The structure persists, thinner. The lamp is turned down. In Bucareli, an analys
 - @post_event: Continuar.
 
 @continuar
-view-if: pres_total >= 25
+view-if: banda = "" and pres_total >= 25
 on-arrival: political_capital += 1
 
 Filed, burned, continued.

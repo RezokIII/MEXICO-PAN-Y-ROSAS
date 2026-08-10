@@ -3,7 +3,7 @@ new-page: true
 subtitle: A cell walks out
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: guerrilla_meter >= 18 and time >= fuga_last + 10
+view-if: banda = "" and guerrilla_meter >= 18 and time >= fuga_last + 10
 priority: 2
 frequency: 50
 max-visits: 4

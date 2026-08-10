@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1972 — the Church discovers the poor it always mentioned
 face-image: img/pcm.jpg
 tags: event
-view-if: (via = "politica" or via = "institucional") and year >= 1972 and year <= 1979 and cristianos_visto = 0 and (sup_peasants >= 14 or sup_colonos >= 12)
+view-if: banda = "" and (via = "politica" or via = "institucional") and year >= 1972 and year <= 1979 and cristianos_visto = 0 and (sup_peasants >= 14 or sup_colonos >= 12)
 priority: 3
 frequency: 55
 max-visits: 1

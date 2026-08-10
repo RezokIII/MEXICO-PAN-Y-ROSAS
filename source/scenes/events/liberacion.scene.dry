@@ -3,7 +3,7 @@ new-page: true
 subtitle: When the sea is deep enough, the ground itself changes hands
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and apoyo_popular >= 65 and time >= liberar_last + 6 and ((pres_guerrero >= 35 and guar_guerrero <= 44 and liberado_guerrero = 0) or (pres_oaxaca >= 35 and guar_oaxaca <= 44 and liberado_oaxaca = 0) or (pres_valle >= 40 and guar_valle <= 44 and liberado_valle = 0) or (pres_chihuahua >= 35 and guar_chihuahua <= 44 and liberado_chihuahua = 0) or (pres_jalisco >= 35 and guar_jalisco <= 44 and liberado_jalisco = 0))
+view-if: banda = "" and via = "armada" and armada_entered = 1 and apoyo_popular >= 65 and time >= liberar_last + 6 and ((pres_guerrero >= 35 and guar_guerrero <= 44 and liberado_guerrero = 0) or (pres_oaxaca >= 35 and guar_oaxaca <= 44 and liberado_oaxaca = 0) or (pres_valle >= 40 and guar_valle <= 44 and liberado_valle = 0) or (pres_chihuahua >= 35 and guar_chihuahua <= 44 and liberado_chihuahua = 0) or (pres_jalisco >= 35 and guar_jalisco <= 44 and liberado_jalisco = 0))
 priority: 5
 frequency: 90
 max-visits: 5
@@ -52,7 +52,7 @@ new-page: true
 subtitle: The army the regime counted on begins to count differently
 face-image: img/smilesoldier.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and provincias_liberadas >= 1 and legitimidad_regimen <= 40 and defecciones < 3 and time >= defect_last + 10
+view-if: banda = "" and via = "armada" and armada_entered = 1 and provincias_liberadas >= 1 and legitimidad_regimen <= 40 and defecciones < 3 and time >= defect_last + 10
 priority: 3
 frequency: 60
 max-visits: 3
@@ -89,7 +89,7 @@ new-page: true
 subtitle: Washington's clock reaches zero
 face-image: img/chile_1973.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and intervencion_riesgo >= 96 and intervencion_visto = 0
+view-if: banda = "" and via = "armada" and armada_entered = 1 and intervencion_riesgo >= 96 and intervencion_visto = 0
 priority: 10
 max-visits: 1
 on-arrival: intervencion_visto = 1; ending = "intervencion"
@@ -114,7 +114,7 @@ new-page: true
 subtitle: The eternal party is not eternal
 face-image: img/zocalo_88.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and provincias_liberadas >= 4 and legitimidad_regimen <= 20 and intervencion_riesgo < 92 and liberacion_visto = 0
+view-if: banda = "" and via = "armada" and armada_entered = 1 and provincias_liberadas >= 4 and legitimidad_regimen <= 20 and intervencion_riesgo < 92 and liberacion_visto = 0
 priority: 10
 max-visits: 1
 on-arrival: liberacion_visto = 1; ending = "liberacion"

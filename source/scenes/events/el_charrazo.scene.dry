@@ -3,7 +3,7 @@ new-page: true
 subtitle: The state remembers who owns the strike
 face-image: img/mayday.jpg
 tags: event
-view-if: (huelgas >= 25 or huelga_prep >= 45) and time >= charrazo_last + 14
+view-if: banda = "" and (huelgas >= 25 or huelga_prep >= 45) and time >= charrazo_last + 14
 priority: 2
 frequency: 70
 max-visits: 5

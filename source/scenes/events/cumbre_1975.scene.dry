@@ -3,7 +3,7 @@ new-page: true
 subtitle: The commanders take stock of the Echeverria years
 face-image: img/jungleplan.jpg
 tags: event
-view-if: via = "armada" and year = 1975 and month = 10
+view-if: banda = "" and via = "armada" and year = 1975 and month = 10
 priority: 3
 max-visits: 1
 on-arrival: {!
@@ -28,7 +28,7 @@ The commanders' balance, drawn at the cycle's end, by lamplight, in a hand that 
 - @continuar: The balance is filed where such things are filed. The war continues.
 
 @plegar
-view-if: pres_total < 25
+view-if: banda = "" and pres_total < 25
 on-arrival: {!
 Q.via = "politica";
 Q.pres_guerrero = 0; Q.pres_chihuahua = 0; Q.pres_valle = 0; Q.pres_jalisco = 0; Q.pres_nl = 0; Q.pres_oaxaca = 0; Q.pres_tijuana = 0;
@@ -40,7 +40,7 @@ The order goes up the trails: it is over. Some come down to papers and quiet liv
 - @post_event: Continuar.
 
 @persistir
-view-if: pres_total < 25
+view-if: banda = "" and pres_total < 25
 on-arrival: memorial += 2; guerrilla_meter += 2
 
 The structure persists, thinner. The lamp is turned down. In Bucareli, an analyst annotates the file with the phrase the whole apparatus has learned to distrust: *reducción a niveles manejables.* Manageable levels. They wrote that about Guerrero once, twice, three times, and the sierra keeps disagreeing at intervals.
@@ -48,7 +48,7 @@ The structure persists, thinner. The lamp is turned down. In Bucareli, an analys
 - @post_event: Continuar.
 
 @continuar
-view-if: pres_total >= 25
+view-if: banda = "" and pres_total >= 25
 on-arrival: political_capital += 1
 
 Filed, burned, continued.

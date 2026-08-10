@@ -3,7 +3,7 @@ new-page: true
 subtitle: Discipline against initiative, at gunpoint
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: via = "armada" and moral_columnas >= 60 and pres_guerrero >= 20 and time >= columna_last + 14
+view-if: banda = "" and via = "armada" and moral_columnas >= 60 and pres_guerrero >= 20 and time >= columna_last + 14
 priority: 2
 frequency: 60
 max-visits: 5
@@ -50,7 +50,7 @@ new-page: true
 subtitle: A column drifts toward banditry
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: via = "armada" and moral_columnas < 42 and parque <= 2 and time >= columna_last + 10
+view-if: banda = "" and via = "armada" and moral_columnas < 42 and parque <= 2 and time >= columna_last + 10
 priority: 3
 frequency: 55
 max-visits: 4

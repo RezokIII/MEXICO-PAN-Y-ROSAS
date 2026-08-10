@@ -3,7 +3,7 @@ new-page: true
 subtitle: A teacher missing between two villages
 face-image: img/camioneta.jpg
 # routed via golpe_dispatch (no event tag: prevents co-queuing alternates)
-view-if: othon_advisor = 1 and represion >= 74 and expediente >= 60 and time >= repadv_last + 12 and refugio_sierra = 0
+view-if: banda = "" and othon_advisor = 1 and represion >= 74 and expediente >= 60 and time >= repadv_last + 12 and refugio_sierra = 0
 priority: 2
 frequency: 60
 max-visits: 1

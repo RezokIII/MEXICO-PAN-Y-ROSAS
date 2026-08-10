@@ -3,7 +3,7 @@ new-page: true
 subtitle: The lamp gives light
 face-image: img/anatomia.jpg
 tags: event
-view-if: red_casillas >= 25 and year >= 1981 and registro >= 1
+view-if: banda = "" and red_casillas >= 25 and year >= 1981 and registro >= 1
 priority: 2
 max-visits: 1
 

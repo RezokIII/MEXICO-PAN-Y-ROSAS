@@ -3,7 +3,7 @@ new-page: true
 subtitle: Julio de 1985
 face-image: img/urna.jpg
 tags: event
-view-if: year = 1985 and month = 7 and registro >= 1
+view-if: banda = "" and year = 1985 and month = 7 and registro >= 1
 priority: 3
 max-visits: 1
 on-arrival: {!

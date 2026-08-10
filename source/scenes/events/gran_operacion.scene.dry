@@ -3,7 +3,7 @@ new-page: true
 subtitle: 1988 — one operation to shape the succession
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: via = "armada" and year = 1988 and month >= 3 and month <= 4
+view-if: banda = "" and via = "armada" and year = 1988 and month >= 3 and month <= 4
 priority: 3
 max-visits: 1
 on-arrival: {!
@@ -81,7 +81,7 @@ The oldest dream in the movement: the gates open, the politicals walking out int
 - @op_parcial: Continue
 - @op_desastre: Continue
 @op_triunfo
-view-if: op_result = 2
+view-if: banda = "" and op_result = 2
 title: Salió
 subtitle: It worked — and the political organizers were right about the cost.
 on-arrival: legitimidad_regimen -= 12; auge_armada = 1; sup_students += 5; sup_colonos += 3; frente_unidad += 3; memorial += 1; represion += 8; expediente += 10; ax_electoral -= 6; pri_reformist_rel -= 9
@@ -92,7 +92,7 @@ It goes the way it goes perhaps one time in five: cleanly. [? if op_type = "radi
 - @seguir_guerra: The war does not disarm the year it finally landed a blow. Stay in the sierra, whatever July brings.
 
 @op_parcial
-view-if: op_result = 1
+view-if: banda = "" and op_result = 1
 title: Salió a medias
 subtitle: Half of what you wanted, most of the cost.
 on-arrival: legitimidad_regimen -= 5; auge_armada = 1; sup_students += 2; memorial += 2; represion += 7; expediente += 10; ax_electoral -= 3; pri_reformist_rel -= 5
@@ -103,7 +103,7 @@ It half-works, which in this business is the most common and most expensive outc
 - @seguir_guerra: Stay in the sierra, lighter and more hunted, and let the mountain keep its own July.
 
 @op_desastre
-view-if: op_result = 0
+view-if: banda = "" and op_result = 0
 title: El desastre
 subtitle: You were not strong enough, and the state had rehearsed this its whole life.
 on-arrival: {! Q.memorial += 5; Q.expediente += 18; Q.represion += 14; Q.guerrilla_meter -= 12; Q.pres_guerrero = Math.max(0, Q.pres_guerrero - 12); Q.pres_valle = Math.max(0, Q.pres_valle - 8); Q.legitimidad_regimen += 4; Q.auge_armada = 0; !}
@@ -113,7 +113,7 @@ The intelligence was thin and the columns were not what the plan pretended, and 
 - @op_sobrevive: Continue
 - @op_fin: Continue
 @op_sobrevive
-view-if: plan_b = 1
+view-if: banda = "" and plan_b = 1
 title: El Plan B
 on-arrival: unity -= 6; political_capital -= 4
 
@@ -123,7 +123,7 @@ But the Plan B drawn in colder blood holds: a fallback compartment the state did
 - @seguir_guerra: Hold what remains of the sierra. The war has been this thin before and did not die.
 
 @op_fin
-view-if: plan_b = 0
+view-if: banda = "" and plan_b = 0
 title: Sin red
 new-page: true
 

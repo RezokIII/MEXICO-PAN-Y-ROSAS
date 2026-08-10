@@ -3,7 +3,7 @@ new-page: true
 subtitle: Gobernación rehearses on you
 face-image: img/cards/casilla.jpg
 tags: event
-view-if: pri_posture = "robar" and registro >= 1 and izq_votes_display >= 16 and time >= robada_last + 26
+view-if: banda = "" and pri_posture = "robar" and registro >= 1 and izq_votes_display >= 16 and time >= robada_last + 26
 priority: 2
 frequency: 65
 max-visits: 5
@@ -50,7 +50,7 @@ new-page: true
 subtitle: The regime builds a competitor
 face-image: img/charola.jpg
 tags: event
-view-if: pri_posture = "cooptar" and izq_votes_display >= 13 and registro >= 0 and time >= oficial_last + 30 and year >= 1974
+view-if: banda = "" and pri_posture = "cooptar" and izq_votes_display >= 13 and registro >= 0 and time >= oficial_last + 30 and year >= 1974
 priority: 2
 frequency: 60
 max-visits: 3

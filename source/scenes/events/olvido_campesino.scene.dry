@@ -3,7 +3,7 @@ new-page: true
 subtitle: The countryside you left untended did not stay yours
 face-image: img/cards/ejido.jpg
 tags: event
-view-if: time >= peasants_last + 20 and sup_peasants >= 22
+view-if: banda = "" and time >= peasants_last + 20 and sup_peasants >= 22
 priority: 1
 on-arrival: peasants_last = time; sup_peasants -= 6; memorial += 1; guerrilla_meter += 3; charrismo += 2; unity -= 1
 

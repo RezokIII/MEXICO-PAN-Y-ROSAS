@@ -2,7 +2,7 @@ title: El expediente delgado
 new-page: true
 subtitle: Bucareli distrusts silence
 tags: event
-view-if: expediente <= 14 and time >= 36 and time >= fantasma_last + 18
+view-if: banda = "" and expediente <= 14 and time >= 36 and time >= fantasma_last + 18
 on-arrival: fantasma_last = time
 priority: 1
 frequency: 50

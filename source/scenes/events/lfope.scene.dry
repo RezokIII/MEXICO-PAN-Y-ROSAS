@@ -3,7 +3,7 @@ new-page: true
 subtitle: Diciembre de 1977 — la LFOPPE
 face-image: img/reyes_heroles.jpg
 tags: event
-view-if: year = 1977 and month = 12
+view-if: banda = "" and year = 1977 and month = 12
 priority: 3
 max-visits: 1
 
@@ -46,7 +46,7 @@ The cost arrives on its own schedule: the PPS and the satellites scoop up the re
 - @post_event: Continuar.
 
 @leer_sierra
-view-if: via = "armada"
+view-if: banda = "" and via = "armada"
 on-arrival: inteligencia += 2; guerrilla_meter -= 2; unity -= 2; political_capital += 2
 
 The comandancia's circular is one page and changes nothing visible: routes maintained, discipline maintained, the war as before. But the appendix orders every column to update its rosters, verify its people's legal situations, and record — for the first time since the descent to clandestinity — who has family able to receive them. No one writes the word amnesty. Everyone files the appendix where the important papers go. A war that knows how it wants to end has an enormous advantage over a state that only knows how it wants the war to pause.

@@ -3,7 +3,7 @@ new-page: true
 subtitle: The system makes room at the table
 face-image: img/charola.jpg
 tags: event
-view-if: via = "institucional" and time >= cartera_last + 24 and pri_reformist_rel >= 25
+view-if: banda = "" and via = "institucional" and time >= cartera_last + 24 and pri_reformist_rel >= 25
 priority: 2
 frequency: 70
 max-visits: 4
@@ -48,7 +48,7 @@ new-page: true
 subtitle: The stomach finishes its work
 face-image: img/charola.jpg
 tags: event
-view-if: via = "institucional" and absorcion >= 70 and abrazo_done = 0
+view-if: banda = "" and via = "institucional" and absorcion >= 70 and abrazo_done = 0
 priority: 4
 max-visits: 1
 on-arrival: abrazo_done = 1
@@ -96,7 +96,7 @@ new-page: true
 subtitle: The tribune the regime cannot switch off
 face-image: img/congreso.jpg
 tags: event
-view-if: via = "institucional" and izq_seats >= 1 and curul_seen = 0
+view-if: banda = "" and via = "institucional" and izq_seats >= 1 and curul_seen = 0
 priority: 4
 max-visits: 1
 on-arrival: curul_seen = 1
@@ -138,7 +138,7 @@ new-page: true
 subtitle: The tedious work where the real power hides
 face-image: img/cards/pleno.jpg
 tags: event
-view-if: via = "institucional" and izq_seats >= 1 and year >= 1980 and time >= comision_last + 20
+view-if: banda = "" and via = "institucional" and izq_seats >= 1 and year >= 1980 and time >= comision_last + 20
 priority: 2
 frequency: 55
 max-visits: 3
@@ -183,7 +183,7 @@ new-page: true
 subtitle: The praise that poisons
 face-image: img/excelsior.jpg
 tags: event
-view-if: via = "institucional" and pri_reformist_rel >= 32 and absorcion >= 20 and time >= respons_last + 22
+view-if: banda = "" and via = "institucional" and pri_reformist_rel >= 32 and absorcion >= 20 and time >= respons_last + 22
 priority: 2
 frequency: 55
 max-visits: 3
@@ -226,7 +226,7 @@ new-page: true
 subtitle: Co-opted by usefulness
 face-image: img/cards/colonia.jpg
 tags: event
-view-if: via = "institucional" and izq_seats >= 1 and (sup_colonos >= 12 or sup_peasants >= 15) and time >= gestoria_last + 24
+view-if: banda = "" and via = "institucional" and izq_seats >= 1 and (sup_colonos >= 12 or sup_peasants >= 15) and time >= gestoria_last + 24
 priority: 2
 frequency: 50
 max-visits: 3
@@ -271,7 +271,7 @@ new-page: true
 subtitle: Managed over a long lunch
 face-image: img/cards/fuente_bucareli.jpg
 tags: event
-view-if: via = "institucional" and pri_reformist_rel >= 35 and time >= comida_last + 26 and year >= 1979
+view-if: banda = "" and via = "institucional" and pri_reformist_rel >= 35 and time >= comida_last + 26 and year >= 1979
 priority: 2
 frequency: 45
 max-visits: 3
@@ -316,7 +316,7 @@ new-page: true
 subtitle: The bill that buys something and costs everything
 face-image: img/pcmconf.jpg
 tags: event
-view-if: via = "institucional" and izq_seats >= 2 and time >= voto_inst_last + 20 and year >= 1980
+view-if: banda = "" and via = "institucional" and izq_seats >= 2 and time >= voto_inst_last + 20 and year >= 1980
 priority: 3
 frequency: 55
 max-visits: 4
@@ -357,7 +357,7 @@ new-page: true
 subtitle: The street accuses the caucus
 face-image: img/pcmconf.jpg
 tags: event
-view-if: via = "institucional" and absorcion >= 40 and time >= vendieron_last + 20
+view-if: banda = "" and via = "institucional" and absorcion >= 40 and time >= vendieron_last + 20
 priority: 3
 frequency: 60
 max-visits: 3

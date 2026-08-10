@@ -3,7 +3,7 @@ new-page: true
 subtitle: The survivor lends his voice
 face-image: img/Lucio.jpg
 tags: event
-view-if: lucio_vive = 1 and via = "politica" and year >= 1979 and maestro_hecho = 0
+view-if: banda = "" and lucio_vive = 1 and via = "politica" and year >= 1979 and maestro_hecho = 0
 priority: 3
 max-visits: 1
 on-arrival: maestro_hecho = 1; sup_peasants += 5; sup_teachers += 2; red_casillas += 3; fe_voto += 2; leyenda += 1

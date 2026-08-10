@@ -3,7 +3,7 @@ new-page: true
 subtitle: A column surrounded — and whether the people close the ring or open it
 face-image: img/guerrero_sierra.jpg
 tags: event
-view-if: via = "armada" and armada_entered = 1 and (presion_guerrero >= 80 or presion_valle >= 80 or presion_oaxaca >= 80 or presion_chihuahua >= 80 or presion_jalisco >= 80) and time >= cerco_col_last + 8
+view-if: banda = "" and via = "armada" and armada_entered = 1 and (presion_guerrero >= 80 or presion_valle >= 80 or presion_oaxaca >= 80 or presion_chihuahua >= 80 or presion_jalisco >= 80) and time >= cerco_col_last + 8
 priority: 5
 frequency: 90
 max-visits: 8

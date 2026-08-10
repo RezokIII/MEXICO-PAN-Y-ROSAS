@@ -3,7 +3,7 @@ new-page: true
 subtitle: 2 de diciembre de 1974
 face-image: img/Luciodeath.jpg
 tags: event
-view-if: year = 1974 and month = 12
+view-if: banda = "" and year = 1974 and month = 12
 priority: 3
 max-visits: 1
 
@@ -20,7 +20,7 @@ If it closes, the Party of the Poor will not survive him — organizations built
 - @distancia: The Party cannot become the guerrilla's convalescent home; the ones the DFS follows down will lead them through your doors.
 
 @salvarlo
-view-if: via = "armada" and inteligencia >= 35
+view-if: banda = "" and via = "armada" and inteligencia >= 35
 on-arrival: lucio_vive = 1; memorial += 1; guerrilla_meter -= 1; represion += 4; expediente += 6; inteligencia -= 8; pres_guerrero += 3; sup_peasants += 2
 
 The runner reaches the camp at dusk with the map of the noose, and the schoolteacher — who has broken more encirclements than the army admits attempting — reads it by feel, argues it in assembly per his unbreakable custom, and moves the column at midnight through the one seam the operation left unsewn. The last brigade bleeds crossing the river; the army closes on a campsite of cold fires and photographs those instead.

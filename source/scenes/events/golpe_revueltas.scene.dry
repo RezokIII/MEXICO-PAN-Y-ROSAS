@@ -3,7 +3,7 @@ new-page: true
 subtitle: They took the writer to frighten the written
 face-image: img/camioneta.jpg
 # routed via golpe_dispatch (no event tag: prevents co-queuing alternates)
-view-if: revueltas_advisor = 1 and represion >= 76 and expediente >= 65 and time >= repadv_last + 12 and refugio_sierra = 0 and year <= 1975
+view-if: banda = "" and revueltas_advisor = 1 and represion >= 76 and expediente >= 65 and time >= repadv_last + 12 and refugio_sierra = 0 and year <= 1975
 priority: 2
 frequency: 60
 max-visits: 1

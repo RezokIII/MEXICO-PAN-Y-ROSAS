@@ -3,7 +3,7 @@ new-page: true
 subtitle: The ring the war does not come back from
 face-image: img/stareguerilla.jpg
 tags: event
-view-if: via = "armada" and cerco_final_warned = 0 and moral_columnas <= 30 and coronel_red >= 60 and (members <= 6 or represion >= 88)
+view-if: banda = "" and via = "armada" and cerco_final_warned = 0 and moral_columnas <= 30 and coronel_red >= 60 and (members <= 6 or represion >= 88)
 priority: 6
 max-visits: 1
 on-arrival: cerco_final_warned = 1

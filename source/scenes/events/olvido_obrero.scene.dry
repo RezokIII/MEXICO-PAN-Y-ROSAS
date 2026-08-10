@@ -3,7 +3,7 @@ new-page: true
 subtitle: You stopped tending the factories, and don Fidel noticed
 face-image: img/cards/fabrica.jpg
 tags: event
-view-if: time >= workers_last + 20 and sup_workers >= 25
+view-if: banda = "" and time >= workers_last + 20 and sup_workers >= 25
 priority: 1
 on-arrival: workers_last = time; sup_workers -= 5; charrismo += 5; unity -= 1
 

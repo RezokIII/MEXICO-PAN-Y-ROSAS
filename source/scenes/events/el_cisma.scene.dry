@@ -3,7 +3,7 @@ new-page: true
 subtitle: The house comes apart
 face-image: img/fronda.jpg
 tags: event
-view-if: unity <= 4
+view-if: banda = "" and unity <= 4
 priority: 6
 max-visits: 1
 on-arrival: ending = "aniquilacion"

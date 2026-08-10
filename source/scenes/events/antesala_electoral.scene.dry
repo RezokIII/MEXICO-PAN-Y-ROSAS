@@ -3,7 +3,7 @@ new-page: true
 subtitle: The month before the count — where do you actually stand?
 face-image: img/cards/casilla.jpg
 tags: event
-view-if: month = 6 and antesala_year < year and (year = 1970 or year = 1976 or year = 1979 or year = 1982 or year = 1985)
+view-if: banda = "" and month = 6 and antesala_year < year and (year = 1970 or year = 1976 or year = 1979 or year = 1982 or year = 1985)
 priority: 4
 max-visits: 5
 on-arrival: {!
@@ -53,7 +53,7 @@ You throw the month at visibility: the mitin larger than the membership justifie
 - @antesala_colapso: Continue
 - @antesala_sigue: The gamble is placed. On to the count.
 @antesala_colapso
-view-if: antesala_peligro = 1
+view-if: banda = "" and antesala_peligro = 1
 title: Visible y hueco
 subtitle: The worst combination in politics, punished the way the state prefers.
 new-page: true
@@ -78,7 +78,7 @@ You decline the gamble and the exhaustion both, and pocket the month: the treasu
 - @post_event: Continuar.
 
 @antesala_sigue
-view-if: antesala_peligro = 0
+view-if: banda = "" and antesala_peligro = 0
 
 The moment passes without the state heaviest answer. You return to the work, watched and wiser.
 
