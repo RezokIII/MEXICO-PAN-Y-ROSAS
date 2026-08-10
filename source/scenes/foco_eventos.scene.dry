@@ -1,0 +1,221 @@
+title: Eventos del foco
+max-visits: 1
+view-if: 0
+# Container/namespace only — NOT tagged event. The rural march's flavour + hard decisions
+# (banda="sierra", f_phase="marcha"). A shared cooldown (f_ev_last) paces them.
+
+# ---------------------------------------------------------------------
+@ev_cosecha
+title: La cosecha
+new-page: true
+face-image: img/cards/ejido.jpg
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and apoyo_popular >= 35 and time >= f_ev_last + 2
+priority: 3
+frequency: 60
+max-visits: 8
+on-arrival: f_ev_last = time
+
+= La cosecha
+
+Where the water is deep the sierra feeds the war without being robbed to do it: the coffee harvest tithed by choice, a steer "lost" on paper, the sacks that appear at the edge of the camp with no name attached. This is the line between a guerrilla and a bandit — the bandit takes and the people inform; the rooted column is *given*, and the whole valley covers for it. The harvest is in. What you do with the offering tells the sierra what kind of army you are.
+
+- @cosecha_recibir: Receive it as the gift it is — supply for the column, and the base confirmed. *(+comida, +parque)*
+- @cosecha_pagar: Pay for it, though they refuse — leave what little money you have, so no one can ever say the guerrilla ate the poor. *(costs funds; +apoyo, +deep trust)*
+
+@cosecha_recibir
+on-arrival: {! Q.f_comida+=12; Q.f_parque+=4; Q.apoyo_popular+=2; !}
+
+You take what is offered, the way it only moves for a movement the country has adopted — quietly, reliably, with a deniability the valley maintains on its own. The column eats. The base is not diminished by the giving; it is confirmed. You are being *kept*, and that is a status no operation wins and no amount of parque buys.
+
+- @root: Continuar.
+
+@cosecha_pagar
+on-arrival: {! Q.f_comida+=8; Q.apoyo_popular+=6; Q.funds=(Q.funds||0)-2; if(Q.funds<0){Q.funds=0;} Q.sup_peasants+=2; !}
+
+You leave the money though they push it back into your hands, because the whole war is a wager that you are different from every armed man who ever came down out of these mountains to take. Word of it travels faster than any communiqué: *they paid.* It is a small thing and it is the entire thesis — the sea deepens by an inch across the whole sierra, bought with coins you could not really spare.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_reclutas
+title: Los que quieren entrar
+new-page: true
+face-image: img/adelitas.jpg
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and apoyo_popular >= 40 and f_hombres < 45 and time >= f_ev_last + 2
+priority: 3
+frequency: 55
+max-visits: 8
+on-arrival: f_ev_last = time
+
+= Los que quieren entrar
+
+They come to the camp in twos and threes — a boy whose brother the army took, a girl who can already outshoot half the column, a campesino who has decided that a machete against a G-3 is still better than kneeling. Recruits are the only reinforcement a foco gets, and they are also mouths, and risk, and the endless problem Che named: an army that grows faster than it can train or feed is an army that dies of its own weight.
+
+- @reclutas_tomar: Take them all. Numbers now — the war needs bodies and the villages are offering them. *(+hombres; strains comida; a little green)*
+- @reclutas_cuidar: Take only who the base vouches for by blood, and train them right before they carry a rifle. *(fewer, steadier; +discipline)*
+
+@reclutas_tomar
+on-arrival: {! Q.f_hombres+=6; Q.f_comida-=6; Q.f_moral-=2; Q.apoyo_popular+=2; Q.f_reclutas=(Q.f_reclutas||0)+6; !}
+
+The column swells. There are more rifles in the line and more stories of why, and the villages see their sons standing in the ranks and love you for taking them. There are also more mouths on a supply that was already thin, and greener hands on the triggers, and the veterans trade a look that says *we will pay for this the first time the shooting is serious.* Both things are true. They usually are.
+
+- @root: Continuar.
+
+@reclutas_cuidar
+on-arrival: {! Q.f_hombres+=2; Q.disciplina=(Q.disciplina||65)+4; Q.f_moral+=2; Q.f_reclutas=(Q.f_reclutas||0)+2; !}
+
+You take the two the base can vouch for by blood and turn the rest back with a promise and a task — organize your village, wait, we will come. It costs you the numbers. It buys you a column that will not break the first bad afternoon, and a bench of trained people in every village against the day you need them. Bayo's rule, and Che's before the end: a guerrilla's discipline is mostly the discipline of not growing faster than you can hold.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_ajusticiamiento
+title: El ajusticiamiento
+new-page: true
+face-image: img/guardias_blancas.jpg
+subtitle: The Brigada's oldest and most corrosive power
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_cerco >= 40 and time >= f_ev_last + 3
+priority: 4
+frequency: 45
+max-visits: 5
+on-arrival: f_ev_last = time
+
+= El ajusticiamiento
+
+The base brings you a name and a rope. A cacique who has bled these villages for thirty years and just handed three of your people to the army; or an informer, caught, who fed the captain your last position. The Partido de los Pobres kept a whole brigade for this — the Brigada Campesina de *Ajusticiamiento*, the peasant combat brigade whose middle name was the killing of the ones the villages could no longer bear. It works: fear is real, and an informer dead informs no more. It also does the thing that killed more focos than the army ever did — it teaches the sierra that you, too, are men who kill in the dark, and it plants in your own ranks the seed of every future purge.
+
+- @ajust_hacer: Carry it out. The village asked; the security of the column demands it; justice, here, wears no other face. *(security now; erodes the water; a debt of fear comes due)*
+- @ajust_juzgar: Try him before the assembly instead — let the villages judge in the light, and make even this an act of the people, not the gun. *(slower, +apoyo, +legitimacy of the movement)*
+- @ajust_perdonar: Spare him, expose him, and let him live marked. Refuse to become what you are fighting. *(risk; but the water runs cleaner)*
+
+@ajust_hacer
+on-arrival: {! Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.f_cerco-=8; if(Q.f_cerco<0){Q.f_cerco=0;} Q.apoyo_popular-=5; Q.paranoia=(Q.paranoia||8)+6; Q.f_moral-=2; !}
+
+It is done at the edge of the village before dawn, and for a while it works exactly as promised: the informers go quiet, the caciques travel with guards, the immediate leak is stopped. But something changes in the column that morning that does not change back. The villages are a little more careful around you now — grateful, afraid, and careful, which is not the same as loving. And in the ranks the arithmetic of suspicion has been taught: if we killed him for what he might have done, who among us is next? Every foco that ate itself began with a morning like this one.
+
+- @root: Continuar.
+
+@ajust_juzgar
+on-arrival: {! Q.apoyo_popular+=4; Q.sup_peasants+=2; Q.f_cerco-=4; if(Q.f_cerco<0){Q.f_cerco=0;} Q.zona_gobernada=1; !}
+
+You do the harder thing: you make it the people's, not the gun's. The assembly hears the case in the open, the witnesses speak, the sentence — whatever it is — is theirs, and carried out as an act of a community governing itself for the first time in its history. It is slower and it is not always merciful, but it draws the line the whole revolution depends on: that the movement answers to the villages and not the other way around. The sierra learns that where you are, there is *law* again, of a kind it makes itself. That is worth more than any informer's silence.
+
+- @root: Continuar.
+
+@ajust_perdonar
+on-arrival: {! Q.apoyo_popular+=3; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} Q.f_moral+=2; !}
+
+You mark him and let him live, and some of the column thinks you are a fool, and they may be right — a spared informer is a risk that walks around on two legs. But you did not come up into these mountains to become the thing in the palace, and a movement that kills its way to safety has already lost the argument it is making. The water runs a little cleaner for the mercy. The ring runs a little tighter for it too. Both bills are real; you chose which to pay.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_represalia
+title: La represalia
+new-page: true
+face-image: img/camioneta.jpg
+subtitle: The army punishes a village for you
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_cerco >= 45 and time >= f_reprisal_last + 4
+priority: 6
+frequency: 50
+max-visits: 5
+on-arrival: f_reprisal_last = time
+
+= La represalia
+
+They cannot find you, so they punish the ones who hide you. A village — El Quemado, or one just like it — is emptied at gunpoint because a lieutenant is certain it fed you, and he is right. The men are taken to the airbase with the runway that points at the sea. The granaries burn. It is the dirty war's logic, and it is also, if you have the stomach to see it, its central mistake: every village the army burns for you sends its survivors up the mountain looking for the people the army was punishing them for loving.
+
+- @repr_vengar: Answer it. Hit the garrison that did it, hard and publicly, so the sierra sees the guerrilla makes them pay for touching the people. *(+desgaste, +legend, +apoyo — but the war escalates)*
+- @repr_alejar: Take the column away from them. You are the reason the soldiers came; leave, and the punishment leaves with you. *(protects the village; -apoyo here, but the human thing)*
+- @repr_defender: Stand between the village and the next sweep. Fight to protect the people who sheltered you, whatever it costs. *(costly firefight; the deepest water in the war)*
+
+@repr_vengar
+on-arrival: {! Q.f_desgaste+=8; Q.leyenda=(Q.leyenda||0)+3; Q.apoyo_popular+=6; Q.legitimidad_regimen-=3; Q.f_parque-=6; if(Q.f_parque<0){Q.f_parque=0;} Q.f_cerco+=12; if(Q.f_cerco>100){Q.f_cerco=100;} Q.represion+=3; !}
+
+You make the garrison pay for it where everyone can see — a column of theirs broken on the road out, the message unmistakable: touch the people and the sierra answers. The villages, who have spent generations watching the army act with total impunity, watch you break it, and something shifts. The reprisal that was meant to isolate you has recruited for you. It has also told the army exactly where its enemy is, and the ring tightens to match the blow.
+
+- @root: Continuar.
+
+@repr_alejar
+on-arrival: {! Q.apoyo_popular-=4; Q.f_cerco-=14; if(Q.f_cerco<0){Q.f_cerco=0;} Q.f_moral-=4; if(Q.col_prof<5){Q.col_prof+=1;} !}
+
+You do the thing that costs you and saves them: you leave. You are the weather the soldiers followed here, and when you go the storm goes with you — the sweeps ease, the airbase trucks turn around, the village is left standing, emptied but alive. It costs you the ground and a piece of the column's heart, because leaving people who fed you feels exactly like the abandonment it partly is. But a guerrilla who gets villages destroyed to feel loyal is worth less than one who takes his war somewhere the poor will not pay for it.
+
+- @root: Continuar.
+
+@repr_defender
+on-arrival: {! var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.3)-40+(Math.random()*30-12); if(_r>=0){Q.apoyo_popular+=10;Q.f_desgaste+=6;Q.f_moral+=4;Q.leyenda=(Q.leyenda||0)+2;}else{Q.apoyo_popular+=8;Q.f_hombres-=4;Q.f_moral-=4;Q.f_bajas+=4;Q.memorial=(Q.memorial||0)+3;} Q.f_parque-=8; if(Q.f_parque<0){Q.f_parque=0;} Q.f_cerco+=10; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+You put the column between the village and the next sweep, which is the thing a people's army is *for* and the thing that gets people's armies killed. [? if f_moral >= 55 : The soldiers, who expected to burn an undefended hamlet, meet fire instead and pull back to think about it — and the village watches the guerrilla bleed for it, which is worth more than any manifesto. ?][? if f_moral < 55 : It is a hard, ugly fight and you do not win it cleanly; you hold long enough to get the people out, and you leave some of your own in the doing. ?] The deepest water in this whole war is drawn from a well like this one. So is the deepest debt: the sierra knows, now, that you will come.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_figueroa
+title: El secuestro del senador
+new-page: true
+face-image: img/congreso.jpg
+subtitle: 1974 — the act that made Lucio, and doomed him
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_hombres >= 20 and apoyo_popular >= 45 and year >= 1974 and f_figueroa = 0
+priority: 5
+max-visits: 1
+on-arrival: f_figueroa = 1
+
+= El secuestro del senador
+
+The chance comes the way it came to Lucio: a senator — a rich man, a cacique of caciques, a candidate for governor — moves through the sierra with too little guard and too much confidence, and for a few days he is *takeable.* A kidnapping like this is the loudest thing a foco can do: ransom enough to arm the column for a year, the release of comrades from Lecumberri, and the spectacle of the state's own aristocracy held helpless by the people it despises. It is also, history is obliged to note, precisely the act that turned the full weight of the army onto the sierra de Atoyac and, within months, ended Lucio in a coffee grove called El Otatal. The reward is enormous. So is the size of the fist it invites.
+
+- @fig_hacer: Take him. The ransom, the prisoners, the message — worth the storm it brings. *(+parque, +funds, frees comrades; a massive encirclement follows)*
+- @fig_no: Let him pass. The column is not ready to be the most-wanted thing in Mexico, and a foco that survives is worth more than one that is famous. *(no gain; the ring stays where it is)*
+
+@fig_hacer
+on-arrival: {! Q.f_parque+=20; Q.funds=(Q.funds||0)+20; Q.presos=0; Q.leyenda=(Q.leyenda||0)+6; Q.legitimidad_regimen-=6; Q.f_cerco=90; Q.coronel_activo=1; Q.f_desgaste-=6; Q.intervencion_riesgo+=4; !}
+
+You take him on a mountain road and hold him in a camp the army will spend a fortune failing to find, and for a season you are the most powerful poor man in Mexico. The ransom arms the column to the teeth; comrades walk out of Lecumberri; the corridos write themselves. And then the fist closes, exactly as it closed on Lucio — thousands of troops, the airbase working around the clock, the sierra de Atoyac turned into the most heavily hunted ground in the country. You bought a year of war in an afternoon. Now you have to survive having done it.
+
+- @root: Continuar.
+
+@fig_no
+on-arrival: {! Q.f_moral+=2; !}
+
+You let him ride out of the sierra with his confidence intact and his story untold, and half the column thinks you are too cautious by half. Maybe. But you have read how this story ends when it is written the loud way, and you would rather have a foco in a year than a legend in a coffin. The most-wanted man in Mexico is a poor place to be when you are also the hungriest. The chance passes. So, for now, does the storm.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_enlace
+title: El enlace con la ciudad
+new-page: true
+face-image: img/charola.jpg
+subtitle: A hand extended from the urban war
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_hombres >= 16 and time >= f_ev_last + 4 and f_enlace_foco = 0
+priority: 4
+max-visits: 1
+on-arrival: f_enlace_foco = 1; f_ev_last = time
+
+= El enlace con la ciudad
+
+A stranger reaches the camp with the right password and a proposal. The urban comrades — the Liga's people, or what remains of the MAR's North-Korea-trained cadre — can move you what the sierra never will: clean weapons bought with expropriated money, false papers, medicine, a route to the coast and out. In exchange they want coordination — that when they act in Guadalajara or the capital, your war in the south moves too, so the state cannot concentrate on either. It is the synthesis Che preached and rarely achieved: the city and the sierra as one war. It is also an exposure, because every link is a thread the DFS can pull.
+
+- @enlace_si: Take the link. Arms, papers, a way out, and a war on two fronts the army cannot fight at once. *(+parque, +intelligence, ties the tracks together — and shares the heat)*
+- @enlace_no: Stay pure. The sierra's strength is that it owes the city nothing and can be betrayed by no one it has not met. *(no gain; but no new thread for the enemy to pull)*
+
+@enlace_si
+on-arrival: {! Q.f_parque+=12; Q.inteligencia+=6; Q.apoyo_popular+=2; Q.expediente=(Q.expediente||0)+8; Q.internac_armada=(Q.internac_armada||0)+1; !}
+
+You take the hand, and for a while the sierra has things it has never had — real weapons, real papers, real medicine, and the knowledge that when the columns of the city move, the army in the south cannot simply turn its whole attention to you. The synthesis is real, and it is powerful, and it costs exactly what synthesis always costs a guerrilla: a thread now runs from your camp to a safehouse in a city, and threads like that have unravelled better movements than yours. Worth it. Probably. You will find out.
+
+- @root: Continuar.
+
+@enlace_no
+on-arrival: {! Q.f_moral+=2; !}
+
+You send the stranger back with thanks and nothing else. The sierra's oldest strength is that it is a world unto itself — it eats what it grows, arms itself from the enemy, and can be sold out by no one it has never met. The city's war is louder and better supplied and it is being rolled up, cell by cell, in exactly the way a network can be and a mountain cannot. You keep your war small, and slow, and yours. It is a real choice, with a real cost. So was the other one.
+
+- @root: Continuar.
