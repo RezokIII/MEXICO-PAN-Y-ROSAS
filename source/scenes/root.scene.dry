@@ -242,6 +242,16 @@ Q.u_sector = "centro"; Q.u_forjado = 0; Q.u_phase = ""; Q.u_entreno = "";
 Q.u_red_last = -99; Q.u_redada_last = -99; Q.u_ev_last = -99;
 Q.u_expropiaciones = 0; Q.u_carcel = 0; Q.u_pando = 0; Q.u_fin = 0; Q.u_cascada = 0;
 Q.u_ruptura = 0; Q.u_golpe = 0; Q.u_ing_visto = 0; Q.u_ing_last = -99; Q.u_carcel_last = -99; Q.u_negociado = 0;
+// ============================================================================
+// THE FLN (banda = "fln"): Fuerzas de Liberación Nacional — guerra popular prolongada. NOT the
+// foco's impatience, NOT the Liga's loud city war: patient, clandestine, deeply-rooted, measured
+// in decades. You build ESTRUCTURA quietly and keep EXPOSURE low; act loud and the state finds you
+// (Nepantla/Ocosingo, 1974). The win is to ENDURE the años de plomo with the organization intact
+// into the 1980s — the seed that walks out of the Lacandón as the EZLN.
+// ============================================================================
+Q.fln_estructura = 20; Q.fln_expuesto = 12; Q.fln_rural = 8; Q.fln_urbano = 8;
+Q.fln_phase = ""; Q.fln_forjado = 0; Q.fln_entreno = "";
+Q.fln_caida = 0; Q.fln_caida_last = -99; Q.fln_endurado = 0; Q.fln_germen_visto = 0; Q.fln_ev_last = -99;
 Q.cerco_final_warned = 0;
 Q.balance_armado_visto = 0;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
@@ -911,6 +921,7 @@ Choose where to begin. **1968 — El origen** is the full twenty-year campaign, 
 - @preset_1971_armada: ⚙ 1971 — Tomar el fusil (skip ahead: the armed road after Tlatelolco)
 - @preset_foco_sierra: ★ 1971 — La Sierra: el foco (NEW — one band, the Guerrero war)
 - @preset_ciudad: ★ 1973 — La Ciudad: la Liga (NEW — the urban war in Guadalajara)
+- @preset_fln: ★ 1969 — La Ruta Larga: las FLN (NEW — the patient war, guerra popular prolongada)
 
 @preset_foco_sierra
 new-page: true
@@ -931,6 +942,22 @@ Q.apoyo_popular = 34; Q.f_cerco = 12; Q.f_desgaste = 0;
 Q.inteligencia = 14; Q.coronel_activo = 0;
 !}
 go-to: foco.forjar
+
+@preset_fln
+new-page: true
+on-arrival: {!
+// ---- THE PATIENT WAR: the Fuerzas de Liberación Nacional, founded Monterrey 1969. ----
+Q.difficulty = 0;
+Q.year = 1969; Q.month = 8; Q.time = 9;
+Q.presidente = "Diaz Ordaz"; Q.gobernacion = "Echeverria"; Q.sexenio_year = 6;
+Q.presidente_cooptacion = 30; Q.presidente_represion = 80; Q.represion = 76; Q.legitimidad_regimen = 60;
+Q.via = "armada"; Q.armada_entered = 1; Q.postura_guerrilla = 3; Q.camino1 = 1;
+Q.banda = "fln"; Q.fln_phase = "forjar";
+Q.fln_estructura = 18; Q.fln_expuesto = 10; Q.fln_rural = 6; Q.fln_urbano = 10;
+Q.apoyo_popular = 20; Q.funds = 10; Q.inteligencia = 12; Q.disciplina = 70;
+Q.estado_intel = 14;
+!}
+go-to: fln.forjar
 
 @preset_ciudad
 new-page: true

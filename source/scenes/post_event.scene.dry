@@ -164,6 +164,17 @@ if (Q.month != Q.last_drift_month) {
         if (Q.u_celulas < 0) { Q.u_celulas = 0; }
         if (Q.u_celulas <= 0) { Q.u_fin = 1; Q.members = 0; }
     }
+    // --- THE FLN: the long war's monthly life (banda="fln"). Exposure creeps up with the state's
+    //     intelligence and time; discipline and dormancy bleed it down; deep roots grow on their own. ---
+    if (Q.banda === "fln" && Q.fln_forjado === 1) {
+        Q.fln_expuesto += 1 + (Q.estado_intel||0)*0.03;
+        if (Q.disciplina >= 70) { Q.fln_expuesto -= 2; }
+        if (Q.fln_rural >= 20 && Q.time % 3 == 0) { Q.fln_estructura += 1; Q.apoyo_popular += 0.5; }
+        if (Q.fln_expuesto < 0) { Q.fln_expuesto = 0; } if (Q.fln_expuesto > 100) { Q.fln_expuesto = 100; }
+        if (Q.fln_estructura > 100) { Q.fln_estructura = 100; } if (Q.fln_estructura < 0) { Q.fln_estructura = 0; }
+        if (Q.fln_rural > 100) { Q.fln_rural = 100; } if (Q.fln_urbano > 100) { Q.fln_urbano = 100; }
+        if (Q.fln_caida === 9 || Q.fln_estructura <= 0) { Q.members = 0; }
+    }
     // veterans keep the old discipline: the file grows slower wherever they run security
     if (Q.veteranos >= 2 && Q.via != 'armada') { Q.expediente -= 0.25; }
     // the legend of the descent: a war ended on your terms keeps organizing the campo for years

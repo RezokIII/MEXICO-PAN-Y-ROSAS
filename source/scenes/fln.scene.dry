@@ -1,0 +1,190 @@
+title: Las FLN
+max-visits: 1
+view-if: 0
+# Container/namespace only — NOT tagged event. The FLN track (banda="fln"): guerra popular
+# prolongada. Build fln_estructura quietly; keep fln_expuesto low. Loud acts + time + the state's
+# intel raise exposure -> la_caida (Nepantla 1974). Endure to the 1980s intact -> el germen (EZLN).
+
+# =====================================================================
+# PHASE 0 — FUNDAR. The FLN's founding choice, Monterrey, 1969.
+# =====================================================================
+@forjar
+title: Fundar las FLN
+new-page: true
+face-image: img/stareguerilla.jpg
+subtitle: 1969 — not a foco, not the city: the long war, begun in silence
+on-arrival: fln_phase = "forjar"
+
+= Fundar las FLN
+
+You are doing something none of the others are doing, and it looks, from the outside, like doing nothing. While the Liga readies its expropriations and the sierra fills with focos, a handful of you in Monterrey are founding an organization on the opposite principle — the one lesson everyone else is about to learn the hard way. Che died impatient. The urban guerrillas will be loud, and the loud get found. So the FLN will be *patient*: clandestine to the point of invisibility, doctrinally disciplined, rooted so deep and so slowly that when the años de plomo come — and they are coming — there will be nothing on the surface for the state to grab. Guerra popular prolongada. A war measured not in operations but in decades. How do you begin a war whose first virtue is not being seen?
+
+- @forjar_norte: **El cuadro profesional.** Build in Monterrey and the north first — a small core of disciplined, full-time revolutionaries who will not break, because everything depends on them not breaking. *(+structure, +discipline; the professional core)*
+- @forjar_selva: **El núcleo en la selva.** Send the first cell into the Lacandón now — plant the rural seed in Chiapas years before anyone is watching, and let it take root in silence. *(+rural roots; the seed the future grows from)*
+- @forjar_red: **La red de apoyo.** Build the urban support network first — the safe houses, the money, the logistics that a clandestine army lives on. *(+urban support, +funds; a little more exposure)*
+
+@forjar_norte
+on-arrival: {! Q.fln_entreno="norte"; Q.fln_forjado=1; Q.fln_phase="construir"; Q.fln_estructura+=10; Q.disciplina=(Q.disciplina||70)+8; Q.fln_expuesto-=2; if(Q.fln_expuesto<0){Q.fln_expuesto=0;} !}
+
+You build the core the way the real FLN did — a small, professional, iron-disciplined cadre in the industrial north, people who give the organization their whole lives because a prolonged war has no room for the part-time or the unsteady. It grows slowly, by design; you would rather have ten who will die before they talk than a hundred who might. This is the spine. Everything the long war becomes, it becomes because this core did not break.
+
+- @root: A construir. Continuar.
+
+@forjar_selva
+on-arrival: {! Q.fln_entreno="selva"; Q.fln_forjado=1; Q.fln_phase="construir"; Q.fln_rural+=12; Q.fln_estructura+=4; Q.apoyo_popular+=6; !}
+
+You do the thing whose payoff is measured in a generation: you put the first cell into the Lacandón jungle, into the Tzeltal and Tojolabal communities the state has forgotten so completely that it will not think to look there for years. It takes root the way roots take — invisibly, downward, slowly. Nothing will come of it for a decade. And then, one dawn in a year you cannot yet imagine, everything will.
+
+- @root: A construir. Continuar.
+
+@forjar_red
+on-arrival: {! Q.fln_entreno="red"; Q.fln_forjado=1; Q.fln_phase="construir"; Q.fln_urbano+=12; Q.funds=(Q.funds||0)+12; Q.fln_expuesto+=4; !}
+
+You build the circulatory system first — the safe houses in the cities, the sympathizers who launder and store and carry, the quiet money without which no clandestine army survives a month. It is the least romantic and most necessary work, and it carries the one risk the FLN spends everything to minimize: every safe house is an address, every sympathizer a name, and the network that keeps you alive is also the surface the state will one day try to peel back. Built carefully, it is the difference between enduring and starving. Built loosely, it is the thread at Nepantla.
+
+- @root: A construir. Continuar.
+
+# =====================================================================
+# PHASE 1 — CONSTRUIR EN SILENCIO. The patient-build panel (action points). Keep exposure LOW.
+# =====================================================================
+@la_estructura
+title: La estructura
+card-image: img/cards/fuente_bucareli.jpg
+subtitle: Build in silence; the enemy is exposure, and time
+view-if: banda = "fln" and fln_forjado = 1 and fln_phase = "construir"
+is-card: true
+frequency: 100
+max-visits: 400
+tags: laestructura
+
+= Construir en silencio
+
+The organization: estructura **[+ fln_estructura +]**/100 · núcleo rural (Chiapas) **[+ fln_rural +]** · red urbana **[+ fln_urbano +]** · disciplina **[+ disciplina +]** · base (apoyo) **[+ apoyo_popular +]**. **Exposición al Estado: [+ fln_expuesto +]/100** — *the enemy of the long war.* **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if fln_expuesto >= 60 : *Exposure is dangerous — a raid is near. Go silent.* ?][? if fln_expuesto >= 80 : **The state is closing in.** ?]
+
+- @fln_cuadro: **Construir cuadro.** Recruit and train disciplined, full-time revolutionaries. *(1 pt; +estructura, tiny exposure)*
+- @fln_selva: **Profundizar el núcleo.** Deepen the roots in the Lacandón communities. *(1 pt; +rural, +base; invisible)*
+- @fln_urbana: **Extender la red.** Safe houses, logistics, quiet money in the cities. *(1 pt; +red urbana, +funds; +exposure)*
+- @fln_formacion: **Formación política.** The FLN's famous doctrine and security discipline. *(1 pt; +disciplina, −exposure)*
+- @fln_actuar: **Actuar.** A rare operation — an expropriation or a self-defence. *(2 pts; +funds; +exposure — the risk of being seen)*
+- @fln_silencio: **Guardar silencio.** Go dormant this month; lower the profile, let the heat pass. *(1 pt; −exposure)*
+- @fln_finmes: **Terminar el mes.** Pass to the next; the points refill.
+
+@fln_cuadro
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.fln_estructura+=5; Q.disciplina=(Q.disciplina||70)+1; Q.fln_expuesto+=2; if(Q.fln_expuesto>100){Q.fln_expuesto=100;} !}
+
+You bring in another cadre the slow way — vetted for months, trained in the manual and the discipline, sealed into a cell that knows only what it must. The structure thickens by one committed life. It is the least dramatic sentence in the whole war and the most important: a prolonged people's war is not won by operations but by the patient accumulation of people who will not break, built faster than the state can find them and slower than impatience would like.
+
+- @la_estructura: Continuar.
+
+@fln_selva
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.fln_rural+=5; Q.fln_estructura+=2; Q.apoyo_popular+=4; Q.sup_peasants=(Q.sup_peasants||0)+2; !}
+
+You deepen the thing no one is watching: the roots in the Lacandón, the trust built one community assembly at a time with the Tzeltal, Tojolabal and Chol communities, in their languages, on their terms, over years. It is the exact opposite of the foco — not a column dropped among strangers but an organization becoming *part* of a people so slowly that there is no moment the state could point to and say *there, that is when it began.* This is the well the future drinks from.
+
+- @la_estructura: Continuar.
+
+@fln_urbana
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.fln_urbano+=5; Q.funds=(Q.funds||0)+8; Q.fln_expuesto+=5; if(Q.fln_expuesto>100){Q.fln_expuesto=100;} Q.estado_intel=(Q.estado_intel||0)+1; !}
+
+You extend the network that keeps the whole thing breathing — a new safe house, a new sympathizer with a car and a spare room, a new quiet channel for money and papers. It is necessary and it is the risk: the circulatory system is also the attack surface, and every address you add is one the state could, on a bad day, pull. Built with discipline it is survival. Built one careless contact too many and it is the beginning of the end.
+
+- @la_estructura: Continuar.
+
+@fln_formacion
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.disciplina=(Q.disciplina||70)+6; Q.fln_expuesto-=6; if(Q.fln_expuesto<0){Q.fln_expuesto=0;} Q.inteligencia+=1; !}
+
+You do the work the FLN was almost notorious for: formation. The study circles, the security protocols drilled until they are reflex, the ideological spine that lets a clandestine organization hold a line for decades without a public existence to remind it who it is. Discipline is not bureaucracy here; it is *survival* — the compartmentalization, the counter-surveillance, the culture of not-talking that means a captured cell is a dead end and not a thread. The tighter the discipline, the less the state can see.
+
+- @la_estructura: Continuar.
+
+@fln_actuar
+choose-if: acc_pts >= 2
+unavailable-subtitle: An operation costs 2 action points — and its real price is exposure.
+on-arrival: {! Q.acc_pts-=2; Q.funds=(Q.funds||0)+16; Q.parque=(Q.parque||0)+6; Q.fln_expuesto+=16; if(Q.fln_expuesto>100){Q.fln_expuesto=100;} Q.estado_intel=(Q.estado_intel||0)+3; Q.leyenda=(Q.leyenda||0)+1; !}
+
+You break your own first rule and *act* — an expropriation, or a defence that could not be avoided — and it brings what actions bring: money, materiel, a flicker of the movement's existence made real. It also brings the thing the whole strategy is built to avoid: *visibility.* For a few weeks the FLN has a surface, and surfaces get found. Every operation is a debt against the long war's one asset, which is that the state does not know you are there. Sometimes the debt is worth it. It is never free.
+
+- @la_estructura: Continuar.
+
+@fln_silencio
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.fln_expuesto-=12; if(Q.fln_expuesto<0){Q.fln_expuesto=0;} Q.disciplina=(Q.disciplina||70)+1; !}
+
+You do the hardest thing for a revolutionary to do, which is nothing. The organization goes fully dormant — no meetings that can be traced, no new contacts, no operations, no growth, just the slow patient breathing of a thing that has decided that surviving *is* the strategy. The heat cools for lack of anything to chase. Impatient comrades chafe; you remind them that the graveyards of the Mexican left are full of the brave, and its future belongs to the ones who were still there in ten years.
+
+- @la_estructura: Continuar.
+
+@fln_finmes
+new-page: true
+on-arrival: month_actions = 1
+go-to: root
+
+# =====================================================================
+# LA CAÍDA — the raid (Nepantla / Ocosingo, 1974). Fires when exposure is high.
+# =====================================================================
+@la_caida
+title: La caída
+new-page: true
+face-image: img/guardias_blancas.jpg
+subtitle: The state has found a thread — how much of the organization does it pull?
+tags: event
+view-if: banda = "fln" and fln_phase = "construir" and fln_expuesto >= 70 and time >= fln_caida_last + 3
+priority: 9
+frequency: 100
+max-visits: 20
+on-arrival: fln_caida_last = time; fln_caida = fln_caida + 1
+
+= La caída
+
+It comes the way it came at Nepantla in '74, and at the ranch in Chiapas the same year: the state finds a thread — a followed car, a talkative sympathizer, a house watched too long — and pulls. This is the moment the whole strategy was built to survive, and everything now depends on the two things you spent years building instead of fighting: how deep the discipline goes, and how compartmentalized the structure is. A well-built clandestine organization loses a cell and closes over the wound. A loose one unravels, thread by thread, into a list of the dead.
+
+- @caida_aguantar: **Aguantar.** Trust the compartments and the discipline — the raided cell is a dead end; the rest goes deeper and survives. *(needs discipline; contains the damage)*
+- @caida_replegar: **Repliegue total.** Assume the worst — freeze everything, abandon the exposed network, go completely dormant for as long as it takes. *(lose reach and structure, but kill the thread and survive)*
+- @caida_defender: **Defender.** Fight for the ones cornered — a rescue, a firefight. *(the loud, costly choice; exposure and losses climb)*
+
+@caida_aguantar
+on-arrival: {! var _hold=(Q.disciplina||70)+(Q.fln_estructura*0.3); if(_hold>=95){Q.fln_estructura-=6;Q.fln_expuesto-=18;}else{Q.fln_estructura-=16;Q.fln_expuesto-=8;Q.memorial=(Q.memorial||0)+3;} if(Q.fln_estructura<0){Q.fln_estructura=0;} if(Q.fln_expuesto<0){Q.fln_expuesto=0;} if(Q.fln_estructura<=0){Q.members=0;Q.fln_caida=9;} !}
+
+[? if disciplina >= 68 : The discipline holds. The captured comrades give the interrogators a wall — names that lead to houses long abandoned, a structure that was built precisely so that no one knew enough to bring the rest of it down. The state has a cell and a dead end. The organization bleeds, closes the wound, and goes deeper, which is the only victory a clandestine war offers: still existing tomorrow. ?][? if disciplina < 68 : The discipline was not deep enough. A name leads to an address leads to a name, and for a terrible week you watch pieces of the organization come apart faster than you can seal them off. You stop the bleeding, eventually, at a cost that will take years to rebuild — and the lesson, written in comrades, is the one the FLN staked everything on: in this war, discipline *is* survival. ?]
+
+- @root: Continuar.
+
+@caida_replegar
+on-arrival: {! Q.fln_estructura-=8; Q.fln_urbano-=6; if(Q.fln_urbano<0){Q.fln_urbano=0;} Q.fln_expuesto=8; Q.disciplina=(Q.disciplina||70)+3; if(Q.fln_estructura<0){Q.fln_estructura=0;} if(Q.fln_estructura<=0){Q.members=0;Q.fln_caida=9;} !}
+
+You freeze everything. The order goes out through the last trusted channels: stop, abandon, disappear, wait for a signal that may not come for a year. The exposed network is cut loose; the reachable structure contracts to a hard clandestine core; the thread the state was pulling goes slack in its hand, attached now to nothing. It costs you reach, and momentum, and the painful sense of having run — but the organization *survives*, dormant and intact where it matters, which is the whole and only point. The long war is patient. Sometimes patience looks exactly like retreat.
+
+- @root: Continuar.
+
+@caida_defender
+on-arrival: {! Q.fln_estructura-=6; var _r=(Q.fln_estructura*0.4)+(Q.parque*0.4)-30+(Math.random()*30-12); if(_r>=0){Q.leyenda=(Q.leyenda||0)+2;Q.apoyo_popular+=3;Q.fln_expuesto+=6;}else{Q.fln_estructura-=8;Q.memorial=(Q.memorial||0)+4;Q.fln_expuesto+=12;} if(Q.fln_expuesto>100){Q.fln_expuesto=100;} if(Q.fln_estructura<0){Q.fln_estructura=0;} if(Q.fln_estructura<=0){Q.members=0;Q.fln_caida=9;} !}
+
+You refuse to only run. A commando goes to pull the cornered comrades out — and it is the choice that most contradicts the strategy, because it trades the FLN's one asset, invisibility, for the oldest revolutionary loyalty: you do not leave your people. [? if fln_estructura >= 30 : It works, at a price — some are pulled free, the state pays for its raid, and the legend that the organization does not abandon its own is worth something no manual counts. But you are more visible now, and visibility is the one debt the long war cannot easily pay. ?][? if fln_estructura < 30 : It does not work — the structure was too thin to mount a rescue, and the attempt only feeds the state more threads and more names. Courage was not a substitute for the patient years you had not yet had. ?]
+
+- @root: Continuar.
+
+# =====================================================================
+# EL GERMEN — the endurance victory. Survive the años de plomo intact into the 1980s.
+# =====================================================================
+@el_germen
+title: El germen
+new-page: true
+face-image: img/camino.jpg
+subtitle: You did the one thing none of the others did — you survived
+tags: event
+view-if: banda = "fln" and fln_phase = "construir" and year >= 1983 and fln_estructura >= 38 and fln_expuesto < 60 and fln_germen_visto = 0
+priority: 10
+max-visits: 1
+on-arrival: {! Q.fln_germen_visto=1; Q.fln_endurado=1; Q.leyenda=(Q.leyenda||0)+8; Q.apoyo_popular+=6; !}
+
+= El germen
+
+The others are gone. Lucio died at El Otatal in '74; the Liga was rolled up cell by cell by the decade's end; the focos are corridos now, and the dirty war has done its work and moved on, satisfied that it killed the guerrilla. It did not kill *you*, because it never found you — because you spent the años de plomo doing the unglamorous, invisible, patient thing that every impatient revolutionary swore was cowardice, and you are still here. The structure held. The Lacandón núcleo, planted in silence a decade ago, has become something the state does not know exists: an army growing in the jungle, in Tzeltal and Tojolabal and Chol, rooted so deep that when it finally speaks it will seem to come from nowhere and from five hundred years at once.
+
+This is the victory guerra popular prolongada promised and only it could deliver: not a capital taken or a city stopped, but *survival* — an intact revolutionary organization carried through the killing decade into the next, the seed of something the whole country will wake up to one cold morning in a year still ahead. The war you chose was the longest one. It is also the only one that is not yet over.
+
+- @root: Seguir, en silencio. Continuar.

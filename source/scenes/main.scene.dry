@@ -36,6 +36,7 @@ max-cards: 3
 - @canales
 - @laguerra
 - @lared
+- @laestructura
 - @sierra
 - @campo
 - @fdn
@@ -80,6 +81,7 @@ max-cards: 4
 - @canales
 - @laguerra
 - @lared
+- @laestructura
 - @sierra
 - @campo
 - @fdn
@@ -125,6 +127,7 @@ max-cards: 5
 - @canales
 - @laguerra
 - @lared
+- @laestructura
 - @sierra
 - @campo
 - @fdn
@@ -169,6 +172,7 @@ max-cards: 4
 - @canales
 - @laguerra
 - @lared
+- @laestructura
 - @sierra
 - @campo
 - @fdn
@@ -210,6 +214,15 @@ view-if: banda = "ciudad"
 is-deck: true
 
 - #lared
+
+@laestructura
+card-image: img/cards/fuente_bucareli.jpg
+title: La estructura
+subtitle: The FLN — building the long war in silence
+view-if: banda = "fln"
+is-deck: true
+
+- #laestructura
 
 @sistema
 title: El laberinto
