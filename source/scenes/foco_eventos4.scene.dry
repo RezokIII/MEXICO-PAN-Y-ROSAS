@@ -1,0 +1,363 @@
+title: Eventos del foco IV — el precio
+max-visits: 1
+view-if: 0
+# Container/namespace only. Batch 4: dilemmas with no clean option. Every branch costs something
+# the player wants. banda="sierra", f_phase="marcha".
+
+# ---------------------------------------------------------------------
+@ev_norvenir
+title: No vuelvan
+new-page: true
+face-image: img/countryside2.jpg
+subtitle: The village that asks the guerrilla to stop coming
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_cerco >= 40 and apoyo_popular >= 30 and time >= f_ev_last + 3
+priority: 6
+frequency: 60
+max-visits: 4
+on-arrival: f_ev_last = time
+
+= No vuelvan
+
+The comisario walks up to the camp himself, an old man who has fed you for two years, and he does not sit down. The army came through after your last visit. They took four men to the airbase and two have not come back and the maize was burned in the granary, and he has been sent by the assembly — *sent*, he emphasises, this is not his opinion — to ask the compañeros not to come to their village again.
+
+He is not betraying you. He is doing the arithmetic of a man responsible for two hundred people, and the arithmetic says the guerrilla's visits cost more than the guerrilla's protection is worth. Everything you believe about the war says he is wrong. Everything he has buried this year says he is right.
+
+- @nor_respetar: Respect it. Take the column out of that valley and do not go back. *(lose the base there; keep faith with them)*
+- @nor_insistir: Explain, gently, that a village cannot opt out of a war the army is already fighting in it. Keep coming. *(hold the ground; the trust rots)*
+- @nor_defender: Promise protection and mean it — station people, answer the next sweep. *(costly; if you fail, they are destroyed)*
+
+@nor_respetar
+on-arrival: {! Q.apoyo_popular-=4; Q.f_comida-=8; if(Q.f_comida<0){Q.f_comida=0;} Q.f_cerco-=10; if(Q.f_cerco<0){Q.f_cerco=0;} Q.f_moral-=4; Q.disciplina=(Q.disciplina||65)+3; Q.leyenda=(Q.leyenda||0)+1; !}
+
+You give him your word and you keep it, which costs the column one of its three reliable food valleys and costs the men something harder to name. The old man does not thank you; he nods once, the way you nod at someone who has finally understood, and walks back down. In five villages the story is told that the guerrilla was asked to leave and left — which is the single most persuasive thing the movement has done all year, and it will pay you back somewhere else, later, in a place you will not be able to trace.
+
+- @root: Continuar.
+
+@nor_insistir
+on-arrival: {! Q.f_comida+=6; Q.apoyo_popular-=9; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} Q.brutalidad=(Q.brutalidad||0)+1; !}
+
+You explain it patiently and you are, in the narrow military sense, correct: the army is already in their valley, neutrality is a fiction, and there is nowhere to opt out to. You keep coming. They keep feeding you, because what else can they do with armed men in their yard — and that sentence, *what else can they do*, is the exact moment a base of support becomes an occupation with better slogans. Nobody says it aloud. Everybody feels the temperature change.
+
+- @root: Continuar.
+
+@nor_defender
+choose-if: f_hombres >= 20 and f_parque >= 10
+unavailable-subtitle: Promising to defend a village needs a column that can actually do it — 20 fighters and 10 parque.
+on-arrival: {! Q.f_parque-=10; var _r=(Q.f_hombres||0)*1.1+(Q.f_moral||0)*0.4-(Q['gn_'+Q.col_nodo]||0)*1.05-15+(Math.random()*30-12);
+if(_r>=0){ var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(12,_h*0.6); Q.f_desgaste+=8; Q.f_moral+=8; Q.leyenda=(Q.leyenda||0)+3; Q.f_hombres-=2; Q.f_bajas+=2; }
+else { Q.apoyo_popular-=14; Q.f_hombres-=6; Q.f_bajas+=6; Q.memorial=(Q.memorial||0)+4; Q.f_moral-=12; }
+Q.f_cerco+=16; if(Q.f_cerco>100){Q.f_cerco=100;} if(Q.f_hombres<0){Q.f_hombres=0;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;} !}
+
+You promise, which is the most expensive word in this war, and then you have to keep it. [? if f_moral >= 55 : The next sweep comes and finds the column waiting on the ridge above the village, and it does not get down into the houses. The old man never mentions the conversation again. Nothing you could have said would have bought what that morning bought. ?][? if f_moral < 55 : The next sweep comes with more than you had, and the column fights and loses and the village pays anyway — worse than before, because now it is a village that harboured fighters who shot back. You promised protection and delivered a reprisal. This is the risk everybody knows about and nobody can bring themselves to refuse. ?]
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_secuestro_rico
+title: El hijo del hacendado
+new-page: true
+face-image: img/charola.jpg
+subtitle: A year of war, in exchange for becoming kidnappers
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_hombres >= 16 and time >= f_ev_last + 4
+priority: 5
+frequency: 50
+max-visits: 3
+on-arrival: f_ev_last = time
+
+= El hijo del hacendado
+
+The opportunity is clean and the target is not innocent: the son of the biggest landowner in the district, twenty-three, home from a university in the capital, driving between fincas with one bodyguard. His family's money is the reason four ejidos in this valley are not ejidos. A ransom would fund the column for a year — weapons, medicine, the boots half the men do not have.
+
+It would also make the movement, in every newspaper in Mexico, *kidnappers*. Not guerrillas, not the Party of the Poor: kidnappers. The state has been trying to fix that word to you for three years, and this would do its work for it in one afternoon.
+
+- @sec_hacer: Take him. The war needs money and his family's money is stolen anyway. *(big funds/parque; the word sticks to you)*
+- @sec_condicionar: Take him — and demand not money but the ejido titles and the release of prisoners. *(political demand; less money, better optics, higher risk)*
+- @sec_dejar: Let him drive past. *(nothing gained; the column mutters about boots)*
+
+@sec_hacer
+on-arrival: {! Q.funds=(Q.funds||0)+30; Q.f_parque+=16; Q.f_comida+=10; Q.brutalidad=(Q.brutalidad||0)+1; Q.apoyo_popular-=4; Q.pol_pcm-=8; if(Q.pol_pcm<0){Q.pol_pcm=0;} Q.legitimidad_regimen+=2; Q.f_cerco+=14; if(Q.f_cerco>100){Q.f_cerco=100;} Q.estado_intel=(Q.estado_intel||0)+4; !}
+
+The money arrives in a suitcase and it changes everything the column can do for a year. It also arrives with a headline: the papers run the family's photograph, the mother on television, and the government — which has been burning villages in this state for three years without a single front page — is suddenly the reasonable party in a story about criminals who take children for money. The PCM's people stop returning your messages for a while. You bought a year of war and sold a piece of what the war was supposed to mean.
+
+- @root: Continuar.
+
+@sec_condicionar
+on-arrival: {! Q.funds=(Q.funds||0)+8; Q.presos=0; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(6,_h*0.35); Q.legitimidad_regimen-=5; Q.leyenda=(Q.leyenda||0)+3; Q.pol_intl+=6; Q.brutalidad=(Q.brutalidad||0)+1; Q.f_cerco+=18; if(Q.f_cerco>100){Q.f_cerco=100;} Q.estado_intel=(Q.estado_intel||0)+5; !}
+
+You take him and you ask for the wrong things — the ejido titles his father has been sitting on since 1958, the release of eleven campesinos held without charge, and the reading of a communiqué. It is far less money and infinitely better politics: the state has to choose between conceding land reform on camera or explaining why a boy's life is worth less than a title deed. The valley reads the whole thing as justice arriving by unusual means. The army reads it as the reason to double the garrison, and doubles it.
+
+- @root: Continuar.
+
+@sec_dejar
+on-arrival: {! Q.f_moral-=4; Q.disciplina=(Q.disciplina||65)+2; !}
+
+He drives past and nothing happens, which is the correct decision and the invisible one. The column is short of boots and long on opinions about it. Nobody outside this camp will ever know that the movement declined an easy fortune on the grounds that it would rather stay the thing it says it is — which is the trouble with restraint: it does not photograph.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_canje
+title: El canje
+new-page: true
+face-image: img/lecumberri.jpg
+subtitle: The army offers a trade, and the price is your own rule
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and presos >= 1 and f_desgaste >= 15 and time >= f_ev_last + 4
+priority: 7
+frequency: 60
+max-visits: 3
+on-arrival: f_ev_last = time
+
+= El canje
+
+A message comes through the bishop's office, which means somebody in Chilpancingo authorized it: the army will trade. Your people in the Campo Militar — the ones you have not been able to reach, whose families come to the camp asking — for the officers and the men you hold, and for a pause in operations while it is arranged.
+
+Everything in you wants it. It is also a trap with three floors: the pause lets them reposition, the negotiation admits you can be negotiated with on their terms, and the exchange means handing back men who have seen your camp. And the deepest floor is this — they know you will say yes, because they know the families come to the camp.
+
+- @can_aceptar: Take the trade. Your people are worth more than the advantage. *(comrades home, morale; the army repositions)*
+- @can_publicar: Accept — but make it public, through the press and the international committees, so the pause is a political event rather than a private favour. *(riskier, slower; enormous political gain)*
+- @can_rechazar: Refuse. The movement does not trade with an army that disappears people. *(hard; the families never forgive it)*
+
+@can_aceptar
+on-arrival: {! Q.presos=0; Q.f_moral+=12; Q.f_hombres+=2; Q.f_desgaste-=6; if(Q.f_desgaste<0){Q.f_desgaste=0;} Q.f_cerco+=10; if(Q.f_cerco>100){Q.f_cerco=100;} Q.estado_intel=(Q.estado_intel||0)+4; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(4,_h*0.25); !}
+
+They come back thin and quiet and alive, and the camp does not sleep that night for the noise of it. Their mothers were right to keep walking up the mountain. And during the four weeks the arrangement takes, the army rotates two fresh companies into the district, re-supplies the garrisons you had worn down, and gets a very good look at the routes your negotiators use. You would do it again. You know exactly what it cost.
+
+- @root: Continuar.
+
+@can_publicar
+choose-if: pol_intl >= 25 or pol_pcm >= 25
+unavailable-subtitle: Making a prisoner exchange public needs channels you have not built — press, the Party, or the international committees.
+on-arrival: {! Q.presos=0; Q.f_moral+=10; Q.f_hombres+=2; Q.pol_intl+=12; if(Q.pol_intl>100){Q.pol_intl=100;} Q.legitimidad_regimen-=8; Q.leyenda=(Q.leyenda||0)+3; Q.f_desgaste-=3; if(Q.f_desgaste<0){Q.f_desgaste=0;} Q.f_cerco+=8; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+You accept and then you do the thing they did not expect: you announce it. The exchange happens in front of a bishop, two journalists and a telegram from a committee in Geneva, which converts a private arrangement into a public admission that the Mexican state holds prisoners it says do not exist. Your people come home *and* the government spends a month explaining itself. The generals will not make this mistake twice, and the men who authorized it are finished.
+
+- @root: Continuar.
+
+@can_rechazar
+on-arrival: {! Q.f_moral-=14; Q.disciplina=(Q.disciplina||65)-4; Q.apoyo_popular-=6; Q.f_desgaste+=4; Q.paranoia=(Q.paranoia||8)+6; !}
+
+You refuse on principle and the principle is defensible: they are hostage-takers, the pause is a military gift, and a movement that trades once will be made to trade forever. You are also refusing to bring home men whose mothers are standing in your camp when you say it. The column does not argue. It simply becomes, that afternoon, a slightly colder organization than it was — and everyone privately files the knowledge that if it were them in the Campo Militar, this is the answer they would get.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_cosecha_dura
+title: La cosecha que no alcanza
+new-page: true
+face-image: img/cards/ejido.jpg
+subtitle: A bad year, and two ways to be hungry
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_comida <= 45 and apoyo_popular >= 30 and time >= f_ev_last + 3
+priority: 6
+frequency: 60
+max-visits: 5
+on-arrival: f_ev_last = time
+
+= La cosecha que no alcanza
+
+The rains failed in the upper valleys and the harvest is thin, and for the first time the arithmetic of the base of support runs the wrong way: if the villages feed the column at the usual rate this winter, the villages will not eat by March. Nobody has said so. They will go on giving until their own children are thin, because that is what these people are like, and the column will not notice until it is too late to undo.
+
+- @cos_reducir: Cut the column's ration and take less than they offer. *(hunger in camp; the base survives)*
+- @cos_expropiar: Take the shortfall from the finca and the town instead — a serious operation, far from the villages. *(feeds you; heavy exposure)*
+- @cos_aceptar: Take what is offered. The war cannot pause for a bad year. *(fed now; the water will remember this winter)*
+
+@cos_reducir
+on-arrival: {! Q.f_comida-=10; if(Q.f_comida<0){Q.f_comida=0;} Q.f_moral-=8; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(8,_h*0.45); Q.f_hombres-=1; Q.leyenda=(Q.leyenda||0)+2; !}
+
+The order goes out and the men take it badly for about three weeks and then stop mentioning it, because they can see the same thin children the order was written for. One fighter leaves. The villages, who expected to be eaten through by February, discover in March that they have maize — and understand exactly why. There is no faster way to become *theirs* than to be hungry alongside them on purpose.
+
+- @root: Continuar.
+
+@cos_expropiar
+choose-if: f_parque >= 8
+unavailable-subtitle: An operation big enough to feed the column through a bad winter needs at least 8 parque.
+on-arrival: {! Q.f_parque-=8; var _r=(Q.f_hombres||0)*0.6+(Q.f_moral||0)*0.3-38+(Math.random()*32-12);
+if(_r>=0){ Q.f_comida+=30; Q.funds=(Q.funds||0)+8; }
+else { Q.f_comida+=12; Q.f_hombres-=2; Q.f_bajas+=2; Q.memorial=(Q.memorial||0)+1; }
+Q.f_cerco+=16; if(Q.f_cerco>100){Q.f_cerco=100;} Q.estado_intel=(Q.estado_intel||0)+3; if(Q.f_hombres<0){Q.f_hombres=0;} !}
+
+You go and take the winter out of a finca warehouse and a wholesaler's truck instead of out of the villages, which is the right target and the loud one. [? if f_moral >= 50 : It works and the column eats without a single sack coming from a family that needed it. ?][? if f_moral < 50 : It half works and costs you people, and the column eats anyway, and the men who carried the wounded do the arithmetic quietly. ?] The army now knows the guerrilla is short of food, which is intelligence you would have paid a great deal to keep.
+
+- @root: Continuar.
+
+@cos_aceptar
+on-arrival: {! Q.f_comida+=22; Q.apoyo_popular-=8; Q.f_moral+=2; !}
+
+The sacks come up the trail as always and the column eats as always and nobody in the camp is told what it cost, because nobody in the villages says. In February the children in three hamlets are visibly thin. In March a woman who has fed you for two years is short with your quartermaster for the first time. Nothing is said. Something has moved, and it will not move back, and you will feel it two years from now when you need something and it is not there.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_madrina
+title: La madrina
+new-page: true
+face-image: img/charola.jpg
+subtitle: Someone in the column has been talking — and you know who
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and estado_intel >= 40 and inteligencia >= 15 and time >= f_ev_last + 5
+priority: 7
+frequency: 55
+max-visits: 2
+on-arrival: f_ev_last = time
+
+= La madrina
+
+This time it is not a fever. The intelligence is real and it converges: three operations compromised, a pattern only a handful could have known, and a compañero whose family suddenly has a truck. He is twenty-nine, he has been with you since the beginning, and he was in the Campo Militar for two weeks last year and came out — everyone assumed because they had nothing.
+
+He is not a monster. He is a man they broke and then paid, who has been living inside your movement carrying that, and who has probably been waiting a long time for somebody to notice.
+
+- @mad_ejecutar: Deal with it the way every guerrilla in history has. *(certain security; the column will never be the same)*
+- @mad_voltear: Turn him — feed him false information and let the army act on it. *(needs intelligence; the single most valuable asset you could have)*
+- @mad_expulsar: Take his weapon, tell him you know, and let him walk down the mountain alive. *(merciful; he knows everything and owes them)*
+
+@mad_ejecutar
+on-arrival: {! Q.brutalidad=(Q.brutalidad||0)+2; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.estado_intel=(Q.estado_intel||0)-14; if(Q.estado_intel<0){Q.estado_intel=0;} Q.f_cerco-=10; if(Q.f_cerco<0){Q.f_cerco=0;} Q.paranoia=(Q.paranoia||8)+12; Q.f_moral-=10; Q.disciplina=(Q.disciplina||65)-5; Q.f_hombres-=1; !}
+
+It is done, and the leak closes, and the difference in the army's behaviour within a month proves you were right. Being right does not help as much as you expected. The column watched you kill someone who had carried their wounded, for a reason that was true, and every man in it now understands that the movement will do that — which is a fact that changes how people speak to each other at a fire, permanently.
+
+- @root: Continuar.
+
+@mad_voltear
+choose-if: inteligencia >= 30 and disciplina >= 55
+unavailable-subtitle: Running a doubled informer takes an intelligence apparatus (30) and a disciplined command (55) — otherwise you are simply keeping a traitor.
+on-arrival: {! Q.inteligencia+=8; Q.estado_intel=(Q.estado_intel||0)-8; if(Q.estado_intel<0){Q.estado_intel=0;} Q.f_desgaste+=10; Q.f_cerco-=6; if(Q.f_cerco<0){Q.f_cerco=0;} Q.paranoia=(Q.paranoia||8)+5; !}
+
+You sit with him alone and you do not raise your voice, and by the end of it he is crying and he is yours again in the only way left: he will now tell them exactly what you want them to hear. For eight months the army moves according to a map you are drawing, and walks into two ambushes it chose itself. It is the most valuable thing the column has ever owned and it requires you to look at him every day and be perfectly calm about what he did and what he is doing.
+
+- @root: Continuar.
+
+@mad_expulsar
+on-arrival: {! Q.expediente=(Q.expediente||0)+10; Q.estado_intel=(Q.estado_intel||0)+6; Q.f_moral+=4; Q.disciplina=(Q.disciplina||65)-2; Q.paranoia=(Q.paranoia||8)-4; if(Q.paranoia<0){Q.paranoia=0;} !}
+
+You take his rifle and tell him what you know and let him go, and half the column thinks you have lost your mind. Perhaps. What it does to the *others* is the thing you were buying: they now know that being broken by the enemy is survivable inside this movement, which means the next man they break may come and tell you instead of living with it. It also means the DFS has a debriefed asset walking into their office with everything he knows, and the file on you gets much thicker by Friday.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_bomba
+title: El coche en la plaza
+new-page: true
+face-image: img/molotov.jpg
+subtitle: A plan that would work, and a line the movement has not crossed
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_desgaste >= 20 and time >= f_ev_last + 5
+priority: 6
+frequency: 45
+max-visits: 2
+on-arrival: f_ev_last = time
+
+= El coche en la plaza
+
+The urban comrades propose it and the military logic is not stupid: a charge in a vehicle outside the garrison headquarters in Atoyac, timed for the morning muster. It would kill officers, it would be enormous, and it would announce that the war reaches into the towns. The problem is the plaza. The muster is at seven and the market is at seven, and no one at this fire can promise you where the difference between soldiers and the women selling bread will fall.
+
+- @bom_hacer: Authorize it. Wars are not won by the side that keeps its hands cleanest. *(big desgaste; and whatever the plaza costs)*
+- @bom_modificar: Only if it can be done at night against the building, with nobody in the market. *(smaller effect; the movement's line holds)*
+- @bom_prohibir: Refuse, and say plainly why — this is where the movement stops. *(nothing gained; the doctrine is set in front of everyone)*
+
+@bom_hacer
+on-arrival: {! Q.f_desgaste+=14; Q.legitimidad_regimen-=3; Q.brutalidad=(Q.brutalidad||0)+3; Q.apoyo_popular-=12; Q.pol_pcm-=12; if(Q.pol_pcm<0){Q.pol_pcm=0;} Q.pol_intl-=8; if(Q.pol_intl<0){Q.pol_intl=0;} Q.f_cerco+=18; if(Q.f_cerco>100){Q.f_cerco=100;} Q.estado_intel=(Q.estado_intel||0)+8; Q.leyenda=(Q.leyenda||0)+1; !}
+
+It goes off at seven and it does what explosives do, which is not to distinguish. Eleven soldiers. Also a bread seller and her daughter and two men waiting for a bus, and their names are in the papers for a week with photographs, and the government does not have to say a single word in its own defence because you have said it for them. The garrison is hurt. The movement is, in the sierra and in the capital and in the office of every editor who was starting to be sympathetic, something different than it was on Tuesday.
+
+- @root: Continuar.
+
+@bom_modificar
+on-arrival: {! Q.f_desgaste+=6; Q.legitimidad_regimen-=2; Q.f_parque-=6; if(Q.f_parque<0){Q.f_parque=0;} Q.f_cerco+=8; if(Q.f_cerco>100){Q.f_cerco=100;} Q.leyenda=(Q.leyenda||0)+2; Q.disciplina=(Q.disciplina||65)+2; !}
+
+They do it at three in the morning against an empty building, and it is a much smaller blow militarily and a much larger one in every other sense: the town wakes to a wrecked garrison wall and no funerals, and understands that the guerrilla could have done it at seven and chose not to. That understanding is worth more in this state than eleven dead soldiers. It also cost the explosives and taught the army to guard the building at night.
+
+- @root: Continuar.
+
+@bom_prohibir
+on-arrival: {! Q.disciplina=(Q.disciplina||65)+5; Q.f_moral-=3; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(4,_h*0.25); Q.pol_pcm+=6; if(Q.pol_pcm>100){Q.pol_pcm=100;} !}
+
+You say no in front of everyone and you say why, and the why is the whole argument of the war: that a movement which kills the people it claims to be fighting for has already lost, whatever it wins afterwards. Two of the urban compañeros think you are sentimental. The sierra, which will hear about this decision within a month because the sierra hears about everything, does not think so at all.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_rival
+title: La otra columna
+new-page: true
+face-image: img/guerillas3.jpg
+subtitle: Another armed group is working your valleys — badly
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and apoyo_popular >= 35 and time >= f_ev_last + 4
+priority: 5
+frequency: 45
+max-visits: 3
+on-arrival: f_ev_last = time
+
+= La otra columna
+
+There is another group in the district. Eight or nine of them, young, from the city, calling themselves something with the word *proletarian* in it, and they have been expropriating in your valleys — which means robbing shops that belong to people who feed you, and telling the campesinos that the guerrilla will punish anyone who collaborates with the army. The villages cannot tell the difference between them and you. The army does not want to. Everything they do costs you.
+
+- @riv_absorber: Bring them in — offer them the discipline and the base they do not have. *(fighters and friction; you inherit what they have done)*
+- @riv_expulsar: Tell them to leave the district or be treated as a hostile force. *(the valleys clear; a left group becomes your enemy)*
+- @riv_ignorar: Not your business. There is only one enemy and it wears a uniform. *(cheap now; they keep spending your water)*
+
+@riv_absorber
+on-arrival: {! Q.f_hombres+=5; Q.f_parque+=4; Q.disciplina=(Q.disciplina||65)-6; Q.brutalidad=(Q.brutalidad||0)+1; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(3,_h*0.2); Q.paranoia=(Q.paranoia||8)+4; !}
+
+They come in and they bring nine rifles, a great deal of theory, and a year of resentments in three villages that are now yours to answer for. Absorbing a group is absorbing its record. Within two months two of them are excellent and one has to be watched constantly, and the column's discipline, which took three years to build, has a new hairline crack running through it.
+
+- @root: Continuar.
+
+@riv_expulsar
+on-arrival: {! var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(6,_h*0.35); Q.f_cerco-=4; if(Q.f_cerco<0){Q.f_cerco=0;} Q.escisiones_armadas=(Q.escisiones_armadas||0)+1; Q.pol_pcm-=4; if(Q.pol_pcm<0){Q.pol_pcm=0;} !}
+
+You send four men with a message that is not open to interpretation, and they go — north, to somebody else's valleys, to do the same thing there. The villages notice that the robberies stop and draw the correct conclusion about who actually governs this district. You have also just made enemies of an armed left group who will describe you, in every meeting they ever attend, as authoritarians who threatened revolutionaries at gunpoint. Both of those things are true.
+
+- @root: Continuar.
+
+@riv_ignorar
+on-arrival: {! Q.apoyo_popular-=7; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} Q.estado_intel=(Q.estado_intel||0)+3; !}
+
+You have a war to fight and no appetite for policing other revolutionaries. So they go on robbing the stores of people who feed you, and go on saying *the guerrilla says*, and every one of their mistakes is filed by the villages and the army alike under your name. Sectarian tidiness costs nothing today and is charged to your account monthly, forever.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_herido
+title: El que no puede caminar
+new-page: true
+face-image: img/guerillacamp.webp
+subtitle: The oldest arithmetic in guerrilla war
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_bajas >= 2 and f_cerco >= 50 and time >= f_ev_last + 3
+priority: 7
+frequency: 65
+max-visits: 5
+on-arrival: f_ev_last = time
+
+= El que no puede caminar
+
+He took it through the hip two days ago and the column has been carrying him since, four men at a time on a litter, at a third of its normal speed, with the ring closing. The médico — if you have one — says he lives if he stops moving and dies if he does not. The map says the column dies if it stops moving. This is the arithmetic Che wrote about and could not solve either, and it is now sitting by the fire looking at you with complete understanding.
+
+- @her_cargar: Carry him. The column moves at his speed and takes whatever comes. *(major risk; the band's soul)*
+- @her_esconder: Leave him in a village with people who will hide and nurse him. *(faster; you are trusting a whole hamlet with a man's life and your security)*
+- @her_dejar: Leave him with a weapon and a canteen where he chose to be left. *(the column survives; everyone knows what happened)*
+
+@her_cargar
+on-arrival: {! Q.f_cerco+=20; if(Q.f_cerco>100){Q.f_cerco=100;} Q.f_moral+=12; Q.f_comida-=6; Q.disciplina=(Q.disciplina||65)+3; Q.leyenda=(Q.leyenda||0)+2; if(Math.random()*100 < (Q.f_cerco||0)*0.5){ Q.f_hombres-=3; Q.f_bajas+=3; Q.memorial=(Q.memorial||0)+2; } !}
+
+You carry him, and the column crawls, and the ring draws in around the four men on the litter and the twenty walking beside them at half speed. [? if f_cerco >= 80 : They catch the tail of the column in a draw and it costs you three more to get everyone out, which is precisely the arithmetic the manual warned about. ?] He lives. And every fighter in the band now knows, with certainty rather than hope, that they will not be left — which is worth more than a road, and which you have just paid for at the going rate.
+
+- @root: Continuar.
+
+@her_esconder
+on-arrival: {! Q.f_cerco-=6; if(Q.f_cerco<0){Q.f_cerco=0;} var _rr=Math.random()*100; if(_rr < 30 + (Q.apoyo_popular||0)*0.5){ Q.f_moral+=5; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(5,_h*0.3); } else { Q.f_hombres-=1; Q.f_bajas+=1; Q.memorial=(Q.memorial||0)+1; Q.apoyo_popular-=6; Q.estado_intel=(Q.estado_intel||0)+5; } !}
+
+You leave him under a floor in a hamlet with a family who agree instantly, the way people here always agree, and the column moves on at speed. [? if apoyo_popular >= 50 : Six weeks later he walks back into camp with a limp and a great deal to say about the woman who nursed him. The water held. ?][? if apoyo_popular < 50 : Three weeks later the army searches that hamlet on a tip and finds him, and afterwards the family is gone too. You did not have enough water to float that decision, and other people paid for the difference. ?]
+
+- @root: Continuar.
+
+@her_dejar
+on-arrival: {! Q.brutalidad=(Q.brutalidad||0)+1; Q.f_cerco-=14; if(Q.f_cerco<0){Q.f_cerco=0;} Q.f_moral-=16; Q.disciplina=(Q.disciplina||65)-4; Q.f_hombres-=1; Q.memorial=(Q.memorial||0)+1; Q.paranoia=(Q.paranoia||8)+6; !}
+
+He says he understands and he asks for the pistol, and the column marches away at full speed and gets clear, which was the correct military decision and is the one nobody will ever discuss again. It is also the sentence every man in the band now silently completes about himself. Morale is not a number after a morning like that; it is the specific weight of knowing what the movement does when you cannot walk.
+
+- @root: Continuar.
