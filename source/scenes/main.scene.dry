@@ -34,7 +34,6 @@ max-cards: 3
 - @movimiento
 - @sistema
 - @canales
-- @laguerra
 - @dmovimiento
 - @dcombate
 - @dpueblo
@@ -83,7 +82,6 @@ max-cards: 4
 - @movimiento
 - @sistema
 - @canales
-- @laguerra
 - @dmovimiento
 - @dcombate
 - @dpueblo
@@ -133,7 +131,6 @@ max-cards: 5
 - @movimiento
 - @sistema
 - @canales
-- @laguerra
 - @dmovimiento
 - @dcombate
 - @dpueblo
@@ -182,7 +179,6 @@ max-cards: 4
 - @movimiento
 - @sistema
 - @canales
-- @laguerra
 - @dmovimiento
 - @dcombate
 - @dpueblo
@@ -213,15 +209,6 @@ is-deck: true
 
 - #campo
 
-@laguerra
-card-image: img/guerillas2.jpg
-title: La columna
-subtitle: The foco — your band, where its feet are
-view-if: banda = "sierra"
-is-deck: true
-
-- #laguerra
-
 @dmovimiento
 card-image: img/countryside2.jpg
 title: Movimiento
@@ -232,7 +219,7 @@ is-deck: true
 - #fmovimiento
 
 @dcombate
-card-image: img/guerilla assualt.jpg
+card-image: img/guerillas2.jpg
 title: Combate
 subtitle: Emboscar — desgastar al ejército
 view-if: banda = "sierra"

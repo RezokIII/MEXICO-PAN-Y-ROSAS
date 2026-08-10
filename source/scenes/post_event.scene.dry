@@ -591,7 +591,28 @@ if (Q.month_actions >= 1) {
     Q.month_actions = 0;
     Q.month += 1;
     Q.evt_loop = 0;
-    Q.acc_pts = Q.acc_max || 2;   // armed-road action points refill each month
+    // ARMED-ROAD ACTION CAPACITY: a bigger, better-drilled organization can do more in a month.
+    // The band starts able to do one big thing (2 pts) and grows into three or four.
+    var _cap = 2;
+    if (Q.banda === "sierra") {
+        if ((Q.f_hombres||0) >= 22) { _cap += 1; }          // enough fighters to split into detachments
+        if ((Q.f_hombres||0) >= 40) { _cap += 1; }          // several detachments at once
+        if ((Q.disciplina||0) >= 70) { _cap += 1; }         // drilled enough to operate without you
+        if ((Q.f_moral||0) < 35) { _cap -= 1; }             // a demoralized band does less
+    } else if (Q.banda === "ciudad") {
+        if ((Q.u_celulas||0) >= 5) { _cap += 1; }
+        if ((Q.u_celulas||0) >= 8) { _cap += 1; }
+        if ((Q.u_seguridad||0) >= 70) { _cap += 1; }        // compartmentalized cells act in parallel safely
+        if ((Q.u_calor||0) >= 80) { _cap -= 1; }            // under a manhunt, everything slows
+    } else if (Q.banda === "fln") {
+        if ((Q.fln_estructura||0) >= 35) { _cap += 1; }
+        if ((Q.fln_estructura||0) >= 60) { _cap += 1; }
+        if ((Q.disciplina||0) >= 75) { _cap += 1; }
+        if ((Q.fln_expuesto||0) >= 70) { _cap -= 1; }       // hiding costs tempo
+    }
+    if (_cap < 1) { _cap = 1; } if (_cap > 5) { _cap = 5; }
+    Q.acc_max = _cap;
+    Q.acc_pts = Q.acc_max;   // armed-road action points refill each month
     if (Q.month >= 13) {
         Q.month = 1;
         Q.year += 1;

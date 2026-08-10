@@ -102,7 +102,9 @@ subtitle: Mover la columna, reconocer, flanquear
 
 = Movimiento
 
-Ring **[+ f_cerco +]**/100 · comida **[+ f_comida +]** · **Puntos de acción: [+ acc_pts +]/[+ acc_max +]**. Move to a neighbouring village (1 pt) — its army number shows once you **Reconocer** it, so scout first and flank the cold way around a garrison.
+**El cerco: [+ f_cerco +]/100** — the ring the army is closing around you. [? if f_cerco >= 70 : *It is nearly shut: move, or it closes on you.* ?][? if f_cerco < 30 : *Loose — you are not where they are looking.* ?] Comida **[+ f_comida +]** (each move eats 4). **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+
+*Moving to cold ground (low army) LOOSENS the ring; walking into a garrison tightens it and costs blood. A village's army number is hidden until you **Reconocer** it — scouting is how you flank instead of stumbling.*
 
 - @go_atoyac: → **Atoyac**[? if sn_atoyac = 1 : (ejército [+ gn_atoyac +]) ?].
 - @go_coyuca: → **Coyuca**[? if sn_coyuca = 1 : (ejército [+ gn_coyuca +]) ?].
@@ -115,7 +117,7 @@ Ring **[+ f_cerco +]**/100 · comida **[+ f_comida +]** · **Puntos de acción: 
 - @m_reconocer: **Reconocer.** Scout the neighbouring villages — reveal the army units, and let the guides find the coldest way through. *(1 pt)*
 - @m_forzada: **Marcha forzada.** A night march to the coldest ground within reach — break contact hard. *(2 pts; big ring drop; costs comida + moral)*
 - @m_acampar: **Acampar.** Make a real camp — rest, forage, mend. *(1 pt; +moral +comida; a static camp can be found)*
-- @marcha: Volver al mando.
+- @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 @cat_combate
 new-page: true
@@ -131,12 +133,16 @@ face-image: img/anti-guerillas.jpg
 
 = Combate
 
-[+ f_hombres +] fighters · parque **[+ f_parque +]** · moral **[+ f_moral +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**. Desgaste del ejército: **[+ f_desgaste +]**/100 — the war is won by wearing it down, but every blow tightens the ring.
+**Desgaste del ejército: [+ f_desgaste +]/100** — the only road to victory. [? if f_desgaste >= 50 : *The army is hollow: at 50+, with a real column and deep water, **El momento** opens — the chance to take Chilpancingo.* ?][? if f_desgaste < 50 : *Wear it down. At 50 the chance to take a capital becomes possible.* ?]
+
+[+ f_hombres +] fighters · parque **[+ f_parque +]** (an ambush costs 12) · moral **[+ f_moral +]** · cerco **[+ f_cerco +]**. **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+
+*Every blow wears the army AND tightens the ring. Morale decides whether an ambush is a corrido or a funeral; the garrison where you strike gets thinner.*
 
 - @m_emboscar: **Emboscar.** Hit an army patrol on ground you chose. *(2 pts)*
 - @c_sabotaje: **Sabotaje.** Blow a bridge, a rail, a power line — cheap damage that wears the army and the state. *(1 pt; +desgaste; +heat)*
 - @c_convoy: **Golpe a un convoy.** Hit an army supply convoy for its rations and ammunition. *(2 pts; +parque +comida if it works; risky, +ring)*
-- @marcha: Volver al mando.
+- @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 @cat_pueblo
 new-page: true
@@ -152,12 +158,16 @@ face-image: img/workingwithelpueblo.jpg
 
 = El pueblo
 
-El agua (apoyo popular): **[+ apoyo_popular +]**/100 · comida **[+ f_comida +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**. The people are the sea the column swims in — win them, or be found.
+**El agua (apoyo popular): [+ apoyo_popular +]/100** — the sea the column swims in. [? if apoyo_popular >= 55 : *Deep: the villages warn you before the army arrives, the ring loosens, and an encirclement can be slipped on trust alone.* ?][? if apoyo_popular >= 30 and apoyo_popular < 55 : *Shallow: sympathy, but not yet shelter. Below 55 the people cannot save a surrounded column.* ?][? if apoyo_popular < 30 : ***Drying up.** The people inform. The Colonel's map fills itself and one morning the ring is already closed.* ?]
+
+Comida **[+ f_comida +]** · hombres **[+ f_hombres +]** · **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+
+*The water is also the recruits, the harvest, and the warning that saves you. It drains every month on its own — militarism and reprisals drain it faster.*
 
 - @m_base: **Trabajar la base.** Work the water here — assemblies, the mass line, the clinic. *(1 pt)*
 - @p_asamblea: **La asamblea.** Let the village govern in the open — the people's justice, the common field. *(1 pt; +apoyo, +the movement's legitimacy)*
 - @pue_escuela: **La escuela y la clínica.** Literacy circles and the médico's rounds — govern, don't just fight. *(1 pt; +apoyo, +the zone governed)*
-- @marcha: Volver al mando.
+- @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 
 @go_atoyac
@@ -214,7 +224,7 @@ on-arrival: {! var g=Q['gn_'+Q.col_nodo]||0; Q.move_contact=(g>=45?1:0); Q.move_
 
 The column crosses to [? if col_nodo = "atoyac" : Atoyac ?][? if col_nodo = "coyuca" : Coyuca ?][? if col_nodo = "acapulco" : the edge of Acapulco ?][? if col_nodo = "sanvicente" : San Vicente ?][? if col_nodo = "elquemado" : El Quemado ?][? if col_nodo = "elporvenir" : El Porvenir ?][? if col_nodo = "riochiquito" : Río Chiquito ?][? if col_nodo = "elotatal" : El Otatal ?].[? if move_contact = 1 :  There are soldiers here — you walk into a garrison, trade fire, and pay for the crossing in blood and a tighter ring. Scout next time. ?][? if move_cold = 1 :  Cold ground, no army in it — the ring loosens as the column melts into country the soldiers are not watching. ?]
 
-- @marcha: Continuar.
+- @cat_movimiento: Continuar.
 
 @m_reconocer
 choose-if: acc_pts >= 1
@@ -222,7 +232,7 @@ on-arrival: {! Q.acc_pts-=1; var adj={atoyac:['coyuca','sanvicente','elquemado']
 
 The scouts go out, and the guides — the ones born in these draws — go with them. By nightfall you know it: which villages the army sits in, which trails it watches, and which cold way around the garrisons only people who grew up here would know. [? if apoyo_popular >= 45 : The guides find a vereda past the worst of it — a way to flank the heaviest unit that the army does not know exists. ?][? if apoyo_popular < 45 : The picture is clearer now, though without deeper trust in these villages the guides will only show you so much. ?] Knowing where the enemy is *not* is worth more than knowing where it is.
 
-- @marcha: Continuar.
+- @cat_movimiento: Continuar.
 
 @m_base
 choose-if: acc_pts >= 1
@@ -230,7 +240,7 @@ on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=7; Q.f_comida+=4; Q.f_hombres+=1; 
 
 You put the rifles down and do the unglamorous work that is the whole war: the assembly held, the dispute settled, the cacique's abuse marked and answered, the clinic and the literacy circle. The water rises here — a little more of the sierra that will hide you, feed you, and lie for you. But a column that sits still can be found, and somewhere a lieutenant notes that you have not moved.
 
-- @marcha: Continuar.
+- @cat_pueblo: Continuar.
 
 @m_emboscar
 choose-if: acc_pts >= 2 and f_parque >= 12
@@ -239,7 +249,7 @@ on-arrival: {! Q.acc_pts-=2; Q.f_parque-=12; var g=Q['gn_'+Q.col_nodo]||0; var _
 
 You choose the ground — a defile, a bridge, a bend where trucks must slow — and spend the parque you cannot easily replace. [? if f_moral >= 66 : It goes the way the corridos need it: the patrol is broken, its rifles yours, and the garrison here is a little thinner for it. ?][? if f_moral < 66 and f_moral >= 40 : It works, barely, and costs more than the manual promised — a man down, the column melting back into the trees carrying its wounded. ?][? if f_moral < 40 : It was a trap inside your trap; the column fights out of a ring it should have seen, and leaves people on the mountain. ?] Either way the army now knows where you are, and the ring slams tighter.
 
-- @marcha: Continuar.
+- @cat_combate: Continuar.
 
 @fin_mes
 new-page: true
@@ -253,7 +263,7 @@ on-arrival: {! Q.acc_pts-=2; var _adj={atoyac:['coyuca','sanvicente','elquemado'
 
 You move all night, hard, over ground the army cannot follow in the dark, and by dawn the column is on the coldest ridge within reach and the ring is a memory behind you. It costs the men their legs and a chunk of the rations, and morale always dips on a march that feels like flight — but breaking contact clean is worth more than any of it. The oldest guerrilla trick: be somewhere else by morning.
 
-- @marcha: Continuar.
+- @cat_movimiento: Continuar.
 
 @m_acampar
 choose-if: acc_pts >= 1
@@ -261,7 +271,7 @@ on-arrival: {! Q.acc_pts-=1; Q.f_moral+=8; Q.f_comida+=8; Q.f_hombres+=1; Q.f_ce
 
 You make a real camp for once — hammocks strung, a proper fire, the wounded tended, the hunters out, a night's true sleep. The column comes back to itself: morale rises, the pot fills, a straggler or two rejoins. But a camp is a fixed place, and fixed places get found; every day you stay, the odds the army stumbles onto you climb. Rest is a weapon and a risk, like everything else up here.
 
-- @marcha: Continuar.
+- @cat_movimiento: Continuar.
 
 @c_sabotaje
 choose-if: acc_pts >= 1
@@ -269,7 +279,7 @@ on-arrival: {! Q.acc_pts-=1; Q.f_desgaste+=6; Q.legitimidad_regimen-=1; Q.f_cerc
 
 A charge on a bridge pylon, a rail line cut, a power tower dropped across a road — cheap, deniable, and out of all proportion to its cost in the disruption it causes. It ties down troops on guard duty, embarrasses the state's promise of order, and wears the army's patience without risking the column in a firefight. Death by a thousand cuts is the foco's real arithmetic.
 
-- @marcha: Continuar.
+- @cat_combate: Continuar.
 
 @c_convoy
 choose-if: acc_pts >= 2
@@ -278,7 +288,7 @@ on-arrival: {! Q.acc_pts-=2; var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.3)+(Q.apoyo_p
 
 You take the column's supper from the army's own trucks. [? if f_moral >= 50 : It goes clean — the convoy is stripped of its rations and ammunition, and the sierra eats the enemy's food that night, which does something to a hungry band that no speech can. ?][? if f_moral < 50 : It goes badly — the escort was heavier than the intelligence promised, and you pull off the road with some of it and fewer of your own. ?] The army knows exactly where its supplies went, and comes looking.
 
-- @marcha: Continuar.
+- @cat_combate: Continuar.
 
 @p_asamblea
 choose-if: acc_pts >= 1
@@ -286,7 +296,7 @@ on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=6; Q.sup_peasants=(Q.sup_peasants|
 
 You call the whole village together and let it govern itself in the open — disputes heard, the common field decided, the cacique's abuses named and answered by the people rather than the gun. It is the mass line made concrete, and it wins the deepest kind of water: not fear, not even gratitude, but the sense that where the guerrilla is, the people rule themselves. That is a thing no army can bomb and no cacique can buy back.
 
-- @marcha: Continuar.
+- @cat_pueblo: Continuar.
 
 @p_radio
 choose-if: acc_pts >= 1
@@ -294,7 +304,7 @@ on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=5; Q.leyenda=(Q.leyenda||0)+3; Q.l
 
 For an hour the sierra has a voice: a clandestine transmitter, a communiqué read into a hundred thousand kitchens across the state, the government's official silence broken by the one thing it cannot jam fast enough. It is armed propaganda at its purest — proof, in every home with a radio, that the guerrilla exists, that it speaks, that the state does not control even the air. It also gives the army a signal to triangulate, and the file a new page. Worth it, for a voice.
 
-- @marcha: Continuar.
+- @cat_politica: Continuar.
 
 @p_enlace
 choose-if: acc_pts >= 2
@@ -303,7 +313,7 @@ on-arrival: {! Q.acc_pts-=2; Q.f_parque+=10; Q.inteligencia+=5; Q.pol_intl+=8; i
 
 You open the channel the sierra can never open for itself — a line to Havana, to the solidarity networks that move weapons, papers, medicine and word across borders the state thinks it controls. It brings the column things the mountain does not grow: real matériel, real intelligence, the knowledge that the war has friends. It also runs a thread from your camp to a safehouse to a foreign embassy, and threads like that are exactly what the DFS spends its life pulling. The synthesis Che preached — and the exposure he paid for.
 
-- @marcha: Continuar.
+- @cat_politica: Continuar.
 
 @p_comunicado
 choose-if: acc_pts >= 1
@@ -311,7 +321,7 @@ on-arrival: {! Q.acc_pts-=1; Q.legitimidad_regimen-=4; Q.apoyo_popular+=2; Q.pol
 
 You get the movement's word past the censor and into a national daily — a manifesto, a denunciation of a massacre the government swears never happened, the names of the disappeared printed where the whole country reads them. It costs the regime something it guards more jealously than any garrison: the story. A state that cannot control the narrative of its own dirty war is a state already losing it, and every column that ever fought learned that the communiqué can wound where the rifle cannot reach.
 
-- @marcha: Continuar.
+- @cat_politica: Continuar.
 
 @cat_politica
 new-page: true
@@ -339,7 +349,7 @@ Legitimidad del régimen **[+ legitimidad_regimen +]** · leyenda **[+ leyenda +
 - @pol_pcm: **Hablar con el PCM.** Open a channel to the Party — legality, cadre, and the argument over the gun. *(1 pt; +political cover, +unity; the orthodox will demand a price)*
 - @p_enlace: **Enlace exterior.** A channel to Cuba and the international solidarity networks. *(2 pts; +parque +inteligencia; +the file on you)*
 - @pol_intl: **Solidaridad internacional.** Denounce the dirty war abroad — exiles, journalists, the tricontinental networks. *(1 pt; −legitimidad abroad, protects prisoners; +expediente)*
-- @marcha: Volver al mando.
+- @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 @pol_pcm
 face-image: img/pcmconf.jpg
@@ -348,7 +358,7 @@ on-arrival: {! Q.acc_pts-=1; Q.pol_pcm+=12; if(Q.pol_pcm>100){Q.pol_pcm=100;} Q.
 
 You send someone down to the Party — the PCM, legal-ish, cautious, sitting on the one thing the sierra does not have: a national political apparatus and a name the whole left recognizes. The conversation is old and unfinished: they think the gun is adventurism that will bring the state down on everyone; you think their patience is a chair in an antechamber. But the channel matters. It means the movement is not a bandit gang in the papers, it means cadre and lawyers and printing, and it means that when the moment comes to convert the war into politics, there is somebody to convert it *with*. They will want their price — a say over the line. Everyone always does.
 
-- @marcha: Continuar.
+- @cat_politica: Continuar.
 
 @pol_intl
 face-image: img/solidarity.jpg
@@ -357,7 +367,7 @@ on-arrival: {! Q.acc_pts-=1; Q.pol_intl+=14; if(Q.pol_intl>100){Q.pol_intl=100;}
 
 You get the war out of the country: the testimonies smuggled to exiles and foreign journalists, the disappeared named at conferences the Mexican government pays good money to be respectable at, the solidarity committees in Paris and Havana and Berkeley reading the list aloud. Mexico's rulers can survive almost anything except being *seen* — the regime that sells itself abroad as the gentle revolutionary republic cannot afford photographs of its own airbase. It buys the prisoners a little safety, because a named man is harder to disappear, and it costs you another page in a file that is already long.
 
-- @marcha: Continuar.
+- @cat_politica: Continuar.
 
 @pue_escuela
 choose-if: acc_pts >= 1
@@ -365,7 +375,7 @@ on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=6; Q.sup_peasants=(Q.sup_peasants|
 
 Literacy circles under a tree, the médico's rounds through the hamlets, a school where the state built none in fifty years. This is the part of the war that has nothing to do with rifles and decides it anyway: the sierra learns that where the guerrilla governs, a child can read and a fever can be treated — that the movement is not merely against something but *for* a way of living. Che called it the guerrilla's obligation; Lucio simply called it being a teacher, which is what he was before any of this.
 
-- @marcha: Continuar.
+- @cat_pueblo: Continuar.
 
 # =====================================================================
 # EL CERCO — the encirclement. Fires as an event when the ring closes. Escape, or bleed.
