@@ -112,16 +112,20 @@ You did the thing the manuals said could not be done on this ground, and the sta
 
 It is the most dangerous moment of the whole war — more dangerous than the cerco, than the assault — because it is the moment the revolution decides what it actually wanted. The gun won you a hearing. What you do with the hearing is the only question that was ever really being asked.
 
+[? if pol_pcm < 20 and pol_intl < 25 : **Nobody vouches for you.** With no channel to the Party and no witnesses abroad, the man with the portfolio has come to *measure* you, not to sign. A movement with no political face cannot cash a military victory — it can only keep fighting until someone finally wins. ?][? if pol_pcm >= 55 : *The Party is at the table with you: its lawyers, its legality, its national name — the terms are real, and there is somebody to convert this into power.* ?][? if pol_intl >= 45 : *And the world is watching this room, which is why the offer is generous and why it will be honoured.* ?]
+
 - @neg_apertura: **Tomar la apertura.** Trade the gun for the opening: amnesty, registration, the reforms — and carry the victory and its legend down into the political road, where a movement that took a capital cannot be rounded to zero. *(end the foco victorious; the political side becomes far stronger)*
 - @neg_doble: **Reforma con fusil.** Take the reforms and keep the guns — trust nothing, disarm nothing, hold the ground you won as insurance against the accord being broken the way accords always are. *(partial political gain; you stay armed, and the state may betray)*
 - @neg_seguir: **No parar.** Refuse. The state is on its knees — press the advantage, take more of Guerrero, let the example spread before the giant to the north can decide what to do about it. *(keep fighting; U.S. intervention risk climbs)*
 
 @neg_apertura
+choose-if: pol_pcm >= 20 or pol_intl >= 25
+unavailable-subtitle: No channel to the Party, no witnesses abroad — nobody will guarantee an accord with you, and the state will not sign one it can break for free.
 new-page: true
 on-arrival: {!
 Q.f_negociado=1; Q.f_phase="despues"; Q.via="politica"; Q.postura_guerrilla=0;
 Q.veteranos=(Q.veteranos||0)+3; Q.leyenda=(Q.leyenda||0)+8; Q.registro=(Q.registro<1?1:Q.registro);
-Q.legitimidad_regimen-=6; Q.pri_reformist_rel=(Q.pri_reformist_rel||0)+18; Q.fe_voto=(Q.fe_voto||0)+18;
+Q.legitimidad_regimen-=6; Q.pri_reformist_rel=(Q.pri_reformist_rel||0)+18; Q.fe_voto=(Q.fe_voto||0)+18; var _pb=Math.round((Q.pol_pcm||0)/10); Q.unity=(Q.unity||0)+_pb; Q.political_capital=(Q.political_capital||0)+_pb; Q.organizers=(Q.organizers||0)+Math.round((Q.pol_pcm||0)/25); Q.fe_voto+=Math.round((Q.pol_intl||0)/8);
 Q.sup_peasants=(Q.sup_peasants||0)+10; Q.apoyo_sierra_gob=1; Q.unity=(Q.unity||0)+8;
 !}
 

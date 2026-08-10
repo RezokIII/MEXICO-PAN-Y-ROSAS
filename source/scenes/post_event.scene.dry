@@ -147,6 +147,26 @@ if (Q.month != Q.last_drift_month) {
         if (Q.f_moral > 100) { Q.f_moral = 100; } if (Q.f_moral < 0) { Q.f_moral = 0; }
         if (Q.f_cerco > 100) { Q.f_cerco = 100; } if (Q.f_cerco < 0) { Q.f_cerco = 0; }
         if (Q.f_desgaste < 0) { Q.f_desgaste = 0; }
+        // --- POLITICS OF THE ARMED ROAD: the two relationships bite every month ---
+        // The Party recoils from terror and militarism; it courts a movement that keeps a political face.
+        if (Q.ajusticiamientos >= 2) { Q.pol_pcm -= 1.2; }
+        if (Q.linea_guerra >= 12) { Q.pol_pcm -= 0.8; } else if (Q.linea_guerra <= -8) { Q.pol_pcm += 0.4; }
+        Q.pol_pcm -= 0.3;                       // neglected channels go cold
+        Q.pol_intl -= 0.5;                      // the world's attention wanders
+        // PARTY COVER: lawyers, legality, a public name — the file grows slower and the base holds
+        if (Q.pol_pcm >= 55) { Q.expediente -= 0.5; Q.apoyo_popular += 0.2; }
+        // ISOLATION: a movement the organized left has disowned bleeds sympathy and gets hunted freely
+        if (Q.pol_pcm < 10) { Q.apoyo_popular -= 0.3; Q.estado_intel += 0.3; if (!Q.pol_denuncia) { Q.pol_denuncia = 1; } }
+        // THE WORLD WATCHING: a scrutinized state represses less freely and Washington hesitates
+        if (Q.pol_intl >= 45) {
+            Q.represion -= 0.6;
+            if (Q.intervencion_riesgo > 0) { Q.intervencion_riesgo -= 0.8; }
+            if (Q.presos > 0 && Q.time % 4 == 0) { Q.presos -= 1; }   // named prisoners are harder to disappear
+            Q.f_cerco -= 0.5;
+        }
+        if (Q.pol_intl < 15) { Q.represion += 0.3; }                   // nobody is looking
+        if (Q.pol_pcm > 100) { Q.pol_pcm = 100; } if (Q.pol_pcm < 0) { Q.pol_pcm = 0; }
+        if (Q.pol_intl > 100) { Q.pol_intl = 100; } if (Q.pol_intl < 0) { Q.pol_intl = 0; }
         // the death of the foco: no fighters left → the armed road is over (reuse the annihilation route)
         if (Q.f_hombres <= 0) { Q.f_hombres = 0; Q.f_fin_foco = 1; Q.members = 0; }
     }

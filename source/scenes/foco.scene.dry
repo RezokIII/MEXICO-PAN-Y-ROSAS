@@ -290,7 +290,7 @@ You call the whole village together and let it govern itself in the open — dis
 
 @p_radio
 choose-if: acc_pts >= 1
-on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=5; Q.leyenda=(Q.leyenda||0)+3; Q.legitimidad_regimen-=3; Q.expediente=(Q.expediente||0)+4; Q.estado_intel=(Q.estado_intel||0)+2; Q.f_cerco+=4; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=5; Q.leyenda=(Q.leyenda||0)+3; Q.legitimidad_regimen-=3; Q.pol_intl+=4; Q.expediente=(Q.expediente||0)+4; Q.estado_intel=(Q.estado_intel||0)+2; Q.f_cerco+=4; if(Q.f_cerco>100){Q.f_cerco=100;} !}
 
 For an hour the sierra has a voice: a clandestine transmitter, a communiqué read into a hundred thousand kitchens across the state, the government's official silence broken by the one thing it cannot jam fast enough. It is armed propaganda at its purest — proof, in every home with a radio, that the guerrilla exists, that it speaks, that the state does not control even the air. It also gives the army a signal to triangulate, and the file a new page. Worth it, for a voice.
 
@@ -299,7 +299,7 @@ For an hour the sierra has a voice: a clandestine transmitter, a communiqué rea
 @p_enlace
 choose-if: acc_pts >= 2
 unavailable-subtitle: Opening an external channel costs 2 action points.
-on-arrival: {! Q.acc_pts-=2; Q.f_parque+=10; Q.inteligencia+=5; Q.internac_armada=(Q.internac_armada||0)+1; Q.expediente=(Q.expediente||0)+6; Q.apoyo_popular+=2; !}
+on-arrival: {! Q.acc_pts-=2; Q.f_parque+=10; Q.inteligencia+=5; Q.pol_intl+=8; if(Q.pol_intl>100){Q.pol_intl=100;} Q.internac_armada=(Q.internac_armada||0)+1; Q.expediente=(Q.expediente||0)+6; Q.apoyo_popular+=2; !}
 
 You open the channel the sierra can never open for itself — a line to Havana, to the solidarity networks that move weapons, papers, medicine and word across borders the state thinks it controls. It brings the column things the mountain does not grow: real matériel, real intelligence, the knowledge that the war has friends. It also runs a thread from your camp to a safehouse to a foreign embassy, and threads like that are exactly what the DFS spends its life pulling. The synthesis Che preached — and the exposure he paid for.
 
@@ -307,7 +307,7 @@ You open the channel the sierra can never open for itself — a line to Havana, 
 
 @p_comunicado
 choose-if: acc_pts >= 1
-on-arrival: {! Q.acc_pts-=1; Q.legitimidad_regimen-=4; Q.apoyo_popular+=2; Q.expediente=(Q.expediente||0)+3; Q.leyenda=(Q.leyenda||0)+1; !}
+on-arrival: {! Q.acc_pts-=1; Q.legitimidad_regimen-=4; Q.apoyo_popular+=2; Q.pol_intl+=6; if(Q.pol_intl>100){Q.pol_intl=100;} Q.expediente=(Q.expediente||0)+3; Q.leyenda=(Q.leyenda||0)+1; !}
 
 You get the movement's word past the censor and into a national daily — a manifesto, a denunciation of a massacre the government swears never happened, the names of the disappeared printed where the whole country reads them. It costs the regime something it guards more jealously than any garrison: the story. A state that cannot control the narrative of its own dirty war is a state already losing it, and every column that ever fought learned that the communiqué can wound where the rifle cannot reach.
 
@@ -326,7 +326,13 @@ subtitle: Hablarle al mundo por fuera del cerco — el Partido, la prensa, la so
 
 = Política y comunicaciones
 
-El agua **[+ apoyo_popular +]**/100 · leyenda **[+ leyenda +]** · legitimidad del régimen **[+ legitimidad_regimen +]** · parque **[+ f_parque +]**. **Puntos: [+ acc_pts +]/[+ acc_max +]**. A guerrilla sealed inside its own encirclement dies there. The war is also fought in the party's plenums, the newspapers, and the embassies.
+**El Partido (PCM): [+ pol_pcm +]/100** — political cover, cadre and lawyers, and the only people who can turn a won war into power. [? if pol_pcm >= 55 : *They vouch for you: the file grows slower and a settlement is possible.* ?][? if pol_pcm < 20 : *They will not touch you. Win or lose, you will do it alone.* ?]
+
+**Testigos internacionales: [+ pol_intl +]/100** — the world watching. [? if pol_intl >= 45 : *A watched state cannot massacre freely: repression is restrained and Washington hesitates.* ?][? if pol_intl < 20 : *Nobody outside is looking. What happens in the sierra stays buried there.* ?]
+
+Legitimidad del régimen **[+ legitimidad_regimen +]** · leyenda **[+ leyenda +]** · expediente **[+ expediente +]**. **Puntos: [+ acc_pts +]/[+ acc_max +]**.
+
+*A guerrilla sealed inside its own encirclement dies there — militarily or politically. These two numbers decide whether a victory can be cashed, and whether a defeat is survivable.*
 
 - @p_radio: **Radio guerrillera.** Broadcast from the sierra — a clandestine transmitter the whole state can hear. *(1 pt; +apoyo +leyenda, −legitimidad; the army triangulates the signal)*
 - @p_comunicado: **Comunicado a la prensa.** Get the movement's word past the censor into a national daily. *(1 pt; −legitimidad; +expediente)*
@@ -338,7 +344,7 @@ El agua **[+ apoyo_popular +]**/100 · leyenda **[+ leyenda +]** · legitimidad 
 @pol_pcm
 face-image: img/pcmconf.jpg
 choose-if: acc_pts >= 1
-on-arrival: {! Q.acc_pts-=1; Q.unity=(Q.unity||0)+4; Q.political_capital=(Q.political_capital||0)+3; Q.pcm_canal=1; Q.apoyo_popular+=2; Q.expediente=(Q.expediente||0)+2; !}
+on-arrival: {! Q.acc_pts-=1; Q.pol_pcm+=12; if(Q.pol_pcm>100){Q.pol_pcm=100;} Q.unity=(Q.unity||0)+4; Q.political_capital=(Q.political_capital||0)+3; Q.pcm_canal=1; Q.apoyo_popular+=2; if(Q.linea_guerra>=12){Q.pol_pcm-=6; Q.disciplina=(Q.disciplina||65)-2;} !}
 
 You send someone down to the Party — the PCM, legal-ish, cautious, sitting on the one thing the sierra does not have: a national political apparatus and a name the whole left recognizes. The conversation is old and unfinished: they think the gun is adventurism that will bring the state down on everyone; you think their patience is a chair in an antechamber. But the channel matters. It means the movement is not a bandit gang in the papers, it means cadre and lawyers and printing, and it means that when the moment comes to convert the war into politics, there is somebody to convert it *with*. They will want their price — a say over the line. Everyone always does.
 
@@ -347,7 +353,7 @@ You send someone down to the Party — the PCM, legal-ish, cautious, sitting on 
 @pol_intl
 face-image: img/solidarity.jpg
 choose-if: acc_pts >= 1
-on-arrival: {! Q.acc_pts-=1; Q.legitimidad_regimen-=4; Q.internac_armada=(Q.internac_armada||0)+1; Q.expediente=(Q.expediente||0)+3; Q.leyenda=(Q.leyenda||0)+2; if(Q.presos>0){Q.presos-=1;} !}
+on-arrival: {! Q.acc_pts-=1; Q.pol_intl+=14; if(Q.pol_intl>100){Q.pol_intl=100;} Q.legitimidad_regimen-=4; Q.internac_armada=(Q.internac_armada||0)+1; Q.expediente=(Q.expediente||0)+3; Q.leyenda=(Q.leyenda||0)+2; if(Q.presos>0){Q.presos-=1;} !}
 
 You get the war out of the country: the testimonies smuggled to exiles and foreign journalists, the disappeared named at conferences the Mexican government pays good money to be respectable at, the solidarity committees in Paris and Havana and Berkeley reading the list aloud. Mexico's rulers can survive almost anything except being *seen* — the regime that sells itself abroad as the gentle revolutionary republic cannot afford photographs of its own airbase. It buys the prisoners a little safety, because a named man is harder to disappear, and it costs you another page in a file that is already long.
 
