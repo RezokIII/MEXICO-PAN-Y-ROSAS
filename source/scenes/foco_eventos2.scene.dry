@@ -167,3 +167,57 @@ on-arrival: {! Q.f_moral+=14; Q.f_comida-=6; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f
 You do the slow, expensive, correct thing: you stop. You pull the column to safe ground, let the men sleep and eat and bury their dead properly, and you remind them — not with a speech but with a small, winnable action and a fair share of the little you have — why they climbed up here in the first place. Morale is not restored by discipline; it is restored by hope, and hope is restored by rest and a reason. It costs you a season of momentum and lets the ring drift closer while you sit. It also turns a dissolving band back into an army. The men who were leaving stay, and mean it.
 
 - @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_campamento_hallado
+title: Han encontrado el campamento
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: The one fixed thing you owned
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_campamento = 1 and (f_cerco >= 65 or estado_intel >= 55) and apoyo_popular < 60 and time >= camp_last + 8
+priority: 8
+frequency: 80
+max-visits: 4
+on-arrival: camp_last = time; camp_visto = 1
+
+= Han encontrado el campamento
+
+It was always going to happen; the only question was whether you would be in it. A spotter plane goes over three times in a week on the same line. Then a patrol appears on a ridge that no patrol has any business knowing about, and a boy from the village comes up the arroyo at a dead run to say that the soldiers are asking very specific questions about a very specific fold in the sierra.
+
+Somebody talked — bought, or broken, or simply frightened — and the address you spent years not having is now written in a file in Atoyac. The camp can be defended, which means fighting the army on ground it has chosen and mapped. It can be abandoned, which means walking away from the hospital and the stores and the school and being a hunted band with no home again. Or it can be emptied and *left as a trap*, which is the coldest option and the one Bayo's manual would recommend.
+
+- @camp_defender: **Defenderlo.** This is our country; they do not get to walk into it. *(a real battle on their terms)*
+- @camp_abandonar: **Levantar el campamento.** Take what can be carried, burn the rest, and vanish. *(lose the base and its stores; save the column)*
+- @camp_trampa: **Dejarlo minado.** Empty it, leave it looking lived-in, and wait on the ridges above. *(needs parque and discipline; punishes them badly — or fails)*
+
+@camp_defender
+on-arrival: {! var g=Q['gn_'+Q.col_nodo]||0; var _atk=(Q.f_hombres||0)*1.2+(Q.f_moral||0)*0.4+(Q.camp_nivel||1)*6+((Q.apoyo_popular||0)>=55?12:0); var _def=g*1.15+40;
+if(_atk>=_def){ Q.f_desgaste+=12; Q.f_moral+=8; Q.leyenda=(Q.leyenda||0)+3; Q.f_hombres-=2; Q.f_bajas+=2; Q.f_parque-=8; Q.legitimidad_regimen-=2; }
+else { Q.f_hombres-=Math.round(4+(_def-_atk)/14); Q.f_bajas+=5; Q.memorial=(Q.memorial||0)+3; Q.f_moral-=14; Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.f_comida-=15; Q.f_parque-=10; }
+if(Q.f_parque<0){Q.f_parque=0;} if(Q.f_comida<0){Q.f_comida=0;} if(Q.f_hombres<0){Q.f_hombres=0;} Q.f_cerco+=18; if(Q.f_cerco>100){Q.f_cerco=100;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;} !}
+
+[? if f_campamento = 1 : They come up the draw in the grey light and find that the fold in the sierra has been waiting for them. The camp holds — the fields of fire were cut months ago, the villages warned you in time, and the army pulls back down the mountain leaving equipment and a great deal of its confidence. A guerrilla that can *hold ground* is a different kind of problem, and every garrison in Guerrero now knows it. ?][? if f_campamento = 0 : They came with more than you had. The camp is taken and burned — the hospital, the stores, the school, the printing frame, all of it — and what is left of the column breaks out through the trees carrying its wounded and nothing else. You defended a fixed point against an army, which is the one thing the manual tells you never to do, and it cost you the base and the best of the band. ?]
+
+- @root: Continuar.
+
+@camp_abandonar
+on-arrival: {! Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.f_comida-=10; Q.f_moral-=8; Q.apoyo_popular-=3; Q.f_cerco-=20; if(Q.f_cerco<0){Q.f_cerco=0;} if(Q.f_comida<0){Q.f_comida=0;} !}
+
+You give the order nobody wants and everybody knows is right: strip it. The maize goes onto backs, the parque into caches nobody has written down, the médico's instruments into a sack, and the rest — the ramadas, the school benches, two years of work — burns behind you as the column climbs out through country the trucks cannot reach. The soldiers walk into a clearing of warm ash.
+
+It is the correct decision and it feels like defeat, because it is a kind of defeat: you are a hunted band with no home again, carrying your wounded. But the column is *alive*, and a living column can build another camp. Bayo's rule, and Che's: never defend a fixed point you do not have to defend.
+
+- @root: Continuar.
+
+@camp_trampa
+choose-if: f_parque >= 10 and disciplina >= 55
+unavailable-subtitle: A prepared ambush on your own camp needs materiel (10 parque) and a column disciplined enough to sit still while soldiers walk through its home.
+on-arrival: {! Q.f_parque-=10; var _r=(Q.disciplina||65)+(Q.f_moral||0)*0.3+((Q.apoyo_popular||0)>=50?15:0)-70+(Math.random()*30-12);
+if(_r>=0){ Q.f_desgaste+=16; Q.leyenda=(Q.leyenda||0)+4; Q.f_moral+=10; Q.legitimidad_regimen-=3; Q.f_parque+=8; }
+else { Q.f_hombres-=3; Q.f_bajas+=3; Q.memorial=(Q.memorial||0)+2; Q.f_moral-=6; }
+Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.f_cerco-=10; if(Q.f_cerco<0){Q.f_cerco=0;} if(Q.f_hombres<0){Q.f_hombres=0;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;} !}
+
+You empty it and leave it *looking* full — cooking fires banked, blankets thrown as if slept in, a pot still warm — and put the column on the ridges above with the last of the charges buried in the paths. [? if disciplina >= 65 : They walk in at dawn like men who have finally cornered something, and the mountain comes apart under them. It is the single worst morning the campaign in Guerrero has had, and the corridos will still be arguing about the numbers in twenty years. ?][? if disciplina < 65 : Somebody fires early. The trap half-springs, the soldiers go to ground faster than expected, and you break contact having hurt them less than it cost you. ?] Either way the camp is gone by your own hand — which is the price of using your home as a weapon.
+
+- @root: Continuar.

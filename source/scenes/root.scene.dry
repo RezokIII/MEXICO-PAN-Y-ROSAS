@@ -217,6 +217,9 @@ Q.gn_elquemado = 20; Q.gn_elporvenir = 10; Q.gn_riochiquito = 8; Q.gn_elotatal =
 Q.sn_atoyac = 1; Q.sn_coyuca = 0; Q.sn_acapulco = 0; Q.sn_sanvicente = 0;
 Q.sn_elquemado = 0; Q.sn_elporvenir = 0; Q.sn_riochiquito = 0; Q.sn_elotatal = 0;
 Q.move_contact = 0; Q.move_cold = 0;
+// EL CAMPAMENTO BASE: a real home in the deep sierra — stores, a hospital, a school. It heals and
+// supplies the column while it holds, and it is the one fixed thing the army can find and destroy.
+Q.f_campamento = 0; Q.camp_nodo = ""; Q.camp_nivel = 0; Q.camp_visto = 0; Q.camp_last = -99;
 // the ring: how tightly the army has concentrated on the column's current ground (0-100).
 // rises as you linger or act loudly; falls when you move to cold ground or the water hides you.
 Q.f_cerco = 15; Q.f_cerco_last = -99;

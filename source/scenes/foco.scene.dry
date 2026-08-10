@@ -104,6 +104,8 @@ subtitle: Mover la columna, reconocer, flanquear
 
 **El cerco: [+ f_cerco +]/100** — the ring the army is closing around you. [? if f_cerco >= 70 : *It is nearly shut: move, or it closes on you.* ?][? if f_cerco < 30 : *Loose — you are not where they are looking.* ?] Comida **[+ f_comida +]** (each move eats 4). **Puntos: [+ acc_pts +]/[+ acc_max +]**.
 
+[? if f_campamento = 1 : **El campamento base** está en [? if camp_nodo = "atoyac" : Atoyac ?][? if camp_nodo = "coyuca" : Coyuca ?][? if camp_nodo = "sanvicente" : San Vicente ?][? if camp_nodo = "elquemado" : El Quemado ?][? if camp_nodo = "elporvenir" : El Porvenir ?][? if camp_nodo = "riochiquito" : Río Chiquito ?][? if camp_nodo = "elotatal" : El Otatal ?] (nivel [+ camp_nivel +]/3) — comida, hospital y cache. *Volver* para comer, curar y rearmar. ?][? if f_campamento = 0 : *Sin campamento base: la columna carga todo lo que tiene y los heridos van con ella.* ?]
+
 *Moving to cold ground (low army) LOOSENS the ring; walking into a garrison tightens it and costs blood. A village's army number is hidden until you **Reconocer** it — scouting is how you flank instead of stumbling.*
 
 - @go_atoyac: → **Atoyac**[? if sn_atoyac = 1 : (ejército [+ gn_atoyac +]) ?].
@@ -116,7 +118,10 @@ subtitle: Mover la columna, reconocer, flanquear
 - @go_elotatal: → **El Otatal**[? if sn_elotatal = 1 : (ejército [+ gn_elotatal +]) ?].
 - @m_reconocer: **Reconocer.** Scout the neighbouring villages — reveal the army units, and let the guides find the coldest way through. *(1 pt)*
 - @m_forzada: **Marcha forzada.** A night march to the coldest ground within reach — break contact hard. *(2 pts; big ring drop; costs comida + moral)*
-- @m_acampar: **Acampar.** Make a real camp — rest, forage, mend. *(1 pt; +moral +comida; a static camp can be found)*
+- @m_acampar: **Acampar.** Make a night camp — rest, forage, mend. *(1 pt; +moral +comida; a static camp can be found)*
+- @m_campamento: **Establecer el campamento base.**[? if f_campamento = 1 : *(already built)* ?] A permanent camp in the deep sierra — stores, a hospital, a school. *(2 pts; needs deep ground and real water)*
+- @m_mejorar: **Mejorar el campamento.** Deepen the base — more stores, a better hospital, a school for the villages. *(1 pt; needs the camp)*
+- @m_volver_campo: **Volver al campamento.** March home to the base — eat, heal, rearm. *(1 pt)*
 - @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
 
 @cat_combate
@@ -394,6 +399,40 @@ on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=6; Q.sup_peasants=(Q.sup_peasants|
 Literacy circles under a tree, the médico's rounds through the hamlets, a school where the state built none in fifty years. This is the part of the war that has nothing to do with rifles and decides it anyway: the sierra learns that where the guerrilla governs, a child can read and a fever can be treated — that the movement is not merely against something but *for* a way of living. Che called it the guerrilla's obligation; Lucio simply called it being a teacher, which is what he was before any of this.
 
 - @cat_pueblo: Continuar.
+
+@m_campamento
+face-image: img/guerillacamp.webp
+view-if: f_campamento = 0
+choose-if: acc_pts >= 2 and apoyo_popular >= 35
+unavailable-subtitle: A permanent base costs 2 action points and needs real water around it (apoyo 35+) — a camp the villages will not cover is a camp the army finds in a week.
+on-arrival: {! Q.acc_pts-=2; Q.f_campamento=1; Q.camp_nodo=Q.col_nodo; Q.camp_nivel=1; Q.camp_visto=0; Q.f_moral+=8; Q.f_comida+=10; Q.zona_gobernada=1; Q.f_cerco+=4; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+You stop running long enough to build. In a fold of the sierra the villages will not talk about, the column raises the thing every guerrilla army eventually needs and every guerrilla manual warns about: a **campamento base** — ramadas under the canopy, a store of maize and salt, a cache for the parque, a lean-to that will be the hospital, a fire that can burn after dark because the ridges above are watched by people who love you.
+
+It changes the war. A band with a home can rest wounded instead of carrying them, can cache instead of hauling, can train recruits properly, and can come back to something. It also gives the enemy the one thing you have denied him for years: *an address.* Everything fixed can be found. Keep the water deep and the ring loose, and the camp is your strength. Let either rot, and it becomes the place where the column dies all at once instead of a few at a time.
+
+- @cat_movimiento: Continuar.
+
+@m_mejorar
+view-if: f_campamento = 1
+choose-if: acc_pts >= 1 and camp_nivel < 3
+unavailable-subtitle: You need the base built (and not already at its full extent) to deepen it.
+on-arrival: {! Q.acc_pts-=1; Q.camp_nivel+=1; Q.f_moral+=5; Q.f_comida+=8; Q.apoyo_popular+=4; Q.disciplina=(Q.disciplina||65)+3; if(Q.camp_nivel>=2){Q.f_medico=1;} !}
+
+The camp deepens into something that begins to look less like a hiding place and more like a small free country. [? if camp_nivel = 2 : A proper hospital under a thatch roof, with the médico's instruments boiled in a pot — the wounded stop being a death sentence and start being patients. ?][? if camp_nivel >= 3 : A school, a workshop that reloads cartridges, drying racks, a printing frame for the communiqués — the base has become the capital of a country of about four hundred people, and everyone in the sierra knows how to find it and no one will say. ?] Every improvement makes the column harder to starve and harder to break. Every improvement also makes it harder to abandon.
+
+- @cat_movimiento: Continuar.
+
+@m_volver_campo
+view-if: f_campamento = 1
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; if(Q.camp_nodo){Q.col_nodo=Q.camp_nodo; Q['sn_'+Q.camp_nodo]=1;} var _n=Q.camp_nivel||1; Q.f_comida+=10+_n*6; Q.f_moral+=6+_n*3; Q.f_parque+=4+_n*3; if(Q.f_bajas>0){Q.f_bajas-=1;} if(_n>=2&&Q.f_hombres<60){Q.f_hombres+=1;} Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+The column comes home. Whatever else the war is, for a week it is hot food, a dry place to sleep, the wounded handed to someone whose job is keeping them alive, and the parque counted out of the cache instead of scraped from the dead. Men who were a week from walking away remember why they are here. The march resumes with fuller bellies and heavier packs.
+
+And every road that leads home also leads *here*, which is why coming back always costs a little in the one currency the sierra measures: the ring drawn a notch tighter around the one place the army knows you keep returning to.
+
+- @cat_movimiento: Continuar.
 
 # =====================================================================
 # EL CERCO — the encirclement. Fires as an event when the ring closes. Escape, or bleed.
