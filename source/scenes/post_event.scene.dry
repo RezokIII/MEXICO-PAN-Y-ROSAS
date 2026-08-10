@@ -2,6 +2,25 @@ title: Post Event
 new-page: true
 on-arrival: {!
 Q.last_advisor_action = 0;
+// When a band's war ENDS (victory, negotiation, or destruction), sweep its cards out of the hand.
+// A card already drawn stays in hand even after its view-if fails, which left the guerrilla decks
+// hanging around on the political road after a win.
+if ((Q.banda && Q.f_phase === "despues") || Q.f_negociado >= 1 || Q.u_negociado >= 1 || Q.f_fin_foco === 1 || Q.u_fin === 1 || Q.fln_caida === 9) {
+    try {
+        var _hs = this.state.currentHands;
+        for (var _hk in _hs) {
+            if (!_hs[_hk] || !_hs[_hk].length) { continue; }
+            var _keep = [];
+            for (var _ci = 0; _ci < _hs[_hk].length; _ci++) {
+                var _cd = _hs[_hk][_ci];
+                var _id = (typeof _cd === "string") ? _cd : (_cd && (_cd.id || _cd.sceneId || "")) + "";
+                if (_id.indexOf("foco.") === 0 || _id.indexOf("ciudad.") === 0 || _id.indexOf("fln.") === 0) { continue; }
+                _keep.push(_cd);
+            }
+            _hs[_hk] = _keep;
+        }
+    } catch (e) {}
+}
 Q.last_cabinet_action = 0;
 
 // --- izquierda: monthly drift, clamps, sexenio clock ---

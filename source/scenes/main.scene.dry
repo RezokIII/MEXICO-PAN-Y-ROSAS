@@ -213,7 +213,7 @@ is-deck: true
 card-image: img/countryside2.jpg
 title: Movimiento
 subtitle: Mover la columna, reconocer, flanquear
-view-if: banda = "sierra"
+view-if: banda = "sierra" and f_phase = "marcha"
 is-deck: true
 
 - #fmovimiento
@@ -222,7 +222,7 @@ is-deck: true
 card-image: img/guerillas2.jpg
 title: Combate
 subtitle: Emboscar — desgastar al ejército
-view-if: banda = "sierra"
+view-if: banda = "sierra" and f_phase = "marcha"
 is-deck: true
 
 - #fcombate
@@ -231,7 +231,7 @@ is-deck: true
 card-image: img/elpueblo.jpg
 title: El pueblo
 subtitle: Ganar el agua en que nada la columna
-view-if: banda = "sierra"
+view-if: banda = "sierra" and f_phase = "marcha"
 is-deck: true
 
 - #fpueblo
@@ -240,7 +240,7 @@ is-deck: true
 card-image: img/pcm.jpg
 title: Política
 subtitle: El PCM, la prensa, la solidaridad internacional
-view-if: banda = "sierra"
+view-if: banda = "sierra" and f_phase = "marcha"
 is-deck: true
 
 - #fpolitica
@@ -249,7 +249,7 @@ is-deck: true
 card-image: img/liga.jpg
 title: La red
 subtitle: The urban war — the cells, where they act
-view-if: banda = "ciudad"
+view-if: banda = "ciudad" and u_phase = "red"
 is-deck: true
 
 - #lared
@@ -258,7 +258,7 @@ is-deck: true
 card-image: img/jungleplan.jpg
 title: La estructura
 subtitle: The FLN — building the long war in silence
-view-if: banda = "fln"
+view-if: banda = "fln" and fln_phase = "construir"
 is-deck: true
 
 - #laestructura
