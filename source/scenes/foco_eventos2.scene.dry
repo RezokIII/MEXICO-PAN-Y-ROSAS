@@ -1,0 +1,169 @@
+title: Eventos del foco II
+max-visits: 1
+view-if: 0
+# Container/namespace only — NOT tagged event. The march's inner life: the doctor, the purge,
+# the hunger, the desertions. banda="sierra", f_phase="marcha".
+
+# ---------------------------------------------------------------------
+@ev_medico
+title: El médico
+new-page: true
+face-image: img/stareguerilla.jpg
+subtitle: The column's doctor — and the villages' first, ever
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_medico = 0 and f_bajas >= 2 and time >= f_ev_last + 2
+priority: 5
+frequency: 60
+max-visits: 1
+on-arrival: f_ev_last = time
+
+= El médico
+
+He comes up the mountain the way Che once did — a doctor, young, soft-handed and out of place, who has decided that the wounds he can dress in a city are fewer than the ones he could prevent up here. He can keep your wounded alive, which no one in the column has been able to do. He can also do the thing that quietly wins more of the sierra than any ambush: hold a clinic in villages that have never in their history seen a doctor, and let the campesinos learn that the guerrilla is the only power that ever brought them medicine instead of taking their sons. A médico is a rifle that heals. He is also one more person who knows where you sleep.
+
+- @med_columna: Keep him with the column — your wounded stop dying, and the man becomes the soul of the band the way Che was of his. *(fewer casualties; +morale, +legend)*
+- @med_pueblos: Send him through the villages with a medical kit — a clinic in every hamlet, and the deepest kind of water. *(+apoyo, +peasant base; the column's wounded still suffer)*
+
+@med_columna
+on-arrival: {! Q.f_medico=1; Q.f_moral+=8; Q.leyenda=(Q.leyenda||0)+3; Q.f_bajas=0; Q.che_advisor=1; !}
+
+You keep him close, and the column changes. Men who would have died of a septic wound in the old days live now, and a band that trusts it will not simply be left to rot when it is hit fights differently — harder, and longer, and with the particular loyalty soldiers reserve for the one who patches them up. He becomes what the doctor always becomes in these stories: not the best shot but the moral center, the one whose presence means the revolution is about *life* and not only the taking of it. Every column that had one remembers him longer than its commander.
+
+- @root: Continuar.
+
+@med_pueblos
+on-arrival: {! Q.f_medico=1; Q.apoyo_popular+=12; Q.sup_peasants+=5; Q.zona_gobernada=1; !}
+
+You send him out with a kit and a boy to carry it, and he becomes the first doctor the deep sierra has ever had. Word of it moves faster than any bullet: in the zone the guerrilla holds, a sick child can be *seen.* It is the mass line made flesh — the movement proving, in the one currency the poor cannot fake gratitude for, that where it governs, life is better. The column's own wounded still suffer for want of him at the wrong moment. You decided the sierra's hundred sick children outweighed your dozen. Che would have understood the math, and hated it, and made the same call.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_purga
+title: El fantasma del informante
+new-page: true
+face-image: img/guardias_blancas.jpg
+subtitle: The enemy's deepest victory is the traitor you invent
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and paranoia >= 45 and time >= f_purga_last + 4
+priority: 6
+frequency: 70
+max-visits: 5
+on-arrival: f_purga_last = time
+
+= El fantasma del informante
+
+It arrives the way it always arrives — not as a fact but as a *fever.* The last three operations went wrong. The army was waiting twice where it should not have been. And in a column that has stopped sleeping properly, the mind does what frightened minds do: it looks for a face. A veteran you trust brings you a name in a low voice, and there is nothing behind it but coincidence and fear, and everything behind it, because this is the thing that killed more guerrillas than the army ever did. The Bolivian diary is full of it. So is the Liga's history, and the PDLP's. The enemy's deepest victory is not the informer he plants. It is the ones you invent to explain your losses.
+
+- @purga_matar: Act on it. In a war this tight you cannot afford to be wrong slowly — deal with the suspect and let the fear do its work. *(the purge; discipline and trust collapse; the column begins to eat itself)*
+- @purga_investigar: Refuse the fever. Investigate in the cold light, compartmentalize, and cut the Colonel's real network instead of hunting ghosts. *(needs discipline; eases the paranoia; may find the real leak)*
+- @purga_hablar: Stake your own authority on it — stand in front of the column and tell them the enemy wins the day you start killing each other. *(costs; but holds the band together)*
+
+@purga_matar
+on-arrival: {! Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.disciplina=(Q.disciplina||65)-14; Q.f_moral-=12; Q.paranoia=(Q.paranoia||45)+10; Q.f_hombres-=2; Q.f_bajas+=2; Q.apoyo_popular-=4; !}
+
+You act, and for one night the fever breaks — the suspect is gone, the losses have a face and a grave, and the column tells itself it is safe. Then the morning comes, and the arithmetic you have just taught everyone begins to work: if he was killed on a suspicion, then any of us can be, and the man who accused today can be accused tomorrow. Trust, the only thing that let a dozen hunted people live in each other's pockets for years, cracks. This is how it ends for the ones the army never catches — not in a firefight but in a clearing at dawn, killing the compañeros the enemy was never able to turn, because it did not need to.
+
+- @root: Continuar.
+
+@purga_investigar
+choose-if: disciplina >= 45
+unavailable-subtitle: A column this frightened and this loose cannot investigate calmly — it can only accuse.
+on-arrival: {! Q.paranoia=(Q.paranoia||45)-16; if(Q.paranoia<0){Q.paranoia=0;} Q.disciplina=(Q.disciplina||65)+4; if(Q.coronel_activo){ Q.coronel_red=(Q.coronel_red||0)-10; if(Q.coronel_red<0){Q.coronel_red=0;} } Q.inteligencia+=3; !}
+
+You refuse the fever, which takes more courage than acting on it, because a leader who does not purge is a leader who might be protecting a traitor, and everyone knows it. You investigate in the cold — trace the real leaks, tighten the compartments so no one knows more than they must, and go hunting the Colonel's actual network instead of the phantom in your own ranks. Sometimes you even find the real thread and cut it. Mostly you find what was always true: the losses were the army being good at its job, and the traitor was fear. The column exhales. It will sleep tonight.
+
+- @root: Continuar.
+
+@purga_hablar
+on-arrival: {! Q.paranoia=(Q.paranoia||45)-8; if(Q.paranoia<0){Q.paranoia=0;} Q.f_moral+=4; Q.disciplina=(Q.disciplina||65)+2; Q.leyenda=(Q.leyenda||0)+1; !}
+
+You do the thing a commander is for. You stand in front of the whole column with the accusation in the open and you refuse it, publicly, staking your own standing on the one principle that keeps a guerrilla human: *the day we start killing each other, the enemy has won without firing a shot.* Some of them think you are naïve. All of them needed to hear someone say it out loud. The fever does not vanish — fevers do not — but it breaks enough to sleep on, and the band holds together one more season on the strength of a leader who would not let it turn on itself.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_hambre
+title: El hambre
+new-page: true
+face-image: img/agua_neza.jpg
+subtitle: The scarcity Bolivia died of
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_comida <= 20 and time >= f_hambre_last + 3
+priority: 7
+frequency: 100
+max-visits: 6
+on-arrival: f_hambre_last = time
+
+= El hambre
+
+The caches are empty and the high sierra has little to give. This is the crisis that killed Che in Bolivia as surely as any bullet — a column reduced to boiling roots and shooting the pack animals, men too weak to march losing the one thing a foco cannot lose, which is the ability to move. Hunger is the enemy that needs no intelligence and takes no prisoners. You have to feed the column now, and every way to do it costs something you would rather keep.
+
+- @hambre_convoy: Take a supply convoy — hit the army's own logistics and eat the enemy's rations. *(risky; +comida, +parque if it works; the ring tightens)*
+- @hambre_pueblos: Go down to the villages and ask, though they have little and the asking deepens a debt you may never repay. *(+comida; -a little of the water you lean on)*
+- @hambre_dispersar: Break the column into small groups to forage and survive, and regather when the season turns. *(saves food; scatters cohesion and presence)*
+
+@hambre_convoy
+choose-if: f_parque >= 8
+unavailable-subtitle: Hitting a convoy takes parque — at least 8 — and you are nearly out of that too.
+on-arrival: {! Q.f_parque-=8; var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.3)+(Q.apoyo_popular*0.2)-45+(Math.random()*35-12); if(_r>=0){Q.f_comida+=30;Q.f_parque+=14;Q.f_moral+=6;Q.f_desgaste+=5;}else{Q.f_comida+=10;Q.f_hombres-=3;Q.f_moral-=6;Q.f_bajas+=3;Q.memorial=(Q.memorial||0)+1;} Q.f_cerco+=16; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+You do the thing hungry armies have always done — you take your supper from the enemy. [? if f_moral >= 50 : The convoy is yours by noon: the column eats the army's rations, refills the caches with the army's ammunition, and marches out fed and rearmed on the enemy's account. Nothing rebuilds a starving band's spirit like eating the food of the men who were trying to starve it. ?][? if f_moral < 50 : It half works — you get some of it and leave some of your own on the road, and the column eats that night with fewer at the fire. ?] The army now knows exactly where its rations went, and the ring tightens around the theft.
+
+- @root: Continuar.
+
+@hambre_pueblos
+on-arrival: {! Q.f_comida+=18; Q.apoyo_popular-=3; Q.f_moral+=2; Q.sup_peasants+=1; !}
+
+You go down and you ask, and the sierra does the thing that shames and sustains you in the same motion: the poorest people in Mexico feed the hungry men who came to fight for them, from stores they cannot spare, and refuse to be thanked. The column eats. The debt grows — you are living, now, off people who have less than you started with, and every guerrilla with a conscience feels the weight of it. It is the water keeping the fish alive, literally, and it is the reason you cannot ever afford to forget whose war this actually is.
+
+- @root: Continuar.
+
+@hambre_dispersar
+on-arrival: {! Q.f_comida+=10; Q.f_moral-=4; Q.f_cerco-=20; if(Q.f_cerco<0){Q.f_cerco=0;} var _z=['guerrero','oaxaca','valle']; for(var _i=0;_i<_z.length;_i++){ if(Q['pres_'+_z[_i]]>2){Q['pres_'+_z[_i]]-=2;} } !}
+
+You do what Bayo's manual says to do when the choice is scatter or starve: you break the column into small groups that can live off ground a whole band would strip bare, and you set a place and a season to regather. It works — the men eat, the ring loses its target, the foco survives the lean months by ceasing, briefly, to be a foco at all. It also costs the thing concentration was buying: presence, momentum, the sense in the villages that a real army is here. You will spend the next season stitching back together what hunger made you take apart. Better that than a column of the dead, boiling roots.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@ev_desercion
+title: Los que se van
+new-page: true
+face-image: img/Luciodeath.jpg
+subtitle: When morale breaks, men vote with their feet
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_moral <= 35 and f_hombres >= 8 and time >= f_deserta_last + 3
+priority: 6
+frequency: 80
+max-visits: 6
+on-arrival: f_deserta_last = time
+
+= Los que se van
+
+They start to slip away in the night. Not the informers, not the broken — just tired men who joined believing it would be shorter than this, who have buried too many friends and eaten too little and can no longer see the end of it. Desertion is the sound a foco makes when its morale runs out, and how you answer decides whether the trickle becomes the flood that ends you.
+
+- @des_dejar: Let them go. A guerrilla held by force is worse than one who leaves — keep only those who stay by conviction. *(the band shrinks but hardens)*
+- @des_perseguir: Hunt them. A deserter carries what he knows to the enemy, and the column cannot afford a leak or the example. *(brutal; stops the bleeding by fear; poisons the well)*
+- @des_causa: Address the cause — rest the column, win them something, remind them why. *(costs time and momentum; rebuilds morale)*
+
+@des_dejar
+on-arrival: {! Q.f_hombres-=4; Q.f_moral+=4; Q.disciplina=(Q.disciplina||65)+3; !}
+
+You let them walk, with a handshake and a warning to say nothing, because Bayo was right that a guerrilla kept at gunpoint is a liability with a rifle, and Che was right that the column that remains after the weak have gone is worth more than the crowd that preceded it. It hurts to watch them go — every one is a story of why the war is too long — but what stays is a band of the convinced, harder and smaller and surer. You are fewer now. You are also, in the only way that counts in a war like this, more.
+
+- @root: Continuar.
+
+@des_perseguir
+on-arrival: {! Q.f_hombres-=1; Q.f_moral-=8; Q.paranoia=(Q.paranoia||8)+12; Q.disciplina=(Q.disciplina||65)-6; Q.apoyo_popular-=4; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; !}
+
+You send men after them, because a deserter is a walking file and an example that spreads, and you bring them back — or you bring back the knowledge that they will not run again. It stops the immediate bleeding. It also does something to the column that no army could: it tells every fighter that this is now a place you cannot leave alive, that the movement they joined to be free has become one more thing that owns them. The desertions slow. So does everything else that made men want to be here in the first place. You have started to become the barracks you ran from.
+
+- @root: Continuar.
+
+@des_causa
+on-arrival: {! Q.f_moral+=14; Q.f_comida-=6; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} Q.disciplina=(Q.disciplina||65)+3; !}
+
+You do the slow, expensive, correct thing: you stop. You pull the column to safe ground, let the men sleep and eat and bury their dead properly, and you remind them — not with a speech but with a small, winnable action and a fair share of the little you have — why they climbed up here in the first place. Morale is not restored by discipline; it is restored by hope, and hope is restored by rest and a reason. It costs you a season of momentum and lets the ring drift closer while you sit. It also turns a dissolving band back into an army. The men who were leaving stay, and mean it.
+
+- @root: Continuar.

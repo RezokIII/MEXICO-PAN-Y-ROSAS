@@ -1,0 +1,115 @@
+title: Después de la victoria
+max-visits: 1
+view-if: 0
+# Container/namespace only — NOT tagged event. What a NEGOTIATED guerrilla victory opens on the
+# political road: the liberated zone as a model, the veterans, and the socialist-governance choice.
+# Fires when f_negociado = 1 (took the apertura) and back on the political road.
+
+# ---------------------------------------------------------------------
+@gob_zona
+title: La zona, gobernada
+new-page: true
+face-image: img/cards/ejido.jpg
+subtitle: Guerrero, after — what the guerrilla built, now legal
+tags: event
+view-if: f_negociado = 1 and (via = "politica" or via = "institucional") and time >= f_gobierno_last + 3
+priority: 4
+frequency: 55
+max-visits: 3
+on-arrival: f_gobierno_last = time
+
+= La zona, gobernada
+
+The strangest thing about winning is what stays behind. In the sierra you did not only fight — you governed, because a guerrilla that holds ground has to: the assemblies that judged disputes, the fields redistributed, the clinics, the literacy circles, the small rough democracy of people running their own lives at gunpoint's remove from the state. Now the guns are down and the amnesty is signed, and that improvised order is suddenly *legal* — the closest thing to a workers' and peasants' government that has existed on Mexican soil since Cárdenas, and the one place in the country where people already know what it feels like to be governed by themselves. What you do with it decides whether it is a museum or a model.
+
+- @gz_modelo: Make it the model — pour everything into showing the whole country that the liberated zone works, that socialism is not a slogan but a functioning municipality. *(+socialist governance; the south becomes a showcase)*
+- @gz_extender: Extend it quietly — replicate the ejido democracy and the assemblies across the south before the machine notices and moves to reabsorb it. *(+peasant base, +regional roots)*
+
+@gz_modelo
+on-arrival: {! Q.f_socialismo=(Q.f_socialismo||0)+2; Q.sup_peasants=(Q.sup_peasants||0)+6; Q.fe_voto=(Q.fe_voto||0)+8; Q.legitimidad_regimen-=4; Q.leyenda=(Q.leyenda||0)+2; !}
+
+You turn the liberated zone into an argument the whole country can watch: the cameras come, and what they film is not chaos but a municipality where the land is worked in common and the decisions are made in the open and the caciques are simply *gone.* It is the most dangerous thing a Mexican government can face — not a guerrilla in the hills but a working example in the valley, proof in a single county that the thing the left has promised for fifty years can actually be built. People come from other states to see it. Some of them go home and start.
+
+- @root: Continuar.
+
+@gz_extender
+on-arrival: {! Q.f_socialismo=(Q.f_socialismo||0)+1; Q.sup_peasants=(Q.sup_peasants||0)+8; Q.red_casillas=(Q.red_casillas||0)+8; Q.municipio_alcozauca=1; !}
+
+You do not make a monument; you make a *pattern.* The assemblies, the common fields, the recallable authorities — you replicate them, village by village, county by county, faster than the machine can decide whether to co-opt or crush them, until the south is threaded with small functioning pieces of the thing you fought for. It is less spectacular and far harder to kill: you cannot bomb a method, and the PRI cannot buy back a hundred villages that have learned to govern themselves. The roots go down. The machine will spend the next decade trying to pull them up, and finding that they have spread.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@gob_veteranos
+title: Los que bajaron
+new-page: true
+face-image: img/genaro.jpg
+subtitle: The war's veterans, in the movement now
+tags: event
+view-if: f_negociado = 1 and (via = "politica" or via = "institucional") and veteranos >= 1 and time >= f_gobierno_last + 3
+priority: 3
+frequency: 50
+max-visits: 2
+on-arrival: f_gobierno_last = time
+
+= Los que bajaron
+
+They came down out of the sierra with you, and now they are among the cadres — the ones who spent years being hunted and did not break, holding the posts where a person needs to have already seen the worst: security, the campo organizing, the places the soft political recruits cannot go. They are the movement's spine now, and its conscience, and occasionally its problem: men and women who took a provincial capital do not always take easily to committee meetings and the patience of legal work. The legend they carry organizes the south for a generation. The impatience they carry has to be given somewhere to go.
+
+- @vet_cuadros: Make them the movement's backbone — put the veterans where their discipline and their legend do the most, and let the war's hardest lessons train the next generation. *(+unity, +security, +organizing muscle)*
+- @vet_memoria: Make them its memory — let them build the archive, name the dead, teach the young why, so the victory is never sentimentalized into a story that forgets its cost. *(+legend, the counter-history secured)*
+
+@vet_cuadros
+on-arrival: {! Q.unity=(Q.unity||0)+8; Q.f_socialismo=(Q.f_socialismo||0)+1; Q.sup_peasants=(Q.sup_peasants||0)+4; Q.organizers=(Q.organizers||0)+3; !}
+
+You put the veterans where iron is needed, and the movement gains something no amount of legal organizing could buy: a core that has already been tested by the worst the state can do and did not fold. They train the young cadres the way Bayo trained them — hard, and in habits, and with the authority of people who have actually done it. The soft parts of the movement grow a hard center. When the machine comes with money or with threats, it finds a spine it cannot bend, because the people holding it have already refused worse.
+
+- @root: Continuar.
+
+@vet_memoria
+on-arrival: {! Q.leyenda=(Q.leyenda||0)+4; Q.memorial=(Q.memorial||0)+2; Q.f_socialismo=(Q.f_socialismo||0)+1; Q.fe_voto=(Q.fe_voto||0)+4; !}
+
+You set the veterans to the work of memory, which a victorious movement neglects at its peril: the archive assembled, the dead named with their dates and their villages, the young taught not a sanitized legend but the real thing — what it cost, who paid, what was nearly lost and why. A revolution that remembers accurately is one that cannot be flattered into repeating its mistakes or shamed into forgetting its victories. The counter-history is secured in the one place the state can never raid: the trained memory of the people who lived it.
+
+- @root: Continuar.
+
+# ---------------------------------------------------------------------
+@gob_camino
+title: El poder, y qué hacer con él
+new-page: true
+face-image: img/Zocalo1988.jpeg
+subtitle: The movement has real power in the south now — the hardest question is what kind
+tags: event
+view-if: f_negociado = 1 and (via = "politica" or via = "institucional") and f_socialismo >= 3 and time >= f_gobierno_last + 4
+priority: 5
+max-visits: 1
+on-arrival: f_gobierno_last = time
+
+= El poder, y qué hacer con él
+
+It has crept up almost unnoticed under the weight of daily work: the movement has *power* now — real, territorial, governing power in the south, won by the gun and legitimized by the accord and rooted in a hundred self-governing villages. This is the moment every revolution reaches and few survive with their soul intact, because power is the acid test that dissolved most of the left that ever touched it. The war was the easy part. The war had an enemy. This has only choices, and they are the ones that decide what all of it was *for.*
+
+- @cam_socialismo: **La vía al socialismo.** Build it out — socialize the land and the key enterprises of the region, deepen the assembly democracy, make the south a functioning socialist polity within a capitalist state and dare the country to notice. *(the socialist-governance path; bold, and it invites the whole weight of reaction)*
+- @cam_frente: **El frente amplio.** Don't overreach — hold the gains, build the broadest possible front, trade some of the radicalism for the durability that keeps the machine from crushing what you built. *(safer, broader, slower; the reformist synthesis)*
+- @cam_nacional: **De lo regional a lo nacional.** Take the model national — use the southern base and the legend as the launch-pad for a genuine bid for national power in '88. *(ambition; ties the guerrilla victory to the electoral endgame)*
+
+@cam_socialismo
+on-arrival: {! Q.f_socialismo=(Q.f_socialismo||0)+4; Q.sup_peasants=(Q.sup_peasants||0)+8; Q.sup_workers=(Q.sup_workers||0)+5; Q.legitimidad_regimen-=8; Q.intervencion_riesgo=(Q.intervencion_riesgo||0)+8; Q.leyenda=(Q.leyenda||0)+3; !}
+
+You choose the hardest road and the only one that would make the dead nod: you build the thing itself. The land of the region is socialized, the key enterprises brought under the assemblies, the rough wartime democracy deepened into a functioning system — a piece of actual socialism, governing actual lives, inside a state that cannot decide whether to tolerate it or destroy it. It is the boldest thing the Mexican left has done since the Revolution, and it summons every force that exists to stop such things: the machine, the army it did not fully dismantle, and the cold attention of a giant to the north for whom a working socialism on its border is the one thing more intolerable than a failed one. You have built the future. Now you have to defend it.
+
+- @root: Continuar.
+
+@cam_frente
+on-arrival: {! Q.f_socialismo=(Q.f_socialismo||0)+1; Q.pri_reformist_rel=(Q.pri_reformist_rel||0)+10; Q.unity=(Q.unity||0)+8; Q.fe_voto=(Q.fe_voto||0)+8; Q.registro=(Q.registro<2?2:Q.registro); !}
+
+You choose durability over daring. Instead of building an island of socialism to be drowned, you build a *front* — the broadest possible alliance, radical in aim and patient in method, that trades some of the maximalism for the one thing the Mexican left has never had: staying power. The gains in the south are held, not gambled; the movement becomes a permanent national factor rather than a heroic episode. Some of the veterans call it a betrayal of what the war was for. Some of them are right. And some of them will still be organizing, and free, and building, in twenty years — which is more than most revolutions can say.
+
+- @root: Continuar.
+
+@cam_nacional
+on-arrival: {! Q.f_socialismo=(Q.f_socialismo||0)+2; Q.fe_voto=(Q.fe_voto||0)+14; Q.leyenda=(Q.leyenda||0)+4; Q.frente_unidad=(Q.frente_unidad||0)+10; Q.cd_formed=1; !}
+
+You point all of it — the southern base, the governing example, the legend of the capital that fell — at the one prize that would change everything: national power, and soon. The movement stops being a regional miracle and becomes the anchor of a real bid for the presidency, the thing '88 could turn on. It is the highest-variance choice on the board: win it and the guerrilla war becomes the prologue to a government; lose it and you have bet the safest gains you will ever hold on the roll of an election the machine has never once lost cleanly. The dead in the sierra bought you this shot. Now you take it, for all of them.
+
+- @root: Continuar.

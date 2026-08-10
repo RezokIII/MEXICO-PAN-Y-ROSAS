@@ -217,6 +217,8 @@ Q.f_santaclara_visto = 0; Q.f_fin_foco = 0;
 Q.f_bayo = 0; Q.f_asalto_listo = 0; Q.f_negociado = 0; Q.f_sc_result = ""; Q.f_sc_plan = ""; Q.f_sc_offer_last = -99;
 Q.f_traicion_riesgo = 0; Q.apoyo_sierra_gob = 0;
 Q.f_ev_last = -99; Q.f_figueroa = 0; Q.f_enlace_foco = 0; Q.f_reprisal_last = -99;
+Q.f_medico = 0; Q.f_socialismo = 0; Q.f_purga_last = -99; Q.f_hambre_last = -99; Q.f_deserta_last = -99;
+Q.f_despues_visto = 0; Q.f_gobierno_last = -99;
 Q.cerco_final_warned = 0;
 Q.balance_armado_visto = 0;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
