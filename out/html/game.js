@@ -504,6 +504,70 @@
     return {who:arr[0][0], top:arr[0][1], second:arr[1][1], izq:izq, pri:pri, pan:pan,
             contested:(arr[0][1]-arr[1][1])<7};
   }
+  // ===== THE GUERRERO FOCO MAP: one band moving the coast->deep-sierra axis, the ring around it =====
+  window.paintFocoMap=function(el,Q){
+    var NODES=[
+      {n:'La costa',x:236,y:180}, {n:'Atoyac',x:199,y:150}, {n:'San Vicente',x:163,y:121},
+      {n:'El Quemado',x:128,y:94}, {n:'Río Chiquito',x:94,y:69}, {n:'El Otatal',x:62,y:47}
+    ];
+    var CAP={n:'Chilpancingo',x:252,y:100};
+    var prof=Math.max(0,Math.min(5,Math.round(Q.col_prof||0)));
+    var cerco=Math.max(0,Math.min(100,Q.f_cerco||0));
+    var apoyo=Math.max(0,Math.min(100,Q.apoyo_popular||0));
+    var moral=Q.f_moral||0;
+    var cur=NODES[prof];
+    var lib=(Q.f_capital===1||Q.f_liberado_gro===1);
+    var dotcol = moral>=66?'#2e7d4f':(moral>=40?'#d8b53f':'#b3261e');
+    // background wash: the deeper the water, the greener the sierra
+    var s='<svg viewBox="0 0 300 210" style="width:100%;height:auto;display:block;font-family:Georgia,serif">';
+    s+='<rect x="0" y="0" width="300" height="210" fill="'+(apoyo>=55?'#e6eede':(apoyo>=30?'#efe9dc':'#f1e4dd'))+'"/>';
+    // a few sierra ridgelines up top-left, coast strip bottom
+    s+='<path d="M0 60 L40 34 L78 58 L120 30 L160 60 L120 74 L60 78 Z" fill="#cdbfa0" opacity="0.5"/>';
+    s+='<rect x="0" y="192" width="300" height="18" fill="#bcd0d8" opacity="0.6"/>';
+    s+='<text x="6" y="204" font-size="7" fill="#5b7580">el mar</text>';
+    // the trail through the nodes
+    var d='M'; for(var i=0;i<NODES.length;i++){ d+=(i?' L':'')+NODES[i].x+' '+NODES[i].y; }
+    s+='<path d="'+d+'" fill="none" stroke="#8a7a58" stroke-width="1.6" stroke-dasharray="3 2"/>';
+    // road to the capital
+    s+='<path d="M'+NODES[1].x+' '+NODES[1].y+' L'+CAP.x+' '+CAP.y+'" fill="none" stroke="#9aa0a8" stroke-width="1.2" stroke-dasharray="1 2"/>';
+    // nodes
+    for(var j=0;j<NODES.length;j++){ var nd=NODES[j]; var here=(j===prof);
+      s+='<circle cx="'+nd.x+'" cy="'+nd.y+'" r="'+(here?4.2:3)+'" fill="'+(here?dotcol:'#cfc3a4')+'" stroke="#5b4a2a" stroke-width="'+(here?1.4:0.8)+'"/>';
+      s+='<text x="'+(nd.x+6)+'" y="'+(nd.y+2.5)+'" font-size="6.5" fill="#3a2e1c" '+(here?'font-weight="bold"':'')+'>'+nd.n+'</text>';
+    }
+    // the capital (the Santa Clara prize)
+    s+='<rect x="'+(CAP.x-3.5)+'" y="'+(CAP.y-3.5)+'" width="7" height="7" transform="rotate(45 '+CAP.x+' '+CAP.y+')" fill="'+(lib?'#b3261e':'#33556f')+'" stroke="'+(lib?'#e8b923':'#22303c')+'" stroke-width="1.3"/>';
+    if(lib){ s+='<text x="'+CAP.x+'" y="'+(CAP.y-6)+'" text-anchor="middle" font-size="10" fill="#e8b923">★</text>'; }
+    s+='<text x="'+(CAP.x+6)+'" y="'+(CAP.y+2.5)+'" font-size="6.5" fill="'+(lib?'#b3261e':'#22303c')+'" font-weight="bold">'+CAP.n+(lib?' — LIBERADA':'')+'</text>';
+    // the ring around the column: tighter + redder as f_cerco climbs
+    if(cerco>=25){ var rr=24-(cerco/100)*11; var op=Math.min(0.9,cerco/110);
+      s+='<circle cx="'+cur.x+'" cy="'+cur.y+'" r="'+rr.toFixed(1)+'" fill="none" stroke="#b3261e" stroke-width="'+(1+cerco/60).toFixed(1)+'" stroke-dasharray="4 3" opacity="'+op.toFixed(2)+'">';
+      if(cerco>=70){ s+='<animate attributeName="r" values="'+rr.toFixed(1)+';'+(rr-3).toFixed(1)+';'+rr.toFixed(1)+'" dur="1.4s" repeatCount="indefinite"/>'; }
+      s+='</circle>';
+    }
+    // the column marker
+    s+='<circle cx="'+cur.x+'" cy="'+cur.y+'" r="2" fill="#111"/>';
+    s+='<text x="'+cur.x+'" y="'+(cur.y-7)+'" text-anchor="middle" font-size="6" fill="#111" font-weight="bold">la columna</text>';
+    s+='</svg>';
+    // meter bars beneath the map
+    function bar(lbl,val,max,col){ var p=Math.max(0,Math.min(100,(val/max)*100));
+      return '<div style="display:flex;align-items:center;gap:5px;margin:1px 0;font:10px Georgia,serif;color:#3a2e22">'
+        +'<span style="width:74px;text-align:right">'+lbl+'</span>'
+        +'<span style="flex:1;height:7px;background:#d9cdb8;border:1px solid #a88;border-radius:2px;overflow:hidden;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:'+p+'%;background:'+col+'"></span></span>'
+        +'<span style="width:26px;text-align:right"><b>'+Math.round(val)+'</b></span></div>';
+    }
+    var bars='<div style="margin:4px 2px 0">'
+      + bar('comida', Q.f_comida||0, 100, '#2e7d4f')
+      + bar('parque', Q.f_parque||0, 100, '#c9772e')
+      + bar('hombres', Q.f_hombres||0, 60, '#3b6ea5')
+      + bar('moral', Q.f_moral||0, 100, '#7a4fa0')
+      + bar('el agua (apoyo)', apoyo, 100, apoyo>=55?'#2e7d4f':(apoyo>=30?'#c99a2e':'#b3261e'))
+      + bar('el cerco', cerco, 100, '#b3261e')
+      + bar('desgaste del ejército', Q.f_desgaste||0, 100, '#8a6d3b')
+      + '</div>';
+    el.innerHTML = s + bars;
+  };
+
   window.paintSierraMap=function(){
     if(!window.dendryUI||!window.dendryUI.dendryEngine) return;
     if(window.statusTab!=='status.guerra') return;
@@ -511,6 +575,8 @@
     var atWar=(Q.via==='armada');
     var el=document.getElementById('mapa_sierra');
     if(!el){ var host=document.getElementById('qualities'); if(!host)return; el=document.createElement('div'); el.id='mapa_sierra'; el.style.position='relative'; el.style.margin='0.5em 0'; var h=host.querySelector('h1'); if(h&&h.nextSibling){host.insertBefore(el,h.nextSibling);}else{host.appendChild(el);} }
+    // THE FOCO: one band on the Guerrero map — render that instead of the region map.
+    if(Q.banda==='sierra'){ try{ window.paintFocoMap(el,Q); }catch(e){} return; }
     if(!document.getElementById('z_guerrero')){ el.innerHTML=SVG; }
     var zonas=['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
     var tip=document.getElementById('mapa_tip');
