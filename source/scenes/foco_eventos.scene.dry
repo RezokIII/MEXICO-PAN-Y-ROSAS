@@ -92,7 +92,7 @@ The base brings you a name and a rope. A cacique who has bled these villages for
 - @ajust_perdonar: Spare him, expose him, and let him live marked. Refuse to become what you are fighting. *(risk; but the water runs cleaner)*
 
 @ajust_hacer
-on-arrival: {! Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.f_cerco-=8; if(Q.f_cerco<0){Q.f_cerco=0;} Q.apoyo_popular-=5; Q.paranoia=(Q.paranoia||8)+6; Q.f_moral-=2; !}
+on-arrival: {! Q.brutalidad=(Q.brutalidad||0)+2; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.f_cerco-=8; if(Q.f_cerco<0){Q.f_cerco=0;} Q.apoyo_popular-=5; Q.paranoia=(Q.paranoia||8)+6; Q.f_moral-=2; !}
 
 It is done at the edge of the village before dawn, and for a while it works exactly as promised: the informers go quiet, the caciques travel with guards, the immediate leak is stopped. But something changes in the column that morning that does not change back. The villages are a little more careful around you now — grateful, afraid, and careful, which is not the same as loving. And in the ranks the arithmetic of suspicion has been taught: if we killed him for what he might have done, who among us is next? Every foco that ate itself began with a morning like this one.
 

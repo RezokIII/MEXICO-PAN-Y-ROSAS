@@ -60,7 +60,9 @@ They came down out of the sierra with you, and now they are among the cadres —
 - @vet_memoria: Make them its memory — let them build the archive, name the dead, teach the young why, so the victory is never sentimentalized into a story that forgets its cost. *(+legend, the counter-history secured)*
 
 @vet_cuadros
-on-arrival: {! Q.unity=(Q.unity||0)+8; Q.f_socialismo=(Q.f_socialismo||0)+1; Q.sup_peasants=(Q.sup_peasants||0)+4; Q.organizers=(Q.organizers||0)+3; !}
+on-arrival: {! var _b=(Q.brutalidad||0); Q.unity=(Q.unity||0)+8-Math.round(_b*0.6); Q.f_socialismo=(Q.f_socialismo||0)+1; Q.sup_peasants=(Q.sup_peasants||0)+4-Math.round(_b*0.4); Q.organizers=(Q.organizers||0)+3; if(_b>=6){Q.escandalos=(Q.escandalos||0)+1;} !}
+
+[? if brutalidad >= 6 : Some of the veterans you are placing did things in the sierra that the movement has never accounted for, and placing them at the head of the cadre is a decision the movement will be asked about for thirty years — by journalists, by the families, and eventually by its own young. ?]
 
 You put the veterans where iron is needed, and the movement gains something no amount of legal organizing could buy: a core that has already been tested by the worst the state can do and did not fold. They train the young cadres the way Bayo trained them — hard, and in habits, and with the authority of people who have actually done it. The soft parts of the movement grow a hard center. When the machine comes with money or with threats, it finds a spine it cannot bend, because the people holding it have already refused worse.
 

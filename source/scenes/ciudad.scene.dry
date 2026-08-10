@@ -173,7 +173,7 @@ You go for the guns themselves — a police armoury, a factory's security lockup
 @a_ajuste
 choose-if: acc_pts >= 2
 unavailable-subtitle: An ajusticiamiento costs 2 action points.
-on-arrival: {! Q.acc_pts-=2; Q.u_poder+=7; Q.apoyo_popular+=3; Q.legitimidad_regimen-=3; Q.u_calor+=22; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+4; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; !}
+on-arrival: {! Q.brutalidad=(Q.brutalidad||0)+2; Q.acc_pts-=2; Q.u_poder+=7; Q.apoyo_popular+=3; Q.legitimidad_regimen-=3; Q.u_calor+=22; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+4; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; !}
 
 You strike a man the barrios already curse by name — a torturer from the DFS, a boss who has strikers shot, a judge who signs whatever the palace sends him. In the colonias it lands like justice arriving for the first time in living memory, and the poder popular jumps: there is a power in this city that answers for the poor. It also crosses the line the state has been waiting for you to cross, and now the hunt is personal, and total. Every movement that did this learned that the applause fades faster than the manhunt.
 

@@ -112,6 +112,8 @@ You did the thing the manuals said could not be done on this ground, and the sta
 
 It is the most dangerous moment of the whole war — more dangerous than the cerco, than the assault — because it is the moment the revolution decides what it actually wanted. The gun won you a hearing. What you do with the hearing is the only question that was ever really being asked.
 
+[? if brutalidad >= 6 : **And there is the record.** The man with the portfolio has a folder of his own: the ones you executed at the edge of villages, the compañeros your own column shot on suspicion, the deserters hunted down. He does not raise it to shame you — he raises it because it is *leverage*. A movement with a record like that cannot be legitimized without cost, and everyone at this table knows the amnesty will be narrower for it. ?][? if brutalidad >= 1 and brutalidad < 6 : *There is a short folder of your own dead — the ones you executed — and it will be read aloud at some point in these talks.* ?]
+
 [? if pol_pcm < 20 and pol_intl < 25 : **Nobody vouches for you.** With no channel to the Party and no witnesses abroad, the man with the portfolio has come to *measure* you, not to sign. A movement with no political face cannot cash a military victory — it can only keep fighting until someone finally wins. ?][? if pol_pcm >= 55 : *The Party is at the table with you: its lawyers, its legality, its national name — the terms are real, and there is somebody to convert this into power.* ?][? if pol_intl >= 45 : *And the world is watching this room, which is why the offer is generous and why it will be honoured.* ?]
 
 - @neg_apertura: **Tomar la apertura.** Trade the gun for the opening: amnesty, registration, the reforms — and carry the victory and its legend down into the political road, where a movement that took a capital cannot be rounded to zero. *(end the foco victorious; the political side becomes far stronger)*
@@ -125,11 +127,13 @@ new-page: true
 on-arrival: {!
 Q.f_negociado=1; Q.f_phase="despues"; Q.via="politica"; Q.postura_guerrilla=0;
 Q.veteranos=(Q.veteranos||0)+3; Q.leyenda=(Q.leyenda||0)+8; Q.registro=(Q.registro<1?1:Q.registro);
-Q.legitimidad_regimen-=6; Q.pri_reformist_rel=(Q.pri_reformist_rel||0)+18; Q.fe_voto=(Q.fe_voto||0)+18; var _pb=Math.round((Q.pol_pcm||0)/10); Q.unity=(Q.unity||0)+_pb; Q.political_capital=(Q.political_capital||0)+_pb; Q.organizers=(Q.organizers||0)+Math.round((Q.pol_pcm||0)/25); Q.fe_voto+=Math.round((Q.pol_intl||0)/8);
+Q.legitimidad_regimen-=6; Q.pri_reformist_rel=(Q.pri_reformist_rel||0)+18; Q.fe_voto=(Q.fe_voto||0)+18; var _br=(Q.brutalidad||0); var _pb=Math.round((Q.pol_pcm||0)/10)-Math.round(_br*0.8); if(_pb<0){_pb=0;} Q.leyenda=(Q.leyenda||0)-Math.round(_br*0.5); Q.memorial=(Q.memorial||0)+Math.round(_br*0.4); Q.unity=(Q.unity||0)+_pb; Q.political_capital=(Q.political_capital||0)+_pb; Q.organizers=(Q.organizers||0)+Math.round((Q.pol_pcm||0)/25); Q.fe_voto+=Math.round((Q.pol_intl||0)/8);
 Q.sup_peasants=(Q.sup_peasants||0)+10; Q.apoyo_sierra_gob=1; Q.unity=(Q.unity||0)+8;
 !}
 
 You come down out of the mountains with your rifles slung and your backs straight, and it is not a surrender — a surrender is what happens to the defeated, and you took a capital. It is a *transaction*, made from the one position of strength the Mexican left has never once held: the state needed the war to end more than you did. The amnesty is signed. The Party is registered. The land in Guerrero moves, and the campesinos who fed you for three years watch their sons walk out of the ejido with the caciques unable to touch them, because there is a movement behind the boy now, and the movement has proven it will fight.
+
+[? if brutalidad >= 6 : And there is the other inheritance, the one nobody puts in the communiqué: the movement that comes down is also the movement that killed at the edge of villages, and the country's memory of it will always carry that asterisk. Some of the campesinos who cheered the flag will not meet your eye. The amnesty covered the state's crimes too — that was the price of covering yours. ?]
 
 The foco is over. What walks down from the sierra into the political road is not a defeated band accepting mercy but a victorious one collecting a debt — veterans who have seen the worst, a legend that organizes the south for a generation, and the one thing two decades of legal struggle never bought: the country's knowledge that this movement, cornered, does not break. Everything you build from here, you build stronger.
 

@@ -71,7 +71,7 @@ if (Q.month != Q.last_drift_month) {
         if (Q.disciplina > 100) { Q.disciplina = 100; } if (Q.disciplina < 0) { Q.disciplina = 0; }
         // --- Che's water: apoyo_popular, the sea the columns swim in ---
         // Baseline entropy: fear, time, the state's patient presence. The water drains unless you work it.
-        Q.apoyo_popular -= 0.45;
+        Q.apoyo_popular -= 0.75;
         var _rooted = (Q.pres_guerrero > 15 ? 1 : 0) + (Q.pres_oaxaca > 15 ? 1 : 0) + (Q.pres_valle > 15 ? 1 : 0);
         if (Q.linea_guerra <= -8) { Q.apoyo_popular += 0.4; }           // the mass line builds the sea
         if (Q.zona_gobernada == 1) { Q.apoyo_popular += 0.4; }          // governing the zone justly
@@ -148,7 +148,7 @@ if (Q.month != Q.last_drift_month) {
         // It rises when the regime discredits itself (its dead, its lies, its lost legitimacy) and
         // when you actually GOVERN better than it does. It falls when the state buys the countryside
         // back — the reparto, the credit, the clinic IT builds — and when you frighten people.
-        var _techo = 50
+        var _techo = 54
             + Math.max(0, 72 - (Q.legitimidad_regimen||72)) * 0.55
             + (Q.memorial||0) * 0.7
             + ((Q.zona_gobernada === 1) ? 8 : 0)
@@ -158,7 +158,7 @@ if (Q.month != Q.last_drift_month) {
             - (Q.presidente_cooptacion||0) * 0.15
             - (Q.charrismo||0) * 0.06
             - ((Q.estado_doctrina === 'contrainsurgencia') ? 10 : 0)
-            - (Q.ajusticiamientos||0) * 3;
+            - (Q.brutalidad||0) * 1.8;   // one measure of what you did to people, not two
         if (_techo < 15) { _techo = 15; } if (_techo > 92) { _techo = 92; }
         Q.apoyo_techo = Math.round(_techo);
         // past the ceiling you have reached everyone who will ever come; the rest drift back to the Party

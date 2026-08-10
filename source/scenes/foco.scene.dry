@@ -256,7 +256,7 @@ The scouts go out, and the guides — the ones born in these draws — go with t
 
 @m_base
 choose-if: acc_pts >= 1
-on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=7; Q.f_comida+=4; Q.f_hombres+=1; Q.sup_peasants+=2; Q.f_cerco+=5; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+on-arrival: {! Q.acc_pts-=1; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(5,_h*0.30); Q.f_comida+=4; Q.f_hombres+=1; Q.sup_peasants+=2; Q.f_cerco+=5; if(Q.f_cerco>100){Q.f_cerco=100;} !}
 
 You put the rifles down and do the unglamorous work that is the whole war: the assembly held, the dispute settled, the cacique's abuse marked and answered, the clinic and the literacy circle. The water rises here — a little more of the sierra that will hide you, feed you, and lie for you. But a column that sits still can be found, and somewhere a lieutenant notes that you have not moved.
 
@@ -312,7 +312,7 @@ You take the column's supper from the army's own trucks. [? if f_moral >= 50 : I
 
 @p_asamblea
 choose-if: acc_pts >= 1
-on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=6; Q.sup_peasants=(Q.sup_peasants||0)+3; Q.zona_gobernada=1; Q.legitimidad_regimen-=1; !}
+on-arrival: {! Q.acc_pts-=1; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(4,_h*0.26); Q.sup_peasants=(Q.sup_peasants||0)+3; Q.zona_gobernada=1; Q.legitimidad_regimen-=1; !}
 
 You call the whole village together and let it govern itself in the open — disputes heard, the common field decided, the cacique's abuses named and answered by the people rather than the gun. It is the mass line made concrete, and it wins the deepest kind of water: not fear, not even gratitude, but the sense that where the guerrilla is, the people rule themselves. That is a thing no army can bomb and no cacique can buy back.
 
@@ -392,7 +392,7 @@ You get the war out of the country: the testimonies smuggled to exiles and forei
 
 @pue_escuela
 choose-if: acc_pts >= 1
-on-arrival: {! Q.acc_pts-=1; Q.apoyo_popular+=6; Q.sup_peasants=(Q.sup_peasants||0)+2; Q.zona_gobernada=1; Q.f_moral+=2; !}
+on-arrival: {! Q.acc_pts-=1; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(4,_h*0.24); Q.sup_peasants=(Q.sup_peasants||0)+2; Q.zona_gobernada=1; Q.f_moral+=2; !}
 
 Literacy circles under a tree, the médico's rounds through the hamlets, a school where the state built none in fifty years. This is the part of the war that has nothing to do with rifles and decides it anyway: the sierra learns that where the guerrilla governs, a child can read and a fever can be treated — that the movement is not merely against something but *for* a way of living. Che called it the guerrilla's obligation; Lucio simply called it being a teacher, which is what he was before any of this.
 

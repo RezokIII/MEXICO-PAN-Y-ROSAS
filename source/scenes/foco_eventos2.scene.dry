@@ -60,7 +60,7 @@ It arrives the way it always arrives — not as a fact but as a *fever.* The las
 - @purga_hablar: Stake your own authority on it — stand in front of the column and tell them the enemy wins the day you start killing each other. *(costs; but holds the band together)*
 
 @purga_matar
-on-arrival: {! Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.disciplina=(Q.disciplina||65)-14; Q.f_moral-=12; Q.paranoia=(Q.paranoia||45)+10; Q.f_hombres-=2; Q.f_bajas+=2; Q.apoyo_popular-=4; !}
+on-arrival: {! Q.brutalidad=(Q.brutalidad||0)+2; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.disciplina=(Q.disciplina||65)-14; Q.f_moral-=12; Q.paranoia=(Q.paranoia||45)+10; Q.f_hombres-=2; Q.f_bajas+=2; Q.apoyo_popular-=4; !}
 
 You act, and for one night the fever breaks — the suspect is gone, the losses have a face and a grave, and the column tells itself it is safe. Then the morning comes, and the arithmetic you have just taught everyone begins to work: if he was killed on a suspicion, then any of us can be, and the man who accused today can be accused tomorrow. Trust, the only thing that let a dozen hunted people live in each other's pockets for years, cracks. This is how it ends for the ones the army never catches — not in a firefight but in a clearing at dawn, killing the compañeros the enemy was never able to turn, because it did not need to.
 
@@ -155,7 +155,7 @@ You let them walk, with a handshake and a warning to say nothing, because Bayo w
 - @root: Continuar.
 
 @des_perseguir
-on-arrival: {! Q.f_hombres-=1; Q.f_moral-=8; Q.paranoia=(Q.paranoia||8)+12; Q.disciplina=(Q.disciplina||65)-6; Q.apoyo_popular-=4; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; !}
+on-arrival: {! Q.brutalidad=(Q.brutalidad||0)+2; Q.f_hombres-=1; Q.f_moral-=8; Q.paranoia=(Q.paranoia||8)+12; Q.disciplina=(Q.disciplina||65)-6; Q.apoyo_popular-=4; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; !}
 
 You send men after them, because a deserter is a walking file and an example that spreads, and you bring them back — or you bring back the knowledge that they will not run again. It stops the immediate bleeding. It also does something to the column that no army could: it tells every fighter that this is now a place you cannot leave alive, that the movement they joined to be free has become one more thing that owns them. The desertions slow. So does everything else that made men want to be here in the first place. You have started to become the barracks you ran from.
 
