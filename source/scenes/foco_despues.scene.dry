@@ -9,7 +9,7 @@ view-if: 0
 @gob_zona
 title: La zona, gobernada
 new-page: true
-face-image: img/cards/ejido.jpg
+face-image: img/toma_tierras.jpg
 subtitle: Guerrero, after — what the guerrilla built, now legal
 tags: event
 view-if: (f_negociado = 1 or u_negociado = 1) and (via = "politica" or via = "institucional") and time >= f_gobierno_last + 3

@@ -8,7 +8,7 @@ view-if: 0
 @ev_medico
 title: El médico
 new-page: true
-face-image: img/stareguerilla.jpg
+face-image: img/guerillasmile.jpg
 subtitle: The column's doctor — and the villages' first, ever
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and f_medico = 0 and f_bajas >= 2 and time >= f_ev_last + 2
@@ -86,7 +86,7 @@ You do the thing a commander is for. You stand in front of the whole column with
 @ev_hambre
 title: El hambre
 new-page: true
-face-image: img/agua_neza.jpg
+face-image: img/countrysideravine.jpg
 subtitle: The scarcity Bolivia died of
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and f_comida <= 20 and time >= f_hambre_last + 3

@@ -13,7 +13,7 @@ view-if: 0
 @forjar
 title: Forjar el foco
 new-page: true
-face-image: img/genaro.jpg
+face-image: img/campfound.jpg
 subtitle: Before the first shot, the decision that decides all the others
 on-arrival: f_phase = "forjar"
 
@@ -28,6 +28,7 @@ A guerrilla is not declared; it is *forged*, and how you forge it now decides ho
 - @forjar_solos: **Solos, en la sierra.** Train yourselves, in the mountains, seen by no one. *(cheap and invisible; you will learn the hard way, in contact.)*
 
 @forjar_bayo
+face-image: img/bayo.jpg
 on-arrival: {! Q.f_entreno="bayo"; Q.f_bayo=1; Q.f_forjado=1; Q.f_phase="marcha"; Q.f_moral+=12; Q.inteligencia+=5; Q.f_parque+=6; Q.f_hombres+=3; Q.disciplina=(Q.disciplina||65)+6; !}
 
 You train the way the revolution that won this continent's one victory trained: by Alberto Bayo's manual, *150 preguntas a un guerrillero* — the book the old one-eyed captain wrote out of Spain and Morocco and a lifetime of losing, then used to turn eighty seasick exiles into the men who took Havana. He is dead now, in Cuba, an honored general of a state he helped make. But a viejo who was at the ranch in Chalco when Fidel did his push-ups and Che carried the heaviest pack comes to the sierra to teach you what Bayo taught them: that a guerrilla's first weapon is discipline, that the manual is not a suggestion, and that the difference between a foco and a funeral is the hundred small habits drilled before the first shot. The column that comes out of his weeks is harder, steadier, and carries a lineage older than any of you — the through-line from the Sierra Maestra to this one.
@@ -35,6 +36,7 @@ You train the way the revolution that won this continent's one victory trained: 
 - @root: Al monte. Continuar.
 
 @forjar_cuba
+face-image: img/training.jpg
 on-arrival: {! Q.f_entreno="cuba"; Q.f_forjado=1; Q.f_phase="marcha"; Q.f_parque+=15; Q.f_moral+=8; Q.inteligencia+=6; Q.expediente+=8; Q.time+=2; !}
 
 They fly out through Mexico City with false papers and come back, four months later, able to strip a rifle blind, lay an ambush that works, and turn a cache into a campaign. It is a different band than the one that left — and the DFS, which counted the departures, is already a step closer than you would like. Skill was bought. Anonymity was the price.
@@ -42,6 +44,7 @@ They fly out through Mexico City with false papers and come back, four months la
 - @root: Al monte. Continuar.
 
 @forjar_maestro
+face-image: img/workingwithelpueblo.jpg
 on-arrival: {! Q.f_entreno="maestro"; Q.f_forjado=1; Q.f_phase="marcha"; Q.apoyo_popular+=14; Q.f_hombres+=6; Q.f_comida+=10; Q.f_parque-=4; Q.sup_peasants+=4; !}
 
 You do it the way Lucio actually did it: as a teacher, not a commander. Months of assemblies, of settling water disputes and marking the caciques' abuses, of being *of* Atoyac and not merely armed near it. When the guns finally come out, the sierra is already yours in the only way that matters — the villages will lie to a lieutenant to protect you. It is the deepest water a foco can start with. It is also the slowest, and the army is not waiting.
@@ -189,7 +192,7 @@ go-to: root
 @cerco
 title: El cerco
 new-page: true
-face-image: img/camioneta.jpg
+face-image: img/anti-guerillas.jpg
 subtitle: The ring has closed — read it, and run
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and f_cerco >= 80 and time >= f_cerco_last + 2

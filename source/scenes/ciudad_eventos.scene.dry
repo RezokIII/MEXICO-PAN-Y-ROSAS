@@ -10,7 +10,7 @@ view-if: 0
 @carcel_pueblo
 title: La Cárcel del Pueblo
 new-page: true
-face-image: img/charola.jpg
+face-image: img/lecumberri.jpg
 subtitle: The Tupamaro signature — a people's prison, and a hostage who matters
 tags: event
 view-if: banda = "ciudad" and u_phase = "red" and u_celulas >= 3 and time >= u_carcel_last + 6
@@ -57,7 +57,7 @@ You try him — a real proceeding, witnesses and evidence, his crimes read into 
 @la_ingobernabilidad
 title: La ciudad ingobernable
 new-page: true
-face-image: img/ceu.jpg
+face-image: img/huelga_general.jpg
 subtitle: The poder popular is high enough to force the question — rupture, or the coup it may invite
 tags: event
 view-if: banda = "ciudad" and u_phase = "red" and u_poder >= 55 and u_celulas >= 4 and u_ing_visto = 0 and time >= u_ing_last + 3
@@ -107,7 +107,7 @@ The tanks idle at the intersections while the city decides what it has just beco
 @ruptura
 title: La ruptura
 new-page: true
-face-image: img/congreso.jpg
+face-image: img/ruptura.jpg
 subtitle: A regime that cannot govern its own streets comes to the table
 
 = La ruptura

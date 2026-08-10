@@ -34,9 +34,9 @@ max-cards: 3
 - @movimiento
 - @sistema
 - @canales
-- @laguerra
-- @lared
-- @laestructura
+- #laguerra
+- #lared
+- #laestructura
 - @sierra
 - @campo
 - @fdn
@@ -79,9 +79,9 @@ max-cards: 4
 - @movimiento
 - @sistema
 - @canales
-- @laguerra
-- @lared
-- @laestructura
+- #laguerra
+- #lared
+- #laestructura
 - @sierra
 - @campo
 - @fdn
@@ -125,9 +125,9 @@ max-cards: 5
 - @movimiento
 - @sistema
 - @canales
-- @laguerra
-- @lared
-- @laestructura
+- #laguerra
+- #lared
+- #laestructura
 - @sierra
 - @campo
 - @fdn
@@ -170,9 +170,9 @@ max-cards: 4
 - @movimiento
 - @sistema
 - @canales
-- @laguerra
-- @lared
-- @laestructura
+- #laguerra
+- #lared
+- #laestructura
 - @sierra
 - @campo
 - @fdn
@@ -207,7 +207,7 @@ is-deck: true
 - #laguerra
 
 @lared
-card-image: img/cards/casilla.jpg
+card-image: img/liga.jpg
 title: La red
 subtitle: The urban war — the cells, where they act
 view-if: banda = "ciudad"

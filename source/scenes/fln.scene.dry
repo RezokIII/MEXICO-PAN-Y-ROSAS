@@ -31,6 +31,7 @@ You build the core the way the real FLN did — a small, professional, iron-disc
 - @root: A construir. Continuar.
 
 @forjar_selva
+face-image: img/jungleplan.jpg
 on-arrival: {! Q.fln_entreno="selva"; Q.fln_forjado=1; Q.fln_phase="construir"; Q.fln_rural+=12; Q.fln_estructura+=4; Q.apoyo_popular+=6; !}
 
 You do the thing whose payoff is measured in a generation: you put the first cell into the Lacandón jungle, into the Tzeltal and Tojolabal communities the state has forgotten so completely that it will not think to look there for years. It takes root the way roots take — invisibly, downward, slowly. Nothing will come of it for a decade. And then, one dawn in a year you cannot yet imagine, everything will.
@@ -129,7 +130,7 @@ go-to: root
 @la_caida
 title: La caída
 new-page: true
-face-image: img/guardias_blancas.jpg
+face-image: img/anti-guerillas.jpg
 subtitle: The state has found a thread — how much of the organization does it pull?
 tags: event
 view-if: banda = "fln" and fln_phase = "construir" and fln_expuesto >= 70 and time >= fln_caida_last + 3
@@ -173,7 +174,7 @@ You refuse to only run. A commando goes to pull the cornered comrades out — an
 @el_germen
 title: El germen
 new-page: true
-face-image: img/camino.jpg
+face-image: img/jungleplan.jpg
 subtitle: You did the one thing none of the others did — you survived
 tags: event
 view-if: banda = "fln" and fln_phase = "construir" and year >= 1983 and fln_estructura >= 38 and fln_expuesto < 60 and fln_germen_visto = 0

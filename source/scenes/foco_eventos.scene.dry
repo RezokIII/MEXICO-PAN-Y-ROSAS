@@ -116,7 +116,7 @@ You mark him and let him live, and some of the column thinks you are a fool, and
 @ev_represalia
 title: La represalia
 new-page: true
-face-image: img/camioneta.jpg
+face-image: img/anti-guerillas2.jpg
 subtitle: The army punishes a village for you
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and f_cerco >= 45 and time >= f_reprisal_last + 4

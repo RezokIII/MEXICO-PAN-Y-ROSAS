@@ -51,7 +51,7 @@ You follow Guillén to the letter: no mass base to be rounded up, no campus cell
 # =====================================================================
 @red
 title: La red
-card-image: img/cards/casilla.jpg
+card-image: img/liga.jpg
 subtitle: Guadalajara — the cells, the money, the heat
 view-if: banda = "ciudad" and u_forjado = 1 and u_phase = "red"
 is-card: true
@@ -87,6 +87,7 @@ You do what Guillén said the city offers and the sierra never will: you take yo
 - @red: Continuar.
 
 @r_propaganda
+face-image: img/radio_ayuntamiento.jpg
 choose-if: acc_pts >= 2
 unavailable-subtitle: Armed propaganda costs 2 action points.
 on-arrival: {! Q.acc_pts-=2; Q.apoyo_popular+=8; Q.u_poder+=6; Q.u_calor+=12; if(Q.u_calor>100){Q.u_calor=100;} Q.legitimidad_regimen-=2; Q.estado_intel=(Q.estado_intel||0)+2; Q.u_pando=(Q.u_pando||0)+1; !}
@@ -114,7 +115,7 @@ go-to: root
 @redada
 title: La redada
 new-page: true
-face-image: img/charola.jpg
+face-image: img/guardias_blancas.jpg
 subtitle: The Brigada Blanca hits a safehouse — and pulls the thread
 tags: event
 view-if: banda = "ciudad" and u_phase = "red" and u_calor >= 70 and time >= u_redada_last + 2
