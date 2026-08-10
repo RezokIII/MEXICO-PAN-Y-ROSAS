@@ -10,7 +10,7 @@ view-if: 0
 @ev_cacique
 title: El cacique de la Costa Grande
 new-page: true
-face-image: img/guardias_blancas.jpg
+face-image: img/countryside2.jpg
 subtitle: The man who owns the water rights, the store, and the judge
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and time >= f_ev_last + 2
@@ -128,7 +128,7 @@ No one goes. The discipline is correct and the men hate it, and two of them lie 
 @ev_maestro
 title: El maestro rural
 new-page: true
-face-image: img/maestros.jpg
+face-image: img/workingwithelpueblo.jpg
 subtitle: The schoolteacher — Guerrero's oldest revolutionary profession
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and time >= f_ev_last + 3
@@ -232,7 +232,7 @@ You give him to the calmest veteran in the column and six weeks of drills, and t
 @ev_botin
 title: El reparto del botín
 new-page: true
-face-image: img/cards/expropiacion.jpg
+face-image: img/countryside2.jpg
 subtitle: What to do with money in a movement of poor men
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and funds >= 12 and time >= f_ev_last + 3
@@ -362,7 +362,7 @@ You send back a single sentence declining, and the door closes. It is the safe c
 @ev_tortura
 title: Lo que le hicieron
 new-page: true
-face-image: img/lecumberri.jpg
+face-image: img/countryside2.jpg
 subtitle: A compañero comes back from the Campo Militar Número Uno
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and presos >= 1 and time >= f_ev_last + 4
@@ -406,7 +406,7 @@ He goes to a room in the capital with a family that owes the movement a favour, 
 @ev_periodista
 title: El periodista
 new-page: true
-face-image: img/excelsior.jpg
+face-image: img/countryside2.jpg
 subtitle: Somebody wants to come up the mountain and write it down
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and leyenda >= 3 and time >= f_ev_last + 3
@@ -448,7 +448,7 @@ You send him away. The camp stays unphotographed and the column stays safe, and 
 @ev_estudiantes
 title: Los estudiantes
 new-page: true
-face-image: img/1968students.jpg
+face-image: img/guerillacamp.webp
 subtitle: The city's children want to join the mountain
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and time >= f_ev_last + 3

@@ -57,7 +57,7 @@ You promise, which is the most expensive word in this war, and then you have to 
 @ev_secuestro_rico
 title: El hijo del hacendado
 new-page: true
-face-image: img/charola.jpg
+face-image: img/countrysideravine.jpg
 subtitle: A year of war, in exchange for becoming kidnappers
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and f_hombres >= 16 and time >= f_ev_last + 4
@@ -101,7 +101,7 @@ He drives past and nothing happens, which is the correct decision and the invisi
 @ev_canje
 title: El canje
 new-page: true
-face-image: img/lecumberri.jpg
+face-image: img/countryside2.jpg
 subtitle: The army offers a trade, and the price is your own rule
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and presos >= 1 and f_desgaste >= 15 and time >= f_ev_last + 4
@@ -194,7 +194,7 @@ The sacks come up the trail as always and the column eats as always and nobody i
 @ev_madrina
 title: La madrina
 new-page: true
-face-image: img/charola.jpg
+face-image: img/countrysideravine.jpg
 subtitle: Someone in the column has been talking — and you know who
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and estado_intel >= 40 and inteligencia >= 15 and time >= f_ev_last + 5

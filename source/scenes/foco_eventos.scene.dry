@@ -191,7 +191,7 @@ You let him ride out of the sierra with his confidence intact and his story unto
 @ev_enlace
 title: El enlace con la ciudad
 new-page: true
-face-image: img/charola.jpg
+face-image: img/countrysideravine.jpg
 subtitle: A hand extended from the urban war
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and f_hombres >= 16 and time >= f_ev_last + 4 and f_enlace_foco = 0
