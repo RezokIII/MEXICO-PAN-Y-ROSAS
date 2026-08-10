@@ -130,17 +130,32 @@ if (Q.month != Q.last_drift_month) {
         if (Q.f_comida <= 0) { Q.f_comida = 0; Q.f_hombres -= 3; Q.f_moral -= 6; Q.f_bajas += 3; }
         if (Q.f_moral <= 0) { Q.f_moral = 0; Q.f_hombres -= 2; Q.f_bajas += 2; }
         if (Q.f_desgaste > 0) { Q.f_desgaste -= 0.3; }
-        // THE ARMY UNITS MOVE: garrisons decay everywhere, then concentrate on the column's node and
-        // its neighbours (the army chases you) scaled by its intelligence — so you must keep moving,
-        // and scout to flank the units instead of walking into them.
-        var _alln = ['atoyac','coyuca','acapulco','sanvicente','elquemado','elporvenir','riochiquito','elotatal'];
+        // ===== THE ARMY AS A REAL FORMATION =====
+        // It is not a pool of points you drain: it REPLACES its losses. Each node drifts back toward a
+        // baseline garrison, so an ambush empties a post for a season and reinforcements refill it.
+        // The ONLY thing that permanently weakens the army is desgaste — its exhaustion and its will.
+        Q.ejercito_fuerza = 100 - (Q.f_desgaste||0) * 0.6;
+        if (Q.ejercito_fuerza < 30) { Q.ejercito_fuerza = 30; }
+        var _bases = {atoyac:40, coyuca:44, acapulco:72, sanvicente:26, elquemado:20, elporvenir:12, riochiquito:10, elotatal:6};
         var _adjc = {atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']};
-        for (var _ai = 0; _ai < _alln.length; _ai++) { var _an = _alln[_ai]; Q['gn_'+_an] = (Q['gn_'+_an]||0) - 3; if (Q['gn_'+_an] < 0) { Q['gn_'+_an] = 0; } }
-        var _surge = 5 + (Q.estado_intel||0) * 0.05 - (Q.apoyo_popular>=55 ? 2 : 0);
-        Q['gn_'+Q.col_nodo] = (Q['gn_'+Q.col_nodo]||0) + _surge;
-        var _cn = _adjc[Q.col_nodo] || [];
-        for (var _ci = 0; _ci < _cn.length; _ci++) { Q['gn_'+_cn[_ci]] = (Q['gn_'+_cn[_ci]]||0) + _surge*0.5; }
-        for (var _ki = 0; _ki < _alln.length; _ki++) { if (Q['gn_'+_alln[_ki]] > 100) { Q['gn_'+_alln[_ki]] = 100; } if (Q['gn_'+_alln[_ki]] < 0) { Q['gn_'+_alln[_ki]] = 0; } }
+        // how hard it concentrates on you: its intelligence + doctrine, minus the water hiding you
+        var _hunt = 14 + (Q.estado_intel||0)*0.22 + ((Q.estado_doctrina==='contrainsurgencia')?14:0) + ((Q.estado_doctrina==='represion')?7:0);
+        _hunt -= ((Q.apoyo_popular||0) >= 55) ? 8 : 0;
+        if (_hunt < 0) { _hunt = 0; }
+        var _cn2 = _adjc[Q.col_nodo] || [];
+        for (var _bn in _bases) {
+            var _tgt = _bases[_bn] * (Q.ejercito_fuerza/100);
+            if (_bn === Q.col_nodo) { _tgt += _hunt; }                       // the hunt concentrates on you
+            else if (_cn2.indexOf(_bn) >= 0) { _tgt += _hunt * 0.45; }        // and seals the ways out
+            var _cur = Q['gn_'+_bn] || 0;
+            // reinforcements arrive faster than a guerrilla can bleed them: +6 up, -4 down
+            if (_cur < _tgt) { Q['gn_'+_bn] = _cur + Math.min(6, _tgt - _cur); }
+            else { Q['gn_'+_bn] = _cur - Math.min(4, _cur - _tgt); }
+            if (Q['gn_'+_bn] > 100) { Q['gn_'+_bn] = 100; } if (Q['gn_'+_bn] < 0) { Q['gn_'+_bn] = 0; }
+        }
+        // a heavy garrison on your own ground tightens the ring by itself
+        var _here = Q['gn_'+Q.col_nodo] || 0;
+        if (_here >= 55) { Q.f_cerco += 4; } else if (_here >= 35) { Q.f_cerco += 2; }
         // clamps
         if (Q.f_comida > 100) { Q.f_comida = 100; }
         if (Q.f_parque < 0) { Q.f_parque = 0; } if (Q.f_parque > 100) { Q.f_parque = 100; }

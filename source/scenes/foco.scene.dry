@@ -220,9 +220,25 @@ on-arrival: acc_pts -= 1; col_nodo = "elotatal"; sn_elotatal = 1
 
 @go_resolve
 new-page: true
-on-arrival: {! var g=Q['gn_'+Q.col_nodo]||0; Q.move_contact=(g>=45?1:0); Q.move_cold=(g<25?1:0); if(g>=45){Q.f_cerco+=16;Q.f_hombres-=1;Q.f_moral-=2;Q.f_bajas+=1;}else if(g>=25){Q.f_cerco+=6;}else{Q.f_cerco-=8;} if(Q.f_cerco<0){Q.f_cerco=0;} if(Q.f_cerco>100){Q.f_cerco=100;} Q.f_comida-=4; if(Q.f_comida<0){Q.f_comida=0;} !}
+on-arrival: {! var g=Q['gn_'+Q.col_nodo]||0; Q.move_contact=0; Q.move_cold=0; Q.move_maul=0;
+if(g>=35){
+  Q.move_contact=1;
+  var _def=g*1.05;
+  var _atk=(Q.f_hombres||0)*1.1+(Q.f_moral||0)*0.35+(Q.disciplina||65)*0.15+((Q.apoyo_popular||0)>=55?10:0);
+  if(_atk < _def){
+    Q.move_maul=1;
+    var _loss=Math.round(2+(_def-_atk)/12); if(_loss>8){_loss=8;}
+    Q.f_hombres-=_loss; Q.f_bajas+=_loss; Q.memorial=(Q.memorial||0)+1;
+    Q.f_moral-=10; Q.f_parque-=4; Q.f_cerco+=26;
+  } else { Q.f_hombres-=1; Q.f_bajas+=1; Q.f_moral-=3; Q.f_cerco+=14; }
+} else if(g<18){ Q.move_cold=1; Q.f_cerco-=8; }
+else { Q.f_cerco+=4; }
+if(Q.f_cerco<0){Q.f_cerco=0;} if(Q.f_cerco>100){Q.f_cerco=100;}
+if(Q.f_parque<0){Q.f_parque=0;} if(Q.f_hombres<0){Q.f_hombres=0;}
+Q.f_comida-=4; if(Q.f_comida<0){Q.f_comida=0;}
+if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;} !}
 
-The column crosses to [? if col_nodo = "atoyac" : Atoyac ?][? if col_nodo = "coyuca" : Coyuca ?][? if col_nodo = "acapulco" : the edge of Acapulco ?][? if col_nodo = "sanvicente" : San Vicente ?][? if col_nodo = "elquemado" : El Quemado ?][? if col_nodo = "elporvenir" : El Porvenir ?][? if col_nodo = "riochiquito" : Río Chiquito ?][? if col_nodo = "elotatal" : El Otatal ?].[? if move_contact = 1 :  There are soldiers here — you walk into a garrison, trade fire, and pay for the crossing in blood and a tighter ring. Scout next time. ?][? if move_cold = 1 :  Cold ground, no army in it — the ring loosens as the column melts into country the soldiers are not watching. ?]
+The column crosses to [? if col_nodo = "atoyac" : Atoyac ?][? if col_nodo = "coyuca" : Coyuca ?][? if col_nodo = "acapulco" : the edge of Acapulco ?][? if col_nodo = "sanvicente" : San Vicente ?][? if col_nodo = "elquemado" : El Quemado ?][? if col_nodo = "elporvenir" : El Porvenir ?][? if col_nodo = "riochiquito" : Río Chiquito ?][? if col_nodo = "elotatal" : El Otatal ?].[? if move_maul = 1 :  **And walks straight into a garrison far stronger than the column.** They are dug in, they have the road and the radio, and the firefight is not a battle but a scramble to get out of one — you break contact leaving dead on ground you chose badly, the parque half spent, the ring slamming shut behind you. This is how columns die: not to a plan, but to a commander who moved without knowing what was waiting. ?][? if move_contact = 1 and move_maul = 0 :  There are soldiers here. You trade fire on the way through, pay for the crossing, and the ring tightens around a column the army has now definitely located. ?][? if move_cold = 1 :  Cold ground — no garrison in it. The column melts into country the soldiers are not watching, and the ring loosens behind you. ?]
 
 - @cat_movimiento: Continuar.
 
