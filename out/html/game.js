@@ -546,6 +546,40 @@
     el.innerHTML = s + bars;
   };
 
+  // ===== THE GUADALAJARA MAP: the Liga's decentralized cell network + the Brigada Blanca's heat =====
+  window.paintCiudadMap=function(el,Q){
+    var SEC={
+      centro:{x:150,y:104,r:24,n:'Centro'}, universidad:{x:88,y:66,r:21,n:'Universidad'}, oblatos:{x:214,y:68,r:21,n:'Oblatos'},
+      reforma:{x:214,y:150,r:21,n:'Reforma'}, libertad:{x:86,y:150,r:21,n:'Libertad'}, zapopan:{x:40,y:104,r:17,n:'Zapopan'}
+    };
+    var order=['centro','universidad','oblatos','reforma','libertad','zapopan'];
+    var cel=Math.max(0,Math.round(Q.u_celulas||0)), calor=Math.max(0,Math.min(100,Q.u_calor||0));
+    var seg=Math.max(0,Math.min(100,Q.u_seguridad||0)), simp=Math.max(0,Math.min(100,Q.apoyo_popular||0)), poder=Math.max(0,Math.min(100,Q.u_poder||0));
+    var s='<svg viewBox="0 0 300 210" style="width:100%;height:auto;display:block;font-family:Georgia,serif">';
+    s+='<rect x="0" y="0" width="300" height="210" fill="'+(simp>=55?'#e7ece6':(simp>=30?'#eceae4':'#ece6e6'))+'"/>';
+    for(var gx=20;gx<300;gx+=26){ s+='<line x1="'+gx+'" y1="8" x2="'+gx+'" y2="202" stroke="#d7d1c4" stroke-width="0.7"/>'; }
+    for(var gy=18;gy<210;gy+=24){ s+='<line x1="6" y1="'+gy+'" x2="294" y2="'+gy+'" stroke="#d7d1c4" stroke-width="0.7"/>'; }
+    for(var i=0;i<order.length;i++){ var sc=SEC[order[i]];
+      s+='<circle cx="'+sc.x+'" cy="'+sc.y+'" r="'+sc.r+'" fill="#f3efe6" fill-opacity="0.55" stroke="#b7ad94" stroke-width="1" style="cursor:help"><title>'+sc.n+' — sector de Guadalajara</title></circle>';
+      s+='<text x="'+sc.x+'" y="'+(sc.y-sc.r+8)+'" text-anchor="middle" font-size="6.5" fill="#5a4a2c" font-weight="bold" style="pointer-events:none">'+sc.n+'</text>';
+    }
+    for(var c=0;c<Math.min(cel,14);c++){ var sc2=SEC[order[c%order.length]]; var ang=c*2.399; var rad=6+((c/order.length|0)*6); var cx=sc2.x+Math.cos(ang)*rad, cy=sc2.y+Math.sin(ang)*rad;
+      s+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.1" fill="#b3261e" stroke="#6a0f0a" stroke-width="0.5" style="cursor:help"><title>una célula de la red</title></circle>'; }
+    var patrols=Math.round(calor/16);
+    for(var p=0;p<patrols;p++){ var px=30+((p*63)%240), py=26+((p*47)%160);
+      s+='<rect x="'+(px-2.4)+'" y="'+(py-2.4)+'" width="4.8" height="4.8" transform="rotate(45 '+px+' '+py+')" fill="#33556f" stroke="#1c2b38" stroke-width="0.6" style="cursor:help"><title>Brigada Blanca — la redada crece con el calor ('+Math.round(calor)+'/100)</title></rect>'; }
+    s+='</svg>';
+    function bar(lbl,val,max,col){ var pr=Math.max(0,Math.min(100,(val/max)*100)); return '<div style="display:flex;align-items:center;gap:5px;margin:1px 0;font:10px Georgia,serif;color:#3a2e22"><span style="width:100px;text-align:right">'+lbl+'</span><span style="flex:1;height:7px;background:#d9cdb8;border:1px solid #a88;border-radius:2px;overflow:hidden;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:'+pr+'%;background:'+col+'"></span></span><span style="width:24px;text-align:right"><b>'+Math.round(val)+'</b></span></div>'; }
+    var bars='<div style="margin:4px 2px 0">'
+      +'<div style="font:11px Georgia,serif;color:#3a2e22;margin-bottom:2px"><b>Puntos de acción: '+(Q.acc_pts||0)+'/'+(Q.acc_max||2)+'</b> · '+cel+' células · Guadalajara</div>'
+      + bar('células (la red)', cel, 14, '#b3261e') + bar('seguridad', seg, 100, '#3b6ea5')
+      + bar('el calor (Brigada Blanca)', calor, 100, '#33556f')
+      + bar('simpatía (el agua)', simp, 100, simp>=55?'#2e7d4f':(simp>=30?'#c99a2e':'#b3261e'))
+      + bar('poder popular', poder, 100, '#7a4fa0')
+      + '</div>';
+    el.innerHTML = s + bars;
+  };
+
   window.paintSierraMap=function(){
     if(!window.dendryUI||!window.dendryUI.dendryEngine) return;
     if(window.statusTab!=='status.guerra') return;
@@ -555,6 +589,7 @@
     if(!el){ var host=document.getElementById('qualities'); if(!host)return; el=document.createElement('div'); el.id='mapa_sierra'; el.style.position='relative'; el.style.margin='0.5em 0'; var h=host.querySelector('h1'); if(h&&h.nextSibling){host.insertBefore(el,h.nextSibling);}else{host.appendChild(el);} }
     // THE FOCO: one band on the Guerrero map — render that instead of the region map.
     if(Q.banda==='sierra'){ try{ window.paintFocoMap(el,Q); }catch(e){} return; }
+    if(Q.banda==='ciudad'){ try{ window.paintCiudadMap(el,Q); }catch(e){} return; }
     if(!document.getElementById('z_guerrero')){ el.innerHTML=SVG; }
     var zonas=['guerrero','chihuahua','valle','jalisco','nl','oaxaca','tijuana'];
     var tip=document.getElementById('mapa_tip');
