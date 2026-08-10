@@ -192,6 +192,28 @@ Q.estado_doctrina = "tolerancia"; Q.estado_agenda = "vigila"; Q.estado_threat = 
 Q.asesores_visto = 0; Q.anunciado_rep = 0; Q.anunciado_contra = 0;
 Q.reconcentracion_last = -99; Q.reconcentracion_activa = 0; Q.escuela_americas = 0;
 Q.col_chihuahua_mood = 55; Q.col_valle_mood = 55; Q.columna_last = -99;
+// ============================================================================
+// THE FOCO REDESIGN (one band, one theory, one map). banda picks the war:
+//   "sierra" = PDLP rural foco (Guerrero) · "ciudad" = Liga urban (Guadalajara) · "ruta" = MAR hybrid.
+// The rural band is ONE mobile column that moves node-to-node across Guerrero, sustaining four meters
+// that drain every month, slipping the army's ring, wearing it down, toward a Santa Clara-style assault.
+// ============================================================================
+Q.banda = ""; Q.f_phase = "";
+// the four sustain meters (0-100). Let any hit zero and the column bleeds men to desertion and dies.
+Q.f_comida = 55; Q.f_parque = 45; Q.f_hombres = 30; Q.f_moral = 60;
+// apoyo_popular (already in the engine, with drift + AI hooks) IS the water — shared, not duplicated.
+// the column's position on the Guerrero node graph, and per-node support (0-100).
+Q.col_nodo = "atoyac";
+Q.ap_atoyac = 40; Q.ap_elparaiso = 25; Q.ap_elquemado = 20; Q.ap_riochiquito = 30;
+Q.ap_elotatal = 15; Q.ap_coyuca = 25; Q.ap_acapulco = 10; Q.ap_chilpancingo = 5;
+// the ring: how tightly the army has concentrated on the column's current ground (0-100).
+// rises as you linger or act loudly; falls when you move to cold ground or the water hides you.
+Q.f_cerco = 15; Q.f_cerco_last = -99;
+// the slow build: army exhaustion (your ambushes + evasions wear it down); at threshold, Santa Clara opens.
+Q.f_desgaste = 0; Q.f_zona = 0; Q.f_liberado_gro = 0; Q.f_capital = 0;
+// clocks + counters
+Q.f_marcha_last = -99; Q.f_forjado = 0; Q.f_entreno = ""; Q.f_bajas = 0; Q.f_reclutas = 0;
+Q.f_santaclara_visto = 0; Q.f_fin_foco = 0;
 Q.cerco_final_warned = 0;
 Q.balance_armado_visto = 0;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
@@ -859,6 +881,27 @@ Choose where to begin. **1968 — El origen** is the full twenty-year campaign, 
 - @preset_1976: 1976 — La apertura (~12 años, la reforma se acerca)
 - @preset_1982: 1982 — La crisis (~6 años, la década perdida)
 - @preset_1971_armada: ⚙ 1971 — Tomar el fusil (skip ahead: the armed road after Tlatelolco)
+- @preset_foco_sierra: ★ 1971 — La Sierra: el foco (NEW — one band, the Guerrero war)
+
+@preset_foco_sierra
+new-page: true
+on-arrival: {!
+// ---- THE FOCO: choose the rural band (PDLP) and drop into the Guerrero war. ----
+// Like the 1971 shortcut, @start has already built the roster/factions; this applies the deltas.
+Q.difficulty = 0;
+Q.year = 1971; Q.month = 6; Q.time = 33;
+Q.presidente = "Echeverria"; Q.gobernacion = "Moya"; Q.sexenio_year = 2;
+Q.presidente_cooptacion = 55; Q.presidente_represion = 62; Q.represion = 68; Q.legitimidad_regimen = 68;
+Q.via = "armada"; Q.armada_entered = 1; Q.postura_guerrilla = 3; Q.camino1 = 1;
+// pick the band and open the rural war
+Q.banda = "sierra"; Q.f_phase = "forjar";
+Q.col_prof = 1; Q.col_nodo = "atoyac";
+// starting condition of a young foco in the sierra de Atoyac
+Q.f_comida = 55; Q.f_parque = 40; Q.f_hombres = 22; Q.f_moral = 62;
+Q.apoyo_popular = 34; Q.f_cerco = 12; Q.f_desgaste = 0;
+Q.inteligencia = 14; Q.coronel_activo = 0;
+!}
+go-to: foco.forjar
 
 @preset_1971_armada
 new-page: true

@@ -1,0 +1,157 @@
+title: El foco
+max-visits: 1
+view-if: 0
+# Container/namespace only — NOT tagged event. The rural foco (PDLP) redesign:
+# @forjar (train the band) -> @marcha (the node-to-node war, reached each month by the
+# "La columna" card) -> @cerco (the encirclement mini-decision, fires as an event).
+# Position is col_prof 0..5 along the coast->deep-sierra axis. Four meters (f_comida,
+# f_parque, f_hombres, f_moral) drain monthly in post_event; apoyo_popular is the water.
+
+# =====================================================================
+# PHASE 0 — FORJAR EL FOCO (how you train the band). Your first real decision.
+# =====================================================================
+@forjar
+title: Forjar el foco
+new-page: true
+face-image: img/genaro.jpg
+subtitle: Before the first shot, the decision that decides all the others
+on-arrival: f_phase = "forjar"
+
+= Forjar el foco
+
+A guerrilla is not declared; it is *forged*, and how you forge it now decides how it dies or wins later. You have a handful of compañeros, a few weapons, the sierra de Atoyac at your back and the whole apparatus of the state in front of you. Che wrote the manual and then died in Bolivia proving that the manual is not enough — that a column cut off from the people is just a group of armed men waiting to be reported. Before the war begins, choose what kind of band this will be.
+
+- @forjar_cuba: **Punto Cero — Cuba.** Send the cadre abroad to be trained by people who have actually won. They come back soldiers. *(+combat skill, +materiel know-how; costs months, and the airports are watched — the file grows.)*
+- @forjar_maestro: **El maestro rural — Lucio's way.** No guns first. Teach, live among, mediate, organize the villages until the water is deep before the war is loud. *(+deep popular support, +recruits from the base; the slowest military start.)*
+- @forjar_aparato: **El aparato — the MAR's arms.** Take the weapons and drilling of the North Korea–trained cadre. Firepower now. *(+parque, +hombres, +skill; +heat — you inherit the sweep that is about to fall on them in '71.)*
+- @forjar_solos: **Solos, en la sierra.** Train yourselves, in the mountains, seen by no one. *(cheap and invisible; you will learn the hard way, in contact.)*
+
+@forjar_cuba
+on-arrival: {! Q.f_entreno="cuba"; Q.f_forjado=1; Q.f_phase="marcha"; Q.f_parque+=15; Q.f_moral+=8; Q.inteligencia+=6; Q.expediente+=8; Q.time+=2; !}
+
+They fly out through Mexico City with false papers and come back, four months later, able to strip a rifle blind, lay an ambush that works, and turn a cache into a campaign. It is a different band than the one that left — and the DFS, which counted the departures, is already a step closer than you would like. Skill was bought. Anonymity was the price.
+
+- @root: Al monte. Continuar.
+
+@forjar_maestro
+on-arrival: {! Q.f_entreno="maestro"; Q.f_forjado=1; Q.f_phase="marcha"; Q.apoyo_popular+=14; Q.f_hombres+=6; Q.f_comida+=10; Q.f_parque-=4; Q.sup_peasants+=4; !}
+
+You do it the way Lucio actually did it: as a teacher, not a commander. Months of assemblies, of settling water disputes and marking the caciques' abuses, of being *of* Atoyac and not merely armed near it. When the guns finally come out, the sierra is already yours in the only way that matters — the villages will lie to a lieutenant to protect you. It is the deepest water a foco can start with. It is also the slowest, and the army is not waiting.
+
+- @root: Al monte. Continuar.
+
+@forjar_aparato
+on-arrival: {! Q.f_entreno="aparato"; Q.f_forjado=1; Q.f_phase="marcha"; Q.f_parque+=18; Q.f_hombres+=8; Q.f_moral+=6; Q.inteligencia+=4; Q.expediente+=14; Q.coronel_activo=1; !}
+
+The MAR's people come down from the north with clean weapons, real explosives, and the confidence of men trained at a base outside Pyongyang — the best-drilled cadre in the country. Overnight you have firepower and numbers. You have also spliced yourself onto the group the state is about to destroy in a single March morning of simultaneous raids. Their skill is now yours. So is their heat.
+
+- @root: Al monte. Continuar.
+
+@forjar_solos
+on-arrival: {! Q.f_entreno="solos"; Q.f_forjado=1; Q.f_phase="marcha"; Q.f_moral+=4; !}
+
+No school, no sponsor, no papers to be counted. You train yourselves in the mountains with what you have, and you will learn the rest the only other way it is taught: in contact, at a cost. Invisible, for now. Green, for now. The sierra is a hard teacher and it grades in blood.
+
+- @root: Al monte. Continuar.
+
+# =====================================================================
+# PHASE 1 — LA MARCHA. Reached each month via the "La columna" card. One action per month:
+# move (deeper/toward the coast), work the base, or act. Then the month turns (post_event).
+# =====================================================================
+@marcha
+title: La columna
+card-image: img/cards/columna_movil.jpg
+subtitle: The war, where your feet are
+view-if: banda = "sierra" and f_forjado = 1 and f_phase = "marcha"
+is-card: true
+frequency: 100
+max-visits: 300
+tags: laguerra
+on-arrival: month_actions += 1
+
+= La columna en marcha
+
+You are at [? if col_prof <= 0 : **la costa** — Coyuca and the edge of Acapulco, thick with people and thicker with garrison ?][? if col_prof = 1 : **Atoyac de Álvarez** — the gateway town, where the sierra meets the road and the army ?][? if col_prof = 2 : **San Vicente de Benítez** — the lower sierra, coffee country ?][? if col_prof = 3 : **El Quemado** — sierra proper; the village the army will one day punish for you ?][? if col_prof = 4 : **Río Chiquito** — the deep sierra, the heart of the zone ?][? if col_prof >= 5 : **El Otatal** — the deepest finca, where the maps run out ?].
+
+The column: **[+ f_hombres +]** fighters · comida **[+ f_comida +]**/100 · parque **[+ f_parque +]**/100 · moral **[+ f_moral +]**/100 · el agua (apoyo) **[+ apoyo_popular +]**/100. The ring around you: **[+ f_cerco +]**/100. [? if f_cerco >= 70 : *The ring is closing — move, or fight it.* ?][? if f_comida < 25 : *The men are hungry.* ?][? if f_parque < 20 : *Almost out of parque.* ?]
+
+- @m_subir: **Adentrarse en la sierra.** Climb toward colder, higher ground — harder for the army to follow, thinner for food and people. *(ring falls; comida drains; water thins)*
+- @m_bajar: **Bajar hacia los pueblos.** Drop toward the villages and the road — people, food, and targets, but the garrison is thick and the ring tightens. *(supply + water access; ring rises)*
+- @m_base: **Trabajar la base.** Stay and work the water here — assemblies, disputes, the mass line. *(apoyo rises; a little food; the army may find you sitting still)*
+- @m_emboscar: **Emboscar.** Hit an army patrol on ground you chose. *(wears the army down; wins parque + legend; the ring tightens hard)*
+
+@m_subir
+on-arrival: {! if(Q.col_prof<5){Q.col_prof+=1;} Q.f_cerco=Q.f_cerco-18; if(Q.f_cerco<0){Q.f_cerco=0;} Q.f_comida-=6; Q.apoyo_popular-=3; Q.f_moral-=1; !}
+
+You climb. The trails narrow, the air thins, the army's trucks fall away behind you and its helicopters lose you under the canopy. The ring loosens. So does the land's willingness to feed you — up here there are fewer villages, fewer granaries, less of the sea you swim in. Distance bought safety, as it always does, at the price of the thing that keeps a foco alive.
+
+- @root: Continuar.
+
+@m_bajar
+on-arrival: {! if(Q.col_prof>0){Q.col_prof-=1;} Q.f_cerco=Q.f_cerco+14; if(Q.f_cerco>100){Q.f_cerco=100;} Q.f_comida+=10; Q.apoyo_popular+=4; Q.f_parque+=2; !}
+
+You come down to where the people are — and where the army is. The villages feed you, warn you, thicken the water; the column eats and the base deepens. But a garrison notices a column the moment it touches the road, and the ring tightens around the lower ground the way it never does up high. This is the guerrilla's permanent bind: you cannot live without the people, and the people are where the enemy waits.
+
+- @root: Continuar.
+
+@m_base
+on-arrival: {! Q.apoyo_popular+=7; Q.f_comida+=4; Q.f_hombres+=1; Q.sup_peasants+=2; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+
+You put the rifles down and do the unglamorous work that is the whole war: the assembly held, the dispute settled, the cacique's abuse marked and answered, the clinic and the literacy circle. The water rises — a little more of the sierra that will hide you, feed you, and lie for you. But a column that sits still is a column that can be found, and somewhere a lieutenant is noting that you have not moved.
+
+- @root: Continuar.
+
+@m_emboscar
+choose-if: f_parque >= 12
+unavailable-subtitle: An ambush needs parque — at least 12.
+on-arrival: {! Q.f_parque-=12; var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.3)+(Q.apoyo_popular*0.3)-(Q.f_cerco*0.3)+(Math.random()*40-15); if(_r>=25){Q.f_desgaste+=10;Q.f_parque+=8;Q.f_moral+=8;Q.leyenda=(Q.leyenda||0)+2;Q.legitimidad_regimen-=2;}else if(_r>=5){Q.f_desgaste+=5;Q.f_moral+=2;Q.f_hombres-=1;}else{Q.f_hombres-=3;Q.f_moral-=8;Q.f_bajas+=3;Q.memorial=(Q.memorial||0)+1;} Q.f_cerco+=20; if(Q.f_cerco>100){Q.f_cerco=100;} Q.represion+=2; !}
+
+You choose the ground — a defile, a bridge, a bend where trucks must slow — and you spend the parque you cannot easily replace. [? if f_moral >= 66 : It goes the way the corridos need it to: the patrol is broken, its rifles are yours, and by the next new moon the camps recruit themselves. ?][? if f_moral < 66 and f_moral >= 40 : It works, barely, and costs more than the manual promised — a man down, the column melting back into the trees carrying its wounded. ?][? if f_moral < 40 : It was a trap inside your trap. The column fights out of a ring it should have seen and leaves people on the mountain who will be named at the next assembly and never again after. ?] Either way the army now knows exactly where you are, and the ring slams tight.
+
+- @root: Continuar.
+
+# =====================================================================
+# EL CERCO — the encirclement. Fires as an event when the ring closes. Escape, or bleed.
+# =====================================================================
+@cerco
+title: El cerco
+new-page: true
+face-image: img/camioneta.jpg
+subtitle: The ring has closed — read it, and run
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and f_cerco >= 80 and time >= f_cerco_last + 2
+priority: 9
+frequency: 100
+max-visits: 20
+on-arrival: f_cerco_last = time
+
+= El cerco
+
+It is the oldest way a foco dies, and this morning it is yours: the army has concentrated, the roads are blocked, the helicopters quarter the ridgelines, and the ring you let tighten is now a closed circle with your column inside it. This is the moment Bolivia turned on — the moment Lucio's turned on, in the end. The water decides it now. If the people are with you, someone is already climbing to warn you of the gap. If they are not, someone has already climbed down to tell the captain where you sleep.
+
+- @cerco_agua: **Confiar en el agua.** Trust the villages to show you the gap — slip out the way only people who love you would know. *(needs deep apoyo; clean escape if the water is with you)*
+- @cerco_montana: **Reventar hacia lo alto.** Break uphill, ditch the heavy loads, outclimb the ring where the trucks cannot go. *(costs comida + parque; escapes by distance, not by love)*
+- @cerco_pelear: **Romper el cerco a tiros.** Fight through the thinnest point. *(a battle — win and you wound the army; lose and the column is gutted)*
+
+@cerco_agua
+on-arrival: {! if(Q.apoyo_popular>=50){Q.f_cerco=15;Q.f_moral+=6;Q.apoyo_popular-=3;}else{Q.f_cerco=45;Q.f_hombres-=3;Q.f_moral-=6;Q.f_bajas+=3;Q.memorial=(Q.memorial||0)+1;} !}
+
+[? if apoyo_popular >= 50 : A boy you taught to read comes up the arroyo before dawn and takes you out through a draw the army did not know was there, because the army does not know this country and the boy was born in it. The ring closes on empty ground. This is the whole thesis of the thing — the fish, the water — proven in one grey morning. ?][? if apoyo_popular < 50 : You wait for the warning that does not come, because the water is too thin to carry it, and by the time you move on your own the gap is a killing ground. The column claws out with holes in it. The sea was not deep enough, and men paid the difference. ?]
+
+- @root: Continuar.
+
+@cerco_montana
+choose-if: f_comida >= 15
+unavailable-subtitle: An uphill break needs food in the men — at least 15 comida.
+on-arrival: {! Q.col_prof=5; Q.f_cerco=20; Q.f_comida-=15; Q.f_parque-=6; Q.f_moral-=3; Q.f_hombres-=1; !}
+
+You dump the caches you cannot carry, take the highest, cruelest ground, and outclimb the ring where no truck and few soldiers will follow. It works because exhaustion is cheaper than capture — you buy your lives with the loads you leave behind and the men's legs. The circle closes on abandoned kit and cold ashes. You are deep in the sierra now, safe and stripped, and the rebuilding starts again from less.
+
+- @root: Continuar.
+
+@cerco_pelear
+on-arrival: {! Q.f_parque-=10; if(Q.f_parque<0){Q.f_parque=0;} var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.35)+(Q.apoyo_popular*0.2)-70+(Math.random()*40-20); if(_r>=0){Q.f_cerco=25;Q.f_desgaste+=12;Q.f_moral+=6;Q.f_hombres-=2;Q.leyenda=(Q.leyenda||0)+2;Q.legitimidad_regimen-=3;}else{Q.f_cerco=40;Q.f_hombres-=6;Q.f_moral-=12;Q.f_bajas+=6;Q.memorial=(Q.memorial||0)+2;} !}
+
+You pick the thinnest arc of the ring and throw the column at it. [? if f_moral >= 55 and f_hombres >= 18 : The thin point gives — you punch through, bloody the army at the gap, and are gone into the trees before it can close again. A ring broken from the inside is a humiliation the garrison feels for months. ?][? if f_moral < 55 or f_hombres < 18 : The thin point was thin for a reason — a baited gap, machine guns on the flanks. You get out because you have to, dragging the wounded, leaving too many. The ring did what rings are for. ?]
+
+- @root: Continuar.

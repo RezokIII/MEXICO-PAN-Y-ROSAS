@@ -116,6 +116,29 @@ if (Q.month != Q.last_drift_month) {
         else if (Q.intervencion_riesgo > 0) { Q.intervencion_riesgo -= 0.35; }   // patient consolidation cools Washington
         if (Q.intervencion_riesgo > 100) { Q.intervencion_riesgo = 100; } if (Q.intervencion_riesgo < 0) { Q.intervencion_riesgo = 0; }
     }
+    // --- THE FOCO: the band's monthly life (banda = "sierra"). Meters drain; the ring breathes;
+    //     hunger and low morale bleed men to desertion; an empty band is the end of the war. ---
+    if (Q.banda === "sierra" && Q.f_forjado === 1) {
+        Q.f_comida -= 5;                    // the column eats every month
+        Q.f_parque -= 1;                    // slow attrition of materiel
+        if (Q.f_moral > 50) { Q.f_moral -= 1; } else if (Q.f_moral < 50) { Q.f_moral += 1; }
+        // the ring breathes: the state's intelligence tightens it; deep water loosens it
+        var _tight = 2 + (Q.estado_intel||0)*0.04;
+        var _loose = (Q.apoyo_popular>=55?3:(Q.apoyo_popular>=35?1:0));
+        Q.f_cerco += _tight - _loose;
+        // hunger and broken morale bleed the column to desertion
+        if (Q.f_comida <= 0) { Q.f_comida = 0; Q.f_hombres -= 3; Q.f_moral -= 6; Q.f_bajas += 3; }
+        if (Q.f_moral <= 0) { Q.f_moral = 0; Q.f_hombres -= 2; Q.f_bajas += 2; }
+        if (Q.f_desgaste > 0) { Q.f_desgaste -= 0.3; }
+        // clamps
+        if (Q.f_comida > 100) { Q.f_comida = 100; }
+        if (Q.f_parque < 0) { Q.f_parque = 0; } if (Q.f_parque > 100) { Q.f_parque = 100; }
+        if (Q.f_moral > 100) { Q.f_moral = 100; } if (Q.f_moral < 0) { Q.f_moral = 0; }
+        if (Q.f_cerco > 100) { Q.f_cerco = 100; } if (Q.f_cerco < 0) { Q.f_cerco = 0; }
+        if (Q.f_desgaste < 0) { Q.f_desgaste = 0; }
+        // the death of the foco: no fighters left → the armed road is over (reuse the annihilation route)
+        if (Q.f_hombres <= 0) { Q.f_hombres = 0; Q.f_fin_foco = 1; Q.members = 0; }
+    }
     // veterans keep the old discipline: the file grows slower wherever they run security
     if (Q.veteranos >= 2 && Q.via != 'armada') { Q.expediente -= 0.25; }
     // the legend of the descent: a war ended on your terms keeps organizing the campo for years

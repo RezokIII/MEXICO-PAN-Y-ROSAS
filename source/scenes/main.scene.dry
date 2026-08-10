@@ -34,6 +34,7 @@ max-cards: 3
 - @movimiento
 - @sistema
 - @canales
+- @laguerra
 - @sierra
 - @campo
 - @fdn
@@ -76,6 +77,7 @@ max-cards: 4
 - @movimiento
 - @sistema
 - @canales
+- @laguerra
 - @sierra
 - @campo
 - @fdn
@@ -119,6 +121,7 @@ max-cards: 5
 - @movimiento
 - @sistema
 - @canales
+- @laguerra
 - @sierra
 - @campo
 - @fdn
@@ -161,6 +164,7 @@ max-cards: 4
 - @movimiento
 - @sistema
 - @canales
+- @laguerra
 - @sierra
 - @campo
 - @fdn
@@ -171,7 +175,7 @@ max-cards: 4
 card-image: img/cards/columna_movil.jpg
 title: La sierra
 subtitle: The war, where it exists
-view-if: via = "armada"
+view-if: via = "armada" and banda != "sierra"
 is-deck: true
 
 - #sierra
@@ -180,10 +184,19 @@ is-deck: true
 card-image: img/cards/colonia.jpg
 title: El campo
 subtitle: The countryside — the water, the columns, the land
-view-if: via = "armada"
+view-if: via = "armada" and banda != "sierra"
 is-deck: true
 
 - #campo
+
+@laguerra
+card-image: img/cards/columna_movil.jpg
+title: La columna
+subtitle: The foco — your band, where its feet are
+view-if: banda = "sierra"
+is-deck: true
+
+- #laguerra
 
 @sistema
 title: El laberinto
