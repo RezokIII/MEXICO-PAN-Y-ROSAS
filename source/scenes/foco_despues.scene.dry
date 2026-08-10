@@ -12,7 +12,7 @@ new-page: true
 face-image: img/cards/ejido.jpg
 subtitle: Guerrero, after — what the guerrilla built, now legal
 tags: event
-view-if: f_negociado = 1 and (via = "politica" or via = "institucional") and time >= f_gobierno_last + 3
+view-if: (f_negociado = 1 or u_negociado = 1) and (via = "politica" or via = "institucional") and time >= f_gobierno_last + 3
 priority: 4
 frequency: 55
 max-visits: 3
@@ -46,7 +46,7 @@ new-page: true
 face-image: img/genaro.jpg
 subtitle: The war's veterans, in the movement now
 tags: event
-view-if: f_negociado = 1 and (via = "politica" or via = "institucional") and veteranos >= 1 and time >= f_gobierno_last + 3
+view-if: (f_negociado = 1 or u_negociado = 1) and (via = "politica" or via = "institucional") and veteranos >= 1 and time >= f_gobierno_last + 3
 priority: 3
 frequency: 50
 max-visits: 2
@@ -80,7 +80,7 @@ new-page: true
 face-image: img/Zocalo1988.jpeg
 subtitle: The movement has real power in the south now — the hardest question is what kind
 tags: event
-view-if: f_negociado = 1 and (via = "politica" or via = "institucional") and f_socialismo >= 3 and time >= f_gobierno_last + 4
+view-if: (f_negociado = 1 or u_negociado = 1) and (via = "politica" or via = "institucional") and f_socialismo >= 3 and time >= f_gobierno_last + 4
 priority: 5
 max-visits: 1
 on-arrival: f_gobierno_last = time

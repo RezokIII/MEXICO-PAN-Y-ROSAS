@@ -1,0 +1,160 @@
+title: Eventos de la ciudad
+max-visits: 1
+view-if: 0
+# Container/namespace only — NOT tagged event. The urban war's set-pieces (banda="ciudad"):
+# the Cárcel del Pueblo, and the ingobernabilidad climax that ends in rupture or the coup.
+
+# =====================================================================
+# LA CÁRCEL DEL PUEBLO — the Tupamaro signature: kidnap a figure into a "people's prison."
+# =====================================================================
+@carcel_pueblo
+title: La Cárcel del Pueblo
+new-page: true
+face-image: img/charola.jpg
+subtitle: The Tupamaro signature — a people's prison, and a hostage who matters
+tags: event
+view-if: banda = "ciudad" and u_phase = "red" and u_celulas >= 3 and time >= u_carcel_last + 6
+priority: 5
+frequency: 55
+max-visits: 4
+on-arrival: u_carcel_last = time; u_carcel = u_carcel + 1
+
+= La Cárcel del Pueblo
+
+The network has built the thing the Tupamaros made famous — a *Cárcel del Pueblo*, a hidden cell beneath a safehouse where the movement can hold someone the state cannot afford to lose. And now you have a candidate in the sights: an industrialist who breaks strikes with the police on retainer; or a functionary who signs the disappearances; or a foreign official whose government would move heaven and earth. A kidnapping like this is the loudest, most dangerous, most *legible* act in the urban repertoire — it puts the movement on every front page and the hostage's life in your hands, which is a weight heavier than any rifle.
+
+- @cp_politico: **Demandas políticas.** Trade the hostage for the release of imprisoned comrades and a manifesto read on every station — turn a captive into freed cadre and a national audience. *(frees comrades, +poder; +heat)*
+- @cp_rescate: **Rescate.** Ransom him for the money that funds a year of clandestine war. *(+fondos, +parque; +heat, −some sympathy)*
+- @cp_juicio: **El juicio del pueblo.** Put him on trial before the movement — expose his crimes, then release him marked, and let the spectacle do the work. *(+simpatía, +poder; the moral high ground)*
+
+@cp_politico
+go-to: root
+on-arrival: {! Q.u_celulas+=1; Q.u_poder+=8; Q.apoyo_popular+=4; Q.leyenda=(Q.leyenda||0)+3; Q.u_calor+=16; if(Q.u_calor>100){Q.u_calor=100;} Q.legitimidad_regimen-=4; Q.estado_intel=(Q.estado_intel||0)+3; !}
+
+You hold him, and you make the state do the thing states hate most: negotiate with people it calls criminals, in public, from weakness. Comrades walk out of prison and back into the network; the manifesto is read into a hundred thousand kitchens; the movement is, for a season, the most talked-about force in the country. It is the Tupamaro method at its purest — armed propaganda with a hostage as the megaphone. And it focuses every resource the Brigada Blanca has onto finding the Cárcel, because a government humiliated this way stops caring about the budget.
+
+- @root: Continuar.
+
+@cp_rescate
+go-to: root
+on-arrival: {! Q.funds=(Q.funds||0)+30; Q.parque=(Q.parque||0)+12; Q.u_poder+=2; Q.apoyo_popular-=3; Q.u_calor+=14; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+2; !}
+
+You ransom him, and the money is transformative — a year of safehouses, weapons, printing, false papers, all bought with the fortune of a man who made it breaking people like the ones in your cells. It is also the choice that blurs, just slightly, the line the whole movement stands on: some in the barrios who cheered the kidnapping frown at the ransom, because a revolution that takes money for a rich man's freedom looks, to the tired eye, a little like the kidnappers the papers say you are. The war chest is full. Guard the meaning of it.
+
+- @root: Continuar.
+
+@cp_juicio
+go-to: root
+on-arrival: {! Q.apoyo_popular+=9; Q.u_poder+=6; Q.legitimidad_regimen-=5; Q.u_calor+=10; if(Q.u_calor>100){Q.u_calor=100;} Q.leyenda=(Q.leyenda||0)+2; !}
+
+You try him — a real proceeding, witnesses and evidence, his crimes read into the record of a court the state does not recognize and cannot answer — and then you release him, alive and ruined, into a country that has heard everything. It is the choice that wins the argument instead of just the headline: the movement is shown to be about *justice*, not vengeance, a parallel authority that judges in the open where the state disappears in the dark. The poder popular — the sense that there is another power in the city, and that it is more just than the one in the palace — climbs. That sense, multiplied, is how a city becomes ungovernable.
+
+- @root: Continuar.
+
+# =====================================================================
+# LA INGOBERNABILIDAD — the urban climax. Not a Santa Clara; the city made ungovernable.
+# =====================================================================
+@la_ingobernabilidad
+title: La ciudad ingobernable
+new-page: true
+face-image: img/ceu.jpg
+subtitle: The poder popular is high enough to force the question — rupture, or the coup it may invite
+tags: event
+view-if: banda = "ciudad" and u_phase = "red" and u_poder >= 55 and u_celulas >= 4 and u_ing_visto = 0 and time >= u_ing_last + 3
+priority: 8
+frequency: 100
+max-visits: 6
+on-arrival: u_ing_last = time
+
+= La ciudad ingobernable
+
+It has crept up under the noise of the war: the poder popular is real now, territorial, a parallel authority that the barrios trust more than the palace. The factories stop when you ask. The colonias govern themselves in the gaps the state has abandoned. Guadalajara — and word of it, other cities — is becoming, in the exact sense Guillén meant, *ungovernable.* This is the urban war's decisive moment, and it is nothing like the sierra's: there is no capital to storm, no Santa Clara. There is only the choice to *escalate the crisis* — to call the general strike, put the whole network and the whole sympathetic city into the streets, and dare the state to either fall or show the country its true face.
+
+And there is the shadow every urban guerrilla has to weigh, because history wrote it in Montevideo: the Tupamaros made Uruguay ungovernable too, and what they got for it was not a revolution but a *coup* — a military that decided a democracy which could not control its streets did not deserve to keep them. Push the crisis and you might crack the regime. You might also hand the generals their excuse.
+
+- @ing_huelga: **La huelga general.** Call it — the strike, the barricades, the whole network in the streets. Force the rupture and take the risk that the fist that answers is a military one. *(the climax roll: rupture, or the coup)*
+- @ing_consolidar: **Consolidar.** Not yet. Deepen the parallel power, widen the base, make the ungovernability so total that no coup could hold it — and try again, stronger. *(build more poder; the moment returns)*
+
+@ing_consolidar
+on-arrival: {! Q.u_poder+=3; Q.apoyo_popular+=2; !}
+
+You hold the throw. A general strike called too early is a general strike broken, and a broken one teaches the city that the state is stronger than it looked. So you deepen instead — more colonias governing themselves, more factories in the network, more of the daily proof that another power already exists and works. The moment will come again, and when it does the ungovernability will be so deep that no tank can simply drive it back into the barracks. Or so you tell yourself, while the Brigada Blanca uses the time you gave it too.
+
+- @root: Continuar.
+
+@ing_huelga
+new-page: true
+on-arrival: {!
+Q.u_ing_visto = 1;
+var _r = (Q.u_poder*0.6) + (Q.apoyo_popular*0.4) + (Q.u_celulas*3) - (Q.estado_intel*0.3) - 60 + (Math.random()*40-16);
+if (_r >= 12) { Q.u_ruptura = 1; }
+else if (_r >= -8) { Q.u_ruptura = 2; }
+else { Q.u_golpe = 1; }
+!}
+
+= La huelga general
+
+You call it, and for three days the answer to the question *who governs?* hangs in the smoke over the city. [? if u_ruptura = 1 : The strike holds — totally. The buses stop, the factories go dark, the barrios put a hundred thousand bodies between the movement and the tanks, and the soldiers, conscripts from those same barrios, will not fire on their own. Something breaks, and it is not the movement: the regime, unable to govern and unwilling to pay the price of the massacre that governing would now require, begins to come apart at the top. ?][? if u_ruptura = 2 : The strike half-holds — enough to shake the regime to its foundations, not enough to topple it cleanly. The city is paralyzed, the state is bleeding legitimacy by the hour, and both sides know that what comes next is a negotiation conducted with the barricades still up. ?][? if u_golpe = 1 : The strike is broken — and worse. The military, watching a democracy lose control of its own streets, decides the streets are theirs to take, and takes them. What you called to crack the regime has handed the generals the country. ?]
+
+- @ing_after: —
+
+@ing_after
+go-to: ciudad_eventos.ruptura if u_ruptura >= 1; ciudad_eventos.el_golpe
+
+The tanks idle at the intersections while the city decides what it has just become.
+
+# =====================================================================
+@ruptura
+title: La ruptura
+new-page: true
+face-image: img/congreso.jpg
+subtitle: A regime that cannot govern its own streets comes to the table
+
+= La ruptura
+
+You did the thing Guillén theorized and the Tupamaros never quite reached: you made the city ungovernable *without* handing the generals their coup, and a regime that cannot govern and dares not massacre has only one move left. It negotiates. Not with the courtesy it shows equals — with the wariness it shows a power it has failed to destroy. Amnesty. The legalization of the left. The reforms it swore for fifty years it would never sign, signed now because the alternative is a strike that does not end. The urban war has won the one thing the sierra's victory also won, by a completely different road: a seat at the table, taken, not granted.
+
+- @rup_apertura: **Bajar a la política.** Trade the clandestine war for the opening — carry the network, the legend, and the poder popular down into the legal left, which a movement that stopped a city cannot be rounded to zero. *(end the urban war victorious; the political side becomes far stronger)*
+- @rup_seguir: **Seguir.** Refuse the half-loaf — press the crisis toward a real transfer of power, and accept that the generals are watching and the giant to the north is on the phone. *(keep escalating; intervention/coup risk climbs)*
+
+@rup_apertura
+new-page: true
+on-arrival: {!
+Q.u_negociado=1; Q.u_phase="despues"; Q.via="politica"; Q.postura_guerrilla=0;
+Q.leyenda=(Q.leyenda||0)+8; Q.registro=(Q.registro<1?1:Q.registro); Q.veteranos=(Q.veteranos||0)+2;
+Q.pri_reformist_rel=(Q.pri_reformist_rel||0)+16; Q.fe_voto=(Q.fe_voto||0)+18; Q.unity=(Q.unity||0)+8;
+Q.sup_workers=(Q.sup_workers||0)+8; Q.sup_students=(Q.sup_students||0)+8; Q.legitimidad_regimen-=6;
+!}
+
+You come down out of the clandestine city the way the sierra's fighters came down out of the mountains — not defeated, *collecting.* The network that the Brigada Blanca spent years failing to destroy dissolves itself, on its own terms, into the largest legal left the country has seen: the students, the workers, the colonias that governed themselves, all of it converted from a war the state could not win into a politics it cannot ignore. The city proved that a movement can be made too large and too rooted to disappear. Everything you build from here, you build on that proof.
+
+- @root: Continuar.
+
+@rup_seguir
+new-page: true
+on-arrival: {! Q.u_ruptura=1; Q.leyenda=(Q.leyenda||0)+4; Q.intervencion_riesgo=(Q.intervencion_riesgo||0)+18; Q.legitimidad_regimen-=6; Q.u_calor+=20; if(Q.u_calor>100){Q.u_calor=100;} !}
+
+You refuse the half-loaf, because a movement that stopped a city can smell a real transfer of power, and half-measures are how revolutions get talked back into the cage. You press. And the moment you do, two things move: the generals, who have been waiting in their barracks for exactly the excuse a refused settlement provides, and a telephone in an embassy, ringing a number in the north. You are betting that the crisis breaks the regime before the coup breaks you. It is the boldest road, and the shortest-fused, and the dead of the Liga would know the stakes of it exactly.
+
+- @root: Continuar.
+
+# =====================================================================
+@el_golpe
+title: El golpe
+new-page: true
+face-image: img/chile_1973.jpg
+subtitle: The generals take the country the guerrilla could not
+
+= El golpe
+
+It ends the way Montevideo ended, and Santiago, in the same terrible year: not with the revolution the strike was meant to spark but with the coup it invited. The military, handed the spectacle of a state that could not hold its own streets, decides that democracy is the problem and takes the country to save it from people like you. The barricades come down under tracks. The safehouses are emptied one door at a time by men who no longer answer even to the fiction of law. The Cárcel del Pueblo is found. The network that Guillén's doctrine kept alive against the police cannot survive an army that has stopped pretending, and the poder popular you built becomes a list of the disappeared.
+
+The urban guerrilla's oldest, cruelest lesson, written in Uruguayan and Chilean blood: making a city ungovernable can crack a regime — or it can summon the one force that governs by other means entirely. You gambled that it would be the first. It was the second.
+
+- @golpe_fin: —
+
+@golpe_fin
+go-to: root
+on-arrival: {! Q.u_fin=1; Q.u_golpe=1; Q.members=0; Q.memorial=(Q.memorial||0)+8; Q.legitimidad_regimen+=10; !}
+
+The city holds its breath under the curfew, and somewhere a mimeograph is buried in a garden against a spring that is now much further away than it was a week ago.

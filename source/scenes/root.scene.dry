@@ -241,6 +241,7 @@ Q.u_celulas = 3; Q.u_calor = 18; Q.u_seguridad = 55; Q.u_poder = 0;
 Q.u_sector = "centro"; Q.u_forjado = 0; Q.u_phase = ""; Q.u_entreno = "";
 Q.u_red_last = -99; Q.u_redada_last = -99; Q.u_ev_last = -99;
 Q.u_expropiaciones = 0; Q.u_carcel = 0; Q.u_pando = 0; Q.u_fin = 0; Q.u_cascada = 0;
+Q.u_ruptura = 0; Q.u_golpe = 0; Q.u_ing_visto = 0; Q.u_ing_last = -99; Q.u_carcel_last = -99; Q.u_negociado = 0;
 Q.cerco_final_warned = 0;
 Q.balance_armado_visto = 0;
 Q.absorcion = 0; Q.cartera_last = -99; Q.abrazo_done = 0;
