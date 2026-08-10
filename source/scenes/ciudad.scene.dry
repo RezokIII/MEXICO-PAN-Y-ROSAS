@@ -58,46 +58,55 @@ is-card: true
 frequency: 100
 max-visits: 300
 tags: lared
-on-arrival: month_actions += 1
 
 = La red en acción
 
-The network: **[+ u_celulas +]** cells · seguridad **[+ u_seguridad +]**/100 · simpatía (el agua) **[+ apoyo_popular +]**/100 · fondos **[+ funds +]** · parque **[+ parque +]**. The Brigada Blanca's heat on you: **[+ u_calor +]**/100. Poder popular: **[+ u_poder +]**/100. [? if u_calor >= 70 : *The white brigade is close — a raid is coming. Lie low, or accept the risk.* ?][? if u_celulas <= 1 : *The network is nearly gone.* ?]
+The network: **[+ u_celulas +]** cells · seguridad **[+ u_seguridad +]**/100 · simpatía (el agua) **[+ apoyo_popular +]**/100 · fondos **[+ funds +]** · parque **[+ parque +]**. The Brigada Blanca's heat: **[+ u_calor +]**/100. Poder popular: **[+ u_poder +]**/100. **Puntos de acción: [+ acc_pts +]/[+ acc_max +].** [? if u_calor >= 70 : *The white brigade is close — a raid is coming. Lie low, or accept the risk.* ?][? if u_celulas <= 1 : *The network is nearly gone.* ?][? if acc_pts <= 0 : *No points left — end the month.* ?]
 
-- @r_celula: **Tejer una célula.** Recruit and seal a new cell into the network. *(+cells; a little heat)*
-- @r_expro: **Expropiación.** A bank or a payroll — self-finance the war the way Guillén said the city lets you. *(+fondos, +parque; +heat)*
-- @r_propaganda: **Propaganda armada.** Seize a radio station, take a colonia for an hour, read the communiqué — make the movement visible. *(+simpatía, +poder; +heat)*
-- @r_bajar: **Bajar la actividad.** Go quiet — safehouses, compartments, no operations while the heat cools. *(−heat, +seguridad; no gains this month)*
+- @r_celula: **Tejer una célula.** Recruit and seal a new cell. *(1 pt; +cells, a little heat)*
+- @r_expro: **Expropiación.** A bank or payroll — self-finance the war the way Guillén said the city lets you. *(2 pts; +fondos, +parque, +heat)*
+- @r_propaganda: **Propaganda armada.** Seize a radio, take a colonia (the Pando model), read the communiqué. *(2 pts; +simpatía, +poder, +heat)*
+- @r_bajar: **Bajar la actividad.** Go quiet while the heat cools. *(1 pt; −heat, +seguridad)*
+- @fin_mes: **Terminar el mes.** Pass to the next month; the points refill.
 
 @r_celula
-on-arrival: {! Q.u_celulas+=1; Q.u_calor+=4; if(Q.u_entreno==="clandestino"){Q.u_seguridad+=2;} Q.apoyo_popular+=2; !}
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.u_celulas+=1; Q.u_calor+=4; if(Q.u_entreno==="clandestino"){Q.u_seguridad+=2;} Q.apoyo_popular+=2; !}
 
 You weave another cell into the net — new people, sealed off from the ones who recruited them, taught the discipline of knowing only what they must. The network grows a little wider and a little harder to unravel, because every cell that does not know its neighbors is a thread the Brigada Blanca can pull without the whole thing coming apart. A movement is being built in the concrete forest, quietly, one sealed room at a time.
 
-- @root: Continuar.
+- @red: Continuar.
 
 @r_expro
-choose-if: u_celulas >= 2
-unavailable-subtitle: An expropriation takes at least two cells working in concert.
-on-arrival: {! var _r=(Q.u_celulas*8)+(Q.u_seguridad*0.3)-30+(Math.random()*35-12); if(_r>=0){Q.funds=(Q.funds||0)+16;Q.parque=(Q.parque||0)+8;Q.u_poder+=2;}else{Q.funds=(Q.funds||0)+6;Q.u_celulas-=1;Q.u_calor+=10;Q.memorial=(Q.memorial||0)+1;} Q.u_calor+=14; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+2; !}
+choose-if: acc_pts >= 2 and u_celulas >= 2
+unavailable-subtitle: An expropriation costs 2 action points and at least two cells working in concert.
+on-arrival: {! Q.acc_pts-=2; var _r=(Q.u_celulas*8)+(Q.u_seguridad*0.3)-30+(Math.random()*35-12); if(_r>=0){Q.funds=(Q.funds||0)+16;Q.parque=(Q.parque||0)+8;Q.u_poder+=2;}else{Q.funds=(Q.funds||0)+6;Q.u_celulas-=1;Q.u_calor+=10;Q.memorial=(Q.memorial||0)+1;} Q.u_calor+=14; if(Q.u_calor>100){Q.u_calor=100;} Q.estado_intel=(Q.estado_intel||0)+2; !}
 
 You do what Guillén said the city offers and the sierra never will: you take your war chest from the enemy's own banks. [? if u_seguridad >= 50 : It goes clean — the cell is in and out in ninety seconds, the money funds a year of clandestine life, the guns for it bought with the bourgeoisie's own deposits. ?][? if u_seguridad < 50 : It goes loud — a getaway that nearly wasn't, a cell burned in the doing, a face on a security photograph. You got the money. It cost you.  ?] Every peso raises the war chest and the heat in the same motion: a bank robbery is a flare that says *we are here,* and the Brigada Blanca reads flares.
 
-- @root: Continuar.
+- @red: Continuar.
 
 @r_propaganda
-on-arrival: {! Q.apoyo_popular+=8; Q.u_poder+=6; Q.u_calor+=12; if(Q.u_calor>100){Q.u_calor=100;} Q.legitimidad_regimen-=2; Q.estado_intel=(Q.estado_intel||0)+2; Q.u_pando=(Q.u_pando||0)+1; !}
+choose-if: acc_pts >= 2
+unavailable-subtitle: Armed propaganda costs 2 action points.
+on-arrival: {! Q.acc_pts-=2; Q.apoyo_popular+=8; Q.u_poder+=6; Q.u_calor+=12; if(Q.u_calor>100){Q.u_calor=100;} Q.legitimidad_regimen-=2; Q.estado_intel=(Q.estado_intel||0)+2; Q.u_pando=(Q.u_pando||0)+1; !}
 
 You do the thing the Tupamaros made famous: you make the movement *visible* on your own terms. A radio station seized for ten minutes and a communiqué read into a hundred thousand kitchens; or a colonia taken for an hour — the Pando model — occupied, addressed, given food and manifestos, and abandoned before the army can arrive. The city learns that there is a power in it that the state cannot see and cannot stop, and the poder popular — the sense that another authority exists — climbs. So does the heat: nothing focuses the Brigada Blanca like being publicly humiliated.
 
-- @root: Continuar.
+- @red: Continuar.
 
 @r_bajar
-on-arrival: {! Q.u_calor-=22; if(Q.u_calor<0){Q.u_calor=0;} Q.u_seguridad+=6; if(Q.u_seguridad>100){Q.u_seguridad=100;} !}
+choose-if: acc_pts >= 1
+on-arrival: {! Q.acc_pts-=1; Q.u_calor-=22; if(Q.u_calor<0){Q.u_calor=0;} Q.u_seguridad+=6; if(Q.u_seguridad>100){Q.u_seguridad=100;} !}
 
 You call everything off. The cells go dark — no operations, no meetings that can be traced, the safehouses rotated, the compartments re-sealed, the network doing the patient, invisible, unglamorous work of simply *surviving* while the white brigade's heat cools for lack of anything to chase. It is the discipline that separates a network that lasts from a foco that flares and dies: knowing when the loudest and bravest thing to do is nothing at all. The heat drops. The war waits.
 
-- @root: Continuar.
+- @red: Continuar.
+
+@fin_mes
+new-page: true
+on-arrival: month_actions = 1
+go-to: root
 
 # =====================================================================
 # LA REDADA — the Brigada Blanca raid. Fires when the heat is high. A cell falls; it can cascade.
