@@ -221,7 +221,7 @@ Q.move_contact = 0; Q.move_cold = 0;
 // supplies the column while it holds, and it is the one fixed thing the army can find and destroy.
 // LA BRUTALIDAD: what the movement did to people. Executions, purges, hunted deserters, reprisals
 // invited onto villages. It buys silence and security now and it decides how the war ENDS.
-Q.brutalidad = 0;
+Q.brutalidad = 0; Q.f_pueblo_mes = 0;
 Q.f_campamento = 0; Q.camp_nodo = ""; Q.camp_nivel = 0; Q.camp_visto = 0; Q.camp_last = -99;
 // the ring: how tightly the army has concentrated on the column's current ground (0-100).
 // rises as you linger or act loudly; falls when you move to cold ground or the water hides you.

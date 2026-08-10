@@ -775,7 +775,13 @@
     if(atWar && prev._time!==Q.time){ for(var j=0;j<zonas.length;j++){ var zz=zonas[j]; if(prev._time!==undefined&&prev['_p_'+zz]!==undefined)prev[zz]=prev['_p_'+zz]; prev['_p_'+zz]=Q['guar_'+zz]; } prev._time=Q.time; }
   };
   var obs=new MutationObserver(function(){ setTimeout(window.paintSierraMap,60); });
-  window.addEventListener('load',function(){ var qd=document.getElementById('qualities'); if(qd)obs.observe(qd,{childList:true,subtree:true}); setTimeout(window.paintSierraMap,500); });
+  window.addEventListener('load',function(){
+    var qd=document.getElementById('qualities'); if(qd)obs.observe(qd,{childList:true,subtree:true});
+    setTimeout(window.paintSierraMap,500);
+    // belt-and-braces: the map must never be stale after an action. The signature dirty-check
+    // means this is a no-op unless something actually changed.
+    setInterval(function(){ try{ window.paintSierraMap(); }catch(e){} }, 400);
+  });
 })();
 
 // ===== Left-panel declutter: fold long goal-trackers / narrative sections behind their headings =====

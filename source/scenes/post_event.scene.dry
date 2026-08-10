@@ -684,6 +684,7 @@ if (Q.month_actions >= 1) {
     if (_cap < 1) { _cap = 1; } if (_cap > 5) { _cap = 5; }
     Q.acc_max = _cap;
     Q.acc_pts = Q.acc_max;   // armed-road action points refill each month
+    Q.f_pueblo_mes = 0;      // organising the villages is a fresh risk each month
     if (Q.month >= 13) {
         Q.month = 1;
         Q.year += 1;
