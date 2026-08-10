@@ -151,11 +151,39 @@ if (Q.month != Q.last_drift_month) {
         if (Q.f_desgaste > 0) { Q.f_desgaste -= 0.3; }
         // VOLUNTEERS: where the water is deep and the legend real, the sierra sends its sons.
         // This is how a band of thirty becomes the army that can take a capital.
-        var _vol = ((Q.apoyo_popular||0) - 45) / 14 + (Q.leyenda||0)/12 + ((Q.f_campamento===1) ? (Q.camp_nivel||1)*0.5 : 0);
-        if (_vol > 0 && (Q.f_comida||0) > 15) {
-            if (_vol > 5) { _vol = 5; }
+        // The rate is the water, plainly: how many families in this sierra would let a son go with you
+        // this month. Legend helps. Governing helps. Terror does not — nobody sends a boy to join the
+        // people who shot the storekeeper. And you cannot recruit what you cannot feed.
+        var _vol = 0;
+        if ((Q.apoyo_popular||0) > 28) {
+            _vol = ((Q.apoyo_popular||0) - 28) / 8.5
+                 + (Q.leyenda||0) / 10
+                 + ((Q.f_campamento === 1) ? (Q.camp_nivel||1) * 0.6 : 0)
+                 + ((Q.zona_gobernada === 1) ? 0.8 : 0)
+                 - (Q.brutalidad||0) * 0.35
+                 - (((Q.f_moral||0) < 30) ? 1.5 : 0);
+        }
+        // AND THE GROUND YOU ARE STANDING ON. This is the sanctuary's price. The high sierra is
+        // empty: nobody lives at El Otatal but the finca and the fog. You cannot recruit an army
+        // out of country that has no people in it, and you cannot eat scenery. The villages where
+        // the war can actually be won are the same villages the road reaches — which is the whole
+        // dilemma of a rural guerrilla and the reason no foco could simply hide until it won.
+        var _POB = {acapulco:100, coyuca:85, atoyac:90, sanvicente:55, elquemado:40, elporvenir:22, riochiquito:15, elotatal:8};
+        var _pob = (_POB[Q.col_nodo] !== undefined) ? _POB[Q.col_nodo] : 50;
+        Q.f_poblacion = _pob;
+        _vol = _vol * Math.min(1.15, _pob / 55);
+        if (_vol < 0) { _vol = 0; }
+        if (_vol > 6) { _vol = 6; }
+        if ((Q.f_comida||0) <= 15) { _vol = _vol * 0.25; }    // hungry columns turn volunteers away
+        Q.f_reclutamiento = Math.round(_vol * 10) / 10;
+        if (_vol > 0) {
             Q.f_hombres += _vol;
             Q.f_comida -= _vol * 0.6;
+        }
+        // empty country feeds nobody, and support that is not renewed among people goes stale
+        if (_pob < 30) {
+            Q.f_comida -= (30 - _pob) * 0.18;
+            Q.apoyo_popular -= (30 - _pob) * 0.055;
         }
         if (Q.f_hombres > 220) { Q.f_hombres = 220; }
         // ===== THE CEILING ON THE WATER: a liberal democracy on paper =====
@@ -194,6 +222,21 @@ if (Q.month != Q.last_drift_month) {
         if (Q.ejercito_fuerza < 30) { Q.ejercito_fuerza = 30; }
         var _bases = {atoyac:40, coyuca:44, acapulco:72, sanvicente:26, elquemado:20, elporvenir:12, riochiquito:10, elotatal:6};
         var _adjc = {atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']};
+        // ===== ACTIVITY HEAT: the army learns where you keep working =====
+        // Every action you spend in a village leaves a residue there. Heat decays if you go elsewhere.
+        var _usadas = Math.max(0, (Q.acc_max||2) - (Q.acc_pts||0));
+        var _NODES = ['atoyac','coyuca','acapulco','sanvicente','elquemado','elporvenir','riochiquito','elotatal'];
+        for (var _hi = 0; _hi < _NODES.length; _hi++) {
+            var _hn = _NODES[_hi];
+            Q['hot_'+_hn] = Math.max(0, (Q['hot_'+_hn]||0) - 2);
+        }
+        if (Q.col_nodo) { Q['hot_'+Q.col_nodo] = Math.min(100, (Q['hot_'+Q.col_nodo]||0) + 3 + _usadas*3); }
+        if (Q.camp_nodo) { Q['hot_'+Q.camp_nodo] = Math.min(100, (Q['hot_'+Q.camp_nodo]||0) + 2); }
+        var _hotmax = 0, _hotnode = '';
+        for (var _hj = 0; _hj < _NODES.length; _hj++) {
+            if ((Q['hot_'+_NODES[_hj]]||0) > _hotmax) { _hotmax = Q['hot_'+_NODES[_hj]]||0; _hotnode = _NODES[_hj]; }
+        }
+        Q.hot_max = Math.round(_hotmax); Q.hot_nodo = _hotnode;
         // how hard it concentrates on you: its intelligence + doctrine, minus the water hiding you
         var _hunt = 14 + (Q.estado_intel||0)*0.22 + ((Q.estado_doctrina==='contrainsurgencia')?14:0) + ((Q.estado_doctrina==='represion')?7:0);
         _hunt -= ((Q.apoyo_popular||0) >= 55) ? 8 : 0;
@@ -209,16 +252,21 @@ if (Q.month != Q.last_drift_month) {
             else { Q['gn_'+_bn] = _cur - Math.min(4, _cur - _tgt); }
             if (Q['gn_'+_bn] > 100) { Q['gn_'+_bn] = 100; } if (Q['gn_'+_bn] < 0) { Q['gn_'+_bn] = 0; }
         }
-        // ===== THE UNITS MARCH =====
-        // Each formation steps one village closer to the column every month (a coin-flip when the
-        // water is deep and it has to grope for you). Reaching your node is contact.
-        var _ADJ = {atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']};
-        function _stepToward(from, to) {                       // BFS one hop along the trails
+        // ===== THE UNITS MARCH — AND THE ARMY IS TIED TO THE ROAD =====
+        // This is the whole geography of the war. A battalion moves on wheels: fuel, radios, mortars,
+        // three hundred men and their water. It goes where the ROAD goes — the coast highway, the
+        // valley road up to San Vicente, the logging track to El Quemado — and no further. Everything
+        // above that is vereda: goat paths the column walks in file and a truck cannot follow at all.
+        // So the deep sierra is a sanctuary the army physically cannot enter... until it stops trying
+        // to enter it with battalions and starts sending men who walk.
+        var _ADJ  = {atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']};
+        var _ROAD = {atoyac:['coyuca','sanvicente'],coyuca:['atoyac','acapulco'],acapulco:['coyuca'],sanvicente:['atoyac','elquemado'],elquemado:['sanvicente'],elporvenir:[],riochiquito:[],elotatal:[]};
+        function _stepOn(graph, from, to) {                    // BFS one hop through a given network
             if (!from || !to || from === to) { return from; }
             var _q = [[from]], _seen = {}; _seen[from] = 1;
             while (_q.length) {
                 var _path = _q.shift(), _last = _path[_path.length-1];
-                var _nb = _ADJ[_last] || [];
+                var _nb = graph[_last] || [];
                 for (var _i = 0; _i < _nb.length; _i++) {
                     var _n2 = _nb[_i];
                     if (_seen[_n2]) { continue; }
@@ -230,34 +278,129 @@ if (Q.month != Q.last_drift_month) {
             }
             return from;
         }
-        // the paratroopers deploy once the war is serious
+        function _dist(graph, from, to) {                      // hop count, or 99 if unreachable
+            if (from === to) { return 0; }
+            var _q = [[from,0]], _seen = {}; _seen[from] = 1;
+            while (_q.length) {
+                var _it = _q.shift(), _nb = graph[_it[0]] || [];
+                for (var _i = 0; _i < _nb.length; _i++) {
+                    if (_seen[_nb[_i]]) { continue; }
+                    _seen[_nb[_i]] = 1;
+                    if (_nb[_i] === to) { return _it[1] + 1; }
+                    _q.push([_nb[_i], _it[1] + 1]);
+                }
+            }
+            return 99;
+        }
+        // WHERE A ROAD-BOUND FORMATION GOES when the column is off the road entirely: as far up the
+        // road as the road goes, to the road-head nearest the column. It parks there and waits.
+        function _roadHead(from, col) {
+            if (_dist(_ROAD, from, col) < 99) { return col; }
+            var _q = [from], _seen = {}; _seen[from] = 1, _best = from, _bd = _dist(_ADJ, from, col);
+            while (_q.length) {
+                var _c = _q.shift(), _nb = _ROAD[_c] || [];
+                for (var _i = 0; _i < _nb.length; _i++) {
+                    if (_seen[_nb[_i]]) { continue; }
+                    _seen[_nb[_i]] = 1; _q.push(_nb[_i]);
+                    var _d = _dist(_ADJ, _nb[_i], col);
+                    if (_d < _bd) { _bd = _d; _best = _nb[_i]; }
+                }
+            }
+            return _best;
+        }
+        // the paratroopers deploy once the war is serious — still road-bound, just heavier
         if (!Q.ej3_nodo && ((Q.f_desgaste||0) >= 18 || (Q.estado_intel||0) >= 45)) { Q.ej3_nodo = "acapulco"; Q.ej3_f = 42; }
-        var _units = ['ej1','ej2','ej3'];
-        Q.ej_contacto = 0;
+        // ===== THE ARMY LEARNS: LOS CAZADORES =====
+        // Every counter-insurgency in the world arrives at the same answer eventually, and Mexico's
+        // arrived at it in Guerrero: stop chasing guerrillas with trucks. Small groups, no vehicles,
+        // rations on their backs, trained to live in the sierra for weeks — able to walk every path
+        // the column walks. They deploy when the state knows enough (intel) or when you have worked
+        // one district so hard that it is obvious where to look (heat).
+        if (!Q.ej4_nodo && ((Q.estado_intel||0) >= 50 || _hotmax >= 34) && (Q.time||0) >= (Q.caz_last||-99) + 4) {
+            var _cz = Q.hot_nodo; if (!_cz || !_bases.hasOwnProperty(_cz)) { _cz = 'atoyac'; }
+            Q.ej4_nodo = _cz; Q.ej4_f = 24; Q.caz_alta = 1; Q.caz_last = Q.time;
+        }
+        var _units = ['ej1','ej2','ej3','ej4'];
+        Q.ej_contacto = 0; Q.ej_unidad = ""; Q.ej_unidad_f = 0; Q.ej_es_cazador = 0;
         for (var _ui = 0; _ui < _units.length; _ui++) {
             var _u = _units[_ui]; var _at = Q[_u+'_nodo'];
             if (!_at) { continue; }
-            Q[_u+'_f'] = Math.round(40 * (Q.ejercito_fuerza/100)) + (_ui===2 ? 8 : 0);
-            // deep water blinds them: they only close half the time
+            var _caz = (_u === 'ej4');
+            // a mauled formation stays on the map at its base and is rebuilt over months
+            Q[_u+'_dmg'] = Math.max(0, (Q[_u+'_dmg']||0) - 7);
+            var _full = _caz ? (18 + Math.round(14 * (Q.ejercito_fuerza/100)))
+                             : (Math.round(40 * (Q.ejercito_fuerza/100)) + (_ui===2 ? 8 : 0));
+            Q[_u+'_f'] = Math.max(6, Math.round(_full * (1 - (Q[_u+'_dmg']||0)/100)));
+            // a formation too shot up to operate sits at its base until it is fit again
+            if ((Q[_u+'_dmg']||0) >= 45) { continue; }
+            // deep water blinds them; the cazadores are far harder to blind — that is the point of them
             var _blind = ((Q.apoyo_popular||0) >= 55) ? 0.45 : (((Q.apoyo_popular||0) >= 35) ? 0.72 : 0.95);
-            if (Math.random() < _blind) { Q[_u+'_nodo'] = _stepToward(_at, Q.col_nodo); }
+            if (_caz) { _blind = ((Q.apoyo_popular||0) >= 55) ? 0.78 : 0.95; }
+            if (Math.random() < _blind) {
+                if (_caz) { Q[_u+'_nodo'] = _stepOn(_ADJ, _at, Q.col_nodo); }
+                else { Q[_u+'_nodo'] = _stepOn(_ROAD, _at, _roadHead(_at, Q.col_nodo)); }
+            }
             if (Q[_u+'_nodo'] === Q.col_nodo) {
-                Q.ej_contacto = 1;
-                Q.f_cerco += 14;                                  // a formation standing on you
-                Q['gn_'+Q.col_nodo] = (Q['gn_'+Q.col_nodo]||0) + 18;
+                Q.ej_contacto = 1; Q.ej_unidad = _u; Q.ej_unidad_f = Q[_u+'_f']; if (_caz) { Q.ej_es_cazador = 1; }
+                Q.f_cerco += _caz ? 20 : 14;
+                Q['gn_'+Q.col_nodo] = (Q['gn_'+Q.col_nodo]||0) + (_caz ? 10 : 18);
             } else if ((_ADJ[Q.col_nodo]||[]).indexOf(Q[_u+'_nodo']) >= 0) {
                 Q.f_cerco += 5;                                   // one village away
             }
         }
+        // ===== EL CERCO TOTAL: every way out held =====
+        // Encirclement is not a meter reaching 100. It is a map fact: they are standing on you, and
+        // every path off this node has a garrison or a formation sitting on it.
+        Q.cerco_total = 0;
+        if (Q.ej_contacto === 1) {
+            var _outs = _ADJ[Q.col_nodo] || [], _sellados = 0;
+            for (var _oi = 0; _oi < _outs.length; _oi++) {
+                var _on = _outs[_oi], _ocup = 0;
+                for (var _uj = 0; _uj < _units.length; _uj++) { if (Q[_units[_uj]+'_nodo'] === _on) { _ocup = 1; } }
+                if (_ocup || (Q['gn_'+_on]||0) >= 45) { _sellados++; }
+            }
+            if (_outs.length > 0 && _sellados >= _outs.length) { Q.cerco_total = 1; }
+        }
+        // ===== THEY FIND THE CAMP =====
+        // A fixed installation cannot hide from sustained presence. Troops on it, or a heavy garrison
+        // on it, and every month the file gets closer to a grid reference.
+        if (Q.f_campamento === 1 && Q.camp_nodo) {
+            var _cpres = ((Q['gn_'+Q.camp_nodo]||0) >= 45) ? 1 : 0;
+            for (var _uk = 0; _uk < _units.length; _uk++) { if (Q[_units[_uk]+'_nodo'] === Q.camp_nodo) { _cpres += 2; } }
+            if ((Q['hot_'+Q.camp_nodo]||0) >= 40) { _cpres += 1; }
+            if ((Q.apoyo_popular||0) >= 60) { _cpres -= 1; }        // the valley lies about the fold in the hills
+            if (_cpres > 0) { Q.camp_riesgo = (Q.camp_riesgo||0) + _cpres; }
+            else if ((Q.camp_riesgo||0) > 0) { Q.camp_riesgo -= 1; }
+            if ((Q.camp_riesgo||0) >= 6) { Q.camp_visto = 1; }
+            // if they locate it while the column is nowhere near, it simply ceases to exist
+            if ((Q.camp_riesgo||0) >= 9 && Q.col_nodo !== Q.camp_nodo) { Q.camp_arrasado = 1; }
+        }
         // a heavy garrison on your own ground tightens the ring by itself
         var _here = Q['gn_'+Q.col_nodo] || 0;
         if (_here >= 55) { Q.f_cerco += 4; } else if (_here >= 35) { Q.f_cerco += 2; }
+        // ===== FOREIGN AID BY RADIO: it moves at the speed of ships and politics =====
+        if (Q.aid_estado === "pedido") {
+            Q.aid_eta = (Q.aid_eta||0) - 1;
+            if (Q.aid_eta <= 0) {
+                Q.aid_estado = "listo";
+                // where it lands: the sea puts it on the coast, the air puts it deep in the sierra
+                Q.aid_nodo = (Q.aid_via === "aire") ? (((Q.apoyo_popular||0) >= 50) ? "riochiquito" : "elporvenir")
+                                                    : (((Q['gn_coyuca']||0) < (Q['gn_atoyac']||0)) ? "coyuca" : "atoyac");
+                Q.aid_vence = 3;
+            }
+        } else if (Q.aid_estado === "listo") {
+            Q.aid_vence = (Q.aid_vence||0) - 1;
+            if (Q.aid_vence <= 0) {
+                Q.aid_estado = "perdido"; Q.estado_intel = (Q.estado_intel||0) + 12; Q.f_moral -= 6;
+                Q.pol_intl = Math.max(0, (Q.pol_intl||0) - 8);
+            }
+        }
         // clamps
         if (Q.f_comida > 100) { Q.f_comida = 100; }
         if (Q.f_parque < 0) { Q.f_parque = 0; } if (Q.f_parque > 100) { Q.f_parque = 100; }
         if (Q.f_moral > 100) { Q.f_moral = 100; } if (Q.f_moral < 0) { Q.f_moral = 0; }
         if (Q.f_cerco > 100) { Q.f_cerco = 100; } if (Q.f_cerco < 0) { Q.f_cerco = 0; }
-        if (Q.f_desgaste < 0) { Q.f_desgaste = 0; }
+        if (Q.f_desgaste < 0) { Q.f_desgaste = 0; } if (Q.f_desgaste > 100) { Q.f_desgaste = 100; }
         // --- POLITICS OF THE ARMED ROAD: the two relationships bite every month ---
         // The Party recoils from terror and militarism; it courts a movement that keeps a political face.
         if (Q.ajusticiamientos >= 2) { Q.pol_pcm -= 1.2; }

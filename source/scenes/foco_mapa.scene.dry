@@ -1,0 +1,101 @@
+title: La geografía de la guerra
+max-visits: 1
+view-if: 0
+# Container/namespace only. The events the MAP generates: the enemy learning to walk, the shipment
+# that has landed somewhere and must be fetched, and the camp found while you were three valleys away.
+
+# =====================================================================
+# LOS CAZADORES — the army stops using trucks. This is the single worst piece of news in the war.
+# =====================================================================
+@ev_cazadores
+title: Los cazadores
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: They have stopped trying to catch you with trucks
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and caz_alta = 1 and f_caz_visto = 0
+priority: 11
+frequency: 100
+max-visits: 1
+on-arrival: {! Q.f_caz_visto=1; Q.f_moral-=6; Q.paranoia=(Q.paranoia||8)+8; !}
+
+= Los cazadores
+
+A boy from El Porvenir describes something he saw on the high trail and it takes you a while to understand why it is making your stomach turn over, because on the face of it he is describing very little: eleven soldiers, walking, with big packs, no vehicles, no road behind them, going the wrong way up a vereda that no soldier has ever used in four years of this war.
+
+That is the whole thing. Eleven men on a footpath.
+
+Everything the column has done since the beginning rests on one fact of geography: they move on wheels and you move on your feet, so above the last road the sierra belongs to you. Every escape, every camp, every night of actual sleep has been paid for out of that fact. It has just stopped being a fact.
+
+Somebody in Mexico City finally read the manuals everyone else read — the ones about Malaya and Algeria and the Escambray — and drew the obvious conclusion: to catch men who walk, send men who walk. Small groups. No supply line. Trained for the sierra, living in it for weeks, and now moving on the same paths you do.
+
+[? if estado_intel >= 50 : They know enough about you to know where to look. ?][? if hot_max >= 34 : And they know where to look because of you: you have worked one district so hard, for so many months, that the pattern is visible from a desk. ?]
+
+The high country is not a sanctuary any more. It is just country.
+
+- @root: Continuar.
+
+# =====================================================================
+# EL ALIJO HA LLEGADO — it is on the ground, in one place, for a limited number of months.
+# =====================================================================
+@ev_alijo
+title: El alijo ha llegado
+new-page: true
+face-image: img/international.jpg
+subtitle: Somewhere on a chart, somebody has put your war on the ground
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and aid_estado = "listo" and aid_vence >= 3
+priority: 9
+frequency: 100
+max-visits: 6
+
+= El alijo ha llegado
+
+The confirmation comes at four in the morning in a form so bureaucratic it is almost funny: a string of letters and numbers, repeated twice, that resolves into a place and a date.
+
+[? if aid_via = "mar" : It came off a boat, at night, onto the coast, which means it is down there — near the road, near the garrisons, in the part of Guerrero where the army has everything it needs and you have nothing. ?][? if aid_via = "aire" : It came out of an aircraft at three hundred feet into a valley in the deep sierra, which is the good news: it is in country only you can reach. The bad news is that it is a long way from wherever the column happens to be, and the load is small. ?]
+
+**It is at [? if aid_nodo = "coyuca" : Coyuca de Benítez ?][? if aid_nodo = "atoyac" : Atoyac de Álvarez ?][? if aid_nodo = "riochiquito" : Río Chiquito ?][? if aid_nodo = "elporvenir" : El Porvenir ?].** The people holding it will hold it for **[+ aid_vence +] months** and then they will bury it, burn it, or run — and that is not a threat, it is simply what people do.
+
+So the column now has a destination and a deadline, which are the two things a guerrilla column is never supposed to have. Every march from here until you have it in your hands is a march the army can predict, because it can read a chart too, and because the only reason a band like yours would suddenly walk toward the coast is that something is waiting there.
+
+Get there. Then go and take it, from the *Política* card.
+
+- @root: Continuar.
+
+# =====================================================================
+# ARRASARON EL CAMPAMENTO — found and destroyed while you were somewhere else.
+# =====================================================================
+@ev_campamento_arrasado
+title: Arrasaron el campamento
+new-page: true
+face-image: img/campfound.jpg
+subtitle: You were three valleys away
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and camp_arrasado = 1
+priority: 10
+frequency: 100
+max-visits: 4
+on-arrival: {!
+Q.camp_arrasado=0; Q.camp_riesgo=0;
+var _n=(Q.camp_nivel||1);
+Q.f_campamento=0; Q.camp_nodo=""; Q.camp_nivel=0; Q.camp_visto=0;
+Q.f_comida-=8*_n; Q.f_parque-=6*_n; Q.f_moral-=14; Q.apoyo_popular-=5;
+Q.estado_intel=(Q.estado_intel||0)+8; Q.memorial=(Q.memorial||0)+2; Q.f_cerco+=10;
+if(Q.f_comida<0){Q.f_comida=0;} if(Q.f_parque<0){Q.f_parque=0;} if(Q.f_moral<0){Q.f_moral=0;}
+if(Q.apoyo_popular<0){Q.apoyo_popular=0;} if(Q.f_cerco>100){Q.f_cerco=100;}
+!}
+
+= Arrasaron el campamento
+
+You find out from smoke, four days late, from the wrong side of two ridges.
+
+There was nothing to defend it with because the column was somewhere else — that is what a fixed installation *is*, a thing that exists whether or not you are standing on it, and the army had been sitting near it for months getting closer to a grid reference every week. It took them a morning.
+
+The hospital. The stores. The school benches somebody planed by hand. The seed maize for the whole zone. The two wounded who could not be moved and the compañera who stayed with them, who is now a name that will be argued about in an office in Acapulco. The printing frame. The vegetable garden, which they went to the trouble of pulling up, which tells you something about the mood of the men who did it.
+
+The correct military judgement was made long ago by Bayo and by Che and by everyone who has ever written any of this down: a guerrilla must not own anything it cannot carry. You knew that. You built it anyway, because a column with a home fights better and heals faster and does not lose its mind, and because there is a limit to how long human beings can live like hunted animals before they stop being much use to a revolution.
+
+Both things were true. This is the bill for the second one.
+
+- @root: Continuar.

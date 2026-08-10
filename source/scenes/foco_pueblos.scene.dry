@@ -1,0 +1,590 @@
+title: El terreno de cada pueblo
+max-visits: 1
+view-if: 0
+# Container/namespace only. EIGHT TOWNS, EIGHT BATTLES. Contact is resolved by the ground it
+# happens on: every village in this sierra has one thing in it that a guerrilla can use and a
+# battalion cannot, and knowing what that thing is — for each place — is what four years of
+# living here is actually worth. Each of these overrides the generic @la_batalla for its node.
+# Every one is a chain: local opening -> a decision inside the local trick -> foco_batalla.bat_fin.
+#
+# bat_bonus is the value of knowing your own ground. bat_plan reuses the shared families so the
+# resolution maths in foco_batalla stays single-sourced.
+
+# =====================================================================
+# ACAPULCO — the port. Nine hundred thousand people, a naval station, and the tourists.
+# =====================================================================
+@bat_acapulco
+title: Contacto en Acapulco
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: The deepest garrison in the state, and the only place with a crowd to disappear into
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and col_nodo = "acapulco" and time >= bat_last + 2
+priority: 11
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res=""; Q.bat_terreno=-12; Q.bat_bonus=0; !}
+
+= Contacto en Acapulco
+
+The worst ground in Guerrero to be caught on, and you knew that when you came down here.
+
+This is the port: a naval station, the 27th's barracks, the airport, four thousand men in uniform within twenty minutes of anywhere, and behind all of it a city of tourists that the Republic cares about in a way it has never once cared about a village. Every road out has a checkpoint on it because every road out always has a checkpoint on it. There is no sierra to climb into. There is a beach.
+
+And there is the one thing the sierra does not have: nine hundred thousand people, most of them poor, packed into colonias on the hills behind the hotels where no soldier goes willingly and no map is accurate.
+
+- @bat_ac_colonia: **La colonia.** Up into the barrios on the hill — the unpaved, unmapped, unpoliceable city. *(the only real cover here; you become an urban problem)*
+- @bat_ac_hotel: **Cruzar por la zona turística.** Straight through the tourist strip, where they will not fire. *(audacious; the state's own vanity as cover)*
+- @foco_batalla.bat_dar: **Dar la cara.** Fight in the port. *(here, against this garrison — read that sentence again)*
+- @foco_batalla.bat_romper: **Romper hacia la carretera.** Out along the coast road toward Coyuca and the sierra beyond.
+
+@bat_ac_colonia
+new-page: true
+face-image: img/neza.jpg
+on-arrival: {! Q.bat_plan="filtrarse"; Q.bat_bonus=14; !}
+
+= Arriba, entre las casas
+
+You go up. Within four hundred metres the asphalt stops and the city becomes what the city actually is: a hillside of block and cardboard and rebar, no street names, no plan, thirty thousand people who arrived from the sierra in the last fifteen years and were never counted by anybody.
+
+They know exactly who you are within the hour. That is not a metaphor — half these families are from Atoyac and Tecpan, and several of them have relatives in your column.
+
+- @bat_ac_c_casas: Split up into houses and let the colonia hide you until the sweep passes. *(their risk, entirely)*
+- @bat_ac_c_pasar: Keep moving straight through and out the back of the hill by dawn. Do not make them choose. *(harder; nobody else pays)*
+
+@bat_ac_c_casas
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_ligero"; Q.bat_bonus=20; Q.f_cerco+=6; Q.estado_intel=(Q.estado_intel||0)+6; !}
+
+@bat_ac_c_pasar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_pesado"; Q.bat_bonus=12; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(4,_h*0.25); !}
+
+@bat_ac_hotel
+new-page: true
+face-image: img/guadalajara1970s.jpg
+on-arrival: {! Q.bat_plan="filtrarse"; Q.bat_bonus=6; !}
+
+= La Costera
+
+The idea is so stupid that it takes the column four minutes to understand you are serious: walk out along the Costera Miguel Alemán, in daylight, in front of the hotels, among people from Texas in sunglasses.
+
+They cannot shoot here. The entire economy of this state is thirty metres to the left, drinking something with fruit in it, and there is not an officer in Mexico who will authorize a firefight in front of it.
+
+- @bat_ac_h_calma: Walk it. Slowly. Like people who belong on a seafront. *(nerve alone; every second is a lifetime)*
+- @bat_ac_h_ruido: Make it a spectacle — leaflets, a banner off the hotel front, the war on the front page. *(they will have to answer for it; the manhunt becomes national)*
+
+@bat_ac_h_calma
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_ligero"; Q.bat_bonus=10; !}
+
+@bat_ac_h_ruido
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_pesado"; Q.bat_bonus=2; Q.leyenda=(Q.leyenda||0)+5; Q.legitimidad_regimen-=6; Q.pol_intl=(Q.pol_intl||0)+10; Q.estado_intel=(Q.estado_intel||0)+12; Q.f_cerco+=14; !}
+
+# =====================================================================
+# COYUCA — the lagoon. Water, mangrove, and boats the army does not have.
+# =====================================================================
+@bat_coyuca
+title: Contacto en Coyuca
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: Between the highway and a lagoon nobody has ever mapped properly
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and col_nodo = "coyuca" and time >= bat_last + 2
+priority: 11
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res=""; Q.bat_terreno=-6; Q.bat_bonus=0; !}
+
+= Contacto en Coyuca
+
+Coyuca is a trap with a door in it.
+
+The trap is the geography: the town sits pinned between the coast highway and the lagoon, which means the army has a road on one side and open water on the other and only has to close two ends. They know this. It is why they came here.
+
+The door is that the lagoon is not open water at all. It is forty square kilometres of mangrove channel that changes with the tide and has never been surveyed by anyone but the men who fish it, and there are ninety families in this town who own a boat and have every reason to dislike the federal government.
+
+- @bat_co_laguna: **La laguna.** Into the mangroves with the fishermen. *(the army has no boats and no chart; the fishermen are exposed forever after)*
+- @bat_co_carretera: **La carretera.** Break across the highway and into the cane before they can close it. *(fast; open ground for ninety seconds)*
+- @foco_batalla.bat_dar: **Dar la cara.** Fight in the streets of the town.
+- @foco_batalla.bat_filtrarse: **Filtrarse.** Out in threes through the cane at night.
+
+@bat_co_laguna
+new-page: true
+face-image: img/agua_neza.jpg
+on-arrival: {! Q.bat_plan="filtrarse"; Q.bat_bonus=16; !}
+
+= Entre los manglares
+
+Eleven boats come out of eleven different places without anybody having been asked twice, poled rather than rowed because a rowlock makes noise, and the column goes into the mangrove in the dark at the top of the tide.
+
+Inside the channels it is absolutely black and absolutely silent and completely safe, and a helicopter over the top of it sees a green roof. The army will be on the shore by first light with binoculars, looking at a wall of leaves.
+
+- @bat_co_l_fondo: Deep in, and sit there for four days until they get bored. *(safe; four days of no food and no news)*
+- @bat_co_l_cruzar: Straight across and out the far side tonight, and gone before they think of the far side. *(fast; the far side may already be thought of)*
+
+@bat_co_l_fondo
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_ligero"; Q.bat_bonus=24; Q.f_comida-=12; Q.f_moral-=4; !}
+
+@bat_co_l_cruzar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_pesado"; Q.bat_bonus=12; !}
+
+@bat_co_carretera
+new-page: true
+on-arrival: {! Q.bat_plan="romper"; Q.bat_bonus=-4; !}
+
+= Cruzar la carretera
+
+Ninety seconds of asphalt with nothing on it, and then two metres of cane and you are invisible again. Ninety seconds is a very long time.
+
+- @bat_co_c_noche: Wait for full dark and cross in one rush. *(the obvious moment; they know it too)*
+- @bat_co_c_camion: Stop a bus, put it across the road, and cross behind it. *(the civilians on the bus have no vote in this)*
+
+@bat_co_c_noche
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="romper_todos"; Q.bat_bonus=2; !}
+
+@bat_co_c_camion
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="romper_guardia"; Q.bat_bonus=14; Q.brutalidad=(Q.brutalidad||0)+1; Q.apoyo_popular-=3; !}
+
+# =====================================================================
+# ATOYAC — the town where the sierra meets the road. Lucio's town. Market day.
+# =====================================================================
+@bat_atoyac
+title: Contacto en Atoyac
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: The town this whole war came out of
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and col_nodo = "atoyac" and time >= bat_last + 2
+priority: 11
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res=""; Q.bat_terreno=-2; Q.bat_bonus=0; !}
+
+= Contacto en Atoyac
+
+Atoyac de Álvarez, where the road ends and the mountain starts, and where in May 1967 the police fired into a parents' meeting outside the school and turned a village teacher into a guerrilla. Everything that has happened since happened because of a morning in this square.
+
+Which means two things at once. It means the garrison here is permanent and reinforced and hates you personally. And it means that of the people standing in this square right now, a substantial number were standing in it that morning too.
+
+It is Thursday. The market is on. Four hundred people, awnings, animals, sacks, and a crowd it would take a company an hour to move.
+
+- @bat_at_mercado: **El mercado.** Go out through the market at the busiest hour and let the town be the terrain. *(they cannot shoot into it; the town chooses whether to close around you)*
+- @bat_at_escuela: **La escuela.** Out past the school where it started, up the arroyo behind it into the coffee. *(the ground everyone in this column knows by heart)*
+- @foco_batalla.bat_dar: **Dar la cara.** Fight for Atoyac. *(in the town the movement was born in, in front of everyone)*
+- @foco_batalla.bat_romper: **Romper hacia la sierra.** Up and out, the way you always go.
+
+@bat_at_mercado
+new-page: true
+face-image: img/elpueblo.jpg
+on-arrival: {! Q.bat_plan="filtrarse"; Q.bat_bonus=8; !}
+
+= Jueves de plaza
+
+You go in among the awnings in ones, rifles under blankets and inside sacks of maize, and the market does the thing a market does, which is close over you like water.
+
+Nobody says anything. A woman moves a crate. Someone's grandmother starts a very long and very loud argument with a soldier about the price of chillies at precisely the moment it is useful. This is not organization. This is four hundred people independently making the same decision in the same four minutes.
+
+- @bat_at_m_salir: Out the back of the market and gone, and let the town keep its Thursday. *(the town is not touched; you take nothing with you)*
+- @bat_at_m_hablar: Before you go — up on a crate, in the middle of the market, and speak. *(the whole town hears the movement's voice; every informer in it hears it too)*
+
+@bat_at_m_salir
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_ligero"; Q.bat_bonus=18; !}
+
+@bat_at_m_hablar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_pesado"; Q.bat_bonus=4;
+var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(9,_h*0.5);
+Q.leyenda=(Q.leyenda||0)+4; Q.legitimidad_regimen-=4; Q.estado_intel=(Q.estado_intel||0)+8; Q.f_cerco+=10; !}
+
+@bat_at_escuela
+new-page: true
+face-image: img/cards/escuela.jpg
+on-arrival: {! Q.bat_plan="romper"; Q.bat_bonus=12; !}
+
+= Por la escuela
+
+The arroyo behind the primary school runs up into the coffee and from the coffee into the sierra, and every person in this column over the age of twenty-five has walked it, most of them as children, several of them on the eighteenth of May 1967 with the shooting behind them.
+
+You do not need a guide. You do not need light.
+
+- @bat_at_e_rapido: Straight up and out. Speed. *(the ground does the work)*
+- @bat_at_e_esperar: Wait in the coffee above the school and hit whatever follows you into the arroyo. *(the ambush your childhood laid out for you)*
+
+@bat_at_e_rapido
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="romper_todos"; Q.bat_bonus=16; !}
+
+@bat_at_e_esperar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; Q.bat_bonus=22; Q.f_parque-=8; if(Q.f_parque<0){Q.f_parque=0;} !}
+
+# =====================================================================
+# SAN VICENTE — coffee country. The beneficio, the drying patios, the pickers.
+# =====================================================================
+@bat_sanvicente
+title: Contacto en San Vicente
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: Coffee country, in the middle of the harvest
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and col_nodo = "sanvicente" and time >= bat_last + 2
+priority: 11
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res=""; Q.bat_terreno=2; Q.bat_bonus=0; !}
+
+= Contacto en San Vicente
+
+Coffee country, and it is the harvest, which changes everything.
+
+Coffee grows under shade — old trees, dense, two and a half metres of leaf in every direction, visibility of about nine metres and no line of sight for anything. It is the best infantry cover in the state and it goes on for forty square kilometres. A man can stand four metres from you and see leaves.
+
+It is also full of people: three hundred pickers working the rows, whole families, sacks and ladders and children, half of them migrants from Oaxaca who have no idea who anybody is and are not going to be a witness to anything.
+
+- @bat_sv_cafetal: **El cafetal.** Into the coffee and let the shade trees do it. *(the finest cover in Guerrero; three hundred civilians in it)*
+- @bat_sv_beneficio: **El beneficio.** The processing works — concrete, water tanks, drying patios, and the only defensible building for nine kilometres. *(a real position; you are fighting for a rich man's factory)*
+- @foco_batalla.bat_filtrarse: **Filtrarse.** Out in threes at night through the rows.
+- @foco_batalla.bat_romper: **Romper hacia arriba.** Up toward El Porvenir and out of reach.
+
+@bat_sv_cafetal
+new-page: true
+face-image: img/countryside2.jpg
+on-arrival: {! Q.bat_plan="filtrarse"; Q.bat_bonus=18; !}
+
+= Bajo la sombra
+
+Forty metres in and the war becomes a question of hearing rather than seeing. You can hear a company moving through coffee from a very long way off, because coffee is noisy and men in webbing are noisier, and they cannot hear you at all because you are moving at the speed of somebody picking.
+
+The pickers keep picking. Some of them move a ladder in a way that is not about the ladder.
+
+- @bat_sv_c_pickers: Move with the pickers — same pace, same rows, sacks on the shoulder. *(indistinguishable; if it fails, it fails on them)*
+- @bat_sv_c_solos: Away from the rows where the people are, out through the empty sections. *(slower and more exposed; nobody else is in it)*
+
+@bat_sv_c_pickers
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_ligero"; Q.bat_bonus=24; Q.estado_intel=(Q.estado_intel||0)+4; !}
+
+@bat_sv_c_solos
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_pesado"; Q.bat_bonus=10; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(5,_h*0.3); !}
+
+@bat_sv_beneficio
+new-page: true
+face-image: img/cards/fabrica.jpg
+choose-if: f_parque >= 10
+unavailable-subtitle: Holding a building against a formation takes ammunition you do not have.
+on-arrival: {! Q.bat_plan="dar"; Q.bat_bonus=16; Q.f_parque-=10; !}
+
+= El beneficio
+
+Concrete tanks, a two-storey drying shed, a wall, water, and a field of fire down the access road: the only building between here and the coast that is worth defending, and it belongs to a family in Mexico City who have never seen it.
+
+The pickers get out through the back within ten minutes. The manager stays, for some reason, and is extremely angry with everybody.
+
+- @bat_sv_b_tanques: Fight from the tanks and the shed and make them come up the road. *(a proper defensive battle)*
+- @bat_sv_b_quemar: Hold long enough to burn the year's crop, then go. Ruin the finca and let them have the ashes. *(economic war; the pickers lose the season too)*
+
+@bat_sv_b_tanques
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_perimetro"; Q.bat_bonus=20; !}
+
+@bat_sv_b_quemar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; Q.bat_bonus=8; Q.legitimidad_regimen-=3; Q.apoyo_popular-=6; Q.brutalidad=(Q.brutalidad||0)+1; Q.funds=(Q.funds||0)+6; !}
+
+# =====================================================================
+# EL QUEMADO — the village the army burns. The caves above it.
+# =====================================================================
+@bat_elquemado
+title: Contacto en El Quemado
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: The village that has already been punished for you once
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and col_nodo = "elquemado" and time >= bat_last + 2
+priority: 11
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res=""; Q.bat_terreno=8; Q.bat_bonus=0; !}
+
+= Contacto en El Quemado
+
+This is the village that got burned. Everyone here has already paid once for the crime of your existence, and the arithmetic of what happens next is being done, very fast, behind two hundred pairs of eyes.
+
+The track ends here — this is the last place a truck reaches, which is why they can come at all and why they cannot follow you out. Above the village the limestone starts, and in the limestone there are caves that the whole valley has used to hide things in since before anyone was keeping records.
+
+- @bat_eq_cuevas: **Las cuevas.** Up into the limestone, with the village if they will come. *(a fortress the army cannot enter; you are choosing the whole village's fate for it)*
+- @bat_eq_evacuar: **Sacar al pueblo primero.** Fight nothing. Get every human being out of the houses before the troops reach them. *(you take no shot; the village survives, and knows why)*
+- @foco_batalla.bat_dar: **Dar la cara.** Fight in front of them, on their ground, for their village.
+- @foco_batalla.bat_romper: **Romper hacia Río Chiquito.** Up the vereda into country the road cannot reach.
+
+@bat_eq_cuevas
+new-page: true
+face-image: img/sierra_larga.jpg
+on-arrival: {! Q.bat_plan="dar"; Q.bat_bonus=22; !}
+
+= La caliza
+
+The caves go back further than anybody has ever gone, there is water in them, and the approach is a single goat path with a hundred and fifty metres of open rock in front of it. Two people could hold it. You have considerably more than two.
+
+The question is who else goes up.
+
+- @bat_eq_c_pueblo: Take the village up with you. Everyone. *(they are safe and they are besieged with you)*
+- @bat_eq_c_solos: The column only. Tell the village to stay in its houses and be visibly, provably uninvolved. *(they may be believed; they may not)*
+
+@bat_eq_c_pueblo
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_perimetro"; Q.bat_bonus=28; Q.f_comida-=14; Q.zona_gobernada=1;
+var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(12,_h*0.6); !}
+
+@bat_eq_c_solos
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; Q.bat_bonus=18; Q.represion=(Q.represion||0)+2; Q.apoyo_popular-=3; !}
+
+@bat_eq_evacuar
+new-page: true
+face-image: img/elpueblo.jpg
+on-arrival: {! Q.bat_plan="romper"; Q.bat_bonus=6; !}
+
+= Otra vez no
+
+You do not fire a shot. You put forty armed people to work as porters, and the village goes up the hill in ninety minutes — which is fast, and it is fast because they have done it before, and the reason they have done it before is you.
+
+- @bat_eq_e_quedarse: Stay above them and answer the sweep if it goes into the houses. *(a promise, kept, at cost)*
+- @bat_eq_e_irse: Get them out and then take the column away entirely — you are the reason the army comes. *(the hardest kindness there is)*
+
+@bat_eq_e_quedarse
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_perimetro"; Q.bat_bonus=14;
+var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(14,_h*0.7); Q.leyenda=(Q.leyenda||0)+3; !}
+
+@bat_eq_e_irse
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="romper_todos"; Q.bat_bonus=10; Q.f_cerco-=14; if(Q.f_cerco<0){Q.f_cerco=0;}
+var _h2=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(8,_h2*0.45); Q.f_moral-=4; !}
+
+# =====================================================================
+# EL PORVENIR — the high side-trail. Cloud.
+# =====================================================================
+@bat_elporvenir
+title: Contacto en El Porvenir
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: Two thousand metres, in cloud, with no road for eleven kilometres
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and col_nodo = "elporvenir" and time >= bat_last + 2
+priority: 11
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res=""; Q.bat_terreno=18; Q.bat_bonus=0; !}
+
+= Contacto en El Porvenir
+
+Whoever is on this ground walked here, which tells you a great deal about them before you see one of them.
+
+Two thousand metres. The cloud comes up the valley at about four in the afternoon every single day of the year and by five you cannot see your own hands, and it does not lift until nine the next morning. There is no road within eleven kilometres. Nothing is being resupplied and nothing is being reinforced and no helicopter is landing in this, and whatever is up here is up here alone with you and running on what it carried.
+
+That cuts both ways, and it cuts sharper for them: they have eleven days of rations and you have a mountain full of people who feed you.
+
+- @bat_ep_niebla: **Esperar la niebla.** Do nothing until four o'clock, then fight or move inside the cloud. *(the weather as a weapon; nobody can see anything, including you)*
+- @bat_ep_hambre: **Dejarlos sin comer.** Do not fight at all. Shadow them, cut their route back, and let eleven days become fourteen. *(the patient answer; it takes a fortnight and total discipline)*
+- @foco_batalla.bat_dar: **Dar la cara.** Fight them here, above the cloud line.
+- @foco_batalla.bat_romper: **Romper hacia Río Chiquito.** Deeper in.
+
+@bat_ep_niebla
+new-page: true
+face-image: img/sierra_larga.jpg
+on-arrival: {! Q.bat_plan="dar"; Q.bat_bonus=16; !}
+
+= A las cuatro de la tarde
+
+It comes up the valley exactly on time, the way it has every day since before any of this, and inside twenty minutes the world is nine metres wide and completely silent and full of soldiers who cannot see each other.
+
+Fighting in this is a coin toss for a formation and a home advantage for people who have lived in it for four years.
+
+- @bat_ep_n_atacar: Go into them inside the cloud, close, where the mortars and the radio are useless. *(brutal, intimate, decisive)*
+- @bat_ep_n_pasar: Do not touch them. Walk out through the middle of them in the cloud and be eleven kilometres away by morning. *(no result; no cost)*
+
+@bat_ep_n_atacar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; Q.bat_bonus=24; !}
+
+@bat_ep_n_pasar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_pesado"; Q.bat_bonus=26; !}
+
+@bat_ep_hambre
+new-page: true
+choose-if: disciplina >= 60 and f_comida >= 25
+unavailable-subtitle: Shadowing a unit for two weeks without being drawn into a fight, and feeding your own people while you do it, needs discipline of 60 and food in hand.
+on-arrival: {! Q.bat_plan="filtrarse"; Q.bat_bonus=10; !}
+
+= Once días
+
+You do not fight them. You walk where they walk, a ridge over, for eleven days, and you take the two places they would have to come out through, and you wait.
+
+It is the least dramatic operation in the column's history and by day nine you can see it in the way they are moving.
+
+- @bat_ep_h_rendicion: On the fourteenth day, offer them terms: leave the weapons, walk out, nobody dies. *(a bloodless disarmament; some of the column will hate it)*
+- @bat_ep_h_golpe: On the fourteenth day, when they are finished, hit them. *(a starved unit is a destroyed unit)*
+
+@bat_ep_h_rendicion
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_perimetro"; Q.bat_bonus=30; Q.f_parque+=14; Q.leyenda=(Q.leyenda||0)+5;
+Q.legitimidad_regimen-=5; Q.pol_intl=(Q.pol_intl||0)+8; Q.brutalidad=(Q.brutalidad||0)-1; if(Q.brutalidad<0){Q.brutalidad=0;} !}
+
+@bat_ep_h_golpe
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; Q.bat_bonus=34; Q.brutalidad=(Q.brutalidad||0)+1; !}
+
+# =====================================================================
+# RÍO CHIQUITO — the heart of the zone. The gorge.
+# =====================================================================
+@bat_riochiquito
+title: Contacto en Río Chiquito
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: The heart of the zone — and they had to walk to get here
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and col_nodo = "riochiquito" and time >= bat_last + 2
+priority: 11
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res=""; Q.bat_terreno=22; Q.bat_bonus=0; !}
+
+= Contacto en Río Chiquito
+
+This is the middle of the zone. If there is anywhere in Mexico that belongs to the movement rather than to the Republic, it is these nine valleys, and the fact that a formation is standing in one of them is itself the news.
+
+The river runs through a gorge for four kilometres — vertical limestone, a floor eight metres wide, and one crossing. Everybody who lives here knows there is a second crossing, upstream, that is not on anything and involves a rope.
+
+They came in on foot. That means they are the cazadores or they are lost, and either way there is no road behind them to run down.
+
+- @bat_rc_barranca: **La barranca.** Draw them into the gorge and close both ends. *(the perfect killing ground, which is exactly why they may not enter it)*
+- @bat_rc_rio: **El paso de arriba.** Take the rope crossing and put a river they cannot cross between you and them. *(clean; you give up the heart of the zone for a season)*
+- @foco_batalla.bat_dar: **Dar la cara.** Fight for the zone, in the zone, in front of the people who built it with you.
+- @foco_batalla.bat_filtrarse: **Filtrarse.** Out in threes through country you know better than your own house.
+
+@bat_rc_barranca
+new-page: true
+face-image: img/countrysideravine.jpg
+choose-if: f_parque >= 10 and f_hombres >= 16
+unavailable-subtitle: Closing both ends of a gorge takes 16 fighters and 10 parque — you would only be closing one.
+on-arrival: {! Q.bat_plan="dar"; Q.bat_bonus=20; Q.f_parque-=10; !}
+
+= La barranca
+
+Eight metres wide, forty metres of rock on either side, four kilometres long, one way in and one way out and both of them yours.
+
+The problem with a perfect killing ground is that it is visible as one. A competent officer looks at that gorge and goes around. The question is whether you can make going around look worse than going in.
+
+- @bat_rc_b_cebo: Put a small group in the gorge as bait and let them think they are chasing stragglers. *(you are gambling with named people)*
+- @bat_rc_b_esperar: No bait. Wait, and if they do not come in, they do not come in. *(honest; probably nothing happens)*
+
+@bat_rc_b_cebo
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; Q.bat_bonus=30; Q.f_hombres-=1; Q.f_bajas=(Q.f_bajas||0)+1; !}
+
+@bat_rc_b_esperar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_perimetro"; Q.bat_bonus=12; !}
+
+@bat_rc_rio
+new-page: true
+on-arrival: {! Q.bat_plan="filtrarse"; Q.bat_bonus=20; !}
+
+= El paso de la cuerda
+
+A rope, a river in spate, and forty people with everything they own on their backs going across it one at a time in the dark. It takes four hours and it is the most frightened anyone gets all year, including under fire.
+
+- @bat_rc_r_cortar: Cut the rope behind you. *(nothing follows; nothing of yours comes back this way either)*
+- @bat_rc_r_dejar: Leave it. The people of this valley use that crossing. *(the army may find it; it probably will not)*
+
+@bat_rc_r_cortar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_ligero"; Q.bat_bonus=26; Q.apoyo_popular-=4; !}
+
+@bat_rc_r_dejar
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_pesado"; Q.bat_bonus=16; Q.estado_intel=(Q.estado_intel||0)+5; !}
+
+# =====================================================================
+# EL OTATAL — where the maps run out, and where Lucio died.
+# =====================================================================
+@bat_elotatal
+title: Contacto en El Otatal
+new-page: true
+face-image: img/Luciodeath.jpg
+subtitle: The coffee grove at the end of the maps
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and col_nodo = "elotatal" and time >= bat_last + 2
+priority: 11
+frequency: 100
+max-visits: 8
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res=""; Q.bat_terreno=26; Q.bat_bonus=0; !}
+
+= Contacto en El Otatal
+
+There are people in this column who will not say the name of this place out loud.
+
+El Otatal is a coffee grove and four houses at the top of everything, past where the survey stops, and it is where the story ends in the version of it everyone in the sierra already knows: Lucio Cabañas, the second of December 1974, run down in a grove exactly like this one by soldiers who finally had enough of everything — enough men, enough time, enough names out of enough people.
+
+You are standing in it. And something has walked all the way up here to find you, which means it is not lost.
+
+- @bat_ot_arriba: **Más arriba.** There is no more map above this, and there is still mountain. Go into it. *(nobody has ever followed anyone up there; nobody has ever survived up there either)*
+- @bat_ot_cafetal: **El cafetal.** Fight in the grove. *(the exact ground, the exact circumstances; this time with everything you have built)*
+- @foco_batalla.bat_filtrarse: **Filtrarse.** Out through the trees in threes.
+- @foco_batalla.bat_romper: **Romper hacia Río Chiquito.** Down the vereda, back toward the zone.
+
+@bat_ot_arriba
+new-page: true
+face-image: img/sierra_larga.jpg
+on-arrival: {! Q.bat_plan="romper"; Q.bat_bonus=24; !}
+
+= Donde se acaban los mapas
+
+Above El Otatal the country stops being country and becomes geology: rock, cloud, a wind that does not stop, and nothing growing above four thousand metres of altitude except lichen and the specific silence of a place with no reason for anybody to be in it.
+
+Nothing will follow you up there. Nothing lives up there either.
+
+- @bat_ot_a_dias: Three days over the top and down the far side into Oaxaca-facing country. *(you vanish completely; the column pays for it in bodies and cold)*
+- @bat_ot_a_volver: One night up, and back down behind them at dawn. *(brutal on the men; they will be looking uphill)*
+
+@bat_ot_a_dias
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="romper_todos"; Q.bat_bonus=30; Q.f_comida-=18; Q.f_moral-=10; Q.f_cerco-=30; if(Q.f_cerco<0){Q.f_cerco=0;} !}
+
+@bat_ot_a_volver
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; Q.bat_bonus=26; Q.f_comida-=8; Q.f_moral-=4; !}
+
+@bat_ot_cafetal
+new-page: true
+face-image: img/Lucio.jpg
+on-arrival: {! Q.bat_plan="dar"; Q.bat_bonus=14; !}
+
+= El dos de diciembre
+
+You take the grove, which is the thing that was done here before and did not work, and the difference — the entire difference, the only difference — is what you are bringing to it that he did not have.
+
+He had a column that had been running for eleven months, no food, no ammunition left worth the name, a district that had been terrorised into silence around him, and no way out that anybody had not already sold. Everything the state needed to finish him it had been given, by people, over time.
+
+Whatever you have or have not built in the last four years, this is the morning it gets counted.
+
+- @bat_ot_c_todo: Everything into it. This is the one that decides. *(all of it, at once)*
+- @bat_ot_c_medido: Fight it properly — bleed them and break contact before it becomes what it became. *(the discipline he did not have room for)*
+
+@bat_ot_c_todo
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; Q.bat_bonus=18; Q.f_parque-=10; if(Q.f_parque<0){Q.f_parque=0;} !}
+
+@bat_ot_c_medido
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_perimetro"; Q.bat_bonus=22; !}

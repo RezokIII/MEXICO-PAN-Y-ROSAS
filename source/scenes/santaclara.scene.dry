@@ -3,7 +3,8 @@ max-visits: 1
 view-if: 0
 # Container/namespace only — NOT tagged event. The rural climax: ONE decisive battle for the
 # provincial capital (Chilpancingo) that, won, cracks the authority of the state and opens a
-# negotiation. Modeled on the real Battle of Santa Clara. Gated on a worn army + a real force + deep water.
+# negotiation. Gated on a worn army + a real force + deep water. (The file name is a nod to the
+# obvious precedent; the writing should NOT keep pointing at it. This is Chilpancingo, on its own terms.)
 
 # =====================================================================
 # EL MOMENTO — the one chance. Offered when the army is worn, the column real, the water deep.
@@ -22,9 +23,11 @@ on-arrival: f_sc_offer_last = time
 
 = El momento
 
-Something has shifted, and every veteran in the column can feel it. The garrisons no longer patrol at night. The reinforcements come slower each time, and angrier, and greener. The desgaste of three years of ambushes and empty encirclements has hollowed the army in Guerrero from the inside — it still has the tanks and the helicopters, but it has stopped believing it can win, and an army that has stopped believing is an army that can be *broken.* For the first time, the thing Che dreamed and only Fidel achieved is on the table: not another ambush, but a **capital.** Chilpancingo — the seat of the state's authority in Guerrero — held by a garrison of some two thousand men — which you could now, if you concentrated every column and every reservist the villages have promised, actually take. It is not a band that storms a capital. It is an army, and you finally have one.
+Something has shifted, and every veteran in the column can feel it. The garrisons no longer patrol at night. The reinforcements come slower each time, and angrier, and greener. The desgaste of three years of ambushes and empty encirclements has hollowed the army in Guerrero from the inside — it still has the tanks and the helicopters, but it has stopped believing it can win, and an army that has stopped believing is an army that can be *broken.* And so for the first time the thing at the end of the argument is actually on the table — not another ambush, not another road cut, but a **capital.** Chilpancingo — the seat of the state's authority in Guerrero — held by a garrison of some two thousand men — which you could now, if you concentrated every column and every reservist the villages have promised, actually take. It is not a band that storms a capital. It is an army, and you finally have one.
 
-And there is the word that should frighten you: *concentrate.* Everything that has kept you alive — dispersal, movement, the refusal to ever be a fixed target — you would have to set aside for one throw of the dice. This is the decision Che got wrong in Bolivia and right, once, at Santa Clara. Take the capital and the whole country sees that the state does not control its own territory. Fail, concentrated, and the foco dies in a single afternoon.
+And there is the word that should frighten you: *concentrate.* Everything that has kept you alive — dispersal, movement, the absolute refusal to ever be a fixed target that somebody can find — you would have to set aside, deliberately, for one throw.
+
+Every guerrilla war reaches this decision and most of them get it wrong, in both directions: the ones that never concentrate stay alive for a decade and change nothing, and the ones that concentrate too early are destroyed in an afternoon by an enemy that was still capable of destroying them. Nobody can tell you from the outside which of those you are. Take the capital and the whole country sees, on the same evening, that the Mexican state does not control its own territory. Fail, with everything in one place, and there is no second column left anywhere to carry it on.
 
 - @concentrar: **Concentrar para el asalto.** Gather the scattered column into a striking force and go for Chilpancingo. The one throw. *(→ the battle)*
 - @seguir_foco: **Seguir siendo guerrilla.** Not yet. Stay dispersed, keep bleeding them, let the army rot another season before you risk everything. *(decline; wear them down further; the moment will come again)*
@@ -53,7 +56,7 @@ subtitle: One battle, for the capital and the authority of the state
 
 You bring them down out of the sierra in the dark — every column, every comando, the reservists from the villages who said they would come when it was time and, this once, came. By dawn the capital is ringed by people the state swore did not exist. Inside: a garrison, a governor's palace, a radio station, and the reinforcement column already grinding up the highway from Acapulco to save them. How you take a city decides whether you take it at all.
 
-- @sc_tren: **La columna de refuerzo primero.** Do what Che did at Santa Clara — take the relief column on the road before it arrives, strip its weapons, and leave the garrison isolated and hopeless. *(rewards materiel, intelligence, and a worn enemy — the clever throw)*
+- @sc_tren: **La columna de refuerzo primero.** Forget the city for a day. Take the relief column on the highway before it arrives, strip it of everything it is carrying, and let the garrison watch its rescue stop happening. *(rewards materiel, intelligence, and a worn enemy — the patient throw)*
 - @sc_directo: **Asalto directo.** Storm the garrison at once, before the reinforcements come, and win it with speed and numbers. *(rewards fighters and morale — the frontal throw)*
 - @sc_pueblo: **Que se levante la ciudad.** Call the general strike, the barrios, the students — take the capital with the people and not only the column. *(rewards deep popular support — the insurrection throw)*
 

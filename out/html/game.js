@@ -507,7 +507,9 @@
   // ===== THE GUERRERO FOCO MAP: one band moving the coast->deep-sierra axis, the ring around it =====
   window.paintFocoMap=function(el,Q){
     var _sig=[Q.col_nodo,Q.f_cerco,Q.f_hombres,Q.f_comida,Q.f_parque,Q.f_moral,Q.apoyo_popular,Q.f_desgaste,Q.f_capital,Q.f_liberado_gro,Q.acc_pts,Q.acc_max,Q.apoyo_techo,Q.f_campamento,Q.camp_nodo,Q.camp_nivel,
-      Q.ej1_nodo,Q.ej2_nodo,Q.ej3_nodo,Q.ej1_f,Q.ej2_f,Q.ej3_f,
+      Q.ej1_nodo,Q.ej2_nodo,Q.ej3_nodo,Q.ej4_nodo,Q.ej1_f,Q.ej2_f,Q.ej3_f,Q.ej4_f,Q.caz_alta,
+      Q.aid_estado,Q.aid_nodo,Q.aid_vence,Q.aid_tipo,Q.camp_riesgo,Q.hot_max,Q.hot_nodo,Q.f_reclutamiento,
+      Q.ej1_dmg,Q.ej2_dmg,Q.ej3_dmg,Q.ej4_dmg,
       Q.gn_atoyac,Q.gn_coyuca,Q.gn_acapulco,Q.gn_sanvicente,Q.gn_elquemado,Q.gn_elporvenir,Q.gn_riochiquito,Q.gn_elotatal,
       Q.sn_atoyac,Q.sn_coyuca,Q.sn_acapulco,Q.sn_sanvicente,Q.sn_elquemado,Q.sn_elporvenir,Q.sn_riochiquito,Q.sn_elotatal].join(',');
     if(el._focosig===_sig) return; el._focosig=_sig;
@@ -517,7 +519,9 @@
       riochiquito:{x:94,y:64,n:'Río Chiquito'}, elotatal:{x:58,y:44,n:'El Otatal'}
     };
     var CAP={x:250,y:104,n:'Chilpancingo'};
-    var E=[['atoyac','coyuca'],['atoyac','sanvicente'],['atoyac','elquemado'],['coyuca','acapulco'],['coyuca','sanvicente'],['sanvicente','elquemado'],['sanvicente','elporvenir'],['elquemado','riochiquito'],['elporvenir','riochiquito'],['riochiquito','elotatal']];
+    // THE ROAD is what the army is chained to. THE VEREDA is what the column walks.
+    var ROADS =[['acapulco','coyuca'],['coyuca','atoyac'],['atoyac','sanvicente'],['sanvicente','elquemado']];
+    var TRAILS=[['atoyac','elquemado'],['coyuca','sanvicente'],['sanvicente','elporvenir'],['elquemado','riochiquito'],['elporvenir','riochiquito'],['riochiquito','elotatal']];
     var cur=Q.col_nodo||'atoyac', apoyo=Math.max(0,Math.min(100,Q.apoyo_popular||0)), cerco=Math.max(0,Math.min(100,Q.f_cerco||0));
     var lib=(Q.f_capital===1||Q.f_liberado_gro===1);
     var INK='#5b4a33', INK2='#7d6b4f', PAPER='#e9dfc6', RED='#8b1a12', GOLD='#a8842c';
@@ -534,10 +538,18 @@
     // coast
     s+='<path d="M0 206 Q80 198 150 208 T300 202 L300 232 L0 232 Z" fill="#c8d2cf" opacity="0.55"/>';
     s+='<text x="8" y="224" font-size="7" fill="#6b7a78" letter-spacing="2" font-style="italic">EL MAR DEL SUR</text>';
-    // trails
-    for(var i=0;i<E.length;i++){ var a=N[E[i][0]], b=N[E[i][1]];
-      s+='<line x1="'+a.x+'" y1="'+a.y+'" x2="'+b.x+'" y2="'+b.y+'" stroke="'+INK2+'" stroke-width="0.9" stroke-dasharray="2.5 2.5" opacity="0.75"/>'; }
-    s+='<line x1="'+N.atoyac.x+'" y1="'+N.atoyac.y+'" x2="'+CAP.x+'" y2="'+CAP.y+'" stroke="'+INK2+'" stroke-width="1.6" opacity="0.55"/>';
+    // LA CARRETERA — solid, cased, the only country the formations can reach
+    for(var i=0;i<ROADS.length;i++){ var ra=N[ROADS[i][0]], rb=N[ROADS[i][1]];
+      s+='<line x1="'+ra.x+'" y1="'+ra.y+'" x2="'+rb.x+'" y2="'+rb.y+'" stroke="#8a7550" stroke-width="3.4" opacity="0.55" data-tip="Carretera — por aquí sí puede subir el ejército: camiones, radio, mortero."/>';
+      s+='<line x1="'+ra.x+'" y1="'+ra.y+'" x2="'+rb.x+'" y2="'+rb.y+'" stroke="'+PAPER+'" stroke-width="1.1" opacity="0.9" style="pointer-events:none"/>'; }
+    // LA VEREDA — dashed hairlines. No truck follows these.
+    for(var i2=0;i2<TRAILS.length;i2++){ var ta=N[TRAILS[i2][0]], tb=N[TRAILS[i2][1]];
+      var trTip = (Q.caz_alta===1) ? 'Vereda — antes intransitable para el ejército. Ahora los Cazadores caminan por aquí.' : 'Vereda — sólo a pie. El ejército no puede seguirte por aquí.';
+      s+='<line x1="'+ta.x+'" y1="'+ta.y+'" x2="'+tb.x+'" y2="'+tb.y+'" stroke="'+(Q.caz_alta===1?'#8b1a12':INK2)+'" stroke-width="0.85" stroke-dasharray="1.6 2.6" opacity="'+(Q.caz_alta===1?0.6:0.8)+'" data-tip="'+trTip+'"/>'; }
+    s+='<line x1="'+N.atoyac.x+'" y1="'+N.atoyac.y+'" x2="'+CAP.x+'" y2="'+CAP.y+'" stroke="#8a7550" stroke-width="3.4" opacity="0.5" style="pointer-events:none"/>';
+    s+='<line x1="'+N.atoyac.x+'" y1="'+N.atoyac.y+'" x2="'+CAP.x+'" y2="'+CAP.y+'" stroke="'+PAPER+'" stroke-width="1.1" opacity="0.85" style="pointer-events:none"/>';
+    // where the road ends — the sanctuary line
+    s+='<text x="150" y="66" font-size="5.4" fill="'+INK2+'" font-style="italic" letter-spacing="0.8" style="pointer-events:none" text-anchor="middle">— aquí acaba la carretera —</text>';
     // nodes
     for(var k in N){ var nd=N[k], g=Q['gn_'+k]||0, seen=(Q['sn_'+k]===1||Q['sn_'+k]===true), here=(k===cur), tip;
       if(seen){ tip=nd.n+' — guarnición '+Math.round(g)+(g>=45?' (fuerte: entrar cuesta sangre)':(g<18?' (fría: el cerco afloja)':'')); }
@@ -563,21 +575,43 @@
     if(lib){ s+='<text x="'+CAP.x+'" y="'+(CAP.y-8)+'" text-anchor="middle" font-size="9" fill="'+GOLD+'">★</text>'; }
     s+='<text x="'+(CAP.x+7)+'" y="'+(CAP.y+2.4)+'" font-size="6.4" fill="'+(lib?RED:'#3d4f5c')+'" font-weight="bold" letter-spacing="0.4" style="pointer-events:none">'+CAP.n+'</text>';
     // THE ARMY, LITERALLY ON THE MAP: each formation as a block at its village
-    var UN=[{k:'ej1'},{k:'ej2'},{k:'ej3'}]; var _occ={};
+    var UN=[{k:'ej1'},{k:'ej2'},{k:'ej3'},{k:'ej4',caz:true}]; var _occ={};
     for(var ui=0; ui<UN.length; ui++){
       var uk=UN[ui].k, un=Q[uk+'_nodo']; if(!un||!N[un]) continue;
+      var isCaz=!!UN[ui].caz;
       var up=N[un]; _occ[un]=(_occ[un]||0)+1; var off=(_occ[un]-1)*7;
       var ux=up.x-11-off, uy=up.y+7;
-      var nm=Q[uk+'_n']||'Unidad del ejército', fz=Math.round(Q[uk+'_f']||0);
-      s2=''; // (kept for clarity)
-      var tip=nm+' — fuerza '+fz+(un===cur?' — SOBRE LA COLUMNA':'');
-      s+='<g data-tip="'+tip+'">'
-        +'<rect x="'+ux+'" y="'+uy+'" width="9" height="6" fill="#33475c" stroke="#1b2733" stroke-width="0.7"/>'
-        +'<line x1="'+(ux+2)+'" y1="'+uy+'" x2="'+(ux+2)+'" y2="'+(uy-3.5)+'" stroke="#1b2733" stroke-width="0.8"/>'
-        +'<line x1="'+(ux+6.5)+'" y1="'+uy+'" x2="'+(ux+6.5)+'" y2="'+(uy-3.5)+'" stroke="#1b2733" stroke-width="0.8"/>'
-        +'</g>';
+      var nm=Q[uk+'_n']||'Unidad del ejército', fz=Math.round(Q[uk+'_f']||0), dmg=Q[uk+'_dmg']||0;
+      var tip=nm+' — fuerza '+fz+(isCaz?' — a pie, va por las veredas: no puedes perderlos en la sierra alta':' — atado a la carretera')
+        +(dmg>=45?' — DESHECHA: en su base, reconstruyéndose':(dmg>0?' — golpeada, todavía reponiéndose':''))
+        +(un===cur?' — SOBRE LA COLUMNA':'');
+      var uop=(dmg>=45)?'0.42':(dmg>0?'0.72':'1');
+      if(isCaz){
+        // men on foot: a small dark chevron pair, not a vehicle block
+        s+='<g data-tip="'+tip+'" opacity="'+uop+'">'
+          +'<path d="M'+ux+' '+(uy+6)+' L'+(ux+4)+' '+uy+' L'+(ux+8)+' '+(uy+6)+'" fill="none" stroke="#2f4030" stroke-width="1.5"/>'
+          +'<path d="M'+ux+' '+(uy+9)+' L'+(ux+4)+' '+(uy+3)+' L'+(ux+8)+' '+(uy+9)+'" fill="none" stroke="#2f4030" stroke-width="1.5"/>'
+          +'</g>';
+      } else {
+        s+='<g data-tip="'+tip+'" opacity="'+uop+'">'
+          +'<rect x="'+ux+'" y="'+uy+'" width="9" height="6" fill="#33475c" stroke="#1b2733" stroke-width="0.7"/>'
+          +'<line x1="'+(ux+2)+'" y1="'+uy+'" x2="'+(ux+2)+'" y2="'+(uy-3.5)+'" stroke="#1b2733" stroke-width="0.8"/>'
+          +'<line x1="'+(ux+6.5)+'" y1="'+uy+'" x2="'+(ux+6.5)+'" y2="'+(uy-3.5)+'" stroke="#1b2733" stroke-width="0.8"/>'
+          +'</g>';
+      }
       if(un===cur){ s+='<circle cx="'+up.x+'" cy="'+up.y+'" r="9.5" fill="none" stroke="#b3261e" stroke-width="1.4" opacity="0.85"><animate attributeName="opacity" values="0.85;0.25;0.85" dur="1.1s" repeatCount="indefinite"/></circle>'; }
     }
+    // EL ALIJO: a shipment on the ground somewhere, with a clock on it
+    if(Q.aid_estado==='listo' && N[Q.aid_nodo]){ var ap=N[Q.aid_nodo];
+      var atip='El alijo ('+(Q.aid_tipo==='armas'?'armas y parque':(Q.aid_tipo==='cuadros'?'instructores y matériel':'dinero'))+') — quedan '+(Q.aid_vence||0)+' meses. La columna tiene que estar AHÍ para recogerlo.';
+      s+='<g data-tip="'+atip+'">'
+        +'<rect x="'+(ap.x+6)+'" y="'+(ap.y-13)+'" width="8" height="6" fill="#a8842c" stroke="#5b4a33" stroke-width="0.8"/>'
+        +'<line x1="'+(ap.x+6)+'" y1="'+(ap.y-10)+'" x2="'+(ap.x+14)+'" y2="'+(ap.y-10)+'" stroke="#5b4a33" stroke-width="0.6"/>'
+        +'<circle cx="'+(ap.x+10)+'" cy="'+(ap.y-10)+'" r="10" fill="none" stroke="#a8842c" stroke-width="1" stroke-dasharray="2 2" opacity="0.8">'
+        +'<animate attributeName="opacity" values="0.8;0.25;0.8" dur="2s" repeatCount="indefinite"/></circle></g>'; }
+    // EL CALOR: the district you have worked hardest — this is what summons men who walk
+    if((Q.hot_max||0)>=24 && N[Q.hot_nodo]){ var hp=N[Q.hot_nodo];
+      s+='<circle cx="'+hp.x+'" cy="'+hp.y+'" r="13" fill="#8b1a12" opacity="'+Math.min(0.16,(Q.hot_max/100)*0.3).toFixed(2)+'" data-tip="Calor de actividad: '+Math.round(Q.hot_max)+'. Has trabajado tanto este distrito que el patrón se ve desde un escritorio — es lo que hace bajar a los Cazadores."/>'; }
     // el cerco
     var cn=N[cur]||N.atoyac;
     if(cerco>=25){ var rr=21-(cerco/100)*9, op=Math.min(0.8,cerco/125);
@@ -606,6 +640,9 @@
       + bar('el agua (apoyo)',apoyo,100,apoyo>=55?'#4f6b45':(apoyo>=30?'#a8842c':RED))
       + '<div style="font:9.5px Georgia,serif;color:#7a6a4e;margin:-1px 0 2px 102px;font-style:italic">techo '+techo+' — hasta ahí llega esta sierra</div>'
       + bar('el cerco',cerco,100,RED) + bar('desgaste',Q.f_desgaste||0,100,'#7d6b4f')
+      + '<div style="font:9.5px Georgia,serif;color:#7a6a4e;margin:3px 0 0;font-style:italic;text-align:right">la sierra manda <b>'+(Q.f_reclutamiento||0)+'</b> voluntarios al mes'
+      + ((Q.caz_alta===1)?' · <span style="color:#8b1a12">los Cazadores están en las veredas</span>':'')
+      + ((Q.camp_riesgo>=4)?' · <span style="color:#8b1a12">el campamento está siendo localizado</span>':'')+'</div>'
       +'</div>';
     el.innerHTML = s + bars;
     var tip=document.getElementById('pyr_maptip');

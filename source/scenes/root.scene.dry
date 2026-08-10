@@ -222,7 +222,27 @@ Q.move_contact = 0; Q.move_cold = 0;
 Q.ej1_nodo = "acapulco"; Q.ej1_f = 46; Q.ej1_n = "27º Batallón";
 Q.ej2_nodo = "atoyac";   Q.ej2_f = 38; Q.ej2_n = "Policía Judicial";
 Q.ej3_nodo = "";         Q.ej3_f = 0;  Q.ej3_n = "Paracaidistas";
-Q.ej_contacto = 0; Q.barrida_stage = 0; Q.bar_aviso = 0; Q.bar_plan = ""; Q.bar_res = ""; Q.bar_lealtad = 0; Q.barrida_last = -99;
+// LOS CAZADORES: the army's answer to the vereda. Small, dismounted, trained for the sierra, and
+// able to walk every path the column walks. They exist only once the state has learned enough.
+Q.ej4_nodo = "";         Q.ej4_f = 0;  Q.ej4_n = "Cazadores"; Q.caz_alta = 0; Q.caz_last = -99; Q.f_caz_visto = 0;
+Q.ej1_dmg = 0; Q.ej2_dmg = 0; Q.ej3_dmg = 0; Q.ej4_dmg = 0;
+Q.ej_contacto = 0; Q.ej_unidad = ""; Q.ej_unidad_f = 0; Q.ej_es_cazador = 0; Q.cerco_total = 0;
+Q.barrida_stage = 0; Q.bar_aviso = 0; Q.bar_plan = ""; Q.bar_res = ""; Q.bar_lealtad = 0; Q.barrida_last = -99;
+// ACTIVITY HEAT per village: the residue your work leaves. High heat is what tells the state where
+// to send men who walk. It decays when you take the war somewhere else.
+Q.hot_atoyac = 0; Q.hot_coyuca = 0; Q.hot_acapulco = 0; Q.hot_sanvicente = 0;
+Q.hot_elquemado = 0; Q.hot_elporvenir = 0; Q.hot_riochiquito = 0; Q.hot_elotatal = 0;
+Q.hot_max = 0; Q.hot_nodo = ""; Q.camp_riesgo = 0; Q.camp_arrasado = 0;
+// LA BATALLA: a formation standing on the column forces an engagement it cannot simply walk out of.
+Q.bat_last = -99; Q.bat_plan = ""; Q.bat_res = ""; Q.bat_terreno = 0; Q.cerco_last = -99;
+Q.bat_bonus = 0; Q.cer_bonus = 0; Q.bat_bajas = 0; Q.f_poblacion = 50;
+// EL APOYO EXTERIOR: a request by radio to Havana or Moscow. It is slow, it lands somewhere specific,
+// and somebody has to walk there and carry it out before the deadline.
+Q.aid_estado = ""; Q.aid_fuente = ""; Q.aid_tipo = ""; Q.aid_via = ""; Q.aid_eta = 0;
+Q.aid_nodo = ""; Q.aid_vence = 0; Q.aid_last = -99; Q.aid_recibido = 0;
+Q.f_reclutamiento = 0;
+// generic carriers for multi-stage event chains (what you chose in stage 1, stage 2, and how it ended)
+Q.ch_p1 = ""; Q.ch_p2 = ""; Q.ch_res = ""; Q.ch_n1 = 0; Q.ch_n2 = 0;
 // EL CAMPAMENTO BASE: a real home in the deep sierra — stores, a hospital, a school. It heals and
 // supplies the column while it holds, and it is the one fixed thing the army can find and destroy.
 // LA BRUTALIDAD: what the movement did to people. Executions, purges, hunted deserters, reprisals

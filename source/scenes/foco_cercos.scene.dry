@@ -1,0 +1,307 @@
+title: El cerco, pueblo por pueblo
+max-visits: 1
+view-if: 0
+# Container/namespace only. EIGHT TOWNS, EIGHT ENCIRCLEMENTS. Every one of them closes differently,
+# because a ring is made out of the ground it is drawn on. Each has one way out that only exists
+# here, and knowing it is the difference between a column and a list of names.
+# All route into foco_batalla.cer_fin. ch_p1 selects the family; cer_bonus is local knowledge.
+
+# =====================================================================
+@cer_acapulco
+title: El cerco en Acapulco
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: Encircled in a city of nine hundred thousand
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and col_nodo = "acapulco" and time >= cerco_last + 3
+priority: 13
+frequency: 100
+max-visits: 6
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_res=""; Q.bat_terreno=-12; Q.cer_bonus=0; !}
+
+= El cerco en Acapulco
+
+They have not surrounded a hill. They have surrounded four streets.
+
+Cordons at both ends of the colonia, the navy on the water, the airport road shut, and a loudspeaker vehicle telling people to stay in their houses in the flat voice of a man reading. It is a city cordon, which means it is made of about nine hundred soldiers and police and about four thousand people who live inside it and did not ask for any of this.
+
+You cannot climb out of a city. But a cordon around a colonia is not a ring in the sierra: it is a line drawn on a map by somebody who has never walked these alleys, and it has holes in it that are two feet wide and shaped like a gap between two houses.
+
+- @cer_ac_alcantarilla: **El drenaje.** The storm drains run under the cordon and out into the barranca. *(a way out no soldier will follow you into)*
+- @cer_ac_multitud: **La gente.** Make them lift the cordon: get four thousand people into the street at the same time. *(you are asking civilians to face a cordon for you)*
+- @foco_batalla.cer_disolverse: **Disolverse.** The column stops existing inside the city and reassembles outside it in a month.
+- @foco_batalla.cer_debil: **Salir por lo débil.** Find the thinnest point of the line and go through it.
+
+@cer_ac_alcantarilla
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="disolverse"; Q.cer_bonus=18; Q.f_moral-=4; Q.f_parque-=6; if(Q.f_parque<0){Q.f_parque=0;} !}
+
+@cer_ac_multitud
+go-to: foco_batalla.cer_fin
+new-page: true
+choose-if: apoyo_popular >= 45
+unavailable-subtitle: Asking four thousand people to walk into a cordon on your behalf requires that they be on your side. They are not, yet.
+on-arrival: {! Q.ch_p1="pueblo"; Q.cer_bonus=22; Q.legitimidad_regimen-=5; Q.pol_intl=(Q.pol_intl||0)+8; Q.represion=(Q.represion||0)+3; Q.estado_intel=(Q.estado_intel||0)+6; !}
+
+# =====================================================================
+@cer_coyuca
+title: El cerco en Coyuca
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: Highway on one side, forty square kilometres of water on the other
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and col_nodo = "coyuca" and time >= cerco_last + 3
+priority: 13
+frequency: 100
+max-visits: 6
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_res=""; Q.bat_terreno=-6; Q.cer_bonus=0; !}
+
+= El cerco en Coyuca
+
+They have finally done the thing that Coyuca has always been waiting for somebody to do: shut both ends of the strip and put boats on the lagoon.
+
+Not many boats. Six, requisitioned, crewed by men who do not know the channels — but six is enough to close the obvious ways, and the obvious ways are the only ones on any chart the navy owns.
+
+The fishermen have been watching this since about four in the morning and one of them is now standing at the edge of the camp, not saying anything, waiting for somebody to ask him.
+
+- @cer_co_barra: **La barra.** Out through the sandbar where the lagoon meets the sea — at night, at the right state of the tide, in boats. *(nobody but the men who fish it can do this; it drowns people who get it wrong)*
+- @cer_co_canal: **Los canales.** Not out — *in.* Deep into the mangrove and sit there while they search a lagoon they cannot read. *(safe; you are besieged in a swamp)*
+- @foco_batalla.cer_fuerte: **Salir por lo fuerte.** Straight through the strongest point of the highway cordon.
+- @foco_batalla.cer_pueblo: **Meterse en el pueblo.** Rifles under floors and become fishermen.
+
+@cer_co_barra
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="debil"; Q.cer_bonus=24; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(5,_h*0.3); Q.estado_intel=(Q.estado_intel||0)+4; !}
+
+@cer_co_canal
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="disolverse"; Q.cer_bonus=20; Q.f_comida-=16; Q.f_moral-=6; !}
+
+# =====================================================================
+@cer_atoyac
+title: El cerco en Atoyac
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: In the town it all started in, with every road out held
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and col_nodo = "atoyac" and time >= cerco_last + 3
+priority: 13
+frequency: 100
+max-visits: 6
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_res=""; Q.bat_terreno=-2; Q.cer_bonus=0; !}
+
+= El cerco en Atoyac
+
+Every road out of Atoyac is held, which is four roads and one bridge, and there are men on the bridge with a machine gun and a list.
+
+The list is the part that matters. This is not a cordon looking for a column; it is a cordon looking for *names*, and the names are being read off it at every checkpoint by a sergeant with a clipboard, and about a third of them are relatives of people standing in this room.
+
+This is also the town where every single person in the column knows a house. That is the whole difference between being encircled here and being encircled anywhere else in Guerrero.
+
+- @cer_at_casas: **Las casas.** Two here, three there, a hundred and forty houses in a town of ten thousand. Sit it out. *(the deepest use of the water there is; the whole town has to hold)*
+- @cer_at_rio: **El río.** Down the riverbed under the bridge itself, at night, in the water. *(directly beneath the machine gun; twenty minutes of absolute silence)*
+- @foco_batalla.cer_fuerte: **Salir por lo fuerte.** Through the bridge position, since that is where they least expect it.
+- @foco_batalla.cer_disolverse: **Disolverse.** Break up entirely and regather in a month.
+
+@cer_at_casas
+go-to: foco_batalla.cer_fin
+new-page: true
+choose-if: apoyo_popular >= 48
+unavailable-subtitle: Hiding forty people in a hundred and forty houses requires a hundred and forty families to hold their nerve for a week. This town is not there yet.
+on-arrival: {! Q.ch_p1="pueblo"; Q.cer_bonus=16; Q.zona_gobernada=1; !}
+
+@cer_at_rio
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="fuerte"; Q.cer_bonus=20; Q.f_parque-=8; if(Q.f_parque<0){Q.f_parque=0;} Q.f_comida-=6; !}
+
+# =====================================================================
+@cer_sanvicente
+title: El cerco en San Vicente
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: Forty square kilometres of coffee, and a cordon around all of it
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and col_nodo = "sanvicente" and time >= cerco_last + 3
+priority: 13
+frequency: 100
+max-visits: 6
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_res=""; Q.bat_terreno=2; Q.cer_bonus=0; !}
+
+= El cerco en San Vicente
+
+They have put a cordon around a coffee plantation, which is a thing that sounds workable on a map and is not.
+
+Forty square kilometres of shade trees with nine metres of visibility in it, and three hundred pickers inside the cordon along with you, and a commander who now has to decide whether he is going to search it row by row — which would take his battalion eleven days — or squeeze it, or burn it.
+
+He is going to squeeze it. They always squeeze. Which means the ring gets smaller every day and at some point there is not enough coffee left to be inside.
+
+- @cer_sv_cortadores: **Salir con los cortadores.** The pickers leave every evening at six, three hundred of them, in a column, carrying sacks. *(walk out through the cordon in plain sight; they are searched)*
+- @cer_sv_acequia: **La acequia.** The irrigation channel that feeds the beneficio runs out under the road. *(concrete, waist-deep, and it goes exactly one place)*
+- @foco_batalla.cer_debil: **Salir por lo débil.** Find the thin sector of the ring and go through the rows.
+- @foco_batalla.cer_disolverse: **Disolverse.** Into the coffee, in ones and twos, for a month.
+
+@cer_sv_cortadores
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="pueblo"; Q.cer_bonus=14; Q.estado_intel=(Q.estado_intel||0)+5; !}
+
+@cer_sv_acequia
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="debil"; Q.cer_bonus=22; Q.f_moral-=3; !}
+
+# =====================================================================
+@cer_elquemado
+title: El cerco en El Quemado
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: The village that has already paid once, and the limestone above it
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and col_nodo = "elquemado" and time >= cerco_last + 3
+priority: 13
+frequency: 100
+max-visits: 6
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_res=""; Q.bat_terreno=8; Q.cer_bonus=0; !}
+
+= El cerco en El Quemado
+
+They have closed the road head and put troops on both veredas and on the ridge, and they are not in a hurry, which is new and which is much worse.
+
+A commander who is not in a hurry has understood the actual problem. He is not trying to catch a column in a valley. He is going to sit on the three ways out for as long as it takes and let the arithmetic of food do the work, and while he waits he is going to be in this village, every day, with the list, asking.
+
+And the village has been here before. Everybody in it knows exactly what the next four weeks contain, and they know it in detail, because it has already been done to them once.
+
+- @cer_eq_cuevas: **A la caliza.** Into the caves and wait him out. There is water up there. *(unassailable; you are trading a siege of you for a siege of the village)*
+- @cer_eq_entregarse: **Que el pueblo negocie.** Let the village go to him and trade: they give up the *camp* — cold, empty, already stripped — and he lifts the cordon. *(a lie told by two hundred people at once)*
+- @foco_batalla.cer_fuerte: **Salir por lo fuerte.** Through the road head and out.
+- @foco_batalla.cer_pueblo: **Meterse en el pueblo.** Rifles under the floors, in the houses of people who have already lost everything once.
+
+@cer_eq_cuevas
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="disolverse"; Q.cer_bonus=26; Q.f_comida-=18; Q.represion=(Q.represion||0)+3; Q.apoyo_popular-=4; !}
+
+@cer_eq_entregarse
+go-to: foco_batalla.cer_fin
+new-page: true
+choose-if: apoyo_popular >= 50 and f_campamento = 1
+unavailable-subtitle: This needs a camp to give up and a village that will lie to a colonel's face for a week without one person breaking. You do not have both.
+on-arrival: {! Q.ch_p1="pueblo"; Q.cer_bonus=24;
+Q.f_campamento=0; Q.camp_nodo=""; Q.camp_nivel=0; Q.camp_visto=0; Q.camp_riesgo=0;
+Q.f_comida-=8; Q.legitimidad_regimen-=2; Q.zona_gobernada=1; !}
+
+# =====================================================================
+@cer_elporvenir
+title: El cerco en El Porvenir
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: Two thousand metres up, in cloud, with a ring of men who walked here
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and col_nodo = "elporvenir" and time >= cerco_last + 3
+priority: 13
+frequency: 100
+max-visits: 6
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_res=""; Q.bat_terreno=18; Q.cer_bonus=0; !}
+
+= El cerco en El Porvenir
+
+Whoever drew this ring walked every metre of it, which tells you these are not conscripts and this is not a sweep.
+
+Two thousand metres, no road within eleven kilometres, and a cordon of men on foot holding four cols and a ridge. It is a remarkable piece of work and it has one flaw in it that they cannot fix: at four o'clock, as it has every afternoon since the Pleistocene, the cloud comes up the valley, and for seventeen hours nobody up here can see anything at all.
+
+They know this. There is nothing they can do about it. You can watch them thinking about it.
+
+- @cer_ep_niebla: **A las cuatro.** Walk out through the cordon inside the cloud. *(the mountain's own gift; total blindness, theirs and yours)*
+- @cer_ep_esperar: **Que se les acabe.** Do not go anywhere. They are carrying eleven days of food and you are being fed by four hamlets. Outlast the ring. *(the ring dissolves itself; it takes a fortnight of nerve)*
+- @foco_batalla.cer_fuerte: **Salir por lo fuerte.** Break the cordon at its strongest col.
+- @foco_batalla.cer_disolverse: **Disolverse.** Ones and twos into the high country.
+
+@cer_ep_niebla
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="debil"; Q.cer_bonus=28; !}
+
+@cer_ep_esperar
+go-to: foco_batalla.cer_fin
+new-page: true
+choose-if: f_comida >= 30 and disciplina >= 58
+unavailable-subtitle: Outlasting a cordon means not moving for two weeks with troops four hundred metres away. That takes food in hand and a column that will not crack.
+on-arrival: {! Q.ch_p1="disolverse"; Q.cer_bonus=32; Q.f_comida-=22; Q.f_desgaste+=10; Q.f_moral+=6; !}
+
+# =====================================================================
+@cer_riochiquito
+title: El cerco en Río Chiquito
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: The heart of the zone, ringed
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and col_nodo = "riochiquito" and time >= cerco_last + 3
+priority: 13
+frequency: 100
+max-visits: 6
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_res=""; Q.bat_terreno=22; Q.cer_bonus=0; !}
+
+= El cerco en Río Chiquito
+
+If they have managed to ring Río Chiquito then they have put men on foot into the middle of the zone and held them there, and that means the war has changed shape while you were busy fighting it.
+
+Nine valleys, every one of them yours in every sense that has ever mattered — and a cordon on all of them, which means the cordon is standing in villages where the guerrilla governs, being watched around the clock by people who have been feeding you for four years and who are, at this moment, doing arithmetic about the rope crossing.
+
+Everybody in those villages knows about the rope crossing. It is a very great deal of people to be relying on.
+
+- @cer_rc_cuerda: **El paso de la cuerda.** The upstream crossing that is not on anything. *(the way out; it exists only as long as nobody says the word)*
+- @cer_rc_relevo: **Que el pueblo abra un hueco.** Ask the zone to open one for you — a fire, a stampeded herd, a delegation, an argument that takes an hour. *(the villages take the risk; it is theirs to take)*
+- @foco_batalla.cer_fuerte: **Salir por lo fuerte.** Into the strongest sector of the ring.
+- @foco_batalla.cer_pueblo: **Meterse en el pueblo.** Into the houses of the zone.
+
+@cer_rc_cuerda
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="debil"; Q.cer_bonus=26; Q.estado_intel=(Q.estado_intel||0)+6; !}
+
+@cer_rc_relevo
+go-to: foco_batalla.cer_fin
+new-page: true
+choose-if: apoyo_popular >= 55
+unavailable-subtitle: Asking nine villages to physically obstruct an army on your behalf, at the same hour, without a meeting, requires the kind of support this zone does not yet have.
+on-arrival: {! Q.ch_p1="pueblo"; Q.cer_bonus=30; Q.represion=(Q.represion||0)+4; Q.memorial=(Q.memorial||0)+2; Q.zona_gobernada=1; Q.legitimidad_regimen-=3; !}
+
+# =====================================================================
+@cer_elotatal
+title: El cerco en El Otatal
+new-page: true
+face-image: img/Luciodeath.jpg
+subtitle: The coffee grove, closed
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and col_nodo = "elotatal" and time >= cerco_last + 3
+priority: 13
+frequency: 100
+max-visits: 6
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_res=""; Q.bat_terreno=26; Q.cer_bonus=0; !}
+
+= El cerco en El Otatal
+
+Nobody has to explain to anybody what this is.
+
+El Otatal, the top of everything, the coffee grove past the end of the survey, ringed — and on the second of December 1974 this is exactly, precisely, in every particular, how it finished for Lucio Cabañas. The column knows. Two people have already said the date out loud without meaning to.
+
+The difference between that morning and this one is not courage and it is not tactics. It is whatever you have spent four years accumulating: the depth of the water, the state of the men, what is in the caches, and whether there is anybody left in these mountains who will lie to a soldier for you.
+
+- @cer_ot_alto: **Por arriba.** Above the grove there is no map and no cordon, because nobody believes a column can cross that. *(three days of rock and cold; it has never been done)*
+- @cer_ot_quedarse: **Aquí.** Do not break out. Fight where he fought, with what he did not have. *(the whole war, in one grove, on purpose)*
+- @foco_batalla.cer_disolverse: **Disolverse.** The column ceases to exist and regathers in a month, if it does.
+- @foco_batalla.cer_debil: **Salir por lo débil.** The thin sector, downhill, toward Río Chiquito.
+
+@cer_ot_alto
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="debil"; Q.cer_bonus=30; Q.f_comida-=20; Q.f_moral-=8; Q.f_hombres-=1; Q.f_bajas=(Q.f_bajas||0)+1; !}
+
+@cer_ot_quedarse
+go-to: foco_batalla.cer_fin
+new-page: true
+on-arrival: {! Q.ch_p1="fuerte"; Q.cer_bonus=10; Q.f_parque-=10; if(Q.f_parque<0){Q.f_parque=0;} Q.leyenda=(Q.leyenda||0)+3; !}

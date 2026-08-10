@@ -1,0 +1,311 @@
+title: El contacto
+max-visits: 1
+view-if: 0
+# Container/namespace only. Two forced chains driven by the MAP, not by a die roll:
+#   @la_batalla   — a formation has marched onto the column's village. You cannot decline this.
+#   @el_cerco     — the same, with every path off the node held. This is the one that ends columns.
+# Both are tests of what you have actually accumulated: men, parque, moral, discipline, ground,
+# and the water. You never choose whether to fight. You choose how.
+
+# =====================================================================
+# LA BATALLA — contact. Three ways out, each with a second decision inside it.
+# =====================================================================
+@la_batalla
+title: Contacto
+new-page: true
+face-image: img/anti-guerillas.jpg
+subtitle: They are here, on this ground, this morning
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and ej_contacto = 1 and cerco_total = 0 and time >= bat_last + 2
+priority: 10
+frequency: 100
+max-visits: 20
+on-arrival: {! Q.bat_last=Q.time; Q.bat_plan=""; Q.bat_res="";
+// THE GROUND IS A RESOURCE. The deep sierra is worth more than a hundred men.
+var _n=Q.col_nodo||"";
+var _t = (_n==="elotatal")?26:((_n==="riochiquito")?22:((_n==="elporvenir")?18:((_n==="elquemado")?8:((_n==="sanvicente")?2:-12))));
+if((Q.f_campamento===1)&&(Q.camp_nodo===_n)){ _t += 10; }
+Q.bat_terreno = _t;
+!}
+
+= Contacto
+
+There is no decision about whether this happens. It has already happened: the [? if ej_es_cazador = 1 : cazadores ?][? if ej_es_cazador = 0 : formation ?] that has been walking toward you across the map for weeks is on this ground, this morning, and the column's sentries are firing.
+
+[? if ej_es_cazador = 1 : And these are not the trucks. These are men on foot with rations on their backs and no road behind them, who came up the same vereda you came up, who have been living in this sierra for eleven days waiting to do exactly this. The army has stopped trying to catch you with battalions. It has started sending people who walk. ?][? if ej_es_cazador = 0 : They came up the road, which is the one good thing about them — everything they have is tied to that road, and the road is the shape of what they can do. ?]
+
+[? if bat_terreno >= 18 : The ground is yours. You know every fold of this country and they are reading it off a map drawn from a photograph. ?][? if bat_terreno >= 2 and bat_terreno < 18 : The ground is ordinary — broken enough to fight in, open enough to be caught in. ?][? if bat_terreno < 2 : The ground is bad. This is low country, close to the road, and everything here favours a man with a radio and a mortar. ?]
+
+**La columna:** [+ f_hombres : entero +] fighters · parque [+ f_parque : entero +] · moral [+ f_moral : entero +] · disciplina [+ disciplina : entero +]. **Enfrente:** [? if ej_es_cazador = 1 : los Cazadores ?][? if ej_es_cazador = 0 : la tropa ?], fuerza [+ ej_unidad_f : entero +].
+
+- @bat_romper: **Romper hacia arriba.** Uphill, now, into country their vehicles and their supply cannot follow. *(the classic answer; costs the ground and whatever you drop)*
+- @bat_dar: **Dar la cara.** Fight here. Make them pay for coming up, and make every garrison in Guerrero read the report. *(needs men and parque; the biggest result and the biggest bill)*
+- @bat_filtrarse: **Filtrarse.** Not a battle and not a retreat — small groups slipping out through their own line in the dark. *(needs discipline; almost bloodless when it works)*
+
+# ---------------------------------------------------------------------
+@bat_romper
+new-page: true
+face-image: img/sierra_larga.jpg
+on-arrival: {! Q.bat_plan="romper"; !}
+
+= Cuesta arriba
+
+The order is four words and the column is moving inside ninety seconds, which is what two years of doing exactly this buys you. Uphill, in file, wounded on the strongest backs, into ground that gets worse for a pursuer with every hundred metres of altitude.
+
+The problem is the tail. Somebody at the back is in contact the whole way, and the whole way there is a question about how much the column is willing to pay to keep the rest of itself intact.
+
+- @bat_r_retaguardia: Leave a rearguard. Six people who hold the draw for an hour so four dozen can get over the ridge. *(you will not get all six back)*
+- @bat_r_todos: Nobody stays. Everyone runs, everyone drops what slows them, and the column takes its chances as one body. *(no volunteers left behind; a much messier climb)*
+
+@bat_r_retaguardia
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="romper_guardia"; !}
+
+@bat_r_todos
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="romper_todos"; !}
+
+# ---------------------------------------------------------------------
+@bat_dar
+new-page: true
+face-image: img/guerillas2.jpg
+choose-if: f_hombres >= 14 and f_parque >= 12
+unavailable-subtitle: Standing and fighting a formation needs at least 14 fighters and 12 parque. You have neither. Move.
+on-arrival: {! Q.bat_plan="dar"; Q.f_parque-=12; !}
+
+= Se pelea aquí
+
+You say it out loud so that everyone hears it in the same second, and something goes through the column that is not courage exactly — more like relief. They have been walking away from this for a long time.
+
+Positions in eleven minutes. And then the only question a guerrilla commander ever really answers: do you spread out and survive, or concentrate and win?
+
+- @bat_d_punto: Everything on one point. Mass every rifle against their weakest sector and go through it. *(decisive either way; nothing held in reserve)*
+- @bat_d_perimetro: Hold a perimeter and bleed them at range until they lose interest. *(survivable; they will not lose interest quickly)*
+
+@bat_d_punto
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_punto"; !}
+
+@bat_d_perimetro
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="dar_perimetro"; !}
+
+# ---------------------------------------------------------------------
+@bat_filtrarse
+new-page: true
+face-image: img/countrysideravine.jpg
+choose-if: disciplina >= 55
+unavailable-subtitle: Slipping a whole column through a live enemy line in the dark, in threes, in silence, needs a discipline of 55. This band would be a firefight inside four minutes.
+on-arrival: {! Q.bat_plan="filtrarse"; !}
+
+= En la oscuridad
+
+The hardest thing a guerrilla column ever does, and it does not look like anything: forty people going out through a live line in threes, at two in the morning, at a walking pace, in silence, past men who are awake and looking for exactly this.
+
+It works or it does not entirely on whether every single person does the boring thing correctly. One cough. One rifle sling against a rock.
+
+- @bat_f_armas: Bury the heavy weapons and the packs. You can come back for them; you cannot come back for people. *(much quieter; the parque stays in a hole in the sierra)*
+- @bat_f_todo: Everything comes out with you. A guerrilla without parque is a hiking club. *(carrying metal past sentries at three metres)*
+
+@bat_f_armas
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_ligero"; !}
+
+@bat_f_todo
+go-to: foco_batalla.bat_fin
+on-arrival: {! Q.bat_plan="filtrarse_pesado"; !}
+
+# =====================================================================
+# RESOLUTION
+# =====================================================================
+@bat_fin
+new-page: true
+face-image: img/muertos.jpg
+on-arrival: {!
+var _p=Q.bat_plan||"", _caz=(Q.ej_es_cazador===1);
+var _hombres=Q.f_hombres||0, _moral=Q.f_moral||0, _disc=Q.disciplina||65, _apoyo=Q.apoyo_popular||0;
+// A FORMATION IS NOT FORTY MEN. It is three hundred, with mortars, radios and a road behind it.
+// A guerrilla column does not beat that by being brave; it beats it by never being where it is.
+var _enemigo=(Q.ej_unidad_f||40)*2.4 + ((Q['gn_'+Q.col_nodo]||0)*0.5);
+// what the column actually is, tested against what walked onto its ground
+// Note the weightings. Numbers matter least. The ground matters enormously, and so does whether
+// the people around you are lying to the army on your behalf this morning.
+var _fuerza = _hombres*0.85 + _moral*0.35 + _disc*0.25 + (Q.bat_terreno||0)*1.4 + (Q.f_parque||0)*0.18
+            + ((_apoyo>=55)?14:((_apoyo>=38)?5:-8))
+            + ((Q.f_medico===1)?4:0)
+            - _enemigo*1.05;
+if(_caz){ _fuerza -= 14; }                                  // they are trained for precisely this
+if(_p==="dar_punto"){ _fuerza += 10; }
+if(_p==="dar_perimetro"){ _fuerza += 2; }
+if(_p==="romper_guardia"){ _fuerza += 12; }
+if(_p==="romper_todos"){ _fuerza -= 4; }
+if(_p==="filtrarse_ligero"){ _fuerza += 16 + (_disc-55)*0.5; }
+if(_p==="filtrarse_pesado"){ _fuerza += 4 + (_disc-55)*0.5; }
+// KNOWING YOUR OWN GROUND: the lagoon, the coffee, the caves, the cloud, the rope crossing.
+_fuerza += (Q.bat_bonus||0)*0.75;
+_fuerza += Math.random()*52 - 25;
+var _grado = (_fuerza>=28)?3:((_fuerza>=4)?2:((_fuerza>=-20)?1:0));
+// ---- casualties: real, proportional, and the thing you spend a year replacing ----
+var _base = _hombres*0.075 + 2.5;
+var _mult = [2.8, 1.7, 0.85, 0.4][_grado];
+if(_p.indexOf("filtrarse")===0){ _mult *= 0.5; }
+if(_p.indexOf("dar")===0){ _mult *= 2.1; }        // standing to fight costs bodies even when you win
+if(_p==="romper_guardia"){ _mult *= 0.7; }
+if(_caz){ _mult *= 1.25; }
+var _bajas = Math.round(_base*_mult);
+if(_p==="romper_guardia" && _grado>=2){ _bajas += 3; }      // the six who held the draw
+if(_bajas<1){ _bajas=1; } if(_bajas>_hombres){ _bajas=_hombres; }
+Q.f_hombres -= _bajas; Q.f_bajas=(Q.f_bajas||0)+_bajas; Q.memorial=(Q.memorial||0)+Math.round(_bajas*0.5);
+Q.bat_bajas = _bajas;
+// ---- everything else ----
+if(_grado===3){
+  Q.f_desgaste+=(_p.indexOf("dar")===0)?20:10; Q.f_moral+=16; Q.leyenda=(Q.leyenda||0)+4;
+  Q.f_parque+=(_p.indexOf("dar")===0)?18:2; Q.legitimidad_regimen-=4; Q.f_cerco-=22;
+  // A FORMATION IS NOT DESTROYED. It is mauled, and it withdraws to its base to be rebuilt, and
+  // you can watch it sitting there getting stronger again. Nothing ever leaves this map.
+  Q[Q.ej_unidad+'_dmg']=70;
+  Q[Q.ej_unidad+'_nodo']=_caz?"atoyac":"acapulco";
+  if(_caz){ Q.caz_last=Q.time; }
+  var _h1=Math.max(0,(Q.apoyo_techo||55)-_apoyo); Q.apoyo_popular+=Math.min(8,_h1*0.45);
+} else if(_grado===2){
+  Q.f_desgaste+=8; Q.f_moral+=4; Q.f_cerco-=10; Q.leyenda=(Q.leyenda||0)+1;
+  if(_p.indexOf("dar")===0){ Q.f_parque+=6; }
+} else if(_grado===1){
+  Q.f_moral-=8; Q.f_cerco+=10; Q.f_parque-=4; Q.estado_intel=(Q.estado_intel||0)+5;
+} else {
+  Q.f_moral-=20; Q.f_cerco+=26; Q.f_parque-=10; Q.estado_intel=(Q.estado_intel||0)+12;
+  Q.disciplina=(Q.disciplina||65)-6; Q.apoyo_popular-=5; Q.paranoia=(Q.paranoia||8)+8;
+}
+if(_p==="filtrarse_ligero"){ Q.f_parque-=14; }
+if(_p==="romper_todos"){ Q.f_parque-=8; Q.f_comida-=10; }
+// you leave the ground you fought on, one way or the other
+if(_grado<=1){
+  var _ADJ={atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']};
+  var _o=_ADJ[Q.col_nodo]||[], _best='', _bv=9999;
+  for(var _i=0;_i<_o.length;_i++){ var _g=Q['gn_'+_o[_i]]||0; if(_g<_bv){_bv=_g;_best=_o[_i];} }
+  if(_best){ Q.col_nodo=_best; Q['sn_'+_best]=1; }
+}
+Q.bat_res=["desastre","malo","logrado","triunfo"][_grado];
+Q.ej_contacto=0;
+if(Q.f_parque<0){Q.f_parque=0;} if(Q.f_comida<0){Q.f_comida=0;} if(Q.f_cerco<0){Q.f_cerco=0;}
+if(Q.f_cerco>100){Q.f_cerco=100;} if(Q.f_moral<0){Q.f_moral=0;} if(Q.f_moral>100){Q.f_moral=100;}
+if(Q.apoyo_popular<0){Q.apoyo_popular=0;} if(Q.f_hombres<0){Q.f_hombres=0;}
+if(Q.f_hombres<=0){Q.f_fin_foco=1; Q.members=0;}
+!}
+
+= Después del contacto
+
+[? if bat_res = "triunfo" : It goes the way it goes perhaps twice in a campaign, when everything you have built happens to be enough on the same morning. [? if bat_plan = "dar_punto" : The mass at one point breaks their line in under twenty minutes and then it is not a battle, it is a pursuit, and it is going the wrong way for them. ?][? if bat_plan = "dar_perimetro" : They come at the perimeter four times and stop coming, and withdraw down the road carrying more than they can carry. ?][? if bat_plan = "romper_guardia" : Six people hold a draw for fifty minutes against a formation, and the column goes over the ridge intact, and afterwards nobody can talk about it without stopping in the middle of a sentence. ?][? if bat_plan = "romper_todos" : The whole column goes up and over as one animal and is simply gone by noon, and what follows it up the mountain gives up at the treeline. ?][? if bat_plan = "filtrarse_ligero" : Forty people walk out through a live line in the dark and not one shot is fired, and at dawn the army sweeps a position containing nothing but a cold fire. ?][? if bat_plan = "filtrarse_pesado" : Forty people walk out through a live line in the dark carrying everything they own, and it should not have worked, and it worked. ?] ?][? if bat_res = "logrado" : It works. Not cleanly, not the way it will be told later, but the column comes off that ground as a column, with its wounded and most of its weapons, and the formation does not follow. That is a win in this war. There is a specific quiet that comes over a band an hour after something like this, when people start looking around and counting, and the counting comes out acceptable. ?][? if bat_res = "malo" : It half works, which in practice means people die for a result nobody can name. You break contact, you keep moving, you lose ground and materiel and a piece of whatever it is that makes men march willingly. The army will write it up as an engagement in which contact was made and the enemy withdrew, and for once the army's version and yours are the same sentence. ?][? if bat_res = "desastre" : It comes apart. [? if ej_es_cazador = 1 : They were waiting for this exact reaction, because it is the reaction the manual says a guerrilla column makes, and they wrote that manual by studying columns like yours. ?][? if ej_es_cazador = 0 : They had the ground, the radio, and more of everything, and you gave them a battle on it. ?] What comes off that mountain is smaller and slower and quieter than what went onto it, and it is carrying people who will not walk again, and for the next four days the only decisions anybody makes are about water and direction. ?]
+
+**Bajas: [+ bat_bajas : entero +].** Quedan [+ f_hombres : entero +] en la columna.[? if f_reclutamiento >= 2 :  The sierra is still sending people — about [+ f_reclutamiento +] a month at the current depth of the water. You can rebuild this. ?][? if f_reclutamiento < 2 :  And the sierra is sending almost nobody: [+ f_reclutamiento +] a month. At this rate these losses do not get replaced. ?]
+
+- @root: Continuar.
+
+# =====================================================================
+# EL CERCO — every way out held. The chain that ends columns.
+# =====================================================================
+@el_cerco
+title: El cerco
+new-page: true
+face-image: img/anti-guerillas2.jpg
+subtitle: They are on you, and every path off this ground is held
+tags: event
+view-if: banda = "sierra" and f_phase = "marcha" and cerco_total = 1 and time >= cerco_last + 3
+priority: 12
+frequency: 100
+max-visits: 12
+on-arrival: {! Q.cerco_last=Q.time; Q.ch_p1=""; Q.ch_p2=""; Q.ch_res="";
+var _n=Q.col_nodo||"";
+Q.bat_terreno=(_n==="elotatal")?26:((_n==="riochiquito")?22:((_n==="elporvenir")?18:((_n==="elquemado")?8:((_n==="sanvicente")?2:-12))));
+!}
+
+= El cerco
+
+The radio operator works it out before anyone else does, from the traffic, and he says it badly because there is no good way to say it: every one of them is held. Not patrolled — *held.* Troops sitting on each path off this ground, and troops here, and this is no longer a sweep. This is the thing they have been trying to arrange for four years.
+
+Ñancahuazú ended like this. So did most of the others. The column has hours, and everything it has ever accumulated — every kilo of goodwill in every village, every month of discipline, every rifle — is about to be converted, all at once, into an answer to one question.
+
+- @cer_fuerte: **Salir por lo fuerte.** Break out where they are strongest, because that is the one place they are not expecting it. *(the audacious answer; catastrophic if they are ready)*
+- @cer_debil: **Salir por lo débil.** Find the thinnest sector and go through it. *(the obvious answer; they know it is obvious)*
+- @cer_disolverse: **Disolverse.** The column stops existing tonight — ones and twos, weapons buried, no rendezvous for a month. *(most survive; the band may not reassemble)*
+- @cer_pueblo: **Meterse en el pueblo.** Walk into the village, put the rifles under floors, and become forty campesinos. *(needs very deep water; if the water is not deep enough this is a mass grave)*
+
+@cer_fuerte
+new-page: true
+go-to: foco_batalla.cer_fin
+on-arrival: {! Q.ch_p1="fuerte"; !}
+
+@cer_debil
+new-page: true
+go-to: foco_batalla.cer_fin
+on-arrival: {! Q.ch_p1="debil"; !}
+
+@cer_disolverse
+new-page: true
+go-to: foco_batalla.cer_fin
+on-arrival: {! Q.ch_p1="disolverse"; !}
+
+@cer_pueblo
+new-page: true
+choose-if: apoyo_popular >= 52
+unavailable-subtitle: Hiding forty armed strangers inside a village that soldiers are about to search takes a level of support this district does not have. They would be given up by lunchtime.
+go-to: foco_batalla.cer_fin
+on-arrival: {! Q.ch_p1="pueblo"; !}
+
+@cer_fin
+new-page: true
+face-image: img/Luciodeath.jpg
+on-arrival: {!
+var _p=Q.ch_p1||"", _apoyo=Q.apoyo_popular||0, _br=Q.brutalidad||0;
+var _f = (Q.f_hombres||0)*0.9 + (Q.f_moral||0)*0.4 + (Q.disciplina||65)*0.45 + (Q.bat_terreno||0)
+       + (Q.f_parque||0)*0.2 + (_apoyo*0.5) - _br*5 - 78;
+if((Q.ej4_nodo||"")!==""){ _f -= 12; }
+if(_p==="fuerte"){ _f += (Q.disciplina||65)>=65 ? 16 : -12; }
+if(_p==="debil"){ _f -= (Q.estado_intel||0)*0.18; }
+if(_p==="disolverse"){ _f += 22; }
+if(_p==="pueblo"){ _f += (_apoyo-52)*1.4 + 10 - _br*6; }
+// LOCAL KNOWLEDGE: the storm drain, the sandbar, the riverbed under the bridge, the irrigation
+// channel, the limestone, the cloud at four o'clock, the rope crossing, the rock above the grove.
+_f += (Q.cer_bonus||0);
+_f += Math.random()*40-18;
+var _ok=(_f>=14)?2:((_f>=-14)?1:0);
+Q.ch_res=_p+"_"+(["mal","medio","bien"][_ok]);
+var _mult=[0.55,0.28,0.10][_ok];
+if(_p==="disolverse"){ _mult*=0.5; } if(_p==="pueblo"){ _mult*=0.35; }
+var _bajas=Math.round((Q.f_hombres||0)*_mult);
+if(_bajas<1&&_ok<2){_bajas=1;}
+Q.f_hombres-=_bajas; Q.f_bajas=(Q.f_bajas||0)+_bajas; Q.memorial=(Q.memorial||0)+_bajas; Q.bat_bajas=_bajas;
+if(_ok===2){ Q.f_moral+=12; Q.leyenda=(Q.leyenda||0)+5; Q.f_desgaste+=8; Q.legitimidad_regimen-=3; }
+else if(_ok===1){ Q.f_moral-=10; }
+else { Q.f_moral-=26; Q.disciplina=(Q.disciplina||65)-10; Q.paranoia=(Q.paranoia||8)+14; Q.f_parque-=16; }
+if(_p==="disolverse"){ Q.f_parque-=12; Q.f_comida-=12; Q.f_moral-=6; Q.f_cerco=10;
+  if(_ok<2){ Q.f_hombres=Math.round(Q.f_hombres*0.78); }        // some never come back to the rendezvous
+}
+if(_p==="pueblo"){ Q.f_parque-=8; Q.zona_gobernada=1;
+  if(_ok===0){ Q.apoyo_popular-=16; Q.represion=(Q.represion||0)+4; Q.memorial=(Q.memorial||0)+6; }
+  else { var _h=Math.max(0,(Q.apoyo_techo||55)-_apoyo); Q.apoyo_popular+=Math.min(10,_h*0.55); }
+}
+// you come out somewhere, if you come out
+var _ADJ={atoyac:['coyuca','sanvicente','elquemado'],coyuca:['atoyac','acapulco','sanvicente'],acapulco:['coyuca'],sanvicente:['atoyac','coyuca','elquemado','elporvenir'],elquemado:['atoyac','sanvicente','riochiquito'],elporvenir:['sanvicente','riochiquito'],riochiquito:['elquemado','elporvenir','elotatal'],elotatal:['riochiquito']};
+if(_p!=="pueblo"){
+  var _o=_ADJ[Q.col_nodo]||[], _b='', _bv=9999;
+  for(var _i=0;_i<_o.length;_i++){ var _g=Q['gn_'+_o[_i]]||0; if(_g<_bv){_bv=_g;_b=_o[_i];} }
+  if(_b){ Q.col_nodo=_b; Q['sn_'+_b]=1; }
+}
+Q.f_cerco=(_ok===2)?18:((_ok===1)?45:72);
+Q.cerco_total=0; Q.ej_contacto=0;
+// the ring is lifted, the formations pull back to their bases — still there, still on the map
+Q.ej1_nodo="acapulco"; Q.ej2_nodo="atoyac"; if(Q.ej3_nodo){Q.ej3_nodo="acapulco";} if(Q.ej4_nodo){Q.ej4_nodo="atoyac";}
+if(_ok===2){ Q.ej1_dmg=(Q.ej1_dmg||0)+30; Q.ej2_dmg=(Q.ej2_dmg||0)+30; }
+if(Q.f_parque<0){Q.f_parque=0;} if(Q.f_comida<0){Q.f_comida=0;} if(Q.f_moral<0){Q.f_moral=0;}
+if(Q.apoyo_popular<0){Q.apoyo_popular=0;} if(Q.f_hombres<0){Q.f_hombres=0;}
+if(Q.f_hombres<=0){Q.f_fin_foco=1; Q.members=0;}
+!}
+
+= Lo que salió
+
+[? if ch_res = "fuerte_bien" : You go out through the strongest sector at four in the morning because it is the one place a rational commander would not, and it turns out the officer holding it had reasoned the same way and put his best men on the far side of the hill. Forty people go through a company position in eleven minutes. In Chilpancingo they will spend a month arguing about how it was possible, and the answer — that you did the thing the manual calls impossible because they had garrisoned against the manual — will not make anyone feel better. ?][? if ch_res = "fuerte_medio" : You go out through the strong sector and it is exactly as bad as it should be and you go out anyway, on nerve and the last of the parque, dragging people. It is not a victory. It is the column continuing to exist, which some nights is the only category available. ?][? if ch_res = "fuerte_mal" : You attacked the strongest point of an encirclement with a band that was not disciplined enough to do it in silence, and they heard you forming up. What happens next takes about forty minutes and there is no account of it that is worth writing down. The people who get out get out individually, in the dark, in different directions, and some of them are still walking a week later. ?][? if ch_res = "debil_bien" : The thin sector is thin because they ran out of men, not because it is a trap, and you are through it before the flares go up. Sometimes the obvious answer is obvious because it is correct. The column comes off that ground and keeps its shape and even keeps its dead, which matters more to the living than anyone admits. ?][? if ch_res = "debil_medio" : They had thought about the thin sector too, and reinforced it two hours before you got there, and what should have been a walk becomes an hour of close work in the dark. You get out. You get out considerably lighter than you went in. ?][? if ch_res = "debil_mal" : The thin sector was thin on purpose. It is the oldest arrangement in counter-guerrilla warfare and you walked into it because it was the answer the situation seemed to be asking for, and because they had built the situation to ask for it. Their intelligence was good enough to predict a decision you had not made yet. That is what the file has been for. ?][? if ch_res = "disolverse_bien" : You give the order that costs a commander more than any other: the column stops existing. Ones and twos, weapons in holes, no rendezvous for thirty days. The encirclement closes on a sierra containing nothing. And on the twenty-ninth day people begin arriving at the place — thinner, filthy, alive, most of them, walking in from four directions with stories nobody will finish telling. The band reassembles. It is not quite the same band. It is here. ?][? if ch_res = "disolverse_medio" : The column dissolves and the cordon closes on nothing, which works, and then the month passes, and the people who come back to the rendezvous are not all of the people who left it. Some were taken. Some got home to a village and looked at their mother and stayed. You cannot be angry about the second kind and you find that you are anyway. ?][? if ch_res = "disolverse_mal" : Dissolving a column requires that it have somewhere to dissolve *into* — houses, families, a sierra full of people who will hide a stranger for a month. Yours does not have that any more, and it dissolves into open country in a district that has been made afraid of you. They pick them up in ones and twos over three weeks, at checkpoints and in barns, and what reassembles at the rendezvous is not a column, it is a meeting. ?][? if ch_res = "pueblo_bien" : Forty armed strangers walk into the village at dusk and by full dark there are no armed strangers anywhere: there are rifles under floors and in a well and inside a church roof, and forty extra cousins visiting from Tecpan, in borrowed clothes, doing chores badly. The troops search for two days. Two hundred people lie to them continuously, in coordination, without a single meeting having been held to arrange it. Nobody is given up. There is no military achievement in this war remotely equal to that, and it did not cost a round. ?][? if ch_res = "pueblo_medio" : It mostly holds. The village takes you in and lies for you, and the lying is imperfect because two hundred people cannot all be good at it, and a lieutenant leaves at the end of the second day certain he has been made a fool of and unable to prove it. You lose people at a checkpoint on the way out. The valley pays for weeks afterwards in ways you will hear about later. ?][? if ch_res = "pueblo_mal" : You put forty rifles into a village that did not have enough reason to protect them, and somebody — one person, frightened, with a family — went to the sergeant on the first morning. What follows is done to the village and not only to the column, and it is done thoroughly, and it is your doing. The oldest law of this kind of war is that you can only hide in water deep enough to hide in. You knew the depth. You went in anyway. ?]
+
+**Bajas: [+ bat_bajas : entero +].** Quedan [+ f_hombres : entero +].
+
+- @root: Continuar.

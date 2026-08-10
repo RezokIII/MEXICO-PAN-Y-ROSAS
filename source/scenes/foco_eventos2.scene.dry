@@ -1,44 +1,111 @@
 title: Eventos del foco II
 max-visits: 1
 view-if: 0
-# Container/namespace only — NOT tagged event. The march's inner life: the doctor, the purge,
-# the hunger, the desertions. banda="sierra", f_phase="marcha".
+# Container/namespace only. The march's inner life, all of it chained: the doctor, the phantom
+# informer, the hunger, the ones who leave, the camp found. Every event is a first decision that
+# opens a second, and a conclusion computed from both plus the state of the column and the water.
 
-# ---------------------------------------------------------------------
+# =====================================================================
+# EL MÉDICO — where you put him, and then the night it is tested.
+# =====================================================================
 @ev_medico
 title: El médico
 new-page: true
 face-image: img/guerillasmile.jpg
-subtitle: The column's doctor — and the villages' first, ever
+subtitle: A rifle that heals, and one more person who knows where you sleep
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and f_medico = 0 and f_bajas >= 2 and time >= f_ev_last + 2
 priority: 5
 frequency: 60
 max-visits: 1
-on-arrival: f_ev_last = time
+on-arrival: {! Q.f_ev_last=Q.time; Q.ch_p1=""; Q.ch_p2=""; Q.ch_res=""; !}
 
 = El médico
 
-He comes up the mountain the way Che once did — a doctor, young, soft-handed and out of place, who has decided that the wounds he can dress in a city are fewer than the ones he could prevent up here. He can keep your wounded alive, which no one in the column has been able to do. He can also do the thing that quietly wins more of the sierra than any ambush: hold a clinic in villages that have never in their history seen a doctor, and let the campesinos learn that the guerrilla is the only power that ever brought them medicine instead of taking their sons. A médico is a rifle that heals. He is also one more person who knows where you sleep.
+He comes up the mountain the way Che once did, and with the same problem: soft hands, city shoes, and an absolute conviction that he is going to be useful.
 
-- @med_columna: Keep him with the column — your wounded stop dying, and the man becomes the soul of the band the way Che was of his. *(fewer casualties; +morale, +legend)*
-- @med_pueblos: Send him through the villages with a medical kit — a clinic in every hamlet, and the deepest kind of water. *(+apoyo, +peasant base; the column's wounded still suffer)*
+He is twenty-six. He can keep your wounded alive, which nobody in this column has managed to do. He can also do the thing that wins more of the sierra than any ambush ever has — hold a clinic in hamlets that have never in their entire history seen a doctor, and let people learn that the guerrilla is the only power that ever brought them medicine instead of taking their sons.
+
+He is a rifle that heals. He is also one more person who knows where you sleep, and he is not trained for any of that part.
+
+- @med_columna: Keep him with the column. Your wounded stop dying and the band gets its soul back. *(fewer casualties; +moral)*
+- @med_pueblos: Send him through the villages with a kit and a boy to carry it. *(the deepest water there is; your own wounded keep suffering)*
+- @med_formar: Neither. Have him spend six months training twenty campesinas as health workers, and then he is replaceable. *(slow; it outlives him, and it outlives you)*
 
 @med_columna
-on-arrival: {! Q.f_medico=1; Q.f_moral+=8; Q.leyenda=(Q.leyenda||0)+3; Q.f_bajas=0; Q.che_advisor=1; !}
-
-You keep him close, and the column changes. Men who would have died of a septic wound in the old days live now, and a band that trusts it will not simply be left to rot when it is hit fights differently — harder, and longer, and with the particular loyalty soldiers reserve for the one who patches them up. He becomes what the doctor always becomes in these stories: not the best shot but the moral center, the one whose presence means the revolution is about *life* and not only the taking of it. Every column that had one remembers him longer than its commander.
-
-- @root: Continuar.
+new-page: true
+go-to: foco_eventos2.med_noche
+on-arrival: {! Q.ch_p1="columna"; Q.f_medico=1; Q.f_moral+=8; Q.leyenda=(Q.leyenda||0)+3; Q.f_bajas=0; Q.che_advisor=1; !}
 
 @med_pueblos
-on-arrival: {! Q.f_medico=1; Q.apoyo_popular+=12; Q.sup_peasants+=5; Q.zona_gobernada=1; !}
+new-page: true
+go-to: foco_eventos2.med_noche
+on-arrival: {! Q.ch_p1="pueblos"; Q.f_medico=1; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(12,_h*0.6); Q.sup_peasants=(Q.sup_peasants||0)+5; Q.zona_gobernada=1; !}
 
-You send him out with a kit and a boy to carry it, and he becomes the first doctor the deep sierra has ever had. Word of it moves faster than any bullet: in the zone the guerrilla holds, a sick child can be *seen.* It is the mass line made flesh — the movement proving, in the one currency the poor cannot fake gratitude for, that where it governs, life is better. The column's own wounded still suffer for want of him at the wrong moment. You decided the sierra's hundred sick children outweighed your dozen. Che would have understood the math, and hated it, and made the same call.
+@med_formar
+new-page: true
+go-to: foco_eventos2.med_noche
+on-arrival: {! Q.ch_p1="formar"; Q.f_medico=1; var _h=Math.max(0,(Q.apoyo_techo||55)-(Q.apoyo_popular||0)); Q.apoyo_popular+=Math.min(7,_h*0.4); Q.sup_peasants=(Q.sup_peasants||0)+4; Q.zona_gobernada=1; Q.disciplina=(Q.disciplina||65)+3; Q.f_moral+=3; !}
+
+@med_noche
+title: La noche que se prueba
+new-page: true
+face-image: img/countrysideravine.jpg
+
+= La noche que se prueba
+
+It is tested in November, at two in the morning, on a compañero everybody likes.
+
+A femoral wound, four hours old, tourniquet on since the ambush, and the leg below it is already the colour that means the argument is over. The doctor says the sentence he has clearly been dreading having to say up here: he can do it, but not in a ramada by candlelight with no blood and no anaesthetic beyond what is in the bottle.
+
+There is a hospital in Atoyac. It is forty kilometres and a checkpoint away, and every hospital in this state has a standing instruction to report gunshot wounds to the garrison.
+
+[? if ch_p1 = "pueblos" : And the doctor is not here. He is four valleys away holding a clinic, which was your decision, and somebody is going to have to go and find him and it is going to take nine hours. ?][? if ch_p1 = "formar" : Two of the women he has been training are here, which is not nothing, and they are honest about exactly how much it is: they can hold a light and they can keep him breathing and they cannot do this. ?]
+
+- @med_n_hospital: Take him to Atoyac. Papers, a borrowed truck, a story, and whatever happens happens. *(a real chance for him; a thread straight into the garrison)*
+- @med_n_campo: Do it here. Candlelight, a table, and the doctor's hands. *(he probably lives without the leg; he may not live)*
+- @med_n_esperar: Nothing. Make him comfortable and sit with him. *(the oldest decision in guerrilla medicine, and the one nobody writes down)*
+
+@med_n_hospital
+go-to: foco_eventos2.med_fin
+on-arrival: {! Q.ch_p2="hospital"; !}
+
+@med_n_campo
+go-to: foco_eventos2.med_fin
+on-arrival: {! Q.ch_p2="campo"; !}
+
+@med_n_esperar
+go-to: foco_eventos2.med_fin
+on-arrival: {! Q.ch_p2="esperar"; !}
+
+@med_fin
+new-page: true
+on-arrival: {!
+var _p1=Q.ch_p1||"", _p2=Q.ch_p2||"", _apoyo=Q.apoyo_popular||0;
+var _cal = ((_p1==="columna")?22:((_p1==="formar")?10:0)) + (_apoyo*0.3) - ((Q.brutalidad||0)*3);
+var _r = _cal + Math.random()*40-18;
+if(_p2==="hospital"){ Q.ch_res=(_apoyo>=45 && _r>=8)?"hosp_bien":"hosp_mal"; }
+else if(_p2==="campo"){ Q.ch_res=(_r>=6)?"campo_bien":"campo_mal"; }
+else { Q.ch_res="esperar"; }
+var R=Q.ch_res;
+if(R==="hosp_bien"){ Q.f_moral+=10; Q.leyenda=(Q.leyenda||0)+2; var _h=Math.max(0,(Q.apoyo_techo||55)-_apoyo); Q.apoyo_popular+=Math.min(6,_h*0.35); Q.estado_intel=(Q.estado_intel||0)+4; }
+if(R==="hosp_mal"){ Q.f_hombres-=1; Q.f_bajas=(Q.f_bajas||0)+1; Q.memorial=(Q.memorial||0)+2; Q.f_moral-=10; Q.estado_intel=(Q.estado_intel||0)+16; Q.f_cerco+=16; Q.expediente=(Q.expediente||0)+8; }
+if(R==="campo_bien"){ Q.f_moral+=6; Q.disciplina=(Q.disciplina||65)+3; Q.f_bajas=Math.max(0,(Q.f_bajas||0)-1); }
+if(R==="campo_mal"){ Q.f_hombres-=1; Q.f_bajas=(Q.f_bajas||0)+1; Q.memorial=(Q.memorial||0)+2; Q.f_moral-=8; }
+if(R==="esperar"){ Q.f_hombres-=1; Q.f_bajas=(Q.f_bajas||0)+1; Q.memorial=(Q.memorial||0)+2; Q.f_moral-=6; Q.disciplina=(Q.disciplina||65)+2; }
+if(Q.f_cerco>100){Q.f_cerco=100;} if(Q.f_moral<0){Q.f_moral=0;} if(Q.f_hombres<0){Q.f_hombres=0;}
+if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;}
+!}
+
+= Al amanecer
+
+[? if ch_res = "hosp_bien" : It works, and it works because of a chain of people none of whom had to do it: a man with a truck, a nurse who wrote a different word on a form, an orderly who lost a page, a doctor on nights who looked at the entry wound and asked nothing at all. He keeps the leg. He is back in the column in five months walking badly, and every one of those people took a risk with their own life for somebody they had never met. That is what the water actually is. It is not a statistic. It is a specific nurse. ?][? if ch_res = "hosp_mal" : The hospital does what the hospital is instructed to do. Somebody makes a telephone call while he is still on the table, and by the time the truck is back in the sierra there are two men from the DFS in the corridor being extremely patient. He does not come back. What they get out of the file is not much on its own — a date, a wound, a description of two people — but it is the first hard, documented thing they have ever had, and files are built out of first hard things. ?][? if ch_res = "campo_bien" : It is done on a table made of a door, by candlelight, with four people holding him and a strap of leather in his teeth, and it takes fifty minutes and it is the worst thing anybody in this column has ever had to be in the room for. He lives. He is furious about the leg for a year and then he is the person who runs the camp's stores better than anyone ever has, and he is *here*, which at four in the morning in November did not look likely. ?][? if ch_res = "campo_mal" : It is done on a table made of a door and it is not enough. There was never really a version of this where a man with that wound and four hours of tourniquet walks away from a candlelit ramada, and the doctor knows it and says so afterwards, once, quietly, and then does not say it again. He is buried above the camp. The column is very careful with the doctor for a while, in the way people are careful with someone they have asked to do something unforgivable. ?][? if ch_res = "esperar" : You sit with him. That is the entire content of the decision and it takes until about half past four.[? if ch_p1 = "pueblos" :  The doctor arrives at nine, having walked all night, and there is nothing for him to do, and he takes it badly in a way that suggests nobody warned him this would be most of the job. ?] Every guerrilla war has an enormous number of these nights in it and almost none of them appear in any account, because there is no decision in them and no lesson and nothing that can be improved on next time. There is a man, and then there is not. The column marches at six. ?]
 
 - @root: Continuar.
 
-# ---------------------------------------------------------------------
+# =====================================================================
+# EL FANTASMA DEL INFORMANTE — the fever, the search, and what is actually leaking.
+# =====================================================================
 @ev_purga
 title: El fantasma del informante
 new-page: true
@@ -49,84 +116,228 @@ view-if: banda = "sierra" and f_phase = "marcha" and paranoia >= 45 and time >= 
 priority: 6
 frequency: 70
 max-visits: 5
-on-arrival: f_purga_last = time
+on-arrival: {! Q.f_purga_last=Q.time; Q.ch_p1=""; Q.ch_p2=""; Q.ch_res="";
+// WHAT IS ACTUALLY WRONG. The player never gets told this directly. 0 = nothing (fear), 1 = a real
+// human leak, 2 = the radio, which is technical and nobody suspects it.
+var _r=Math.random();
+Q.ch_n1 = (_r<0.5) ? 0 : ((_r<0.78) ? 1 : 2);
+!}
 
 = El fantasma del informante
 
-It arrives the way it always arrives — not as a fact but as a *fever.* The last three operations went wrong. The army was waiting twice where it should not have been. And in a column that has stopped sleeping properly, the mind does what frightened minds do: it looks for a face. A veteran you trust brings you a name in a low voice, and there is nothing behind it but coincidence and fear, and everything behind it, because this is the thing that killed more guerrillas than the army ever did. The Bolivian diary is full of it. So is the Liga's history, and the PDLP's. The enemy's deepest victory is not the informer he plants. It is the ones you invent to explain your losses.
+It does not arrive as a fact. It arrives as a *fever.*
 
-- @purga_matar: Act on it. In a war this tight you cannot afford to be wrong slowly — deal with the suspect and let the fear do its work. *(the purge; discipline and trust collapse; the column begins to eat itself)*
-- @purga_investigar: Refuse the fever. Investigate in the cold light, compartmentalize, and cut the Colonel's real network instead of hunting ghosts. *(needs discipline; eases the paranoia; may find the real leak)*
-- @purga_hablar: Stake your own authority on it — stand in front of the column and tell them the enemy wins the day you start killing each other. *(costs; but holds the band together)*
+Three operations in a row have gone wrong. Twice the army has been somewhere it had no business being. And in a column that stopped sleeping properly about eight months ago, the mind does the thing frightened minds do, which is look for a face — because a face can be dealt with, and bad luck cannot.
 
-@purga_matar
-on-arrival: {! Q.brutalidad=(Q.brutalidad||0)+2; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.disciplina=(Q.disciplina||65)-14; Q.f_moral-=12; Q.paranoia=(Q.paranoia||45)+10; Q.f_hombres-=2; Q.f_bajas+=2; Q.apoyo_popular-=4; !}
+A veteran you trust brings you a name in a low voice, and behind it there is nothing but coincidence and fear, and behind it there is also everything, because this is what killed more guerrillas than the Mexican army ever managed. The Bolivian diary is full of it. So is the Liga's short history. The enemy's deepest victory is not the informer he plants. It is the ones you invent to explain your losses.
 
-You act, and for one night the fever breaks — the suspect is gone, the losses have a face and a grave, and the column tells itself it is safe. Then the morning comes, and the arithmetic you have just taught everyone begins to work: if he was killed on a suspicion, then any of us can be, and the man who accused today can be accused tomorrow. Trust, the only thing that let a dozen hunted people live in each other's pockets for years, cracks. This is how it ends for the ones the army never catches — not in a firefight but in a clearing at dawn, killing the compañeros the enemy was never able to turn, because it did not need to.
+- @pur_actuar: Act on the name. In a war this tight you cannot afford to be wrong slowly. *(the purge; the column begins to eat itself)*
+- @pur_buscar: Refuse the fever. Find out what is actually leaking, in the cold, methodically. *(needs discipline; the answer may not be a person)*
+- @pur_hablar: Stand in front of the whole column and refuse it out loud, publicly, on your own authority. *(costs you; holds the band together)*
 
-- @root: Continuar.
+@pur_actuar
+new-page: true
+go-to: foco_eventos2.pur_fin
+on-arrival: {! Q.ch_p1="actuar"; Q.ch_p2="ninguna"; !}
 
-@purga_investigar
+@pur_hablar
+new-page: true
+go-to: foco_eventos2.pur_fin
+on-arrival: {! Q.ch_p1="hablar"; Q.ch_p2="ninguna"; !}
+
+@pur_buscar
+new-page: true
+face-image: img/charola.jpg
 choose-if: disciplina >= 45
-unavailable-subtitle: A column this frightened and this loose cannot investigate calmly — it can only accuse.
-on-arrival: {! Q.paranoia=(Q.paranoia||45)-16; if(Q.paranoia<0){Q.paranoia=0;} Q.disciplina=(Q.disciplina||65)+4; if(Q.coronel_activo){ Q.coronel_red=(Q.coronel_red||0)-10; if(Q.coronel_red<0){Q.coronel_red=0;} } Q.inteligencia+=3; !}
+unavailable-subtitle: A column this frightened and this loose cannot investigate calmly. It can only accuse.
+on-arrival: {! Q.ch_p1="buscar"; Q.inteligencia=(Q.inteligencia||0)+3; !}
 
-You refuse the fever, which takes more courage than acting on it, because a leader who does not purge is a leader who might be protecting a traitor, and everyone knows it. You investigate in the cold — trace the real leaks, tighten the compartments so no one knows more than they must, and go hunting the Colonel's actual network instead of the phantom in your own ranks. Sometimes you even find the real thread and cut it. Mostly you find what was always true: the losses were the army being good at its job, and the traitor was fear. The column exhales. It will sleep tonight.
+= Lo que de verdad se está filtrando
+
+You do it properly, which takes eleven days and makes you deeply unpopular: every one of the three failures reconstructed hour by hour, who knew what and when, and who could not possibly have known.
+
+[? if ch_n1 = 0 : And at the end of it there is nothing. The three operations failed for three unrelated and entirely boring reasons — a patrol that was where it was by accident, an order given too loudly in a village at midday, and one occasion on which the army was simply competent. There is no informer. There has never been an informer. There is a frightened column that needed its losses to have a face. ?][? if ch_n1 = 1 : And at the end of it there is a person, and it is not the person who was named. It is a compañero taken at a checkpoint in March, who everybody assumed was dead, and who has been alive in a cell in Acapulco for seven months answering questions in exchange for not being taken up in an aircraft. He is not a traitor. He is a man who has been in a room with those people for seven months. ?][? if ch_n1 = 2 : And at the end of it, it is not a person at all. It is the radio. The transmissions are being direction-found — somebody in a truck with a loop aerial and a great deal of patience — and the pattern of the three failures maps exactly onto the three longest broadcasts. Nobody betrayed anything. You have been telling them where you are, twice a month, for a year, in a code they did not even need to break. ?]
+
+- @pur_b_actuar: [? if ch_n1 = 0 : Say so, plainly, to the whole column. There is no traitor and there never was. ?][? if ch_n1 = 1 : Get word to him that the column knows, and forgives it, and that he should tell them whatever keeps him alive. ?][? if ch_n1 = 2 : Change everything — short transmissions, moving sets, new schedules. Fix the actual hole. ?]
+- @pur_b_callar: Say nothing about what you found. Let the fear disperse on its own and keep the finding to yourself. *(nobody's name is cleared; nobody's is dirtied either)*
+
+@pur_b_actuar
+go-to: foco_eventos2.pur_fin
+on-arrival: {! Q.ch_p2="actuar"; !}
+
+@pur_b_callar
+go-to: foco_eventos2.pur_fin
+on-arrival: {! Q.ch_p2="callar"; !}
+
+@pur_fin
+new-page: true
+face-image: img/muertos.jpg
+on-arrival: {!
+var _p1=Q.ch_p1||"", _p2=Q.ch_p2||"", _c=Q.ch_n1||0;
+if(_p1==="actuar"){ Q.ch_res=(_c===1)?"purga_acerto":"purga_erro"; }
+else if(_p1==="hablar"){ Q.ch_res="hablar"; }
+else { Q.ch_res = (_p2==="callar") ? "buscar_callar" : ("buscar_"+_c); }
+var R=Q.ch_res;
+if(R==="purga_acerto"){ Q.brutalidad=(Q.brutalidad||0)+2; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.disciplina=(Q.disciplina||65)-8; Q.f_moral-=6; Q.paranoia=(Q.paranoia||45)+4; Q.f_hombres-=1; Q.f_bajas=(Q.f_bajas||0)+1; Q.apoyo_popular-=3; }
+if(R==="purga_erro"){ Q.brutalidad=(Q.brutalidad||0)+3; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.disciplina=(Q.disciplina||65)-16; Q.f_moral-=14; Q.paranoia=(Q.paranoia||45)+14; Q.f_hombres-=2; Q.f_bajas=(Q.f_bajas||0)+2; Q.apoyo_popular-=6; }
+if(R==="hablar"){ Q.paranoia=(Q.paranoia||45)-10; Q.f_moral+=5; Q.disciplina=(Q.disciplina||65)+2; Q.leyenda=(Q.leyenda||0)+1; }
+if(R==="buscar_0"){ Q.paranoia=(Q.paranoia||45)-24; Q.disciplina=(Q.disciplina||65)+6; Q.f_moral+=6; }
+if(R==="buscar_1"){ Q.paranoia=(Q.paranoia||45)-18; Q.disciplina=(Q.disciplina||65)+5; Q.estado_intel=Math.max(0,(Q.estado_intel||0)-10); Q.f_moral-=3; Q.memorial=(Q.memorial||0)+2; }
+if(R==="buscar_2"){ Q.paranoia=(Q.paranoia||45)-22; Q.disciplina=(Q.disciplina||65)+7; Q.estado_intel=Math.max(0,(Q.estado_intel||0)-16); Q.f_cerco-=10; }
+if(R==="buscar_callar"){ Q.paranoia=(Q.paranoia||45)-6; Q.disciplina=(Q.disciplina||65)-3; Q.inteligencia=(Q.inteligencia||0)+2; }
+if(Q.paranoia<0){Q.paranoia=0;} if(Q.f_cerco<0){Q.f_cerco=0;} if(Q.f_moral<0){Q.f_moral=0;}
+if(Q.apoyo_popular<0){Q.apoyo_popular=0;} if(Q.f_hombres<0){Q.f_hombres=0;}
+if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;}
+!}
+
+= La mañana siguiente
+
+[? if ch_res = "purga_acerto" : You act, and it stops the leak, because as it happens there was a leak and you happened to point at it. That is the whole of what can honestly be claimed. You did not know. Nobody knew. The column watched a man be shot on the strength of a low-voiced conversation, and the fact that the conversation turned out to be correct does not change what everybody learned, which is that a name is enough. Six people stop volunteering opinions in front of you. You will not notice for about a year. ?][? if ch_res = "purga_erro" : You act, and six weeks later it happens again, in a district where the only suspect is under the ground. Nobody says a word to you about it. Everyone has worked it out. This is how it finishes for the columns the army never catches — not in a firefight but in a clearing at dawn, killing the compañeros the enemy was never able to turn, because it never needed to. ?][? if ch_res = "hablar" : You stand up in front of all of them with the accusation in the open and you refuse it, and you stake your own standing on the single sentence that keeps a guerrilla human: *the day we start killing each other, they have won without firing.* Some of them think you are naive. All of them needed somebody to say it out loud where it could be heard. The fever does not go — fevers do not — but it drops enough to sleep on, and the band holds together another season on nothing but a leader who would not let it turn on itself. ?][? if ch_res = "buscar_0" : You tell them: there is no traitor, there never was, here are eleven days of work showing exactly why each of the three went wrong. And you can watch it land — the specific physical relief of forty people who have been quietly suspecting each other for four months and can stop. The most valuable operation of the year involved no weapons and produced no casualties and consisted entirely of finding out that nothing was wrong. ?][? if ch_res = "buscar_1" : You get word into Acapulco, which costs money and a favour you cannot easily repay, and what comes back is four words from a man in a cell who has been carrying seven months of believing his own compañeros would kill him for it. The leak does not stop — he is still in that room and they still have all afternoon, every afternoon — but the column now knows *where* the hole is, which means it can build around it, and it knows he is not a traitor, which means that when this is all over there will be a version of the story in which he is not one either. ?][? if ch_res = "buscar_2" : You change everything about the radio in one week: transmissions under ninety seconds, the set moved every time, schedules that are not schedules. And the failures stop, immediately and completely, which is its own kind of vindication and also a very cold thing to sit with — because for a year you were handing them your position twice a month, and for four months you had been looking for the person to blame for it, and the person was the arrangement. Somebody would have died for that. ?][? if ch_res = "buscar_callar" : You keep it. You know what is leaking and you tell no one, because telling means explaining how you know, and explaining means people can work out what you looked at and who you looked at it with. The fever cools slowly on its own. Nobody's name is cleared. Two people go on being quietly suspected for the rest of the war by compañeros who will never say so, and one of them will eventually notice, and you will not be able to explain. Command is largely made of these. ?]
 
 - @root: Continuar.
 
-@purga_hablar
-on-arrival: {! Q.paranoia=(Q.paranoia||45)-8; if(Q.paranoia<0){Q.paranoia=0;} Q.f_moral+=4; Q.disciplina=(Q.disciplina||65)+2; Q.leyenda=(Q.leyenda||0)+1; !}
-
-You do the thing a commander is for. You stand in front of the whole column with the accusation in the open and you refuse it, publicly, staking your own standing on the one principle that keeps a guerrilla human: *the day we start killing each other, the enemy has won without firing a shot.* Some of them think you are naïve. All of them needed to hear someone say it out loud. The fever does not vanish — fevers do not — but it breaks enough to sleep on, and the band holds together one more season on the strength of a leader who would not let it turn on itself.
-
-- @root: Continuar.
-
-# ---------------------------------------------------------------------
+# =====================================================================
+# EL HAMBRE — the crisis Bolivia died of, in two decisions.
+# =====================================================================
 @ev_hambre
 title: El hambre
 new-page: true
 face-image: img/countrysideravine.jpg
-subtitle: The scarcity Bolivia died of
+subtitle: The enemy that needs no intelligence and takes no prisoners
 tags: event
 view-if: banda = "sierra" and f_phase = "marcha" and f_comida <= 20 and time >= f_hambre_last + 3
 priority: 7
 frequency: 100
 max-visits: 6
-on-arrival: f_hambre_last = time
+on-arrival: {! Q.f_hambre_last=Q.time; Q.ch_p1=""; Q.ch_p2=""; Q.ch_res=""; !}
 
 = El hambre
 
-The caches are empty and the high sierra has little to give. This is the crisis that killed Che in Bolivia as surely as any bullet — a column reduced to boiling roots and shooting the pack animals, men too weak to march losing the one thing a foco cannot lose, which is the ability to move. Hunger is the enemy that needs no intelligence and takes no prisoners. You have to feed the column now, and every way to do it costs something you would rather keep.
+The caches are empty and the high sierra has nothing in it in this season, and the column has been on one meal a day for eleven days, and you can see it in the way people are walking.
 
-- @hambre_convoy: Take a supply convoy — hit the army's own logistics and eat the enemy's rations. *(risky; +comida, +parque if it works; the ring tightens)*
-- @hambre_pueblos: Go down to the villages and ask, though they have little and the asking deepens a debt you may never repay. *(+comida; -a little of the water you lean on)*
-- @hambre_dispersar: Break the column into small groups to forage and survive, and regather when the season turns. *(saves food; scatters cohesion and presence)*
+This is what killed Che in Bolivia as surely as any bullet: a band reduced to boiling roots and shooting its own pack animals, men too weak to march, and a guerrilla that cannot move is not a guerrilla, it is a target sitting down. Hunger needs no intelligence service and takes no prisoners and cannot be ambushed.
 
-@hambre_convoy
+Everything you can do about it costs something you would rather keep.
+
+- @ham_convoy: Take a supply convoy. Eat the army's rations off the army's road. *(needs parque; the ring slams shut around the theft)*
+- @ham_pueblos: Go down and ask the villages, who have little, and deepen a debt you cannot repay. *(food now; you are living off people poorer than you)*
+- @ham_dispersar: Break the column up to forage and survive, and regather when the season turns. *(saves everyone; the foco stops being a foco)*
+
+@ham_convoy
+new-page: true
+face-image: img/camioneta.jpg
 choose-if: f_parque >= 8
-unavailable-subtitle: Hitting a convoy takes parque — at least 8 — and you are nearly out of that too.
-on-arrival: {! Q.f_parque-=8; var _r=(Q.f_hombres*0.5)+(Q.f_moral*0.3)+(Q.apoyo_popular*0.2)-45+(Math.random()*35-12); if(_r>=0){Q.f_comida+=30;Q.f_parque+=14;Q.f_moral+=6;Q.f_desgaste+=5;}else{Q.f_comida+=10;Q.f_hombres-=3;Q.f_moral-=6;Q.f_bajas+=3;Q.memorial=(Q.memorial||0)+1;} Q.f_cerco+=16; if(Q.f_cerco>100){Q.f_cerco=100;} !}
+unavailable-subtitle: Hitting a convoy takes at least 8 parque, and you are nearly out of that too.
+on-arrival: {! Q.ch_p1="convoy"; Q.f_parque-=8; !}
 
-You do the thing hungry armies have always done — you take your supper from the enemy. [? if f_moral >= 50 : The convoy is yours by noon: the column eats the army's rations, refills the caches with the army's ammunition, and marches out fed and rearmed on the enemy's account. Nothing rebuilds a starving band's spirit like eating the food of the men who were trying to starve it. ?][? if f_moral < 50 : It half works — you get some of it and leave some of your own on the road, and the column eats that night with fewer at the fire. ?] The army now knows exactly where its rations went, and the ring tightens around the theft.
+= El convoy
+
+Three trucks and an escort jeep on the Atoyac road at first light, and it is exactly what you need — flour, rice, tinned meat, and if the third truck is what you think it is, ammunition.
+
+The drivers are not soldiers. They are contract men from Coyuca in civilian shirts who do this route because it pays and who have families in a town where you are supposed to have support.
+
+- @ham_c_limpio: Stop it clean. Nobody fires unless fired at, the drivers walk home, and you take the load. *(harder, slower, more risk to you)*
+- @ham_c_rapido: Hit it hard and fast and sort out afterwards who was in it. *(certain; the drivers are from Coyuca)*
+
+@ham_c_limpio
+go-to: foco_eventos2.ham_fin
+on-arrival: {! Q.ch_p2="limpio"; !}
+
+@ham_c_rapido
+go-to: foco_eventos2.ham_fin
+on-arrival: {! Q.ch_p2="rapido"; !}
+
+@ham_pueblos
+new-page: true
+face-image: img/elpueblo.jpg
+on-arrival: {! Q.ch_p1="pueblos"; !}
+
+= Pedir
+
+You go down and you ask, and the answer is yes before you have finished the sentence, which is the part that is hard to be in the room for.
+
+The problem is which village. The one that has most is the one nearest the road and the most watched, and helping you would be visible. The one that will give most is San Isidro, which has about forty people in it and is the poorest place in the valley and has already given twice this year.
+
+- @ham_p_isidro: Ask San Isidro, who will say yes, because they always say yes. *(you will be fed; think about what you are doing)*
+- @ham_p_repartir: Spread it: a very little from every hamlet in the zone, so nobody carries it alone. *(slower and less; nobody is stripped)*
+- @ham_p_pagar: Ask, and pay properly — the ransom money, the Party's money, whatever there is. *(costs funds; it is not charity then)*
+
+@ham_p_isidro
+go-to: foco_eventos2.ham_fin
+on-arrival: {! Q.ch_p2="isidro"; !}
+
+@ham_p_repartir
+go-to: foco_eventos2.ham_fin
+on-arrival: {! Q.ch_p2="repartir"; !}
+
+@ham_p_pagar
+go-to: foco_eventos2.ham_fin
+choose-if: funds >= 10
+unavailable-subtitle: There is no money. That is a large part of why there is no food.
+on-arrival: {! Q.ch_p2="pagar"; Q.funds=(Q.funds||0)-10; !}
+
+@ham_dispersar
+new-page: true
+on-arrival: {! Q.ch_p1="dispersar"; !}
+
+= Repartirse
+
+Bayo's answer when the choice is scatter or starve: break into groups small enough to live off ground a whole column would strip bare, set a place and a season, and cease to exist until then.
+
+Which leaves the four wounded, who cannot forage and cannot march and cannot be carried by a group of three.
+
+- @ham_d_pueblo: Put the wounded into houses in the villages and trust the sierra with them. *(their risk; and the villages')*
+- @ham_d_llevar: Every group takes a wounded man. Slower, hungrier, nobody is left. *(costly; the thing the column will remember)*
+
+@ham_d_pueblo
+go-to: foco_eventos2.ham_fin
+on-arrival: {! Q.ch_p2="pueblo"; !}
+
+@ham_d_llevar
+go-to: foco_eventos2.ham_fin
+on-arrival: {! Q.ch_p2="llevar"; !}
+
+@ham_fin
+new-page: true
+on-arrival: {!
+var _p1=Q.ch_p1||"", _p2=Q.ch_p2||"", _apoyo=Q.apoyo_popular||0;
+var _h=Math.max(0,(Q.apoyo_techo||55)-_apoyo);
+if(_p1==="convoy"){
+  var _r=(Q.f_hombres||0)*0.5+(Q.f_moral||0)*0.3+_apoyo*0.2-45+(Math.random()*35-12);
+  if(_p2==="limpio"){ _r-=8; }
+  if(_r>=0){ Q.f_comida+=32; Q.f_parque+=14; Q.f_moral+=6; Q.f_desgaste+=5; Q.ch_res=(_p2==="limpio")?"conv_limpio":"conv_rapido"; }
+  else { Q.f_comida+=10; Q.f_hombres-=3; Q.f_bajas=(Q.f_bajas||0)+3; Q.f_moral-=6; Q.memorial=(Q.memorial||0)+1; Q.ch_res="conv_mal"; }
+  if(_p2==="limpio"){ Q.apoyo_popular+=Math.min(5,_h*0.3); Q.leyenda=(Q.leyenda||0)+1; }
+  else { Q.apoyo_popular-=6; Q.brutalidad=(Q.brutalidad||0)+1; }
+  Q.f_cerco+=16;
+}
+if(_p1==="pueblos"){
+  if(_p2==="isidro"){ Q.f_comida+=22; Q.apoyo_popular-=7; Q.sup_peasants=(Q.sup_peasants||0)+1; Q.f_moral-=3; Q.ch_res="isidro"; }
+  if(_p2==="repartir"){ Q.f_comida+=13; Q.apoyo_popular+=Math.min(3,_h*0.2); Q.zona_gobernada=1; Q.ch_res="repartir"; }
+  if(_p2==="pagar"){ Q.f_comida+=18; Q.apoyo_popular+=Math.min(8,_h*0.45); Q.sup_peasants=(Q.sup_peasants||0)+3; Q.leyenda=(Q.leyenda||0)+2; Q.ch_res="pagar"; }
+}
+if(_p1==="dispersar"){
+  Q.f_comida+=14; Q.f_moral-=4; Q.f_cerco-=24;
+  var _z=['guerrero','oaxaca','valle']; for(var _i=0;_i<_z.length;_i++){ if(Q['pres_'+_z[_i]]>2){Q['pres_'+_z[_i]]-=2;} }
+  if(_p2==="pueblo"){ var _ok=(_apoyo>=48); Q.ch_res=_ok?"disp_pueblo_ok":"disp_pueblo_mal";
+    if(_ok){ Q.apoyo_popular+=Math.min(6,_h*0.35); Q.f_bajas=Math.max(0,(Q.f_bajas||0)-2); }
+    else { Q.f_hombres-=3; Q.f_bajas=(Q.f_bajas||0)+3; Q.memorial=(Q.memorial||0)+3; Q.apoyo_popular-=8; Q.estado_intel=(Q.estado_intel||0)+10; } }
+  else { Q.ch_res="disp_llevar"; Q.f_comida-=6; Q.f_moral+=8; Q.disciplina=(Q.disciplina||65)+5; Q.leyenda=(Q.leyenda||0)+2; }
+}
+if(Q.f_comida<0){Q.f_comida=0;} if(Q.f_comida>100){Q.f_comida=100;} if(Q.f_cerco<0){Q.f_cerco=0;}
+if(Q.f_cerco>100){Q.f_cerco=100;} if(Q.f_moral<0){Q.f_moral=0;} if(Q.apoyo_popular<0){Q.apoyo_popular=0;}
+if(Q.f_hombres<0){Q.f_hombres=0;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;}
+!}
+
+= Comer
+
+[? if ch_res = "conv_limpio" : It takes eleven minutes and nobody is hurt, including the drivers, who are put face down in the ditch and then helped up and given back their papers and their cigarettes and pointed at Coyuca. The column eats the army's rations for six weeks off the army's account. And in Coyuca three men tell the story of the guerrillas who stopped a convoy and did not shoot anybody, which will be worth more to you next year than the flour. ?][? if ch_res = "conv_rapido" : It takes ninety seconds and you have everything, and two of the drivers do not get up. They were contract men from Coyuca in civilian shirts. Their families are in a town where the movement has been carefully building something for three years, and it will take a great deal longer than three years to build it back, and there is not one person in that town who is going to be interested in the distinction between the escort and the men driving the trucks. The column eats extremely well for six weeks. ?][? if ch_res = "conv_mal" : It goes wrong in the first fifteen seconds, the way it does when hungry men with eight rounds each try to take an escorted convoy, and you come off that road with a third of one truck and three fewer people. The column eats for two weeks. The army knows precisely how hungry you are, because starving men attack convoys, and now they know to watch the roads and wait. ?][? if ch_res = "isidro" : San Isidro says yes, because San Isidro always says yes. Forty people in eleven houses hand over most of what was going to get them to March, and refuse to be thanked, and refuse the offer to take less, and one of the old men gets annoyed at being asked twice. The column eats. And there is a thing that will sit in the stomachs of everybody who was there for the rest of their lives, which is that you are now a guerrilla being fed by people who will be hungry in February because of it. This is where a movement starts to become the thing it is fighting, and it does not happen with a rifle. It happens exactly like this, politely, with everybody agreeing. ?][? if ch_res = "repartir" : You take a kilo here and two kilos there across eleven hamlets, which takes nine days of walking and produces about half of what one village could have given you in an afternoon. Nobody is stripped. Nobody's February is destroyed. The column stays thin and stays fed and stays, in the one way that is going to matter when this is over, *theirs* — because the difference between being supported and being requisitioned from is not a matter of quantity, it is a matter of whether anybody was ruined. ?][? if ch_res = "pagar" : You pay, at the market price, in cash, and the arguments about it are long and heated and eventually you win them by simply putting the money down and leaving. It is a lot of money. It is the difference between an army that lives among people and an army that lives off them, and it is the only reason there will still be food in this valley to ask for next year. ?][? if ch_res = "disp_pueblo_ok" : The wounded go into houses, one to a village, under floors and in back rooms and in one case in an actual church, and the sierra takes them in the way it has taken in fugitives since the Cristiada. Two of them are being fed better than the column is. When the band regathers in March all four are alive, and one of them has married the daughter of the house, which everyone agrees is the single best thing that has happened all year. ?][? if ch_res = "disp_pueblo_mal" : You put four wounded men into villages that did not have enough reason to keep them, and within five weeks three of them have been given up — not maliciously, not even really by a decision, just by the enormous pressure a garrison can put on forty frightened people. The column regathers in March and counts. This is what the water is actually for, and this is what it costs when it is shallow: not a defeat in the field, just four men who were alive in December. ?][? if ch_res = "disp_llevar" : Every group takes a wounded man, which makes every group slower and hungrier and more likely to be caught, and you do it anyway and say why out loud so that it is on the record: this column does not leave people. It costs food and weeks and it very nearly costs more. And it becomes, without anyone deciding it should, the thing the band knows about itself — the story people tell when they are trying to explain why they stayed. Armies are made of this. So, occasionally, are revolutions. ?]
 
 - @root: Continuar.
 
-@hambre_pueblos
-on-arrival: {! Q.f_comida+=18; Q.apoyo_popular-=3; Q.f_moral+=2; Q.sup_peasants+=1; !}
-
-You go down and you ask, and the sierra does the thing that shames and sustains you in the same motion: the poorest people in Mexico feed the hungry men who came to fight for them, from stores they cannot spare, and refuse to be thanked. The column eats. The debt grows — you are living, now, off people who have less than you started with, and every guerrilla with a conscience feels the weight of it. It is the water keeping the fish alive, literally, and it is the reason you cannot ever afford to forget whose war this actually is.
-
-- @root: Continuar.
-
-@hambre_dispersar
-on-arrival: {! Q.f_comida+=10; Q.f_moral-=4; Q.f_cerco-=20; if(Q.f_cerco<0){Q.f_cerco=0;} var _z=['guerrero','oaxaca','valle']; for(var _i=0;_i<_z.length;_i++){ if(Q['pres_'+_z[_i]]>2){Q['pres_'+_z[_i]]-=2;} } !}
-
-You do what Bayo's manual says to do when the choice is scatter or starve: you break the column into small groups that can live off ground a whole band would strip bare, and you set a place and a season to regather. It works — the men eat, the ring loses its target, the foco survives the lean months by ceasing, briefly, to be a foco at all. It also costs the thing concentration was buying: presence, momentum, the sense in the villages that a real army is here. You will spend the next season stitching back together what hunger made you take apart. Better that than a column of the dead, boiling roots.
-
-- @root: Continuar.
-
-# ---------------------------------------------------------------------
+# =====================================================================
+# LOS QUE SE VAN — desertion, and then one specific person.
+# =====================================================================
 @ev_desercion
 title: Los que se van
 new-page: true
@@ -137,87 +348,235 @@ view-if: banda = "sierra" and f_phase = "marcha" and f_moral <= 35 and f_hombres
 priority: 6
 frequency: 80
 max-visits: 6
-on-arrival: f_deserta_last = time
+on-arrival: {! Q.f_deserta_last=Q.time; Q.ch_p1=""; Q.ch_p2=""; Q.ch_res=""; !}
 
 = Los que se van
 
-They start to slip away in the night. Not the informers, not the broken — just tired men who joined believing it would be shorter than this, who have buried too many friends and eaten too little and can no longer see the end of it. Desertion is the sound a foco makes when its morale runs out, and how you answer decides whether the trickle becomes the flood that ends you.
+They start going in the night, and it is not the ones you would have guessed.
 
-- @des_dejar: Let them go. A guerrilla held by force is worse than one who leaves — keep only those who stay by conviction. *(the band shrinks but hardens)*
-- @des_perseguir: Hunt them. A deserter carries what he knows to the enemy, and the column cannot afford a leak or the example. *(brutal; stops the bleeding by fear; poisons the well)*
-- @des_causa: Address the cause — rest the column, win them something, remind them why. *(costs time and momentum; rebuilds morale)*
+Not informers and not cowards — tired men who joined believing it would be shorter than this, who have buried more friends than they can name in one breath and eaten badly for two years and can no longer see the end of it from where they are standing. One of them leaves a note. One of them leaves his rifle cleaned and oiled, propped where it will be found, which is somehow worse.
+
+Desertion is the sound a foco makes when its morale runs out. What you do in the next week decides whether the trickle is a trickle.
+
+- @des_dejar: Let them go, with a handshake. A guerrilla held by force is a liability with a rifle. *(the band shrinks and hardens)*
+- @des_perseguir: Send people after them. A deserter is a walking file and an example that spreads. *(stops the bleeding by fear; poisons everything)*
+- @des_causa: Stop the war for a month. Rest them, feed them, bury the dead properly, and give them a reason. *(costs a season of momentum)*
 
 @des_dejar
-on-arrival: {! Q.f_hombres-=4; Q.f_moral+=4; Q.disciplina=(Q.disciplina||65)+3; !}
-
-You let them walk, with a handshake and a warning to say nothing, because Bayo was right that a guerrilla kept at gunpoint is a liability with a rifle, and Che was right that the column that remains after the weak have gone is worth more than the crowd that preceded it. It hurts to watch them go — every one is a story of why the war is too long — but what stays is a band of the convinced, harder and smaller and surer. You are fewer now. You are also, in the only way that counts in a war like this, more.
-
-- @root: Continuar.
+new-page: true
+go-to: foco_eventos2.des_uno
+on-arrival: {! Q.ch_p1="dejar"; Q.f_hombres-=4; Q.f_moral+=4; Q.disciplina=(Q.disciplina||65)+3; !}
 
 @des_perseguir
-on-arrival: {! Q.brutalidad=(Q.brutalidad||0)+2; Q.f_hombres-=1; Q.f_moral-=8; Q.paranoia=(Q.paranoia||8)+12; Q.disciplina=(Q.disciplina||65)-6; Q.apoyo_popular-=4; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; !}
-
-You send men after them, because a deserter is a walking file and an example that spreads, and you bring them back — or you bring back the knowledge that they will not run again. It stops the immediate bleeding. It also does something to the column that no army could: it tells every fighter that this is now a place you cannot leave alive, that the movement they joined to be free has become one more thing that owns them. The desertions slow. So does everything else that made men want to be here in the first place. You have started to become the barracks you ran from.
-
-- @root: Continuar.
+new-page: true
+go-to: foco_eventos2.des_uno
+on-arrival: {! Q.ch_p1="perseguir"; Q.brutalidad=(Q.brutalidad||0)+2; Q.f_hombres-=1; Q.f_moral-=8; Q.paranoia=(Q.paranoia||8)+12; Q.disciplina=(Q.disciplina||65)-6; Q.apoyo_popular-=4; Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; !}
 
 @des_causa
-on-arrival: {! Q.f_moral+=14; Q.f_comida-=6; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} Q.disciplina=(Q.disciplina||65)+3; !}
+new-page: true
+go-to: foco_eventos2.des_uno
+on-arrival: {! Q.ch_p1="causa"; Q.f_moral+=14; Q.f_comida-=6; Q.f_cerco+=6; if(Q.f_cerco>100){Q.f_cerco=100;} Q.disciplina=(Q.disciplina||65)+3; !}
 
-You do the slow, expensive, correct thing: you stop. You pull the column to safe ground, let the men sleep and eat and bury their dead properly, and you remind them — not with a speech but with a small, winnable action and a fair share of the little you have — why they climbed up here in the first place. Morale is not restored by discipline; it is restored by hope, and hope is restored by rest and a reason. It costs you a season of momentum and lets the ring drift closer while you sit. It also turns a dissolving band back into an army. The men who were leaving stay, and mean it.
+@des_uno
+title: Melquiades
+new-page: true
+face-image: img/guerillas3.jpg
+
+= Melquiades
+
+And then there is the one that is actually the problem.
+
+Melquiades has been here since before the beginning. He was in the schoolyard in Atoyac in 1967. He has carried you eleven kilometres with a bullet in your shoulder. He knows every cache, every safe house, every family that has ever fed this column, and the name of every single person in the organization including the ones in Mexico City.
+
+He is forty-four years old and he has been sitting apart from everyone for three weeks, and this morning he asked to speak to you, and what he said was that he cannot do it any more. Not that he disagrees. Not that he has been got at. That he is finished, and he wants to go home to Tecpan and see his mother before she dies, and he is telling you rather than simply walking because after nine years he is not going to walk.
+
+[? if ch_p1 = "perseguir" : He is also aware that you sent men after the others last week. He mentioned it. He was not making a threat; he was giving you information about what everyone now understands. ?]
+
+- @des_u_ir: Let him go home. Everything he knows walks down the mountain with him, and you shake his hand. *(the whole organization in one man's memory, out in the world)*
+- @des_u_quedar: Ask him to stay — not as a fighter. Let him run the camp, the stores, the school. *(you keep him and he keeps his dignity; he is still finished)*
+- @des_u_lejos: Let him go, but not to Tecpan — out of the state entirely, with money and papers, where nobody can reach him. *(safest for everyone; he does not see his mother)*
+- @des_u_no: He knows too much. He does not leave. *(say plainly what that means)*
+
+@des_u_ir
+go-to: foco_eventos2.des_fin
+on-arrival: {! Q.ch_p2="ir"; !}
+
+@des_u_quedar
+go-to: foco_eventos2.des_fin
+on-arrival: {! Q.ch_p2="quedar"; !}
+
+@des_u_lejos
+go-to: foco_eventos2.des_fin
+choose-if: funds >= 8
+unavailable-subtitle: Papers and a bus to Sinaloa and something to live on cost money the column does not have.
+on-arrival: {! Q.ch_p2="lejos"; Q.funds=(Q.funds||0)-8; !}
+
+@des_u_no
+go-to: foco_eventos2.des_fin
+on-arrival: {! Q.ch_p2="no"; !}
+
+@des_fin
+new-page: true
+on-arrival: {!
+var _p1=Q.ch_p1||"", _p2=Q.ch_p2||"", _apoyo=Q.apoyo_popular||0;
+if(_p2==="ir"){
+  var _seguro=(_apoyo*0.6) - ((Q.brutalidad||0)*6) - ((Q.estado_intel||0)*0.25) + ((_p1==="perseguir")?-14:8) + 20;
+  Q.ch_res=(_seguro + Math.random()*40-18 >= 12) ? "ir_bien" : "ir_mal";
+  if(Q.ch_res==="ir_bien"){ Q.f_moral+=4; Q.disciplina=(Q.disciplina||65)+2; Q.f_hombres-=1; }
+  else { Q.f_hombres-=1; Q.estado_intel=(Q.estado_intel||0)+22; Q.f_cerco+=20; Q.expediente=(Q.expediente||0)+16; Q.paranoia=(Q.paranoia||8)+10; Q.f_moral-=6; }
+}
+if(_p2==="quedar"){ Q.ch_res="quedar"; Q.f_moral+=8; Q.disciplina=(Q.disciplina||65)+4;
+  if(Q.f_campamento===1){ Q.camp_nivel=Math.min(3,(Q.camp_nivel||1)+1); Q.f_comida+=8; } Q.leyenda=(Q.leyenda||0)+1; }
+if(_p2==="lejos"){ Q.ch_res="lejos"; Q.f_hombres-=1; Q.f_moral-=2; Q.estado_intel=(Q.estado_intel||0)+3; Q.disciplina=(Q.disciplina||65)+2; }
+if(_p2==="no"){ Q.ch_res="no"; Q.f_hombres-=1; Q.f_bajas=(Q.f_bajas||0)+1; Q.brutalidad=(Q.brutalidad||0)+4;
+  Q.ajusticiamientos=(Q.ajusticiamientos||0)+1; Q.f_moral-=22; Q.disciplina=(Q.disciplina||65)-14; Q.paranoia=(Q.paranoia||8)+20;
+  Q.apoyo_popular-=10; Q.memorial=(Q.memorial||0)+1; }
+if(Q.f_cerco>100){Q.f_cerco=100;} if(Q.f_moral<0){Q.f_moral=0;} if(Q.apoyo_popular<0){Q.apoyo_popular=0;}
+if(Q.f_hombres<0){Q.f_hombres=0;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;}
+!}
+
+= Tecpan
+
+[? if ch_res = "ir_bien" : He goes home. He sees his mother, who lives another two years. He never says one word to anybody about any of it — not to the DFS men who come to the house twice, not to his brother, not on his own deathbed in 1991 — and the reason is not discipline or fear or ideology. It is that you shook his hand at the top of the trail and said thank you, and that in nine years the organization never once gave him a reason to be anything other than loyal to it. Everything the column ever did well was, in the end, an investment in mornings like this one. ?][? if ch_res = "ir_mal" : He goes home, and they are waiting in Tecpan, because of course they are — a man of forty-four with a nine-year hole in his life walks back into a town with a garrison in it. What they do to him takes four days.[? if ch_p1 = "perseguir" :  And he had already worked out that this column shoots people who leave, which meant that when they offered him the only future in which he lived, he had no reason on earth to refuse it. ?] Everything he knows, they now know: caches, houses, families, names, the whole architecture of nine years. It is the single worst intelligence loss of the war and it did not involve a traitor. It involved a tired man who wanted to see his mother. ?][? if ch_res = "quedar" : He stays, and the thing you offered him turns out to be the thing he actually needed: not to be asked to fight any more. He runs the camp. Within four months the stores are inventoried, the school has a timetable, the wounded are in a room with a roof that does not leak, and there is bread. He is happier than he has been in three years and he is still, in some way that will not repair, finished — but he is finished *here*, among people, doing something. Half of what an army is, is finding the right job for the person in front of you. ?][? if ch_res = "lejos" : He takes the papers and the money and the bus and he goes to Sinaloa, and he is safe, and everything he knows is safe with him, and he does not see his mother again. She dies in the March. Somebody sends word. It is the correct decision by every measure available to a person responsible for forty other lives, and he understood it perfectly, and he did not forgive it, and there is no version of this in which everybody gets what they should have. ?][? if ch_res = "no" : You have him killed, because of what is in his head.[? if ch_p1 = "causa" :  Four weeks after stopping the entire war to remind everyone why they were here. ?] There is a military logic to it that is not even slightly wrong: he knew everything, and a man who has decided to leave is a man the state can eventually reach. And there is not one person in that column who will ever again believe they can say they are tired. What you have built, as of this morning, is an organization that people cannot leave — and every organization that people cannot leave becomes, within about eighteen months, an organization nobody is honest inside. He was in the schoolyard in 1967. So were you. ?]
 
 - @root: Continuar.
 
-# ---------------------------------------------------------------------
+# =====================================================================
+# HAN ENCONTRADO EL CAMPAMENTO — the address you spent years not having.
+# =====================================================================
 @ev_campamento_hallado
 title: Han encontrado el campamento
 new-page: true
-face-image: img/anti-guerillas2.jpg
+face-image: img/campfound.jpg
 subtitle: The one fixed thing you owned
 tags: event
-view-if: banda = "sierra" and f_phase = "marcha" and f_campamento = 1 and (f_cerco >= 65 or estado_intel >= 55) and apoyo_popular < 60 and time >= camp_last + 8
-priority: 8
-frequency: 80
+view-if: banda = "sierra" and f_phase = "marcha" and f_campamento = 1 and camp_visto = 1 and time >= camp_last + 6
+priority: 9
+frequency: 90
 max-visits: 4
-on-arrival: camp_last = time; camp_visto = 1
+on-arrival: {! Q.camp_last=Q.time; Q.ch_p1=""; Q.ch_p2=""; Q.ch_res=""; !}
 
 = Han encontrado el campamento
 
-It was always going to happen; the only question was whether you would be in it. A spotter plane goes over three times in a week on the same line. Then a patrol appears on a ridge that no patrol has any business knowing about, and a boy from the village comes up the arroyo at a dead run to say that the soldiers are asking very specific questions about a very specific fold in the sierra.
+It was always going to happen. The only question was whether you would be in it when it did.
 
-Somebody talked — bought, or broken, or simply frightened — and the address you spent years not having is now written in a file in Atoyac. The camp can be defended, which means fighting the army on ground it has chosen and mapped. It can be abandoned, which means walking away from the hospital and the stores and the school and being a hunted band with no home again. Or it can be emptied and *left as a trap*, which is the coldest option and the one Bayo's manual would recommend.
+A spotter plane goes over three times in a week on exactly the same line. Then a patrol turns up on a ridge that no patrol has any business knowing about. Then a boy comes up the arroyo at a dead run to say that the soldiers in Atoyac are asking very specific questions about a very specific fold in the sierra, and that one of the questions had a number in it.
 
-- @camp_defender: **Defenderlo.** This is our country; they do not get to walk into it. *(a real battle on their terms)*
-- @camp_abandonar: **Levantar el campamento.** Take what can be carried, burn the rest, and vanish. *(lose the base and its stores; save the column)*
-- @camp_trampa: **Dejarlo minado.** Empty it, leave it looking lived-in, and wait on the ridges above. *(needs parque and discipline; punishes them badly — or fails)*
+The address you spent four years not having is now a grid reference in a file. Everything in the camp — the hospital, the stores, the school, the printing frame, two years of work — is now a thing with a date on it.
 
-@camp_defender
-on-arrival: {! var g=Q['gn_'+Q.col_nodo]||0; var _atk=(Q.f_hombres||0)*1.2+(Q.f_moral||0)*0.4+(Q.camp_nivel||1)*6+((Q.apoyo_popular||0)>=55?12:0); var _def=g*1.15+40;
-if(_atk>=_def){ Q.f_desgaste+=12; Q.f_moral+=8; Q.leyenda=(Q.leyenda||0)+3; Q.f_hombres-=2; Q.f_bajas+=2; Q.f_parque-=8; Q.legitimidad_regimen-=2; }
-else { Q.f_hombres-=Math.round(4+(_def-_atk)/14); Q.f_bajas+=5; Q.memorial=(Q.memorial||0)+3; Q.f_moral-=14; Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.f_comida-=15; Q.f_parque-=10; }
-if(Q.f_parque<0){Q.f_parque=0;} if(Q.f_comida<0){Q.f_comida=0;} if(Q.f_hombres<0){Q.f_hombres=0;} Q.f_cerco+=18; if(Q.f_cerco>100){Q.f_cerco=100;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;} !}
+- @cam_defender: **Defenderlo.** This is ours; they do not simply walk into it. *(a battle on ground they have chosen and mapped)*
+- @cam_levantar: **Levantarlo.** Take what can be carried, burn the rest, and be a homeless band again. *(the correct answer; it feels like defeat)*
+- @cam_trampa: **Dejarlo minado.** Empty it, leave it looking lived-in, and wait on the ridges. *(needs materiel and nerve)*
 
-[? if f_campamento = 1 : They come up the draw in the grey light and find that the fold in the sierra has been waiting for them. The camp holds — the fields of fire were cut months ago, the villages warned you in time, and the army pulls back down the mountain leaving equipment and a great deal of its confidence. A guerrilla that can *hold ground* is a different kind of problem, and every garrison in Guerrero now knows it. ?][? if f_campamento = 0 : They came with more than you had. The camp is taken and burned — the hospital, the stores, the school, the printing frame, all of it — and what is left of the column breaks out through the trees carrying its wounded and nothing else. You defended a fixed point against an army, which is the one thing the manual tells you never to do, and it cost you the base and the best of the band. ?]
+@cam_defender
+new-page: true
+choose-if: f_hombres >= 16
+unavailable-subtitle: Defending a fixed position against a formation needs at least 16 fighters.
+on-arrival: {! Q.ch_p1="defender"; !}
 
-- @root: Continuar.
+= Las posiciones
 
-@camp_abandonar
-on-arrival: {! Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.f_comida-=10; Q.f_moral-=8; Q.apoyo_popular-=3; Q.f_cerco-=20; if(Q.f_cerco<0){Q.f_cerco=0;} if(Q.f_comida<0){Q.f_comida=0;} !}
+If you are going to do the one thing the manual forbids, you may as well do it properly. Three days to prepare, and the shape of the defence is a choice about what the camp is actually for.
 
-You give the order nobody wants and everybody knows is right: strip it. The maize goes onto backs, the parque into caches nobody has written down, the médico's instruments into a sack, and the rest — the ramadas, the school benches, two years of work — burns behind you as the column climbs out through country the trucks cannot reach. The soldiers walk into a clearing of warm ash.
+- @cam_d_todo: Fortify everything — the hospital, the stores, the school. Nothing is given up. *(a wide perimeter with the men you have)*
+- @cam_d_nucleo: Give up the outbuildings. Hold the high ground and the cave, and let them have the sheds. *(a small hard position; you lose the school before it starts)*
 
-It is the correct decision and it feels like defeat, because it is a kind of defeat: you are a hunted band with no home again, carrying your wounded. But the column is *alive*, and a living column can build another camp. Bayo's rule, and Che's: never defend a fixed point you do not have to defend.
+@cam_d_todo
+go-to: foco_eventos2.cam_fin
+on-arrival: {! Q.ch_p2="todo"; !}
 
-- @root: Continuar.
+@cam_d_nucleo
+go-to: foco_eventos2.cam_fin
+on-arrival: {! Q.ch_p2="nucleo"; !}
 
-@camp_trampa
+@cam_levantar
+new-page: true
+on-arrival: {! Q.ch_p1="levantar"; !}
+
+= Levantar
+
+The order nobody wants and everybody knows is right. Maize onto backs, parque into caches nobody writes down, the doctor's instruments into a sack, and the rest burns behind you.
+
+Except there is more than can be carried, and somebody has to decide what the column is.
+
+- @cam_l_armas: The parque and the food. You are a fighting column and you have to be able to fight. *(the hospital and the school burn)*
+- @cam_l_hospital: The hospital and the printing frame — the things that made this more than a band with rifles. *(you march out light on ammunition)*
+- @cam_l_pueblo: Neither. Give the stores to the villages before you burn anything, and walk out with nothing. *(you have nothing; the valley has everything)*
+
+@cam_l_armas
+go-to: foco_eventos2.cam_fin
+on-arrival: {! Q.ch_p2="armas"; !}
+
+@cam_l_hospital
+go-to: foco_eventos2.cam_fin
+on-arrival: {! Q.ch_p2="hospital"; !}
+
+@cam_l_pueblo
+go-to: foco_eventos2.cam_fin
+on-arrival: {! Q.ch_p2="pueblo"; !}
+
+@cam_trampa
+new-page: true
 choose-if: f_parque >= 10 and disciplina >= 55
-unavailable-subtitle: A prepared ambush on your own camp needs materiel (10 parque) and a column disciplined enough to sit still while soldiers walk through its home.
-on-arrival: {! Q.f_parque-=10; var _r=(Q.disciplina||65)+(Q.f_moral||0)*0.3+((Q.apoyo_popular||0)>=50?15:0)-70+(Math.random()*30-12);
-if(_r>=0){ Q.f_desgaste+=16; Q.leyenda=(Q.leyenda||0)+4; Q.f_moral+=10; Q.legitimidad_regimen-=3; Q.f_parque+=8; }
-else { Q.f_hombres-=3; Q.f_bajas+=3; Q.memorial=(Q.memorial||0)+2; Q.f_moral-=6; }
-Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.f_cerco-=10; if(Q.f_cerco<0){Q.f_cerco=0;} if(Q.f_hombres<0){Q.f_hombres=0;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;} !}
+unavailable-subtitle: An ambush on your own home needs 10 parque and a column disciplined enough to lie still while soldiers walk through its kitchen.
+on-arrival: {! Q.ch_p1="trampa"; Q.f_parque-=10; !}
 
-You empty it and leave it *looking* full — cooking fires banked, blankets thrown as if slept in, a pot still warm — and put the column on the ridges above with the last of the charges buried in the paths. [? if disciplina >= 65 : They walk in at dawn like men who have finally cornered something, and the mountain comes apart under them. It is the single worst morning the campaign in Guerrero has had, and the corridos will still be arguing about the numbers in twenty years. ?][? if disciplina < 65 : Somebody fires early. The trap half-springs, the soldiers go to ground faster than expected, and you break contact having hurt them less than it cost you. ?] Either way the camp is gone by your own hand — which is the price of using your home as a weapon.
+= Dejarlo puesto
+
+Cooking fires banked. Blankets thrown as if slept in. A pot still warm on the ashes, which is the detail that will make it work or not.
+
+- @cam_t_paciencia: Wait until they are all inside, spread out, comfortable, looking through your things. *(the maximum result; the maximum time lying still)*
+- @cam_t_pronto: Take them at the perimeter the moment the first section commits. *(smaller; far less can go wrong)*
+
+@cam_t_paciencia
+go-to: foco_eventos2.cam_fin
+on-arrival: {! Q.ch_p2="paciencia"; !}
+
+@cam_t_pronto
+go-to: foco_eventos2.cam_fin
+on-arrival: {! Q.ch_p2="pronto"; !}
+
+@cam_fin
+new-page: true
+face-image: img/campfound.jpg
+on-arrival: {!
+var _p1=Q.ch_p1||"", _p2=Q.ch_p2||"", _g=Q['gn_'+Q.col_nodo]||0, _n=Q.camp_nivel||1, _apoyo=Q.apoyo_popular||0;
+var _h=Math.max(0,(Q.apoyo_techo||55)-_apoyo);
+if(_p1==="defender"){
+  var _atk=(Q.f_hombres||0)*1.1+(Q.f_moral||0)*0.4+_n*6+((_apoyo>=55)?12:0)+((_p2==="nucleo")?18:0);
+  var _def=_g*1.15+46+Math.random()*24-10;
+  if(_atk>=_def){ Q.ch_res=(_p2==="nucleo")?"def_nucleo_ok":"def_todo_ok";
+    Q.f_desgaste+=14; Q.f_moral+=10; Q.leyenda=(Q.leyenda||0)+4; Q.f_hombres-=3; Q.f_bajas=(Q.f_bajas||0)+3;
+    Q.f_parque-=8; Q.legitimidad_regimen-=3; Q.camp_riesgo=0; Q.camp_visto=0;
+    if(_p2==="nucleo"){ Q.camp_nivel=Math.max(1,_n-1); Q.f_comida-=10; } }
+  else { Q.ch_res="def_mal";
+    var _b=Math.round(5+(_def-_atk)/12); Q.f_hombres-=_b; Q.f_bajas=(Q.f_bajas||0)+_b; Q.memorial=(Q.memorial||0)+_b;
+    Q.f_moral-=18; Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.camp_riesgo=0; Q.f_comida-=15; Q.f_parque-=10; }
+  Q.f_cerco+=18;
+}
+if(_p1==="levantar"){
+  Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.camp_riesgo=0; Q.camp_visto=0; Q.f_cerco-=22; Q.f_moral-=8;
+  if(_p2==="armas"){ Q.ch_res="lev_armas"; Q.f_parque+=10; Q.f_comida+=8; Q.f_medico=0; Q.apoyo_popular-=4; }
+  if(_p2==="hospital"){ Q.ch_res="lev_hospital"; Q.f_parque-=8; Q.apoyo_popular+=Math.min(6,_h*0.35); Q.f_moral+=4; Q.zona_gobernada=1; }
+  if(_p2==="pueblo"){ Q.ch_res="lev_pueblo"; Q.f_comida-=6; Q.f_parque-=4;
+    Q.apoyo_popular+=Math.min(16,_h*0.8); Q.leyenda=(Q.leyenda||0)+4; Q.sup_peasants=(Q.sup_peasants||0)+5; Q.zona_gobernada=1; }
+}
+if(_p1==="trampa"){
+  var _r=(Q.disciplina||65)+(Q.f_moral||0)*0.3+((_apoyo>=50)?15:0)-70+((_p2==="paciencia")?0:14)+(Math.random()*30-12);
+  if(_p2==="paciencia"){ _r-=(Q.disciplina>=68)?-14:16; }
+  if(_r>=0){ Q.ch_res=(_p2==="paciencia")?"tra_grande":"tra_ok";
+    Q.f_desgaste+=(_p2==="paciencia")?22:12; Q.leyenda=(Q.leyenda||0)+((_p2==="paciencia")?6:3);
+    Q.f_moral+=10; Q.legitimidad_regimen-=4; Q.f_parque+=(_p2==="paciencia")?14:8; }
+  else { Q.ch_res="tra_mal"; Q.f_hombres-=4; Q.f_bajas=(Q.f_bajas||0)+4; Q.memorial=(Q.memorial||0)+3; Q.f_moral-=8; }
+  Q.f_campamento=0; Q.camp_nivel=0; Q.camp_nodo=""; Q.camp_riesgo=0; Q.camp_visto=0; Q.f_cerco-=10;
+}
+if(Q.f_parque<0){Q.f_parque=0;} if(Q.f_comida<0){Q.f_comida=0;} if(Q.f_cerco<0){Q.f_cerco=0;}
+if(Q.f_cerco>100){Q.f_cerco=100;} if(Q.f_moral<0){Q.f_moral=0;} if(Q.apoyo_popular<0){Q.apoyo_popular=0;}
+if(Q.f_hombres<0){Q.f_hombres=0;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;}
+!}
+
+= Lo que quedó
+
+[? if ch_res = "def_todo_ok" : They come up the draw at first light and find that the fold in the sierra has been waiting for them since Tuesday. The fields of fire were cut months ago, the villages gave you three days' warning, and by noon the army is going back down the mountain having left equipment and a great deal of its confidence in the arroyo. The hospital still stands. The school still stands. A guerrilla that can *hold ground* is an entirely different order of problem, and every garrison in Guerrero now has to think about it. ?][? if ch_res = "def_nucleo_ok" : You give them the sheds and hold the rock, and that is the whole battle: they spend two hours taking a woodstore and a kitchen at a price they will have to explain, and then they look up at a cave mouth with a machine gun in it and decide that today is not the day. You lose the school building and the lower ramadas. You keep the cave, the stores, the wounded and the column. Anybody who has ever defended anything would recognize the trade instantly, and it is still hard to watch them burn the benches. ?][? if ch_res = "def_mal" : They came with more than you had, which is what they always do, and this time you were standing on a fixed point waiting for them. The camp is taken and burned: hospital, stores, school, printing frame, the lot. What breaks out through the trees is carrying its wounded and nothing else. You defended a fixed position against an army — the one thing the manual tells you never to do — and it cost the base and the best of the band, and every single person who told you so beforehand has the grace not to mention it. ?][? if ch_res = "lev_armas" : Parque and food, and everything else burns. The instruments go into the fire with the benches, which means the doctor's work is over, and he watches it and says nothing at all. You march out able to fight, which is what a fighting column is for, and the thing that was starting to make this more than a band with rifles is a smell in a clearing. Bayo's rule, correctly applied. It does not feel like a rule being correctly applied. ?][? if ch_res = "lev_hospital" : You carry out the instruments and the printing frame and leave a good deal of the ammunition in a cache you may or may not ever get back to. It is, militarily, the wrong choice, and everybody knows it and nobody argues, because a column that will burn its own hospital to carry bullets has already answered a question about itself that it would rather leave open. You march light and poor and you are still the thing that came up this mountain to do something. ?][? if ch_res = "lev_pueblo" : You do not burn it. You spend two days carrying it downhill — the maize, the tools, the medicines, the roofing sheets, the school benches, all of it into the villages — and you walk out of the camp with rifles and nothing else, and behind you eleven hamlets are quietly better off than they were on Monday. The soldiers arrive to a clearing containing ash and nothing worth photographing. In four valleys this becomes the story that gets told about the guerrilla: *when they had to leave, they gave everything away.* You have never been poorer and you have never been harder to dislodge. ?][? if ch_res = "tra_grande" : They walk in at dawn like men who have finally cornered something. Somebody picks up a pot. Somebody sits down on a bench in the school. And then the mountain comes apart under them, and it goes on coming apart for eleven minutes. It is the worst single morning the campaign in Guerrero has had and the corridos will still be arguing about the numbers in twenty years. The camp is gone by your own hand, which is the price of using your home as a weapon, and every person in this column would pay it again. ?][? if ch_res = "tra_ok" : You take them at the perimeter as the first section commits, which is smaller and surer than waiting, and it works cleanly: a bad ten minutes for them, no losses for you, and a withdrawal up the ridge in good order. The camp burns behind you either way. A modest, professional, entirely correct operation, and the only people disappointed are the ones who wanted the other thing. ?][? if ch_res = "tra_mal" : Somebody fires early — somebody always fires early, that is why patience is a statistic and not a virtue — and the trap half-springs into soldiers who go to ground much faster than expected. What follows is a firefight nobody planned, on ground you had already written off, and it costs four people to achieve less than walking away would have. The camp is gone. So are they. ?]
 
 - @root: Continuar.

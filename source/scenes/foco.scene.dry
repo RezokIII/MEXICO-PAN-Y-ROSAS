@@ -102,14 +102,16 @@ subtitle: Mover la columna, reconocer, flanquear
 
 *Moving to cold ground (low army) LOOSENS the ring; walking into a garrison tightens it and costs blood. A village's army number is hidden until you **Reconocer** it — scouting is how you flank instead of stumbling.*
 
-- @go_atoyac: → **Atoyac**[? if sn_atoyac = 1 : (ejército [+ gn_atoyac +]) ?].
-- @go_coyuca: → **Coyuca**[? if sn_coyuca = 1 : (ejército [+ gn_coyuca +]) ?].
-- @go_acapulco: → **Acapulco**[? if sn_acapulco = 1 : (ejército [+ gn_acapulco +]) ?].
-- @go_sanvicente: → **San Vicente**[? if sn_sanvicente = 1 : (ejército [+ gn_sanvicente +]) ?].
-- @go_elquemado: → **El Quemado**[? if sn_elquemado = 1 : (ejército [+ gn_elquemado +]) ?].
-- @go_elporvenir: → **El Porvenir**[? if sn_elporvenir = 1 : (ejército [+ gn_elporvenir +]) ?].
-- @go_riochiquito: → **Río Chiquito**[? if sn_riochiquito = 1 : (ejército [+ gn_riochiquito +]) ?].
-- @go_elotatal: → **El Otatal**[? if sn_elotatal = 1 : (ejército [+ gn_elotatal +]) ?].
+**La carretera y la vereda.** The army moves on the road, because everything it owns has wheels under it: the coast highway through Acapulco, Coyuca and Atoyac, the valley road up to San Vicente, and the logging track to El Quemado. That is the whole of the country it can reach. **El Porvenir, Río Chiquito and El Otatal have no road into them at all** — above the last truck, the sierra is yours, and a column that moves by *vereda* is a column the formations cannot follow. [? if caz_alta = 1 : *— except that the Cazadores walk. They are on the paths now, and the high country is no longer a sanctuary.* ?][? if aid_estado = "listo" : **El alijo espera en [? if aid_nodo = "coyuca" : Coyuca ?][? if aid_nodo = "atoyac" : Atoyac ?][? if aid_nodo = "riochiquito" : Río Chiquito ?][? if aid_nodo = "elporvenir" : El Porvenir ?] — [+ aid_vence +] meses.** ?]
+
+- @go_atoyac: → **Atoyac** *(carretera)*[? if sn_atoyac = 1 : (ejército [+ gn_atoyac +]) ?].
+- @go_coyuca: → **Coyuca** *(carretera)*[? if sn_coyuca = 1 : (ejército [+ gn_coyuca +]) ?].
+- @go_acapulco: → **Acapulco** *(carretera)*[? if sn_acapulco = 1 : (ejército [+ gn_acapulco +]) ?].
+- @go_sanvicente: → **San Vicente** *(carretera)*[? if sn_sanvicente = 1 : (ejército [+ gn_sanvicente +]) ?].
+- @go_elquemado: → **El Quemado** *(brecha)*[? if sn_elquemado = 1 : (ejército [+ gn_elquemado +]) ?].
+- @go_elporvenir: → **El Porvenir** *(vereda — sin carretera)*[? if sn_elporvenir = 1 : (ejército [+ gn_elporvenir +]) ?].
+- @go_riochiquito: → **Río Chiquito** *(vereda — sin carretera)*[? if sn_riochiquito = 1 : (ejército [+ gn_riochiquito +]) ?].
+- @go_elotatal: → **El Otatal** *(vereda — donde acaban los mapas)*[? if sn_elotatal = 1 : (ejército [+ gn_elotatal +]) ?].
 - @m_reconocer: **Reconocer.** Scout the neighbouring villages — reveal the army units, and let the guides find the coldest way through. *(1 pt)*
 - @m_forzada: **Marcha forzada.** A night march to the coldest ground within reach — break contact hard. *(2 pts; big ring drop; costs comida + moral)*
 - @m_acampar: **Acampar.** Make a night camp — rest, forage, mend. *(1 pt; +moral +comida; a static camp can be found)*
@@ -370,9 +372,121 @@ Legitimidad del régimen **[+ legitimidad_regimen : entero +]** · leyenda **[+ 
 - @p_comunicado: **Comunicado a la prensa.** Get the movement's word past the censor into a national daily. *(1 pt; −legitimidad; +expediente)*
 - @pol_pcm: **Hablar con el PCM.** Open a channel to the Party — legality, cadre, and the argument over the gun. *(1 pt; +political cover, +unity; the orthodox will demand a price)*
 - @p_enlace: **Enlace exterior.** A channel to Cuba and the international solidarity networks. *(2 pts; +parque +inteligencia; +the file on you)*
+- @p_pedir: **Pedir apoyo material por radio.** Ask Havana or Moscow for weapons, money or cadre. *(2 pts; it takes months and it has to be collected in person)*
+- @p_recoger: **Recoger el alijo.** [? if aid_nodo = col_nodo : It is here. Go and get it. ?][? if aid_nodo != col_nodo : The shipment is waiting elsewhere — the column has to march to it. ?] *(1 pt)*
 - @pol_intl: **Solidaridad internacional.** Denounce the dirty war abroad — exiles, journalists, the tricontinental networks. *(1 pt; −legitimidad abroad, protects prisoners; +expediente)*
 - @return: **Volver.** Guardar la carta y elegir otra cosa este mes.
 - @fin_mes: **Terminar el mes.** Los puntos de acción se reponen.
+
+# =====================================================================
+# EL APOYO EXTERIOR: you can ask. It arrives at the speed of ships, embassies and politics,
+# it is put down in one specific place, and somebody has to walk there and carry it out.
+# =====================================================================
+@p_pedir
+new-page: true
+face-image: img/international.jpg
+view-if: aid_estado = ""
+choose-if: acc_pts >= 2 and (pol_intl >= 20 or pol_pcm >= 25)
+unavailable-subtitle: Asking a foreign state for weapons costs 2 action points and requires somebody out there who already takes your calls — 20 international witnesses or 25 with the Party.
+on-arrival: {! Q.acc_pts-=2; !}
+
+= La radio, de madrugada
+
+Twice a month, at an hour agreed a year ago, a set in a hut in the sierra talks to a set somewhere that is not in Mexico. It is the strangest twenty minutes of the war: forty people eating boiled roots in a country the government says contains no guerrillas, and a voice from a world in which this is a *front*, a chapter in something continental, a line item.
+
+You can ask. The asking is the easy part. Everything after it happens on a timescale that has nothing to do with your hunger.
+
+- @p_ped_cuba: **La Habana.** They know how to do this — they have done it for a decade. Weapons, and people trained to use them. *(faster; the Americans notice)*
+- @p_ped_urss: **Moscú, por el Partido.** Money rather than rifles, through channels so respectable they are almost legal. *(slower; needs the Party; the Party gets a say)*
+- @cat_politica: No. A guerrilla that waits on a ship is not a guerrilla. Volver.
+
+@p_ped_cuba
+new-page: true
+choose-if: pol_intl >= 20
+unavailable-subtitle: Havana answers movements the world has heard of. It has not heard of you.
+on-arrival: {! Q.aid_fuente="cuba"; !}
+
+= Lo que Cuba puede mandar
+
+The answer comes back in four days, which is astonishingly fast, and it is yes, and then it is a series of questions about geography that make you realize the person on the other end has done this before and is thinking about a coastline.
+
+- @p_ped_c_mar: **Por mar.** A fishing boat onto the Guerrero coast — weapons and ammunition in quantity. *(lands near the road, where the garrisons are)*
+- @p_ped_c_aire: **Por aire.** A night drop into the deep sierra — less tonnage, and two instructors with it. *(lands where only you can walk; a smaller load)*
+
+@p_ped_c_mar
+go-to: foco.p_ped_fin
+on-arrival: {! Q.aid_via="mar"; Q.aid_tipo="armas"; Q.aid_eta=4; !}
+
+@p_ped_c_aire
+go-to: foco.p_ped_fin
+on-arrival: {! Q.aid_via="aire"; Q.aid_tipo="cuadros"; Q.aid_eta=5; !}
+
+@p_ped_urss
+new-page: true
+choose-if: pol_pcm >= 25
+unavailable-subtitle: Moscow talks to Communist Parties, not to columns. Without the PCM vouching for you there is no channel at all.
+on-arrival: {! Q.aid_fuente="urss"; !}
+
+= Lo que Moscú puede mandar
+
+The answer takes eleven weeks and arrives through three intermediaries, one of whom is a cultural attaché, and it is a qualified and heavily conditioned yes that has clearly been argued about by people in a building.
+
+They will not send rifles to an armed group in a country with which they have correct diplomatic relations and a trade delegation. They will send money, laundered so thoroughly it will arrive looking like a remittance, and they will expect the Party to have a say in what it buys.
+
+- @p_ped_u_dinero: Take it. Money buys rifles in Mexico as well as anywhere else. *(slow; the PCM's hand on the tiller)*
+
+@p_ped_u_dinero
+go-to: foco.p_ped_fin
+on-arrival: {! Q.aid_via="mar"; Q.aid_tipo="dinero"; Q.aid_eta=7; Q.pol_pcm=(Q.pol_pcm||0)+6; Q.linea_guerra=(Q.linea_guerra||0)-3; !}
+
+@p_ped_fin
+new-page: true
+on-arrival: {! Q.aid_estado="pedido"; Q.aid_last=Q.time; Q.pol_intl=(Q.pol_intl||0)+4; Q.expediente=(Q.expediente||0)+5; Q.estado_intel=(Q.estado_intel||0)+3; !}
+
+= Ahora se espera
+
+The request is made and now the war has a second clock running in it that you do not control and cannot hurry.
+
+[? if aid_via = "mar" : Somewhere a boat has to be found, and loaded, and moved across the Caribbean and around the Yucatán, and brought onto a coast that has a naval station on it. ?][? if aid_via = "aire" : Somewhere an aircraft has to be prepared for a route that crosses two national airspaces at night in order to put a load into a mountain valley from three hundred feet. ?]
+
+It will not arrive when you need it. It will arrive when it arrives, in a place chosen by someone looking at a chart, and the column will have to be *there* — which means that at some point in the next few months you will have to march the whole band across the state on a schedule set by a stranger, whatever else is happening.
+
+Half the guerrilla wars of the century have a chapter like this in them. Most of those chapters end badly.
+
+- @root: Continuar.
+
+@p_recoger
+new-page: true
+face-image: img/cards/expropiacion.jpg
+view-if: aid_estado = "listo"
+choose-if: acc_pts >= 1 and aid_nodo = col_nodo
+unavailable-subtitle: The shipment is not on this ground. The column has to march to it — and the deadline does not move.
+on-arrival: {!
+Q.acc_pts-=1;
+var _g=Q['gn_'+Q.col_nodo]||0, _caz=((Q.ej4_nodo||"")===Q.col_nodo)?1:0;
+var _r=(Q.f_hombres||0)*0.7+(Q.apoyo_popular||0)*0.5+(Q.disciplina||65)*0.3-_g*0.9-_caz*25-40+(Math.random()*36-14);
+Q.ch_res=(_r>=10)?"bien":((_r>=-14)?"parcial":"mal");
+if(Q.ch_res!=="mal"){
+  var _k=(Q.ch_res==="bien")?1:0.45;
+  if(Q.aid_tipo==="armas"){ Q.f_parque+=Math.round(40*_k); Q.f_hombres+=Math.round(2*_k); }
+  if(Q.aid_tipo==="cuadros"){ Q.f_parque+=Math.round(16*_k); Q.disciplina=(Q.disciplina||65)+Math.round(10*_k); Q.f_moral+=Math.round(12*_k); Q.f_hombres+=Math.round(4*_k); Q.che_advisor=1; }
+  if(Q.aid_tipo==="dinero"){ Q.funds=(Q.funds||0)+Math.round(45*_k); Q.f_comida+=Math.round(20*_k); Q.f_parque+=Math.round(12*_k); }
+  Q.f_moral+=6; Q.aid_recibido=(Q.aid_recibido||0)+1; Q.leyenda=(Q.leyenda||0)+2;
+} else {
+  Q.f_hombres-=4; Q.f_bajas=(Q.f_bajas||0)+4; Q.memorial=(Q.memorial||0)+3; Q.f_moral-=12; Q.estado_intel=(Q.estado_intel||0)+14;
+}
+Q.aid_estado=""; Q.aid_nodo=""; Q.aid_tipo=""; Q.aid_via=""; Q.aid_fuente="";
+Q.f_cerco+=(Q.ch_res==="mal")?26:14; if(Q.f_cerco>100){Q.f_cerco=100;}
+Q.estado_intel=(Q.estado_intel||0)+6;
+if(Q.f_parque>100){Q.f_parque=100;} if(Q.f_comida>100){Q.f_comida=100;} if(Q.f_moral>100){Q.f_moral=100;}
+if(Q.f_moral<0){Q.f_moral=0;} if(Q.f_hombres<0){Q.f_hombres=0;} if(Q.f_hombres<=0){Q.f_fin_foco=1;Q.members=0;}
+!}
+
+= El alijo
+
+[? if ch_res = "bien" : It is there, and it is real, and the column stands around it for a moment in a kind of silence. [? if aid_tipo = "armas" : Crates. Actual crates, with actual grease on the actual rifles inside them, and ammunition measured in cases rather than in rounds counted out of a man's pocket. ?][? if aid_tipo = "cuadros" : Two people who have done this in two other countries, and a load of matériel, and within a month the column is doing things correctly that it has been doing approximately for three years. ?][? if aid_tipo = "dinero" : A great deal of money, in a country where money buys rifles, boots, doctors, silence and trucks. ?] It took months and a march across the state on somebody else's schedule and it was worth every day of it. ?][? if ch_res = "parcial" : You get to it and you get some of it out, and you leave the rest because the alternative was a firefight over crates in the open. [? if aid_tipo = "armas" : Half the weapons come up the mountain and half of them are in an army inventory by Friday, which will be photographed and shown on television as proof of the foreign hand. ?][? if aid_tipo = "cuadros" : One of the two instructors comes out with you. The other does not, and he was not Mexican, which is going to be a story. ?][? if aid_tipo = "dinero" : You get most of it. Most is a great deal. ?] ?][? if ch_res = "mal" : They were there before you. Of course they were — a shipment has to be arranged by people who talk to other people, and a coastline has a navy on it, and you marched a whole column across the state on a fixed schedule to a fixed point, which is the one thing a guerrilla must never do and the one thing collecting a shipment absolutely requires. You lose four people getting off that ground and you lose the load entirely, and within a week the Secretaría is displaying it to the press as evidence of an international conspiracy against Mexico, which — inconveniently, in this instance — is more or less what it was. ?]
+
+- @cat_politica: Continuar.
 
 @pol_pcm
 face-image: img/pcmconf.jpg
