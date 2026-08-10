@@ -585,7 +585,7 @@
       +'<div style="font:11px Georgia,serif;color:#4a3b28;margin-bottom:3px;letter-spacing:0.3px"><b>Puntos de acción: '+(Q.acc_pts||0)+'/'+(Q.acc_max||2)+'</b>'
       +(Q.f_campamento===1?' · <span style="color:#4f6b45">campamento nivel '+(Q.camp_nivel||1)+'</span>':'')+'</div>'
       + bar('comida',Q.f_comida||0,100,'#4f6b45') + bar('parque',Q.f_parque||0,100,'#9c6b2f')
-      + bar('hombres',Q.f_hombres||0,60,'#3f5f7a') + bar('moral',Q.f_moral||0,100,'#6b4f7a')
+      + bar('hombres',Q.f_hombres||0,150,'#3f5f7a') + bar('moral',Q.f_moral||0,100,'#6b4f7a')
       + bar('el agua (apoyo)',apoyo,100,apoyo>=55?'#4f6b45':(apoyo>=30?'#a8842c':RED))
       + '<div style="font:9.5px Georgia,serif;color:#7a6a4e;margin:-1px 0 2px 102px;font-style:italic">techo '+techo+' — hasta ahí llega esta sierra</div>'
       + bar('el cerco',cerco,100,RED) + bar('desgaste',Q.f_desgaste||0,100,'#7d6b4f')

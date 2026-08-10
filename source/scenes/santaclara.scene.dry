@@ -14,7 +14,7 @@ new-page: true
 face-image: img/guerrero_sierra.jpg
 subtitle: The army is broken enough that a capital is within reach — but reaching for it means ceasing to be a guerrilla
 tags: event
-view-if: banda = "sierra" and f_phase = "marcha" and f_capital = 0 and f_desgaste >= 50 and f_hombres >= 26 and apoyo_popular >= 55 and time >= f_sc_offer_last + 3
+view-if: banda = "sierra" and f_phase = "marcha" and f_capital = 0 and f_desgaste >= 55 and f_hombres >= 90 and apoyo_popular >= 55 and time >= f_sc_offer_last + 3
 priority: 8
 frequency: 100
 max-visits: 8
@@ -22,7 +22,7 @@ on-arrival: f_sc_offer_last = time
 
 = El momento
 
-Something has shifted, and every veteran in the column can feel it. The garrisons no longer patrol at night. The reinforcements come slower each time, and angrier, and greener. The desgaste of three years of ambushes and empty encirclements has hollowed the army in Guerrero from the inside — it still has the tanks and the helicopters, but it has stopped believing it can win, and an army that has stopped believing is an army that can be *broken.* For the first time, the thing Che dreamed and only Fidel achieved is on the table: not another ambush, but a **capital.** Chilpancingo — the seat of the state's authority in Guerrero — held by a garrison you could now, if you concentrated everything, actually take.
+Something has shifted, and every veteran in the column can feel it. The garrisons no longer patrol at night. The reinforcements come slower each time, and angrier, and greener. The desgaste of three years of ambushes and empty encirclements has hollowed the army in Guerrero from the inside — it still has the tanks and the helicopters, but it has stopped believing it can win, and an army that has stopped believing is an army that can be *broken.* For the first time, the thing Che dreamed and only Fidel achieved is on the table: not another ambush, but a **capital.** Chilpancingo — the seat of the state's authority in Guerrero — held by a garrison of some two thousand men — which you could now, if you concentrated every column and every reservist the villages have promised, actually take. It is not a band that storms a capital. It is an army, and you finally have one.
 
 And there is the word that should frighten you: *concentrate.* Everything that has kept you alive — dispersal, movement, the refusal to ever be a fixed target — you would have to set aside for one throw of the dice. This is the decision Che got wrong in Bolivia and right, once, at Santa Clara. Take the capital and the whole country sees that the state does not control its own territory. Fail, concentrated, and the foco dies in a single afternoon.
 
@@ -59,19 +59,19 @@ You bring them down out of the sierra in the dark — every column, every comand
 
 @sc_tren
 go-to: santaclara.sc_resolve
-on-arrival: {! var _r = (Q.f_parque*0.4)+(Q.inteligencia*0.6)+(Q.f_desgaste*0.4)+(Q.f_moral*0.2)-58+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "tren"; !}
+on-arrival: {! var _r = (Q.f_parque*0.35)+(Q.inteligencia*0.5)+(Q.f_desgaste*0.45)+(Q.f_moral*0.2)+(Q.f_hombres*0.25)-92+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "tren"; !}
 
 You put the best of the column across the Acapulco road at a cut where trucks must crawl, and you spend everything you saved for this. The relief column noses into the ambush at first light —
 
 @sc_directo
 go-to: santaclara.sc_resolve
-on-arrival: {! var _r = (Q.f_hombres*1.25)+(Q.f_moral*0.45)+(Q.apoyo_popular*0.15)-62+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "directo"; !}
+on-arrival: {! var _r = (Q.f_hombres*0.55)+(Q.f_moral*0.45)+(Q.apoyo_popular*0.15)-95+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "directo"; !}
 
 No cleverness, no waiting — you throw the whole force at the garrison in the grey before dawn, betting that speed and numbers and three years of rage will carry the walls before the highway delivers help —
 
 @sc_pueblo
 go-to: santaclara.sc_resolve
-on-arrival: {! var _r = (Q.apoyo_popular*0.75)+(Q.f_hombres*0.5)+(Q.f_desgaste*0.3)-70+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "pueblo"; !}
+on-arrival: {! var _r = (Q.apoyo_popular*0.7)+(Q.f_hombres*0.3)+(Q.f_desgaste*0.35)-88+(Math.random()*40-15); Q.f_sc_result = (_r>=22?"win":(_r>=0?"costly":"loss")); Q.f_sc_plan = "pueblo"; !}
 
 You do not take the city so much as *ask* it to rise, and it does — the market closes, the buses stop, the students pour out, the barrios put their bodies in the streets between your fighters and the tanks —
 
@@ -79,8 +79,8 @@ You do not take the city so much as *ask* it to rise, and it does — the market
 new-page: true
 on-arrival: {!
 if (Q.f_sc_result === "win") { Q.f_capital=1; Q.f_liberado_gro=1; Q.legitimidad_regimen-=26; Q.leyenda=(Q.leyenda||0)+9; Q.apoyo_popular+=8; Q.f_moral+=15; Q.intervencion_riesgo+=10; Q.f_desgaste=100; }
-else if (Q.f_sc_result === "costly") { Q.f_capital=1; Q.f_liberado_gro=1; Q.legitimidad_regimen-=18; Q.f_hombres-=9; Q.f_bajas+=9; Q.memorial=(Q.memorial||0)+5; Q.f_moral+=5; Q.apoyo_popular+=4; Q.intervencion_riesgo+=8; }
-else { Q.f_hombres-=16; Q.f_moral-=24; Q.f_bajas+=16; Q.memorial=(Q.memorial||0)+8; Q.f_asalto_listo=0; Q.f_desgaste-=22; Q.f_cerco=70; }
+else if (Q.f_sc_result === "costly") { Q.f_capital=1; Q.f_liberado_gro=1; Q.legitimidad_regimen-=18; Q.f_hombres-=26; Q.f_bajas+=26; Q.memorial=(Q.memorial||0)+5; Q.f_moral+=5; Q.apoyo_popular+=4; Q.intervencion_riesgo+=8; }
+else { Q.f_hombres-=45; Q.f_moral-=24; Q.f_bajas+=45; Q.memorial=(Q.memorial||0)+8; Q.f_asalto_listo=0; Q.f_desgaste-=22; Q.f_cerco=70; }
 if (Q.f_hombres<0){Q.f_hombres=0;} if (Q.f_moral<0){Q.f_moral=0;} if (Q.f_moral>100){Q.f_moral=100;} if (Q.apoyo_popular>100){Q.apoyo_popular=100;}
 if (Q.f_hombres<=0){ Q.f_fin_foco=1; Q.members=0; }
 !}

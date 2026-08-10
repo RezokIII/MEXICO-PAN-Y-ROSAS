@@ -21,25 +21,19 @@ on-arrival: f_phase = "forjar"
 
 A guerrilla is not declared; it is *forged*, and how you forge it now decides how it dies or wins later. You have a handful of compañeros, a few weapons, the sierra de Atoyac at your back and the whole apparatus of the state in front of you. Che wrote the manual and then died in Bolivia proving that the manual is not enough — that a column cut off from the people is just a group of armed men waiting to be reported. Before the war begins, choose what kind of band this will be.
 
-- @forjar_bayo: **La escuela de Bayo.** Train by the book the old captain wrote — Alberto Bayo, who drilled Fidel and Che at a ranch in this same country before the Granma, taught by a viejo who was there. *(+skill, +morale, +the Cuban lineage; the discipline of a man who has done this before.)*
-- @forjar_cuba: **Punto Cero — Cuba.** Send the cadre abroad to be trained by people who have actually won. They come back soldiers. *(+combat skill, +materiel know-how; costs months, and the airports are watched — the file grows.)*
+- @forjar_cuba: **Cuba — la escuela de Bayo.** Send the cadre to Punto Cero, where the old captain who drilled Fidel and Che in Mexico before the Granma is now a general of the Republic, still teaching from his own manual. They come back soldiers. *(+skill, +morale, +discipline, +materiel; costs months, and the airports are watched — the file grows.)*
 - @forjar_maestro: **El maestro rural — Lucio's way.** No guns first. Teach, live among, mediate, organize the villages until the water is deep before the war is loud. *(+deep popular support, +recruits from the base; the slowest military start.)*
 - @forjar_aparato: **El aparato — the MAR's arms.** Take the weapons and drilling of the North Korea–trained cadre. Firepower now. *(+parque, +hombres, +skill; +heat — you inherit the sweep that is about to fall on them in '71.)*
 - @forjar_solos: **Solos, en la sierra.** Train yourselves, in the mountains, seen by no one. *(cheap and invisible; you will learn the hard way, in contact.)*
 
-@forjar_bayo
-face-image: img/bayo.jpg
-on-arrival: {! Q.f_entreno="bayo"; Q.f_bayo=1; Q.f_forjado=1; Q.f_phase="marcha"; Q.f_moral+=12; Q.inteligencia+=5; Q.f_parque+=6; Q.f_hombres+=3; Q.disciplina=(Q.disciplina||65)+6; !}
-
-You train the way the revolution that won this continent's one victory trained: by Alberto Bayo's manual, *150 preguntas a un guerrillero* — the book the old one-eyed captain wrote out of Spain and Morocco and a lifetime of losing, then used to turn eighty seasick exiles into the men who took Havana. He is dead now, in Cuba, an honored general of a state he helped make. But a viejo who was at the ranch in Chalco when Fidel did his push-ups and Che carried the heaviest pack comes to the sierra to teach you what Bayo taught them: that a guerrilla's first weapon is discipline, that the manual is not a suggestion, and that the difference between a foco and a funeral is the hundred small habits drilled before the first shot. The column that comes out of his weeks is harder, steadier, and carries a lineage older than any of you — the through-line from the Sierra Maestra to this one.
-
-- @root: Al monte. Continuar.
 
 @forjar_cuba
 face-image: img/training.jpg
-on-arrival: {! Q.f_entreno="cuba"; Q.f_forjado=1; Q.f_phase="marcha"; Q.f_parque+=15; Q.f_moral+=8; Q.inteligencia+=6; Q.expediente+=8; Q.time+=2; !}
+on-arrival: {! Q.f_entreno="cuba"; Q.f_bayo=1; Q.f_forjado=1; Q.f_phase="marcha"; Q.f_parque+=18; Q.f_moral+=12; Q.inteligencia+=6; Q.f_hombres+=4; Q.disciplina=(Q.disciplina||65)+8; Q.expediente+=8; Q.time+=2; !}
 
-They fly out through Mexico City with false papers and come back, four months later, able to strip a rifle blind, lay an ambush that works, and turn a cache into a campaign. It is a different band than the one that left — and the DFS, which counted the departures, is already a step closer than you would like. Skill was bought. Anonymity was the price.
+They fly out through Mexico City with false papers, and what waits for them in Cuba is the old man himself: Alberto Bayo — the one-eyed captain out of Spain and Morocco who trained eighty seasick exiles at a ranch in Chalco in 1956, and who is now a general of the Republic those exiles built, still teaching from his own *150 preguntas a un guerrillero.* The men who come back four months later can strip a rifle blind, lay an ambush that works, and turn a cache into a campaign — and they carry the through-line from the Sierra Maestra to this one in their hands.
+
+It is a different band than the one that left. The DFS, which counted the departures at the airport, is already a step closer than you would like. Skill was bought. Anonymity was the price.
 
 - @root: Al monte. Continuar.
 

@@ -130,6 +130,15 @@ if (Q.month != Q.last_drift_month) {
         if (Q.f_comida <= 0) { Q.f_comida = 0; Q.f_hombres -= 3; Q.f_moral -= 6; Q.f_bajas += 3; }
         if (Q.f_moral <= 0) { Q.f_moral = 0; Q.f_hombres -= 2; Q.f_bajas += 2; }
         if (Q.f_desgaste > 0) { Q.f_desgaste -= 0.3; }
+        // VOLUNTEERS: where the water is deep and the legend real, the sierra sends its sons.
+        // This is how a band of thirty becomes the army that can take a capital.
+        var _vol = ((Q.apoyo_popular||0) - 45) / 14 + (Q.leyenda||0)/12 + ((Q.f_campamento===1) ? (Q.camp_nivel||1)*0.5 : 0);
+        if (_vol > 0 && (Q.f_comida||0) > 15) {
+            if (_vol > 5) { _vol = 5; }
+            Q.f_hombres += _vol;
+            Q.f_comida -= _vol * 0.6;
+        }
+        if (Q.f_hombres > 220) { Q.f_hombres = 220; }
         // ===== THE CEILING ON THE WATER: a liberal democracy on paper =====
         // This is the PRI's real weapon, and it is not the rifle. The Party GAVE the land; it has
         // ejidos and the CNC and credit and schools and an election every six years and the whole
