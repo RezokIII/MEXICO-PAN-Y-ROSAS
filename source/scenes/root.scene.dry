@@ -194,7 +194,7 @@ Q.reconcentracion_last = -99; Q.reconcentracion_activa = 0; Q.escuela_americas =
 Q.col_chihuahua_mood = 55; Q.col_valle_mood = 55; Q.columna_last = -99;
 // ============================================================================
 // THE FOCO REDESIGN (one band, one theory, one map). banda picks the war:
-//   "sierra" = PDLP rural foco (Guerrero) · "ciudad" = Liga urban (Guadalajara) · "ruta" = MAR hybrid.
+//   "sierra" = PDLP rural foco (Guerrero) · "ciudad" = Liga urban (Guadalajara) · "fln" = the long war.
 // The rural band is ONE mobile column that moves node-to-node across Guerrero, sustaining four meters
 // that drain every month, slipping the army's ring, wearing it down, toward a Santa Clara-style assault.
 // ============================================================================
